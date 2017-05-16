@@ -16,7 +16,7 @@ A company is opening a medical data portal. This portal proposes some advanced a
 
 ## Assumptions/scope
 
-* Initially, all users needs to be logged in to use the portal.
+* Initially, all users need to be logged in to use the portal.
 * Deployed on-prem and/or cloud (aws, digitalocean, etc.) with very little differences.
 * The scaling will be done manually with the help of scripts and will depend on the anticipated traffic.
 * The data set (no dynamic data reduction) is the same for every end-user.
@@ -31,9 +31,9 @@ This use case is characterized by a [single qvf](./fda-drug-cases.qvf) with the 
 
 ## UI
 
-The main benefit for doctors is to be able to narrow analysis based on advanced collection of demographic criteria (gender, weight, origin etc...).
+The main benefit for doctors is to be able to narrow analysis based on advanced collection of demographic criteria (gender, weight, origin etc.).
 
-The web application will present information in four main tabs focusing on:
+The web application presents information in four main tabs focusing on:
 
 * filters
 * prescription viz/table
