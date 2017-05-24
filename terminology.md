@@ -1,9 +1,6 @@
 # Terminology
 This pages contains terminology used around elastic, docker, orchestration, and deployment to get a common understanding used among teams, partners and customers.
 
-## A
-### [Agency / QAP Core Agency](https://github.com/qlik-trial/qap-core-agency) - Consumed by [Mira](#mira), handles engine and session strategy for engine containers.
-
 ## D
 ### [Docker swarm](https://github.com/docker/swarm) - Docker native clustering system
 
