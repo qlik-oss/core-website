@@ -52,6 +52,6 @@ This use case is about scaling the QIX Engine in a configuration of
 
 Scaling up engines needs to be done only to reduce load as a consequence of multiple users access the system simultaneously. All engine instances are equivalent and there is no need to have a certain engine service a certain user since all users access the same single document.
 
-Currently, two aspects of the design are described
-- [Authentication](./system-design/authentication.md)
-- [QIX Engine Session Management](./system-design/session-management.md)
+More information here
+
+[QIX Engine Session Management](./system-design/session-management.md)
