@@ -12,10 +12,9 @@ The following components are involved in QIX Engine session management:
 
 | Component     | Responsibility |
 |:------------- |:-------------- |
-| Authentication Service | <ul><li>Interacts with the Identity Provider</li><li>Create sessions</li><li>Issues JWTs</li><li>Maintains the session database</li></ul> |
-| Gateway           | <ul><li>Routes traffic to designated services</li><li>Transforms stateful sessions into stateless JWTs</li></ul>  |
-| Identity Provider | <ul><li>Provide identifiers for users who wish to interact with the system</li><li>Verifies user credentials</li></ul> |
-| Session DB	    | <ul><li>Keeps track of logged in users by storing sessions</li><ul> |
+| Gateway           | _To update_  |
+| QIX Session Service | _To update_ |
+| Mira	    | _To update_ |
 
 ## Collaboration Diagram
 ![QIX Engine Session Management](./images/session-management.png "QIX Engine Session Management")
