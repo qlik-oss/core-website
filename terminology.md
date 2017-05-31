@@ -20,7 +20,7 @@ This pages contains terminology used around elastic, docker, orchestration, and 
 
 ## M
 ### [Marathon](https://mesosphere.github.io/marathon/) - A container orchestration platform for Mesos.
-### [Mira](https://github.com/qlik-trial/mira) - A QIX Engine strategy service for Qlik Elastic.
+### [Mira](https://github.com/qlik-ea/mira) - A QIX Engine strategy service for Qlik Elastic.
 
 ## N
 ### [Nginx](https://github.com/nginx/nginx) - HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server
