@@ -1,4 +1,4 @@
-# Qlik Elastic - Early Adopoter Info
+# Qlik Elastic - Early Adopter Info
 Umbrella repo for Qlik Elastic
 
 ## Terminology
