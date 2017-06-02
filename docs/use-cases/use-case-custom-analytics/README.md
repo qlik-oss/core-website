@@ -42,6 +42,20 @@ The web application presents information in four main tabs focusing on:
 
 ![Portal UI](./portal-ui.png)
 
+## Detailed Requirements
+
+### Scaling
+
+- While is is a basic assumption of this use-case, that scaling is done manually, I'd like to know as a developer where I could hook into the APIs to create my custom, fully automated scaling strategy.
+
+### Monitoring
+
+- As a dev-ops I want to be able to monitor all log-files from all services/containers.
+- As a dev-ops I want to be able to analyze the number of page-hits/sessions over time.
+- As a dev-ops I want to be able to get typical web-page KPIs out of the system (page-hits, sessions, up-time, down-time, reliability, etc.)
+- As a dev-ops I want to be able to get some information from the monitoring-system about the whether I should scale up/down the system (based on the assumption mentioned above that scaling is done manually)
+- As a dev-ops I want to be able to see how the QiX Engine containers are behaving, including getting detailed log-files and error-messages
+
 ## System Design
 
 _NOTE: The design documentation is work in progress. More information will be added on a regular basis._
