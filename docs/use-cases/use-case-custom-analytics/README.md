@@ -14,10 +14,10 @@ A company is opening a medical data portal. This portal proposes some advanced a
 * As an end-user I want to be able to use a UI tailored for my needs so I can quickly find the insights I need.
 * As an end-user I want to be able to stay logged in so that I can access the portal conveniently.
 
-## Assumptions/scope
+## Assumptions/Scope
 
 * Initially, all users need to be logged in to use the portal.
-* Deployed on-prem and/or cloud (aws, digitalocean, etc.) with very little differences.
+* Deployed on-prem and/or cloud (AWS, DigitalOcean, etc.) with very little differences.
 * The scaling will be done manually with the help of scripts and will depend on the anticipated traffic.
 * The data set (no dynamic data reduction) is the same for every end-user.
 * The data reload is usually every quarter when FDA releases them.
@@ -40,6 +40,8 @@ The web application presents information in four main tabs focusing on:
 * side effects/reactions viz/table
 * report
 
+(There will be multiple objects on each single page)
+
 ![Portal UI](./portal-ui.png)
 
 ## Detailed Requirements
@@ -55,6 +57,20 @@ The web application presents information in four main tabs focusing on:
 - As a dev-ops I want to be able to get typical web-page KPIs out of the system (page-hits, sessions, up-time, down-time, reliability, etc.)
 - As a dev-ops I want to be able to get some information from the monitoring-system about the whether I should scale up/down the system (based on the assumption mentioned above that scaling is done manually)
 - As a dev-ops I want to be able to see how the QiX Engine containers are behaving, including getting detailed log-files and error-messages
+
+### Testing
+
+- As a dev-ops I expect basic e2e tests
+- As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services)
+    - Max requests/hits handled per sec
+    - Failure rate / Errors per second
+    - Avg/Min/Max response time
+    - Latency
+    - Number of users handled by the system
+    - See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1) for more examples
+- When using the stress-tests mentioned above, I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test
+    - Number of concurrent users
+    - Activity pattern of users (just watching, heavily making selections, etc.)
 
 ## System Design
 
