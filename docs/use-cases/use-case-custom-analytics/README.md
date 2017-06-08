@@ -6,22 +6,33 @@
 
 A company is opening a medical data portal. This portal proposes some advanced analysis capabilities on drugs/treatment/reactions. It targets the world-wide population of doctors and works with an annual subscription. Even if the audience is more or less predictable, some seasonal or sudden epidemic events can affect the traffic. With the auto-medication trend, the company also plan to open this service to the public.
 
-## Story
+## Business Requirements
+
+* The portal should be able to serve peak traffic of around 10.000 simultaneous connections with an average of 500 on the given data model.
+* The portal should run with minimal downtime, rolling updates of the web application should be possible without any downtime.
+
+
+## Technical Requirements
+
+* The company is already using Docker and Docker Swarm Mode in complementary backend system of this portal.
+* AWS is the preferred cloud provider, although the implementation should allow to move to another cloud provider (e.g. DigitalOcean) or to and on-prem deployment with minimal efforts.
+* The implementation should meet industry best practices in terms of being able to monitor the system.
+
+## Functional Requirements
 
 * As a dev-ops I want to provision and run docker nodes hosting the portal so that I can support peak traffic around 10.000 simultaneous connections and an average of 500 on the given data model.
 * As a dev-ops I want to be able to update my system without interruption of the service.
-* As a dev-ops I want to be able to monitor the system and find potential issues.
 * As an end-user I want to be able to use a UI tailored for my needs so I can quickly find the insights I need.
 * As an end-user I want to be able to stay logged in so that I can access the portal conveniently.
 
-## Assumptions/Scope
+## Assumptions
 
 * Initially, all users need to be logged in to use the portal.
-* Deployed on-prem and/or cloud (AWS, DigitalOcean, etc.) with very little differences.
 * The scaling will be done manually with the help of scripts and will depend on the anticipated traffic.
 * The data set (no dynamic data reduction) is the same for every end-user.
 * The data reload is usually every quarter when FDA releases them.
 * A subscription model won't be implemented (rely on authentication permissions only).
+
 
 ## Data
 
@@ -44,7 +55,7 @@ The web application presents information in four main tabs focusing on:
 
 ![Portal UI](./portal-ui.png)
 
-## Detailed Requirements
+## Detailed Functional Requirements
 
 ### Scaling
 
@@ -52,6 +63,7 @@ The web application presents information in four main tabs focusing on:
 
 ### Monitoring
 
+- As a dev-ops I want to be able to monitor the system and find potential issues.
 - As a dev-ops I want to be able to monitor all log-files from all services/containers.
 - As a dev-ops I want to be able to analyze the number of page-hits/sessions over time.
 - As a dev-ops I want to be able to get typical web-page KPIs out of the system (page-hits, sessions, up-time, down-time, reliability, etc.)
