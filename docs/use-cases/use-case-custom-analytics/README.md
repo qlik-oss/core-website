@@ -48,7 +48,7 @@ The web application presents information in four main tabs focusing on:
 
 ### Scaling
 
-- While is is a basic assumption of this use-case, that scaling is done manually, I'd like to know as a developer where I could hook into the APIs to create my custom, fully automated scaling strategy.
+- While it is a basic assumption of this use-case, that scaling is done manually, I'd like to know as a developer where I could hook into the APIs to create my custom, fully automated scaling strategy.
 
 ### Monitoring
 
