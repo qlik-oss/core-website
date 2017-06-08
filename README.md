@@ -18,9 +18,11 @@ Each category of deliverables is described below.
 
 A fictive company, called **Qliktive**, implements solutions on top of Qlik Elastic. These solutions realize different use cases that leverage the power of the QIX Engine and are used as our showcases of Qlik Elastic. Each Qliktive use case is developed in a repo of its own.
 
-Currently, one use case is provided. As Qlik Elastic is being developed, more use cases will be added.
+Currently, one use case is provided:
 
-- Use Case [Custom Analytics UI](./docs/use-cases/use-case-custom-analytics/README.md)
+- [Custom Analytics UI](./docs/use-cases/use-case-custom-analytics/README.md)
+
+ As Qlik Elastic is being developed, more use cases will be added.
 
 ### Qlik Elastic Components
 
@@ -28,9 +30,11 @@ These components are packages and microservices that can be considered as being 
 
 ### Custom Qliktive Components
 
-These components are packages and microservices that are developed specifically for a certain Qliktive Use Case. As such, they are not generally re-usable between different solutions. The idea is rather to provide examples and with some parts that can be further built upon for any new solution based on Qlik Elastic. Each such component is developed in a separate repo.
+These components are packages and microservices that are developed specifically for a certain Qliktive use case. As such, they are not generally re-usable between different solutions. The idea is rather to provide examples and with some parts that can be further built upon for any new solution based on Qlik Elastic. Each such component is developed in a separate repo.
 
 Since these components are more of example implementations, they do not come with the same level of support from Qlik as the core Qlik Elastic Components described above.
+
+We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
 
 ## Qlik Elastic Testing Strategy
 Components, microservices, and the example use-case implementations are subject to the [Qlik Elastic Testing Strategy](./docs/testing-strategy.md).
