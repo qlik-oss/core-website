@@ -18,7 +18,7 @@ Each category of deliverables is described below.
 
 A fictive company, called **Qliktive**, implements solutions on top of Qlik Elastic. These solutions realize different use cases that leverage the power of the QIX Engine and are used as our showcases of Qlik Elastic. Each Qliktive use case is developed in a repo of its own.
 
-Currently, one use case is provided:
+Currently, this use case is provided:
 
 - [Custom Analytics UI](./docs/use-cases/use-case-custom-analytics/README.md)
 
@@ -37,4 +37,4 @@ Since these components are more of example implementations, they do not come wit
 We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
 
 ## Qlik Elastic Testing Strategy
-Components, microservices, and the example use-case implementations are subject to the [Qlik Elastic Testing Strategy](./docs/testing-strategy.md).
+Components, microservices, and the example use case implementations are subject to the [Qlik Elastic Testing Strategy](./docs/testing-strategy.md).
