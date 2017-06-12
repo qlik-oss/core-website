@@ -17,6 +17,7 @@ MEASURES:
 
 DIMENSIONS:
 Medical Description Drug Use: [Medical Description Drug Use]
+
 MEASURES:
 \# Patient Cases: Count(Demographic_Caseid)
 \# Unique Drugs: Count(distinct Drugname)
@@ -26,6 +27,7 @@ MEASURES:
 
 DIMENSIONS:
 Drug Role Event: [Drug Role Event]
+
 MEASURES:
 \# Drug Cases: Count(Drug_caseID)
 
