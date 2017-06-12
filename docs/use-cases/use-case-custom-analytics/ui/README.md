@@ -2,7 +2,7 @@
 
 **WORK IN PROGRESS**
 
-## UI and visualization
+## UI and visualization details
 
 ![Viz one](./1.png)
 
