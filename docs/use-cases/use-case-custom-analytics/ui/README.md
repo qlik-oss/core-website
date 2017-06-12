@@ -44,7 +44,7 @@ MEASURES:
 
 DIMENSIONS:
 Manufacturer Code Name: [Manufacturer Code Name]  
-Patient Event Outcome: [Patient Event Outcome]  
+Patient Event Outcome: [Patient Event Outcome]    
   
 MEASURES:
 \# Drug Cases: Count(Drug_caseID)
