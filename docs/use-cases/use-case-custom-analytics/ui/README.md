@@ -16,45 +16,45 @@ MEASURES:
 
 ![Viz two](./2.png)
 
-DIMENSIONS:
+DIMENSIONS:  
 Medical Description Drug Use: [Medical Description Drug Use]  
   
-MEASURES:
+MEASURES:  
 \# Patient Cases: Count(Demographic_Caseid)  
 \# Unique Drugs: Count(distinct Drugname)  
 \# Drug Cases: Count(Drug_caseID)    
   
 ![Viz three](./3.png)
 
-DIMENSIONS:
+DIMENSIONS:  
 Drug Role Event: [Drug Role Event]  
   
-MEASURES:
+MEASURES:  
 \# Drug Cases: Count(Drug_caseID)
 
 ![Viz four](./4.png)
 
-DIMENSIONS:
+DIMENSIONS:  
 Patient Age Group: [Patient Age Group]  
   
-MEASURES:
+MEASURES:  
 \# Death by primary suspect: Count({<[Drug Role Event] = {'Primary Suspect Drug'},[Medical Description Reaction] = {'Death'} >}Demographic_Caseid)  
 
 ![Viz five](./5.png)
 
-DIMENSIONS:
+DIMENSIONS:  
 Manufacturer Code Name: [Manufacturer Code Name]  
 Patient Event Outcome: [Patient Event Outcome]    
   
-MEASURES:
+MEASURES:  
 \# Drug Cases: Count(Drug_caseID)
 
 ![Viz six](./6.png)
 
-DIMENSIONS:
+DIMENSIONS:  
 Reaction Therapy Stop:[Reaction Therapy Stop]  
   
-MEASURES:
+MEASURES:  
 \# Patient Cases: Count(Demographic_Caseid)  
 \# Drug Cases: Count(Drug_caseID)  
 
