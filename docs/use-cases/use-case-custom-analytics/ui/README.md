@@ -10,9 +10,9 @@ DIMENSIONS:
 Medical Description Reaction: [Medical Description Reaction]  
   
 MEASURES:
-\# Patient Cases: Count(Demographic_Caseid)
-\# Unique Drugs: Count(distinct Drugname)
-\# Drug Cases: Count(Drug_caseID)
+\# Patient Cases: Count(Demographic_Caseid)  
+\# Unique Drugs: Count(distinct Drugname)  
+\# Drug Cases: Count(Drug_caseID)  
 
 ![Viz two](./2.png)
 
@@ -20,9 +20,9 @@ DIMENSIONS:
 Medical Description Drug Use: [Medical Description Drug Use]  
   
 MEASURES:
-\# Patient Cases: Count(Demographic_Caseid)
-\# Unique Drugs: Count(distinct Drugname)
-\# Drug Cases: Count(Drug_caseID)  
+\# Patient Cases: Count(Demographic_Caseid)  
+\# Unique Drugs: Count(distinct Drugname)  
+\# Drug Cases: Count(Drug_caseID)    
   
 ![Viz three](./3.png)
 
@@ -43,7 +43,7 @@ MEASURES:
 ![Viz five](./5.png)
 
 DIMENSIONS:
-Manufacturer Code Name: [Manufacturer Code Name]
+Manufacturer Code Name: [Manufacturer Code Name]  
 Patient Event Outcome: [Patient Event Outcome]  
   
 MEASURES:
@@ -55,6 +55,6 @@ DIMENSIONS:
 Reaction Therapy Stop:[Reaction Therapy Stop]  
   
 MEASURES:
-\# Patient Cases: Count(Demographic_Caseid)
+\# Patient Cases: Count(Demographic_Caseid)  
 \# Drug Cases: Count(Drug_caseID)  
 
