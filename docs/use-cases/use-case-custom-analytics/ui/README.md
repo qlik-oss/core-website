@@ -58,3 +58,8 @@ MEASURES:
 \# Patient Cases: Count(Demographic_Caseid)  
 \# Drug Cases: Count(Drug_caseID)  
 
+## UI Overview
+
+![UI one](./7.png)
+![UI two](./8.png)
+![UI three](./9.png)
