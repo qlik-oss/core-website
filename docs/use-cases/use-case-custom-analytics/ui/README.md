@@ -25,10 +25,10 @@ MEASURES:
 ![Viz three](./3.png)
 
 DIMENSIONS:  
-Drug Role Event: [Drug Role Event]  
+Patient Event Outcome: [Patient Event Outcome]  
   
 MEASURES:  
-\# Drug Cases: Count(Drug_caseID)
+\# Patient Cases: Count(Demographic_Caseid)
 
 ![Viz four](./4.png)
 
@@ -41,8 +41,7 @@ MEASURES:
 ![Viz five](./5.png)
 
 DIMENSIONS:  
-Manufacturer Code Name: [Manufacturer Code Name]  
-Patient Event Outcome: [Patient Event Outcome]    
+Manufacturer Code Name: [Manufacturer Code Name]    
   
 MEASURES:  
 \# Drug Cases: Count(Drug_caseID)
