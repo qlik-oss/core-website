@@ -9,10 +9,9 @@
 DIMENSIONS: 
 Medical Description Reaction: [Medical Description Reaction]  
   
-MEASURES:
+MEASURES:  
 \# Patient Cases: Count(Demographic_Caseid)  
-\# Unique Drugs: Count(distinct Drugname)  
-\# Drug Cases: Count(Drug_caseID)  
+
 
 ![Viz two](./2.png)
 
