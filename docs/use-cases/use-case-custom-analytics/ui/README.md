@@ -21,8 +21,7 @@ Medical Description Drug Use: [Medical Description Drug Use]
   
 MEASURES:  
 \# Patient Cases: Count(Demographic_Caseid)  
-\# Unique Drugs: Count(distinct Drugname)  
-\# Drug Cases: Count(Drug_caseID)    
+ 
   
 ![Viz three](./3.png)
 
@@ -55,8 +54,7 @@ DIMENSIONS:
 Reaction Therapy Stop:[Reaction Therapy Stop]  
   
 MEASURES:  
-\# Patient Cases: Count(Demographic_Caseid)  
-\# Drug Cases: Count(Drug_caseID)  
+\# Patient Cases: Count(Demographic_Caseid)   
 
 ## UI Overview
 
