@@ -3,11 +3,11 @@
 ## What is Core
 
 The core project demonstrates how to deploy Frontira using different orchestration tools. 
-The purpose is to simplyfy and help you get started with, and build upon Frontira. 
+The purpose is to simplify and help you get started with, and build upon Frontira. 
 
 ### Orchestration tools
 
-We demostrate how to get up and running with Docker Swarm and Kubernetes.
+We demonstrate how to get up and running with Docker Swarm and Kubernetes.
 
 ## What services does Core consists of?
 
