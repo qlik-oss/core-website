@@ -12,7 +12,7 @@ TODO...
 
 ## Core Recipe
 
-_How do I set up a minimal stack with the core components in my orchestration platform of choice?_
+_How do I set up the core stack components in my orchestration platform of choice?_
 
 TODO...
 
@@ -20,7 +20,7 @@ TODO...
 
 ## Data Loading Recipe
 
-_How do I ...?_
+_How do I load my own data into QIX Engine?_
 
 TODO...
 
@@ -28,7 +28,7 @@ TODO...
 
 ## Document Distribution Recipe
 
-_How do I ...?_
+_How do I distribute updated documents/data in a cluster of QIX engine containers?_
 
 TODO...
 
@@ -36,7 +36,7 @@ TODO...
 
 ## Logging Recipe
 
-_How do I ...?_
+_How do I set up logging and how do the core components log information?_
 
 TODO...
 
@@ -44,7 +44,7 @@ TODO...
 
 ## Monitoring and Scaling Recipe
 
-_How do I ...?_
+_How do I monitor a system and take decisions on when to scale up or down QIX Engine instances?_
 
 TODO...
 
