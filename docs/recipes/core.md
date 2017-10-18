@@ -1,24 +1,19 @@
 # Core Recipe
 
-## What is Core
+This recipe demonstrates how to deploy a minimal Frontira stack using different orchestration tools. The purpose is to help you get started with building on Frontira.
 
-The core project demonstrates how to deploy Frontira using different orchestration tools. 
-The purpose is to simplify and help you get started with, and build upon Frontira. 
+Since it is minimal it does not provide any real functionality. It rather demonstrates the foundation to build full solutions on where more aspects must also be considered, like authorization, document/data handling, vizualization, logging, monitoring etc. There are other recipies that cover such aspects separately.
 
-### Orchestration tools
+## Orchestration tools
 
-We demonstrate how to get up and running with Docker Swarm and Kubernetes.
+The recipe demonstrates how to get up and running with Docker Swarm, Kubernetes, and Nomad.
 
-## What services does Core consists of?
+## Services
 
-### Engine
+The core Frontira stack constists of the following services (links to Docker Hub):
 
-The Qix engine service. 
+- [QIX Engine](https://hub.docker.com/r/qlikea/engine)
+- [License Service](https://hub.docker.com/r/qlikea/license-service)
+- [mira](https://hub.docker.com/r/qlikea/mira)
 
-### Mira
-
-Mira is our QIX Engine Discovery Service. It provides an API designed to be consumed internally by other services, to list (or query) all available QIX Engine containers in the cluster. 
-Read more here: https://github.com/qlik-ea/mira
-
-### License-service
-License service is used to validate a license and to unlock the QIX Engine service.
+In a typical solution, these are all deployed on the sever side.
