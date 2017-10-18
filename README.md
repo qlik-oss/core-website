@@ -30,7 +30,7 @@ A recipe typically answers a question of the form "_How do I ...?_". It is a way
 - _How do I get my data into my solution?_
 - _How do I decide when it is time to scale up or down the number of running QIX Engine instances?_
 
-More information on recipes is provided in [RECIPES.md](./docs/recipes/RECIPES.md).
+More information on recipes is provided in [Recipes Overview](./docs/recipes-overview.md) section.
 
 ### Core Components
 
