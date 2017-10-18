@@ -25,7 +25,7 @@ Currently, this use case is provided:
 
 ### Recipes
 
-Recipes set a more limited scope than the use cases. A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation. Some examples of recipes could be to answer questions like:
+A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation. Some examples of recipes could be to answer questions like:
 
 - _How do I get my data into my solution?_
 - _How do I decide when it is time to scale up or down the number of running QIX Engine instances?_
@@ -34,22 +34,23 @@ More information on recipes is provided in [RECIPES.md](./docs/recipes/RECIPES.m
 
 ### Core Components
 
-These components are packages and microservices that can be considered as being core parts of the offering. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and it is likely that they will be used in most solutions. Each such component is developed in a separate repo. Some of these components are available as open source, and some are not.
+These are the core packages and microservices. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and with the intention to be used in most solutions. Some of these components are available as open source, some are not.
 
 Closed source components, available as Docker images:
 
-- qlik/engine - The QIX Engine.
-- qlik/license-service - The License Service, required to run the QIX Engine.
+- [QIX Engine](https://hub.docker.com/r/qlikea/engine/) - The powerful associative indexing engine from Qlik.
+- [License Service](https://hub.docker.com/r/qlikea/license-service/) - License service required to run QIX Engine.
 
 Open source components, available as Docker images:
 
-- qlik/mira - The QIX Engine discovery service.
+- [mira](https://github.com/qlik-ea/mira) - The QIX Engine discovery service. Available on Docker Hub as [qlikea/mira](https://hub.docker.com/r/qlikea/mira/).
 
-Open source components, available as
+Open source components, available as JavaScript libraries:
 
-- enigma.js - JavaScript library to communicates with Qlik QIX Engine.
-- halyard.js - JavaScript library to simplify data loading into the Qlik QIX Engine.
-
+- [enigma.js](https://github.com/qlik-oss/enigma.js/) - JavaScript library to communicates with Qlik QIX Engine.
+- [halyard.js](https://github.com/qlik-oss/halyard.js) - JavaScript library to simplify data loading into the Qlik QIX Engine.
+- [after-work.js](https://github.com/qlik-oss/after-work.js) - JavaScript library providing a unified testing framework for different test levels.
+- [picasso.js](https://github.com/qlik-trial/picasso.js) - JavaScript library charting library streamlined for building visualizations
 
 
 ### Custom Qliktive Components
