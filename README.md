@@ -13,7 +13,7 @@ Frontira consists of different deliverables:
 - Use Cases
 - Recipes
 - Core Components
-- Custom Qliktive Commponents
+- Custom Qliktive Components
 
 ### Use Cases
 
