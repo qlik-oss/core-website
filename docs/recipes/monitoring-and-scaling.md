@@ -1,4 +1,4 @@
-# Monitoring and scaling
+# Monitoring and Scaling Recipe
 
 Questions to answer:
 

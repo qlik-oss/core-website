@@ -1,4 +1,4 @@
-# Authorization/multi tenancy
+# Authorization Recipe
 
 Question to answer: How can I make sure my users only see the data they are supposed to see?
 

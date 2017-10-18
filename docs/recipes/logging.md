@@ -1,4 +1,4 @@
-# Logging
+# Logging Recipe
 
 Question to answer: How do I enable and configure logs in Frontira?
 

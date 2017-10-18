@@ -1,4 +1,4 @@
-# Core
+# Core Recipe
 
 ## What is Core
 
