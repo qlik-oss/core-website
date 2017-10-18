@@ -25,12 +25,11 @@ Currently, this use case is provided:
 
 ### Recipes
 
-A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation. Some examples of recipes could be to answer questions like:
+A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation.
 
-- _How do I get my data into my solution?_
-- _How do I decide when it is time to scale up or down the number of running QIX Engine instances?_
+One example can be: _How do I load my own data into QIX Engine?_
 
-More information on recipes is provided in [Recipes Overview](./docs/recipes-overview.md) section.
+More information on recipes is provided in the [Recipes Overview](./docs/recipes-overview.md).
 
 ### Core Components
 
@@ -47,11 +46,10 @@ Open source components, available as Docker images:
 
 Open source components, available as JavaScript libraries:
 
-- [enigma.js](https://github.com/qlik-oss/enigma.js/) - JavaScript library to communicates with Qlik QIX Engine.
-- [halyard.js](https://github.com/qlik-oss/halyard.js) - JavaScript library to simplify data loading into the Qlik QIX Engine.
-- [after-work.js](https://github.com/qlik-oss/after-work.js) - JavaScript library providing a unified testing framework for different test levels.
-- [picasso.js](https://github.com/qlik-trial/picasso.js) - JavaScript library charting library streamlined for building visualizations
-
+- [enigma.js](https://github.com/qlik-oss/enigma.js/) - Communication with QIX Engine.
+- [halyard.js](https://github.com/qlik-oss/halyard.js) - Simplifies data loading into the QIX Engine.
+- [after-work.js](https://github.com/qlik-oss/after-work.js) - Provides a unified testing framework for different test levels.
+- [picasso.js](https://github.com/qlik-trial/picasso.js) - Charting library streamlined for building visualizations on top of QIX Engine.
 
 ### Custom Qliktive Components
 
