@@ -8,5 +8,5 @@ Here follows a brief overview of the recipes provided and the main question each
 | [Core](./recipes/core.md) | _How do I set up the core Frontira components in my orchestration platform of choice?_  |
 | [Data Loading](./recipes/data-loading.md) | _How do I load my own data into QIX Engine?_ |
 | [Document Distribution](./recipes/document-distribution.md) | _How do I distribute updated documents/data in a cluster of QIX engine containers?_ |
-| [Logging](./recipes/logging.md) | _How do I set up logging and how do the core components log information?_ |
+| [Logging](./recipes/logging.md) | _How do I enable and configure logging in Frontira? |
 | [Monitoring and Scaling](./recipes/monitoring-and-scaling.md) | _How do I monitor a system and take decisions on when to scale up or down QIX Engine instances?_ |
