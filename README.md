@@ -1,6 +1,6 @@
-# Information repository
+# Frontira Information
 
-This is the top-level repo containing general information around this project; concepts, specifications, examples, can be found here (or linked to from here).
+This is the top-level repo containing general information around the Frontira product; concepts, specifications, examples, can be found here (or linked to from here).
 
 ## Terminology
 
@@ -8,7 +8,7 @@ Terminology used can be found in [Terminology](./docs/terminology.md).
 
 ## Deliverables
 
-The offering consists of different deliverables:
+Frontira consists of different deliverables:
 
 - Use Cases
 - Recipes
