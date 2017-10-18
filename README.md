@@ -8,11 +8,12 @@ Terminology used can be found in [Terminology](./docs/terminology.md).
 
 ## Deliverables
 
-The offering consists of deliverables of different categories.
+The offering consists of different deliverables:
 
-![Deliverables](./docs/images/deliverables.png)
-
-Each category of deliverables is described below.
+- Use Cases
+- Recipes
+- Core Components
+- Custom Qliktive Commponents
 
 ### Use Cases
 
@@ -24,13 +25,32 @@ Currently, this use case is provided:
 
 ### Recipes
 
-Recipes is a way for us to describe important concepts, it can be how to get data into your solution or how to decide when it is time to scale your QIX Engine instances, etc.
+Recipes set a more limited scope than the use cases. A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation. Some examples of recipes could be to answer questions like:
 
-Please look at the recipes inside the [recipes/](./docs/recipes) folder.
+- _How do I get my data into my solution?_
+- _How do I decide when it is time to scale up or down the number of running QIX Engine instances?_
 
-### Components
+More information on recipes is provided in [RECIPES.md](./docs/recipes/RECIPES.md).
 
-These components are packages and microservices that can be considered as being core parts of the offering. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and it is likely that they will be used in most solutions. Each such component is developed in a separate repo. Some of these components will be available as open source, and some may not. For example, the QIX Engine is only available as a Docker image while Mira will be open sourced.
+### Core Components
+
+These components are packages and microservices that can be considered as being core parts of the offering. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and it is likely that they will be used in most solutions. Each such component is developed in a separate repo. Some of these components are available as open source, and some are not.
+
+Closed source components, available as Docker images:
+
+- qlik/engine - The QIX Engine.
+- qlik/license-service - The License Service, required to run the QIX Engine.
+
+Open source components, available as Docker images:
+
+- qlik/mira - The QIX Engine discovery service.
+
+Open source components, available as
+
+- enigma.js - JavaScript library to communicates with Qlik QIX Engine.
+- halyard.js - JavaScript library to simplify data loading into the Qlik QIX Engine.
+
+
 
 ### Custom Qliktive Components
 
@@ -41,4 +61,5 @@ Since these components are more of example implementations, they do not come wit
 We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
 
 ## Testing Strategy
+
 Components, microservices, and the example use case implementations are subject to the [Testing Strategy](./docs/testing-strategy.md).
