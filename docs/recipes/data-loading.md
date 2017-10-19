@@ -1,4 +1,4 @@
-# Data reloading
+# Data Loading Recipe
 
 This recipe outlines a couple of different approaches and things to keep in mind when loading data into your document
 in a scalable environment.

@@ -1,6 +1,6 @@
-# Information repository
+# Frontira Information
 
-This is the top-level repo containing general information around this project; concepts, specifications, examples, can be found here (or linked to from here).
+This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
 
 ## Terminology
 
@@ -8,11 +8,12 @@ Terminology used can be found in [Terminology](./docs/terminology.md).
 
 ## Deliverables
 
-The offering consists of deliverables of different categories.
+Frontira consists of different deliverables:
 
-![Deliverables](./docs/images/deliverables.png)
-
-Each category of deliverables is described below.
+- Use cases
+- Recipes
+- Core components
+- Custom Qliktive components
 
 ### Use Cases
 
@@ -24,13 +25,26 @@ Currently, this use case is provided:
 
 ### Recipes
 
-Recipes is a way for us to describe important concepts, it can be how to get data into your solution or how to decide when it is time to scale your QIX Engine instances, etc.
+A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation.
 
-Please look at the recipes inside the [recipes/](./docs/recipes) folder.
+One example can be: _How do I load my own data into QIX Engine?_
 
-### Components
+More information on recipes is provided in the [Recipes Overview](./docs/recipes-overview.md).
 
-These components are packages and microservices that can be considered as being core parts of the offering. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and it is likely that they will be used in most solutions. Each such component is developed in a separate repo. Some of these components will be available as open source, and some may not. For example, the QIX Engine is only available as a Docker image while Mira will be open sourced.
+### Core Components
+
+These are the core packages and microservices. They are typically available as ready-to-use Docker images. These components are developed to be generic and with the intention to be used in most solutions. Some of these components are available as open source, some are not.
+
+- [QIX Engine](https://hub.docker.com/r/qlikea/engine/) - The powerful associative indexing engine from Qlik.
+- [License Service](https://hub.docker.com/r/qlikea/license-service/) - License service required to run QIX Engine.
+- [Mira](https://hub.docker.com/r/qlikea/mira/) - The QIX Engine discovery service, https://github.com/qlik-ea/mira
+
+There are also several open source web-development libraries that are useful when working with Frontira:
+
+- [enigma.js](https://github.com/qlik-oss/enigma.js/) - Communication with QIX Engine.
+- [halyard.js](https://github.com/qlik-oss/halyard.js) - Simplifies data loading into the QIX Engine.
+- [after-work.js](https://github.com/qlik-oss/after-work.js) - Provides a unified testing framework for different test levels.
+- [picasso.js](https://github.com/qlik-trial/picasso.js) - Charting library streamlined for building visualizations on top of QIX Engine.
 
 ### Custom Qliktive Components
 
@@ -41,4 +55,5 @@ Since these components are more of example implementations, they do not come wit
 We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
 
 ## Testing Strategy
+
 Components, microservices, and the example use case implementations are subject to the [Testing Strategy](./docs/testing-strategy.md).
