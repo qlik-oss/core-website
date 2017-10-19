@@ -1,8 +1,8 @@
 # Core Recipe
 
-This recipe demonstrates how to deploy a minimal Frontira stack using different orchestration tools. The purpose is to help you get started with building on Frontira.
+This recipe demonstrates how to deploy a minimal Frontira stack using different orchestration tools. The purpose is to help you get started with Frontira.
 
-Since it is minimal it does not provide any real functionality. It rather demonstrates the foundation to build full solutions on where more aspects must also be considered, like authorization, document/data handling, vizualization, logging, monitoring etc. There are other recipes that cover such aspects separately.
+It demonstrates a foundation to build full solutions on, where more aspects must also be considered, like authorization, document/data handling, vizualization, logging, monitoring etc. There are other recipes that cover such aspects separately.
 
 ## GitHub repo
 

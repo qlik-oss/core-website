@@ -1,6 +1,6 @@
 # Frontira Information
 
-This is the top-level repo containing general information around the Frontira product; concepts, specifications, examples, can be found here (or linked to from here).
+This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
 
 ## Terminology
 
@@ -10,10 +10,10 @@ Terminology used can be found in [Terminology](./docs/terminology.md).
 
 Frontira consists of different deliverables:
 
-- Use Cases
+- Use cases
 - Recipes
-- Core Components
-- Custom Qliktive Components
+- Core components
+- Custom Qliktive components
 
 ### Use Cases
 
@@ -33,18 +33,13 @@ More information on recipes is provided in the [Recipes Overview](./docs/recipes
 
 ### Core Components
 
-These are the core packages and microservices. They are typically available as ready-to-use components (e.g. as Docker images or as npm packages). The components are developed to be generic and with the intention to be used in most solutions. Some of these components are available as open source, some are not.
-
-Closed source components, available as Docker images:
+These are the core packages and microservices. They are typically available as ready-to-use Docker images. These components are developed to be generic and with the intention to be used in most solutions. Some of these components are available as open source, some are not.
 
 - [QIX Engine](https://hub.docker.com/r/qlikea/engine/) - The powerful associative indexing engine from Qlik.
 - [License Service](https://hub.docker.com/r/qlikea/license-service/) - License service required to run QIX Engine.
+- [Mira](https://hub.docker.com/r/qlikea/mira/) - The QIX Engine discovery service, https://github.com/qlik-ea/mira
 
-Open source components, available as Docker images:
-
-- [mira](https://github.com/qlik-ea/mira) - The QIX Engine discovery service. Available on Docker Hub as [qlikea/mira](https://hub.docker.com/r/qlikea/mira/).
-
-Open source components, available as JavaScript libraries:
+There are also several open source web-development libraries that are useful when working with Frontira:
 
 - [enigma.js](https://github.com/qlik-oss/enigma.js/) - Communication with QIX Engine.
 - [halyard.js](https://github.com/qlik-oss/halyard.js) - Simplifies data loading into the QIX Engine.
