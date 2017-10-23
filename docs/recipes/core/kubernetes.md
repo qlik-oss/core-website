@@ -26,7 +26,7 @@ The Frontira stack consists of deployments and related services of QIX Engine, M
 
 ### Mira Kubernetes Mode
 
-In the [deployment](./plain/frontira/mira-deployment.yml) of Mira it is important to note a few things.
+In the [mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yaml) file, it is important to note a few things.
 
 Observe that the Mira deployment specifies two containers to run in the pod. This is because Mira needs to communicate with the Kubernetes API server through kubectl as a proxy.
 
@@ -34,13 +34,13 @@ Also note that Mira must be configured to run in Kubernetes mode. This does not 
 
 ### Services
 
-`mira` and `license-service`, `engine` are configured services that exposes API ports to the outside of the Kubernetes cluster. Mira and the License Service have their REST APIs on ports `9100` and `9200` respectively. QIX Engine exposes port `9076` which serves the QIX websocket API and port `9090` which serves that Prometheus `/metric` endpoint separately.
+`mira` and `license-service`, `engine` are configured services that exposes API ports to the outside of the Kubernetes cluster. Mira and the License Service have their REST APIs on ports `9100` and `9200` respectively. QIX Engine exposes port `9076` which serves the QIX websocket API and port `9090` which serves the Prometheus `/metric` endpoint separately.
 
 Although not strictly necessary, the services are exposed to the outside of the cluster so that they can be easily accessed for demonstration purposes.
 
 ### Labeling
 
-An important thing to note, is the label used on the [QIX Engine deployment](./plain/frontira/engine-deployment.yml):
+An important thing to note, is the label used on the engine in the [engine-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/engine-deployment.yaml) file:
 
 ```yml
 metadata:

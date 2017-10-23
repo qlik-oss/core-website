@@ -8,6 +8,8 @@ It demonstrates a foundation to build full solutions on, where more aspects must
 
 The recipe assets are located at https://github.com/qlik-ea/core.
 
+When running commands presented in this recipe, it is assumed that they are run in that repository.
+
 ## Container Orchestration
 
 This recipe provides examples of deployment of the Frontira core services using the following container orchestration platforms:

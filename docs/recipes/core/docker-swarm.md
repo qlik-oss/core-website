@@ -16,11 +16,11 @@ $ eval $(docker-machine env <swarm manager node>)
 
 ### Stack file
 
-The Frontira stack, is specified in the (docker-compose.yml)[./docker-compose.yml] file. The stack consists of one QIX Engine, one Mira, and one License Service service.
+The Frontira stack, is specified in the [docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file. The stack consists of one QIX Engine, one Mira, and one License Service service.
 
 ### Placement constraints
 
-The only placement constraint is that the mira service is required to run on the swarm manager node, since it needs to communicate with the manager Docker Engine. This is also why `/var/run/docker.sock` is mounted into the service.
+The Mira service is placed on the swarm manager node. It communicates with the manager Docker Engine. This is also why `/var/run/docker.sock` is mounted into the service.
 
 ### Ports
 
