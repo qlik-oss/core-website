@@ -5,7 +5,7 @@ Here follows a brief overview of the recipes provided and the main questions eac
 [Authorization](./recipes/authorization.md)  
 _How do I make sure my users only see the data they are supposed to see?_
 
-[Core](./recipes/core.md)  
+[Core](./recipes/core/)  
 _How do I set up the core Frontira components in my orchestration platform of choice?_
 
 [Data Loading](./recipes/data-loading.md)  
