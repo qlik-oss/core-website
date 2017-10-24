@@ -14,9 +14,9 @@ _How do I load my own data into QIX Engine?_
 [Document Distribution](./recipes/document-distribution.md)  
 _How do I distribute updated documents/data in a cluster of QIX engine containers?_
 
-[Logging Recipe](./recipes/logging.md)  
+[Logging](./recipes/logging/)  
 _How do I enable and configure logging in Frontira?_
 
-[Monitoring and Scaling Recipe](./recipes/monitoring-and-scaling.md)  
+[Monitoring and Scaling](./recipes/monitoring-and-scaling.md)  
 _How do I monitor a system and take decisions on when to scale up or down QIX Engine instances?_  
 _How do I decide where to place QIX Engine sessions?_
