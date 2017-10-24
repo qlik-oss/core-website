@@ -2,7 +2,7 @@
 
 Below follows guidelines and semantics for each log level used by Frontira services.
 
-### Fatal
+## `Fatal`
 
 Used for _errors_ that:
 
@@ -15,8 +15,7 @@ Examples:
 
 _TODO_
 
-
-### Error
+## `Error`
 
 Used for _errors_ that:
 
@@ -29,7 +28,7 @@ Examples:
 - The operation fails to open a required file, is missing data, etc.
 - Incorrect connection strings, missing services, etc.
 
-### Warn
+## `Warn`
 
 Used for events that:
 
@@ -44,7 +43,7 @@ Examples:
 - Operation fails first time, succeeds after retrying.
 - Some kind of unusal delay or long response time was detected.
 
-### Info
+## `Info`
 
 Used for events that:
 
@@ -58,7 +57,7 @@ Examples:
 - Service start/stop.
 - Service or system configuration details.
 
-### Debug
+## `Debug`
 
 Used for messages that:
 
@@ -71,7 +70,7 @@ Examples.
 
 _TODO_
 
-### Trace
+## `Trace`
 
 _TODO_
 
