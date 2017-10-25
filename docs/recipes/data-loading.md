@@ -136,12 +136,12 @@ The program first creates or opens an app called `reloadapp.qvf` on the engine i
 app.createConnection({
 	qType: 'postgres-grpc-connector', //the name we defined as a parameter to engine in our docker-compose.yml
 	qName: 'postgresgrpc',
-	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres"', //the connection string inclues both the provider to use and parameters to it.
-	qUserName: 'postgres',
+	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"', //the connection string inclues both the provider to use and parameters to it.
+	qUserName: 'postgres', //username and password for the postgres database, provided to the grpc-connector
 	qPassword: 'postgres'
 });
 ```
-The connection string `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres` tells the engine to use the `postgres-grpc-connector` and then the rest is parameters to the GRPC-Connector such as the database host, port and user.
+The connection string `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres` tells the engine to use the `postgres-grpc-connector` and then the rest is parameters to the GRPC-Connector such as the database host address and port.
 
 After this we set a script to use the connection we just created.
 
