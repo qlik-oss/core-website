@@ -82,3 +82,11 @@ We can see our running containers using
 ```bash
 $ docker ps
 ```
+It should look something like this
+```
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                              NAMES
+523db2fa776f        example/postgres-grpc-connector-database   "docker-entrypoint..."   20 hours ago        Up 39 seconds       5432/tcp                           postgres-database
+c2f3ec13840b        qlikea/postgres-grpc-connector:latest      "/go/bin/server"         20 hours ago        Up 40 seconds       50051/tcp                          postgres-grpc-connector
+95656bea1801        qlikea/engine:12.84.0                      "./entrypoint.sh -..."   20 hours ago        Up 39 seconds       0.0.0.0:9076->9076/tcp, 9090/tcp   qix-engine
+```
+
