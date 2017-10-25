@@ -137,8 +137,22 @@ app.createConnection({
 	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres"', //the connection string inclues both the provider to use and parameters to it.
 	qUserName: 'postgres',
 	qPassword: 'postgres'
-		})
+});
 ```
 The connection string `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres` tells the engine to use the `postgres-grpc-connector` and then the rest is parameters to the GRPC-Connector such as the database host, port and user.
+
+After this we set a script to use the connection we just created.
+
+```js
+const script = `
+	lib connect to 'postgresgrpc';		
+	Airports:						
+	sql select rowID,Airport,City,Country,IATACode,ICAOCode,Latitude,Longitude,Altitude,TimeZone,DST,TZ, clock_timestamp() from airports;
+`; // add script to use the grpc-connector and load a table
+app.setScript(script);
+```
+We are using the name `postgresgrpc` that we defined when we created our connection and then we are loading the airport data from the postgres `airports` table to the qix table `Airports`
+
+Then we do a reload to load the new data into the engine and after that we fetch the first 10 results of the `Airports` table and print them to the terminal.
 
 You can get more detailed info by looking inside the `index.js` file and reading on [Enigma.js](https://github.com/qlik-oss/enigma.js)
