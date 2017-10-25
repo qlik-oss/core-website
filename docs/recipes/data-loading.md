@@ -100,4 +100,45 @@ But the `9076` port is the engines standard API port and here we have also opene
 
 So now that we have a database container with the data, a GRPC-Connector container and an engine running all we need is to trigger a load of the data.
 
-We will do this with a small `Node.JS` program using the Qlik library [Enigma.js](https://github.com/qlik-oss/enigma.js) to talk with the engine.
+We will do this with a small `Node.JS` program using the Qlik library [Enigma.js](https://github.com/qlik-oss/enigma.js) to talk with the engine to trigger a load of our airport data via the GRPC-Connector.
+
+```bash
+$ cd reload-runner
+$ npm run install
+$ npm run start
+```
+You should see something like this in your terminal
+```
+Creating/opening app
+Creating connection
+Setting script
+Reloading
+Removing connection before saving
+Removing script before saving
+Saving
+Fetching Table sample
+rowid   airport city    country iatacode        icaocode        latitude        longitude       altitude        timezone        dst     tz      clock_timestamp
+5871    Moala Airport   Moala   Fiji    MFJ     NFMO    -18.5667        179.951 13      12      U       Pacific/Fiji    10/25/2017 12:02:13 PM
+7593    Arorae Island Airport   Arorae  Kiribati        AIS     NGTR    -2.633333       179.816667      6       10      U       \N      10/25/2017 12:02:13 PM
+5876    Koro Island Airport     Koro Island     Fiji    KXF     NFNO    -17.3458        179.422 358     12      U       Pacific/Fiji    10/25/2017 12:02:13 PM
+8745    Mys Shmidta Airport     Mys Shmidta     Russia  -       UHMI    68.868301       179.373001      20      12      N       Asia/Magadan    10/25/2017 12:02:13 PM
+5878    Savusavu Airport        Savusavu        Fiji    SVU     NFNS    -16.8028        179.341 17      12      U       Pacific/Fiji    10/25/2017 12:02:13 PM
+5872    Ngau Airport    Ngau    Fiji    NGI     NFNG    -18.1156        179.34  50      12      U       Pacific/Fiji    10/25/2017 12:02:13 PM
+5874    Labasa Airport  Lambasa Fiji    LBS     NFNL    -16.466749      179.33986       44      12      U       Pacific/Fiji    10/25/2017 12:02:13 PM
+4077    Funafuti International  Funafuti        Tuvalu  FUN     NGFU    -8.525  179.196389      9       12      U       Pacific/Funafuti        10/25/2017 12:02:13 PM
+4096    Levuka Airfield Levuka  Fiji    LEV     NFNB    -17.68333       178.83333       11      12      N       Pacific/Fiji    10/25/2017 12:02:13 PM
+Session closed
+```
+The program first creates or opens an app called `reloadapp.qvf` on the engine instance. Then it creates a connection of the type we defined earlier
+```js
+app.createConnection({
+	qType: 'postgres-grpc-connector', //the name we defined as a parameter to engine in our docker-compose.yml
+	qName: 'postgresgrpc',
+	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres"', //the connection string inclues both the provider to use and parameters to it.
+	qUserName: 'postgres',
+	qPassword: 'postgres'
+		})
+```
+The connection string `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres;user=postgres;password=postgres` tells the engine to use the `postgres-grpc-connector` and then the rest is parameters to the GRPC-Connector such as the database host, port and user.
+
+You can get more detailed info by looking inside the `index.js` file and reading on [Enigma.js](https://github.com/qlik-oss/enigma.js)
