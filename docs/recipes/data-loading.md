@@ -10,7 +10,7 @@ data through services like Dropbox.
 
 ## Developer defined data
 
-This section contains a runnable example how to load some airport data from a postgresql database using the GRPC protocol in QIX Engine. 
+This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol in the QIX Engine. 
 It assumes you are running in a \*nix environment or uses Git Bash if on Windows.
 
 First clone and open the `postgres-grpc-connector` repository and move to the `example` folder.
@@ -26,7 +26,9 @@ FROM postgres:10.0
 COPY ./airports.csv /
 COPY ./init-airports-data.sql /docker-entrypoint-initdb.d/
 ```
-It builds on the official postgres image and then copies our `airports.csv` file into the image as well as the `init-airports-data.sql` script to the folder `docker-entrypoint-initdb.d`, when the postgres image starts it will run all `.sql` inside the folder and thus our `init-airports-data.sql` will be run.
+It builds on the official postgres image and then copies our `airports.csv` file into the image as well as copying the `init-airports-data.sql` script to the folder `docker-entrypoint-initdb.d` on the image. 
+
+When the postgres image starts it will run all `.sql` inside the folder and thus our `init-airports-data.sql` will be run.
 
 The script looks like this
 ```sql
@@ -48,7 +50,7 @@ CREATE TABLE airports
 COPY airports FROM '/airports.csv' DELIMITER ',' CSV HEADER;
 ```
 
-It creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv`
+It creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv` file
 
 After building our database image we can start our containers.
 ```bash
@@ -98,7 +100,7 @@ Finally we can see that the engine exposes the ports `9076` and `9090`. The `909
 
 But the `9076` port is the engines standard API port and here we have also opened it to the _outside_ and mapped it to port `9076` on your local machine. So requests to your machine on port `9076` will go to qix-engine container.
 
-So now that we have a database container with the data, a GRPC-Connector container and an engine running all we need is to trigger a load of the data.
+Now that we have a database container with the data, a GRPC-Connector container and an engine running all we need is to trigger a load of the data.
 
 We will do this with a small `Node.JS` program using the Qlik library [Enigma.js](https://github.com/qlik-oss/enigma.js) to talk with the engine to trigger a load of our airport data via the GRPC-Connector.
 
@@ -151,7 +153,7 @@ const script = `
 `; // add script to use the grpc-connector and load a table
 app.setScript(script);
 ```
-We are using the name `postgresgrpc` that we defined when we created our connection and then we are loading the airport data from the postgres `airports` table to the qix table `Airports`
+We are using the name `postgresgrpc` that we defined when we created our connection and then we are loading the airport data from the postgres `airports` table into the qix table `Airports`
 
 Then we do a reload to load the new data into the engine and after that we fetch the first 10 results of the `Airports` table and print them to the terminal.
 
