@@ -31,13 +31,29 @@ One example can be: _How do I load my own data into QIX Engine?_
 
 More information on recipes is provided in the [Recipes Overview](./docs/recipes-overview.md).
 
-### Core Components
+### Services
 
-These are the core packages and microservices. They are typically available as ready-to-use Docker images. These components are developed to be generic and with the intention to be used in most solutions. Some of these components are available as open source, some are not.
+This is an overview of the services provided in Frontira. Detailed documentation on each service can be found by following the provided links.
 
-- [QIX Engine](https://hub.docker.com/r/qlikea/engine/) - The powerful associative indexing engine from Qlik.
-- [License Service](https://hub.docker.com/r/qlikea/license-service/) - License service required to run QIX Engine.
-- [Mira](https://hub.docker.com/r/qlikea/mira/) - The QIX Engine discovery service, https://github.com/qlik-ea/mira
+#### QIX Engine
+
+The foundation of Frontira is the [QIX Engine](./docs/services/qix-engine/) - the powerful associative indexing engine from Qlik. QIX Engine is available as a [Docker image](https://hub.docker.com/r/qlikea/engine/). QIX Engine is closed source.
+
+#### License Service
+
+The [License Service](./docs/services/license-service/) is required to run QIX Engine with a valid license
+
+- Provided as a [Docker image](https://hub.docker.com/r/qlikea/license-service/)
+- Closed source
+
+#### Mira
+
+[Mira](./docs/services/mira/) is a QIX Engine discovery service used to find QIX Engine instances in containerized environments
+
+- Provided as a [Docker image](https://hub.docker.com/r/qlikea/mira/)
+- Open source at [GitHub](https://github.com/qlik-ea/mira)
+
+### Web-development Libraries
 
 There are also several open source web-development libraries that are useful when working with Frontira:
 
