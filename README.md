@@ -47,10 +47,10 @@ There are also several open source web-development libraries that are useful whe
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
-| [enigma.js](https://github.com/qlik-oss/enigma.js/) | Communication with QIX Engine | [GitHub](https://github.com/qlik-oss/enigma.js/) |
+| [enigma.js](https://github.com/qlik-oss/enigma.js/) | Communication with the QIX Engine | [GitHub](https://github.com/qlik-oss/enigma.js/) |
 | [halyard.js](https://github.com/qlik-oss/halyard.js) | Simplifies data loading into the QIX Engine | [GitHub](https://github.com/qlik-oss/halyard.js) |
 | [after-work.js](https://github.com/qlik-oss/after-work.js) | Unified testing framework for different test levels | [GitHub](https://github.com/qlik-oss/after-work.js) |
-| [picasso.js](https://github.com/qlik-trial/picasso.js) | Visualization library on top of QIX Engine | [GitHub](https://github.com/qlik-trial/picasso.js) |
+| [picasso.js](https://github.com/qlik-trial/picasso.js) | Visualization library on top of the QIX Engine | [GitHub](https://github.com/qlik-trial/picasso.js) |
 
 ### Custom Qliktive Components
 

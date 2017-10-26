@@ -20,7 +20,7 @@ $ curl http://localhost:9100/v1/engines
 
 ## Labeling
 
-In _Local_ mode, Mira assumes that labels are provided on Docker containers. Below is an example extract from a Docker compose file with labels present. Since `qix-engine-api-port` and `qix-engine-metrics-port` are optional and witch the same default values, the could have been omitted.
+In _Local_ mode, Mira assumes that labels are provided on Docker containers. Below is an example extract from a Docker compose file with labels present. Since `qix-engine-api-port` and `qix-engine-metrics-port` are optional and with the same default values, that could have been omitted.
 
 ```yaml
 version: "3.1"
