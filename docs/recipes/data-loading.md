@@ -11,9 +11,9 @@ data through services like Dropbox.
 ## Developer defined data
 
 This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol in the QIX Engine. 
-It assumes you are running in a \*nix environment or uses Git Bash if on Windows.
+It assumes you are running in a \*nix environment or use Git Bash if on Windows.
 
-First clone and open the `postgres-grpc-connector` repository and move to the `example` folder.
+First clone and open the [`postgres-grpc-connector`](https://github.com/qlik-ea/postgres-grpc-connector) repository and move to the `example` folder.
 
 Then we need to build our postgres image containing our airport data.
 ```bash
