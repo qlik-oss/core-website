@@ -61,14 +61,14 @@ $ cd reload-runner
 $ npm install
 $ npm start
 ```
-You should see the info from the `airports.csv` about 10 airports in your terminal.
+You should see the info about 10 different airports in your terminal.
 
-The program first creates or opens an app called `reloadapp.qvf` on the QIX Engine. Then it creates a connection of the type we defined earlier
+What the program does is it first creates or opens an app called `reloadapp.qvf` on the QIX Engine. Then it creates a connection of the type we defined earlier
 ```js
 app.createConnection({
 	qType: 'postgres-grpc-connector', //the name we defined as a parameter to the QIX Engine in our docker-compose.yml
 	qName: 'postgresgrpc',
-	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"', //the connection string inclues both the provider to use and parameters to it. You can see that the host is the name of the service and the port is the port we saw the database container exposes.
+	qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"', //the connection string inclues both the provider to use and parameters to it.
 	qUserName: 'postgres', //username and password for the postgres database, provided to the grpc-connector
 	qPassword: 'postgres'
 });
