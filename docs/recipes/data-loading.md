@@ -11,7 +11,7 @@ data through services like Dropbox.
 ## Developer defined data
 
 This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol in the QIX Engine. 
-It assumes you are running in a \*nix environment or use Git Bash if on Windows it also assumes that you have a basic understanding of Docker.
+It assumes you are running in a \*nix environment or use Git Bash on Windows. Basic Docker knowledge is also assumed.
 
 First clone and open the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector) repository and move to the `example` folder.
 
@@ -25,7 +25,7 @@ The [Dockerfile](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/
 
 When the postgres image starts it will run all `.sql` files inside the folder and thus our `init-airports-data.sql` will be run.
 
-The [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv` file
+The [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv` file.
 
 After building our database image we can start our containers.
 ```bash
@@ -61,7 +61,7 @@ $ cd reload-runner
 $ npm install
 $ npm start
 ```
-You should see the info about 10 different airports in your terminal.
+You should see the info from 10 different airports in your terminal.
 
 What the program does is it first creates or opens an app called `reloadapp.qvf` on the QIX Engine. Then it creates a connection of the type we defined earlier
 ```js
