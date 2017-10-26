@@ -1,0 +1,4 @@
+# VS Code folder
+.vscode/
+# Merge files (BC, KDiff3 etc.)
+*.orig
