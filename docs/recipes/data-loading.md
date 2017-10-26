@@ -106,8 +106,8 @@ We will do this with a small `Node.JS` program using the Qlik library [Enigma.js
 
 ```bash
 $ cd reload-runner
-$ npm run install
-$ npm run start
+$ npm install
+$ npm start
 ```
 You should see something like this in your terminal
 ```
