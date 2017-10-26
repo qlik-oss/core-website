@@ -33,34 +33,24 @@ More information on recipes is provided in the [Recipes Overview](./docs/recipes
 
 ### Services
 
-This is an overview of the services provided in Frontira. Detailed documentation on each service can be found by following the provided links.
+This is an overview of the services provided in Frontira. Further information on each service can be found by following the provided links.
 
-#### QIX Engine
-
-The foundation of Frontira is the [QIX Engine](./docs/services/qix-engine/) - the powerful associative indexing engine from Qlik. QIX Engine is available as a [Docker image](https://hub.docker.com/r/qlikea/engine/). QIX Engine is closed source.
-
-#### License Service
-
-The [License Service](./docs/services/license-service/) is required to run QIX Engine with a valid license
-
-- Provided as a [Docker image](https://hub.docker.com/r/qlikea/license-service/)
-- Closed source
-
-#### Mira
-
-[Mira](./docs/services/mira/) is a QIX Engine discovery service used to find QIX Engine instances in containerized environments
-
-- Provided as a [Docker image](https://hub.docker.com/r/qlikea/mira/)
-- Open source at [GitHub](https://github.com/qlik-ea/mira)
+| Service    | Feature | Docker Image | Source Code |
+| ---------- | ------- | ------------ | ----------- |
+| [QIX Engine](./docs/services/qix-engine/) | The powerful associative indexing engine from Qlik and the foundation of Frontira | [qlikea/engine](https://hub.docker.com/r/qlikea/engine) | Closed source |
+| [License Service](./docs/services/license-service/) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
+| [Mira](./docs/services/mira/) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
 
 ### Web-development Libraries
 
 There are also several open source web-development libraries that are useful when working with Frontira:
 
-- [enigma.js](https://github.com/qlik-oss/enigma.js/) - Communication with QIX Engine.
-- [halyard.js](https://github.com/qlik-oss/halyard.js) - Simplifies data loading into the QIX Engine.
-- [after-work.js](https://github.com/qlik-oss/after-work.js) - Provides a unified testing framework for different test levels.
-- [picasso.js](https://github.com/qlik-trial/picasso.js) - Charting library streamlined for building visualizations on top of QIX Engine.
+| Library | Feature | Source Code |
+| ------- | ------- | ----------- |
+| [enigma.js](https://github.com/qlik-oss/enigma.js/) | Communication with QIX Engine | [GitHub](https://github.com/qlik-oss/enigma.js/) |
+| [halyard.js](https://github.com/qlik-oss/halyard.js) | Simplifies data loading into the QIX Engine | [GitHub](https://github.com/qlik-oss/halyard.js) |
+| [after-work.js](https://github.com/qlik-oss/after-work.js) | Unified testing framework for different test levels | [GitHub](https://github.com/qlik-oss/after-work.js) |
+| [picasso.js](https://github.com/qlik-trial/picasso.js) | Visualization library on top of QIX Engine | [GitHub](https://github.com/qlik-trial/picasso.js) |
 
 ### Custom Qliktive Components
 
