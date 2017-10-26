@@ -11,46 +11,21 @@ data through services like Dropbox.
 ## Developer defined data
 
 This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol in the QIX Engine. 
-It assumes you are running in a \*nix environment or use Git Bash if on Windows.
+It assumes you are running in a \*nix environment or use Git Bash if on Windows it also assumes that you have a basic understanding of Docker.
 
-First clone and open the [`postgres-grpc-connector`](https://github.com/qlik-ea/postgres-grpc-connector) repository and move to the `example` folder.
+First clone and open the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector) repository and move to the `example` folder.
 
 Then we need to build our postgres image containing our airport data.
 ```bash
 $ cd postgres-image
 $ docker build . -t example/postgres-grpc-connector-database
 ```
-The Dockerfile we are using looks like this
-```
-FROM postgres:10.0
-COPY ./airports.csv /
-COPY ./init-airports-data.sql /docker-entrypoint-initdb.d/
-```
-It builds on the official postgres image and then copies our `airports.csv` file into the image as well as copying the `init-airports-data.sql` script to the folder `docker-entrypoint-initdb.d` on the image. 
+
+The [Dockerfile](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/Dockerfile) builds on the official postgres image and then copies our `airports.csv` file into the image as well as copying the `init-airports-data.sql` script to the folder `docker-entrypoint-initdb.d` on the image. 
 
 When the postgres image starts it will run all `.sql` inside the folder and thus our `init-airports-data.sql` will be run.
 
-The script looks like this
-```sql
-CREATE TABLE airports
-(
-  rowID integer,
-  airport character varying(250),
-  city character varying(250),
-  country character varying(250),
-  iatacode character varying(50),
-  icaocode character varying(50),
-  latitude character varying(50),
-  longitude character varying(50),
-  altitude character varying(50),
-  timezone character varying(50),
-  dst character varying(50),
-  tz character varying(50)
-);
-COPY airports FROM '/airports.csv' DELIMITER ',' CSV HEADER;
-```
-
-It creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv` file
+The [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) creates a table in the default database containing the data from the copied `airports.csv` file. Thus when running the created image we will have a standard postgres database with an airports table containing our data from the `airports.csv` file
 
 After building our database image we can start our containers.
 ```bash
