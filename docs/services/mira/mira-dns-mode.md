@@ -1,10 +1,10 @@
 # Mira DNS mode
 
-In _DNS_ mode Mira assumes that any DNS queries for the string defined with the `MIRA_DISCOVERY_HOSTNAME` environment variable, returns all the QIX Engine instances in the containerized environment. _DNS_ mode is enabled by setting the environment variable `MIRA_MODE` to `dns` before starting the Mira container.
+In _DNS_ mode Mira resolves by hostname, and uses all returned IP addresses it finds to fetch additional QIX Engine instance data. _DNS_ mode is enabled by setting the environment variable `MIRA_MODE` to `dns`.
 
 ## Hostname Configuration
 
-In the _DNS_ mode there is no need to set labels on QIX Engine instances. Instead, the hostname used to identify QIX Engine instances must be set using the `MIRA_DISCOVERY_HOSTNAME` environment variable.
+In the _DNS_ mode there is no need to set labels on QIX Engine instances. Instead, the hostname used to resolve QIX Engine instances must be set using the `MIRA_DISCOVERY_HOSTNAME` environment variable.
 
 ## Example
 

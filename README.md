@@ -41,16 +41,16 @@ This is an overview of the services provided in Frontira. Further information on
 | [License Service](./docs/services/license-service/) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
 | [Mira](./docs/services/mira/) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
 
-### Web-development Libraries
+### Libraries
 
-There are also several open source web-development libraries that are useful when working with Frontira:
+There are also several open source libraries that are useful when working with Frontira:
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
 | [enigma.js](https://github.com/qlik-oss/enigma.js/) | Communication with the QIX Engine | [GitHub](https://github.com/qlik-oss/enigma.js/) |
 | [halyard.js](https://github.com/qlik-oss/halyard.js) | Simplifies data loading into the QIX Engine | [GitHub](https://github.com/qlik-oss/halyard.js) |
 | [after-work.js](https://github.com/qlik-oss/after-work.js) | Unified testing framework for different test levels | [GitHub](https://github.com/qlik-oss/after-work.js) |
-| [picasso.js](https://github.com/qlik-trial/picasso.js) | Visualization library on top of the QIX Engine | [GitHub](https://github.com/qlik-trial/picasso.js) |
+| picasso.js | Visualization library on top of the QIX Engine | Not released yet |
 
 ### Custom Qliktive Components
 

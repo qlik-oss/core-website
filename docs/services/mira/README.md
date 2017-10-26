@@ -1,14 +1,14 @@
-# Mira - a QIX Engine Discovery Service
+# Mira
 
-## Overview
-
-_Mira_ provides QIX Engine instance discovery in a Docker containerized environment.
+_Mira_ provides QIX Engine instance discovery in containerized environments.
 
 The purpose of the service is for other services to be able to get a set of available QIX Engine instances with properties of each QIX Engine instance. This information can be used to take decisions on, for example which engine that is suitable to open a new session towards, or if there is a need to start a new QIX Engine instance.
 
-## Docker Image
+## Distribution
 
 Mira is distributed as a Docker image and is available on Docker Hub as [qlikea/mira](https://hub.docker.com/r/qlikea/mira).
+
+Mira is available as open source on [GitHub](https://github.com/qlik-ea/mira).
 
 ## API
 
