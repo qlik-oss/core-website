@@ -102,7 +102,7 @@ But the `9076` port is the engines standard API port and here we have also opene
 
 Now that we have a database container with the data, a GRPC-Connector container and an engine running all we need is to trigger a load of the data.
 
-We will do this with a small `Node.JS` program using the Qlik library [Enigma.js](https://github.com/qlik-oss/enigma.js) to talk with the engine to trigger a load of our airport data via the GRPC-Connector.
+We will do this with a small `Node.JS` program using the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js) to talk with the engine to trigger a load of our airport data via the GRPC-Connector.
 
 ```bash
 $ cd reload-runner
@@ -157,4 +157,4 @@ We are using the name `postgresgrpc` that we defined when we created our connect
 
 Then we do a reload to load the new data into the engine and after that we fetch the first 10 results of the `Airports` table and print them to the terminal.
 
-You can get more detailed info by looking inside the `index.js` file and reading on [Enigma.js](https://github.com/qlik-oss/enigma.js)
+You can get more detailed info by looking inside the `index.js` file and reading on [enigma.js](https://github.com/qlik-oss/enigma.js).
