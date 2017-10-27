@@ -1,10 +1,10 @@
 # License Service
 
-The _License Service_ validates QIX Engine licensing and is required to run QIX Engine with a valid license.
+The _License Service_ is required to run QIX Engine with a valid license.
 
 The License Service shall be configured with QIX Engine license information and be deployed together with the QIX Engine. In a deployment, each QIX Engine instance periodically checks for a valid license by communicating with the License Service.
 
-As such, the License Service API is not primarily not intended to be consumed by applications built on top of Frontira. The License Service only works as a required side-car service to QIX Engine.
+As such, the License Service API is not primarily intended to be consumed by applications built on top of Frontira. The License Service only works as a required side-car service to QIX Engine.
 
 ## Distribution
 
