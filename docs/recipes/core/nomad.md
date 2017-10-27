@@ -12,7 +12,7 @@ Be aware that the Docker credentials are stored in plain text in Nomad, see [her
 
 ## Service Discovery
 
-Mira uses DNS queries for service discovery in a Nomad orchestration. This assumes that you have a running Consul server in your Nomad environment. Nomad will automatically register services in Consul when deploying the `nomad`files. The hostname that Mira should use for discovering QIX engines is defined in the task config for [Mira](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad).
+Mira uses the DNS mode for service discovery in a Nomad orchestration. This assumes that there is a running Consul server in the Nomad environment. Nomad will automatically register services in Consul when deploying the `nomad` files. The hostname that Mira should use for discovering QIX Engine instances is defined in the task configuration for [Mira](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad).
 
 ## Deploy
 
