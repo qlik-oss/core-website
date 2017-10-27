@@ -51,3 +51,10 @@ The following environment variables can optionally be set for Mira:
 | MIRA_ENGINE_DISCOVERY_REFRESH_RATE    | 1000                    | Refresh rate in milliseconds for discovering QIX Engine instances. |
 | MIRA_ENGINE_HEALTH_REFRESH_RATE       | 5000                    | Refresh rate in milliseconds for checking if QIX Engine instances are healthy. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira will use to communicate to the Kubernetes API server. |
+| MIRA_LOG_LEVEL                        | info                    | Log level that Mira will use when logging to `stdout`. |
+
+## Logging
+
+Mira follows the logging format and levels specified in the [logging recipe](../../recipes/logging).
+
+Default log level is `info`, but can be toggled using the `MIRA_LOG_LEVEL` environment variable.
