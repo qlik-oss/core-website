@@ -55,6 +55,6 @@ The following environment variables can optionally be set for Mira:
 
 ## Logging
 
-Mira follows the logging format and levels specified in the [logging recipe](../../recipes/logging).
+Mira follows the logging format and levels specified in the [logging recipe](../../recipes/logging.md).
 
 Default log level is `info`, but can be toggled using the `MIRA_LOG_LEVEL` environment variable.
