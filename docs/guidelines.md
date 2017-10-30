@@ -1,4 +1,4 @@
-# Frontira Guidelines
+# Guidelines
 
 This document contains guidelines and standards that are used among Frontira services to keep the services aligned in aspects such as logging format, healthcheck and metrics. Any addition to or deviation from these guidelines _should_ be documented for each [service](../README.md#services).
 
