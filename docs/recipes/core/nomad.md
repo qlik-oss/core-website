@@ -10,9 +10,9 @@ Since the Docker images being used are not public you have to pass Docker creden
 
 Be aware that the Docker credentials are stored in plain text in Nomad, see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config). In [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl) there is an example of how the Nomad client can be configured to use local docker credentials.
 
-## Privileged mode
+## Service Discovery
 
-Mira uses docker.sock to discover QIX Engine instances and in Nomad this requires a `privileged` mode set to true. This is configured in the nomad client config [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl) as well as in the task config for Mira, in the [mira.nomad](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad) file.
+Mira uses the DNS mode for service discovery in a Nomad orchestration. This assumes that there is a running Consul server in the Nomad environment. Nomad will automatically register services in Consul when deploying the `nomad` files. The hostname that Mira should use for discovering QIX Engine instances is defined in the task configuration for [Mira](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad).
 
 ## Deploy
 
