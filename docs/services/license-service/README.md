@@ -66,7 +66,7 @@ The hosting environment may need to open access to these locations, otherwise ac
 
 #### Health Check
 
-The License Service exposes `/v1/health` on port 9200, for health check. Always responds with `200 OK`.
+The License Service exposes `/v1/health` on port 9200, for health checking. Always responds with `200 OK`.
 
 #### Metrics
 
