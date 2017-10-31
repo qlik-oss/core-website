@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Contract - Frontira</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Frontira" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Documentation
+                </span>
+              
+            
+            Contract
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    Frontira
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/prerequisites/" title="Prerequisites" class="md-nav__link">
+      Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Services
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Services
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../services/qix-engine/" title="QIX Engine" class="md-nav__link">
+      QIX Engine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../services/license-service/" title="License Service" class="md-nav__link">
+      License Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../services/mira/" title="Mira" class="md-nav__link">
+      Mira
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Contract
+      </label>
+    
+    <a href="./" title="Contract" class="md-nav__link md-nav__link--active">
+      Contract
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging" title="Logging" class="md-nav__link">
+    Logging
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logging-levels" title="Logging Levels" class="md-nav__link">
+    Logging Levels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" title="Health Checks" class="md-nav__link">
+    Health Checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" title="Metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Recipes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Recipes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/authorization/" title="Authorization" class="md-nav__link">
+      Authorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/data-loading/" title="Data Loading" class="md-nav__link">
+      Data Loading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/document-distribution/" title="Document Distribution" class="md-nav__link">
+      Document Distribution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/monitoring-and-scaling/" title="Monitoring and Scaling" class="md-nav__link">
+      Monitoring and Scaling
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apis/" title="APIs" class="md-nav__link">
+      APIs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Use Cases
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Use Cases
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../use-cases/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../use-cases/use-case-custom-analytics/README/" title="Custom Analytics UI" class="md-nav__link">
+      Custom Analytics UI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../terminology/" title="Terminology" class="md-nav__link">
+      Terminology
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Support & Services
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Support & Services
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../support-and-services/licensing/" title="Licensing" class="md-nav__link">
+      Licensing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../support-and-services/sales/" title="Sales" class="md-nav__link">
+      Sales
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../support-and-services/tech-support/" title="Technical Support" class="md-nav__link">
+      Technical Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../support-and-services/training/" title="Training" class="md-nav__link">
+      Training
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../pricing/" title="Pricing" class="md-nav__link">
+      Pricing
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging" title="Logging" class="md-nav__link">
+    Logging
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logging-levels" title="Logging Levels" class="md-nav__link">
+    Logging Levels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" title="Health Checks" class="md-nav__link">
+    Health Checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" title="Metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="contract">Contract</h1>
+<p>This document contains a contract for Frontira services to keep the services aligned in aspects such as logging formats, health checks and metrics.</p>
+<h2 id="logging">Logging</h2>
+<p>Services must log enough information for a developer to be able to debug and fix issues using the information available in the logs. In general, developers will not have access to production environments in order to debug services, but instead access to real-time historical logs for analysis. A service's logs is the main visibility into the behavior of the service. A service should not concern itself with the routing or storage/aggregation of its logs. A service should also not attempt to write to or manage logfiles. Instead a service should write its logs to <code>stdout</code> and concern itself with making sure that the content of the logs are sufficient for monitoring and fixing issues. In staging and production environments each service's log output will be captured by the execution environment and aggregated in near real-time.</p>
+<ol>
+<li>Only output events on <code>stdout</code>, never output events to files.<ul>
+<li>Events <em>must</em> be on <code>stdout</code> and not <code>stderr</code>.</li>
+<li>It is <em>not</em> the job of the service to store, transmit or buffer log events.</li>
+<li>During local development, the developer will view the service's event stream in their terminal or console, or manually redirect (with a pipe or similar) to a local file.</li>
+<li>When the service is deployed, it is the responsibility of the execution environment to capture and direct logs appropriately for later analysis.</li>
+</ul>
+</li>
+<li>
+<p>Events must be outputted as valid JSON, with a minimum of standard fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td>The date/time that the event occurred at.</td>
+<td><ul><li>The system clock must be set for the UTC 00:00 timezone (a.k.a <em>Zulu</em>), and events must be logged in this timezone.</li><li>Timestamps must be formatted in the RFC3339 format <em>with fractional seconds</em>: <code>2006-01-02T15:04:05.999999999Z</code></li><li>Not all systems will report fractions of a second at the same precision - it doesn't matter whether this is provided a millisecond or nanosecond precision, as long as it's provided.</li></ul></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>A message describing the event.</td>
+<td><ul><li>The message <em>should not</em> contain metadata. Any metadata about the event should be presented in seperate fields.</li></ul></td>
+</tr>
+<tr>
+<td><code>logseverity</code></td>
+<td>String value indicating the level of importance of the log message.</td>
+<td><ul><li>The <code>logseverity</code> specified in the log <em>must</em> be one of the following values; <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> or <code>FATAL</code>. The definition of each level is further described <a href="#logging-levels">here</a>.</li></ul></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Additional fields will be required in specific contexts, and should be coordinated between services so that analysis can be correctly aggregated across different services.</p>
+<ul>
+<li>If multiple services track e.g. session IDs, they should agree on a common field name, such as <code>session_id</code>.</li>
+<li>Case &amp; word separation style must be consistent. The <em>snake_case</em> style should be preferred (e.g. use <code>session_id</code>, <em>not</em> <code>SessionId</code>)</li>
+</ul>
+</li>
+</ol>
+<h3 id="logging-levels">Logging Levels</h3>
+<p>In this section each of the allowed log levels are specified and followed with a set of examples where each log level is applicable.</p>
+<ul>
+<li><code>TRACE</code></li>
+<li>Fine-grained debug message, typically used to capture a flow of events.</li>
+<li><code>DEBUG</code></li>
+<li>Mostly used for debugging purposes.</li>
+<li>Typically not enabled by default in production.</li>
+<li><code>INFO</code></li>
+<li>Normal operations of the service that should be logged.</li>
+<li>Indicate some important operation or state in the service.</li>
+<li><code>WARNING</code></li>
+<li>Indicate an event or state that was not part of common operations, but was handled.</li>
+<li>Event that potentially can become an error.</li>
+<li>Event that does not prevent correct operation of the system from an end-user perspective.</li>
+<li><code>ERROR</code></li>
+<li>Unhandled error that was unexpected to the service.</li>
+<li>Service can continue normal operation after error recovery.</li>
+<li><code>FATAL</code></li>
+<li>Non-recoverable error that forces the service to terminate.</li>
+</ul>
+<h2 id="health-checks">Health Checks</h2>
+<p>todo</p>
+<h2 id="metrics">Metrics</h2>
+<p>todo</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../services/mira/" title="Mira" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Mira
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../recipes/overview/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

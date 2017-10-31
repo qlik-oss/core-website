@@ -1,4 +1,4 @@
-# Use case: Custom Analytics UI
+# Use Case - Custom Analytics UI
 
 **WORK IN PROGRESS**
 

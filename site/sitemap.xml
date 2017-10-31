@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/getting-started/prerequisites/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/download/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/documentation/contract/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/documentation/apis/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/use-cases/overview/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/use-cases/use-case-custom-analytics/README/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/terminology/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/support-and-services/licensing/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/support-and-services/sales/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/support-and-services/tech-support/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/support-and-services/training/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/pricing/</loc>
+     <lastmod>2017-10-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
