@@ -2,3 +2,5 @@
 .vscode/
 # Merge files (BC, KDiff3 etc.)
 *.orig
+# Site generation folder
+site/
