@@ -21,9 +21,9 @@ Mira exposes its REST API on port 9100.
 Mira supports different operation modes. The operation mode determines how Mira discovers QIX Engine instances. The following operation modes are supported:
 
 - [_Swarm_](#swarm-mode) - Discovers QIX Engine instances in a Docker Swarm environment
-- [_Kubernetes_](#kubernetes-mode.md) - Discovers QIX Engine instances in a Kubernstes environment
-- [_DNS_](#dns-mode.md) - Discovers QIX Engine instances using DNS service look-ups
-- [_Local_](#local-mode.md) - Discovers QIX Engine instances running on the local Docker Engine, typically created using `docker-compose` on a local machine
+- [_Kubernetes_](#kubernetes-mode) - Discovers QIX Engine instances in a Kubernstes environment
+- [_DNS_](#dns-mode) - Discovers QIX Engine instances using DNS service look-ups
+- [_Local_](#local-mode) - Discovers QIX Engine instances running on the local Docker Engine, typically created using `docker-compose` on a local machine
 
 The operation mode is set by providing the environment variable `MIRA_MODE` to the Mira container.
 
@@ -189,7 +189,7 @@ spec:
 
 **NOTE** - Mira does not support hosting multiple engine containers inside the same pod, since they would get the same IP address and port.
 
-## DNS mode
+## DNS Mode
 
 In _DNS_ mode Mira resolves by hostname, and uses all returned IP addresses it finds to fetch additional QIX Engine instance data. _DNS_ mode is enabled by setting the environment variable `MIRA_MODE` to `dns`.
 
