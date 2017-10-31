@@ -64,9 +64,13 @@ The hosting environment may need to open access to these locations, otherwise ac
 
 ### Monitoring
 
+#### Health Check
+
+The License Service exposes `/v1/health` on port 9200, for health checking. Always responds with `200 OK`.
+
 #### Metrics
 
-The License Service exposes a `/metrics` endpoint on port 9200, for Prometheus metrics scraping. The following metrics are provided.
+The License Service exposes `/v1/metrics` on port 9200, for Prometheus metrics scraping. The following metrics are provided.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -78,4 +82,8 @@ The License Service exposes a `/metrics` endpoint on port 9200, for Prometheus m
 
 #### Logging
 
-_TODO_
+The License Service complies with logging as described in the Frontira [Contract](../../contract.md). By default, the minimum log level is `info`. However, for the Microsoft libraries the default minimum logging level is set to `warning` to avoid too verbose logging.
+
+The default minimum logging level can be overridden by providing the `LOG_LEVEL` environment variable.
+
+If provided, this will affect the logging level for all components in the License Service, including Microsoft libraries. It is recommended to use the default minimum level in a production environment, and only override the level for debugging purposes.

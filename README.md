@@ -29,7 +29,7 @@ A recipe typically answers a question of the form "_How do I ...?_". It is a way
 
 One example can be: _How do I load my own data into QIX Engine?_
 
-More information on recipes is provided in the [Recipes Overview](./docs/recipes-overview.md).
+More information on recipes is provided in the [Recipes](./docs/recipes/) overview.
 
 ### Services
 
