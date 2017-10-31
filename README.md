@@ -15,10 +15,10 @@ To develop and contribute to the Frontira documentation, the following must be a
 
 ## Serving the Site Locally
 
-To generate and serve the site locally on a developer machine, use the [serve.sh](./serve.sh) Bash script:
+To generate and serve the site locally on a developer machine, use the [serve.sh](./serve.sh) Bash script, in the repository root:
 
 ```sh
-$ serve.sh
+$ ./serve.sh
 ```
 
 This makes the generated site available on http://localhost:8000.
@@ -27,10 +27,10 @@ Once the site is running locally, modifications to sources can be made and the l
 
 ## Building the Site
 
-To build the site for deployment to some external web server, use the [build.sh](./build.sh) Bash script:
+To build the site for deployment to some external web server, use the [build.sh](./build.sh) Bash script, in the repository root:
 
 ```sh
-$ build.sh
+$ ./build.sh
 ```
 
 This builds the site contents in the `site/` folder in the repository root. This folder is an entry in `.gitignore` to avoid undesired pending repo changes.
