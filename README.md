@@ -41,7 +41,7 @@ This is an overview of the services provided in Frontira. Further information on
 | [License Service](./docs/services/license-service/) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
 | [Mira](./docs/services/mira/) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
 
-All of the Frontira services follows a set of [guidelines](./docs/guidelines.md).
+All services follow a [contract](./docs/contract.md).
 
 ### Libraries
 

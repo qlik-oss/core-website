@@ -1,6 +1,6 @@
-# Guidelines
+# Contract
 
-This document contains guidelines and standards that are used among Frontira services to keep the services aligned in aspects such as logging format, healthcheck and metrics. Any addition to or deviation from these guidelines _should_ be documented for each [service](../README.md#services).
+This document contains a contract for Frontira services to keep the services aligned in aspects such as logging formats, health checks and metrics. Any addition to or deviation from these guidelines _are_ documented by each [service](../README.md#services).
 
 ## Logging
 
