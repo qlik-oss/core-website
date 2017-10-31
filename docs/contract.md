@@ -1,6 +1,6 @@
 # Contract
 
-This document contains a contract for Frontira services to keep the services aligned in aspects such as logging formats, health checks and metrics. Any addition to or deviation from these guidelines _are_ documented by each [service](../README.md#services).
+This document contains a contract for Frontira services to keep the services aligned in aspects such as logging formats, health checks and metrics.
 
 ## Logging
 
