@@ -1,5 +1,17 @@
 version: 2
 jobs:
+  lint:
+    docker:
+    - image: node:8
+    working_directory: ~/info
+    steps:
+      - checkout
+      - run:
+          name: Install markdownlint-cli
+          command: npm install -g markdownlint-cli
+      - run:
+          name: Lint the markdowns
+          command: markdownlint ./docs
   build:
     machine: true
     working_directory: ~/info
@@ -10,3 +22,12 @@ jobs:
           command: ./build.sh
       - store_artifacts:
           path: ./site
+
+workflows:
+  version: 2
+  lint_and_build:
+    jobs:
+      - lint
+      - build:
+          requires:
+            - lint

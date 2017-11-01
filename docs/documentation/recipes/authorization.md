@@ -10,4 +10,4 @@ There are several variants how to ensure data authorization:
 
 These topics does not necessarily require a lot of explanations, short examples/suggestions on how to approach it should be enough.
 
-Internal docs: https://confluence/x/6ZaBB
+[Internal docs](https://confluence/x/6ZaBB)

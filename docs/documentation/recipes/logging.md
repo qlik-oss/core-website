@@ -10,4 +10,4 @@ The recipe does NOT contain:
 * Specific logging stacks like ELK
 * Specific dashboards for e.g. Kibana
 
-Internal docs: https://confluence/x/ZZaBB
+[Internal docs](https://confluence/x/ZZaBB)

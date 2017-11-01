@@ -4,7 +4,12 @@ This document contains a contract for Frontira services to keep the services ali
 
 ## Logging
 
-Services must log enough information for a developer to be able to debug and fix issues using the information available in the logs. In general, developers will not have access to production environments in order to debug services, but instead access to real-time historical logs for analysis. A service's logs is the main visibility into the behavior of the service. A service should not concern itself with the routing or storage/aggregation of its logs. A service should also not attempt to write to or manage logfiles. Instead a service should write its logs to `stdout` and concern itself with making sure that the content of the logs are sufficient for monitoring and fixing issues. In staging and production environments each service's log output will be captured by the execution environment and aggregated in near real-time.
+Services must log enough information for a developer to be able to debug and fix issues using the information available in the logs.
+In general, developers will not have access to production environments in order to debug services, but instead access to real-time historical logs for analysis.
+A service's logs is the main visibility into the behavior of the service. A service should not concern itself with the routing or storage/aggregation of its logs.
+A service should also not attempt to write to or manage logfiles.
+Instead a service should write its logs to `stdout` and concern itself with making sure that the content of the logs are sufficient for monitoring and fixing issues.
+In staging and production environments each service's log output will be captured by the execution environment and aggregated in near real-time.
 
 1. Only output events on `stdout`, never output events to files.
     * Events _must_ be on `stdout` and not `stderr`.

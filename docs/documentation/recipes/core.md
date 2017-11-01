@@ -6,7 +6,7 @@ It demonstrates a foundation to build full solutions on, where more aspects must
 
 ## GitHub repo
 
-The recipe assets are located at https://github.com/qlik-ea/core.
+The recipe assets are located [here](https://github.com/qlik-ea/core).
 
 When running commands presented in this recipe, it is assumed that they are run in that repository.
 
@@ -53,7 +53,7 @@ services:
     environment:
       - LEF_SERIAL=<LEF serial number here>
       - LEF_CONTROL=<LEF control number here>
-...      
+...
 ```
 
 ### Configuring the QIX Engine
@@ -81,7 +81,7 @@ Shell commands given below are assumed to be run in a Bash shell. On Windows, us
 Your Docker CLI must be set to issue commands to the swarm manager. This is typically done with:
 
 ```sh
-$ eval $(docker-machine env <swarm manager node>)
+eval $(docker-machine env <swarm manager node>)
 ```
 
 ### The Stack
@@ -116,7 +116,7 @@ This label is required for Mira to identify the engine service as a QIX Engine i
 The stack can be deployed with the following command:
 
 ```sh
-$ docker stack deploy -c ./docker-compose.yml --with-registry-auth frontira
+docker stack deploy -c ./docker-compose.yml --with-registry-auth frontira
 ```
 
 **NOTE**: `--with-registry-auth` is currently needed since the Docker images being used are not public, and credentials are needed to pull them from Docker Hub.
@@ -126,17 +126,16 @@ $ docker stack deploy -c ./docker-compose.yml --with-registry-auth frontira
 Once the stack is deployed, it should be possible to list the tasks in it:
 
 ```sh
-$ docker stack ps frontira
+docker stack ps frontira
 ```
 
 Also, it should be possible to query Mira to return the list of QIX Engines it has discovered, by accessing its `/engines` endpoint:
 
-```
-$ curl http://<swarm manager node ip>:9100/v1/engines
+```sh
+curl http://<swarm manager node ip>:9100/v1/engines
 ```
 
 This should return JSON content containing one or more QIX Engine instance and information about these instances.
-
 
 ## Deploying to Kubernetes
 
@@ -157,7 +156,7 @@ To add this secret to Kubernetes, the command below can be used.
 **NOTE**: The leading space character before the kubectl command is intentional. This prevents the command from being entered in the Bash shell command history, which is not desired for commands containing user credentials.
 
 ```sh
-$  kubectl create secret docker-registry dockerhub --docker-username=<your-name> --docker-password=<your-password> --docker-email=<your-email>
+kubectl create secret docker-registry dockerhub --docker-username=<your-name> --docker-password=<your-password> --docker-email=<your-email>
 ```
 
 ### The Stack
@@ -198,8 +197,8 @@ Two types of deployments to Kubernetes are examplified. The first one is the "pl
 #### Deploying to plain Kubernetes
 
 ```sh
-$ cd kubernetes/plain
-$ kubectl create -f ./frontira/
+cd kubernetes/plain
+kubectl create -f ./frontira/
 ```
 
 #### Deploying to Kubernetes with Helm
@@ -209,8 +208,8 @@ Helm must be installed on the client side and Tiller on the server side. To enab
 To deploy the stack using Helm, run:
 
 ```sh
-$ cd kubernetes/helm
-$ helm install ./frontira/
+cd kubernetes/helm
+helm install ./frontira/
 ```
 
 ### Accessing
@@ -218,13 +217,13 @@ $ helm install ./frontira/
 Once the stack is deployed, it should be possible to list all resources of the deployment with:
 
 ```sh
-$ kubectl get all
+kubectl get all
 ```
 
 Also, it should be possible to query Mira to return the list of QIX Engines it has discovered, by accessing its `/engines` endpoint:
 
-```
-$ curl http://<kubernetes node ip>:9100/v1/engines
+```sh
+curl http://<kubernetes node ip>:9100/v1/engines
 ```
 
 This should return JSON content containing one QIX Engine instance and information about it.
@@ -250,7 +249,7 @@ Mira uses the DNS mode for service discovery in a Nomad orchestration. This assu
 Deploy the core stack with the following commands:
 
 ```sh
-$ nomad run ./nomad/mira.nomad
-$ nomad run ./nomad/license-service.nomad
-$ nomad run ./nomad/engine.nomad
+nomad run ./nomad/mira.nomad
+nomad run ./nomad/license-service.nomad
+nomad run ./nomad/engine.nomad
 ```

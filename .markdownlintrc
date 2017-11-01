@@ -1,0 +1,6 @@
+{
+  "default": true,
+  "MD013": { "line_length": 10000 },
+  "MD033": false, // Allow inline html
+  "MD024":false // Allow multiple headers with the same content
+}
