@@ -53,7 +53,7 @@ The `postgres-grpc-connector` container exposes the port `50051` which is the sa
 
 Finally we can see that the engine exposes the ports `9076` and `9090`. The `9090` port is used for metrics and is not interesting in this example.
 
-But the `9076` port is the QIX Engines standard API port and here we have also opened it to the _outside_ and mapped it to port `9076` on your local machine. So requests to your machine on port `9076` will go to QIX Engine container.
+The `9076` port is the QIX Engines standard API port and here we have also opened it to the _outside_ and mapped it to port `9076` on your local machine. So requests to your machine on port `9076` will go to QIX Engine container.
 
 Now that we have a database container with the data, a GRPC-Connector container and a QIX Engine running all we need is to trigger a load of the data.
 

@@ -52,8 +52,4 @@ In this section each of the allowed log levels are specified and followed with a
 
 ## Health Checks
 
-todo
-
 ## Metrics
-
-todo

@@ -37,11 +37,26 @@ This builds the site contents in the `site/` folder in the repository root. This
 
 ## Linting the Documentation
 
-Markdown linting using [`markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) is part of the Circle CI pipeline.
+There are two types of linting part of the Circle CI pipeline.
 
-To lint the markdown files locally:
+### Markdown linting
+
+Markdown linting using [`markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) checks for markdown syntax errors.
+
+To lint the markdown files locally
 
 ```sh
 npm install -g markdownlint-cli
 markdownlint .
+```
+
+### Prose linting
+
+For English prose linting we use [`proselint`](https://github.com/amperser/proselint/). Before running prose linting locally you need to copy the [`.proselintrc`](./.proselintrc) file to your home folder e.g. `~/.proselintrc`.
+
+To run the linting
+
+```sh
+pip install proselint
+proselint .
 ```

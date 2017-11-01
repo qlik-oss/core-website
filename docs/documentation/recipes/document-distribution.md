@@ -1,3 +1,1 @@
 # Document Distribution Recipe
-
-TODO...
