@@ -4,7 +4,7 @@ _Probably basic information in Frontira context and then providing links to othe
 
 ## Logging
 
-The QIX Engine follows the logging format and levels specified in the [contract](../../contract.md).
+The QIX Engine follows the logging format and levels specified in the [contract](../../contract.md#logging).
 
 ### Log Levels
 
@@ -51,9 +51,9 @@ The QIX Engine uses a number of different log types depending on the category of
 | SmartSearchIndex | Smart Search index log | SmartSearchIndexLogVerbosity | 3 |
 | SSE | Server Side Extension log | SSELogVerbosity | 4 |
 
-### Log format
+### Log Format
 
-In addition to the required fields in the [contract](../contract.md) the QIX Engine also has a few log fields that are common to all log types:
+In addition to the required fields in the [contract](../../contract.md#logging) the QIX Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
