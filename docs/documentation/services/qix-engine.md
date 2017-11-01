@@ -4,7 +4,7 @@ _Probably basic information in Frontira context and then providing links to othe
 
 ## Logging
 
-The QIX Engine follows the logging format and levels specified in the [contract](../contract.md#logging).
+The QIX Engine follows the logging format and levels specified in the [Frontira Service Contract](../contract.md#logging).
 
 ### Log Types
 
@@ -24,9 +24,9 @@ The QIX Engine uses a number of different log types depending on the category of
 
 ### Log Levels
 
-Configuration of the log levels are done by providing settings through command line parameters when starting the docker container.
+Configuration of the log levels is done by providing settings through command line parameters when starting the docker container.
 
-The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |
@@ -53,13 +53,13 @@ services:
 
 ### Log Format
 
-In addition to the required fields in the [contract](../contract.md#logging) the QIX Engine also has a few log fields that are common to all log types:
+In addition to the required fields in the _Frontira Service Contract_ the QIX Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
 | user_id | Current active user |
 | log_type | Type of log, one of the following [types](#log-types) |
-| thread_id | Thread id |
+| thread_id | Thread identifier |
 
 Apart from the common fields some of the log types contain additional fields, and the fields are listed below in separate sections.
 
@@ -67,19 +67,19 @@ Apart from the common fields some of the log types contain additional fields, an
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | Document id |
-| object_id | Object id |
-| Session_id | Session id |
+| doc_id | Document identifier |
+| object_id | Object identifier |
+| session_id | Session identifier |
 
 #### Performance
 
 | Field | Description |
 | ----- | ----------- |
-| version | Engine component version |
+| version | QIX Engine component version |
 | entry_type | The state (Server Starting, Normal) |
 | active_doc_sessions | Number of sessions with a connected client |
 | doc_sessions | Number of idle sessions waiting for termination |
-| active_anonymous_doc_sessions | Number of sessions with an connected anonymous client |
+| active_anonymous_doc_sessions | Number of sessions with a connected anonymous client |
 | anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination |
 | active_tunneled_doc_sessions | |
 | tunneled_doc_sessions| |
@@ -114,10 +114,10 @@ This entry is logged on each session termination.
 | Field | Description |
 | ----- | ----------- |
 | version | Engine component version |
-| doc_id | Document id |
+| doc_id | Document identifier |
 | title | Document title |
 | doc_modified | Document last modified time |
-| exit_reason | Reason for exit e.g. Socket closed by client |
+| exit_reason | Reason for exit e.g. socket closed by client |
 | session_start | Session start time |
 | session_duration | Duration of the session in milliseconds |
 | cpu_spent_s | CPU spent in seconds |
@@ -125,7 +125,7 @@ This entry is logged on each session termination.
 | bytes_sent | Bytes sent |
 | calls | Number of RPC calls |
 | selections | Number of selections made |
-| secure_protocol | Is the http connection secure or not |
+| secure_protocol | Is the HTTP connection secure or not |
 
 #### QixPerformance
 
@@ -133,9 +133,9 @@ Log of each request and metrics around resource utilization. Should be used with
 
 | Field | Description |
 | ----- | ----------- |
-| server_id | Server id |
-| session_id | Session id |
-| request_id | Request id |
+| server_id | Server identifier |
+| session_id | Session identifier |
+| request_id | Request identifier |
 | method | RPC method |
 | target |
 | handle | Object identifier |
@@ -151,8 +151,8 @@ Log of each request and metrics around resource utilization. Should be used with
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | The document id |
-| title | The document title |
+| doc_id | Document identifier |
+| title | Document title |
 | plugin_name | The name of the plugin |
 | plugin_host | URL to the host endpoint |
 
@@ -160,9 +160,8 @@ Log of each request and metrics around resource utilization. Should be used with
 
 | Field | Description |
 | ----- | ----------- |
-| user_id | User id |
-| doc_id | Document id |
-| session_id | Session id |
+| doc_id | Document identifier |
+| session_id | Session identifier |
 | query_type | Query type |
 | query_terms | Query terms |
 | query_terms_count | Number of query terms |
@@ -176,8 +175,7 @@ Log of each request and metrics around resource utilization. Should be used with
 
 | Field | Description |
 | ----- | ----------- |
-| user_id | User id |
-| doc_id | Document id |
+| doc_id | Document identifier |
 | data_model_ix | |
 | field_ix | Field Index |
 | field_name | Field name |
