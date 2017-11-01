@@ -21,12 +21,10 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/python:3.6.1
+    machine: true
     working_directory: ~/info
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           name: Build the site
           command: ./build.sh
