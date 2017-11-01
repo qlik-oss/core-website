@@ -4,9 +4,9 @@ _Probably basic information in Frontira context and then providing links to othe
 
 ## Logging
 
-Configuration of the log levels are done by providing settings in either settings.ini or through command line parameters when starting the docker container.
+Configuration of the log levels are done by providing settings through command line parameters when starting the docker container.
 
-The QIX engine uses the log levels defined in the [contract](../contract.md), but each level is mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+The QIX engine uses the log levels defined in the [contract](../contract.md), but each level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |
@@ -17,7 +17,7 @@ The QIX engine uses the log levels defined in the [contract](../contract.md), bu
 | INFO | 4 |
 | DEBUG | 5 |
 
-An example of how to set the `System` log verbosity to `DEBUG` in a `docker-compose` yml.
+An example of how to set the `System` log verbosity to `DEBUG` in a `docker-compose` file.
 
 ```yaml
 version: "3.1"
@@ -33,31 +33,31 @@ services:
 
 ### Log Types
 
-| Type | Description | Default verbosity level |
-| -------- | ----------- | ----------------- |
-| System | System log | 4 |
-| Performance | Performance log | 4 |
-| Audit | Audit log | 0 |
-| Session | Session log | 4 |
-| Traffic | Traffic log | 0 |
-| QixPerformance | Qix performance log | 0 |
-| SmartSearchQuery | Smart search query log | 3 |
-| SmartSearchIndex | Smart search index log | 3 |
-| SSE | Server side extension log | 4 |
+The QIX Engine uses a number of different log types depending on the category of the log event. Each of these log types can have individual log verbosity as described above, and can be toggled depending on scenario. Below is a list of the different log types that are available and the default verbosity level for each.
+
+| Type | Description | CLI parameter | Default verbosity level |
+| ---- | ----------- | ------------- | ----------------------- |
+| System | All _standard_ debug messages | SystemLogVerbosity | 4 |
+| Performance | Performance log, typically containing metrics e.g. NbrActiveUsers and CPULoad | PerformanceLogVerbosity | 4 |
+| Audit | User based detailed logging e.g. when the user makes a selection in a doc | AuditLogVerbosity | 0 |
+| Session |  Information about a client session e.g. user, machine id, ip-address, port | SessionLogVerbosity | 4 |
+| Traffic | JSON traffic to and from the QIX Engine | TrafficLogVerbosity | 0 |
+| QixPerformance | QIX protocol performance | QixPerformanceLogVerbosity | 0 |
+| SmartSearchQuery | Smart Search query log | SmartSearchQueryLogVerbosity | 3 |
+| SmartSearchIndex | Smart Search index log | SmartSearchIndexLogVerbosity | 3 |
+| SSE | Server Side Extension log | SSELogVerbosity | 4 |
 
 ### Log format
 
-In addition to the required fields in the [contract](../contract.md) the QIX engine also has a few fields that are logged either all log types or also just for specific types.
-
-#### Common fields
-
-The following fields are included for all log types.
+In addition to the required fields in the [contract](../contract.md) the QIX Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
 | user_id | Current active user |
-| log_type | Type of log, see [here](#log-types) |
+| log_type | Type of log, one of the following [types](#log-types) |
 | thread_id | Thread id |
+
+Apart from the common fields some of the log types contain additional fields, and the fields are listed below in separate sections.
 
 #### Audit
 
