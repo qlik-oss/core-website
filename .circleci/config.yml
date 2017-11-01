@@ -11,7 +11,7 @@ jobs:
           command: npm install -g markdownlint-cli
       - run:
           name: Lint the markdowns
-          command: markdownlint ./docs
+          command: markdownlint .
   build:
     machine: true
     working_directory: ~/info
