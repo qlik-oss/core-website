@@ -2,5 +2,6 @@
 *   text eol=lf
 
 # Binary files
+*.jpg binary
 *.png binary
 *.qvf binary

@@ -1,6 +1,6 @@
 # Home
 
-![Frontira](./images/frontira-banner.png "Frontira")
+![Frontira](./images/frontira-banner.jpg "Frontira")
 This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
 
 This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
