@@ -1,6 +1,6 @@
 # Use Case - Custom Analytics UI
 
-**WORK IN PROGRESS**
+WORK IN PROGRESS
 
 ## Background
 
@@ -10,7 +10,6 @@ A company is opening a medical data portal. This portal proposes some advanced a
 
 * The portal should be able to serve peak traffic of around 10.000 simultaneous connections with an average of 500 on the given data model.
 * The portal should run with minimal downtime, rolling updates of the web application should be possible without any downtime.
-
 
 ## Technical Requirements
 
@@ -32,7 +31,6 @@ A company is opening a medical data portal. This portal proposes some advanced a
 * The data set (no dynamic data reduction) is the same for every end-user.
 * The data reload is usually every quarter when FDA releases them.
 * A subscription model won't be implemented (rely on authentication permissions only).
-
 
 ## Data
 
@@ -59,38 +57,39 @@ The web application presents information in four main tabs focusing on:
 
 ### Scaling
 
-- While it is a basic assumption of this use-case, that scaling is done manually, I'd like to know as a developer where I could hook into the APIs to create my custom, fully automated scaling strategy.
+* While it is a basic assumption of this use-case, that scaling is done manually, I'd like to know as a developer where I could hook into the APIs to create my custom, fully automated scaling strategy.
 
 ### Monitoring
 
-- As a dev-ops I want to be able to monitor the system and find potential issues.
-- As a dev-ops I want to be able to monitor all log-files from all services/containers.
-- As a dev-ops I want to be able to analyze the number of page-hits/sessions over time.
-- As a dev-ops I want to be able to get typical web-page KPIs out of the system (page-hits, sessions, up-time, down-time, reliability, etc.)
-- As a dev-ops I want to be able to get some information from the monitoring-system about the whether I should scale up/down the system (based on the assumption mentioned above that scaling is done manually)
-- As a dev-ops I want to be able to see how the QiX Engine containers are behaving, including getting detailed log-files and error-messages
+* As a dev-ops I want to be able to monitor the system and find potential issues.
+* As a dev-ops I want to be able to monitor all log-files from all services/containers.
+* As a dev-ops I want to be able to analyze the number of page-hits/sessions over time.
+* As a dev-ops I want to be able to get typical web-page KPIs out of the system (page-hits, sessions, up-time, down-time, reliability, etc.)
+* As a dev-ops I want to be able to get some information from the monitoring-system about the whether I should scale up/down the system (based on the assumption mentioned above that scaling is done manually)
+* As a dev-ops I want to be able to see how the QiX Engine containers are behaving, including getting detailed log-files and error-messages
 
 ### Testing
 
-- As a dev-ops I expect basic e2e tests
-- As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services)
-    - Max requests/hits handled per sec
-    - Failure rate / Errors per second
-    - Avg/Min/Max response time
-    - Latency
-    - Number of users handled by the system
-    - See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1) for more examples
-- When using the stress-tests mentioned above, I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test
-    - Number of concurrent users
-    - Activity pattern of users (just watching, heavily making selections, etc.)
+* As a dev-ops I expect basic e2e tests
+* As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services)
+  * Max requests/hits handled per sec
+  * Failure rate / Errors per second
+  * Avg/Min/Max response time
+  * Latency
+  * Number of users handled by the system
+  * See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1) for more examples
+* When using the stress-tests mentioned above, I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test
+  * Number of concurrent users
+  * Activity pattern of users (just watching, heavily making selections, etc.)
 
 ## System Design
 
 _NOTE: The design documentation is work in progress. More information will be added on a regular basis._
 
 This use case is about scaling the QIX Engine in a configuration of
-- One document
-- Multiple users
+
+* One document
+* Multiple users
 
 Scaling up engines needs to be done only to reduce load as a consequence of multiple users access the system simultaneously. All engine instances are equivalent and there is no need to have a certain engine service a certain user since all users access the same single document.
 

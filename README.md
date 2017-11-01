@@ -18,10 +18,10 @@ To develop and contribute to the Frontira documentation, the following must be a
 To generate and serve the site locally on a developer machine, use the [serve.sh](./serve.sh) Bash script, in the repository root:
 
 ```sh
-$ ./serve.sh
+./serve.sh
 ```
 
-This makes the generated site available on http://localhost:8000.
+This makes the generated site available [here](http://localhost:8000).
 
 Once the site is running locally, modifications to sources can be made and the local web server automatically updates. No re-build step is needed.
 
@@ -30,7 +30,18 @@ Once the site is running locally, modifications to sources can be made and the l
 To build the site for deployment to some external web server, use the [build.sh](./build.sh) Bash script, in the repository root:
 
 ```sh
-$ ./build.sh
+./build.sh
 ```
 
 This builds the site contents in the `site/` folder in the repository root. This folder is an entry in `.gitignore` to avoid undesired pending repo changes.
+
+## Linting the Documentation
+
+Markdown linting using [`markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) is part of the Circle CI pipeline.
+
+To lint the markdown files locally:
+
+```sh
+npm install -g markdownlint-cli
+markdownlint .
+```
