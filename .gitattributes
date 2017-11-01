@@ -1,2 +1,6 @@
 # Unix line endings in all text files.
 *   text eol=lf
+
+# Binary files
+*.png binary
+*.qvf binary
