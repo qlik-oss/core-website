@@ -4,13 +4,17 @@ _Probably basic information in Frontira context and then providing links to othe
 
 ## Logging
 
+The QIX Engine follows the logging format and levels specified in the [contract](../../contract.md).
+
+### Log Levels
+
 Configuration of the log levels are done by providing settings through command line parameters when starting the docker container.
 
-The QIX engine uses the log levels defined in the [contract](../contract.md), but each level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+The QIX Engine uses the [log levels](../../contract.md#logging-levels) defined in the _contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |
-| Off (disabled) | 0 |
+| OFF (disabled) | 0 |
 | FATAL | 1 |
 | ERROR | 2 |
 | WARNING | 3 |
@@ -73,10 +77,10 @@ Apart from the common fields some of the log types contain additional fields, an
 | ----- | ----------- |
 | version | Engine component version |
 | entry_type | The state (Server Starting, Normal) |
-| active_doc_sessions | Session with a connected client |
-| doc_sessions | Idle session waiting for termination |
-| active_anonymous_doc_sessions | |
-| anonymous_doc_sessions | |
+| active_doc_sessions | Number of sessions with a connected client |
+| doc_sessions | Number of idle sessions waiting for termination |
+| active_anonymous_doc_sessions | Number of sessions with an connected anonymous client |
+| anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination |
 | active_tunneled_doc_sessions | |
 | tunneled_doc_sessions| |
 | doc_sessions_start | |
@@ -105,7 +109,7 @@ Apart from the common fields some of the log types contain additional fields, an
 
 #### Session
 
-This log entry is called on each session termination.
+This entry is logged on each session termination.
 
 | Field | Description |
 | ----- | ----------- |
