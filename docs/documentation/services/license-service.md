@@ -82,7 +82,7 @@ The License Service exposes `/v1/metrics` on port 9200, for Prometheus metrics s
 
 #### Logging
 
-The License Service complies with logging as described in the Frontira [Contract](../../contract.md). By default, the minimum log level is `info`. However, for the Microsoft libraries the default minimum logging level is set to `warning` to avoid too verbose logging.
+The License Service complies with logging as described in the Frontira [Contract](../contract.md). By default, the minimum log level is `info`. However, for the Microsoft libraries the default minimum logging level is set to `warning` to avoid too verbose logging.
 
 The default minimum logging level can be overridden by providing the `LOG_LEVEL` environment variable.
 

@@ -1,67 +1,36 @@
-# Frontira Information
+# Frontira Documentation Sources
 
-This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
+This repo contains sources to the Frontira end-user documentation.
 
-## Terminology
+Documentation is primarily represented as markdown files and images. Markdown files are organized in the same way as the generated site is organized.
 
-Terminology used can be found in [Terminology](./docs/terminology.md).
+[MkDocs](http://www.mkdocs.org) is used to generate and build the site. Currently the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme is used but this shall be changes to a theme matches Qlik branding.
 
-## Deliverables
+## Prerequisites
 
-Frontira consists of different deliverables:
+To develop and contribute to the Frontira documentation, the following must be available on the local machine:
 
-- Use cases
-- Recipes
-- Core components
-- Custom Qliktive components
+- Docker - [Docker for Windows](https://www.docker.com/docker-windows) or [Docker for Mac](https://www.docker.com/docker-mac)
+- Bash - On Windows, Git Bash included in [Git for Windows](https://git-for-windows.github.io/) is recommended
 
-### Use Cases
+## Serving the Site Locally
 
-A fictive company, called **Qliktive**, implements solutions on top of this project. These solutions realize different use cases that leverage the power of the QIX Engine and are used as our showcases. Each Qliktive use case is developed in a repo of its own.
+To generate and serve the site locally on a developer machine, use the [serve.sh](./serve.sh) Bash script, in the repository root:
 
-Currently, this use case is provided:
+```sh
+$ ./serve.sh
+```
 
-- [Custom Analytics UI](./docs/use-cases/use-case-custom-analytics/README.md)
+This makes the generated site available on http://localhost:8000.
 
-### Recipes
+Once the site is running locally, modifications to sources can be made and the local web server automatically updates. No re-build step is needed.
 
-A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation.
+## Building the Site
 
-One example can be: _How do I load my own data into QIX Engine?_
+To build the site for deployment to some external web server, use the [build.sh](./build.sh) Bash script, in the repository root:
 
-More information on recipes is provided in the [Recipes](./docs/recipes/) overview.
+```sh
+$ ./build.sh
+```
 
-### Services
-
-This is an overview of the services provided in Frontira. Further information on each service can be found by following the provided links.
-
-| Service    | Feature | Docker Image | Source Code |
-| ---------- | ------- | ------------ | ----------- |
-| [QIX Engine](./docs/services/qix-engine/) | The powerful associative indexing engine from Qlik and the foundation of Frontira | [qlikea/engine](https://hub.docker.com/r/qlikea/engine) | Closed source |
-| [License Service](./docs/services/license-service/) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
-| [Mira](./docs/services/mira/) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
-
-All services follow a [contract](./docs/contract.md).
-
-### Libraries
-
-There are also several open source libraries that are useful when working with Frontira:
-
-| Library | Feature | Source Code |
-| ------- | ------- | ----------- |
-| [enigma.js](https://github.com/qlik-oss/enigma.js/) | Communication with the QIX Engine | [GitHub](https://github.com/qlik-oss/enigma.js/) |
-| [halyard.js](https://github.com/qlik-oss/halyard.js) | Simplifies data loading into the QIX Engine | [GitHub](https://github.com/qlik-oss/halyard.js) |
-| [after-work.js](https://github.com/qlik-oss/after-work.js) | Unified testing framework for different test levels | [GitHub](https://github.com/qlik-oss/after-work.js) |
-| picasso.js | Visualization library on top of the QIX Engine | Not released yet |
-
-### Custom Qliktive Components
-
-These components are packages and microservices that are developed specifically for a certain Qliktive use case. As such, they are not generally re-usable between different solutions. The idea is rather to provide examples and with some parts that can be further built upon for any new solution. Each such component is developed in a separate repo.
-
-Since these components are more of example implementations, they do not come with the same level of support from Qlik as the core Components described above.
-
-We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
-
-## Testing Strategy
-
-Components, microservices, and the example use case implementations are subject to the [Testing Strategy](./docs/testing-strategy.md).
+This builds the site contents in the `site/` folder in the repository root. This folder is an entry in `.gitignore` to avoid undesired pending repo changes.
