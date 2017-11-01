@@ -1,8 +1,7 @@
 version: 2
 jobs:
-  lint:
-    docker:
-    - image: node:8
+  build:
+    machine: true
     working_directory: ~/info
     steps:
       - checkout
@@ -26,22 +25,8 @@ jobs:
       - run:
           name: Run proselint
           command: proselint .
-  build:
-    machine: true
-    working_directory: ~/info
-    steps:
-      - checkout
       - run:
           name: Build the site
           command: ./build.sh
       - store_artifacts:
           path: ./site
-
-workflows:
-  version: 2
-  lint_and_build:
-    jobs:
-      - lint
-      - build:
-          requires:
-            - lint

@@ -37,11 +37,11 @@ This builds the site contents in the `site/` folder in the repository root. This
 
 ## Linting the Documentation
 
-There are two types of linting part of the Circle CI pipeline.
+There are two types of linting that are included in the Circle CI pipeline.
 
 ### Markdown linting
 
-Markdown linting using [`markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) checks for markdown syntax errors.
+Markdown linting using [`markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) that checks for markdown syntax errors.
 
 To lint the markdown files locally
 
@@ -54,7 +54,7 @@ markdownlint .
 
 For English prose linting we use [`proselint`](https://github.com/amperser/proselint/). Before running prose linting locally you need to copy the [`.proselintrc`](./.proselintrc) file to your home folder e.g. `~/.proselintrc`.
 
-To run the linting
+To run the prose linting locally
 
 ```sh
 pip install proselint
