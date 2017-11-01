@@ -4,13 +4,29 @@ _Probably basic information in Frontira context and then providing links to othe
 
 ## Logging
 
-The QIX Engine follows the logging format and levels specified in the [contract](../../contract.md#logging).
+The QIX Engine follows the logging format and levels specified in the [contract](../contract.md#logging).
+
+### Log Types
+
+The QIX Engine uses a number of different log types depending on the category of the log event. Each of these log types can have individual log verbosity as described in [log levels](#log-levels), and can be toggled depending on scenario. Below is a list of the different log types that are available and the default verbosity level for each.
+
+| Type | Description | CLI parameter | Default verbosity level |
+| ---- | ----------- | ------------- | ----------------------- |
+| System | All _standard_ debug messages | SystemLogVerbosity | 4 |
+| Performance | Performance log, typically containing metrics e.g. NbrActiveUsers and CPULoad | PerformanceLogVerbosity | 4 |
+| Audit | User based detailed logging e.g. when the user makes a selection in a doc | AuditLogVerbosity | 0 |
+| Session |  Information about a client session e.g. user, machine id, ip-address, port | SessionLogVerbosity | 4 |
+| Traffic | JSON traffic to and from the QIX Engine | TrafficLogVerbosity | 0 |
+| QixPerformance | QIX protocol performance | QixPerformanceLogVerbosity | 0 |
+| SmartSearchQuery | Smart Search query log | SmartSearchQueryLogVerbosity | 3 |
+| SmartSearchIndex | Smart Search index log | SmartSearchIndexLogVerbosity | 3 |
+| SSE | Server Side Extension log | SSELogVerbosity | 4 |
 
 ### Log Levels
 
 Configuration of the log levels are done by providing settings through command line parameters when starting the docker container.
 
-The QIX Engine uses the [log levels](../../contract.md#logging-levels) defined in the _contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |
@@ -35,25 +51,9 @@ services:
       ...
 ```
 
-### Log Types
-
-The QIX Engine uses a number of different log types depending on the category of the log event. Each of these log types can have individual log verbosity as described above, and can be toggled depending on scenario. Below is a list of the different log types that are available and the default verbosity level for each.
-
-| Type | Description | CLI parameter | Default verbosity level |
-| ---- | ----------- | ------------- | ----------------------- |
-| System | All _standard_ debug messages | SystemLogVerbosity | 4 |
-| Performance | Performance log, typically containing metrics e.g. NbrActiveUsers and CPULoad | PerformanceLogVerbosity | 4 |
-| Audit | User based detailed logging e.g. when the user makes a selection in a doc | AuditLogVerbosity | 0 |
-| Session |  Information about a client session e.g. user, machine id, ip-address, port | SessionLogVerbosity | 4 |
-| Traffic | JSON traffic to and from the QIX Engine | TrafficLogVerbosity | 0 |
-| QixPerformance | QIX protocol performance | QixPerformanceLogVerbosity | 0 |
-| SmartSearchQuery | Smart Search query log | SmartSearchQueryLogVerbosity | 3 |
-| SmartSearchIndex | Smart Search index log | SmartSearchIndexLogVerbosity | 3 |
-| SSE | Server Side Extension log | SSELogVerbosity | 4 |
-
 ### Log Format
 
-In addition to the required fields in the [contract](../../contract.md#logging) the QIX Engine also has a few log fields that are common to all log types:
+In addition to the required fields in the [contract](../contract.md#logging) the QIX Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
