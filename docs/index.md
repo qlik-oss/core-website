@@ -7,10 +7,6 @@ and links to other useful resources.
 This is the top-level repo containing general information, concepts, specifications, examples,
 and links to other useful resources.
 
-## Terminology
-
-Terminology used can be found in [Terminology](./terminology.md).
-
 ## Deliverables
 
 Frontira consists of different deliverables:
