@@ -8,7 +8,10 @@ The QIX Engine follows the logging format and levels specified in the [Frontira 
 
 ### Log Types
 
-The QIX Engine uses a number of different log types depending on the category of the log event. Each of these log types can have individual log verbosity as described in [log levels](#log-levels), and can be toggled depending on scenario. Below is a list of the different log types that are available and the default verbosity level for each.
+The QIX Engine uses different log types depending on the category of the log event.
+Each of these log types can have individual log verbosity as described in [log levels](#log-levels),
+and can be toggled depending on scenario.
+Below is a list of the different log types that are available and the default verbosity level for each.
 
 | Type | Description | CLI parameter | Default verbosity level |
 | ---- | ----------- | ------------- | ----------------------- |
@@ -26,7 +29,8 @@ The QIX Engine uses a number of different log types depending on the category of
 
 Configuration of the log levels is done by providing settings through command line parameters when starting the docker container.
 
-The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_, but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_,
+but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |
@@ -53,7 +57,8 @@ services:
 
 ### Log Format
 
-In addition to the required fields in the _Frontira Service Contract_ the QIX Engine also has a few log fields that are common to all log types:
+In addition to the required fields in the _Frontira Service Contract_ the QIX Engine also has a few log fields that
+are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
@@ -61,7 +66,8 @@ In addition to the required fields in the _Frontira Service Contract_ the QIX En
 | log_type | Type of log, one of the following [types](#log-types) |
 | thread_id | Thread identifier |
 
-Apart from the common fields some of the log types contain additional fields, and the fields are listed below in separate sections.
+Apart from the common fields some of the log types contain additional fields,
+and the fields are listed below in separate sections.
 
 #### Audit
 
@@ -129,7 +135,8 @@ This entry is logged on each session termination.
 
 #### QixPerformance
 
-Log of each request and metrics around resource utilization. Should be used with caution as it will produce a lot of log entries.
+Log of each request and metrics around resource utilization.
+Should be used with caution as it will produce a lot of log entries.
 
 | Field | Description |
 | ----- | ----------- |
