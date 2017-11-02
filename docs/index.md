@@ -1,9 +1,11 @@
 # Home
 
 ![Frontira](./images/frontira-banner.jpg "Frontira")
-This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
+This is the top-level repo containing general information, concepts, specifications, examples,
+and links to other useful resources.
 
-This is the top-level repo containing general information, concepts, specifications, examples, and links to other useful resources.
+This is the top-level repo containing general information, concepts, specifications, examples,
+and links to other useful resources.
 
 ## Deliverables
 
@@ -16,7 +18,8 @@ Frontira consists of different deliverables:
 
 ### Recipes
 
-A recipe typically answers a question of the form "_How do I ...?_". It is a way to describe important concepts in more isolation.
+A recipe typically answers a question of the form "_How do I ...?_".
+It is a way to describe important concepts in more isolation.
 
 One example can be: _How do I load my own data into QIX Engine?_
 
@@ -24,7 +27,8 @@ More information on recipes is provided in the [Recipes](./docs/recipes/) overvi
 
 ### Services
 
-This is an overview of the services provided in Frontira. Further information on each service can be found by following the provided links.
+This is an overview of the services provided in Frontira.
+Further information on each service can be found by following the provided links.
 
 | Service    | Feature | Docker Image | Source Code |
 | ---------- | ------- | ------------ | ----------- |
@@ -47,8 +51,12 @@ There are also several open source libraries that are useful when working with F
 
 ### Custom Qliktive Components
 
-These components are packages and microservices that are developed specifically for a certain Qliktive use case. As such, they are not generally re-usable between different solutions. The idea is rather to provide examples and with some parts that can be further built upon for any new solution. Each such component is developed in a separate repo.
+These components are packages and microservices that are developed specifically for a certain Qliktive use case.
+As such, they are not generally re-usable between different solutions.
+The idea is rather to provide examples and with some parts that can be further built upon for any new solution.
+Each such component is developed in a separate repo.
 
-Since these components are more of example implementations, they do not come with the same level of support from Qlik as the core Components described above.
+Since these components are more of example implementations,
+they do not come with the same level of support from Qlik as the core Components described above.
 
 We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.

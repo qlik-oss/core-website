@@ -11,4 +11,4 @@ Questions to answer:
 * How do I know what system (“size” of infrastructure) I need?
   Algorithm that can be applied to get a rough estimation (e.g. container memory when doc is loaded, add 10% per session)?
 
-Internal docs: https://confluence/x/UJmBB
+[Internal docs](https://confluence/x/UJmBB)
