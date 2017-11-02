@@ -1,3 +1,0 @@
-linters:
-  - markdownlint . # Markdown syntax linting
-  - proselint . # English prose linting
