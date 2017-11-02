@@ -12,7 +12,7 @@ pages:
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
-    - Recipes:      
+    - Recipes:
       - Overview: documentation/recipes/overview.md
       - Authorization: documentation/recipes/authorization.md
       - Core: documentation/recipes/core.md
