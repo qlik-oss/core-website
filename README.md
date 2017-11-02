@@ -52,4 +52,4 @@ The linting is part of the Circle CI pipeline, but can also be run locally
 ./lint.sh
 ```
 
-The linters that are enabled is configured in [.lint-condo.yaml](.lint-condo.yaml).
+The linters that are enabled is configured in [.lint-condo.yaml](./docs/.lint-condo.yaml).
