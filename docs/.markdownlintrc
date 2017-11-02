@@ -1,4 +1,7 @@
 {
+  "MD007": {
+    "indent": 4  // For MkDoc to generate nested lists corrrectly
+  },
   "MD013": {
     "line_length": 120,
     "tables": false, // Allow long lines in a table

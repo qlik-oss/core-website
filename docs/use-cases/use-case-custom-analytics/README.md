@@ -84,17 +84,17 @@ The web application presents information in four main tabs focusing on:
 
 * As a dev-ops I expect basic e2e tests
 * As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services)
-  * Max requests/hits handled per sec
-  * Failure rate / Errors per second
-  * Avg/Min/Max response time
-  * Latency
-  * Number of users handled by the system
-  * See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1)
-    for more examples
+    * Max requests/hits handled per sec
+    * Failure rate / Errors per second
+    * Avg/Min/Max response time
+    * Latency
+    * Number of users handled by the system
+    * See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1)
+      for more examples
 * When using the stress-tests mentioned above,
   I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test
-  * Number of concurrent users
-  * Activity pattern of users (just watching, heavily making selections, etc.)
+    * Number of concurrent users
+    * Activity pattern of users (just watching, heavily making selections, etc.)
 
 ## System Design
 
