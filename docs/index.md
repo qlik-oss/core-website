@@ -21,8 +21,7 @@ Developers building their solutions on Frontira are provided with a large range 
 
 ## Services
 
-This is an overview of the services provided in Frontira. Further information on each service can be found by following
-the links.
+These are the services provided in Frontira:
 
 | Service    | Feature | Docker Image | Source Code |
 | ---------- | ------- | ------------ | ----------- |
@@ -34,7 +33,7 @@ All services in Frontira follows a common [contract](./documentation/contract.md
 
 ## Libraries
 
-There are also several open source libraries that are useful when working with Frontira:
+Several open source libraries exist that are useful when working with Frontira:
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
