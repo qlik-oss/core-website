@@ -7,8 +7,8 @@ logging formats, health checks and metrics.
 
 Services must log enough information for a developer to be able to debug and fix issues using the information
 available in the logs.
-In general, developers will not have access to production environments in order to debug services,
-but instead access to real-time historical logs for analysis.
+In general, developers will not have access to production environments in order to debug services, but instead access
+to real-time historical logs for analysis.
 A service's logs is the main visibility into the behavior of the service.
 A service should not concern itself with the routing or storage/aggregation of its logs.
 A service should also not attempt to write to or manage logfiles.

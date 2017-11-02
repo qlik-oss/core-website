@@ -36,9 +36,8 @@ The operation mode is set by providing the environment variable `MIRA_MODE` to t
 ## QIX Engine Labeling
 
 In all modes, except _DNS_, Mira uses labels to identify QIX engine instances.
-By default, the label Mira searches for is `qix-engine`,
-but can be configured using the `MIRA_DISCOVERY_LABEL` environment variable.
-Note that Mira only looks at the label key and ignores its value.
+By default, the label Mira searches for is `qix-engine`, but can be configured using the `MIRA_DISCOVERY_LABEL`
+environment variable. Note that Mira only looks at the label key and ignores its value.
 The values can even be omitted. Each section on the different modes shows examples of discovery labeling.
 
 ## Port Labeling
