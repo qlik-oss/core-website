@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Lint the documentation
+          command: ./lint.sh
+      - run:
           name: Build the site
           command: ./build.sh
       - store_artifacts:
