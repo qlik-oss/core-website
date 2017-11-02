@@ -2,7 +2,7 @@
 
 ![Frontira](./images/frontira-banner.jpg "Frontira")
 
-Frontira by [Qlik](http://qlik.com) provides a development platform for building custom data exploration and data
+Frontira by [Qlik](https://qlik.com) provides a development platform for building custom data exploration and data
 visualization solutions on top of QIX Engine, the powerful associative indexing engine from Qlik.
 
 QIX Engine differentiates from other vendors by dynamically calculating and providing associations based on data
@@ -12,7 +12,7 @@ of the data.
 ## Containers
 
 Frontira is designed to utilize the power of container-based solutions and microservice architectures, such as
-[Docker](http://docker.com).
+[Docker](https://docker.com).
 
 The QIX Engine on Linux, provided as a Docker image, forms the foundation of this.
 
