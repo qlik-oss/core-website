@@ -15,7 +15,7 @@ The QIX Engine will use JWTs to:
 
 ## JWT Format
 
-A typical JWT consists of three parts (each being base64url-encoded and separated by a dot):
+A typical JWT consists of three parts (each being [base64url](https://tools.ietf.org/html/rfc4648#section-5)-encoded and separated by a dot):
 `{header}.{payload}.{signature}`.
 
 The header describes the type of token, and the hashing algorithm used to sign the token. For example:
@@ -29,10 +29,17 @@ The header describes the type of token, and the hashing algorithm used to sign t
 
 The payload contains the claims made by the token. The QIX Engine considers the `sub` and `exp` properties:
 
+| Key | Description |
+| -----|------------|
+| `sub` | The subject, a unique identifier for a user |
+| `exp` | The numerical expiration date, never expires if omitted |
+
+For example:
+
 ```json
 {
-  "sub": "<user>",
-  "exp": "<numeric date>"
+  "sub": "jdoe",
+  "exp": "1541173994"
 }
 ```
 
@@ -59,6 +66,18 @@ where `enforcement type` is one of the following values:
 
 HMAC secrets are injected through the command line parameter: `-S JsonWebTokenSecret=<secret>`. Elliptic curve and RSA
 requires a public key (packaged in a `pem` file)  which is set through: `-S JsonWebTokenPath=<path to pem file>`.
+
+For example:
+
+```yaml
+version: "3.1"
+
+services:
+  engine:
+    image: qlikea/engine
+    command: -S ValidateJsonWebTokens=2 -S JsonWebTokenSecret=passw0rd
+  ...
+```
 
 ## JWT Validation
 
