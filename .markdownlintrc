@@ -4,6 +4,6 @@
     "tables": false, // Allow long lines in a table
     "code_blocks": false // Allow long lines in a code block
   },
-  "MD024":false, // Allow multiple headers with the same content
+  "MD024": false, // Allow multiple headers with the same content
   "MD033": false // Allow inline html
 }
