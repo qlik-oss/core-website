@@ -18,7 +18,6 @@ pages:
       - Core: documentation/recipes/core.md
       - Data Loading: documentation/recipes/data-loading.md
       - Document Distribution: documentation/recipes/document-distribution.md
-      - Logging: documentation/recipes/logging.md
       - Monitoring and Scaling: documentation/recipes/monitoring-and-scaling.md
     - APIs: documentation/apis.md
   - Use Cases:
