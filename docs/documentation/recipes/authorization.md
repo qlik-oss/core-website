@@ -7,13 +7,13 @@ This recipe explains how the QIX Engine uses JSON Web Tokens to authorize users.
 JSON Web Token (JWT) is an open standard for creating access tokens. To read more about the details of JWTs please
 refer to [https://jwt.io/](https://jwt.io/) and [RFC7519](https://tools.ietf.org/html/rfc7519).
 
-The QIX engine will use JWTs to:
+The QIX Engine will use JWTs to:
 
 - connect users to the same sessions
 - apply data security (i.e. section access)
 - enforce document level access control <---- needs to be verified
 
-## JWT format
+## JWT Format
 
 A typical JWT consists of three parts (each being base64url-encoded and separated by a dot):
 `{header}.{payload}.{signature}`.
@@ -22,8 +22,8 @@ The header describes the type of token, and the hashing algorithm used to sign t
 
 ```json
 {
-  "typ":"JWT",
-  "alg":"none"
+  "typ": "JWT",
+  "alg": "none"
 }
 ```
 
@@ -45,7 +45,7 @@ algorithms:
 
 ## QIX Engine Configuration
 
-The QIX engine can be configured to validate JWTs using the following command line parameters:
+The QIX Engine can be configured to validate JWTs using the following command line parameter:
 
 `-S ValidateJsonWebTokens=<enforcement type>`
 
@@ -58,20 +58,20 @@ where `enforcement type` is one of the following values:
 | 2 | Enforce JWT validation; JWT must be signed |
 
 HMAC secrets are injected through the command line parameter: `-S JsonWebTokenSecret=<secret>`. Elliptic curve and RSA
-requires a public key (packaged in a `pem`file)  which is set through: `-S JsonWebTokenPath=<path to pem file>`.
+requires a public key (packaged in a `pem` file)  which is set through: `-S JsonWebTokenPath=<path to pem file>`.
 
 ## JWT Validation
 
-The JWT should be passed to the QIX Engine in the `Authorization` header using the `Bearer` schema:
+The JWT shall be passed to the QIX Engine in the `Authorization` header using the `Bearer` schema:
 `Authorization: Bearer <token>`
 
-The JWT will be validated once the websocket connection is established. In order for validation to be successful, two
+The JWT is validated once the websocket connection is established. In order for validation to be successful, two
 conditions must be met:
 
 1. the signature must be valid
-1. if the `exp` field exists, the expiry date must not been passed
+1. if the `exp` field exists, the expiry date must not have passed
 
-If validation fails, the request will be rejected with the `401 Unauthorized` HTTP response code.
+If validation fails, the request is rejected with the `401 Unauthorized` HTTP response code.
 
 ## Section access
 
