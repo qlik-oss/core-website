@@ -1,4 +1,3 @@
 linters:
-  # Markdown
-  - markdownlint .
-  - proselint *.md
+  - markdownlint . # Markdown syntax linting
+  - proselint *.md # English prose linting

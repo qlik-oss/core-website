@@ -45,9 +45,11 @@ This folder is an entry in `.gitignore` to avoid undesired pending repo changes.
 ## Linting the Documentation
 
 For linting the documentation in this repository we use [lint-condo](https://github.com/singapore/lint-condo),
-which contains a set of linting tools for linting a markdown file.
+which contains a set of linters for linting a markdown file.
 The linting is part of the Circle CI pipeline, but can also be run locally
 
 ```sh
 ./lint.sh
 ```
+
+The linters that are enabled is configured in [.lint-condo.yaml](.lint-condo.yaml).

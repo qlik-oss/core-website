@@ -116,8 +116,7 @@ After this we set a script to use the connection we just created.
 const script = `
   lib connect to 'postgresgrpc';
   Airports:
-  sql select rowID,Airport,City,Country,IATACode,ICAOCode,Latitude,Longitude,Altitude,TimeZone,DST,TZ,
-  clock_timestamp() from airports;
+  sql select rowID,Airport,City,Country,IATACode,ICAOCode,Latitude,Longitude,Altitude,TimeZone,DST,TZ,clock_timestamp() from airports;
 `; // add script to use the grpc-connector and load a table
 app.setScript(script);
 ```
