@@ -1,34 +1,27 @@
 # Home
 
 ![Frontira](./images/frontira-banner.jpg "Frontira")
-This is the top-level repo containing general information, concepts, specifications, examples,
-and links to other useful resources.
 
-This is the top-level repo containing general information, concepts, specifications, examples,
-and links to other useful resources.
+Frontira by [Qlik](https://qlik.com) provides a development platform for building custom data exploration and data
+visualization solutions on top of QIX Engine, the powerful associative indexing engine from Qlik.
 
-## Deliverables
+QIX Engine differentiates from other vendors by dynamically calculating and providing associations based on data
+selections, without the need to rely on query-based analysis which restricts to linear exploration within a partial view
+of the data.
 
-Frontira consists of different deliverables:
+## Containers
 
-- Use cases
-- Recipes
-- Core components
-- Custom Qliktive components
+Frontira is designed to utilize the power of container-based solutions and microservice architectures, such as
+[Docker](https://docker.com).
 
-### Recipes
+The QIX Engine on Linux, provided as a Docker image, forms the foundation of this.
 
-A recipe typically answers a question of the form "_How do I ...?_".
-It is a way to describe important concepts in more isolation.
+Developers building their solutions on Frontira are provided with a large range of powerful technologies, for example
+[Kubernetes](https://kubernetes.io).
 
-One example can be: _How do I load my own data into QIX Engine?_
+## Services
 
-More information on recipes is provided in the [Recipes](./docs/recipes/) overview.
-
-### Services
-
-This is an overview of the services provided in Frontira.
-Further information on each service can be found by following the provided links.
+These are the services provided in Frontira:
 
 | Service    | Feature | Docker Image | Source Code |
 | ---------- | ------- | ------------ | ----------- |
@@ -36,11 +29,11 @@ Further information on each service can be found by following the provided links
 | [License Service](./docs/services/license-service/) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
 | [Mira](./docs/services/mira/) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
 
-All services follow a [contract](./documentation/contract.md).
+All services in Frontira follows a common [contract](./documentation/contract.md).
 
-### Libraries
+## Libraries
 
-There are also several open source libraries that are useful when working with Frontira:
+Several open source libraries exist that are useful when working with Frontira:
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
@@ -48,15 +41,3 @@ There are also several open source libraries that are useful when working with F
 | [halyard.js](https://github.com/qlik-oss/halyard.js) | Simplifies data loading into the QIX Engine | [GitHub](https://github.com/qlik-oss/halyard.js) |
 | [after-work.js](https://github.com/qlik-oss/after-work.js) | Unified testing framework for different test levels | [GitHub](https://github.com/qlik-oss/after-work.js) |
 | picasso.js | Visualization library on top of the QIX Engine | Not released yet |
-
-### Custom Qliktive Components
-
-These components are packages and microservices that are developed specifically for a certain Qliktive use case.
-As such, they are not generally re-usable between different solutions.
-The idea is rather to provide examples and with some parts that can be further built upon for any new solution.
-Each such component is developed in a separate repo.
-
-Since these components are more of example implementations,
-they do not come with the same level of support from Qlik as the core Components described above.
-
-We use the prefix `qliktive-` to make it clear that these components are specific for Qliktive use cases.
