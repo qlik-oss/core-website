@@ -1,6 +1,7 @@
 # Recipes
 
-Here follows a brief overview of the recipes provided and the main questions each recipe addresses. Follow links into each recipe for more in-depth information.
+Here follows a brief overview of the recipes provided and the main questions each recipe addresses.
+Follow links into each recipe for more in-depth information.
 
 ## [Authorization](./authorization.md)
 

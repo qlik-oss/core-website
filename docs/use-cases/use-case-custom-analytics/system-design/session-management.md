@@ -4,9 +4,7 @@ This page explains how authentication will take place in the Qliktive example en
 
 ## Design Rationale
 
-The design is created with the following assumptions and requirements in mind
-
-To update
+The design is created with the following assumptions and requirements in mind.
 
 The following components are involved in QIX Engine session management
 

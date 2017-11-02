@@ -1,5 +1,5 @@
 {
-  "MD013": false, // Do not limit number of characters per line
+  "MD013": { "line_length": 120 },
   "MD024":false, // Allow multiple headers with the same content
   "MD033": false // Allow inline html
 }

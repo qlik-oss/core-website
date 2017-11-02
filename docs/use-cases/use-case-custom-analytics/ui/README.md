@@ -34,7 +34,8 @@ DIMENSIONS:
 Patient Age Group: [Patient Age Group]
 
 MEASURES:
-\# Death by primary suspect: Count({<[Drug Role Event] = {'Primary Suspect Drug'},[Medical Description Reaction] = {'Death'} >}Demographic_Caseid)
+\# Death by primary suspect: Count({<[Drug Role Event] = {'Primary Suspect Drug'},
+  [Medical Description Reaction] = {'Death'} >}Demographic_Caseid)
 
 ![Viz five](./5.png)
 

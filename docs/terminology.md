@@ -1,6 +1,7 @@
 # Terminology
 
-This pages contains terminology used around elastic, docker, orchestration, and deployment to get a common understanding used among teams, partners and customers.
+This pages contains terminology used around elastic, docker, orchestration,
+and deployment to get a common understanding used among teams, partners and customers.
 
 ## D
 
@@ -34,7 +35,7 @@ This pages contains terminology used around elastic, docker, orchestration, and 
 
 ## N
 
-### [Nginx](https://github.com/nginx/nginx) - HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server
+### [Nginx](https://github.com/nginx/nginx) - HTTP and reverse proxy server
 
 ## T
 

@@ -6,25 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install markdownlint-cli
-          command: npm install -g markdownlint-cli
-      - run:
-          name: Run markdownlint
-          command: markdownlint .
-      - run:
-          name: Install pip
-          command: |
-            set -x
-            curl "https://bootstrap.pypa.io/get-pip.py" -L -o "get-pip.py"
-            python get-pip.py
-      - run:
-          name: Install proselint
-          command: |
-            pip install proselint
-            mv .proselintrc ~/.proselintrc
-      - run:
-          name: Run proselint
-          command: proselint .
+          name: Lint the documentation
+          command: ./lint.sh
       - run:
           name: Build the site
           command: ./build.sh
