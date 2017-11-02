@@ -3,10 +3,8 @@ theme: material
 
 pages:
   - Home: index.md
-  - Getting Started:
-    - Prerequisites: getting-started/prerequisites.md
-    - Download: getting-started/download.md
-  - Documentation:
+  - Getting Started: getting-started.md
+  - Documentation:  
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
       - License Service: documentation/services/license-service.md
