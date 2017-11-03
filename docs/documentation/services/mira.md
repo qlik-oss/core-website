@@ -20,41 +20,13 @@ of the Mira REST API.
 
 Mira exposes its REST API on port 9100.
 
-## Operation Modes
+## Configuration
 
-Mira supports different operation modes. The operation mode determines how Mira discovers QIX Engine instances.
-The following operation modes are supported:
+You configure Mira by setting environment variables inside the container.
 
-- [_Swarm_](#swarm-mode) - Discovers QIX Engine instances in a Docker Swarm environment
-- [_Kubernetes_](#kubernetes-mode) - Discovers QIX Engine instances in a Kubernstes environment
-- [_DNS_](#dns-mode) - Discovers QIX Engine instances using DNS service look-ups
-- [_Local_](#local-mode) - Discovers QIX Engine instances running on the local Docker Engine,
-  typically created using `docker-compose` on a local machine
+### Environment Variables
 
-The operation mode is set by providing the environment variable `MIRA_MODE` to the Mira container.
-
-## QIX Engine Labeling
-
-In all modes, except _DNS_, Mira uses labels to identify QIX engine instances.
-By default, the label Mira searches for is `qix-engine`, but can be configured using the `MIRA_DISCOVERY_LABEL`
-environment variable. Note that Mira only looks at the label key and ignores its value.
-The values can even be omitted. Each section on the different modes shows examples of discovery labeling.
-
-## Port Labeling
-
-In all modes, except _DNS_, Mira also identifies labels on QIX Engine instances
-to determine which ports that are used to serve the QIX API (websocket) on,
-and which port it serves the `/metrics` endpoint on.
-By default, Mira identifies and uses the values of the labels `qix-engine-api-port` and `qix-engine-metrics-port`.
-These label keys can be configured using the environment variables
-`MIRA_ENGINE_API_PORT_LABEL` and `MIRA_ENGINE_METRICS_PORT_LABEL` respectively.
-
-If a QIX Engine instance does not have port labels set,
-Mira defaults to setting the QIX API port to 9076 and the `/metrics` port to 9090.
-
-## Environment Variables
-
-The following environment variables can optionally be set for Mira:
+The following environment variables can optionally be set:
 
 | Name                                  | Default value           | Description |
 | ------------------------------------- | ----------------------- | ----------- |
@@ -68,9 +40,41 @@ The following environment variables can optionally be set for Mira:
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira will use to communicate to the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
 
+### Operation Modes
+
+Mira supports different operation modes. The operation mode determines how Mira discovers QIX Engine instances.
+The following operation modes are supported:
+
+- [Swarm](#swarm-mode) - Discovers QIX Engine instances in a Docker Swarm environment
+- [Kubernetes](#kubernetes-mode) - Discovers QIX Engine instances in a Kubernstes environment
+- [DNS](#dns-mode) - Discovers QIX Engine instances using DNS service look-ups
+- [Local](#local-mode) - Discovers QIX Engine instances running on the local Docker Engine,
+  typically created using `docker-compose` on a local machine
+
+The operation mode is set by providing the environment variable `MIRA_MODE` to the Mira container.
+
+### QIX Engine Labeling
+
+In all modes, except _DNS_, Mira uses labels to identify QIX engine instances.
+By default, the label Mira searches for is `qix-engine`, but can be configured using the `MIRA_DISCOVERY_LABEL`
+environment variable. Note that Mira only looks at the label key and ignores its value.
+The values can even be omitted. Each section on the different modes shows examples of discovery labeling.
+
+### Port Labeling
+
+In all modes, except _DNS_, Mira also identifies labels on QIX Engine instances
+to determine which ports that are used to serve the QIX API (websocket) on,
+and which port it serves the `/metrics` endpoint on.
+By default, Mira identifies and uses the values of the labels `qix-engine-api-port` and `qix-engine-metrics-port`.
+These label keys can be configured using the environment variables
+`MIRA_ENGINE_API_PORT_LABEL` and `MIRA_ENGINE_METRICS_PORT_LABEL` respectively.
+
+If a QIX Engine instance does not have port labels set,
+Mira defaults to setting the QIX API port to 9076 and the `/metrics` port to 9090.
+
 ## Logging
 
-Mira follows the logging format and levels specified in the [contract](../contract.md).
+Mira follows the logging format and levels specified in the [Frontira Service Contract](../contract.md).
 
 Default minimum log level is `info`, but can be set using the `MIRA_LOG_LEVEL` environment variable.
 
