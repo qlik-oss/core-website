@@ -1,7 +1,7 @@
-# Web Platform Recipe
+# Web Platform
 
 The purpose of the examples is to show how quick and effortless it is to get started with our web platform
-on top of the [QIX Engine](../services/qix-engine.md).
+on top of the [QIX Engine](../documentation/services/qix-engine.md).
 
 Besides the QIX engine you will also use [enigma.js](https://github.com/qlik-oss/enigma.js)
 our library to communicate with the QIX Engine,
@@ -10,9 +10,9 @@ and [picasso.js](https://github.com/qlik-ea/picasso.js) for building the charts.
 
 ## GitHub repo
 
-The recipe assets are located [here](https://github.com/qlik-ea/getting-started-with-web-platform).
+The assets are located [here](https://github.com/qlik-ea/getting-started-with-web-platform).
 
-When running commands presented in this recipe, it is assumed that they are run in that repository.
+When running commands presented in this tutorial, it is assumed that they are run in that repository.
 
 ## Hello World
 

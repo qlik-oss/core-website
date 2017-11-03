@@ -6,9 +6,8 @@ pages:
   - Getting Started: getting-started.md
   - Downloads: downloads.md
   - Tutorials:
-    - Overview: tutorials/overview.md
-    - Hello Frontira: tutorials/hello-frontira.md
-    - Core: tutorials/core.md
+    - Web Platform: tutorials/web-platform.md
+    - Setting up the Core Services: tutorials/core.md
     - Authorization: tutorials/authorization.md
     - Data Loading: tutorials/data-loading.md
     - Document Distribution: tutorials/document-distribution.md
