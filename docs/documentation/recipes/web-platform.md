@@ -27,6 +27,7 @@ In the first step we focus on getting the QIX Engine up and running. Run the `do
 cd hello-world
 docker-compose up
 ```
+
 The QIX Engine is now running on Linux!
 
 When running `docker-compose up`, it is good practice to run `docker-compose up -d`, where
@@ -109,6 +110,7 @@ This next example loads data into the QIX Engine, and visualizes it in a simple 
 ### Step 1 - Get the QIX Engine up and running
 
 In this example, two different data sources are used:
+
 - a local CSV file
 - web data loaded inline
 
@@ -157,6 +159,7 @@ up and running. Bring the QIX Engine back up with `docker-compose up -d`.
 Make sure that the port in the [compose](docker-compose.yml) file is the same as in the enigma config that
 is created in the config object in [app.js](src/app.js).
 
--  Error: for engine. Cannot create container for service engine: X: drive is not shared. Please share it in Docker for Windows Settings
+- Error: for engine. Cannot create container for service engine: X: drive is not shared.
+Please share it in Docker for Windows Settings
 Shared drives are required for volume mounting Linux containers, and you need to share the drive where your project is
 located (i.e., where the Dockerfile and volume are located). Go to Settings -> Shared Drives and share the drive.
