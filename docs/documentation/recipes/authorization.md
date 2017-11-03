@@ -9,14 +9,15 @@ refer to [https://jwt.io/](https://jwt.io/) and [RFC7519](https://tools.ietf.org
 
 The QIX Engine will use JWTs to:
 
+- ensure that only authenticated users are allowed to connect
 - connect users to the same sessions
 - apply data security (i.e. section access)
 - enforce document level access control <---- needs to be verified
 
 ## JWT Format
 
-A typical JWT consists of three parts (each being [base64url](https://tools.ietf.org/html/rfc4648#section-5)-encoded and separated by a dot):
-`{header}.{payload}.{signature}`.
+A typical JWT consists of three parts (each being [base64url](https://tools.ietf.org/html/rfc4648#section-5)-encoded
+and separated by a dot): `{header}.{payload}.{signature}`.
 
 The header describes the type of token, and the hashing algorithm used to sign the token. For example:
 
