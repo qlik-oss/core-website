@@ -44,22 +44,22 @@ In this section each of the allowed log levels are specified and followed with a
 where each log level is applicable.
 
 * `TRACE`
-  * Fine-grained debug message, typically used to capture a flow of events.
+    * Fine-grained debug message, typically used to capture a flow of events.
 * `DEBUG`
-  * Mostly used for debugging purposes.
-  * Typically not enabled by default in production.
+    * Mostly used for debugging purposes.
+    * Typically not enabled by default in production.
 * `INFO`
-  * Normal operations of the service that should be logged.
-  * Indicate some important operation or state in the service.
+    * Normal operations of the service that should be logged.
+    * Indicate some important operation or state in the service.
 * `WARNING`
-  * Indicate an event or state that was not part of common operations, but was handled.
-  * Event that potentially can become an error.
-  * Event that does not prevent correct operation of the system from an end-user perspective.
+    * Indicate an event or state that was not part of common operations, but was handled.
+    * Event that potentially can become an error.
+    * Event that does not prevent correct operation of the system from an end-user perspective.
 * `ERROR`
-  * Unhandled error that was unexpected to the service.
-  * Service can continue normal operation after error recovery.
+    * Unhandled error that was unexpected to the service.
+    * Service can continue normal operation after error recovery.
 * `FATAL`
-  * Non-recoverable error that forces the service to terminate.
+    * Non-recoverable error that forces the service to terminate.
 
 ## Health Checks
 
