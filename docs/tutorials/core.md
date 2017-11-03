@@ -26,9 +26,9 @@ platforms:
 
 The core Frontira stack consists of the following services:
 
-- [QIX Engine](../services/qix-engine.md)
-- [License Service](../services/license-service.md)
-- [Mira](../services/mira.md)
+- [QIX Engine](../documentation/services/qix-engine.md)
+- [License Service](../documentation/services/license-service.md)
+- [Mira](../documentation/services/mira.md)
 
 In a typical solution, these are all deployed on the server side.
 
