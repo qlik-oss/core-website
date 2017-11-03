@@ -1,21 +1,22 @@
-# Core Recipe
+# Setting up the Core Services
 
-This recipe demonstrates how to deploy a minimal Frontira stack using different orchestration tools.
-The purpose is to help you get started with Frontira.
+This tutorial demonstrates how to deploy a minimal Frontira stack of the core Frontira services using different
+orchestration tools.
 
 It demonstrates a foundation to build full solutions on, where more aspects must also be considered,
 like authorization, document/data handling, vizualization, logging, monitoring etc.
-There are other recipes that cover such aspects separately.
+There are other tutorials that cover such aspects separately.
 
 ## GitHub repo
 
-The recipe assets are located [here](https://github.com/qlik-ea/core).
+The tutorial assets are located [here](https://github.com/qlik-ea/core).
 
-When running commands presented in this recipe, it is assumed that they are run in that repository.
+When running commands presented in this tutorial, it is assumed that they are run in that repository.
 
 ## Container Orchestration
 
-This recipe provides examples of deployment of the Frontira core services using the following container orchestration platforms:
+Examples are provided of deployments of the Frontira core services using the following container orchestration
+platforms:
 
 - [Docker Swarm](#deploying-to-docker-swarm)
 - [Kubernetes](#deploying-to-kubernetes)
