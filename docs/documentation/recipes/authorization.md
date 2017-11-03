@@ -1,8 +1,8 @@
 # Authorization Recipe
 
-This recipe explains how the QIX Engine uses JSON Web Tokens to authorize users.
+This recipe explains how the QIX Engine can be configured to manage authenticated users.
 
-## Introduction
+## JSON Web Token
 
 JSON Web Token (JWT) is an open standard for creating access tokens. To read more about the details of JWTs please
 refer to [https://jwt.io/](https://jwt.io/) and [RFC7519](https://tools.ietf.org/html/rfc7519).
@@ -14,7 +14,7 @@ The QIX Engine will use JWTs to:
 - apply data security (i.e. section access)
 - enforce document level access control <---- needs to be verified
 
-## JWT Format
+### Format
 
 A typical JWT consists of three parts (each being [base64url](https://tools.ietf.org/html/rfc4648#section-5)-encoded
 and separated by a dot): `{header}.{payload}.{signature}`.
@@ -51,7 +51,7 @@ algorithms:
 - Elliptic curve: ES256, ES384 and ES512
 - RSA: RS256, RS384 and RS512
 
-## QIX Engine Configuration
+### QIX Engine Configuration
 
 The QIX Engine can be configured to validate JWTs using the following command line parameter:
 
@@ -80,7 +80,7 @@ services:
   ...
 ```
 
-## JWT Validation
+### Validation
 
 The JWT shall be passed to the QIX Engine in the `Authorization` header using the `Bearer` schema:
 `Authorization: Bearer <token>`
@@ -95,4 +95,46 @@ If validation fails, the request is rejected with the `401 Unauthorized` HTTP re
 
 ## Section access
 
-Section access goes here!
+[Section access](http://help.qlik.com/en-US/sense/September2017/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
+can be used to segment application data in portions that are only viewable by certain users.
+
+### Manage access control
+
+Access control is managed through one (or more) security tables loaded in the same way that the QIX Engine normally
+loads data.
+
+For example, the load script below grants regional users access to their respective country data:
+
+```none
+section access;
+LOAD * inline [
+ACCESS, USERID, COUNTRY, OMIT
+ADMIN, admin,,
+USER, us-user,US,
+USER, uk-user,UK,
+USER, de-user,DE,
+];
+
+section Application;
+Sales:
+LOAD * INLINE [
+COUNTRY, PRODUCT, SALES_AMOUNT
+US, Electronics, 101
+US, Furniture, 102
+US, Other, 103
+UK, Electronics, 201
+UK, Furniture, 202
+UK, Other, 203
+DE, Electronics, 301
+DE, Furniture, 302
+DE, Other, 303
+];
+```
+
+The QIX Engine will use the `sub` field of the JWT and map it to the user names specified in the access table. In the
+example above, note how the `COUNTRY` key connects the access and `Sales` tables and thus declares which portions of
+the data that are visible to the specific user.
+
+In a similar way, groups can be used to segment the application data.
+Please consult the [Qlik Sense help](http://help.qlik.com/en-US/sense/September2017/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
+site for detailed documentation.
