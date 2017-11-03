@@ -140,7 +140,7 @@ a JavaScript library that makes loading data into the QIX Engine more convenient
 [picasso](https://github.com/qlik-trial/picasso.js) is used to create visualizations of the data.
 
 In [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/app.js),
-the magic happens client side when the page is initialized. 
+the magic happens client side when the page is initialized.
 Information about __what__ data to load and __where__ to fetch the data is put into [halyard.js](https://github.com/qlik-oss/halyard.js).
 This information is used to create a session app in the QIX Engine. A session app only live as long as the session is alive.
 
