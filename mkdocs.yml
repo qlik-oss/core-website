@@ -4,19 +4,21 @@ theme: material
 pages:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Documentation:  
+  - Downloads: downloads.md
+  - Tutorials:
+    - Overview: tutorials/overview.md
+    - Hello Frontira: tutorials/hello-frontira.md
+    - Core: tutorials/core.md
+    - Authorization: tutorials/authorization.md
+    - Data Loading: tutorials/data-loading.md
+    - Document Distribution: tutorials/document-distribution.md
+    - Monitoring and Scaling: tutorials/monitoring-and-scaling.md
+  - Documentation:
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
-    - Recipes:
-      - Overview: documentation/recipes/overview.md
-      - Authorization: documentation/recipes/authorization.md
-      - Core: documentation/recipes/core.md
-      - Data Loading: documentation/recipes/data-loading.md
-      - Document Distribution: documentation/recipes/document-distribution.md
-      - Monitoring and Scaling: documentation/recipes/monitoring-and-scaling.md
     - APIs: documentation/apis.md
   - Use Cases:
     - Overview: use-cases/overview.md
