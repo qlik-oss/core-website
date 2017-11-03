@@ -98,6 +98,7 @@ docker-compose down
 ### Troubleshooting
 
 - Error: connect ECONNREFUSED 127.0.0.1:9076.
+
 A connection to the QIX Engine could not be established. Most probably the QIX Engine container is not
 up and running. Bring the QIX Engine back up with `docker-compose up -d`.
 Make sure that the port in the [compose](docker-compose.yml) file is the same as in the
@@ -154,12 +155,14 @@ Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
 ### Troubleshooting
 
 - Error: connect ECONNREFUSED 127.0.0.1:9076.
+
 A connection to the QIX Engine could not be established. Most probably the QIX Engine container is not
 up and running. Bring the QIX Engine back up with `docker-compose up -d`.
 Make sure that the port in the [compose](docker-compose.yml) file is the same as in the enigma config that
 is created in the config object in [app.js](src/app.js).
 
 - Error: for engine. Cannot create container for service engine: X: drive is not shared.
+
 Please share it in Docker for Windows Settings
 Shared drives are required for volume mounting Linux containers, and you need to share the drive where your project is
 located (i.e., where the Dockerfile and volume are located). Go to Settings -> Shared Drives and share the drive.
