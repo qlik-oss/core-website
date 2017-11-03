@@ -39,11 +39,12 @@ docker-compose up -d
 
 #### What is actually happening
 
-The [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.ymll) file is used to configure the service. In this first step the config is
-simple, we only need to specify the QIX Engine image with vanilla config. When `docker-compose up` is executed,
+The [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.yml)
+file is used to configure the service. In this first step the config is simple,
+we only need to specify the QIX Engine image with vanilla config. When `docker-compose up` is executed,
 the image is downloaded and built, and the docker image is run as a docker container using port `9076`. The port
-is configurable in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.yml) file with the ports tag, which maps the host port with
-the container port, HOST:CONTAINER.
+is configurable in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.yml)
+file with the ports tag, which maps the host port with the container port, HOST:CONTAINER.
 To view the image downloaded by docker, run the `docker images` command, which is the command for listing images.
 
 ```bash
@@ -64,14 +65,15 @@ and do some basic communication in a Node.js application.
 
 The Node.js application consists of config files and app.js.
 
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/package.json) contains the relevant metadata and the dependencies.
-To connect and communicate with the QIX Engine, a JavaScript library for consuming
-Qlik backend services, [enigma.js](https://github.com/qlik-oss/enigma.js), is used.
+[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/package.json)
+contains the relevant metadata and the dependencies. To connect and communicate with the QIX Engine,
+a JavaScript library for consuming Qlik backend services, [enigma.js](https://github.com/qlik-oss/enigma.js), is used.
 enigma.js needs to be configured, see [enigma-config.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/enigma-config.js).
 The port number for the QIX Engine must be set in the enigma.js config.
 
-[app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/app.js) is the application entrypoint. It connects to the QIX Engine and asks for the
-QIX Engine version, which is printed to the console.
+[app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/app.js)
+is the application entrypoint. It connects to the QIX Engine and asks for the QIX Engine version,
+which is printed to the console.
 
 Run `npm install` to download and install the node packages needed for the application (see [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/package.json)).
 
@@ -101,8 +103,8 @@ docker-compose down
 
 A connection to the QIX Engine could not be established. Most probably the QIX Engine container is not
 up and running. Bring the QIX Engine back up with `docker-compose up -d`.
-Make sure that the port in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.yml) file is the same as in the
-[enigma-config.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/enigma-config.js).
+Make sure that the port in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/docker-compose.yml)
+file is the same as in the [enigma-config.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/enigma-config.js).
 
 ## Hello Chart
 
@@ -137,13 +139,15 @@ a JavaScript library that makes loading data into the QIX Engine more convenient
 [enigma.js](https://github.com/qlik-oss/enigma.js) is used for the QIX Engine communication, and
 [picasso](https://github.com/qlik-trial/picasso.js) is used to create visualizations of the data.
 
-In [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/app.js), the magic happens client side when the page is initialized. Information
-about __what__ data to load and __where__ to fetch the data is put into [halyard.js](https://github.com/qlik-oss/halyard.js).
+In [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/app.js),
+the magic happens client side when the page is initialized. 
+Information about __what__ data to load and __where__ to fetch the data is put into [halyard.js](https://github.com/qlik-oss/halyard.js).
 This information is used to create a session app in the QIX Engine. A session app only live as long as the session is alive.
 
 The visualization is created in [scatterplot.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/scatterplot.js)
 
-Install the dependencies (see [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/package.json)) and run the app with:
+Install the dependencies (see [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/package.json))
+and run the app with:
 
 ```bash
 npm install
@@ -158,8 +162,8 @@ Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
 
 A connection to the QIX Engine could not be established. Most probably the QIX Engine container is not
 up and running. Bring the QIX Engine back up with `docker-compose up -d`.
-Make sure that the port in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/docker-compose.yml) file is the same as in the enigma config that
-is created in the config object in [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/app.js).
+Make sure that the port in the [compose](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/docker-compose.yml)
+file is the same as in the enigma config thatis created in the config object in [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-chart/src/app.js).
 
 - Error: for engine. Cannot create container for service engine: X: drive is not shared.
 
