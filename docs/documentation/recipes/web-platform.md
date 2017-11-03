@@ -21,8 +21,8 @@ how to setup a simple communication.
 In the first step we focus on getting the QIX Engine up and running. Run the `docker-compose up` command.
 
 ```bash
-$ cd hello-world
-$ docker-compose up
+cd hello-world
+docker-compose up
 ```
 The QIX Engine is now running on Linux!
 
@@ -30,25 +30,26 @@ When running `docker-compose up`, it is good practice to run `docker-compose up 
 the `-d` argument means detached mode, that is the container runs in the background.
 
 ```bash
-$ docker-compose up -d
+docker-compose up -d
 ```
 
 #### What is actually happening
 The [compose](docker-compose.yml) file is used to configure the service. In this first step the config is
-very simple, we only need to specify the QIX Engine image with vanilla config. When `docker-compose up` is executed,
+simple, we only need to specify the QIX Engine image with vanilla config. When `docker-compose up` is executed,
 the image is downloaded and built, and the docker image is run as a docker container using port `9076`. The port
 is configurable in the [compose](docker-compose.yml) file with the ports tag, which maps the host port with
-the container port, HOST:CONTAINER. To view the image downloaded by docker, run the `docker images` command, which is the command for listing images.
+the container port, HOST:CONTAINER.
+To view the image downloaded by docker, run the `docker images` command, which is the command for listing images.
 
 ```bash
-$ docker images
+docker images
 ```
 
 When listing the docker containers, the newly created running container with the QIX Engine image should be listed.
 The `-a` option means that all containers are shown, default is to show just the running containers.
 
 ```bash
-$ docker ps -a
+docker ps -a
 ```
 
 ### Step 2 - Communicate with the QIX Engine
@@ -69,13 +70,13 @@ QIX Engine version, which is printed to the console.
 Run `npm install` to download and install the node packages needed for the application (see [package.json](package.json)).
 
 ```bash
-$ npm install
+npm install
 ```
 
 Execute `npm run start` to start the application.
 
 ```bash
-$ npm run start
+npm run start
 ```
 
 Look at the console output, the QIX Engine should have replied to your version question.
@@ -84,7 +85,7 @@ Look at the console output, the QIX Engine should have replied to your version q
 Run `docker-compose down` to stop and remove the container.
 
 ```bash
-$ docker-compose down
+docker-compose down
 ```
 
 ### Troubleshooting
@@ -111,8 +112,8 @@ the [troubleshooting](#troubleshooting) section for more information. To bring t
 a container with mounted data, run docker-compose up.
 
 ```bash
-$ cd hello-chart
-$ docker-compose up -d
+cd hello-chart
+docker-compose up -d
 ```
 
 ### Step 2 - Load data and add a simple visualization
@@ -132,8 +133,8 @@ The visualization is created in [scatterplot.js](src/scatterplot.js)
 Install the dependencies (see [package.json](package.json)) and run the app with:
 
 ```bash
-$ npm install
-$ npm run start
+npm install
+npm run start
 ```
 
 Open your browser and navigate to [http://localhost:8080](http://localhost:8080).
