@@ -3,7 +3,8 @@
 The purpose of the examples is to show how quick and effortless it is to get started with our web platform
 on top of the [QIX Engine](../services/qix-engine.md).
 
-Besides the QIX engine you will also use [enigma.js](https://github.com/qlik-oss/enigma.js) our library to communicate with the QIX Engine,
+Besides the QIX engine you will also use [enigma.js](https://github.com/qlik-oss/enigma.js)
+our library to communicate with the QIX Engine,
 [halyard.js](https://github.com/qlik-oss/enigma.js) to simplify the loading of data into the QIX Engine
 and [picasso.js](https://github.com/qlik-ea/picasso.js) for building the charts.
 
@@ -14,10 +15,12 @@ The recipe assets are located [here](https://github.com/qlik-ea/getting-started-
 When running commands presented in this recipe, it is assumed that they are run in that repository.
 
 ## Hello World
+
 This example shows how to get the QIX Engine up and running in a docker container, and
 how to setup a simple communication.
 
 ### Step 1 - Get the QIX Engine up and running
+
 In the first step we focus on getting the QIX Engine up and running. Run the `docker-compose up` command.
 
 ```bash
@@ -34,6 +37,7 @@ docker-compose up -d
 ```
 
 #### What is actually happening
+
 The [compose](docker-compose.yml) file is used to configure the service. In this first step the config is
 simple, we only need to specify the QIX Engine image with vanilla config. When `docker-compose up` is executed,
 the image is downloaded and built, and the docker image is run as a docker container using port `9076`. The port
@@ -53,6 +57,7 @@ docker ps -a
 ```
 
 ### Step 2 - Communicate with the QIX Engine
+
 When the QIX Engine is up and running, it is time for some interaction. Connect to the QIX Engine
 and do some basic communication in a Node.js application.
 
@@ -82,6 +87,7 @@ npm run start
 Look at the console output, the QIX Engine should have replied to your version question.
 
 ### Step 3 - Stop the docker container
+
 Run `docker-compose down` to stop and remove the container.
 
 ```bash
@@ -97,19 +103,22 @@ Make sure that the port in the [compose](docker-compose.yml) file is the same as
 [enigma-config.js](enigma-config.js).
 
 ## Hello Chart
+
 This next example loads data into the QIX Engine, and visualizes it in a simple UI.
 
 ### Step 1 - Get the QIX Engine up and running
+
 In this example, two different data sources are used:
-+ a local CSV file
-+ web data loaded inline
+- a local CSV file
+- web data loaded inline
 
-When using local data files, for example CSV files, the data files must be mounted into the docker container running the QIX Engine.
+When using local data files, for example CSV files,
+the data files must be mounted into the docker container running the QIX Engine.
 
-This is done by defining the data volumes in the [docker-compose file](docker-compose.yml). If you are running Docker for Windows, you
-need to share the drive where your project is located. This is done in the Docker for Windows settings, see
-the [troubleshooting](#troubleshooting) section for more information. To bring the QIX Engine up and running in
-a container with mounted data, run docker-compose up.
+This is done by defining the data volumes in the [docker-compose file](docker-compose.yml).
+If you are running Docker for Windows, you need to share the drive where your project is located.
+This is done in the Docker for Windows settings, see the [troubleshooting](#troubleshooting) section for more information.
+To bring the QIX Engine up and running in a container with mounted data, run docker-compose up.
 
 ```bash
 cd hello-chart
@@ -117,6 +126,7 @@ docker-compose up -d
 ```
 
 ### Step 2 - Load data and add a simple visualization
+
 This example uses Node.js and AngularJS to create a simple web application.
 
 For data loading, the [halyard.js](https://github.com/qlik-oss/halyard.js) library is used,
