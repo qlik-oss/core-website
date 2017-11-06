@@ -15,7 +15,7 @@ Engine and the next steps after that. This is divided into three separate parts
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into QIX Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js)
-- [Hello Visualization](./tutorials/hello-vizualisation.md) - Building a visualization using picasso.js
+- [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js
 
 Users new to Frontira, QIX Engine, and Qlik products should start here.
 
@@ -53,5 +53,5 @@ A fully deployed example application built with Frontira is also provided
 
 - [Qliktive - Assisted Prescription](./use-cases/use-case-custom-analytics/README.md)
 
-This shows how a fictive company, called Qliktive, provides an assisting application for drug presciptions. It is hosted
+This shows how a fictive company, called Qliktive, provides an assisting application for drug prescriptions. It is hosted
 and deployed to AWS [here](https://ca.qliktive.com).
