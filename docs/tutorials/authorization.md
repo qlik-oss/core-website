@@ -95,7 +95,7 @@ If validation fails, the request is rejected with the `401 Unauthorized` HTTP re
 
 ## Section access
 
-[Section access](http://help.qlik.com/en-US/sense/September2017/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
+[Section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
 can be used to segment application data in portions that are only viewable by certain users.
 
 ### Manage access control
@@ -136,5 +136,5 @@ example above, note how the `COUNTRY` key connects the access and `Sales` tables
 the data that are visible to the specific user.
 
 In a similar way, groups can be used to segment the application data.
-Please consult the [Qlik Sense help](http://help.qlik.com/en-US/sense/September2017/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
+Please consult the [Qlik Sense help](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
 site for detailed documentation.
