@@ -9,7 +9,7 @@ Markdown files are organized in the same way as the generated site is organized.
 Currently the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme is used but this shall be changes
 to a theme matches Qlik branding.
 
-For a bleeding edge generated site (based on master branch), see [this link](http://ec2-52-57-55-41.eu-central-1.compute.amazonaws.com:9080/master/). On [Circle CI](https://circleci.com/gh/qlik-ea/info) you may find Site links for all branches. Please note that these URLs are currently accessible by Qlik employees only (requires VPN).
+For a bleeding edge generated site (based on master branch), see [this link](http://ec2-52-57-55-41.eu-central-1.compute.amazonaws.com:9080/master/). On [Circle CI](https://circleci.com/gh/qlik-ea/info) you may find site links for all branches. Please note that these URLs are currently accessible by Qlik employees only (requires VPN).
 
 ## Prerequisites
 
