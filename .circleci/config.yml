@@ -13,3 +13,9 @@ jobs:
           command: ./build.sh
       - store_artifacts:
           path: ./site
+      - run:
+          name: Deploy the site
+          command: |
+            export BUILD_NUMBER=$CIRCLE_BUILD_NUM
+            export BRANCH_NAME=$CIRCLE_BRANCH
+            ./deploy.sh
