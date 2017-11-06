@@ -6,6 +6,9 @@ pages:
   - Getting Started: getting-started.md
   - Downloads: downloads.md
   - Tutorials:
+    - Hello Engine: tutorials/hello-engine.md
+    - Hello Data: tutorials/hello-data.md
+    - Hello Visualization: tutorials/hello-visualization.md
     - Web Platform: tutorials/web-platform.md
     - Setting up the Core Services: tutorials/core.md
     - Authorization: tutorials/authorization.md
@@ -20,7 +23,6 @@ pages:
     - Contract: documentation/contract.md
     - APIs: documentation/apis.md
   - Use Cases:
-    - Overview: use-cases/overview.md
     - Custom Analytics UI: use-cases/use-case-custom-analytics/README.md
   - Support & Services:
     - Licensing: support-and-services/licensing.md
