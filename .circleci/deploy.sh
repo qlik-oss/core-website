@@ -39,7 +39,6 @@ fi
 ssh $ssh_opts $target_machine "mkdir -p $target_path"
 # copy all files from the new site into the new remote folder:
 scp $ssh_opts -r ./site/. $target_machine:$target_path
-
 # also update latest for this branch:
 ssh $ssh_opts $target_machine "ln -sfn $target_path $latest_path"
 

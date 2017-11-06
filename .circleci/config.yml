@@ -18,4 +18,4 @@ jobs:
           command: |
             export BUILD_NUMBER=$CIRCLE_BUILD_NUM
             export BRANCH_NAME=$CIRCLE_BRANCH
-            ./deploy.sh
+            .circleci/deploy.sh
