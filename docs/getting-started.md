@@ -1,6 +1,6 @@
 # Getting Started
 
-To get started with Frontira and QIX Engine, and lean the basic concepts, a number of examples and tutorials are
+To get started with Frontira and QIX Engine, and learn the basic concepts, a number of examples and tutorials are
 provided. Here, a recommended path through the examples is provided that introduces different concepts step by step.
 
 The tutorials often contain runnable examples, with source code that is available in separate open source repositories
@@ -11,7 +11,8 @@ on GitHub.
 The first set of examples introduce basic operations and usage of QIX Engine. Think of it as the "Hello World" of QIX
 Engine and the next steps after that. This is divided into three separate parts
 
-- [Hello Engine](./tutorials/hello-engine.md) - Running QIX Engine as a Docker container
+- [Hello Engine](./tutorials/hello-engine.md) - Running QIX Engine as a Docker container and using
+    [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into QIX Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js)
 - [Hello Visualization](./tutorials/hello-vizualisation.md) - Building a visualization using picasso.js
