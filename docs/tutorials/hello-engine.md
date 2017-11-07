@@ -3,8 +3,8 @@
 This example shows how to get QIX Engine running in a Docker container on the local machine and how to set up simple
 communication with it.
 
-[enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX Engine through its websocket API.
-It is recommended to use enigma.js when building custom solutions on Frontira and QIX Engine.
+[enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX Engine through its JSON-RPC over
+websocket API. It is recommended to use enigma.js when building custom solutions on Frontira and QIX Engine.
 
 ## GitHub Repository
 
@@ -58,8 +58,7 @@ npm install
 npm start
 ```
 
-The console output displays the QIX Engine version as reported from QIX Engine itself through its JSON-RPC over
-websocket API.
+The console output displays the QIX Engine version as reported from QIX Engine itself.
 
 Study the
 [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
