@@ -40,7 +40,7 @@ ssh $ssh_opts $target_machine "mkdir -p $target_path"
 # copy all files from the new site into the new remote folder:
 scp $ssh_opts -r ./site/. $target_machine:$target_path
 # also update latest for this branch:
-ssh $ssh_opts $target_machine "ln -sfn $target_path $latest_path"
+ssh $ssh_opts $target_machine "cd docs && ln -sfn ./$BUILD_NUMBER ./$latest_name"
 
 echo "Atomic URL: http://$TARGET_HOST:9080/$BUILD_NUMBER"
 echo "Latest URL: http://$TARGET_HOST:9080/$latest_name"
