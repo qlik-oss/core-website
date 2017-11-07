@@ -28,8 +28,8 @@ fi
 
 latest_name=$(echo $BRANCH_NAME | tr '/' '_')
 target_machine="$TARGET_USER@$TARGET_HOST"
-target_path="~/services/docs/$BUILD_NUMBER"
-latest_path="~/services/docs/$latest_name"
+target_path="~/docs/$BUILD_NUMBER"
+latest_path="~/docs/$latest_name"
 ssh_opts=
 if [ ! -z "$CERT_PATH" ]; then
   ssh_opts="-i $CERT_PATH"
