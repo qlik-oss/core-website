@@ -24,7 +24,7 @@ Users new to Frontira, QIX Engine, and Qlik products should start here.
 Users with previous knowledge about QIX Engine, its supporting libraries, and Qlik products, but that are new to
 container technologies such as Docker, will benefit from looking at:
 
-- [Setting up the Core Services](core.md)
+- [Setting up the Core Services](./tutorials/core.md)
 
 This tutorial covers aspects such as:
 
