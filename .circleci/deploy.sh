@@ -28,8 +28,8 @@ fi
 
 latest_name=$(echo $BRANCH_NAME | tr '/' '_')
 target_machine="$TARGET_USER@$TARGET_HOST"
-target_path="~/services/docs/$BUILD_NUMBER"
-latest_path="~/services/docs/$latest_name"
+target_path="~/docs/$BUILD_NUMBER"
+latest_path="~/docs/$latest_name"
 ssh_opts=
 if [ ! -z "$CERT_PATH" ]; then
   ssh_opts="-i $CERT_PATH"
@@ -40,7 +40,7 @@ ssh $ssh_opts $target_machine "mkdir -p $target_path"
 # copy all files from the new site into the new remote folder:
 scp $ssh_opts -r ./site/. $target_machine:$target_path
 # also update latest for this branch:
-ssh $ssh_opts $target_machine "ln -sfn $target_path $latest_path"
+ssh $ssh_opts $target_machine "cd docs && ln -sfn ./$BUILD_NUMBER ./$latest_name"
 
 echo "Atomic URL: http://$TARGET_HOST:9080/$BUILD_NUMBER"
 echo "Latest URL: http://$TARGET_HOST:9080/$latest_name"
