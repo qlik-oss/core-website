@@ -42,5 +42,5 @@ scp $ssh_opts -r ./site/. $target_machine:$target_path
 # also update latest for this branch:
 ssh $ssh_opts $target_machine "cd docs && ln -sfn ./$BUILD_NUMBER ./$latest_name"
 
-echo "Atomic URL: http://$TARGET_HOST:9080/$BUILD_NUMBER"
-echo "Latest URL: http://$TARGET_HOST:9080/$latest_name"
+echo "Atomic URL: https://$TARGET_HOST/docs/$BUILD_NUMBER"
+echo "Latest URL: https://$TARGET_HOST/docs/$latest_name"
