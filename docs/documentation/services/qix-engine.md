@@ -191,3 +191,45 @@ Should be used with caution as it will produce a lot of log entries.
 | field_memory | Memory used by field |
 | ix_elem_count | Number of element in index |
 | ix_memory | Used memory by the index |
+
+## API Lockdown
+
+The QIX Engine can be configured to restrict access to certain APIs (known as _API lockdown_). The lockdown level is
+set on the QIX Engine instance, meaning that API restrictions is applied to all connections served by the specific QIX
+Engine instance.
+
+The QIX Engine can be configured to lockdown API access using the following command line parameter:
+
+`-S EnableAccessControl=1`
+
+The access level is set using the command line parameter:
+
+`-S GlobalAccessFlags=<access attribute>`
+
+where `access attribute` is one or more of:
+
+| Level  | Description |
+| ------ | ----------- |
+| create | Allow create operations |
+| update | Allow update operations |
+| delete | Allow delete operations |
+| reload | Allow reload operations |
+| import | Allow import operations |
+
+The access attributes can be combined into a mask of access attributes separated by a semi-colon. For example, to allow
+creation and reload, one would set the command line parameter:
+
+`-S GlobalAccessFlags="create;reload"`
+
+The default set of access attributes is to allow all operations:
+
+`-S GlobalAccessFlags="create;update;delete;reload;import"`
+
+To set the QIX Engine in a read-only mode, leave the access mask empty:
+
+`-S GlobalAccessFlags=""`
+
+When a request is received, the QIX Engine checks the access mask to determine if the operation is allowed. If access
+is denied, the request is aborted and an error stating that access is denied is returned to the caller.
+
+Please see the [QIX Engine API Documentaion](_insert_link_here) for access attributes associated with each QIX method.
