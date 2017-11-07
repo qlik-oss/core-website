@@ -208,13 +208,13 @@ The access level is set using the command line parameter:
 
 where `access attribute` is one or more of:
 
-| Level  | Description |
-| ------ | ----------- |
-| create | Allow create operations |
-| update | Allow update operations |
-| delete | Allow delete operations |
-| reload | Allow reload operations |
-| import | Allow import operations |
+| Level    | Description |
+| -------- | ----------- |
+| `create` | Allow create operations |
+| `update` | Allow update operations |
+| `delete` | Allow delete operations |
+| `reload` | Allow reload operations |
+| `import` | Allow import operations |
 
 The access attributes can be combined into a mask of access attributes separated by a semi-colon. For example, to allow
 creation and reload, one would set the command line parameter:
