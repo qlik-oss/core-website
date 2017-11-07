@@ -194,11 +194,11 @@ Should be used with caution as it will produce a lot of log entries.
 
 ## API Lockdown
 
-The QIX Engine can be configured to restrict access to certain APIs (known as _API lockdown_). The lockdown level is
-set on the QIX Engine instance, meaning that API restrictions is applied to all connections served by the specific QIX
-Engine instance.
+QIX Engine can be configured to restrict access to certain APIs (known as _API lockdown_). The lockdown level is set on
+the QIX Engine instance, meaning that API restrictions is applied to all connections served by the specific QIX Engine
+instance.
 
-The QIX Engine can be configured to lockdown API access using the following command line parameter:
+QIX Engine can be configured to lockdown API access using the following command line parameter:
 
 `-S EnableAccessControl=1`
 
@@ -225,11 +225,12 @@ The default set of access attributes is to allow all operations:
 
 `-S GlobalAccessFlags="create;update;delete;reload;import"`
 
-To set the QIX Engine in a read-only mode, leave the access mask empty:
+To set QIX Engine in a read-only mode, leave the access mask empty:
 
 `-S GlobalAccessFlags=""`
 
-When a request is received, the QIX Engine checks the access mask to determine if the operation is allowed. If access
+When a request is received, QIX Engine checks the access mask to determine if the operation is allowed. If access
 is denied, the request is aborted and an error stating that access is denied is returned to the caller.
 
-Please see the [QIX Engine API Documentaion](_insert_link_here) for access attributes associated with each QIX method.
+Note that the QIX method `CreateSessionObject` is, despite its name, allowed to execute in read-only mode since it's
+frequently used to e.g. list objects.
