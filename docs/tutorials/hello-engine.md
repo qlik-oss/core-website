@@ -27,8 +27,9 @@ Using `docker-compose` is a convenient way to get containers up and running. The
 file that describes how QIX Engine shall run as a container, using the `qlik/engine` Docker image, and exposing port
 9076 on the local machine.
 
-Study the `docker-compose.yml` file and refer to the Docker documentation for more information on how `docker-compose`
-works.
+Study the
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/docker-compose.yml)
+file and refer to the Docker documentation for more information on how `docker-compose` works.
 
 Verify that one Docker container with QIX Engine is running:
 
@@ -57,7 +58,8 @@ npm install
 npm start
 ```
 
-The console output displays the QIX Engine version as reported from QIX Engine itself over the websocket API.
+The console output displays the QIX Engine version as reported from QIX Engine itself through its JSON-RPC over
+websocket API.
 
 Study the
 [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
