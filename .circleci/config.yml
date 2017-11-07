@@ -17,7 +17,7 @@ jobs:
           name: Deploy the site
           command: |
             export TARGET_USER=ubuntu
-            export TARGET_HOST=ec2-176-34-138-91.eu-west-1.compute.amazonaws.com
+            export TARGET_HOST=ec2-54-246-193-78.eu-west-1.compute.amazonaws.com
             export BUILD_NUMBER=$CIRCLE_BUILD_NUM
             export BRANCH_NAME=$CIRCLE_BRANCH
             .circleci/deploy.sh
