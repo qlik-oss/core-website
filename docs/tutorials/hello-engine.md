@@ -16,8 +16,8 @@ actions are performed in that repository.
 ## Starting QIX Engine in a Docker Container
 
 ```bash
-$ cd hello-engine
-$ docker-compose up -d
+cd hello-engine
+docker-compose up -d
 ```
 
 QIX Engine is now running as a Docker container!
@@ -33,7 +33,7 @@ works.
 It can be verified that one Docker container with QIX Engine is running by doing:
 
 ```bash
-$ docker ps
+docker ps
 ```
 
 This should list a container running with the `qlik/engine` image (possibly with other Docker containers started on the
@@ -41,18 +41,20 @@ local machine).
 
 ## Communicating with QIX Engine
 
-QIX Engine running as a Docker container is not very useful unless there is a way to communicate with it. The
-`hello-engine/` folder contains a small Node.js application that uses enigma.js to retrieve the version of QIX Engine.
-enigma.js is of course capable of much more, but this gives a good introduction.
+QIX Engine running as a Docker container is not useful unless there is a way to communicate with it. The `hello-engine/`
+folder contains a small Node.js application that uses enigma.js to retrieve the version of QIX Engine. enigma.js is of
+course capable of much more, but this gives a good introduction.
 
-The Node.js application consists of a single JavaScript file, [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js), and the
+The Node.js application consists of a single JavaScript file,
+[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
+, and the
 [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-world/package.json) file.
 
 To run:
 
 ```bash
-$ npm install
-$ npm start
+npm install
+npm start
 ```
 
 The console output displays the QIX Engine version as reported from QIX Engine itself over the websocket API.
