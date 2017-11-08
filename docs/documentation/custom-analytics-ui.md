@@ -83,7 +83,7 @@ With the auto-medication trend, the company also plan to open this service to th
 
 This use case is characterized by a [single qvf](./fda-drug-cases.qvf) with the following data model:
 
-![Data model](../../images/custom-analytics-ui/data-model.png)
+![Data model](../images/custom-analytics-ui/data-model.png)
 
 ## UI
 
@@ -99,7 +99,7 @@ The web application presents information in four main tabs focusing on:
 
 (There will be multiple objects on each single page)
 
-![Portal UI](../../images/custom-analytics-ui/portal-ui.png)
+![Portal UI](../images/custom-analytics-ui/portal-ui.png)
 
 ## System Design
 
@@ -112,7 +112,7 @@ Scaling up engines needs to be done only to reduce load as a consequence of mult
 All engine instances are equivalent and there is no need to have a certain engine service a certain user
 since all users access the same single document.
 
-![QIX Engine Session Management](../../images/custom-analytics-ui/session-management.png "QIX Engine Session Management")
+![QIX Engine Session Management](../images/custom-analytics-ui/session-management.png "QIX Engine Session Management")
 
 ### Authentication
 
@@ -154,7 +154,7 @@ The following components are involved in authentication:
 
 #### Login sequence diagram
 
-![Login Sequence Diagram](../../images/custom-analytics-ui/login-sequence.png)
+![Login Sequence Diagram](../images/custom-analytics-ui/login-sequence.png)
 
 ##### 0 and 1: Initiate login sequence
 
