@@ -1,26 +1,26 @@
 # Data Connector GRPC API
 
-In order to allow any kind of data to be fed into the engine each data source is abstracted by a connector. A connector
-is typically implemented as a stateless docker container sitting between engine and the data source.
+In order to allow any kind of data to be fed into QIX Engine each data source is abstracted by a connector. A connector
+is typically implemented as a stateless docker container sitting between QIX Engine and the data source.
 
 ``` asciiart
 +-------------+              +-------------+                +-------------+
-|   Engine    | --GetData--> |  Connector  | -------------> | Data Source |
+| QIX Engine  | --GetData--> |  Connector  | -------------> | Data Source |
 |             | <----------  |             | <------------  |             |
 +-------------+              +-------------+                +-------------+
 ```
 
-The role of the connector is to translate the APIs and formats of a data source into a format that the engine
-understands - namely the [Data Connector GRPC API](./data-connector-grpc-api.proto).
+The role of the connector is to translate the APIs and formats of a data source into a format that QIX Engine
+understands - namely the [Data Connector GRPC API](data-connector-grpc-api.proto).
 
 ## Configuring connectors
 
-There are several ways in which engine can discover available connectors, where using the GrpcConnectorPlugins settings
+There are several ways in which QIX Engine can discover available connectors, where using the GrpcConnectorPlugins settings
 is the simplest one.
 
 ## The GetData function
 
-When data is loaded into engine one grpc call - _GetData_ - is sent for each table being loaded.
+When data is loaded QIX Engine sends on grpc call - `GetData` - is sent for each table being loaded.
 
 ``` proto
 rpc GetData(GetDataOptions) returns(stream DataChunk) {}
@@ -45,9 +45,9 @@ instance look like this:
 
 ## Output
 
-The _GetData_ call returns a stream of data chunks. This allows a connector to stream data from the data source to
-engine while translating the data piece by piece. In addition to the actual data stream the connector also has to
-supply a GRPC header _x-qlik-getdata-bin_ with metadata.
+The `GetData` call returns a stream of data chunks. This allows a connector to stream data from the data source to
+QIX Engine while translating the data piece by piece. In addition to the actual data stream the connector also has to
+supply a GRPC header `x-qlik-getdata-bin` with metadata.
 
 ### Data chunks
 
@@ -55,7 +55,7 @@ One would expect that a data chunk would contain a set of rows but in fact the d
 each column holds the corresponding column values for a all rows in the chunk. The reason for this is simply
 performance. All values in a specific column share the same format which allows GRPC (and hence protobuf) to encode
 the data more efficiently. To further improve the performance each column can choose from a variety of formats -
-strings, floating point numbers, and integers. Along with the column data a structure called _ValueFlag_ is used to
+strings, floating point numbers, and integers. Along with the column data a structure called `ValueFlag` is used to
 further specify the format of the data. This is for instance used to specify date formats etc.
 
 ``` proto
@@ -75,7 +75,7 @@ message Column {
 
 ### Metadata
 
-The metadata sent in the _x-qlik-getdata-bin_ header is the _GetDataResponse_ message encoded using _protobuf_ which
+The metadata sent in the `x-qlik-getdata-bin` header is the `GetDataResponse` message encoded using _protobuf_ which
 is the underlying encoding technology in GRPC.
 
 ``` proto
