@@ -32,9 +32,10 @@ pages:
       - QIX Engine: documentation/services/qix-engine.md
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
+    - APIs:
+      - Data Connector GRPC API: documentation/apis/data-connector-grpc-api.md
     - Custom Analytics UI: documentation/custom-analytics-ui.md
     - Contract: documentation/contract.md
-    - APIs: documentation/apis.md
   - Support & Services:
     - Licensing: support-and-services/licensing.md
     - Sales: support-and-services/sales.md
