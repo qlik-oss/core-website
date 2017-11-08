@@ -1,6 +1,8 @@
 {
   "checks": {
     "typography.symbols": false,
-    "misc.but": false
+    "misc.but": false,
+    "hyperbole.misc": false,
+    "typography.exclamation": false
   }
 }

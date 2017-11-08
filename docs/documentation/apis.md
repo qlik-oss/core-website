@@ -1,3 +1,4 @@
 # APIs
 
-Need to figure out if and how to host API of services here
+!!! note
+    This is just a placeholder page until we have had time to write it down.
