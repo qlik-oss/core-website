@@ -1,6 +1,6 @@
-# Frontira QIX Engine documentation
+# QIX Engine documentation
 
-_Probably basic information in Frontira context and then providing links to other resources._
+This page contains documentation on a subset of the QIX Engine features that are commonly used in a containerized environment.
 
 ## Logging
 
@@ -29,8 +29,9 @@ Below is a list of the different log types that are available and the default ve
 
 Configuration of the log levels is done by providing settings through command line parameters when starting the docker container.
 
-The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_,
-but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+!!! note
+    The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_,
+    but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
 | --------- | ----- |

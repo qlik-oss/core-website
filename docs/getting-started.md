@@ -51,7 +51,7 @@ tutorials are; in recommended order to explore:
 
 A fully deployed example application built with Frontira is also provided
 
-- [Qliktive - Assisted Prescription](./use-cases/use-case-custom-analytics/README.md)
+- [Qliktive - Assisted Prescription](./documentation/custom-analytics-ui.md)
 
 This shows how a fictive company, called Qliktive, provides an assisting application for drug prescriptions. It is hosted
 and deployed to AWS [here](https://ca.qliktive.com).
