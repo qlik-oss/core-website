@@ -1,6 +1,8 @@
 # Authorization Recipe
 
-This recipe explains how the QIX Engine can be configured to manage authenticated users.
+This recipe explains how the QIX Engine can be configured to manage authenticated users. If you are interested in
+restricting access to the QIX Engine API, see the [API Lockdown](../documentation/services/qix-engine.md#api-lockdown)
+section in the service section.
 
 ## JSON Web Token
 
