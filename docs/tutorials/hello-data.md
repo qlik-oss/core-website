@@ -6,8 +6,8 @@ The Hello Data example builds upon and extends the [Hello Engine](./hello-engine
 go back and walk through Hello Enigine before proceeding.
 
 [halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine. It is recommended to use
-halyard.js when building custom solutions on Frontira and QIX Engine. As in Hello Engine,
-[enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX Engine.
+[halyard.js](https://github.com/qlik-oss/halyard.js) when building custom solutions on Frontira and QIX Engine.
+As in Hello Engine, [enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX Engine.
 
 ## GitHub Repository
 
@@ -47,8 +47,9 @@ Engine, but no data is yet loaded into QIX Engine. QIX Engine must use _load scr
 this. This can be rather complex, and here [halyard.js](https://github.com/qlik-oss/halyard.js) provides simple and
 powerful features to help.
 
-The `hello-data` Node.js application uses halyard.js to create a representation of the data and load it into QIX Engine
-as a part of opening a session. This is handled conveniently using the enigma.js _mixin_ support.
+The `hello-data` Node.js application uses [halyard.js](https://github.com/qlik-oss/halyard.js) to create a
+representation of the data and load it into QIX Engine as a part of opening a session. This is handled conveniently
+using the enigma.js _mixin_ support.
 
 As the next step, enigma.js is used to create a session object that holds the 10 first movie titles in the data model,
 now present in QIX Engine memory. The titles retrieved are printed and then the session is closed.
@@ -84,6 +85,16 @@ Session closed.
 Study the
 [hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/hello-data.js)
 file and observe how halyard.js and enigma.js are used together to load and retrieve data with QIX Engine.
+
+## Hypercubes
+
+As can be observed in the example source code, some more intricate details of QIX Engine are exposed. For example,
+the `properties` object used to create the session object contains a field called `qHyperCubeDef`. This relates to the
+central concept of _hypercubes_ in QIX Engine.
+
+Users not familiar with hypercubes are encouraged to learn more about them in the
+[Hypercube](http://help.qlik.com/en-US/sense-developer/September2017/Subsystems/Platform/Content/Concepts/Hypercubes.htm)
+help section of the Qlik Sense product.
 
 ## Next Steps
 
