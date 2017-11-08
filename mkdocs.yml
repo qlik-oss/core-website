@@ -25,6 +25,7 @@ pages:
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
     - APIs: documentation/apis.md
+    - Data Connector GRPC API: documentation/data-connector-grpc-api.md
   - Use Cases:
     - Custom Analytics UI: use-cases/use-case-custom-analytics/README.md
   - Support & Services:
