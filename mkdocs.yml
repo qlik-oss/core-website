@@ -24,7 +24,8 @@ pages:
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
-    - APIs: documentation/apis.md
+    - APIs:
+      - Data Connector GRPC API: documentation/apis/data-connector-grpc-api.md
   - Use Cases:
     - Custom Analytics UI: use-cases/use-case-custom-analytics/README.md
   - Support & Services:
