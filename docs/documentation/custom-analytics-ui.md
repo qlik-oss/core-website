@@ -171,8 +171,7 @@ the Gateway will direct the user to /login  (not shown in the above sequence cha
 The user will be redirected to the GitHub identity provider, application specific payload,
 such as the client ID will be added to the URL (2).
 The "request GitHub access page" will be requested and displayed (3).
-GitHub will request tThe user will have The displayed page will request the user to login (if not logged in already).
-The user will decide whether to grant access or not.
+The user will decide whether to grant access through the GitHub access page.
 Note: this is a one-shot, once our application has been granted access no additional UI will be displayed (4).
 
 ##### 5 and 6: Redirect (callback) to Authentication Service
