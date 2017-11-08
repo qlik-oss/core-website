@@ -25,7 +25,7 @@ With the auto-medication trend, the company also plan to open this service to th
 
 * The company is already using Docker and Docker Swarm Mode in complementary backend system of this portal.
 * AWS is the preferred cloud provider, although the implementation should allow to move to another cloud provider
-  (e.g. DigitalOcean) or to and on-prem deployment with minimal efforts.
+  (e.g. DigitalOcean) or to an on-prem deployment with minimal efforts.
 * The implementation should meet industry best practices in terms of being able to monitor the system.
 
 ## Functional Requirements
@@ -51,25 +51,23 @@ With the auto-medication trend, the company also plan to open this service to th
 * As a dev-ops I want to be able to get typical web-page KPIs out of the system
   (page-hits, sessions, up-time, down-time, reliability, etc.)
 * As a dev-ops I want to be able to get some information from the monitoring-system about the whether
-  I should scale up/down the system (based on the assumption mentioned above that scaling is done manually)
+  I should scale up/down the system (based on the assumption mentioned above that scaling is done manually.)
 * As a dev-ops I want to be able to see how the QiX Engine containers are behaving,
-  including getting detailed log-files and error-messages
+  including getting detailed log-files and error-messages.
 
 ### Testing
 
-* As a dev-ops I expect basic e2e tests
-* As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services)
-    * Max requests/hits handled per sec
-    * Failure rate / Errors per second
-    * Avg/Min/Max response time
-    * Latency
-    * Number of users handled by the system
-    * See e.g. [this article](https://www.blazemeter.com/blog/understanding-your-reports-part-2-kpi-correlations?utm_source=Blog&utm_medium=BM_Blog&utm_campaign=kpis-part1)
-      for more examples
+* As a dev-ops I expect basic e2e tests.
+* As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services), examples of these limits may be:
+    * Max requests/hits handled per sec.
+    * Failure rate / Errors per second.
+    * Avg/Min/Max response time.
+    * Latency.
+    * Number of users handled by the system.
 * When using the stress-tests mentioned above,
-  I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test
-    * Number of concurrent users
-    * Activity pattern of users (just watching, heavily making selections, etc.)
+  I - as a dev-ops - expect to be able to configure key-settings, which drive the behavior of the stress-test:
+    * Number of concurrent users.
+    * Activity pattern of users (just watching, heavily making selections, etc.).
 
 ## Assumptions
 
@@ -77,7 +75,7 @@ With the auto-medication trend, the company also plan to open this service to th
 * The scaling will be done manually with the help of scripts and will depend on the anticipated traffic.
 * The data set (no dynamic data reduction) is the same for every end-user.
 * The data reload is usually every quarter when FDA releases them.
-* A subscription model won't be implemented (rely on authentication permissions only).
+* A subscription model won't be implemented (rely on authentication permissions only.)
 
 ## Data
 
@@ -108,8 +106,8 @@ This use case is about scaling the QIX Engine in a configuration of
 * One document
 * Multiple users
 
-Scaling up engines needs to be done only to reduce load as a consequence of multiple users access the system simultaneously.
-All engine instances are equivalent and there is no need to have a certain engine service a certain user
+Scaling up QIX Engine needs to be done only to reduce load as a consequence of multiple users access the system simultaneously.
+All QIX Engine instances are equivalent and there is no need to have a certain QIX Engine instance service a certain user
 since all users access the same single document.
 
 ![QIX Engine Session Management](../images/custom-analytics-ui/session-management.png "QIX Engine Session Management")
@@ -122,7 +120,7 @@ This design was created with the following assumptions/requirements in mind:
 
 * Third party identity provider integration.
 * It should be possible to login.
-* It should be possible to logout. Note: logout will not be implemented in this first phase.
+* It should be possible to logout.
 * All back-end services depends on JWTs as the means of authentication.
 * WebSockets MUST work (i.e. we cannot depend on being able to set headers on the HTTP upgrade request).
 
