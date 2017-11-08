@@ -58,7 +58,8 @@ With the auto-medication trend, the company also plan to open this service to th
 ### Testing
 
 * As a dev-ops I expect basic e2e tests.
-* As a dev-ops I expect stress-tests to find out the limits of the given setup (machines & number of distributed services), examples of these limits may be:
+* As a dev-ops I expect stress-tests to find out the limits of the given setup
+  (machines & number of distributed services), examples of these limits may be:
     * Max requests/hits handled per sec.
     * Failure rate / Errors per second.
     * Avg/Min/Max response time.
