@@ -3,8 +3,8 @@
 This example shows how to load and retrieve user data in QIX Engine running in a Docker container. It extends the
 [Hello Engine](./hello-engine.md) example.
 
-[halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine. It is recommended to use
-[halyard.js](https://github.com/qlik-oss/halyard.js) when building custom solutions on Frontira and QIX Engine.
+[halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine. halyard.js provides
+convenient functionality for building custom solutions on Frontira and QIX Engine.
 
 As in the Hello Engine example, [enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX
 Engine.
@@ -93,7 +93,7 @@ the `properties` object used to create the session object contains a field calle
 central concept of _hypercubes_ in QIX Engine.
 
 Users not familiar with hypercubes are encouraged to learn more about them in the
-[Hypercube](http://help.qlik.com/en-US/sense-developer/September2017/Subsystems/Platform/Content/Concepts/Hypercubes.htm)
+[Hypercube](http://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm)
 help section of the Qlik Sense product.
 
 ## Next Steps
