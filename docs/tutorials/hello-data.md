@@ -1,8 +1,7 @@
 # Hello Data
 
-This example shows how to load and retrieve user data in QIX Engine running in a Docker container.
-
-The Hello Data example builds on and extends the [Hello Engine](./hello-engine.md) example.
+This example shows how to load and retrieve user data in QIX Engine running in a Docker container. It extends the
+[Hello Engine](./hello-engine.md) example.
 
 [halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine. It is recommended to use
 [halyard.js](https://github.com/qlik-oss/halyard.js) when building custom solutions on Frontira and QIX Engine.
@@ -45,8 +44,8 @@ then later retrieved.
 
 When starting the QIX Engine container in the previous step, the CSV file with data on popular movies becomes accessible
 to QIX Engine, but no data is yet loaded into QIX Engine. QIX Engine must use _load scripts_ with actions specifying how
-to do this. This can be rather complex, and here [halyard.js](https://github.com/qlik-oss/halyard.js) provides simple and
-powerful features to help.
+to do this. This can be rather complex, and here [halyard.js](https://github.com/qlik-oss/halyard.js) provides simple
+and powerful features to help.
 
 The `hello-data` Node.js application uses [halyard.js](https://github.com/qlik-oss/halyard.js) to create a
 representation of the data and load it into QIX Engine as a part of opening a session. This is handled conveniently
