@@ -22,13 +22,12 @@ Before starting the QIX Engine container, first check that no old QIX Engine con
 Engine container for this example with:
 
 ```bash
-cd hello-data
 docker-compose up -d
 ```
 
 The
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/docker-compose.yml)
-file used in this example, contains a volumes section:
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
+file contains a volumes section:
 
 ```yml
 volumes:
@@ -56,14 +55,14 @@ now present in QIX Engine memory. The titles retrieved are printed and then the 
 
 The `hello-data` application consists of a single JavaScript file,
 [hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/hello-data.js)
-, and the
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/package.json) file.
+, and the shared
+[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file.
 
 To run and observe the listed movie titles:
 
 ```bash
 $ npm install
-$ npm start
+$ npm run hello-data
 
 Creating table data representation.
 Creating and opening session using mixin.

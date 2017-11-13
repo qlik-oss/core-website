@@ -16,19 +16,18 @@ actions are performed in that repository.
 ## Starting QIX Engine in a Docker Container
 
 ```bash
-cd hello-engine
 docker-compose up -d
 ```
 
 QIX Engine is now running as a Docker container!
 
-Using `docker-compose` is a convenient way to get containers up and running. The `hello-engine/` folder contains the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/docker-compose.yml)
+Using `docker-compose` is a convenient way to get containers up and running. The root folder contains the
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
 file that describes how QIX Engine shall run as a container, using the `qlik/engine` Docker image, and exposing port
 9076 on the local machine.
 
 Study the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/docker-compose.yml)
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
 file and refer to the Docker documentation for more information on how `docker-compose` works.
 
 Verify that one Docker container with QIX Engine is running with:
@@ -49,13 +48,13 @@ enigma.js is of course capable of much more, but this gives a good introduction.
 The `hello-engine` application consists of a single JavaScript file,
 [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
 , and the
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/package.json) file.
+[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file, which is shared with `hello-data` and `hello-visualization` applications.
 
 To run and observe the output that includes the QIX Engine version:
 
 ```bash
 $ npm install
-$ npm start
+$ npm run hello-engine
 
 Creating and opening session.
 Engine version retrieved: 12.91.0
