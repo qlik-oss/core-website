@@ -48,7 +48,8 @@ enigma.js is of course capable of much more, but this gives a good introduction.
 The `hello-engine` application consists of a single JavaScript file,
 [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
 , and the
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file, which is shared with `hello-data` and `hello-visualization` applications.
+[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file,
+which is shared with `hello-data` and `hello-visualization` applications.
 
 To run and observe the output that includes the QIX Engine version:
 
