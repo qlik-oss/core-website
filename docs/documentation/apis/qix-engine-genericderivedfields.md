@@ -2,136 +2,108 @@
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.96.0, generated on 2017-11-14T11:53:52.449Z._
-
+_API specification for version 12.96.0, generated on 2017-11-14T14:44:26.997Z._
 
 ## `GetDerivedField`
 
-
-_No description._
-
+_No details._
 
 ##### Parameters
 
-Name | Type | Mandatory | Description
----- | ---- | --------- | -----------
-`qId` | string | Yes | _None available_
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qId` | string | Yes | _None available._ |
 
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qFields` | object | _None available_
-`qReturn` | boolean | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qFields` | object | _None available._ || `qReturn` | boolean | _None available._ |
 
 ## `GetDerivedFieldData`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qData` | object | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qData` | object | _None available._ |
 
 ## `GetDerivedFields`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qFields` | array | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qFields` | array | _None available._ |
 
 ## `GetDerivedGroups`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qGroups` | array | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qGroups` | array | _None available._ |
 
 ## `GetInfo`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qInfo` | object | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qInfo` | object | _None available._ |
 
 ## `GetListData`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qListData` | array | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qListData` | array | _None available._ |
 
 ## `GetProperties`
 
-
-_No description._
-
-
+_No details._
 
 _No parameters._
 
-
 ##### Returns
 
-Name | Type | Description
----- | ---- | -----------
-`qProp` | object | _None available_
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qProp` | object | _None available._ |
 
 ## `SetProperties`
 
-
-_No description._
-
+_No details._
 
 ##### Parameters
 
-Name | Type | Mandatory | Description
----- | ---- | --------- | -----------
-`qProp` | object | Yes | _None available_
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qProp` | object | Yes | _None available._ |
 
+##### Returns
 
-_No return values._
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 
