@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericDimension
 
-_API specification for version 12.96.0, generated on 2017-11-14T14:44:26.998Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.060Z._
 
 ## `ApplyPatches`
 

@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_API specification for version 12.96.0, generated on 2017-11-14T14:44:27.002Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.064Z._
 
 ## `AbortAll`
 
