@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Field
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.895Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.691Z._
 
 ## `Clear`
 
@@ -208,11 +208,7 @@ Sets a field in the AND mode.
 | ---- | ---- | --------- | ----------- |
 | `qAndMode` | boolean | Yes | Specifies if the AND mode applies to the field.<br>Set this parameter to true to enter the AND mode. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetNxProperties`
 
@@ -224,11 +220,7 @@ Sets some properties to a field.
 | ---- | ---- | --------- | ----------- |
 | `qProperties` | object | Yes | Information about the properties of the field. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ToggleSelect`
 

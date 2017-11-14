@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.888Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.684Z._
 
 ## `AbortModal`
 
@@ -14,11 +14,7 @@ Aborts any selection mode in an app. For more information about selection mode, 
 | ---- | ---- | --------- | ----------- |
 | `qAccept` | boolean | Yes | Set this parameter to true to accept the selections before exiting the selection mode. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AddAlternateState`
 
@@ -30,11 +26,7 @@ Adds an alternate state in the app.<br>You can create multiple states within a Q
 | ---- | ---- | --------- | ----------- |
 | `qStateName` | string | Yes | Name of the alternate state. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AddFieldFromExpression`
 
@@ -75,11 +67,7 @@ Loads the last logical operation (if any).
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `BackCount`
 
@@ -149,11 +137,7 @@ Clears all selections in all fields of the current app.
 | `qLockedAlso` | boolean | No | Set this parameter to true to clear all selections, including the locked fields.<br>Default is false. Selections on locked fields are not cleared. |
 | `qStateName` | string | No | Name of the alternate state.<br>If an alternate state is defined in _qStateName_ , only the selections related to this alternate state are cleared.<br>Default state is current selections. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ClearUndoBuffer`
 
@@ -161,11 +145,7 @@ Clears entirely the undo and redo buffer.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CloneBookmark`
 
@@ -241,11 +221,7 @@ Commits the draft of an object that was previously created by invoking the _Crea
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the draft to commit. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CreateBookmark`
 
@@ -417,11 +393,7 @@ Deletes a connection.<br>In Qlik Sense Enterprise, there is an additional file c
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection to remove. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `DestroyBookmark`
 
@@ -612,11 +584,7 @@ Saves an app. All objects and data in the data model are saved.
 | ---- | ---- | --------- | ----------- |
 | `qFileName` | string | No | Name of the file to save. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Evaluate`
 
@@ -689,11 +657,7 @@ Loads the next logical operation (if any).
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ForwardCount`
 
@@ -1429,11 +1393,7 @@ Locks all selections in all fields of the current app.
 | ---- | ---- | --------- | ----------- |
 | `qStateName` | string | No | Alternate state name.<br>If this parameter is set, the method locks all selections that are in the specified state name.<br>The default value is an empty string. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `MigrateDerivedFields`
 
@@ -1441,11 +1401,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `MigrateVariables`
 
@@ -1453,11 +1409,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ModifyConnection`
 
@@ -1471,11 +1423,7 @@ Updates a connection.<br>The identifier of a connection cannot be updated. qType
 | `qConnection` | object | Yes | Information about the connection.<br>Properties that can be updated. |
 | `qOverrideCredentials` | boolean | No | Set this parameter to true to override the user name and password. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Publish`
 
@@ -1488,11 +1436,7 @@ Publishes an app. The published app can have a different name than the original 
 | `qStreamId` | string | Yes | Identifier of the stream. |
 | `qName` | string | No | Name of the published app.<br>If this parameter is not set, the engine automatically gives a new name to the published app. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Redo`
 
@@ -1516,11 +1460,7 @@ Removes an alternate state in the app.
 | ---- | ---- | --------- | ----------- |
 | `qStateName` | string | Yes | Name of the alternate state. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `RemoveVariable`
 
@@ -1544,11 +1484,7 @@ Resumes the app as the user left it.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SaveObjects`
 
@@ -1556,11 +1492,7 @@ Saves all objects that were modified in the app.<br>Data from the data model are
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Scramble`
 
@@ -1572,11 +1504,7 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qFieldName` | string | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SearchAssociations`
 
@@ -1662,11 +1590,7 @@ Selects all search hits for a specified group.<br>The results depend on the sear
 | `qMatchIx` | integer | Yes | Index (value of _qId_ ) of the search result to select. |
 | `qSoftLock` | boolean | No | This parameter is deprecated and should not be set. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SendGenericCommandToCustomConnector`
 
@@ -1698,11 +1622,7 @@ Sets properties to an app.
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the properties of an app. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetFavoriteVariables`
 
@@ -1714,11 +1634,7 @@ Set some variables as favorite.
 | ---- | ---- | --------- | ----------- |
 | `qNames` | array | Yes | Variables to set as favorite. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetFetchLimit`
 
@@ -1730,11 +1646,7 @@ Limits the number of rows of data to load from a data source.<br>This method wor
 | ---- | ---- | --------- | ----------- |
 | `qLimit` | integer | Yes | Fetch limit.<br>Number of rows to load. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetLooselyCoupledVector`
 
@@ -1762,11 +1674,7 @@ Sets values in script.
 | ---- | ---- | --------- | ----------- |
 | `qScript` | string | Yes | Script content. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetScriptBreakpoints`
 
@@ -1778,11 +1686,7 @@ Set some breakpoints in the script of an app.
 | ---- | ---- | --------- | ----------- |
 | `qBreakpoints` | array | Yes | Information about the breakpoints. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetViewDlgSaveInfo`
 
@@ -1794,11 +1698,7 @@ Sets the positions of the tables in the data model viewer.<br>The position of th
 | ---- | ---- | --------- | ----------- |
 | `qInfo` | object | Yes | Information about the table. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `UnPublish`
 
@@ -1806,11 +1706,7 @@ Unpublishes an app.<br>This operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Undo`
 
@@ -1834,8 +1730,4 @@ Unlocks all selections in all fields of the current app.
 | ---- | ---- | --------- | ----------- |
 | `qStateName` | string | No | Alternate state name.<br>If this parameter is set, the method unlocks all selections that are in the specified state name.<br>The default value is an empty string. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

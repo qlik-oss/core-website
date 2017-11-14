@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.899Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.694Z._
 
 ## `AbortListObjectSearch`
 
@@ -14,11 +14,7 @@ Aborts the results of a search in a list object.<br>This method applies to list 
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AcceptListObjectSearch`
 
@@ -32,11 +28,7 @@ Accept the results of a search in a list object. The search results become selec
 | `qToggleMode` | boolean | Yes | Set to true to keep any selections present in the list object.<br>If this parameter is set to false, selections made before accepting the list object search become alternative. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ApplyPatches`
 
@@ -49,11 +41,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | `qPatches` | array | Yes | Array of patches. |
 | `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AttachSnapshotObject`
 
@@ -65,11 +53,7 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qBookmark` | object | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `BeginSelections`
 
@@ -81,11 +65,7 @@ Begins the selection mode. The app enters the modal state. The specified object 
 | ---- | ---- | --------- | ----------- |
 | `qPaths` | array | Yes | List of the paths to the definition of the objects to enter selection mode.<br>For example, _/qListObjectDef_ . |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ClearSelections`
 
@@ -98,11 +78,7 @@ Clears the selections in a dimension of a visualization.
 | `qPath` | string | Yes | Path to the definition of the visualization.<br>For example, _/qListObjectDef_ . |
 | `qColIndices` | array | No | Array of dimension numbers or indexes. The selections are cleared in the specified dimensions.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, all dimensions are cleared. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ClearSoftPatches`
 
@@ -110,11 +86,7 @@ Clears the soft properties of a generic object.<br>For more information on how t
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CollapseLeft`
 
@@ -129,11 +101,7 @@ Collapses the left dimensions of a pivot table. This method applies only to pivo
 | `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>Indexing starts from 0. |
 | `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CollapseTop`
 
@@ -148,11 +116,7 @@ Collapses the top dimensions of a pivot table. This method applies only to pivot
 | `qCol` | integer | Yes | Column index in the data matrix.<br>Indexing starts from 0. |
 | `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CopyFrom`
 
@@ -164,11 +128,7 @@ Copies the properties of a generic object and its children.<br>The source object
 | ---- | ---- | --------- | ----------- |
 | `qFromId` | string | Yes | Identifier of the object to copy. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CreateChild`
 
@@ -197,11 +157,7 @@ Removes all children and all children to the children on an object.
 | ---- | ---- | --------- | ----------- |
 | `qPropForThis` | object | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `DestroyChild`
 
@@ -226,11 +182,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `DrillUp`
 
@@ -244,11 +196,7 @@ You can use the drillUp method with any object that contains a drilldown group a
 | `qDimNo` | integer | Yes | Dimension number or index starting from 0.<br>The default value is 0. |
 | `qNbrSteps` | integer | Yes | Number of steps you want to drill up.<br>The default value is 0. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `EmbedSnapshotObject`
 
@@ -260,11 +208,7 @@ Adds a snapshot to a generic object.<br>Only one snapshot can be embedded in a g
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the bookmark. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `EmbedSnapshotObjectInternal`
 
@@ -277,11 +221,7 @@ _No details._
 | `qId` | string | Yes | _None available._ |
 | `qEmbeddedBookmarkId` | string | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `EndSelections`
 
@@ -293,11 +233,7 @@ Ends the selection mode on a visualization. The selections are accepted or abort
 | ---- | ---- | --------- | ----------- |
 | `qAccept` | boolean | Yes | Set this parameter to true to accept the selections before exiting the selection mode. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ExpandLeft`
 
@@ -312,11 +248,7 @@ Expands the left dimensions of a pivot table. This method applies only to pivot 
 | `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>Indexing starts from 0. |
 | `qAll` | boolean | Yes | If set to true, it expands all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ExpandTop`
 
@@ -331,11 +263,7 @@ Expands the top dimensions of a pivot table. This method applies only to pivot t
 | `qCol` | integer | Yes | Column index in the data matrix.<br>Indexing starts from 0. |
 | `qAll` | boolean | Yes | If set to true, it expands all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ExportData`
 
@@ -624,11 +552,7 @@ Locks the selected values of a generic object.
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qListObjectDef_ . |
 | `qColIndices` | array | No | Dimension numbers or dimension indexes where the lock should apply.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, the selected values in all dimensions are locked. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `MultiRangeSelectHyperCubeValues`
 
@@ -655,11 +579,7 @@ Publishes a generic object.<br>This operation is possible only in Qlik Sense Ent
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `RangeSelectHyperCubeValues`
 
@@ -687,11 +607,7 @@ Resets all selections made in selection mode.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SearchListObjectFor`
 
@@ -901,11 +817,7 @@ Sets the order of the children in a generic object.<br>To change the order of th
 | ---- | ---- | --------- | ----------- |
 | `qIds` | array | Yes | List of the children identifiers. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetFullPropertyTree`
 
@@ -917,11 +829,7 @@ Sets the properties of:<br>* A generic object.<br>* The children of the generic 
 | ---- | ---- | --------- | ----------- |
 | `qPropEntry` | object | Yes | Information about the generic object entry. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetProperties`
 
@@ -933,11 +841,7 @@ Sets some properties for a generic object.
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the generic object. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `UnPublish`
 
@@ -945,11 +849,7 @@ Unpublishes a generic object.<br>This operation is possible only in Qlik Sense E
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `Unlock`
 
@@ -962,8 +862,4 @@ Unlocks the selected values of a generic object if the target (or handle ) is a 
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qListObjectDef_ . |
 | `qColIndices` | array | No | Dimension numbers/indexes where the unlock should apply.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, the locked values in all dimensions are unlocked. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

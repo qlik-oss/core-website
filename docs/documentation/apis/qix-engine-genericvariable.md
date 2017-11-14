@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericVariable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.902Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.697Z._
 
 ## `ApplyPatches`
 
@@ -14,11 +14,7 @@ Applies a patch to the properties of a variable. Allows an update to some of the
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | array | Yes | Array of patches. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `GetInfo`
 
@@ -67,11 +63,7 @@ Sets the value of a dual variable.<br>These changes are not persistent. They onl
 | `qText` | string | Yes | String representation of a dual value. Set this parameter to "", if the string representation is to be Null. |
 | `qNum` | number | Yes | Numeric representation of a dual value. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetNumValue`
 
@@ -83,11 +75,7 @@ Sets a numerical value to a variable.<br>These changes are not persistent. They 
 | ---- | ---- | --------- | ----------- |
 | `qVal` | number | Yes | Value of the variable. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetProperties`
 
@@ -99,11 +87,7 @@ Sets some properties for a variable.<br>The identifier of a variable cannot be m
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the variable. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetStringValue`
 
@@ -115,8 +99,4 @@ Sets a string value to a variable.<br>These changes are not persistent. They onl
 | ---- | ---- | --------- | ----------- |
 | `qVal` | string | Yes | Value of the variable. The string can contain an expression. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

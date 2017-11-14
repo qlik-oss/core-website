@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericBookmark
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.897Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.692Z._
 
 ## `Apply`
 
@@ -26,11 +26,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | array | Yes | Array of patches. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `GetFieldValues`
 
@@ -92,11 +88,7 @@ Publishes a bookmark.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `SetProperties`
 
@@ -108,11 +100,7 @@ Sets some properties for a bookmark.
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the bookmark. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `UnPublish`
 
@@ -120,8 +108,4 @@ Unpublishes a bookmark.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

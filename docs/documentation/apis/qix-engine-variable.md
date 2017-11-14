@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.905Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.700Z._
 
 ## `ForceContent`
 
@@ -15,11 +15,7 @@ Sets the value of a dual variable overriding any input constraints.<br>This meth
 | `qs` | string | Yes | String representation of a dual value.<br>Set this parameter to "", if the string representation is to be Null. |
 | `qd` | number | Yes | Numeric representation of a dual value. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `GetContent`
 
@@ -84,8 +80,4 @@ Sets some properties to a variable.<br>This method is deprecated (not recommende
 | ---- | ---- | --------- | ----------- |
 | `qProperties` | object | Yes | Information about the properties of the variable |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

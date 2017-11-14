@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.897Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.693Z._
 
 ## `GetDerivedField`
 
@@ -102,8 +102,4 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._

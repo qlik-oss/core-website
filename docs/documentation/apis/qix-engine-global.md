@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.902Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.697Z._
 
 ## `AbortAll`
 
@@ -10,11 +10,7 @@ Sets an abort flag on all pending and ongoing requests in the current engine ses
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AbortRequest`
 
@@ -26,11 +22,7 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `AllowCreateApp`
 
@@ -50,11 +42,7 @@ Cancels an ongoing reload. The reload of the app is stopped. The indexation can 
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CancelRequest`
 
@@ -66,11 +54,7 @@ Cancels an ongoing request. The request is stopped.
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | Identifier of the request to stop. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ConfigureReload`
 
@@ -84,11 +68,7 @@ Configures the engine's behavior during a reload.<br>The _ConfigureReload method
 | `qUseErrorData` | boolean | Yes | If set to true, any script execution error is returned in _qErrorData_ by the _GetProgress method_. |
 | `qInteractOnError` | boolean | Yes | If set to true, the script execution is halted on error and the engine is waiting for an interaction to be performed. If the result from the interaction is 1 ( _qDef.qResult_ is 1), the engine continues the script execution otherwise the execution is halted.<br>This parameter is relevant only if the variable _ErrorMode_ is set to 1 and the script is run in debug mode ( _qDebug_ is set to true when calling the _DoReload method_ ). |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `CopyApp`
 
@@ -231,11 +211,7 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qdocId` | string | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `EngineVersion`
 
@@ -646,11 +622,7 @@ Imports an app to the Qlik Sense repository. The connections in the app can be e
 | `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be imported must be given. This list must contain the names of all these objects. |
 | `qExcludeConnections` | boolean | Yes | If this parameter is set to true, the connections in the app are not imported. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `InteractDone`
 
@@ -663,11 +635,7 @@ Informs the engine that a user interaction (which was earlier requested by the e
 | `qRequestId` | integer | Yes | Identifier of the request.<br>Corresponds to the identifier of the _DoReload_ request. |
 | `qDef` | object | Yes | User response to the current interaction. |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `IsDesktopMode`
 
@@ -777,11 +745,7 @@ _No details._
 | `qName` | string | Yes | _None available._ |
 | `qStreamId` | string | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `PublishDocument`
 
@@ -794,11 +758,7 @@ _No details._
 | `qdocId` | string | Yes | _None available._ |
 | `qpublish` | undefined | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `QTProduct`
 
@@ -830,11 +790,7 @@ Reloads the list of extensions.
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `ReplaceAppFromID`
 
@@ -860,11 +816,7 @@ Shuts down the Qlik engine.<br>This operation is possible only in Qlik Sense Des
 
 _No parameters._
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
 
 ## `UnPublishDocument`
 
@@ -876,8 +828,4 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qdocId` | string | Yes | _None available._ |
 
-##### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
+_No return values._
