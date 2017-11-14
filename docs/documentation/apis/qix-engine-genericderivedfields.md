@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.059Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.897Z._
 
 ## `GetDerivedField`
 

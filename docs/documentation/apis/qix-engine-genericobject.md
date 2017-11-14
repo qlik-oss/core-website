@@ -2,11 +2,11 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.060Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.899Z._
 
 ## `AbortListObjectSearch`
 
-Aborts the results of a search in a list object.<br>This method applies to list objects (objects with one dimension).  After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. 
+Aborts the results of a search in a list object.<br>This method applies to list objects (objects with one dimension). After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. 
 
 ##### Parameters
 
@@ -234,7 +234,7 @@ _No parameters._
 
 ## `DrillUp`
 
-You can use the drillUp method with any object that contains a drill-down group as a dimension.<br>This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.<br>If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
+You can use the drillUp method with any object that contains a drilldown group as a dimension.<br>This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.<br>If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
 
 ##### Parameters
 
@@ -909,7 +909,7 @@ Sets the order of the children in a generic object.<br>To change the order of th
 
 ## `SetFullPropertyTree`
 
-Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child.  The type of an object cannot be updated.
+Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
 
 ##### Parameters
 

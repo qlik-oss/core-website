@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.064Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.902Z._
 
 ## `AbortAll`
 
@@ -838,7 +838,7 @@ _No parameters._
 
 ## `ReplaceAppFromID`
 
-Replaces an app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_ .<br>The data model of the app cannot be updated.  This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
+Replaces an app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_ .<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 ##### Parameters
 

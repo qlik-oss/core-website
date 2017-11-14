@@ -2,11 +2,11 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.067Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.905Z._
 
 ## `ForceContent`
 
-Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead.  The _ForceContent method_ does not evaluate any expression. 
+Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. The _ForceContent method_ does not evaluate any expression. 
 
 ##### Parameters
 

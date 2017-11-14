@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:02:00.048Z._
+_API specification for version 12.97.0, generated on 2017-11-14T15:08:57.888Z._
 
 ## `AbortModal`
 
@@ -393,7 +393,7 @@ Creates a variable.<br>This method is deprecated (not recommended to use). Use _
 
 ## `CreateVariableEx`
 
-Creates a variable.<br>To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_.  In a published app, only transient variables can be created. See _CreateSessionVariable method_. <br><br>
+Creates a variable.<br>To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See _CreateSessionVariable method_. <br><br>
 
 ##### Parameters
 
