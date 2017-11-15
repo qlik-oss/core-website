@@ -1,14 +1,13 @@
-
 <!-- markdownlint-disable -->
 # GenericMeasure
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.694Z._
+_API specification for version 12.97.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -22,7 +21,7 @@ Returns the type and identifier of the object.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -34,7 +33,7 @@ Evaluates a measure and displays its properties, including the dynamic propertie
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -46,7 +45,7 @@ Lists the linked objects to a generic object, a dimension or a measure.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -58,7 +57,7 @@ Returns the definition of a measure.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -70,7 +69,7 @@ Shows the properties of an object.<br>Returns the identifier and the definition 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -88,7 +87,7 @@ _No return values._
 
 Sets some properties for a measure.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

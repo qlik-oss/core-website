@@ -1,14 +1,13 @@
-
 <!-- markdownlint-disable -->
 # Doc
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.684Z._
+_API specification for version 12.97.0._
 
 ## `AbortModal`
 
 Aborts any selection mode in an app. For more information about selection mode, see _BeginSelections method_.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -20,7 +19,7 @@ _No return values._
 
 Adds an alternate state in the app.<br>You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -32,14 +31,14 @@ _No return values._
 
 Adds a field on the fly.<br>The expression of a field on the fly is persisted but not its values. <br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the field. |
 | `qExpr` | string | Yes | Expression value.<br>It is not possible to use all aggregation functions. For example, you cannot add a field on the fly with an expression that uses the _Sum_ or _Count_ aggregation functions. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -49,13 +48,13 @@ Adds a field on the fly.<br>The expression of a field on the fly is persisted bu
 
 Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the bookmark. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -75,7 +74,7 @@ Returns the number of entries on the back stack.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -85,14 +84,14 @@ _No parameters._
 
 Checks if a given expression is valid.<br>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qExpr` | string | Yes | Expression to check. |
 | `qLabels` | array | No | List of labels. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -102,13 +101,13 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 
 Checks if:<br>* A given expression is valid.<br>* A number is correct according to the locale.<br>The expression is correct if the parameters _qErrorMsg_ and _qBadFieldNames_ are empty. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qExpr` | string | Yes | Expression to check. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -120,7 +119,7 @@ Checks the syntax of a script.<br><br>
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -130,7 +129,7 @@ _No parameters._
 
 Clears all selections in all fields of the current app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -151,13 +150,13 @@ _No return values._
 
 Clones a bookmark.<br><br>The identifier is set by the engine.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to clone. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -167,13 +166,13 @@ Clones a bookmark.<br><br>The identifier is set by the engine.
 
 Clones a dimension.<br><br>The identifier is set by the engine.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to clone. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -183,13 +182,13 @@ Clones a dimension.<br><br>The identifier is set by the engine.
 
 Clones a measure.<br><br>The identifier is set by the engine.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to clone. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -199,13 +198,13 @@ Clones a measure.<br><br>The identifier is set by the engine.
 
 Clones root level objects, such as sheets and stories. The CloneObject method works for both app objects and child objects.<br>When you clone an object that contains children, the children are cloned as well.<br>If you for example want to clone a visualization, you must provide the qID of the root object, in this case the sheet since CloneObject clones root level objects.<br>It is not possible to clone a session object.<br><br>The identifier is set by the engine.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to clone. The identifier must be a root object. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -215,7 +214,7 @@ Clones root level objects, such as sheets and stories. The CloneObject method wo
 
 Commits the draft of an object that was previously created by invoking the _CreateDraft method_.<br>Committing a draft replaces the corresponding published object.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -227,13 +226,13 @@ _No return values._
 
 Creates a bookmark.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the object. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -243,13 +242,13 @@ Creates a bookmark.
 
 Creates a connection.<br>A connection indicates from which data source the data should be taken.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnection` | object | Yes | Information about the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -259,13 +258,13 @@ Creates a connection.<br>A connection indicates from which data source the data 
 
 Creates a master dimension.<br>A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the properties. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -275,13 +274,13 @@ Creates a master dimension.<br>A master dimension is stored in the library of an
 
 Creates a draft of an object.<br>This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.<br>Replace the published object by the content of the draft by invoking the _CommitDraft method_.<br><br>The identifier is set by the engine.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to create a draft from. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -291,13 +290,13 @@ Creates a draft of an object.<br>This method can be used to create a draft of a 
 
 Creates a master measure.<br>A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the properties. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -307,13 +306,13 @@ Creates a master measure.<br>A master measure is stored in the library of an app
 
 Creates a generic object at app level. For more information on generic objects, see _Generic object_.<br>It is possible to create a generic object that is linked to another object.<br>A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).<br>The linked object has the same properties as the linking object.<br>The linking object cannot be a transient object.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the object. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -323,13 +322,13 @@ Creates a generic object at app level. For more information on generic objects, 
 
 Creates a transient object. For example, you can use a transient object to create an app overview or a story overview.<br>It is possible to create a transient object that is linked to another object.<br>A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).<br>The linked object has the same properties as the linking object.<br>The linking object cannot be a transient object.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Information about the object. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -339,13 +338,13 @@ Creates a transient object. For example, you can use a transient object to creat
 
 Creates a transient variable.<br>To set some properties to the variable, use the _SetProperties method_. <br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Name of the variable. Variable names are case sensitive. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -355,13 +354,13 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 Creates a variable.<br>This method is deprecated (not recommended to use). Use _CreateVariableEx method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the variable. Variable names are case sensitive. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -371,13 +370,13 @@ Creates a variable.<br>This method is deprecated (not recommended to use). Use _
 
 Creates a variable.<br>To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See _CreateSessionVariable method_. <br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | object | Yes | Name of the variable. Variable names are case sensitive and must be unique. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -387,7 +386,7 @@ Creates a variable.<br>To create a variable via a script, you need to use the _S
 
 Deletes a connection.<br>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . The AttachedFiles connection can only be removed by the administrator of the system. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -399,13 +398,13 @@ _No return values._
 
 Removes a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the bookmark. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -415,13 +414,13 @@ Removes a bookmark.<br><br>The operation is successful if **qSuccess** is set to
 
 Removes a dimension.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the dimension to remove. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -431,14 +430,14 @@ Removes a dimension.<br><br>The operation is successful if **qSuccess** is set t
 
 Removes the draft of an object.<br>The children of the draft object (if any) are removed as well.<br>This method can be used to cancel the work on the draft of an object. For example, if you had created a draft of a sheet that is published, you might not want anymore to replace the published sheet.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the draft object to remove. |
 | `qSourceId` | string | Yes | Identifier of the source object (the object from which a draft was created). |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -448,13 +447,13 @@ Removes the draft of an object.<br>The children of the draft object (if any) are
 
 Removes a generic measure.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the measure to remove. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -464,13 +463,13 @@ Removes a generic measure.<br><br>The operation is successful if **qSuccess** is
 
 Removes an app object.<br>The children of the object (if any) are removed as well.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to remove. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -480,13 +479,13 @@ Removes an app object.<br>The children of the object (if any) are removed as wel
 
 Removes a transient object.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the transient object to remove. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -496,13 +495,13 @@ Removes a transient object.<br><br>The operation is successful if **qSuccess** i
 
 Removes a transient variable.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -512,13 +511,13 @@ Removes a transient variable.<br><br>The operation is successful if **qSuccess**
 
 Removes a variable.<br>Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -528,13 +527,13 @@ Removes a variable.<br>Script-defined variables cannot be removed using the _Des
 
 Removes a variable.<br>Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -544,7 +543,7 @@ Removes a variable.<br>Script-defined variables cannot be removed using the _Des
 
 Reloads the script that is set in an app.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -552,7 +551,7 @@ Reloads the script that is set in an app.<br><br>
 | `qPartial` | boolean | No | Set to true for partial reload.<br>The default value is false. |
 | `qDebug` | boolean | No | Set to true if debug breakpoints are to be honored. The execution of the script will be in debug mode.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -562,13 +561,13 @@ Reloads the script that is set in an app.<br><br>
 
 Reloads the script that is set in an app and returns the path to the script log file.<br>A log file is created per reload.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qParams` | object | No | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -578,7 +577,7 @@ Reloads the script that is set in an app and returns the path to the script log 
 
 Saves an app. All objects and data in the data model are saved.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -590,13 +589,13 @@ _No return values._
 
 Evaluates an expression as a string.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qExpression` | string | Yes | Expression to evaluate. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -606,13 +605,13 @@ Evaluates an expression as a string.<br><br>
 
 Evaluates an expression as a dual.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qExpression` | string | Yes | Expression to evaluate. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -622,13 +621,13 @@ Evaluates an expression as a dual.<br><br>
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qOptions` | object | No | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -638,14 +637,14 @@ _No details._
 
 Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.<br>Tags set by Qlik Sense are prefixed by the _$_ sign.  
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qFieldName` | string | Yes | Name of the field.<br>This method looks for fields that belong to the same archipelago as this specified field. |
 | `qTags` | array | Yes | List of tags.<br>This method looks for fields that match at least one of the tags in this list. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -665,7 +664,7 @@ Returns the number of entries on the Forward stack.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -677,7 +676,7 @@ Returns the identifier and the type of any generic object in the app.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -689,7 +688,7 @@ Evaluates an app.<br>Returns dynamic properties (if any) in addition to the engi
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -701,7 +700,7 @@ Gets the properties of an app.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -711,14 +710,14 @@ _No parameters._
 
 Computes a set of association scores for each pair of fields between two given tables that have been loaded in an app.<br>When a table contains some synthetic keys, all fields in the synthetic key tables are analyzed against fields in other tables. To denote that a field is a synthetic key, the field name is prefixed by _[Synthetic Key]:_ .
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qTable1` | string | Yes | Name of the first table. |
 | `qTable2` | string | Yes | Name of the second table. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -728,13 +727,13 @@ Computes a set of association scores for each pair of fields between two given t
 
 Returns the handle of a bookmark.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the bookmark. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -744,13 +743,13 @@ Returns the handle of a bookmark.
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qOptions` | object | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -760,13 +759,13 @@ _No details._
 
 Retrieves a connection and returns:<br>* The creation time of the connection.<br>* The identifier of the connection.<br>* The type of the connection.<br>* The name of the connection.<br>* The connection string.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -778,7 +777,7 @@ Lists the connections in an app.<br>In Qlik Sense Enterprise, there is an additi
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -790,7 +789,7 @@ Lists the content libraries.<br>To differentiate a global content library from a
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -800,13 +799,13 @@ _No parameters._
 
 Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Name of the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -816,14 +815,14 @@ Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for 
 
 Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qDatabase` | string | No | Name of the database. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -833,7 +832,7 @@ Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
 Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -842,7 +841,7 @@ Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM conne
 | `qOwner` | string | No | Owner of the database.<br>If _qOwner_ is not set then _qDatabase_ must be set. |
 | `qTable` | string | Yes | Name of the table. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -852,7 +851,7 @@ Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM conne
 
 Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -862,7 +861,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 | `qTable` | string | Yes | Name of the table. |
 | `qConditions` | object | No | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -872,7 +871,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 
 Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -880,7 +879,7 @@ Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 | `qDatabase` | string | No | Name of the database.<br>If _qDatabase_ is not set then _qOwner_ must be set. |
 | `qOwner` | string | No | Owner of the database.<br>If _qOwner_ is not set then _qDatabase_ must be set. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -890,13 +889,13 @@ Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
 Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -906,13 +905,13 @@ Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
 
 Returns the handle of a dimension.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the dimension. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -922,13 +921,13 @@ Returns the handle of a dimension.
 
 Creates a script that contains one section. This section contains **Set** statements that give localized information from the regional settings of the computer.<br>The computer regional settings are retrieved when the engine starts.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qLocalizedMainSection` | string | No | Name of the script section.<br>The default value is _Main_ . |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -940,7 +939,7 @@ Retrieves the variables that are tagged as favorite.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -950,14 +949,14 @@ _No parameters._
 
 Retrieves the handle of a field.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qFieldName` | string | Yes | Name of the field. |
 | `qStateName` | string | No | Name of the alternate state.<br>Default state is current selections. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -967,13 +966,13 @@ Retrieves the handle of a field.
 
 Retrieves the description of a field.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qFieldName` | string | Yes | Name of the field. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -983,13 +982,13 @@ Retrieves the description of a field.
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qReadableName` | string | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -999,7 +998,7 @@ _No details._
 
 Lists the fields of a table for a folder connection.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1008,7 +1007,7 @@ Lists the fields of a table for a folder connection.<br><br>
 | `qDataFormat` | object | Yes | Type of the file. |
 | `qTable` | string | Yes | Name of the table.<br>This parameter must be set for _XLS_ , _XLSX_ , _HTML  _ and _XML_ files. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1018,7 +1017,7 @@ Lists the fields of a table for a folder connection.<br><br>
 
 Lists the values in a table for a folder connection.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1027,7 +1026,7 @@ Lists the values in a table for a folder connection.<br><br>
 | `qDataFormat` | object | Yes | Type of the file. |
 | `qTable` | string | Yes | Name of the table.<br>This parameter must be set for _XLS_ , _XLSX_ , _HTML  _ and _XML_ files. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1037,7 +1036,7 @@ Lists the values in a table for a folder connection.<br><br>
 
 Lists the tables for a folder connection.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1045,7 +1044,7 @@ Lists the tables for a folder connection.<br><br>
 | `qRelativePath` | string | No | Path of the connection file. |
 | `qDataFormat` | object | Yes | Type of the file. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1055,7 +1054,7 @@ Lists the tables for a folder connection.<br><br>
 
 Lists the tables and fields of a JSON or XML file for a folder connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1063,7 +1062,7 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 | `qRelativePath` | string | No | Path of the connection file. |
 | `qDataFormat` | object | Yes | Type of the file. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1073,14 +1072,14 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 
 Lists the items for a folder connection.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qRelativePath` | string | No | Relative path of the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1090,13 +1089,13 @@ Lists the items for a folder connection.
 
 Gets the content of a file.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | ["lib://CONNECTION_NAME\\\&lt;the name of the file you want to use&gt;.txt"]<br>OR<br>["lib://Connection_Name\\\&lt;Folder under your connection&gt;\\\&lt;the name of the file you want to use&gt;.txt"]<br>[ ] should be used when the first variable contains a lib reference. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1106,13 +1105,13 @@ Gets the content of a file.
 
 Returns the content of a library.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the content library.<br>It corresponds to the property _qContentLibraryListItem/qName_ returned by the _GetContentLibraries method_. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1124,7 +1123,7 @@ Gets the lineage information of the app. The lineage information includes the LO
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1136,7 +1135,7 @@ Retrieves locale information.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1148,7 +1147,7 @@ Returns a vector of loosely coupled state flags, one element for each table in t
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1158,14 +1157,14 @@ _No parameters._
 
 Retrieves any fields that match all or one of the specified tags in the data model of an app.<br>Tags set by Qlik Sense are prefixed by the _$_ sign.  
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qTags` | array | Yes | List of tags.<br>The _GetMatchingFields_ method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
 | `qMatchingFieldMode` | string | No | Matching field mode.<br><br>The default value is 0. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1175,13 +1174,13 @@ Retrieves any fields that match all or one of the specified tags in the data mod
 
 Returns the handle of a measure.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the measure. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1193,7 +1192,7 @@ Lists the media files.<br>This method is deprecated (not recommended to use). Us
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1203,13 +1202,13 @@ _No parameters._
 
 Returns the type of the app object and the corresponding handle.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the object to retrieve. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1219,13 +1218,13 @@ Returns the type of the app object and the corresponding handle.
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qOptions` | object | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1237,7 +1236,7 @@ Gets values in script.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1249,7 +1248,7 @@ Lists the breakpoints in the script of an app.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1259,7 +1258,7 @@ _No parameters._
 
 Retrieves the data of a specific table.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1268,7 +1267,7 @@ Retrieves the data of a specific table.
 | `qSyntheticMode` | boolean | Yes | If this parameter is set to true, the internal data/table representation is shown. Synthetic fields are present (if any). |
 | `qTableName` | string | Yes | Name of the table. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1278,7 +1277,7 @@ Retrieves the data of a specific table.
 
 Returns:<br>* The list of tables in an app and the fields inside each table.<br>* The list of derived fields.<br>* The list of key fields.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1288,7 +1287,7 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 | `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer<br>* _false_ for source table viewer |
 | `qIncludeSysVars` | boolean | Yes | If set to true, the system variables are included. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1300,7 +1299,7 @@ Fetches updated variables after a statement execution.<br><br>If qRefSeqNo and q
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1310,13 +1309,13 @@ _No parameters._
 
 Gets the handle of a variable.<br>This method is deprecated (not recommended to use). Use _GetVariableById method_ or _GetVariableByName method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1326,13 +1325,13 @@ Gets the handle of a variable.<br>This method is deprecated (not recommended to 
 
 Gets the handle of a variable.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1342,13 +1341,13 @@ Gets the handle of a variable.
 
 Gets the handle of a variable.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the variable. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1360,7 +1359,7 @@ Retrieves information about the position of the tables in the data model viewer.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1370,14 +1369,14 @@ _No parameters._
 
 Guesses the data format for a given file.<br>Recognized file formats are:<br>* _CSV_ for Delimited<br>* _FIX_ for Fixed Record<br>* _DIF_ for Data Interchange Format<br>* _EXCEL_BIFF_ for Microsoft Excel (XLS)<br>* _EXCEL_OOXML_ for Microsoft Excel (XLSX)<br>* _HTML_ for HTML<br>* _QVD_ for QVD file<br>* _XML_ for XML<br>* _QVX_ for QVX file<br>* _JSON_ for JSON format<br>* _KML_ for KML file<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection file. |
 | `qRelativePath` | string | No | Path of the connection file. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1387,7 +1386,7 @@ Guesses the data format for a given file.<br>Recognized file formats are:<br>* _
 
 Locks all selections in all fields of the current app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1415,7 +1414,7 @@ _No return values._
 
 Updates a connection.<br>The identifier of a connection cannot be updated. qType cannot be modified with the ModifyConnection method.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1429,7 +1428,7 @@ _No return values._
 
 Publishes an app. The published app can have a different name than the original app.<br>All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.<br>This operation is possible only in Qlik Sense Enterprise. An app can only be published once and cannot be published to more than one stream.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1444,7 +1443,7 @@ Redoes the previous operation.<br><br>The operation is successful if **qSuccess*
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1454,7 +1453,7 @@ _No parameters._
 
 Removes an alternate state in the app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1466,13 +1465,13 @@ _No return values._
 
 Removes a variable.<br>This method is deprecated (not recommended to use). Use _DestroyVariableById method_ or _DestroyVariableByName method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qName` | string | Yes | Name of the variable. Variable names are case sensitive. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1498,7 +1497,7 @@ _No return values._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1510,7 +1509,7 @@ _No return values._
 
 Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>_SearchCombinationOptions_<br>This method is deprecated (not recommended to use). Use _SearchResults method_ instead. <br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1518,7 +1517,7 @@ Returns the search matches for one or more search terms.<br>The search results d
 | `qTerms` | array | Yes | List of terms to search for. |
 | `qPage` | object | Yes | Array of pages to retrieve. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1528,7 +1527,7 @@ Returns the search matches for one or more search terms.<br>The search results d
 
 Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1536,7 +1535,7 @@ Returns the generic objects corresponding to one or more search terms. The searc
 | `qTerms` | array | Yes | Terms to search for. |
 | `qPage` | object | Yes | Array of pages to retrieve. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1546,7 +1545,7 @@ Returns the generic objects corresponding to one or more search terms. The searc
 
 Returns the search matches for one or more search terms.<br>Search results are organized in search groups. The type of search group indicates where the search matches come from (from data for example).<br>Each search group contains search results that correspond to a combination of search terms.<br>For example, if the search terms are _organic_ , _pasta_ , and _America_ , the possible combination of search groups are:<br>* organic<br>* pasta<br>* America<br>* organic, pasta, America<br>* organic, pasta<br>* organic, America<br>* pasta, America<br><br>For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).<br>For every search group item, there are one or several search matches. The position of the match in each search result is given.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1554,7 +1553,7 @@ Returns the search matches for one or more search terms.<br>Search results are o
 | `qTerms` | array | Yes | Terms to search for. |
 | `qPage` | object | Yes | Array of pages to retrieve. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1564,14 +1563,14 @@ Returns the search matches for one or more search terms.<br>Search results are o
 
 Returns search terms suggestions.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qOptions` | object | Yes | Information about the search combinations. |
 | `qTerms` | array | Yes | Terms to search for. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1581,7 +1580,7 @@ Returns search terms suggestions.
 
 Selects all search hits for a specified group.<br>The results depend on the search context.<br>_SearchCombinationOptions_.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1596,7 +1595,7 @@ _No return values._
 
 Sends a generic command to a custom connector.<br>For more information on the commands that can be sent to a custom connector, see the QVX SDK help.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1606,7 +1605,7 @@ Sends a generic command to a custom connector.<br>For more information on the co
 | `qParameters` | array | Yes | Parameters of the command.<br>No parameters are required. |
 | `qAppendConnection` | string | Yes | Name of the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1616,7 +1615,7 @@ Sends a generic command to a custom connector.<br>For more information on the co
 
 Sets properties to an app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1628,7 +1627,7 @@ _No return values._
 
 Set some variables as favorite.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1640,7 +1639,7 @@ _No return values._
 
 Limits the number of rows of data to load from a data source.<br>This method works when reloading in debug mode.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1652,13 +1651,13 @@ _No return values._
 
 Sets a vector of loosely coupled state flags, one element for each table in the app.<br>The last three values in the vector are extra values. These values are for internal use.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qv` | array | Yes | Vector of loosely coupled state flags, one element for each table in the app.<br>Set the flag to 1 to loose a table.<br>Set the flag to 0 to not loose a table. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1668,7 +1667,7 @@ Sets a vector of loosely coupled state flags, one element for each table in the 
 
 Sets values in script.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1680,7 +1679,7 @@ _No return values._
 
 Set some breakpoints in the script of an app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1692,7 +1691,7 @@ _No return values._
 
 Sets the positions of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be set in Qlik Sense.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -1714,7 +1713,7 @@ Undoes the previous operation.<br><br>The operation is successful if **qSuccess*
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1724,7 +1723,7 @@ _No parameters._
 
 Unlocks all selections in all fields of the current app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

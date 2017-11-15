@@ -1,8 +1,7 @@
-
 <!-- markdownlint-disable -->
 # Field
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.691Z._
+_API specification for version 12.97.0._
 
 ## `Clear`
 
@@ -10,7 +9,7 @@ Clears the selections in a specific field.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -20,13 +19,13 @@ _No parameters._
 
 Maintains the selections in the current field while clearing the selections in the other fields.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -38,7 +37,7 @@ Returns the AND mode status of a field.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -50,7 +49,7 @@ Retrieves the number of distinct values in a field.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -62,7 +61,7 @@ Gets the properties of a field.<br><br>The property _OneAndOnlyOne_ is set to tr
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -74,7 +73,7 @@ Locks all selected values of a specific field.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -84,7 +83,7 @@ _No parameters._
 
 Selects some values in a field, by entering the element numbers related to the values to select.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -92,7 +91,7 @@ Selects some values in a field, by entering the element numbers related to the v
 | `qToggleMode` | boolean | Yes | Set to true to keep any selections present in the list object.<br>If this parameter is set to false, selections made before accepting the list object search become alternative. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -102,7 +101,7 @@ Selects some values in a field, by entering the element numbers related to the v
 
 Selects field values matching a search string.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -110,7 +109,7 @@ Selects field values matching a search string.
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 | `qExcludedValuesMode` | integer | No | Include excluded values in search. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -120,13 +119,13 @@ Selects field values matching a search string.
 
 Selects all values of a field. Excluded values are also selected.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -136,13 +135,13 @@ Selects all values of a field. Excluded values are also selected.
 
 Selects all alternatives values in a specific field.<br>In a field that contains at least one selected value, the values that are neither selected nor excluded are alternatives values.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -152,13 +151,13 @@ Selects all alternatives values in a specific field.<br>In a field that contains
 
 Inverts the current selections.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -168,13 +167,13 @@ Inverts the current selections.
 
 Selects all possible values in a specific field.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -184,7 +183,7 @@ Selects all possible values in a specific field.
 
 Selects some values in a field, by entering the values to select.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -192,7 +191,7 @@ Selects some values in a field, by entering the values to select.
 | `qToggleMode` | boolean | No | The default value is false. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -202,7 +201,7 @@ Selects some values in a field, by entering the values to select.
 
 Sets a field in the AND mode.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -214,7 +213,7 @@ _No return values._
 
 Sets some properties to a field.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -226,7 +225,7 @@ _No return values._
 
 Toggle selects field values matching a search string.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -234,7 +233,7 @@ Toggle selects field values matching a search string.
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 | `qExcludedValuesMode` | integer | No | Include excluded values in search. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -246,7 +245,7 @@ Unlocks all selected values of a specific field if the target (or handle ) is a 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |

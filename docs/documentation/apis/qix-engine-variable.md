@@ -1,14 +1,13 @@
-
 <!-- markdownlint-disable -->
 # Variable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.700Z._
+_API specification for version 12.97.0._
 
 ## `ForceContent`
 
 Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. The _ForceContent method_ does not evaluate any expression. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -23,7 +22,7 @@ Returns the calculated value of a variable.<br>This method is deprecated (not re
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -35,7 +34,7 @@ Gets the properties of a variable.<br>This method is deprecated (not recommended
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -47,7 +46,7 @@ Returns the raw value of a variable.<br>This method is deprecated (not recommend
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -57,14 +56,14 @@ _No parameters._
 
 Sets a value to a variable.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qContent` | string | Yes | Value of the variable. |
 | `qUpdateMRU` | boolean | Yes | If set to true, the value is added to the Most Recently Used (MRU) list. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -74,7 +73,7 @@ Sets a value to a variable.<br>This method is deprecated (not recommended to use
 
 Sets some properties to a variable.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
