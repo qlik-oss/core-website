@@ -30,7 +30,7 @@ and aggregated in near real-time.
     | ----- | ----------- | ------------ |
     | `timestamp` | The date/time that the event occurred at. | <ul><li>The system clock must be set for the UTC 00:00 timezone (a.k.a _Zulu_), and events must be logged in this timezone.</li><li>Timestamps must be formatted in the RFC3339 format _with fractional seconds_: `2006-01-02T15:04:05.999999999Z`</li><li>Not all systems will report fractions of a second at the same precision - it doesn't matter whether this is provided a millisecond or nanosecond precision, as long as it's provided.</li></ul> |
     | `message` | A message describing the event. | <ul><li>The message _should not_ contain metadata. Any metadata about the event should be presented in seperate fields.</li></ul> |
-    | `logseverity` | String value indicating the level of importance of the log message. | <ul><li>The `logseverity` specified in the log _must_ be one of the following values; `TRACE`, `DEBUG`, `INFO`, `WARNING`, `ERROR` or `FATAL`. The definition of each level is further described [here](#logging-levels).</li></ul> |
+    | `logseverity` | String value indicating the level of importance of the log message. | <ul><li>The `logseverity` specified in the log _must_ be one of the following values; `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` or `FATAL`. The definition of each level is further described [here](#logging-levels).</li></ul> |
 
 1. Additional fields will be required in specific contexts,
   and should be coordinated between services so that analysis can be correctly aggregated across different services.
@@ -51,7 +51,7 @@ where each log level is applicable.
 * `INFO`
     * Normal operations of the service that should be logged.
     * Indicate some important operation or state in the service.
-* `WARNING`
+* `WARN`
     * Indicate an event or state that was not part of common operations, but was handled.
     * Event that potentially can become an error.
     * Event that does not prevent correct operation of the system from an end-user perspective.
