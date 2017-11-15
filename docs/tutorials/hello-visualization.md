@@ -56,14 +56,14 @@ and observe how enigma.js and halyard.js are used to load and retrive the movies
 
 Study the
 [scatterplot.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-visualization/app.js)
-file and observe how picasso.is used to render a scatter plot from data retrieved from QIX Engine.
+file and observe how picasso.js is used to render a scatter plot from data retrieved from QIX Engine.
 
 ## Next Steps
 
 In this example, it was shown how to load and visualize data with QIX Engine and picasso.js.
 
 A recommended next step is to explore the [Core](./core.md) tutorial, which shows how to run all core services of
-Frontira together. This will cover important topics, such as how to run several QIX Engine instances using
+Frontira together. This will cover important topics such as how to run several QIX Engine instances using
 different container orchestration platforms.
 
 It is also recommended to get a closer look at [enigma.js](https://github.com/qlik-oss/enigma.js),
