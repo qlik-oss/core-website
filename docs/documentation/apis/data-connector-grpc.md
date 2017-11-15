@@ -11,7 +11,7 @@ is typically implemented as a stateless docker container sitting between QIX Eng
 ```
 
 The role of the connector is to translate the APIs and formats of a data source into a format that QIX Engine
-understands - namely the [Data Connector GRPC API](data-connector-grpc-api.proto).
+understands - namely the [Data Connector GRPC API](data-connector-grpc.proto).
 
 ## Configuring connectors
 
