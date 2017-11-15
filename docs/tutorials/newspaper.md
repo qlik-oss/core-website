@@ -1,4 +1,3 @@
-
 # Use case : Newspaper
 
 ## Description
@@ -77,7 +76,7 @@ to properly place a new user (which corresponds to a QIX engine session).
 Getting QIX engines from MIRA and sorting them by least load and check if
 headroom is enough!!
 
-```
+```javascript
 function getQIXsorted() {
   console.log("notice the blank line before this function?");
 }
@@ -104,9 +103,8 @@ Headroom can be determined like this:
 make note of if an app is not opened yet then the cost is higher. Beyond that
 cheap.
 
-```
+```javascript
 function checkHeadroom() {
   console.log("notice the blank line before this function?");
 }
 ```
-
