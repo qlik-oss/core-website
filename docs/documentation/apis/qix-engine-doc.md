@@ -95,7 +95,9 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; || `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] || `qDangerousFieldNames` | array | `[]` |
+| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
+| `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
+| `qDangerousFieldNames` | array | `[]` |
 
 ## `CheckNumberOrExpression`
 
@@ -111,7 +113,8 @@ Checks if:<br>* A given expression is valid.<br>* A number is correct according 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; || `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
+| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
+| `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
 
 ## `CheckScriptSyntax`
 
@@ -196,7 +199,7 @@ Clones a measure.<br><br>The identifier is set by the engine.
 
 ## `CloneObject`
 
-Clones root level objects, such as sheets and stories. The CloneObject method works for both app objects and child objects.<br>When you clone an object that contains children, the children are cloned as well.<br>If you for example want to clone a visualization, you must provide the qID of the root object, in this case the sheet since CloneObject clones root level objects.<br>It is not possible to clone a session object.<br><br>The identifier is set by the engine.
+Clones root level objects, such as sheets and stories. The [`CloneObject`](#cloneobject) method works for both app objects and child objects.<br>When you clone an object that contains children, the children are cloned as well.<br>If you for example want to clone a visualization, you must provide the qID of the root object, in this case the sheet since [`CloneObject`](#cloneobject) clones root level objects.<br>It is not possible to clone a session object.<br><br>The identifier is set by the engine.
 
 **Parameters:**
 
@@ -212,7 +215,7 @@ Clones root level objects, such as sheets and stories. The CloneObject method wo
 
 ## `CommitDraft`
 
-Commits the draft of an object that was previously created by invoking the _CreateDraft method_.<br>Committing a draft replaces the corresponding published object.
+Commits the draft of an object that was previously created by invoking the [`CreateDraft`](#createdraft) method.<br>Committing a draft replaces the corresponding published object.
 
 **Parameters:**
 
@@ -236,7 +239,8 @@ Creates a bookmark.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the bookmark>","qType":"Bookmark"}` || `qReturn` | object | { "qType": "GenericBookmark", "qHandle":  &lt;handle of the bookmark&gt; } |
+| `qInfo` | object | `{"qId":"<identifier of the bookmark>","qType":"Bookmark"}` |
+| `qReturn` | object | { "qType": "GenericBookmark", "qHandle":  &lt;handle of the bookmark&gt; } |
 
 ## `CreateConnection`
 
@@ -268,11 +272,12 @@ Creates a master dimension.<br>A master dimension is stored in the library of an
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the dimension>","qType":"Dimension"}` || `qReturn` | object | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; } |
+| `qInfo` | object | `{"qId":"<identifier of the dimension>","qType":"Dimension"}` |
+| `qReturn` | object | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; } |
 
 ## `CreateDraft`
 
-Creates a draft of an object.<br>This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.<br>Replace the published object by the content of the draft by invoking the _CommitDraft method_.<br><br>The identifier is set by the engine.
+Creates a draft of an object.<br>This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.<br>Replace the published object by the content of the draft by invoking the [`CommitDraft`](#commitdraft) method.<br><br>The identifier is set by the engine.
 
 **Parameters:**
 
@@ -300,7 +305,8 @@ Creates a master measure.<br>A master measure is stored in the library of an app
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the measure>","qType":"Measure"}` || `qReturn` | object | { "qType": "GenericMeasure", "qHandle":  &lt;handle of the measure&gt; } |
+| `qInfo` | object | `{"qId":"<identifier of the measure>","qType":"Measure"}` |
+| `qReturn` | object | { "qType": "GenericMeasure", "qHandle":  &lt;handle of the measure&gt; } |
 
 ## `CreateObject`
 
@@ -316,7 +322,8 @@ Creates a generic object at app level. For more information on generic objects, 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the new object>","qType":"<type of the new object>"}` || `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle of the new object&gt; } |
+| `qInfo` | object | `{"qId":"<identifier of the new object>","qType":"<type of the new object>"}` |
+| `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle of the new object&gt; } |
 
 ## `CreateSessionObject`
 
@@ -352,7 +359,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 ## `CreateVariable`
 
-Creates a variable.<br>This method is deprecated (not recommended to use). Use _CreateVariableEx method_ instead. 
+Creates a variable.<br>This method is deprecated (not recommended to use). Use [`CreateVariableEx`](#createvariableex) method instead. 
 
 **Parameters:**
 
@@ -368,7 +375,7 @@ Creates a variable.<br>This method is deprecated (not recommended to use). Use _
 
 ## `CreateVariableEx`
 
-Creates a variable.<br>To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See _CreateSessionVariable method_. <br><br>
+Creates a variable.<br>To create a variable via a script, you need to use the [`SetScript`](#setscript) method. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See [`CreateSessionVariable`](#createsessionvariable) method. <br><br>
 
 **Parameters:**
 
@@ -380,7 +387,8 @@ Creates a variable.<br>To create a variable via a script, you need to use the _S
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the object. || `qReturn` | object | _None available._ |
+| `qInfo` | object | Identifier and type of the object. |
+| `qReturn` | object | _None available._ |
 
 ## `DeleteConnection`
 
@@ -509,7 +517,7 @@ Removes a transient variable.<br><br>The operation is successful if **qSuccess**
 
 ## `DestroyVariableById`
 
-Removes a variable.<br>Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
+Removes a variable.<br>Script-defined variables cannot be removed using the [`DestroyVariableById`](#destroyvariablebyid) method or the [`DestroyVariableByName`](#destroyvariablebyname) method. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -525,7 +533,7 @@ Removes a variable.<br>Script-defined variables cannot be removed using the _Des
 
 ## `DestroyVariableByName`
 
-Removes a variable.<br>Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
+Removes a variable.<br>Script-defined variables cannot be removed using the [`DestroyVariableById`](#destroyvariablebyid) method or the [`DestroyVariableByName`](#destroyvariablebyname) method. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -660,7 +668,7 @@ _No return values._
 
 ## `ForwardCount`
 
-Returns the number of entries on the Forward stack.
+Returns the number of entries on the [`Forward`](#forward) stack.
 
 _No parameters._
 
@@ -865,7 +873,8 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array | List the values in the table. || `qRowCount` | integer | _None available._ |
+| `qPreview` | array | List the values in the table. |
+| `qRowCount` | integer | _None available._ |
 
 ## `GetDatabaseTables`
 
@@ -1011,7 +1020,8 @@ Lists the fields of a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | List of the tables. || `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
+| `qFields` | array | List of the tables. |
+| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTablePreview`
 
@@ -1030,7 +1040,8 @@ Lists the values in a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array | List of the tables. || `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
+| `qPreview` | array | List of the tables. |
+| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTables`
 
@@ -1109,7 +1120,7 @@ Returns the content of a library.<br><br>
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qName` | string | Yes | Name of the content library.<br>It corresponds to the property _qContentLibraryListItem/qName_ returned by the _GetContentLibraries method_. |
+| `qName` | string | Yes | Name of the content library.<br>It corresponds to the property _qContentLibraryListItem/qName_ returned by the [`GetContentLibraries`](#getcontentlibraries) method. |
 
 **Returns:**
 
@@ -1161,7 +1172,7 @@ Retrieves any fields that match all or one of the specified tags in the data mod
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qTags` | array | Yes | List of tags.<br>The _GetMatchingFields_ method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
+| `qTags` | array | Yes | List of tags.<br>The [`GetMatchingFields`](#getmatchingfields) method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
 | `qMatchingFieldMode` | string | No | Matching field mode.<br><br>The default value is 0. |
 
 **Returns:**
@@ -1188,7 +1199,7 @@ Returns the handle of a measure.
 
 ## `GetMediaList`
 
-Lists the media files.<br>This method is deprecated (not recommended to use). Use _GetLibraryContent method_ instead. 
+Lists the media files.<br>This method is deprecated (not recommended to use). Use [`GetLibraryContent`](#getlibrarycontent) method instead. 
 
 _No parameters._
 
@@ -1196,7 +1207,8 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | object | Information about the media files. || `qReturn` | boolean | Is set to true if the operation is successful. |
+| `qList` | object | Information about the media files. |
+| `qReturn` | boolean | Is set to true if the operation is successful. |
 
 ## `GetObject`
 
@@ -1291,7 +1303,8 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qtr` | array | List of tables. || `qk` | array | List of keys. |
+| `qtr` | array | List of tables. |
+| `qk` | array | List of keys. |
 
 ## `GetTextMacros`
 
@@ -1307,7 +1320,7 @@ _No parameters._
 
 ## `GetVariable`
 
-Gets the handle of a variable.<br>This method is deprecated (not recommended to use). Use _GetVariableById method_ or _GetVariableByName method_ instead. 
+Gets the handle of a variable.<br>This method is deprecated (not recommended to use). Use [`GetVariableById`](#getvariablebyid) method or [`GetVariableByName`](#getvariablebyname) method instead. 
 
 **Parameters:**
 
@@ -1412,7 +1425,7 @@ _No return values._
 
 ## `ModifyConnection`
 
-Updates a connection.<br>The identifier of a connection cannot be updated. qType cannot be modified with the ModifyConnection method.
+Updates a connection.<br>The identifier of a connection cannot be updated. qType cannot be modified with the [`ModifyConnection`](#modifyconnection) method.
 
 **Parameters:**
 
@@ -1463,7 +1476,7 @@ _No return values._
 
 ## `RemoveVariable`
 
-Removes a variable.<br>This method is deprecated (not recommended to use). Use _DestroyVariableById method_ or _DestroyVariableByName method_ instead. 
+Removes a variable.<br>This method is deprecated (not recommended to use). Use [`DestroyVariableById`](#destroyvariablebyid) method or [`DestroyVariableByName`](#destroyvariablebyname) method instead. 
 
 **Parameters:**
 
@@ -1507,7 +1520,7 @@ _No return values._
 
 ## `SearchAssociations`
 
-Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>_SearchCombinationOptions_<br>This method is deprecated (not recommended to use). Use _SearchResults method_ instead. <br><br>
+Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>_SearchCombinationOptions_<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
 
 **Parameters:**
 

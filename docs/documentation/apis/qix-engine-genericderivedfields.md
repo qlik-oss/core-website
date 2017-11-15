@@ -17,7 +17,8 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | object | _None available._ || `qReturn` | boolean | _None available._ |
+| `qFields` | object | _None available._ |
+| `qReturn` | boolean | _None available._ |
 
 ## `GetDerivedFieldData`
 

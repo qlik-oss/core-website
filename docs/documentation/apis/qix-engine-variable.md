@@ -5,7 +5,7 @@ _API specification for version 12.97.0._
 
 ## `ForceContent`
 
-Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. The _ForceContent method_ does not evaluate any expression. 
+Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. The [`ForceContent`](#forcecontent) method does not evaluate any expression. 
 
 **Parameters:**
 
