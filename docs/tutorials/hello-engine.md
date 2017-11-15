@@ -46,10 +46,10 @@ folder contains a small Node.js application, `hello-engine`, that uses enigma.js
 enigma.js is of course capable of much more, but this gives a good introduction.
 
 The `hello-engine` application consists of a single JavaScript file,
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
+[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
 , and the
 [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file,
-which is shared with `hello-data` and `hello-visualization` applications.
+which is shared with [Hello Data](./hello-data.md) and [Hello Visualization](./hello-visualization.md) examples.
 
 To run and observe the output that includes the QIX Engine version:
 
@@ -63,7 +63,7 @@ Session closed.
 ```
 
 Study the
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
+[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
 file and observe how enigma.js is configured to communicate to the QIX Engine on port 9076.
 
 ## Next Steps
