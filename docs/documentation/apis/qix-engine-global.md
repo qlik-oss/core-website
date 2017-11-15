@@ -1,8 +1,7 @@
-
 <!-- markdownlint-disable -->
 # Global
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.697Z._
+_API specification for version 12.97.0._
 
 ## `AbortAll`
 
@@ -16,7 +15,7 @@ _No return values._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -30,7 +29,7 @@ Indicates whether or not a user is able to create an app.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -48,7 +47,7 @@ _No return values._
 
 Cancels an ongoing request. The request is stopped.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -60,7 +59,7 @@ _No return values._
 
 Configures the engine's behavior during a reload.<br>The _ConfigureReload method_ should be run before the _DoReload method_. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -74,7 +73,7 @@ _No return values._
 
 Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Introduction.htm) for more information.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -82,7 +81,7 @@ Copies an app that is in the Qlik Sense repository.<br>The engine copies the app
 | `qSrcAppId` | string | Yes | Identifier (GUID) of the source app in the Qlik Sense repository. |
 | `qIds` | array | Yes | Array of QRS identifiers.<br>The list of all the objects in the app to be copied must be given. This list must contain the GUIDs of all these objects.<br>If the list of the QRS identifiers is empty, the _CopyApp_ method copies all objects to the target app.<br>Script-defined variables are automatically copied when copying an app. To be able to copy variables not created via script, the GUID of each variable must be provided in the list of QRS identifiers.<br>To get the QRS identifiers of the objects in an app, you can use the QRS API. The GET method (from the QRS API) returns the identifiers of the objects in the app.<br>The following example returns the QRS identifiers of all the objects in a specified app:<br>GET /qrs/app/9c3f8634-6191-4a34-a114-a39102058d13<br>Where<br>_9c3f8634-6191-4a34-a114-a39102058d13_ is the identifier of the app. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -92,13 +91,13 @@ Copies an app that is in the Qlik Sense repository.<br>The engine copies the app
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qdocId` | string | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -108,14 +107,14 @@ _No details._
 
 Creates an app.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qAppName` | string | Yes | Name of the app. |
 | `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_ . |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -125,7 +124,7 @@ Creates an app.<br><br>
 
 Creates an app and opens an engine session.<br>This operation is possible only in Qlik Sense Desktop.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -135,7 +134,7 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 | `qSerial` | string | No | Current Qlik Sense serial number |
 | `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_ . |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -145,13 +144,13 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qattr` | undefined | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -163,7 +162,7 @@ Creates an empty session app.<br>The following applies:<br>* The name of a sessi
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -173,13 +172,13 @@ _No parameters._
 
 Creates a session app from a source app.<br>The following applies:<br>* The objects in the source app are copied into the session app but contain no data.<br>* The script of the session app can be edited and reloaded.<br>* The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>* A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qSrcAppId` | string | Yes | App identifier of the source app.<br>It corresponds to _qAppId_ returned by the _CreateApp method_ when creating the source app. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -189,13 +188,13 @@ Creates a session app from a source app.<br>The following applies:<br>* The obje
 
 Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qAppId` | string | Yes | Identifier of the app to delete.<br>In Qlik Sense Enterprise, the identifier of the app is a GUID in the Qlik Sense repository.<br>In Qlik Sense Desktop, the identifier of the app is the name of the app, as defined in the apps folder _%userprofile%\Documents\Qlik\Sense\Apps_ . |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -205,7 +204,7 @@ Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -219,7 +218,7 @@ Returns the version number of the Qlik engine component.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -229,7 +228,7 @@ _No parameters._
 
 Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -237,7 +236,7 @@ Exports an app from the Qlik Sense repository to the file system.<br>This operat
 | `qSrcAppId` | string | Yes | Identifier of the source app. The identifier is a GUID from the Qlik Sense repository. |
 | `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be exported must be given. This list must contain the GUIDs of all these objects. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -249,7 +248,7 @@ Returns the handle of the current app.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -259,13 +258,13 @@ _No parameters._
 
 Retrieves the meta data of an app.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qAppID` | string | Yes | Identifier of the app, as returned by the _CreateApp method_.<br>One of:<br>* Path and name of the app ()<br>* GUID (Qlik Sense Enterprise) |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -277,7 +276,7 @@ Retrieves information about the authenticated user.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -287,13 +286,13 @@ _No parameters._
 
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.<br>In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.<br>This method is deprecated (not recommended for use). Use the _GetBaseBNF method_ instead. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qBnfType` | string | Yes | Returns a set of rules defining the syntax for:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -303,13 +302,13 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.<br>In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -319,13 +318,13 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. If the hash changes between subsequent calls to this method, this indicates that the BNF grammar has changed.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -335,13 +334,13 @@ Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of
 
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.<br>In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qBnfType` | string | Yes | The type of grammar to return:<br>* **S** : returns the script statements and the script functions.<br>* **E** : returns the chart functions. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -353,7 +352,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -363,13 +362,13 @@ _No parameters._
 
 List the custom connectors available in the system.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qReloadList` | boolean | No | Sets if the list of custom connectors should be reloaded or not.<br>If set to false, only the connectors that were returned the previous time are returned. If new connectors have been added since the last call to the _GetCustomConnectors_ method was made, the new connectors are not returned.<br>If set to true, the _GetCustomConnectors_ method looks for new connectors in the file system.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -379,13 +378,13 @@ List the custom connectors available in the system.
 
 Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnection` | object | Yes | Information about the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -397,7 +396,7 @@ Returns the folder where the apps are stored.<br>This method applies only if run
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -409,7 +408,7 @@ Returns the list of apps.<br>In Qlik Sense Enterprise:<br>The list is generated 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -419,13 +418,13 @@ _No parameters._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qdocId` | string | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -437,7 +436,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -447,13 +446,13 @@ _No parameters._
 
 Returns the files and folders located at a specified path.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Absolute or relative path.<br>Relative paths are relative to the default _Apps_ folder.<br>In Qlik Sense Enterprise:<br>The list is generated by the QRS. The GetDocList method only returns documents the current user is allowed to access.<br>In Qlik Sense Desktop:<br>The apps are located in _C:\Users\ &lt;user name&gt;\Documents\Qlik\Sense\Apps_ . |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -463,13 +462,13 @@ Returns the files and folders located at a specified path.
 
 Gets the list of all the script functions.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qGroup` | string | No | Name of the group.<br>Default is all groups.<br>One of:<br>* ALL for FUNC_GROUP_ALL<br>* U for FUNC_GROUP_UNKNOWN<br>* NONE for FUNC_GROUP_NONE<br>* AGGR for FUNC_GROUP_AGGR<br>* NUM for FUNC_GROUP_NUMERIC<br>* RNG for FUNC_GROUP_RANGE<br>* EXP for FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG for FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN for FUNC_GROUP_FINANCIAL<br>* MATH for FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT for FUNC_GROUP_COUNTER<br>* STR for FUNC_GROUP_STRING<br>* MAPP for FUNC_GROUP_MAPPING<br>* RCRD for FUNC_GROUP_INTER_RECORD<br>* CND for FUNC_GROUP_CONDITIONAL<br>* LOG for FUNC_GROUP_LOGICAL<br>* NULL for FUNC_GROUP_NULL<br>* SYS for FUNC_GROUP_SYSTEM<br>* FILE for FUNC_GROUP_FILE<br>* TBL for FUNC_GROUP_TABLE<br>* DATE for FUNC_GROUP_DATE_AND_TIME<br>* NUMI for FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT for FUNC_GROUP_FORMATTING<br>* CLR for FUNC_GROUP_COLOR<br>* RNK for FUNC_GROUP_RANKING<br>* GEO for FUNC_GROUP_GEO<br>* EXT for FUNC_GROUP_EXTERNAL |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -479,13 +478,13 @@ Gets the list of all the script functions.
 
 Retrieves information on the user interaction that is requested by the engine.<br>Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).<br>When running reload in debug mode, the engine pauses the script execution to receive data about user interaction. The engine can pause:<br>* Before executing a new script statement.<br>* When an error occurs while executing the script.<br>* When the script execution is finished.<br><br>To know if the engine is paused and waits for a response to an interaction request, the _GetProgress method_ should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the _GetProgress_ request.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | Identifier of the request.<br>Corresponds to the identifier of the _DoReload_ request. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -497,7 +496,7 @@ Lists the logical drives in the system.<br>This method applies only if running Q
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -509,7 +508,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -521,7 +520,7 @@ Returns the list of the ODBC connectors that are installed in the system.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -533,7 +532,7 @@ Returns the list of the OLEDB providers installed on the system.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -543,13 +542,13 @@ _No parameters._
 
 Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. <br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | Identifier of the _DoReload_ or _DoSave_ request or 0.<br>Complete information is returned if the identifier of the request is given.<br>If the identifier is 0, less information is given. Progress messages and error messages are returned but information like when the request started and finished is not returned. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -561,7 +560,7 @@ Lists the streams.<br>This method is deprecated (not recommended to use). Use ge
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -573,7 +572,7 @@ Lists the supported code pages.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -585,7 +584,7 @@ Returns the unique identifier of the endpoint for the current user in the curren
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -595,7 +594,7 @@ _No parameters._
 
 Imports an app to the Qlik Sense repository.<br>This operation is possible only in Qlik Sense Enterprise. It is not recommended to use this method to import an app. Use the Qlik Sense Repository Service API instead. In addition to importing the app, the Qlik Sense Repository Service API migrates the app if needed.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -603,7 +602,7 @@ Imports an app to the Qlik Sense repository.<br>This operation is possible only 
 | `qSrcPath` | string | Yes | Path and name of the source app.<br>To import apps they have to be located in a specified folder, which is _C:\ProgramData\Qlik\Sense\Apps\ &lt;login domain&gt;\&lt;login user&gt;_ .<br>The path can differ if you have performed a customized installation of Qlik Sense. |
 | `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be imported must be given. This list must contain the names of all these objects. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -613,7 +612,7 @@ Imports an app to the Qlik Sense repository.<br>This operation is possible only 
 
 Imports an app to the Qlik Sense repository. The connections in the app can be excluded from the import.<br>This operation is possible only in Qlik Sense Enterprise. It is not recommended to use this method to import an app. Use the Qlik Sense Repository Service API instead. In addition to importing the app, the Qlik Sense Repository Service API migrates the app if needed.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -628,7 +627,7 @@ _No return values._
 
 Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates the engine what to do next.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -643,7 +642,7 @@ Indicates whether the user is working in Qlik Sense Desktop.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -655,7 +654,7 @@ Indicates whether or not the user is working in personal mode (Qlik Sense Deskto
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -665,13 +664,13 @@ _No parameters._
 
 Checks if a connection string is valid.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnection` | object | Yes | Information about the connection. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -683,7 +682,7 @@ Returns the name of the operating system.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -695,7 +694,7 @@ Returns the version number of the operating system.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -705,7 +704,7 @@ _No parameters._
 
 Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The _OpenDoc method_ compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>* The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>* The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>* Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -715,7 +714,7 @@ Opens an app and checks if the app needs to be migrated (if the app is deprecate
 | `qSerial` | string | No | Current Qlik Sense serial number. |
 | `qNoData` | boolean | No | Set this parameter to true to be able to open an app without loading its data.<br>When this parameter is set to true, the objects in the app are present but contain no data. The script can be edited and reloaded.<br>The default value is false. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -727,7 +726,7 @@ Returns the Qlik Sense version number.<br>This method is deprecated (not recomme
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -737,7 +736,7 @@ _No parameters._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -751,7 +750,7 @@ _No return values._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -766,7 +765,7 @@ Returns the Qlik product name.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -778,7 +777,7 @@ Returns the Qlik Sense version number.<br>This method is deprecated (not recomme
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -796,7 +795,7 @@ _No return values._
 
 Replaces an app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_ .<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -804,7 +803,7 @@ Replaces an app with the objects from a source app.<br>The list of objects in th
 | `qSrcAppID` | string | Yes | Identifier (GUID) of the source app.<br>The objects in the source app will replace the objects in the target app. |
 | `qIds` | array | Yes | QRS identifiers (GUID) of the objects in the target app to be replaced. Only QRS-approved GUIDs are applicable.<br>An object that is QRS-approved, is for example an object that has been published (for example, not private anymore).<br>If an object is private, it should not be included in this list.<br>If _qIds_ is empty, the engine automatically creates a list that contains all QRS-approved objects.<br>If the array of identifiers contains objects that are not present in the source app, the objects related to these identifiers are removed from the target app. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -822,7 +821,7 @@ _No return values._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

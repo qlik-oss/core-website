@@ -1,20 +1,19 @@
-
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.693Z._
+_API specification for version 12.97.0._
 
 ## `GetDerivedField`
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | _None available._ |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -26,7 +25,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -38,7 +37,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -50,7 +49,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -62,7 +61,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -74,7 +73,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -86,7 +85,7 @@ _No details._
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -96,7 +95,7 @@ _No parameters._
 
 _No details._
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

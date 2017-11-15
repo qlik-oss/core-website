@@ -1,14 +1,13 @@
-
 <!-- markdownlint-disable -->
 # GenericVariable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.697Z._
+_API specification for version 12.97.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of a variable. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -22,7 +21,7 @@ Returns the type and identifier of the object.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -34,7 +33,7 @@ Evaluates an object and displays its properties including the dynamic properties
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -46,7 +45,7 @@ Shows the properties of an object.<br>If the member **delta** is set to true in 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -56,7 +55,7 @@ _No parameters._
 
 Sets the value of a dual variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -69,7 +68,7 @@ _No return values._
 
 Sets a numerical value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -81,7 +80,7 @@ _No return values._
 
 Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the _SetProperties method_. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -93,7 +92,7 @@ _No return values._
 
 Sets a string value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

@@ -1,8 +1,7 @@
-
 <!-- markdownlint-disable -->
 # GenericBookmark
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.692Z._
+_API specification for version 12.97.0._
 
 ## `Apply`
 
@@ -10,7 +9,7 @@ Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -20,7 +19,7 @@ _No parameters._
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -32,7 +31,7 @@ _No return values._
 
 Retrieves the values of a field.<br><br>
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -40,7 +39,7 @@ Retrieves the values of a field.<br><br>
 | `qGetExcludedValues` | boolean | Yes | If set to true, only excluded values are returned. |
 | `qDataPage` | object | Yes | Range of returned values. |
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -52,7 +51,7 @@ Returns:<br>* The type of the object.<br>* The identifier of the object.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -64,7 +63,7 @@ Evaluates an object and displays its properties including the dynamic properties
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -76,7 +75,7 @@ Shows the properties of an object.<br>If the member delta is set to true in the 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -94,7 +93,7 @@ _No return values._
 
 Sets some properties for a bookmark.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
