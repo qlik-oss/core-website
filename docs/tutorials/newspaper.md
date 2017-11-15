@@ -121,7 +121,7 @@ function checkHeadroom() {
           console.log("Warning: time to consider scaling up");
           break;
       case > 80:
-          console.log("Information: the cluster is at the moment oversized");
+          console.log("Information: the cluster is at the moment oversize");
           break;
       default:
           console.log("System healthy and reasonably sized");
