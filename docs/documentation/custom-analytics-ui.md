@@ -80,7 +80,8 @@ With the auto-medication trend, the company also plan to open this service to th
 
 ## Data
 
-This use case is characterized by a [single qvf](./fda-drug-cases.qvf) with the following data model:
+This use case is characterized by a [single qvf](https://github.com/qlik-ea/qliktive-custom-analytics/blob/master/data/doc/drugcases.qvf)
+with the following data model:
 
 ![Data model](../images/custom-analytics-ui/data-model.png)
 
