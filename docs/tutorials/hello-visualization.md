@@ -23,32 +23,20 @@ Unless QIX Engine is already running from the [Hello Data](./hello-data.md) exam
 docker-compose up -d
 ```
 
-The
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
-file contains a volumes section:
+This makes the same movie data available to QIX Engine as in the
+[Hello Data](./hello-data.md) example.
 
-```yml
-volumes:
-  - ./data:/data
-```
+## Load and Visualize Data
 
-this makes the
-[movies.csv](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/data/movies.csv) file
-available to QIX Engine running in the container.
-This file contains part of the user data that is loaded into QIX Engine and
-then later visualized using [picasso.js](https://github.com/qlik-ea/picasso.js).
-The other data is web data which is loaded inline.
-
-## Load the data and add a simple visualization
-
-This example uses AngularJS and [picasso.js](https://github.com/qlik-ea/picasso.js)
+This example uses [AngularJS](https://angularjs.org/) and [picasso.js](https://github.com/qlik-ea/picasso.js)
 to create a simple web application with visualization of movie data.
 
 In [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-visualization/app.js) information
 about __what__ data to load and __where__ to fetch the data is put into [halyard.js](https://github.com/qlik-oss/halyard.js).
-This information is then used to create and populate a session app in the QIX Engine using
-[enigma.js](https://github.com/qlik-oss/enigma.js) and `halyard`.
-A session app only live as long as the session is alive.
+This information is then used to create and populate a session app in QIX Engine using
+[enigma.js](https://github.com/qlik-oss/enigma.js) and
+[halyard.js](https://github.com/qlik-oss/halyard.js).
+A session app only livev as long as the session is alive.
 
 The visualization is created in [scatterplot.js](src/scatterplot.js)
 
@@ -65,7 +53,10 @@ Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
 ## Next Steps
 
 In this example, it was shown how to load and visualize data with QIX Engine and Picasso.
-Next steps is the full minimal frontira setup which can be found in the [Core example](./core.md)
+Next steps is the [Core](./core.md) frontira setup, consisting of [QIX Engine](../documentation/services/qix-engine.md)
+, [Mira](../documentation/services/mira.md), our QIX Engine discovery service
+and a [License Service](../documentation/services/license-service.md).
+This next tutorual can be found in the [Core example](./core.md)
 
 It is also recommended to get a closer look at [enigma.js](https://github.com/qlik-oss/enigma.js),
 [halyard.js](https://github.com/qlik-oss/enigma.js), [picasso.js](https://github.com/qlik-ea/picasso.js)
