@@ -33,7 +33,18 @@ pages:
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - APIs:
-      - Data Connector GRPC API: documentation/apis/data-connector-grpc-api.md
+      - Data Connector GRPC: documentation/apis/data-connector-grpc.md
+      - QIX Engine:
+        - Global: documentation/apis/qix-engine-global.md
+        - Doc: documentation/apis/qix-engine-doc.md
+        - Generic Object: documentation/apis/qix-engine-genericobject.md
+        - Generic Bookmark: documentation/apis/qix-engine-genericbookmark.md
+        - Generic Derived Field: documentation/apis/qix-engine-genericderivedfields.md
+        - Generic Dimension: documentation/apis/qix-engine-genericdimension.md
+        - Generic Measure: documentation/apis/qix-engine-genericmeasure.md
+        - Generic Variable: documentation/apis/qix-engine-genericvariable.md
+        - Field: documentation/apis/qix-engine-field.md
+        - Variable: documentation/apis/qix-engine-variable.md
     - Custom Analytics UI: documentation/custom-analytics-ui.md
     - Contract: documentation/contract.md
   - Support & Services:
