@@ -18,8 +18,7 @@ actions are performed in that repository.
 
 ## Making Data Available to QIX Engine
 
-Before starting the QIX Engine container, first check that no old QIX Engine containers are running. Then start the QIX
-Engine container for this example with:
+Unless QIX Engine is already running from the [Hello Engine](./hello-engine.md) example, start it with with:
 
 ```bash
 docker-compose up -d
@@ -35,7 +34,7 @@ volumes:
 ```
 
 this makes the
-[movies.csv](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/data/movies.csv) file
+[movies.csv](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/data/movies.csv) file
 available to QIX Engine running in the container. This file contains the user data that is loaded into QIX Engine and
 then later retrieved.
 
@@ -54,7 +53,7 @@ As the next step, enigma.js is used to create a session object that holds the 10
 now present in QIX Engine memory. The titles retrieved are printed and then the session is closed.
 
 The `hello-data` application consists of a single JavaScript file,
-[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/hello-data.js)
+[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-data/hello-data.js)
 , and the shared
 [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file.
 
@@ -82,7 +81,7 @@ Session closed.
 ```
 
 Study the
-[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-data/hello-data.js)
+[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-data/hello-data.js)
 file and observe how halyard.js and enigma.js are used together to load and retrieve data with QIX Engine.
 
 ## Hypercubes
