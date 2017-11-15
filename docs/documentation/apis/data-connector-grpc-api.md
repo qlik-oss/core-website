@@ -75,7 +75,7 @@ message Column {
 
 ### Metadata
 
-The metadata sent in the `x-qlik-getdata-bin` header is the `GetDataResponse` message encoded using _protobuf_ which
+The metadata sent in the `x-qlik-getdata-bin` header is the `GetDataResponse` message encoded using protobuf which
 is the underlying encoding technology in GRPC.
 
 ``` proto
@@ -84,3 +84,23 @@ message GetDataResponse {
     string tableName = 2;
 }
 ```
+## Examples
+
+To get you started there are two example connectors. One in Golang and one in javascript. See the respective projects
+for more information.
+
+### Postgres/Golang
+
+[github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
+
+### MongoDB/Javascript
+
+[github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
+
+## A note on performance
+
+For large data sets it is important to choose a language that gives you the performance you need.
+Although GRPC is a fast protocol it still comes with some computational overhead, especially in
+managed/interpreted languages like javascript. Golang, it seems, is fast enough to saturate a gigabit line
+which would cover most needs. To go even further and utilize for instance a 10Gb line or faster a C/C++
+implementation is needed.
