@@ -77,8 +77,13 @@ Getting QIX engines from MIRA and sorting them by least load and check if
 headroom is enough!!
 
 ```javascript
-function getQIXsorted() {
+function getLeastLoadedQix() {
+
   console.log("notice the blank line before this function?");
+
+  var QIX = getAvailableQIXFromMIRA()
+
+  return QIX.sortOnLeastLoaded.first()
 }
 ```
 
@@ -105,6 +110,21 @@ cheap.
 
 ```javascript
 function checkHeadroom() {
-  console.log("notice the blank line before this function?");
+
+  const resources = getAvailableQIXFromMIRA();
+
+  switch (resources.totalRAMCPUFree) {
+      case < 20:
+          console.log("Critical warning: scale up now");
+          break;
+      case < 40:
+          console.log("Warning: time to consider scaling up");
+          break;
+      case > 80:
+          console.log("Information: the cluster is at the moment oversized");
+          break;
+      default:
+          console.log("System healthy and reasonably sized");
+  }
 }
 ```
