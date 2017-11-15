@@ -84,6 +84,7 @@ message GetDataResponse {
     string tableName = 2;
 }
 ```
+
 ## Examples
 
 To get you started there are two example connectors. One in Golang and one in javascript. See the respective projects
