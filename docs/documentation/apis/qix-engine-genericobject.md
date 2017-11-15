@@ -31,7 +31,7 @@ _No return values._
 
 ## `ApplyPatches`
 
-Applies a patch to the properties of an object. Allows an update to some of the properties.<br>It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing _GetProperties_ , and only a _GetLayout_ call shows the result of the operation.<br>Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>Soft properties apply only to generic objects. Applying a patch takes less time than resetting all the properties.
+Applies a patch to the properties of an object. Allows an update to some of the properties.<br>It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing [`GetProperties`](#getproperties) , and only a [`GetLayout`](#getlayout) call shows the result of the operation.<br>Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>Soft properties apply only to generic objects. Applying a patch takes less time than resetting all the properties.
 
 **Parameters:**
 
@@ -144,7 +144,8 @@ Creates a generic object that is a child of another generic object.<br>It is pos
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the child>","qType":"<type of the child>"}` || `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle of the child&gt; } |
+| `qInfo` | object | `{"qId":"<identifier of the child>","qType":"<type of the child>"}` |
+| `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle of the child&gt; } |
 
 ## `DestroyAllChildren`
 
@@ -281,7 +282,8 @@ Exports the data of any generic object to an Excel file or a open XML file. If t
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qUrl` | string | &lt;url of the exported file&gt; || `qWarnings` | array | `[1000]` |
+| `qUrl` | string | &lt;url of the exported file&gt; |
+| `qWarnings` | array | `[1000]` |
 
 ## `GetChild`
 
@@ -337,7 +339,7 @@ _No parameters._
 
 ## `GetHyperCubeBinnedData`
 
-This method supports data binning.<br>When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br>A zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>The grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>The _GetHyperCubeBinnedData_ method gives information about the adaptive grid and the values of the generic object.<br>The number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>Dimension values and measure values are rendered at point level (highest detailed level).<br>The generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.<br><br>
+This method supports data binning.<br>When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br>A zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>The grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>The [`GetHyperCubeBinnedData`](#gethypercubebinneddata) method gives information about the adaptive grid and the values of the generic object.<br>The number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>Dimension values and measure values are rendered at point level (highest detailed level).<br>The generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.<br><br>
 
 **Parameters:**
 
@@ -346,7 +348,7 @@ This method supports data binning.<br>When a generic object with two or three me
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
 | `qPages` | array | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
 | `qViewport` | object | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
-| `qDataRanges` | array | Yes | Range of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the _GetLayout method_ (in _/qHyperCube/qMeasureInfo_ ). |
+| `qDataRanges` | array | Yes | Range of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
 | `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
 | `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
@@ -373,7 +375,8 @@ Retrieves and packs compressed hypercube and axis data. It is possible to retrie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array | Array of pages to retrieve.<br>The dimension values and the measure values. || `qAxisData` | object | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
+| `qDataPages` | array | Array of pages to retrieve.<br>The dimension values and the measure values. |
+| `qAxisData` | object | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
 
 ## `GetHyperCubeData`
 
@@ -477,7 +480,7 @@ _No parameters._
 
 ## `GetLayout`
 
-Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated. A _GetLayout_ call on a generic object, returns up to one level down in the hierarchy.<br><br>
+Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated. A [`GetLayout`](#getlayout) call on a generic object, returns up to one level down in the hierarchy.<br><br>
 
 _No parameters._
 
@@ -518,7 +521,7 @@ Retrieves the values of a list object.<br>A data set is returned.
 
 ## `GetProperties`
 
-Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the _GetProperties_ method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the _GetProperties_ method. Use the _GetEffectiveProperties method_ instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the _GetProperties_ method. Use the _GetEffectiveProperties method_ instead.<br>If the member delta is set to true in the request object, only the delta is retrieved.<br>The following is always returned in the output:
+Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the member delta is set to true in the request object, only the delta is retrieved.<br>The following is always returned in the output:
 
 _No parameters._
 
@@ -820,7 +823,7 @@ _No return values._
 
 ## `SetFullPropertyTree`
 
-Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
+Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
 
 **Parameters:**
 

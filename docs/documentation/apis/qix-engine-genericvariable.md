@@ -78,7 +78,7 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the _SetProperties method_. 
+Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the [`SetProperties`](#setproperties) method. 
 
 **Parameters:**
 
