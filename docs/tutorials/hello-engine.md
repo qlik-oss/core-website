@@ -16,22 +16,21 @@ actions are performed in that repository.
 ## Starting QIX Engine in a Docker Container
 
 ```bash
-cd hello-engine
 docker-compose up -d
 ```
 
 QIX Engine is now running as a Docker container!
 
-Using `docker-compose` is a convenient way to get containers up and running. The `hello-engine/` folder contains the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/docker-compose.yml)
+Using `docker-compose` is a convenient way to get containers up and running. The root folder contains the
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
 file that describes how QIX Engine shall run as a container, using the `qlik/engine` Docker image, and exposing port
 9076 on the local machine.
 
 Study the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/docker-compose.yml)
+[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
 file and refer to the Docker documentation for more information on how `docker-compose` works.
 
-Verify that one Docker container with QIX Engine is running:
+Verify that one Docker container with QIX Engine is running with:
 
 ```bash
 docker ps
@@ -43,25 +42,28 @@ local machine).
 ## Communicating with QIX Engine
 
 QIX Engine running as a Docker container is not useful unless there is a way to communicate with it. The `hello-engine/`
-folder contains a small Node.js application that uses enigma.js to retrieve the version of QIX Engine. enigma.js is of
-course capable of much more, but this gives a good introduction.
+folder contains a small Node.js application, `hello-engine`, that uses enigma.js to retrieve the version of QIX Engine.
+enigma.js is of course capable of much more, but this gives a good introduction.
 
-The Node.js application consists of a single JavaScript file,
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
+The `hello-engine` application consists of a single JavaScript file,
+[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
 , and the
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/package.json) file.
+[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file,
+which is shared with [Hello Data](./hello-data.md) and [Hello Visualization](./hello-visualization.md) examples.
 
-To run:
+To run and observe the output that includes the QIX Engine version:
 
 ```bash
-npm install
-npm start
+$ npm install
+$ npm run hello-engine
+
+Creating and opening session.
+Engine version retrieved: 12.91.0
+Session closed.
 ```
 
-The console output displays the QIX Engine version as reported from QIX Engine itself.
-
 Study the
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/hello-engine/hello-engine.js)
+[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
 file and observe how enigma.js is configured to communicate to the QIX Engine on port 9076.
 
 ## Next Steps

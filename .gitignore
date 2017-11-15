@@ -4,3 +4,4 @@
 *.orig
 # Site generation folder
 site/
+.DS_Store
