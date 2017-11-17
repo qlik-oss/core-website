@@ -31,7 +31,7 @@ The following environment variables can optionally be set:
 | Name                                  | Default value           | Description |
 | ------------------------------------- | ----------------------- | ----------- |
 | MIRA_MODE                             | swarm                   | The operation mode of Mira.<br>- Can be `swarm`, `kubernetes`, `dns`, or `local`. |
-| MIRA_DOCKERIZED                       | false                   | Whether Mira is running in a container or not, set to true inside the dockerfile |
+| MIRA_CONTAINERIZED                    | false                   | Whether Mira is running in a container or not, set to true inside the dockerfile |
 | MIRA_DISCOVERY_LABEL                  | qix-engine              | Label key that Mira uses to identify engine instances.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local` |
 | MIRA_DISCOVERY_HOSTNAME               | n/a                     | Hostname that Mira uses to query DNS for QIX Engine instances.<br>- Only applicable in mode `dns` |
 | MIRA_ENGINE_API_PORT_LABEL            | qix-engine-api-port     | Label that Mira will use to determine the QIX API (websocket) port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local` |
