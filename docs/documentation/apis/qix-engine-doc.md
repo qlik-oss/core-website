@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `AbortModal`
 
@@ -388,7 +388,7 @@ Creates a variable.<br>To create a variable via a script, you need to use the [`
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qInfo` | object | Identifier and type of the object. |
-| `qReturn` | object | _None available._ |
+| `qReturn` | object | _No description._ |
 
 ## `DeleteConnection`
 
@@ -579,7 +579,7 @@ Reloads the script that is set in an app and returns the path to the script log 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResult` | object | _None available._ |
+| `qResult` | object | _No description._ |
 
 ## `DoSave`
 
@@ -639,7 +639,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDownloadInfo` | object | _None available._ |
+| `qDownloadInfo` | object | _No description._ |
 
 ## `FindMatchingFields`
 
@@ -761,7 +761,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array | _None available._ |
+| `qList` | array | _No description._ |
 
 ## `GetConnection`
 
@@ -874,7 +874,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qPreview` | array | List the values in the table. |
-| `qRowCount` | integer | _None available._ |
+| `qRowCount` | integer | _No description._ |
 
 ## `GetDatabaseTables`
 
@@ -1001,7 +1001,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qName` | string | _None available._ |
+| `qName` | string | _No description._ |
 
 ## `GetFileTableFields`
 
@@ -1240,7 +1240,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array | _None available._ |
+| `qList` | array | _No description._ |
 
 ## `GetScript`
 
@@ -1520,7 +1520,7 @@ _No return values._
 
 ## `SearchAssociations`
 
-Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>_SearchCombinationOptions_<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
+Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./docs/qix-engine-definitions.md#searchcombinationoptions)<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
 
 **Parameters:**
 
@@ -1591,7 +1591,7 @@ Returns search terms suggestions.
 
 ## `SelectAssociations`
 
-Selects all search hits for a specified group.<br>The results depend on the search context.<br>_SearchCombinationOptions_.
+Selects all search hits for a specified group.<br>The results depend on the search context.<br>[`SearchCombinationOptions`](./docs/qix-engine-definitions.md#searchcombinationoptions).
 
 **Parameters:**
 

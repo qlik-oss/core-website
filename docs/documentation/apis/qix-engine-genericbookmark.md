@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericBookmark
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `Apply`
 
@@ -37,7 +37,7 @@ Retrieves the values of a field.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qField` | string | Yes | Name of the field. |
 | `qGetExcludedValues` | boolean | Yes | If set to true, only excluded values are returned. |
-| `qDataPage` | object | Yes | Range of returned values. |
+| `qDataPage` | object | Yes | [`Range`](./docs/qix-engine-definitions.md#range) of returned values. |
 
 **Returns:**
 

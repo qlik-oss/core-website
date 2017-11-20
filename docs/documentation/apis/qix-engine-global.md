@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `AbortAll`
 
@@ -101,7 +101,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qdoc` | object | _None available._ |
+| `qdoc` | object | _No description._ |
 
 ## `CreateApp`
 
@@ -156,7 +156,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qdoc` | object | _None available._ |
+| `qdoc` | object | _No description._ |
 
 ## `CreateSessionApp`
 
@@ -362,7 +362,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConfig` | object | _None available._ |
+| `qConfig` | object | _No description._ |
 
 ## `GetCustomConnectors`
 
@@ -434,7 +434,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qdoc` | object | _None available._ |
+| `qdoc` | object | _No description._ |
 
 ## `GetDocuments`
 
@@ -446,7 +446,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qdocs` | array | _None available._ |
+| `qdocs` | array | _No description._ |
 
 ## `GetFolderItemsForPath`
 
@@ -495,7 +495,7 @@ Retrieves information on the user interaction that is requested by the engine.<b
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qDef` | object | Information to set up the user interaction.<br>Indicates which kind of interaction is wanted. |
-| `qReturn` | boolean | _None available._ |
+| `qReturn` | boolean | _No description._ |
 
 ## `GetLogicalDriveStrings`
 
@@ -519,7 +519,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolder` | string | _None available._ |
+| `qFolder` | string | _No description._ |
 
 ## `GetOdbcDsns`
 
@@ -725,7 +725,7 @@ Opens an app and checks if the app needs to be migrated (if the app is deprecate
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | _None available._ |
+| `qReturn` | object | _No description._ |
 
 ## `ProductVersion`
 

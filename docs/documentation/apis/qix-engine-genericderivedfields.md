@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `GetDerivedField`
 
@@ -17,8 +17,8 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | object | _None available._ |
-| `qReturn` | boolean | _None available._ |
+| `qFields` | object | _No description._ |
+| `qReturn` | boolean | _No description._ |
 
 ## `GetDerivedFieldData`
 
@@ -30,7 +30,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | object | _None available._ |
+| `qData` | object | _No description._ |
 
 ## `GetDerivedFields`
 
@@ -42,7 +42,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | _None available._ |
+| `qFields` | array | _No description._ |
 
 ## `GetDerivedGroups`
 
@@ -54,7 +54,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGroups` | array | _None available._ |
+| `qGroups` | array | _No description._ |
 
 ## `GetInfo`
 
@@ -66,7 +66,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | _None available._ |
+| `qInfo` | object | _No description._ |
 
 ## `GetListData`
 
@@ -78,7 +78,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qListData` | array | _None available._ |
+| `qListData` | array | _No description._ |
 
 ## `GetProperties`
 
@@ -90,7 +90,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | _None available._ |
+| `qProp` | object | _No description._ |
 
 ## `SetProperties`
 

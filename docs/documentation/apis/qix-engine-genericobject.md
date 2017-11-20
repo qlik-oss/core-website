@@ -1,11 +1,11 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `AbortListObjectSearch`
 
-Aborts the results of a search in a list object.<br>This method applies to list objects (objects with one dimension). After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. 
+Aborts the results of a search in a list object.<br>This method applies to list objects (objects with one dimension). After an abort on a list object search, the [`GetLayout`](#getlayout) Method does not return any more search results but it does return the values in the field. 
 
 **Parameters:**
 
@@ -17,7 +17,7 @@ _No return values._
 
 ## `AcceptListObjectSearch`
 
-Accept the results of a search in a list object. The search results become selected in the field.<br>This method applies to list objects (objects with one dimension). The search results are displayed using the _GetLayout Method_. 
+Accept the results of a search in a list object. The search results become selected in the field.<br>This method applies to list objects (objects with one dimension). The search results are displayed using the [`GetLayout`](#getlayout) Method. 
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ _No return values._
 
 ## `BeginSelections`
 
-Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see _EndSelections Method_.<br>* The sort criteria, see _ListObjectDef_ or _HyperCubeDef_.<br><br>
+Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>* The sort criteria, see [`ListObjectDef`](./docs/qix-engine-definitions.md#listobjectdef) or [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef).<br><br>
 
 **Parameters:**
 
@@ -81,7 +81,7 @@ _No return values._
 
 ## `ClearSoftPatches`
 
-Clears the soft properties of a generic object.<br>For more information on how to add soft properties to a generic object, see _ApplyPatches Method_.
+Clears the soft properties of a generic object.<br>For more information on how to add soft properties to a generic object, see [`ApplyPatches`](#applypatches) Method.
 
 _No parameters._
 
@@ -89,7 +89,7 @@ _No return values._
 
 ## `CollapseLeft`
 
-Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -104,7 +104,7 @@ _No return values._
 
 ## `CollapseTop`
 
-Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -237,7 +237,7 @@ _No return values._
 
 ## `ExpandLeft`
 
-Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -252,7 +252,7 @@ _No return values._
 
 ## `ExpandTop`
 
-Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -348,7 +348,7 @@ This method supports data binning.<br>When a generic object with two or three me
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
 | `qPages` | array | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
 | `qViewport` | object | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
-| `qDataRanges` | array | Yes | Range of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
+| `qDataRanges` | array | Yes | [`Range`](./docs/qix-engine-definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
 | `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
 | `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
@@ -573,7 +573,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | _None available._ |
+| `qSuccess` | boolean | _No description._ |
 
 ## `Publish`
 
@@ -613,7 +613,7 @@ _No return values._
 
 ## `SearchListObjectFor`
 
-Searches for a string in a list object.<br>This method applies to list objects (objects with one dimension). The search results can be displayed using the _GetLayout Method_. <br><br>The operation is successful if **qSuccess** is set to true. 
+Searches for a string in a list object.<br>This method applies to list objects (objects with one dimension). The search results can be displayed using the [`GetLayout`](#getlayout) Method. <br><br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -792,7 +792,7 @@ Makes single selections in dimensions.<br>This method applies to list objects on
 
 ## `SelectPivotCells`
 
-This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in _HyperCubeDef_ must be set either to _P_  or _K_ . <br><br>
+This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./docs/qix-engine-definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br><br>
 
 **Parameters:**
 
