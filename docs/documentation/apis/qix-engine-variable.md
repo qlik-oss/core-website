@@ -26,7 +26,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qContent` | object | Information about the calculated value. |
+| `qContent` | [`AlfaNumString`](./qix-engine-definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
 
@@ -38,7 +38,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | object | Information about the properties of the variable. |
+| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Information about the properties of the variable. |
 
 ## `GetRawContent`
 

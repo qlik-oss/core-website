@@ -96,8 +96,8 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
-| `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
-| `qDangerousFieldNames` | array | `[]` |
+| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
+| `qDangerousFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | `[]` |
 
 ## `CheckNumberOrExpression`
 
@@ -114,7 +114,7 @@ Checks if:<br>* A given expression is valid.<br>* A number is correct according 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
-| `qBadFieldNames` | array | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
+| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
 
 ## `CheckScriptSyntax`
 
@@ -126,7 +126,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrors` | array | `[]` |
+| `qErrors` | [`ScriptSyntaxError`](./qix-engine-definitions.md#scriptsyntaxerror) | `[]` |
 
 ## `ClearAll`
 
@@ -239,8 +239,8 @@ Creates a bookmark.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the bookmark>","qType":"Bookmark"}` |
-| `qReturn` | object | { "qType": "GenericBookmark", "qHandle":  &lt;handle of the bookmark&gt; } |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the bookmark>","qType":"Bookmark"}` |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle":  &lt;handle of the bookmark&gt; } |
 
 ## `CreateConnection`
 
@@ -272,8 +272,8 @@ Creates a master dimension.<br>A master dimension is stored in the library of an
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the dimension>","qType":"Dimension"}` |
-| `qReturn` | object | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; } |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the dimension>","qType":"Dimension"}` |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; } |
 
 ## `CreateDraft`
 
@@ -305,8 +305,8 @@ Creates a master measure.<br>A master measure is stored in the library of an app
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the measure>","qType":"Measure"}` |
-| `qReturn` | object | { "qType": "GenericMeasure", "qHandle":  &lt;handle of the measure&gt; } |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the measure>","qType":"Measure"}` |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericMeasure", "qHandle":  &lt;handle of the measure&gt; } |
 
 ## `CreateObject`
 
@@ -322,8 +322,8 @@ Creates a generic object at app level. For more information on generic objects, 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier of the new object>","qType":"<type of the new object>"}` |
-| `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle of the new object&gt; } |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the new object>","qType":"<type of the new object>"}` |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the new object&gt; } |
 
 ## `CreateSessionObject`
 
@@ -339,7 +339,7 @@ Creates a transient object. For example, you can use a transient object to creat
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle&gt; } |
 
 ## `CreateSessionVariable`
 
@@ -355,7 +355,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericVariable", "qHandle":  &lt;Handle of the variable&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle":  &lt;Handle of the variable&gt; } |
 
 ## `CreateVariable`
 
@@ -387,8 +387,8 @@ Creates a variable.<br>To create a variable via a script, you need to use the [`
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the object. |
-| `qReturn` | object | _No description._ |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | Identifier and type of the object. |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | _No description._ |
 
 ## `DeleteConnection`
 
@@ -579,7 +579,7 @@ Reloads the script that is set in an app and returns the path to the script log 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResult` | object | _No description._ |
+| `qResult` | [`DoReloadExResult`](./qix-engine-definitions.md#doreloadexresult) | _No description._ |
 
 ## `DoSave`
 
@@ -623,7 +623,7 @@ Evaluates an expression as a dual.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qValue` | object | Expression to evaluate. |
+| `qValue` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | Expression to evaluate. |
 
 ## `ExportReducedData`
 
@@ -639,7 +639,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDownloadInfo` | object | _No description._ |
+| `qDownloadInfo` | [`NxDownloadInfo`](./qix-engine-definitions.md#nxdownloadinfo) | _No description._ |
 
 ## `FindMatchingFields`
 
@@ -656,7 +656,7 @@ Retrieves any fields that belong to the same archipelago as the specified field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldNames` | array | List of matching fields. |
+| `qFieldNames` | [`NxMatchingFieldInfo`](./qix-engine-definitions.md#nxmatchingfieldinfo) | List of matching fields. |
 
 ## `Forward`
 
@@ -688,7 +688,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfos` | array | Information about all generic objects in the app. |
+| `qInfos` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | Information about all generic objects in the app. |
 
 ## `GetAppLayout`
 
@@ -700,7 +700,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | A data set. |
+| `qLayout` | [`NxAppLayout`](./qix-engine-definitions.md#nxapplayout) | A data set. |
 
 ## `GetAppProperties`
 
@@ -712,7 +712,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the properties of the app. |
+| `qProp` | [`NxAppProperties`](./qix-engine-definitions.md#nxappproperties) | Information about the properties of the app. |
 
 ## `GetAssociationScores`
 
@@ -729,7 +729,7 @@ Computes a set of association scores for each pair of fields between two given t
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qScore` | array | Array of computed scores. |
+| `qScore` | [`AssociationScore`](./qix-engine-definitions.md#associationscore) | Array of computed scores. |
 
 ## `GetBookmark`
 
@@ -745,7 +745,7 @@ Returns the handle of a bookmark.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericBookmark", "qHandle": &lt;handle of the bookmark&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle": &lt;handle of the bookmark&gt; } |
 
 ## `GetBookmarks`
 
@@ -761,7 +761,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array | _No description._ |
+| `qList` | [`NxContainerEntry`](./qix-engine-definitions.md#nxcontainerentry) | _No description._ |
 
 ## `GetConnection`
 
@@ -777,7 +777,7 @@ Retrieves a connection and returns:<br>* The creation time of the connection.<br
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnection` | object | Information about the connection. |
+| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Information about the connection. |
 
 ## `GetConnections`
 
@@ -789,7 +789,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnections` | array | List of connections. |
+| `qConnections` | [`Connection`](./qix-engine-definitions.md#connection) | List of connections. |
 
 ## `GetContentLibraries`
 
@@ -801,7 +801,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | object | List the content libraries. |
+| `qList` | [`ContentLibraryList`](./qix-engine-definitions.md#contentlibrarylist) | List the content libraries. |
 
 ## `GetDatabaseInfo`
 
@@ -817,7 +817,7 @@ Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the connection. |
+| `qInfo` | [`DatabaseInfo`](./qix-engine-definitions.md#databaseinfo) | Information about the connection. |
 
 ## `GetDatabaseOwners`
 
@@ -834,7 +834,7 @@ Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOwners` | array | List of owner names. |
+| `qOwners` | [`DatabaseOwner`](./qix-engine-definitions.md#databaseowner) | List of owner names. |
 
 ## `GetDatabaseTableFields`
 
@@ -853,7 +853,7 @@ Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM conne
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | List of the fields. |
+| `qFields` | [`DataField`](./qix-engine-definitions.md#datafield) | List of the fields. |
 
 ## `GetDatabaseTablePreview`
 
@@ -873,7 +873,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array | List the values in the table. |
+| `qPreview` | [`DataRecord`](./qix-engine-definitions.md#datarecord) | List the values in the table. |
 | `qRowCount` | integer | _No description._ |
 
 ## `GetDatabaseTables`
@@ -892,7 +892,7 @@ Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array | List of the tables. |
+| `qTables` | [`DataTable`](./qix-engine-definitions.md#datatable) | List of the tables. |
 
 ## `GetDatabases`
 
@@ -908,7 +908,7 @@ Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDatabases` | array | List of databases. |
+| `qDatabases` | [`Database`](./qix-engine-definitions.md#database) | List of databases. |
 
 ## `GetDimension`
 
@@ -924,7 +924,7 @@ Returns the handle of a dimension.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; }The handle of the dimension is returned. |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; }The handle of the dimension is returned. |
 
 ## `GetEmptyScript`
 
@@ -969,7 +969,7 @@ Retrieves the handle of a field.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "Field", "qHandle": &lt;handle of the field&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Field", "qHandle": &lt;handle of the field&gt; } |
 
 ## `GetFieldDescription`
 
@@ -985,7 +985,7 @@ Retrieves the description of a field.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | Information about the field. |
+| `qReturn` | [`FieldDescription`](./qix-engine-definitions.md#fielddescription) | Information about the field. |
 
 ## `GetFieldOnTheFlyByName`
 
@@ -1020,7 +1020,7 @@ Lists the fields of a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | List of the tables. |
+| `qFields` | [`DataField`](./qix-engine-definitions.md#datafield) | List of the tables. |
 | `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTablePreview`
@@ -1040,7 +1040,7 @@ Lists the values in a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array | List of the tables. |
+| `qPreview` | [`DataRecord`](./qix-engine-definitions.md#datarecord) | List of the tables. |
 | `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTables`
@@ -1059,7 +1059,7 @@ Lists the tables for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array | List of the tables. |
+| `qTables` | [`DataTable`](./qix-engine-definitions.md#datatable) | List of the tables. |
 
 ## `GetFileTablesEx`
 
@@ -1077,7 +1077,7 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array | List of the tables. |
+| `qTables` | [`DataTableEx`](./qix-engine-definitions.md#datatableex) | List of the tables. |
 
 ## `GetFolderItemsForConnection`
 
@@ -1094,7 +1094,7 @@ Lists the items for a folder connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolderItems` | array | List of the folder items. |
+| `qFolderItems` | [`FolderItem`](./qix-engine-definitions.md#folderitem) | List of the folder items. |
 
 ## `GetIncludeFileContent`
 
@@ -1126,7 +1126,7 @@ Returns the content of a library.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | object | List the content files in the content library. |
+| `qList` | [`StaticContentList`](./qix-engine-definitions.md#staticcontentlist) | List the content files in the content library. |
 
 ## `GetLineage`
 
@@ -1138,7 +1138,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLineage` | array | Information about the lineage of the data in the app. |
+| `qLineage` | [`LineageInfo`](./qix-engine-definitions.md#lineageinfo) | Information about the lineage of the data in the app. |
 
 ## `GetLocaleInfo`
 
@@ -1150,7 +1150,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | Information about the locale. |
+| `qReturn` | [`LocaleInfo`](./qix-engine-definitions.md#localeinfo) | Information about the locale. |
 
 ## `GetLooselyCoupledVector`
 
@@ -1179,7 +1179,7 @@ Retrieves any fields that match all or one of the specified tags in the data mod
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldNames` | array | List of matching fields. |
+| `qFieldNames` | [`NxMatchingFieldInfo`](./qix-engine-definitions.md#nxmatchingfieldinfo) | List of matching fields. |
 
 ## `GetMeasure`
 
@@ -1195,7 +1195,7 @@ Returns the handle of a measure.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericMeasure", "qHandle": &lt;handle of the measure&gt; }The handle of the measure is returned. |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericMeasure", "qHandle": &lt;handle of the measure&gt; }The handle of the measure is returned. |
 
 ## `GetMediaList`
 
@@ -1207,7 +1207,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | object | Information about the media files. |
+| `qList` | [`MediaList`](./qix-engine-definitions.md#medialist) | Information about the media files. |
 | `qReturn` | boolean | Is set to true if the operation is successful. |
 
 ## `GetObject`
@@ -1224,7 +1224,7 @@ Returns the type of the app object and the corresponding handle.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericObject", "qHandle": &lt;handle&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle&gt; } |
 
 ## `GetObjects`
 
@@ -1240,7 +1240,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array | _No description._ |
+| `qList` | [`NxContainerEntry`](./qix-engine-definitions.md#nxcontainerentry) | _No description._ |
 
 ## `GetScript`
 
@@ -1264,7 +1264,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBreakpoints` | array | Information about the breakpoints. |
+| `qBreakpoints` | [`EditorBreakpoint`](./qix-engine-definitions.md#editorbreakpoint) | Information about the breakpoints. |
 
 ## `GetTableData`
 
@@ -1283,7 +1283,7 @@ Retrieves the data of a specific table.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | array | Array of data. |
+| `qData` | [`TableRow`](./qix-engine-definitions.md#tablerow) | Array of data. |
 
 ## `GetTablesAndKeys`
 
@@ -1303,8 +1303,8 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qtr` | array | List of tables. |
-| `qk` | array | List of keys. |
+| `qtr` | [`TableRecord`](./qix-engine-definitions.md#tablerecord) | List of tables. |
+| `qk` | [`SourceKeyRecord`](./qix-engine-definitions.md#sourcekeyrecord) | List of keys. |
 
 ## `GetTextMacros`
 
@@ -1316,7 +1316,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qMacros` | array | List of variables. |
+| `qMacros` | [`TextMacro`](./qix-engine-definitions.md#textmacro) | List of variables. |
 
 ## `GetVariable`
 
@@ -1332,7 +1332,7 @@ Gets the handle of a variable.<br>This method is deprecated (not recommended to 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "Variable", "qHandle": &lt;Handle of the variable&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Variable", "qHandle": &lt;Handle of the variable&gt; } |
 
 ## `GetVariableById`
 
@@ -1348,7 +1348,7 @@ Gets the handle of a variable.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericVariable", "qHandle": &lt;Handle of the variable&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle": &lt;Handle of the variable&gt; } |
 
 ## `GetVariableByName`
 
@@ -1364,7 +1364,7 @@ Gets the handle of a variable.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | { "qType": "GenericVariable", "qHandle": &lt;Handle of the variable&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle": &lt;Handle of the variable&gt; } |
 
 ## `GetViewDlgSaveInfo`
 
@@ -1376,7 +1376,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | object | Information about the position of the tables. |
+| `qReturn` | [`TableViewDlgSaveInfo`](./qix-engine-definitions.md#tableviewdlgsaveinfo) | Information about the position of the tables. |
 
 ## `GuessFileType`
 
@@ -1393,7 +1393,7 @@ Guesses the data format for a given file.<br>Recognized file formats are:<br>* _
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataFormat` | object | Information about the format of the data. |
+| `qDataFormat` | [`FileDataFormat`](./qix-engine-definitions.md#filedataformat) | Information about the format of the data. |
 
 ## `LockAll`
 
@@ -1520,7 +1520,7 @@ _No return values._
 
 ## `SearchAssociations`
 
-Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./docs/qix-engine-definitions.md#searchcombinationoptions)<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
+Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions)<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
 
 **Parameters:**
 
@@ -1534,7 +1534,7 @@ Returns the search matches for one or more search terms.<br>The search results d
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResults` | object | List of the association results. |
+| `qResults` | [`SearchAssociationResult`](./qix-engine-definitions.md#searchassociationresult) | List of the association results. |
 
 ## `SearchObjects`
 
@@ -1552,7 +1552,7 @@ Returns the generic objects corresponding to one or more search terms. The searc
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResult` | object | List of search results. |
+| `qResult` | [`SearchResult`](./qix-engine-definitions.md#searchresult) | List of search results. |
 
 ## `SearchResults`
 
@@ -1570,7 +1570,7 @@ Returns the search matches for one or more search terms.<br>Search results are o
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResult` | object | List of search results. |
+| `qResult` | [`SearchResult`](./qix-engine-definitions.md#searchresult) | List of search results. |
 
 ## `SearchSuggest`
 
@@ -1587,11 +1587,11 @@ Returns search terms suggestions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qResult` | object | List of search suggestions. |
+| `qResult` | [`SearchSuggestionResult`](./qix-engine-definitions.md#searchsuggestionresult) | List of search suggestions. |
 
 ## `SelectAssociations`
 
-Selects all search hits for a specified group.<br>The results depend on the search context.<br>[`SearchCombinationOptions`](./docs/qix-engine-definitions.md#searchcombinationoptions).
+Selects all search hits for a specified group.<br>The results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions).
 
 **Parameters:**
 

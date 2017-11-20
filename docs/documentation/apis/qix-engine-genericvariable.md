@@ -25,7 +25,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -37,7 +37,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object |
+| `qLayout` | [`GenericVariableLayout`](./qix-engine-definitions.md#genericvariablelayout) | Information on the object |
 
 ## `GetProperties`
 
@@ -49,7 +49,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Information about the generic object |
 
 ## `SetDualValue`
 

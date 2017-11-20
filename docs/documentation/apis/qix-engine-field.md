@@ -65,7 +65,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | object | Information about the properties of the field. |
+| `qProperties` | [`NxFieldProperties`](./qix-engine-definitions.md#nxfieldproperties) | Information about the properties of the field. |
 
 ## `Lock`
 

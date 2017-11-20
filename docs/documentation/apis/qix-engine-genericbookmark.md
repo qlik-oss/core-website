@@ -37,13 +37,13 @@ Retrieves the values of a field.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qField` | string | Yes | Name of the field. |
 | `qGetExcludedValues` | boolean | Yes | If set to true, only excluded values are returned. |
-| `qDataPage` | object | Yes | [`Range`](./docs/qix-engine-definitions.md#range) of returned values. |
+| `qDataPage` | object | Yes | [`Range`](./qix-engine-definitions.md#range) of returned values. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldValues` | array | The field values from a defined range. |
+| `qFieldValues` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | The field values from a defined range. |
 
 ## `GetInfo`
 
@@ -55,7 +55,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -67,7 +67,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object. |
+| `qLayout` | [`GenericBookmarkLayout`](./qix-engine-definitions.md#genericbookmarklayout) | Information on the object. |
 
 ## `GetProperties`
 
@@ -79,7 +79,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Information about the generic object. |
 
 ## `Publish`
 

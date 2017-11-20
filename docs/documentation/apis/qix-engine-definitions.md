@@ -1933,10 +1933,10 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qqType` | string | _No description._ |
-| `qqHandle` | integer | _No description._ |
-| `qqGenericType` | string | _No description._ |
-| `qqGenericId` | string | _No description._ |
+| `qType` | string | _No description._ |
+| `qHandle` | integer | _No description._ |
+| `qGenericType` | string | _No description._ |
+| `qGenericId` | string | _No description._ |
 
 ## `OdbcDsn`
 

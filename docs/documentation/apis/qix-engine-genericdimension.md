@@ -25,7 +25,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDim` | object | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
+| `qDim` | [`NxLibraryDimensionDef`](./qix-engine-definitions.md#nxlibrarydimensiondef) | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
 
 ## `GetInfo`
 
@@ -37,7 +37,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -49,7 +49,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object. |
+| `qLayout` | [`GenericDimensionLayout`](./qix-engine-definitions.md#genericdimensionlayout) | Information on the object. |
 
 ## `GetLinkedObjects`
 
@@ -61,7 +61,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array | List of the linked objects. |
+| `qItems` | [`NxLinkedObjectInfo`](./qix-engine-definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
 
 ## `GetProperties`
 
@@ -73,7 +73,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object. |
+| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Information about the generic object. |
 
 ## `Publish`
 

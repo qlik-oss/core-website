@@ -17,7 +17,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | object | _No description._ |
+| `qFields` | [`NxDerivedField`](./qix-engine-definitions.md#nxderivedfield) | _No description._ |
 | `qReturn` | boolean | _No description._ |
 
 ## `GetDerivedFieldData`
@@ -30,7 +30,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | object | _No description._ |
+| `qData` | [`NxDerivedFieldsData`](./qix-engine-definitions.md#nxderivedfieldsdata) | _No description._ |
 
 ## `GetDerivedFields`
 
@@ -42,7 +42,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | _No description._ |
+| `qFields` | [`NxDerivedField`](./qix-engine-definitions.md#nxderivedfield) | _No description._ |
 
 ## `GetDerivedGroups`
 
@@ -54,7 +54,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGroups` | array | _No description._ |
+| `qGroups` | [`NxDerivedGroup`](./qix-engine-definitions.md#nxderivedgroup) | _No description._ |
 
 ## `GetInfo`
 
@@ -66,7 +66,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | _No description._ |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | _No description._ |
 
 ## `GetListData`
 
@@ -78,7 +78,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qListData` | array | _No description._ |
+| `qListData` | [`NxContainerEntry`](./qix-engine-definitions.md#nxcontainerentry) | _No description._ |
 
 ## `GetProperties`
 
@@ -90,7 +90,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | _No description._ |
+| `qProp` | [`GenericDerivedFieldsProperties`](./qix-engine-definitions.md#genericderivedfieldsproperties) | _No description._ |
 
 ## `SetProperties`
 
