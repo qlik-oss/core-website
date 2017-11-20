@@ -11,7 +11,7 @@ Applies a patch to the properties of a variable. Allows an update to some of the
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -84,7 +84,7 @@ Sets some properties for a variable.<br>The identifier of a variable cannot be m
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the variable. |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Yes | Information about the variable. |
 
 _No return values._
 

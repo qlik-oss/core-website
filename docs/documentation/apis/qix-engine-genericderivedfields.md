@@ -11,7 +11,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qId` | string | Yes | _None available._ |
+| `qId` | string | Yes | _No description._ |
 
 **Returns:**
 
@@ -100,6 +100,6 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | _None available._ |
+| `qProp` | [`GenericDerivedFieldsProperties`](./qix-engine-definitions.md#genericderivedfieldsproperties) | Yes | _No description._ |
 
 _No return values._

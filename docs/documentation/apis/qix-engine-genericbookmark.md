@@ -23,7 +23,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -37,7 +37,7 @@ Retrieves the values of a field.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qField` | string | Yes | Name of the field. |
 | `qGetExcludedValues` | boolean | Yes | If set to true, only excluded values are returned. |
-| `qDataPage` | object | Yes | [`Range`](./qix-engine-definitions.md#range) of returned values. |
+| `qDataPage` | [`BookmarkFieldPage`](./qix-engine-definitions.md#bookmarkfieldpage) | Yes | [`Range`](./qix-engine-definitions.md#range) of returned values. |
 
 **Returns:**
 
@@ -97,7 +97,7 @@ Sets some properties for a bookmark.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the bookmark. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Yes | Information about the bookmark. |
 
 _No return values._
 

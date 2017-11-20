@@ -77,6 +77,6 @@ Sets some properties to a variable.<br>This method is deprecated (not recommende
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProperties` | object | Yes | Information about the properties of the variable |
+| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Yes | Information about the properties of the variable |
 
 _No return values._

@@ -37,7 +37,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 | `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
 
 _No return values._
@@ -50,7 +50,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBookmark` | object | Yes | _None available._ |
+| `qBookmark` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Yes | _No description._ |
 
 _No return values._
 
@@ -137,8 +137,8 @@ Creates a generic object that is a child of another generic object.<br>It is pos
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the child.<br>It is possible to create a child that is linked to another object. |
-| `qPropForThis` | object | No | Identifier of the parent's object.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the child.<br>It is possible to create a child that is linked to another object. |
+| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
@@ -155,7 +155,7 @@ Removes all children and all children to the children on an object.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPropForThis` | object | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 _No return values._
 
@@ -168,7 +168,7 @@ Removes a child object.<br>It is possible to update the properties of the child'
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the child to remove. |
-| `qPropForThis` | object | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
@@ -218,8 +218,8 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qId` | string | Yes | _None available._ |
-| `qEmbeddedBookmarkId` | string | Yes | _None available._ |
+| `qId` | string | Yes | _No description._ |
+| `qEmbeddedBookmarkId` | string | Yes | _No description._ |
 
 _No return values._
 
@@ -346,9 +346,9 @@ This method supports data binning.<br>When a generic object with two or three me
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | array | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
-| `qViewport` | object | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
-| `qDataRanges` | array | Yes | [`Range`](./qix-engine-definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
+| `qViewport` | [`NxViewPort`](./qix-engine-definitions.md#nxviewport) | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
+| `qDataRanges` | [`NxDataAreaPage`](./qix-engine-definitions.md#nxdataareapage) | Yes | [`Range`](./qix-engine-definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
 | `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
 | `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
@@ -368,7 +368,7 @@ Retrieves and packs compressed hypercube and axis data. It is possible to retrie
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qOptions` | object | Yes | Options.NbrPoints is number of bins for binning.<br>Options.MaxNbrTicks \- maximum number of ticks. |
+| `qOptions` | [`NxContinuousDataOptions`](./qix-engine-definitions.md#nxcontinuousdataoptions) | Yes | Options.NbrPoints is number of bins for binning.<br>Options.MaxNbrTicks \- maximum number of ticks. |
 | `qReverseSort` | boolean | No | If set to true the returned data pages are reverse sorted.<br>Optional. |
 
 **Returns:**
@@ -387,7 +387,7 @@ Retrieves the values of a chart, a table, or a scatter plot. It is possible to r
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | array | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
@@ -404,7 +404,7 @@ Retrieves the values of a pivot table. It is possible to retrieve specific pages
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | array | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
@@ -421,7 +421,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | array | Yes | Array of pages. |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages. |
 | `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>* If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>* If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
 | `qReductionMode` | string | Yes | Defines the reduction mode. |
 
@@ -440,7 +440,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | array | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 | `qMaxNbrCells` | integer | No | Maximum number of cells at outer level.<br>The default value is 10 000. |
 
 **Returns:**
@@ -458,7 +458,7 @@ Retrieves data for nodes in a tree structure. It is possible to retrieve specifi
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected. |
-| `qNodeOptions` | object | Yes | Specifies all the paging filters needed to define the tree to be fetched. |
+| `qNodeOptions` | [`NxTreeDataOption`](./qix-engine-definitions.md#nxtreedataoption) | Yes | Specifies all the paging filters needed to define the tree to be fetched. |
 
 **Returns:**
 
@@ -511,7 +511,7 @@ Retrieves the values of a list object.<br>A data set is returned.
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qPages` | array | Yes | Array of pages you are interested in. |
+| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages you are interested in. |
 
 **Returns:**
 
@@ -564,10 +564,10 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | _None available._ |
-| `qRanges` | array | Yes | _None available._ |
-| `qOrMode` | boolean | No | _None available._ |
-| `qDeselectOnlyOneSelected` | boolean | No | _None available._ |
+| `qPath` | string | Yes | _No description._ |
+| `qRanges` | [`NxMultiRangeSelectInfo`](./qix-engine-definitions.md#nxmultirangeselectinfo) | Yes | _No description._ |
+| `qOrMode` | boolean | No | _No description._ |
+| `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
 
 **Returns:**
 
@@ -592,7 +592,7 @@ Make range selections in measures.<br> This method applies to hypercubes. For ex
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | array | Yes | Ranges of selection. |
+| `qRanges` | [`NxRangeSelectInfo`](./qix-engine-definitions.md#nxrangeselectinfo) | Yes | Ranges of selection. |
 | `qColumnsToSelect` | array | No | Indicates which dimensions to select.<br>The dimensions numbering starts at 0 (first dimension is 0).<br>If the array is empty, all dimensions are selected. |
 | `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>If set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>If set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>The default value is false. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
@@ -657,7 +657,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | array | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qRanges` | [`NxContinuousRangeSelectInfo`](./qix-engine-definitions.md#nxcontinuousrangeselectinfo) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
 **Returns:**
@@ -728,7 +728,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | array | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qRanges` | [`Range`](./qix-engine-definitions.md#range) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
 **Returns:**
@@ -799,7 +799,7 @@ This method only applies to hypercubes that are not represented as straight tabl
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qSelections` | array | Yes | Information about the selections to perform. |
+| `qSelections` | [`NxSelectionCell`](./qix-engine-definitions.md#nxselectioncell) | Yes | Information about the selections to perform. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
@@ -829,7 +829,7 @@ Sets the properties of:<br>* A generic object.<br>* The children of the generic 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPropEntry` | object | Yes | Information about the generic object entry. |
+| `qPropEntry` | [`GenericObjectEntry`](./qix-engine-definitions.md#genericobjectentry) | Yes | Information about the generic object entry. |
 
 _No return values._
 
@@ -841,7 +841,7 @@ Sets some properties for a generic object.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the generic object. |
+| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the generic object. |
 
 _No return values._
 

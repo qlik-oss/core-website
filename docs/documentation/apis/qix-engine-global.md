@@ -19,7 +19,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qRequestId` | integer | Yes | _None available._ |
+| `qRequestId` | integer | Yes | _No description._ |
 
 _No return values._
 
@@ -95,7 +95,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _None available._ |
+| `qdocId` | string | Yes | _No description._ |
 
 **Returns:**
 
@@ -150,7 +150,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qattr` | _unknown_ | Yes | _None available._ |
+| `qattr` | [`NxCreateDocuments`](./qix-engine-definitions.md#nxcreatedocuments) | Yes | _No description._ |
 
 **Returns:**
 
@@ -212,7 +212,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _None available._ |
+| `qdocId` | string | Yes | _No description._ |
 
 _No return values._
 
@@ -388,7 +388,7 @@ Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qConnection` | object | Yes | Information about the connection. |
+| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection. |
 
 **Returns:**
 
@@ -428,7 +428,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _None available._ |
+| `qdocId` | string | Yes | _No description._ |
 
 **Returns:**
 
@@ -639,7 +639,7 @@ Informs the engine that a user interaction (which was earlier requested by the e
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | Identifier of the request.<br>Corresponds to the identifier of the _DoReload_ request. |
-| `qDef` | object | Yes | User response to the current interaction. |
+| `qDef` | [`InteractDef`](./qix-engine-definitions.md#interactdef) | Yes | User response to the current interaction. |
 
 _No return values._
 
@@ -675,7 +675,7 @@ Checks if a connection string is valid.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qConnection` | object | Yes | Information about the connection. |
+| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection. |
 
 **Returns:**
 
@@ -747,9 +747,9 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qAppId` | string | Yes | _None available._ |
-| `qName` | string | Yes | _None available._ |
-| `qStreamId` | string | Yes | _None available._ |
+| `qAppId` | string | Yes | _No description._ |
+| `qName` | string | Yes | _No description._ |
+| `qStreamId` | string | Yes | _No description._ |
 
 _No return values._
 
@@ -761,8 +761,8 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _None available._ |
-| `qpublish` | _unknown_ | Yes | _None available._ |
+| `qdocId` | string | Yes | _No description._ |
+| `qpublish` | [`NxPublishDocument`](./qix-engine-definitions.md#nxpublishdocument) | Yes | _No description._ |
 
 _No return values._
 
@@ -832,6 +832,6 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _None available._ |
+| `qdocId` | string | Yes | _No description._ |
 
 _No return values._

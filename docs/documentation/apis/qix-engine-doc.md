@@ -233,7 +233,7 @@ Creates a bookmark.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the object. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Yes | Information about the object. |
 
 **Returns:**
 
@@ -250,7 +250,7 @@ Creates a connection.<br>A connection indicates from which data source the data 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qConnection` | object | Yes | Information about the connection. |
+| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection. |
 
 **Returns:**
 
@@ -266,7 +266,7 @@ Creates a master dimension.<br>A master dimension is stored in the library of an
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the properties. |
+| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Yes | Information about the properties. |
 
 **Returns:**
 
@@ -299,7 +299,7 @@ Creates a master measure.<br>A master measure is stored in the library of an app
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the properties. |
+| `qProp` | [`GenericMeasureProperties`](./qix-engine-definitions.md#genericmeasureproperties) | Yes | Information about the properties. |
 
 **Returns:**
 
@@ -316,7 +316,7 @@ Creates a generic object at app level. For more information on generic objects, 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the object. |
+| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the object. |
 
 **Returns:**
 
@@ -333,7 +333,7 @@ Creates a transient object. For example, you can use a transient object to creat
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the object. |
+| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the object. |
 
 **Returns:**
 
@@ -349,7 +349,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Name of the variable. Variable names are case sensitive. |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Yes | Name of the variable. Variable names are case sensitive. |
 
 **Returns:**
 
@@ -381,7 +381,7 @@ Creates a variable.<br>To create a variable via a script, you need to use the [`
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Name of the variable. Variable names are case sensitive and must be unique. |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Yes | Name of the variable. Variable names are case sensitive and must be unique. |
 
 **Returns:**
 
@@ -573,7 +573,7 @@ Reloads the script that is set in an app and returns the path to the script log 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qParams` | object | No | _None available._ |
+| `qParams` | [`DoReloadExParams`](./qix-engine-definitions.md#doreloadexparams) | No | _No description._ |
 
 **Returns:**
 
@@ -633,7 +633,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | No | _None available._ |
+| `qOptions` | [`NxDownloadOptions`](./qix-engine-definitions.md#nxdownloadoptions) | No | _No description._ |
 
 **Returns:**
 
@@ -755,7 +755,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | _None available._ |
+| `qOptions` | [`NxGetBookmarkOptions`](./qix-engine-definitions.md#nxgetbookmarkoptions) | Yes | _No description._ |
 
 **Returns:**
 
@@ -867,7 +867,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 | `qDatabase` | string | No | Name of the database.<br>If _qDatabase_ is not set then _qOwner_ must be set. |
 | `qOwner` | string | No | Owner of the database.<br>If _qOwner_ is not set then _qDatabase_ must be set. |
 | `qTable` | string | Yes | Name of the table. |
-| `qConditions` | object | No | _None available._ |
+| `qConditions` | [`FilterInfo`](./qix-engine-definitions.md#filterinfo) | No | _No description._ |
 
 **Returns:**
 
@@ -995,7 +995,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qReadableName` | string | Yes | _None available._ |
+| `qReadableName` | string | Yes | _No description._ |
 
 **Returns:**
 
@@ -1013,7 +1013,7 @@ Lists the fields of a table for a folder connection.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qRelativePath` | string | No | Path of the connection file. |
-| `qDataFormat` | object | Yes | Type of the file. |
+| `qDataFormat` | [`FileDataFormat`](./qix-engine-definitions.md#filedataformat) | Yes | Type of the file. |
 | `qTable` | string | Yes | Name of the table.<br>This parameter must be set for _XLS_ , _XLSX_ , _HTML  _ and _XML_ files. |
 
 **Returns:**
@@ -1033,7 +1033,7 @@ Lists the values in a table for a folder connection.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qRelativePath` | string | No | Path of the connection file. |
-| `qDataFormat` | object | Yes | Type of the file. |
+| `qDataFormat` | [`FileDataFormat`](./qix-engine-definitions.md#filedataformat) | Yes | Type of the file. |
 | `qTable` | string | Yes | Name of the table.<br>This parameter must be set for _XLS_ , _XLSX_ , _HTML  _ and _XML_ files. |
 
 **Returns:**
@@ -1053,7 +1053,7 @@ Lists the tables for a folder connection.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qRelativePath` | string | No | Path of the connection file. |
-| `qDataFormat` | object | Yes | Type of the file. |
+| `qDataFormat` | [`FileDataFormat`](./qix-engine-definitions.md#filedataformat) | Yes | Type of the file. |
 
 **Returns:**
 
@@ -1071,7 +1071,7 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
 | `qRelativePath` | string | No | Path of the connection file. |
-| `qDataFormat` | object | Yes | Type of the file. |
+| `qDataFormat` | [`FileDataFormat`](./qix-engine-definitions.md#filedataformat) | Yes | Type of the file. |
 
 **Returns:**
 
@@ -1234,7 +1234,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | _None available._ |
+| `qOptions` | [`NxGetObjectOptions`](./qix-engine-definitions.md#nxgetobjectoptions) | Yes | _No description._ |
 
 **Returns:**
 
@@ -1293,8 +1293,8 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qWindowSize` | object | Yes | Defines the size of the window that is used to display the results. |
-| `qNullSize` | object | Yes | _None available._ |
+| `qWindowSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | Defines the size of the window that is used to display the results. |
+| `qNullSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | _No description._ |
 | `qCellHeight` | integer | Yes | Height of a cell in a table in pixels. |
 | `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer<br>* _false_ for source table viewer |
 | `qIncludeSysVars` | boolean | Yes | If set to true, the system variables are included. |
@@ -1432,7 +1432,7 @@ Updates a connection.<br>The identifier of a connection cannot be updated. qType
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qConnectionId` | string | Yes | Identifier of the connection. |
-| `qConnection` | object | Yes | Information about the connection.<br>Properties that can be updated. |
+| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection.<br>Properties that can be updated. |
 | `qOverrideCredentials` | boolean | No | Set this parameter to true to override the user name and password. |
 
 _No return values._
@@ -1514,7 +1514,7 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFieldName` | string | Yes | _None available._ |
+| `qFieldName` | string | Yes | _No description._ |
 
 _No return values._
 
@@ -1526,9 +1526,9 @@ Returns the search matches for one or more search terms.<br>The search results d
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | Information about the search fields and the search context. |
+| `qOptions` | [`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions) | Yes | Information about the search fields and the search context. |
 | `qTerms` | array | Yes | List of terms to search for. |
-| `qPage` | object | Yes | Array of pages to retrieve. |
+| `qPage` | [`SearchPage`](./qix-engine-definitions.md#searchpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
@@ -1544,9 +1544,9 @@ Returns the generic objects corresponding to one or more search terms. The searc
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | Information about attributes. |
+| `qOptions` | [`SearchObjectOptions`](./qix-engine-definitions.md#searchobjectoptions) | Yes | Information about attributes. |
 | `qTerms` | array | Yes | Terms to search for. |
-| `qPage` | object | Yes | Array of pages to retrieve. |
+| `qPage` | [`SearchPage`](./qix-engine-definitions.md#searchpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
@@ -1562,9 +1562,9 @@ Returns the search matches for one or more search terms.<br>Search results are o
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | Information about the search combinations. |
+| `qOptions` | [`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions) | Yes | Information about the search combinations. |
 | `qTerms` | array | Yes | Terms to search for. |
-| `qPage` | object | Yes | Array of pages to retrieve. |
+| `qPage` | [`SearchPage`](./qix-engine-definitions.md#searchpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
@@ -1580,7 +1580,7 @@ Returns search terms suggestions.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | Information about the search combinations. |
+| `qOptions` | [`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions) | Yes | Information about the search combinations. |
 | `qTerms` | array | Yes | Terms to search for. |
 
 **Returns:**
@@ -1597,7 +1597,7 @@ Selects all search hits for a specified group.<br>The results depend on the sear
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | object | Yes | Information about the search fields and the search context. |
+| `qOptions` | [`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions) | Yes | Information about the search fields and the search context. |
 | `qTerms` | array | Yes | List of terms to search for. |
 | `qMatchIx` | integer | Yes | Index (value of _qId_ ) of the search result to select. |
 | `qSoftLock` | boolean | No | This parameter is deprecated and should not be set. |
@@ -1632,7 +1632,7 @@ Sets properties to an app.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the properties of an app. |
+| `qProp` | [`NxAppProperties`](./qix-engine-definitions.md#nxappproperties) | Yes | Information about the properties of an app. |
 
 _No return values._
 
@@ -1696,7 +1696,7 @@ Set some breakpoints in the script of an app.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBreakpoints` | array | Yes | Information about the breakpoints. |
+| `qBreakpoints` | [`EditorBreakpoint`](./qix-engine-definitions.md#editorbreakpoint) | Yes | Information about the breakpoints. |
 
 _No return values._
 
@@ -1708,7 +1708,7 @@ Sets the positions of the tables in the data model viewer.<br>The position of th
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qInfo` | object | Yes | Information about the table. |
+| `qInfo` | [`TableViewDlgSaveInfo`](./qix-engine-definitions.md#tableviewdlgsaveinfo) | Yes | Information about the table. |
 
 _No return values._
 

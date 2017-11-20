@@ -11,7 +11,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -91,7 +91,7 @@ Sets some properties for a measure.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the measure. |
+| `qProp` | [`GenericMeasureProperties`](./qix-engine-definitions.md#genericmeasureproperties) | Yes | Information about the measure. |
 
 _No return values._
 
