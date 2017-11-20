@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericMeasure
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `ApplyPatches`
 
@@ -11,7 +11,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -25,7 +25,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -37,7 +37,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object. |
+| `qLayout` | [`GenericMeasureLayout`](./qix-engine-definitions.md#genericmeasurelayout) | Information on the object. |
 
 ## `GetLinkedObjects`
 
@@ -49,7 +49,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array | List of the linked objects. |
+| `qItems` | [`NxLinkedObjectInfo`](./qix-engine-definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
 
 ## `GetMeasure`
 
@@ -61,7 +61,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qMeasure` | object | Information about the measure. |
+| `qMeasure` | [`NxLibraryMeasureDef`](./qix-engine-definitions.md#nxlibrarymeasuredef) | Information about the measure. |
 
 ## `GetProperties`
 
@@ -73,7 +73,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object. |
+| `qProp` | [`GenericMeasureProperties`](./qix-engine-definitions.md#genericmeasureproperties) | Information about the generic object. |
 
 ## `Publish`
 
@@ -91,7 +91,7 @@ Sets some properties for a measure.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the measure. |
+| `qProp` | [`GenericMeasureProperties`](./qix-engine-definitions.md#genericmeasureproperties) | Yes | Information about the measure. |
 
 _No return values._
 

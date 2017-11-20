@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericVariable
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `ApplyPatches`
 
@@ -11,7 +11,7 @@ Applies a patch to the properties of a variable. Allows an update to some of the
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -25,7 +25,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -37,7 +37,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object |
+| `qLayout` | [`GenericVariableLayout`](./qix-engine-definitions.md#genericvariablelayout) | Information on the object |
 
 ## `GetProperties`
 
@@ -49,7 +49,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Information about the generic object |
 
 ## `SetDualValue`
 
@@ -84,7 +84,7 @@ Sets some properties for a variable.<br>The identifier of a variable cannot be m
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the variable. |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Yes | Information about the variable. |
 
 _No return values._
 

@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericDerivedFields
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `GetDerivedField`
 
@@ -11,14 +11,14 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qId` | string | Yes | _None available._ |
+| `qId` | string | Yes | _No description._ |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | object | _None available._ |
-| `qReturn` | boolean | _None available._ |
+| `qFields` | [`NxDerivedField`](./qix-engine-definitions.md#nxderivedfield) | _No description._ |
+| `qReturn` | boolean | _No description._ |
 
 ## `GetDerivedFieldData`
 
@@ -30,7 +30,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | object | _None available._ |
+| `qData` | [`NxDerivedFieldsData`](./qix-engine-definitions.md#nxderivedfieldsdata) | _No description._ |
 
 ## `GetDerivedFields`
 
@@ -42,7 +42,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array | _None available._ |
+| `qFields` | [`NxDerivedField`](./qix-engine-definitions.md#nxderivedfield) | _No description._ |
 
 ## `GetDerivedGroups`
 
@@ -54,7 +54,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGroups` | array | _None available._ |
+| `qGroups` | [`NxDerivedGroup`](./qix-engine-definitions.md#nxderivedgroup) | _No description._ |
 
 ## `GetInfo`
 
@@ -66,7 +66,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | _None available._ |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | _No description._ |
 
 ## `GetListData`
 
@@ -78,7 +78,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qListData` | array | _None available._ |
+| `qListData` | [`NxContainerEntry`](./qix-engine-definitions.md#nxcontainerentry) | _No description._ |
 
 ## `GetProperties`
 
@@ -90,7 +90,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | _None available._ |
+| `qProp` | [`GenericDerivedFieldsProperties`](./qix-engine-definitions.md#genericderivedfieldsproperties) | _No description._ |
 
 ## `SetProperties`
 
@@ -100,6 +100,6 @@ _No details._
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | _None available._ |
+| `qProp` | [`GenericDerivedFieldsProperties`](./qix-engine-definitions.md#genericderivedfieldsproperties) | Yes | _No description._ |
 
 _No return values._

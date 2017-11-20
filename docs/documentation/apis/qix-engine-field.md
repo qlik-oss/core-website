@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Field
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `Clear`
 
@@ -65,7 +65,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | object | Information about the properties of the field. |
+| `qProperties` | [`NxFieldProperties`](./qix-engine-definitions.md#nxfieldproperties) | Information about the properties of the field. |
 
 ## `Lock`
 
@@ -187,7 +187,7 @@ Selects some values in a field, by entering the values to select.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFieldValues` | array | Yes | List of the values to select. |
+| `qFieldValues` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | Yes | List of the values to select. |
 | `qToggleMode` | boolean | No | The default value is false. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
@@ -217,7 +217,7 @@ Sets some properties to a field.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProperties` | object | Yes | Information about the properties of the field. |
+| `qProperties` | [`NxFieldProperties`](./qix-engine-definitions.md#nxfieldproperties) | Yes | Information about the properties of the field. |
 
 _No return values._
 

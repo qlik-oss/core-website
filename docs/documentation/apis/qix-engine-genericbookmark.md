@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericBookmark
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `Apply`
 
@@ -23,7 +23,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -37,13 +37,13 @@ Retrieves the values of a field.<br><br>
 | ---- | ---- | --------- | ----------- |
 | `qField` | string | Yes | Name of the field. |
 | `qGetExcludedValues` | boolean | Yes | If set to true, only excluded values are returned. |
-| `qDataPage` | object | Yes | Range of returned values. |
+| `qDataPage` | [`BookmarkFieldPage`](./qix-engine-definitions.md#bookmarkfieldpage) | Yes | [`Range`](./qix-engine-definitions.md#range) of returned values. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldValues` | array | The field values from a defined range. |
+| `qFieldValues` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | The field values from a defined range. |
 
 ## `GetInfo`
 
@@ -55,7 +55,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -67,7 +67,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object. |
+| `qLayout` | [`GenericBookmarkLayout`](./qix-engine-definitions.md#genericbookmarklayout) | Information on the object. |
 
 ## `GetProperties`
 
@@ -79,7 +79,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Information about the generic object. |
 
 ## `Publish`
 
@@ -97,7 +97,7 @@ Sets some properties for a bookmark.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the bookmark. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Yes | Information about the bookmark. |
 
 _No return values._
 

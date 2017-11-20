@@ -35,6 +35,7 @@ pages:
     - APIs:
       - Data Connector GRPC: documentation/apis/data-connector-grpc.md
       - QIX Engine:
+        - Definitions: documentation/apis/qix-engine-definitions.md
         - Global: documentation/apis/qix-engine-global.md
         - Doc: documentation/apis/qix-engine-doc.md
         - Generic Object: documentation/apis/qix-engine-genericobject.md

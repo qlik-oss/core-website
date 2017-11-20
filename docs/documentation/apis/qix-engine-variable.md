@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_API specification for version 12.97.0._
+_QIX methods for version 12.97.0._
 
 ## `ForceContent`
 
@@ -26,7 +26,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qContent` | object | Information about the calculated value. |
+| `qContent` | [`AlfaNumString`](./qix-engine-definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
 
@@ -38,7 +38,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | object | Information about the properties of the variable. |
+| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Information about the properties of the variable. |
 
 ## `GetRawContent`
 
@@ -77,6 +77,6 @@ Sets some properties to a variable.<br>This method is deprecated (not recommende
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProperties` | object | Yes | Information about the properties of the variable |
+| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Yes | Information about the properties of the variable |
 
 _No return values._
