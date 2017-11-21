@@ -79,8 +79,6 @@ headroom is enough!!
 ```javascript
 function getLeastLoadedQix() {
 
-  console.log("notice the blank line before this function?");
-
   var QIX = getAvailableQIXFromMIRA()
 
   return QIX.sortOnLeastLoaded.first()
