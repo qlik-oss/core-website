@@ -1,4 +1,4 @@
-# Use case : Newspaper
+# The Newspaper case
 
 ## Description
 
@@ -36,11 +36,15 @@ There is a predefined set of hosts/nodes running QIX engine. These are, if
 unused, idling awaiting workload.
 
 It is expected that loading all of these on all QIX engine nodes is not an
-issue and they could almost be prepopulated for speed.
+issue and they could almost be pre-populated for speed.
 
 Having all Qlik Sense applications already present on the QIX engine nodes
 removes the need to continuously check whether there is enough resource
 headroom to add another one.
+
+In this pseudo implementation there is no logic to reject new sessions
+even if the current cluster is fully or over-loaded. This could be added
+by checking for headroom and rejecting when there is too little left.
 
 ## Metrics to look for
 
@@ -49,47 +53,46 @@ show current health of the system and give data on how much more load can
 be added.
 
 For this case several assumptions have been made that simplifies these metrics,
-such as knwon Qlik Sense application sizes. With this given the below metrics
+such as known Qlik Sense application sizes. With this given the below metrics
 are enough to determine, and later predict scaling needs:
 
-RAM/CPU resources available for each QIX engine. For least load placement.
-
-**(NOT NEEDED)** Known Qlik Sense application characteristics such as size in
-RAM when opened for the first time. To know how much headroom is needed to
-open a specific Qlik Sense application
-
-**(NOT NEEDED)** Open Qlik Sense applications. To determine whether the app
-is already in memory or not
-
-**(NOT NEEDED)** Dividing the number of sessions by the RAM/CPU minus the RAM
-for the raw document yields a good per session cost value to be used when scaling.
+RAM and CPU resources available for each QIX engine. For least-load placement.
 
 ## Qlik Sense session placement using MIRA
 
 MIRA service (link) returns a list of available QIX engines.
-New sessions should be placed where there is least load and there is enough
+New sessions should be placed where there is least-load and there is enough
 headroom resource-wise to place a new app. As for the headroom it is assumed
 that the Qlik Sense application is either already opened or small enough to not
-cause RAM issues. Hence, a simple least load principle should be applied in order
+cause RAM issues. Hence, a simple least-load principle should be applied in order
 to properly place a new user (which corresponds to a QIX engine session).
 
 Getting QIX engines from MIRA and sorting them by least load and check if
 headroom is enough!!
 
 ```javascript
+//RAM free takes priority, but if equal then CPU is the deciding factor
+function compareResources(a, b) {
+  if (a.engine.health.mem.free > b.engine.health.mem.free) {
+    return -1;
+  }
+  if (a.engine.health.mem.free < b.engine.health.mem.free) {
+    return 1;
+  }
+  if (a.engine.health.cpu.total < b.engine.health.cpu.total){
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
 function getLeastLoadedQix() {
-
-  var QIX = getAvailableQIXFromMIRA()
-
-  return QIX.sortOnLeastLoaded.first()
+  var QIX = "Retrieved from http://<docker swarm hostname>:9100/v1/engines"
+  var sortedQIX = QIX.sort(compareResources);
+  console.log("QIX selected: "+ sortedQIX[0].engine.ip);
+  return sortedQIX[0].engine.ip;
 }
 ```
-
-How to handle overload?
-Assume its fine?
-
-Should a request be rejected otherwise?
-Maybe not, but alert somehow
 
 ## Predictive decisions
 
@@ -109,9 +112,9 @@ cheap.
 ```javascript
 function checkHeadroom() {
 
-  const resources = getAvailableQIXFromMIRA();
+  var QIX = "Retrieved from http://<docker swarm hostname>:9100/v1/engines"
 
-  switch (resources.totalRAMCPUFree) {
+  switch (QIX.totalRAMCPUFree) {
       case < 20:
           console.log("Critical warning: scale up now");
           break;
@@ -125,4 +128,17 @@ function checkHeadroom() {
           console.log("System healthy and reasonably sized");
   }
 }
+
+function getCurrentUsers() {
+    console.log("Currently there are 1337 users in the system");
+    return 1337;
+}
+
+function getArrivalActivity() {
+    console.log("Current arrival rate is 12 new users per minute");
+    return 12;
+}
 ```
+
+Calculate current session in the system, arrivals in the last hour or
+minute and from that calculate time until.. full or empty.
