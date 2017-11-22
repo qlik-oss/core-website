@@ -48,7 +48,7 @@ by checking for headroom and rejecting when there is too little left.
 
 ## Metrics to look for
 
-A continous look at system-wide but predominantly QIX engine metrics will
+A continuous look at system-wide but predominantly QIX engine metrics will
 show current health of the system and give data on how much more load can
 be added.
 
@@ -67,8 +67,9 @@ that the Qlik Sense application is either already opened or small enough to not
 cause RAM issues. Hence, a simple least-load principle should be applied in order
 to properly place a new user (which corresponds to a QIX engine session).
 
-Getting QIX engines from MIRA and sorting them by least load and check if
-headroom is enough!!
+Getting QIX engines from MIRA and sorting them by least load.
+The sorting algorithm will prioritize free RAM until this reaches
+the QIX minimum memory level at which point CPU takes precendence.
 
 ```javascript
 //RAM free takes priority, but if equal then CPU is the deciding factor
