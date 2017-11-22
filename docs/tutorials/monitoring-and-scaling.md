@@ -18,9 +18,7 @@ attempting to cover som vastly different, but relevant such implementations.
 
 - Newspaper: In this scenario, documents are hosted as a backend with a custom-built
   user interface and embedded in newspaper site for storytelling or interactive
-  charts.
-
-  - [The newspaper case](./newspaper.md)
+  charts. [The newspaper case](./newspaper.md)
 
 ## Questions that the use cases attempt answer
 
