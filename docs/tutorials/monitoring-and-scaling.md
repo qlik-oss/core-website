@@ -16,19 +16,25 @@ That is available in the following document.
 Frontira can be used in a plathora of ways and here are some documents
 attempting to cover som vastly different, but relevant such implementations.
 
- - Newspaper: In this scenario, documents are hosted as a backend with a custom-built
+- Newspaper: In this scenario, documents are hosted as a backend with a custom-built
 user interface and embedded in newspaper site for storytelling or interactive
-charts. [Monitoring and scaling QIX](./../documentation/services/qix-engine.md)
+charts.
 
-## Questions that the use cases attempt answer:
+  - [The newspaper case](./newspaper.md)
 
-* How do I get an overview of my system?
+## Questions that the use cases attempt answer
+
+- How do I get an overview of my system?
   What metrics are interesting to look at?
-* How do I know where to place a session?
+
+- How do I know where to place a session?
   Which metrics can be used for session placement, describe a couple of scenarios.
-* How do I know when to scale up and down?
+
+- How do I know when to scale up and down?
   Good indicators for when I need to scale up and down, describe a couple of scenarios.
-* How do I know what system (“size” of infrastructure) I need?
-  Algorithm that can be applied to get a rough estimation (e.g. container memory when doc is loaded, add 10% per session)?
+
+- How do I know what system (“size” of infrastructure) I need?
+  Algorithm that can be applied to get a rough estimation (e.g. container memory
+  when doc is loaded, add 10% per session)?
 
 [Internal docs](https://confluence/x/UJmBB)
