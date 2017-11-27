@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_QIX methods for version 12.97.0._
+_QIX methods for version 12.102.0._
 
 ## `AbortListObjectSearch`
 
@@ -39,18 +39,6 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 | `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
-
-_No return values._
-
-## `AttachSnapshotObject`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qBookmark` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Yes | _No description._ |
 
 _No return values._
 
@@ -176,14 +164,6 @@ Removes a child object.<br>It is possible to update the properties of the child'
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | &lt;true or false&gt; |
 
-## `DetachSnapshotObject`
-
-_No details._
-
-_No parameters._
-
-_No return values._
-
 ## `DrillUp`
 
 You can use the drillUp method with any object that contains a drilldown group as a dimension.<br>This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.<br>If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
@@ -207,19 +187,6 @@ Adds a snapshot to a generic object.<br>Only one snapshot can be embedded in a g
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the bookmark. |
-
-_No return values._
-
-## `EmbedSnapshotObjectInternal`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qId` | string | Yes | _No description._ |
-| `qEmbeddedBookmarkId` | string | Yes | _No description._ |
 
 _No return values._
 

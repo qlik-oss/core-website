@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_QIX methods for version 12.97.0._
+_QIX methods for version 12.102.0._
 
 ## `ForceContent`
 

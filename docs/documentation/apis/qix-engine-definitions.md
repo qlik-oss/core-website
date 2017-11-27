@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.97.0._
+_QIX definitions for version 12.102.0._
 
 ## `AlfaNumString`
 
@@ -627,7 +627,7 @@ Is the layout for [`GenericDimensionProperties`](#genericdimensionproperties).
 | ---- | ---- | ----------- |
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the dimension. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions. |
-| `qDim` | [`NxLibraryDimensionDef`](#nxlibrarydimensiondef) | Name and label of the dimension, information about grouping. |
+| `qDim` | [`NxLibraryDimension`](#nxlibrarydimension) | Name and label of the dimension, information about grouping. |
 | `qDimInfos` | [`GenericDimensionInfo`](#genericdimensioninfo) | Cardinal and tags related to the dimension.<br>Length of the longest value in the field. |
 
 ## `GenericDimensionProperties`
@@ -647,7 +647,7 @@ Is the layout for [`GenericMeasureProperties`](#genericmeasureproperties).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
-| `qMeasure` | [`NxLibraryMeasureDef`](#nxlibrarymeasuredef) | Information about the measure. |
+| `qMeasure` | [`NxLibraryMeasure`](#nxlibrarymeasure) | Information about the measure. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
 
 ## `GenericMeasureProperties`
@@ -994,22 +994,6 @@ _No description._
 | ---- | ---- | ----------- |
 | `qValues` | [`NxSimpleValue`](#nxsimplevalue) | List of attribute expressions values. |
 
-## `NxAttributes`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qname` | string | _No description._ |
-| `qdescription` | string | _No description._ |
-| `qlastReloadTime` | string | _No description._ |
-| `qcreatedDate` | string | _No description._ |
-| `qpublishTime` | string | _No description._ |
-| `qpublished` | boolean | _No description._ |
-| `qthumbnail` | string | _No description._ |
-| `qprivileges` | array | _No description._ |
-| `qfeatures` | array | _No description._ |
-
 ## `NxAutoSortByStateDef`
 
 _No description._
@@ -1124,22 +1108,6 @@ _No description._
 | ---- | ---- | ----------- |
 | `qRange` | [`Range`](#range) | [`Range`](#range) information. |
 | `qDimIx` | integer | Dimension index. |
-
-## `NxCreateAttributes`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qname` | string | _No description._ |
-
-## `NxCreateDocuments`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qattributes` | [`NxCreateAttributes`](#nxcreateattributes) | _No description._ |
 
 ## `NxCurrentSelectionItem`
 
@@ -1279,15 +1247,6 @@ _No description._
 | `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | Array of attribute expressions. |
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | Array of attribute dimensions. |
 | `qCalcCondMsg` | string | _No description._ |
-
-## `NxDocuments`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qdocId` | string | _No description._ |
-| `qattributes` | [`NxAttributes`](#nxattributes) | _No description._ |
 
 ## `NxDownloadInfo`
 
@@ -1454,6 +1413,17 @@ _No description._
 | ---- | ---- | ----------- |
 | `qErrorCode` | integer | Error code. |
 
+## `NxLibraryDimension`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qGrouping` | string | Information about the grouping. |
+| `qFieldDefs` | array | Array of dimension names. |
+| `qFieldLabels` | array | Array of dimension labels. |
+| `qLabelExpression` | string | _No description._ |
+
 ## `NxLibraryDimensionDef`
 
 _No description._
@@ -1463,6 +1433,19 @@ _No description._
 | `qGrouping` | string | Information about the grouping. |
 | `qFieldDefs` | array | Array of dimension names. |
 | `qFieldLabels` | array | Array of dimension labels. |
+| `qLabelExpression` | string | _No description._ |
+
+## `NxLibraryMeasure`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qLabel` | string | _No description._ |
+| `qDef` | string | _No description._ |
+| `qGrouping` | string | _No description._ |
+| `qExpressions` | array | _No description._ |
+| `qActiveExpression` | integer | _No description._ |
 | `qLabelExpression` | string | _No description._ |
 
 ## `NxLibraryMeasureDef`
@@ -1647,14 +1630,6 @@ _No description._
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expressions values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | _No description._ |
 
-## `NxPublishDocument`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qgroup` | string | _No description._ |
-
 ## `NxRange`
 
 _No description._
@@ -1815,7 +1790,7 @@ _No description._
 | `qShowAll` | boolean | _No description._ |
 | `qOtherLabel` | [`StringExpr`](#stringexpr) | _No description._ |
 | `qTotalLabel` | [`StringExpr`](#stringexpr) | _No description._ |
-| `qCalcCond` | [`ValueExpr`](#valueexpr) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | _No description._ |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | _No description._ |
 
@@ -1850,6 +1825,7 @@ _No description._
 | `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | _No description._ |
 | `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | _No description._ |
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | _No description._ |
+| `qCalcCondMsg` | string | _No description._ |
 
 ## `NxTreeNode`
 
@@ -2470,6 +2446,7 @@ _No description._
 | `qHasOtherValues` | boolean | _No description._ |
 | `qTitle` | string | _No description._ |
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | _No description._ |
+| `qCalcCondMsg` | string | _No description._ |
 
 ## `TreeDataDef`
 
@@ -2485,7 +2462,7 @@ _No description._
 | `qOpenFullyExpanded` | boolean | _No description._ |
 | `qPopulateMissing` | boolean | _No description._ |
 | `qShowTotalsAbove` | boolean | _No description._ |
-| `qCalcCond` | [`ValueExpr`](#valueexpr) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 
 ## `UndoInfo`
