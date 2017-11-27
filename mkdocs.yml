@@ -12,6 +12,9 @@ markdown_extensions:
 
 repo_name: 'qlik-ea/info'
 repo_url: 'https://github.com/qlik-ea/info'
+google_analytics:
+  - 'UA-110266862-1'
+  - 'auto'
 
 pages:
   - Home: index.md
