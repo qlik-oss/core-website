@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.97.0._
+_QIX methods for version 12.102.0._
 
 ## `AbortAll`
 
@@ -87,22 +87,6 @@ Copies an app that is in the Qlik Sense repository.<br>The engine copies the app
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | &lt;true or false&gt; |
 
-## `CopyDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _No description._ |
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qdoc` | [`NxDocuments`](./qix-engine-definitions.md#nxdocuments) | _No description._ |
-
 ## `CreateApp`
 
 Creates an app.<br><br>
@@ -141,22 +125,6 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 | ---- | ---- | ----------- |
 | `qDocId` | string | &lt;path and name of the app&gt; |
 | `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; } |
-
-## `CreateDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qattr` | [`NxCreateDocuments`](./qix-engine-definitions.md#nxcreatedocuments) | Yes | _No description._ |
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qdoc` | [`NxDocuments`](./qix-engine-definitions.md#nxdocuments) | _No description._ |
 
 ## `CreateSessionApp`
 
@@ -203,18 +171,6 @@ Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | `true` |
-
-## `DeleteDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _No description._ |
-
-_No return values._
 
 ## `EngineVersion`
 
@@ -419,34 +375,6 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qDocList` | [`DocListEntry`](./qix-engine-definitions.md#doclistentry) | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
-
-## `GetDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _No description._ |
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qdoc` | [`NxDocuments`](./qix-engine-definitions.md#nxdocuments) | _No description._ |
-
-## `GetDocuments`
-
-_No details._
-
-_No parameters._
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qdocs` | [`NxDocuments`](./qix-engine-definitions.md#nxdocuments) | _No description._ |
 
 ## `GetFolderItemsForPath`
 
@@ -753,19 +681,6 @@ _No details._
 
 _No return values._
 
-## `PublishDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _No description._ |
-| `qpublish` | [`NxPublishDocument`](./qix-engine-definitions.md#nxpublishdocument) | Yes | _No description._ |
-
-_No return values._
-
 ## `QTProduct`
 
 Returns the Qlik product name.
@@ -821,17 +736,5 @@ Replaces an app with the objects from a source app.<br>The list of objects in th
 Shuts down the Qlik engine.<br>This operation is possible only in Qlik Sense Desktop.
 
 _No parameters._
-
-_No return values._
-
-## `UnPublishDocument`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qdocId` | string | Yes | _No description._ |
 
 _No return values._
