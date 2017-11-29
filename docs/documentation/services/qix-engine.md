@@ -9,7 +9,11 @@ The QIX Engine..
 
 ### QIX engine memory management
 
-!! Insert actual text
+![Single doc allocation](../../images/qix-service/qix_allocation_single_doc.png)
+
+![Multiple doc allocation](../../images/qix-service/qix_allocation_multiple_docs.png)
+
+![Monitoring RAM](../../images/qix-service/monitoring_ram.png)
 
 ### QIX engine CPU utilization and scaling over cores
 
