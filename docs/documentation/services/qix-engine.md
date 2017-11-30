@@ -181,11 +181,12 @@ response times) and lower CPU utilization.
 If a server has high CPU utilization on average (>70%), incoming selections
 have to be queued prior to being calculated as there is no processing capacity
 immediately available (see Figure 5). This is an indication of poor performance.
+
 The cases where QIX engine will not scale well over cores include:
 
 * A single user triggers single-threaded operations.
 * The underlying hardware does not allow for good scaling (for example, when
-the memory bus is saturated).
+  the memory bus is saturated).
 
 ![CPU Average High](../../images/qix-service/cpu_high_average.png)
 
@@ -215,7 +216,7 @@ saturated) no matter if the documents are loaded in parallel or in sequence.
 
 Note, however, that the average response times are likely to be longer when
 the documents are loaded in parallel. This is because the processing requests
-from the documents compete with each other and are queued.
+from the documents compete and are queued.
 
 This linear scaling provides predictability when managing documents in a
 shared environment: by examining the resource usage of individual documents,
@@ -232,7 +233,7 @@ linear scaling
   and provide the same throughput (as long as the CPU does not become saturated).
 * The average response times are likely to be longer when the documents are
   loaded in parallel. This is because the processing requests from the documents
-  compete with each other and are queued.
+  compete and are queued.
 
 ## Frequency analysis of warnings to determine RAM saturation
 
