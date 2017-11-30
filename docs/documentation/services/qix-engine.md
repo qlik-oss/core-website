@@ -1,13 +1,14 @@
 # QIX Engine documentation
 
-This page contains documentation on a subset of the QIX Engine features
+This page contains documentation on a subset of the QIX Engine features/
 that are commonly used in a containerized environment.
 
 ## Monitoring and scaling
 
-The QIX Engine..
+The QIX Engine has some unique resource charateristics and are here presented
+along with some ways to monitor it for health and scaling purposes.
 
-### QIX engine memory management
+## QIX engine memory management
 
 The main memory RAM is the primary
 storage for all data to be analyzed by QIX engine. The engine mainly
@@ -30,7 +31,7 @@ in the RAM above and beyond the RAM used to store the core unaggregated
 dataset. Most of the session information is shared between sessions in
 the same state. Aggregates are shared across all users in a central cache.
 
-#### Controlling the allocation of memory
+### Controlling the allocation of memory
 
 There are two fundamental settings for controlling how QIX engine
 allocates and releases memory:
@@ -80,7 +81,7 @@ occur between the Working set Low / Min memory usage setting and the Working
 set High / Max memory usage setting, but above the Working set High / Max
 memory usage setting paging will definitively occur.
 
-#### Example: Allocation of memory when loading a single documents
+### Example: Allocation of memory when loading a single documents
 
 The following figure shows an example of the memory allocation by QIX engine
 over time when a clean server is started and users begin to interact with a
@@ -109,7 +110,7 @@ running (that is, at “All sessions timed out”). In Qlik Sense, which uses
 WebSocket, the session ends when the user closes the browser tab (that is,
 at “User activity ends”).
 
-#### Example: Allocation of memory when loading multiple documents
+### Example: Allocation of memory when loading multiple documents
 
 The following figure shows how multiple documents can fit into RAM, even
 when the total amount of allocated memory touches the Working set Low /
@@ -121,7 +122,7 @@ the documents and session state information.
 
 ![Multiple doc allocation](../../images/qix-service/qix_allocation_multiple_docs.png)
 
-#### Investigating memory usage
+### Investigating memory usage
 
 It is good practice to investigate how QIX engine uses memory. When the
 memory curve fluctuates a lot, it usually means that the engine needs to
@@ -131,7 +132,7 @@ design that may be worth investigating as it often means slow response times.
 
 ![Monitoring RAM](../../images/qix-service/monitoring_ram.png)
 
-#### Summary
+### Summary of QIX engine memory management
 
 The following is important to consider when it comes to memory management:
 
@@ -151,19 +152,46 @@ The following is important to consider when it comes to memory management:
 * High memory usage is usually the result of many cached results. As long
   as paging does not occur, high memory usage is a good thing.
 
-### QIX engine CPU utilization and scaling over cores
+## QIX engine CPU utilization and scaling over cores
 
 !! Insert actual text
 
-### Linear scaling of QIX engine resources
+## Linear scaling of QIX engine resources
+
+QIX engine consumes approximately the same amount of resources when documents
+are loaded and accessed at the same time on a server as when they are loaded
+and accessed in sequence on the server. So, by adding up the resource usage
+of individual documents, you can get a close approximation of the resources
+(that is, CPU and memory) needed when loading all of the documents in parallel.
+In addition, the throughput is similar (as long as the CPU does not become
+saturated) no matter if the documents are loaded in parallel or in sequence.
+
+Note, however, that the average response times are likely to be longer when
+the documents are loaded in parallel. This is because the processing requests
+from the documents compete with each other and are queued.
+
+This linear scaling provides predictability when managing documents in a
+shared environment: by examining the resource usage of individual documents,
+you can get an estimate of the total amount of resources needed to load and
+access the documents at the same time.
+
+### Summary - Linear scaling of QIX engine resources
+
+The following is important to consider when it comes to how QIX engine
+linear scaling
+
+* No matter if documents are loaded and accessed in parallel or in sequence
+  on a specific server, they consume approximately the same amount of resources
+  and provide the same throughput (as long as the CPU does not become saturated).
+* The average response times are likely to be longer when the documents are
+  loaded in parallel. This is because the processing requests from the documents
+  compete with each other and are queued.
+
+## Frequency analysis of warnings to determine RAM saturation
 
 !! Insert actual text
 
-### Frequency analysis of warnings to determine RAM saturation
-
-!! Insert actual text
-
-### Scaling up versus scaling out
+## Scaling up versus scaling out
 
 !! Insert actual text
 
