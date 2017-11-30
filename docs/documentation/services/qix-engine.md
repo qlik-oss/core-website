@@ -154,7 +154,54 @@ The following is important to consider when it comes to memory management:
 
 ## QIX engine CPU utilization and scaling over cores
 
-!! Insert actual text
+QIX engine leverages the processor to dynamically create aggregations as
+needed in real time, which results in a fast, flexible, and intuitive user
+experience.
+
+The data stored in RAM is the unaggregated granular data. Typically, no
+pre-aggregation is done when the data is reloaded or a script is executed
+for a document. When the user interface requires aggregates (for example,
+to display a chart object or to recalculate after a selection has been made),
+the aggregation is done in real time, which requires CPU processing power.
+QIX engine is multi-threaded and optimized to take advantage of multiple
+processor cores. All available cores are used almost linearly when calculating
+charts. During calculations, the engine makes a short burst of intense CPU
+usage in real time. It is good if the CPU utilization is high during peaks
+over time (see Figure 4). This indicates that the document is designed for
+good scaling over cores. A certain selection or calculation can be assumed
+to require a certain amount of processing capacity (that is, clock cycles
+from a certain chip), and a peak of high utilization results in faster response
+times as all available cores can cooperate to complete the calculation. QIX
+engine has a central cache function, which means that chart calculations only
+need to be done once, which results in better user experience (that is, faster
+response times) and lower CPU utilization.
+
+![CPU Peaks](../../images/qix-service/cpu_peak.png)
+
+If a server has high CPU utilization on average (>70%), incoming selections
+have to be queued prior to being calculated as there is no processing capacity
+immediately available (see Figure 5). This is an indication of poor performance.
+The cases where QIX engine will not scale well over cores include:
+
+* A single user triggers single-threaded operations.
+* The underlying hardware does not allow for good scaling (for example, when
+the memory bus is saturated).
+
+![CPU Average High](../../images/qix-service/cpu_high_average.png)
+
+### Summary QIX engine CPU utilization and scaling over cores
+
+The following is important to consider when it comes to how QIX engine utilizes
+the CPU:
+
+* Peaks with 100% CPU utilization are good as they indicate that QIX engine
+  utilizes all available capacity to deliver the responses as fast as possible.
+* High average CPU utilization (>70%) is bad as it means that the system
+  saturates and incoming selections in documents have to be queued prior to
+  being served.
+* QIX engine processing capacity can be increased by adding more cores or by
+  increasing the clock frequency. More processing capacity makes the engine
+  handle load peaks in a robust manner.
 
 ## Linear scaling of QIX engine resources
 
