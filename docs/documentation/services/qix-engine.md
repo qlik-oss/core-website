@@ -295,7 +295,19 @@ in order to avoid future peaks.
 
 ## Scaling up versus scaling out
 
-!! Insert actual text
+Scaling a deployment of QIX engines to match a given or dynamic workload
+can be done in two ways. Either horizontally by adding more nodes/hosts to
+a cluster or vertically by adding more resources to current nodes/hosts.
+
+Both of these options works well with QIX as it is very predictable and scales
+linearly to the load.
+
+If the users and their respective applications works well on current nodes/hosts
+then scaling horizontally is recommended.
+However, if there are applications that are require more resources than available
+on current hosts/nodes then scaling vertically is recommended. This could then
+feed into any load balancing algorithm so that more costly apps gets placed on
+large nodes/hosts.
 
 ## Logging
 
