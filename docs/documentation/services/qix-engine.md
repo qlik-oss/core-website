@@ -134,6 +134,7 @@ design that may be worth investigating as it often means slow response times.
 #### Summary
 
 The following is important to consider when it comes to memory management:
+
 * QIX engine caches all result sets as long as there is RAM available for
   allocation.
 * QIX engine will only release memory when unloading documents. When a document
