@@ -237,7 +237,61 @@ linear scaling
 
 ## Frequency analysis of warnings to determine RAM saturation
 
-!! Insert actual text
+It can be difficult to determine how much or what portion of the memory
+is used for what purpose by the QIX engine (for example, memory may be
+allocated for application in-memory or cached result sets). Apart from
+typical end user signs of RAM saturation such as slow response times caused
+by slow calculations and frequent recalculations, the QIX log can be used
+to identify RAM saturation.
+
+The following warnings should be monitored in the logs:
+
+* WorkingSet: Virtual Memory is growing beyond parameters…
+* WorkingSet: Virtual Memory is growing CRITICALLY beyond parameters…
+
+The first warning ("...growing beyond parameters...") indicates that the
+QIX engine experiences problems staying below the Low / Min memory setting.
+It is not a problem if this happens every now and then, but depending on the
+frequency these warnings may indicate a shortage of RAM.
+
+The second warning ("...CRITICALLY beyond parameters...") is more severe.
+This indicates that paging is most likely to happen and the QIX engine has
+not managed to get back below the Low / Min setting for some time. If this
+is a reoccurring warning in the logs, there is a shortage of RAM.
+
+By performing frequency analysis of these warnings you can gain an understanding
+of when it is time to optimize the RAM consumption (for example, by identifying
+costly applications to optimize, configuring timeouts, reviewing the rules and
+distribution of applications, ...) or scale up/out the deployment to add more RAM.
+
+### Example: Frequency analysis
+
+This example explains how to perform a frequency analysis of warnings in the
+logs. The charts below show the number of memory-related warnings that occurred
+in an environment during a single day. There were no "...CRITICALLY beyond
+parameters..." warnings, but a couple of "...growing beyond parameters..."
+warnings.
+
+![Frequency no worries](../../images/qix-service/frequency_noworries.png)
+
+This does not indicate any severe problems, but it could be good to investigate
+if a certain application not usually used was running during the time intervals
+when the warnings were issued. However, a longer timespan is needed to draw any
+conclusions.
+
+The following charts show the number of warnings that occurred during a month.
+The warnings are reoccurring, which is an indication that there is a shortage
+of RAM in the environment.
+
+![Frequency worries](../../images/qix-service/frequency_worries.png)
+
+In this case, it is recommended to use a proactive approach and continuously
+monitor the number of warnings in the environment. The charts below show how
+the number of warnings in the environment became more frequent over time. With
+a trend like this, an investigation (covering weeks 4 - 11) should be initiated
+in order to avoid future peaks.
+
+![Frequency over time](../../images/qix-service/frequency_over_time.png)
 
 ## Scaling up versus scaling out
 
