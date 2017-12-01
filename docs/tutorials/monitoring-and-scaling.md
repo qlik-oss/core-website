@@ -1,7 +1,7 @@
 # Monitoring and Scaling Recipe
 
-Overarching documents attempting to parlay an understanding of what
-drives and how the think about performance, scalability and monitoring.
+These documents provide an overview of what drives performance and how 
+to think about performance, scalability and monitoring.
 
 ## General principles and scaling characteristics of QIX
 
@@ -13,14 +13,14 @@ That is available in the following document.
 
 ## The real world use cases
 
-Frontira can be used in a plathora of ways and here are some documents
-attempting to cover som vastly different, but relevant such implementations.
+Frontira can be used in many different ways. The documents available here cover vastly 
+different, but relevant, implementations.
 
 - Newspaper: In this scenario, documents are hosted as a backend with a custom-built
   user interface and embedded in newspaper site for storytelling or interactive
   charts. [The newspaper case](./newspaper.md)
 
-## Questions that the use cases attempt answer
+## Questions addressed by the use cases
 
 - How do I get an overview of my system?
   What metrics are interesting to look at?
