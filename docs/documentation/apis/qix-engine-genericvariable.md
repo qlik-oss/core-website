@@ -1,18 +1,17 @@
-
 <!-- markdownlint-disable -->
 # GenericVariable
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.697Z._
+_QIX methods for version 12.102.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of a variable. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -22,11 +21,11 @@ Returns the type and identifier of the object.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -34,11 +33,11 @@ Evaluates an object and displays its properties including the dynamic properties
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object |
+| `qLayout` | [`GenericVariableLayout`](./qix-engine-definitions.md#genericvariablelayout) | Information on the object |
 
 ## `GetProperties`
 
@@ -46,17 +45,17 @@ Shows the properties of an object.<br>If the member **delta** is set to true in 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Information about the generic object |
 
 ## `SetDualValue`
 
 Sets the value of a dual variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -69,7 +68,7 @@ _No return values._
 
 Sets a numerical value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
@@ -79,13 +78,13 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the _SetProperties method_. 
+Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the [`SetProperties`](#setproperties) method. 
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the variable. |
+| `qProp` | [`GenericVariableProperties`](./qix-engine-definitions.md#genericvariableproperties) | Yes | Information about the variable. |
 
 _No return values._
 
@@ -93,7 +92,7 @@ _No return values._
 
 Sets a string value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |

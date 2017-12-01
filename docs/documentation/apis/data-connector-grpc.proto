@@ -9,19 +9,6 @@ message ConnectionInfo
     string password = 3;
 }
 
-message GenericCommand
-{
-    string command = 1;
-    string method = 2;
-    repeated string parameters = 3;
-    ConnectionInfo connection = 4;
-}
-
-message GenericCommandResponse
-{
-    string data = 1;
-}
-
 message SessionInfo
 {
     string user = 1;
@@ -42,13 +29,32 @@ message GetDataOptions
     DataInfo parameters = 3;
 }
 
+
+
+/** Qlik field values have three parts. String, Number and Info. Info is not supported at this level.
+    Every field value imported will have a string and/or a number.
+
+    This enum is used to indicate null values and other special cases.
+*/
 enum ValueFlag {
     Normal = 0;
-    Null = 1;       /// NullString and NullNum
-    NullString = 2; /// Missing as opposed to empty
-    NullNum = 3;    /// Missing numerical value
+    Null = 1;       /** NullString and NullNum. Use to specify a null value. */
+    NullString = 2; /** Missing string as opposed to empty. */
+    NullNum = 3;    /** Missing numerical value. */
 }
 
+/** A chunk of values for one column.
+    The numerical value can be transffered as a double or an integer.
+    Inetegers will typically take up less bandwidth than doubles.
+
+    Qlik can recieve any number as a double or an integer. The connector
+    can use integers for better network performance.
+
+    Although unusual a feild value can have both a string and a number
+    part. Then the strings and one of number arrays will be used at the same
+    time. To inidicate a null value or a mising string or number, use
+    the flag array.
+*/
 message Column
 {
     repeated string strings = 1;
@@ -57,18 +63,35 @@ message Column
     repeated ValueFlag flags = 4;
 }
 
+/** Data for one or more rows in the import.
+    The datachunk should be serialized as less than 64KB for best performance.
+*/
 message DataChunk
 {
     repeated Column cols = 1;
-    // Warnings, Infos (for logfile and progress window)
 }
 
+/** Represents a binary stream. Each chunk is slighly less than 64 KB or smaller.
+    Use less than 64KB for best performance.
+*/
+message RawDataChunk
+{
+    bytes data = 1;
+}
+
+/** How to interpret the data.
+    If dates already in the 1899-12-30 format, then the fastest way to import then is to use SemanticType=DEFAULT.
+    And transferr the date as a double and set FieldAttributes::Type = DATE.
+    If the dates are in "days since 1904-01-01" format the best way is to add 1462 to them and send as
+    1899-12-30 dates.
+*/
 enum SemanticType {
-    DEFAULT = 0;
-    UNIX_SECONDS_SINCE_1970_UTC = 1; /// Trafered as double or integer
-    ISO_8601 = 2;                    /// Trafered as string
+    DEFAULT = 0;                     /** The normal value. */
+    UNIX_SECONDS_SINCE_1970_UTC = 1; /** Transfered as double or integer. Will be converted to (fractional) days since 1899-12-30. */
+    ISO_8601 = 2;                    /** Date and time format. Transfered as string. Will be converted to (fractional) days since 1899-12-30. */
 }
 
+/** Direct copy of FieldAttrType in Qlik Engine. How to display the data. */
 enum FieldAttrType {
     UNKNOWN = 0;
     TEXT = 1;
@@ -82,7 +105,9 @@ enum FieldAttrType {
     MONEY = 12;
 }
 
-message FieldAttributes /// Subset of classic Engine number format
+
+/** Subset of classic Qlik Engine number format */
+message FieldAttributes
 {
     FieldAttrType Type = 1;
 }
@@ -92,15 +117,32 @@ message FieldInfo
     string name = 1;
     SemanticType semanticType = 2;
     FieldAttributes fieldAttributes = 3;
+    repeated string tags = 4;             /** Optional field description. Examples: key, text, ASCII. */
 }
 
-message GetDataResponse{
+/** Transferred as initial metadata with the name "x-qlik-getdata-bin". */
+message GetDataResponse {
     repeated FieldInfo fieldInfo = 1;
     string tableName = 2;
 }
 
 service Connector
 {
-    rpc ExecuteGenericCommand(GenericCommand) returns(GenericCommandResponse) {}
+    /** The standard way to send data.
+        First send GetDataResponse as initial meta data.
+        Then send DataChunk stream.
+    */
     rpc GetData(GetDataOptions) returns(stream DataChunk) {}
+
+    /** An experimental way to send data. The raw method will bypass the slightly expensive protobuf
+        encoding and send byte chunks of slightly less than 64KB each as a binary stream. The first 4 bytes
+        transfferd is a little endian signed integer with the raw protocol number being used.
+
+        In some cases this method will provide better performance. It is also a more difficult
+        to implement. Not ready for public use.
+
+        First send GetDataResponse as initial meta data.
+        Then send RawDataChunk stream.
+    */
+    rpc GetRawData(GetDataOptions) returns(stream RawDataChunk) {}
 }
