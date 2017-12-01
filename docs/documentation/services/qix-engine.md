@@ -1,12 +1,12 @@
 # QIX Engine documentation
 
-This page contains documentation on a subset of the QIX Engine features/
-that are commonly used in a containerized environment.
+This page describes a subset of the QIX Engine features that are commonly 
+used in a containerized environment.
 
 ## Monitoring and scaling
 
-The QIX Engine has some unique resource charateristics and are here presented
-along with some ways to monitor it for health and scaling purposes.
+QIX Engine has some unique resource characteristics, which are presented
+here along with some ways to monitor it for health and scaling purposes.
 
 ## QIX engine memory management
 
@@ -59,7 +59,7 @@ However, on servers with large RAM (256 GB and upwards), the settings can
 be changed to allocate a couple of GBs of RAM for the operating system and
 allow the remaining RAM to be used by QIX engine. QIX engine depends on
 the operating system to allocate RAM for it to use. When the engine starts,
-it attempts to reserve RAM based on the Working set Min / Min memory usage
+it attempts to reserve RAM based on the Working set Low / Min memory usage
 setting. The engine allocates all allowed memory with cached results sets
 as quickly as possible, but this does not mean that the engine will lack
 in performance once the allowed amount of memory is reached. If the allowed
@@ -70,6 +70,7 @@ set Low / Min memory usage setting without impacting the user-perceived
 performance as long as there are old result sets that can be purged. The
 prioritization of which result sets to purge is based on the age, size,
 and time of calculation of the result sets currently in the cache.
+
 If the RAM becomes scarce, the operating system may, at its discretion,
 perform paging, which means that some of the QIX engine memory is swapped
 from physical RAM to Virtual Memory (that is, secondary storage). When the
@@ -104,11 +105,11 @@ the total amount of allocated memory drops by the same amount as was originally
 allocated by the document. If there are no requests to use the allocated memory,
 the cached result sets stay in memory since there is no reason to remove result
 sets that might be useful later on. Note the “User activity ends” and “All
-sessions timed out” entries in Figure 1. In QlikView, a session ends a configurable
-amount of time after the user closes the browser tab where the session is
-running (that is, at “All sessions timed out”). In Qlik Sense, which uses
-WebSocket, the session ends when the user closes the browser tab (that is,
-at “User activity ends”).
+sessions timed out” entries in the figure above. In QlikView, a session ends a 
+configurable amount of time after the user closes the browser tab where the 
+session is running (that is, at “All sessions timed out”). In Qlik Sense, 
+which uses WebSocket, the session ends when the user closes the browser tab 
+(that is, at “User activity ends”).
 
 ### Example: Allocation of memory when loading multiple documents
 
@@ -167,7 +168,7 @@ QIX engine is multi-threaded and optimized to take advantage of multiple
 processor cores. All available cores are used almost linearly when calculating
 charts. During calculations, the engine makes a short burst of intense CPU
 usage in real time. It is good if the CPU utilization is high during peaks
-over time (see Figure 4). This indicates that the document is designed for
+over time (see the figure below). This indicates that the document is designed for
 good scaling over cores. A certain selection or calculation can be assumed
 to require a certain amount of processing capacity (that is, clock cycles
 from a certain chip), and a peak of high utilization results in faster response
@@ -180,7 +181,8 @@ response times) and lower CPU utilization.
 
 If a server has high CPU utilization on average (>70%), incoming selections
 have to be queued prior to being calculated as there is no processing capacity
-immediately available (see Figure 5). This is an indication of poor performance.
+immediately available (see the figure below). This is an indication of poor 
+performance.
 
 The cases where QIX engine will not scale well over cores include:
 
@@ -225,8 +227,7 @@ access the documents at the same time.
 
 ### Summary - Linear scaling of QIX engine resources
 
-The following is important to consider when it comes to how QIX engine
-linear scaling
+The following is important to consider when it comes to linear scaling:
 
 * No matter if documents are loaded and accessed in parallel or in sequence
   on a specific server, they consume approximately the same amount of resources
@@ -302,10 +303,10 @@ a cluster or vertically by adding more resources to current nodes/hosts.
 Both of these options works well with QIX as it is very predictable and scales
 linearly to the load.
 
-If the users and their respective applications works well on current nodes/hosts
-then scaling horizontally is recommended.
-However, if there are applications that are require more resources than available
-on current hosts/nodes then scaling vertically is recommended. This could then
+If the users and their respective apps work well on the current 
+nodes/hosts, horizontal scaling is recommended.
+However, if there are apps that require more resources than available
+on the current hosts/nodes, vertical scaling is recommended. This could then
 feed into any load balancing algorithm so that more costly apps gets placed on
 large nodes/hosts.
 
