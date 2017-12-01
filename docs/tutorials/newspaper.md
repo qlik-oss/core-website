@@ -98,9 +98,11 @@ function getLeastLoadedQix() {
 ## Predictive decisions
 
 Extrapolation based on current and historic usage with a known set of app sizes.
+
 Up
 When the total amount of free resources are less than X% RAM/CPU (20%?) or
 the number of session "slots" is less than XX, new nodes are needed.
+
 Down
 When the total amount of free resources are more than Y% RAM/CPU or the number
 of session "slots" is more than YY, nodes can be removed (as long as removing
