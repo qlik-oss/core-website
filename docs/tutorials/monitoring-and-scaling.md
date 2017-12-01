@@ -1,6 +1,6 @@
 # Monitoring and Scaling Recipe
 
-These documents provide an overview of what drives performance and how 
+These documents provide an overview of what drives performance and how
 to think about performance, scalability and monitoring.
 
 ## General principles and scaling characteristics of QIX
@@ -13,7 +13,7 @@ That is available in the following document.
 
 ## The real world use cases
 
-Frontira can be used in many different ways. The documents available here cover vastly 
+Frontira can be used in many different ways. The documents available here cover vastly
 different, but relevant, implementations.
 
 - Newspaper: In this scenario, documents are hosted as a backend with a custom-built
