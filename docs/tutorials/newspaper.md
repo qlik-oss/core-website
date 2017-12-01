@@ -1,36 +1,36 @@
-# The Newspaper case
+# Newspaper scenario
 
 ## Description
 
-Newspaper: In this scenario, documents are hosted as a backend with a custom-built
+In this scenario, documents are hosted as a backend with a custom-built
 user interface and embedded in newspaper site for storytelling or interactive
 charts. In this type of deployment, there are typically many bursty users running
-against the same document doing few selections but rather viewing the content
-presented. A successful deployment has reasonable uptake against a discrete '
-amounts of Qlik Sense applications/data models.
+against the same document, viewing the content presented rather than making
+many selections. A successful deployment has reasonable uptake against a discrete 
+amount of Qlik Sense applications/data models.
 
 ## Usage pattern
 
-With newspaper articles, for example english ones, the uptake is potentially
-world-wide. This causes the time zones to affect the arrival of new readers
-which will incur load on the Frontira backend. One such article could be read
-in the EU time zones before a drop in activity until US enters business hours
-to then have it's load dramatically reduced after US nightfall.
+With newspaper articles, the potential uptake is worldwide. This means that 
+the time zones affect the arrival of new readers, who incur load on the 
+Frontira backend. For example, an article could be read in the EU time zones,
+then drop in activity until the US enters business hours, and then drop in 
+activity again at US nightfall.
 
 The amount of users reading and interacting with such an article is hard to
-predict, but the idea is to have enough nodes/host to handle a reasonable peak
+predict, but the idea is to have enough nodes/hosts to handle a reasonable peak
 usage even though this could exceed thousands of new users per hour.
 
-Based on this usage pattern and assumptionthe system could become reasonably
+Based on this usage pattern and assumptions, the system could become reasonably
 predictable and scale for need.
 
 ## Assumptions
 
-Beyond what is stated in the usage pattern above there are several assumptions
-made in this guide.
+Beyond what is stated regarding the usage pattern above, several assumptions 
+are made in this guide.
 
 There are a few distinct and known Qlik Sense application entities with known
-size and characteristics.
+sizes and characteristics.
 
 There is a predefined set of hosts/nodes running QIX engine. These are, if
 unused, idling awaiting workload.
@@ -43,33 +43,33 @@ removes the need to continuously check whether there is enough resource
 headroom to add another one.
 
 In this pseudo implementation there is no logic to reject new sessions
-even if the current cluster is fully or over-loaded. This could be added
-by checking for headroom and rejecting when there is too little left.
+even if the current cluster is fully loaded or over-loaded. This could be
+added by checking for headroom and rejecting when there is not enough left.
 
 ## Metrics to look for
 
-A continuous look at system-wide but predominantly QIX engine metrics will
-show current health of the system and give data on how much more load can
-be added.
+A continuous monitoring of system-wide, but predominantly QIX engine-related,
+metrics will provide the current health of the system and information on how 
+much more load can be added.
 
-For this case several assumptions have been made that simplifies these metrics,
-such as known Qlik Sense application sizes. With this given the below metrics
-are enough to determine, and later predict scaling needs:
+In this case, several assumptions (such as known Qlik Sense application sizes) 
+that simplify the metrics have been made. With these given, the below metrics
+are enough to determine, and later predict, the scaling needs:
 
 RAM and CPU resources available for each QIX engine. For least-load placement.
 
 ## Qlik Sense session placement using MIRA
 
 MIRA service (link) returns a list of available QIX engines.
-New sessions should be placed where there is least-load and there is enough
-headroom resource-wise to place a new app. As for the headroom it is assumed
+New sessions should be placed where there is least-load and enough
+headroom resource-wise to place a new app. As for headroom, it is assumed
 that the Qlik Sense application is either already opened or small enough to not
-cause RAM issues. Hence, a simple least-load principle should be applied in order
+cause RAM issues. Hence, a simple least-load principle should be applied 
 to properly place a new user (which corresponds to a QIX engine session).
 
-Getting QIX engines from MIRA and sorting them by least load.
-The sorting algorithm will prioritize free RAM until this reaches
-the QIX minimum memory level at which point CPU takes precendence.
+Get QIX engines from MIRA and sort them by least load.
+The sorting algorithm prioritizes free RAM until this reaches
+the QIX minimum memory level at which point the CPU takes precendence.
 
 ```javascript
 //RAM free takes priority, but if equal then CPU is the deciding factor
@@ -108,7 +108,7 @@ When the total amount of free resources are more than Y% RAM/CPU or the number
 of session "slots" is more than YY, nodes can be removed (as long as removing
 a complete node leaves enough capacity and some...).
 
-Headroom can be determined like this:
+Headroom can be determined as follows:
 make note of if an app is not opened yet then the cost is higher. Beyond that
 cheap.
 
