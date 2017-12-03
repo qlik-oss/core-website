@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.102.0._
+_QIX definitions for version 12.101.0._
 
 ## `AlfaNumString`
 
