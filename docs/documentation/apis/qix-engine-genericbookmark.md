@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.102.0._
+_QIX methods for version 12.101.0._
 
 ## `Apply`
 
