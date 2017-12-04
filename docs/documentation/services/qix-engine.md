@@ -105,11 +105,9 @@ the total amount of allocated memory drops by the same amount as was originally
 allocated by the document. If there are no requests to use the allocated memory,
 the cached result sets stay in memory since there is no reason to remove result
 sets that might be useful later on. Note the “User activity ends” and “All
-sessions timed out” entries in the figure above. In QlikView, a session ends a
-configurable amount of time after the user closes the browser tab where the
-session is running (that is, at “All sessions timed out”). In Qlik Sense,
-which uses WebSocket, the session ends when the user closes the browser tab
-(that is, at “User activity ends”).
+sessions timed out” entries in the figure above. In Frontira,
+which uses WebSocket, the session ends when the user drops the connection
+and does not reconnect before the session time to live timeout.
 
 ### Example: Allocation of memory when loading multiple documents
 
