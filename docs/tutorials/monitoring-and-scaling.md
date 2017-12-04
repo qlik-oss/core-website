@@ -5,13 +5,12 @@ to think about performance, scalability and monitoring.
 
 ## General principles and scaling characteristics of QIX
 
-It is a good start to read up on how the most resource intensive
+It is recommended to start by reading up on how the most resource intensive
 service (QIX) works, handles resource and what drives it.
-That is available in the following document.
 
 [Monitoring and scaling QIX](./../documentation/services/qix-engine.md)
 
-## The real world use cases
+## Real world use cases
 
 Frontira can be used in many different ways. The documents available here cover vastly
 different, but relevant, implementations.
