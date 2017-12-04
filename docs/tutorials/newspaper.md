@@ -30,17 +30,17 @@ Beyond what is stated regarding the usage pattern above, several assumptions
 are made in this guide:
 
 - There are a few distinct and known Qlik Sense application entities with known
-sizes and characteristics.
+  sizes and characteristics.
 
 - There is a predefined set of hosts/nodes running QIX engine. These are, if
-unused, idling awaiting workload.
+  unused, idling awaiting workload.
 
 - It is expected that loading all of these on all QIX engine nodes is not an
-issue and they could almost be pre-populated for speed.
+  issue and they could almost be pre-populated for speed.
 
 - Having all Qlik Sense applications already present on the QIX engine nodes
-removes the need to continuously check whether there is enough resource
-headroom to add another one.
+  removes the need to continuously check whether there is enough resource
+  headroom to add another one.
 
 In this pseudo implementation there is no logic to reject new sessions
 even if the current cluster is fully loaded or over-loaded. This could be
