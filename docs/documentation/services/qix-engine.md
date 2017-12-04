@@ -6,7 +6,8 @@ used in a containerized environment.
 ## Monitoring and scaling
 
 QIX Engine has some unique resource characteristics, which are presented
-here along with some ways to monitor it for health and scaling purposes.
+here along with some ways to monitor the engine for health and scaling
+purposes.
 
 ## QIX engine memory management
 
@@ -57,7 +58,9 @@ allocates and releases memory:
 It is recommended to leave these settings with their default values.
 However, on servers with large RAM (256 GB and upwards), the settings can
 be changed to allocate a couple of GBs of RAM for the operating system and
-allow the remaining RAM to be used by QIX engine. QIX engine depends on
+allow the remaining RAM to be used by QIX engine.
+
+QIX engine depends on
 the operating system to allocate RAM for it to use. When the engine starts,
 it attempts to reserve RAM based on the Working set Low / Min memory usage
 setting. The engine allocates all allowed memory with cached results sets
@@ -82,7 +85,7 @@ occur between the Working set Low / Min memory usage setting and the Working
 set High / Max memory usage setting, but above the Working set High / Max
 memory usage setting paging will definitively occur.
 
-### Example: Allocation of memory when loading a single documents
+### Example: Allocation of memory when loading a single document
 
 The following figure shows an example of the memory allocation by QIX engine
 over time when a clean server is started and users begin to interact with a
@@ -104,10 +107,10 @@ purged to make room for new ones. When the document is unloaded from memory,
 the total amount of allocated memory drops by the same amount as was originally
 allocated by the document. If there are no requests to use the allocated memory,
 the cached result sets stay in memory since there is no reason to remove result
-sets that might be useful later on. Note the “User activity ends” and “All
-sessions timed out” entries in the figure above. In Frontira,
-which uses WebSocket, the session ends when the user drops the connection
-and does not reconnect before the session time to live timeout.
+sets that might be useful later on.
+
+In Frontira, which uses WebSocket, the session ends when the user drops the
+connection and does not reconnect before the session time to live timeout.
 
 ### Example: Allocation of memory when loading multiple documents
 
@@ -190,7 +193,7 @@ The cases where QIX engine will not scale well over cores include:
 
 ![CPU Average High](../../images/qix-service/cpu_high_average.png)
 
-### Summary QIX engine CPU utilization and scaling over cores
+### Summary of QIX engine CPU utilization and scaling over cores
 
 The following is important to consider when it comes to how QIX engine utilizes
 the CPU:
@@ -223,7 +226,7 @@ shared environment: by examining the resource usage of individual documents,
 you can get an estimate of the total amount of resources needed to load and
 access the documents at the same time.
 
-### Summary - Linear scaling of QIX engine resources
+### Summary of linear scaling of QIX engine resources
 
 The following is important to consider when it comes to linear scaling:
 
