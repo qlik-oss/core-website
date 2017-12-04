@@ -24,7 +24,7 @@ QIX Engine is now running as a Docker container!
 Using `docker-compose` is a convenient way to get containers up and running. The root folder contains the
 [docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
 file that describes how QIX Engine shall run as a container, using the `qlik/engine` Docker image, and exposing port
-9076 on the local machine.
+19076 on the local machine.
 
 Study the
 [docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
@@ -64,7 +64,7 @@ Session closed.
 
 Study the
 [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
-file and observe how enigma.js is configured to communicate to the QIX Engine on port 9076.
+file and observe how enigma.js is configured to communicate to the QIX Engine on port 19076.
 
 ## Next Steps
 
