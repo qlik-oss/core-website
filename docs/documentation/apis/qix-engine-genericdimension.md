@@ -1,18 +1,17 @@
-
 <!-- markdownlint-disable -->
 # GenericDimension
 
-_API specification for version 12.97.0, generated on 2017-11-14T15:19:25.693Z._
+_QIX methods for version 12.101.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | array | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -22,11 +21,11 @@ Returns the definition of a dimension.<br><br>The definition of the dimension is
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDim` | object | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
+| `qDim` | [`NxLibraryDimensionDef`](./qix-engine-definitions.md#nxlibrarydimensiondef) | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
 
 ## `GetInfo`
 
@@ -34,11 +33,11 @@ Returns the type and identifier of the object.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -46,11 +45,11 @@ Evaluates a dimension and displays its properties, including the dynamic propert
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | object | Information on the object. |
+| `qLayout` | [`GenericDimensionLayout`](./qix-engine-definitions.md#genericdimensionlayout) | Information on the object. |
 
 ## `GetLinkedObjects`
 
@@ -58,11 +57,11 @@ Lists the linked objects to a generic object, a dimension or a measure.
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array | List of the linked objects. |
+| `qItems` | [`NxLinkedObjectInfo`](./qix-engine-definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
 
 ## `GetProperties`
 
@@ -70,11 +69,11 @@ Shows the properties of an object.<br>Returns the identifier and the definition 
 
 _No parameters._
 
-##### Returns
+**Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | object | Information about the generic object. |
+| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Information about the generic object. |
 
 ## `Publish`
 
@@ -88,11 +87,11 @@ _No return values._
 
 Sets some properties for a dimension.
 
-##### Parameters
+**Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | object | Yes | Information about the dimension. |
+| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Yes | Information about the dimension. |
 
 _No return values._
 
