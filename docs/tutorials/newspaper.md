@@ -60,12 +60,13 @@ RAM and CPU resources available for each QIX engine. For least-load placement.
 
 ## Qlik Sense session placement using MIRA
 
-MIRA service (link) returns a list of available QIX engines.
-New sessions should be placed where there is least-load and enough
-headroom resource-wise to place a new app. As for headroom, it is assumed
-that the Qlik Sense application is either already opened or small enough to not
-cause RAM issues. Hence, a simple least-load principle should be applied
-to properly place a new user (which corresponds to a QIX engine session).
+MIRA service ([MIRA](./../documentation/services/mira.md)) returns a list of
+available QIX engines. New sessions should be placed where there is least-load
+and enough headroom resource-wise to place a new app. As for headroom, it is
+assumed that the Qlik Sense application is either already opened or small
+enough to not cause RAM issues. Hence, a simple least-load principle should
+be applied to properly place a new user (which corresponds to a QIX engine
+session).
 
 Get QIX engines from MIRA and sort them by least load.
 The sorting algorithm prioritizes free RAM until this reaches
