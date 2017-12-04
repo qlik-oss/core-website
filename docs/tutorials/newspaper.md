@@ -27,18 +27,18 @@ predictable and scale for need.
 ## Assumptions
 
 Beyond what is stated regarding the usage pattern above, several assumptions
-are made in this guide.
+are made in this guide:
 
-There are a few distinct and known Qlik Sense application entities with known
+- There are a few distinct and known Qlik Sense application entities with known
 sizes and characteristics.
 
-There is a predefined set of hosts/nodes running QIX engine. These are, if
+- There is a predefined set of hosts/nodes running QIX engine. These are, if
 unused, idling awaiting workload.
 
-It is expected that loading all of these on all QIX engine nodes is not an
+- It is expected that loading all of these on all QIX engine nodes is not an
 issue and they could almost be pre-populated for speed.
 
-Having all Qlik Sense applications already present on the QIX engine nodes
+- Having all Qlik Sense applications already present on the QIX engine nodes
 removes the need to continuously check whether there is enough resource
 headroom to add another one.
 
@@ -56,12 +56,12 @@ In this case, several assumptions (such as known Qlik Sense application sizes)
 that simplify the metrics have been made. With these given, the below metrics
 are enough to determine, and later predict, the scaling needs:
 
-RAM and CPU resources available for each QIX engine. For least-load placement.
+RAM and CPU resources available for each QIX engine (for least-load placement)
 
 ## Qlik Sense session placement using MIRA
 
-MIRA service ([MIRA](./../documentation/services/mira.md)) returns a list of
-available QIX engines. New sessions should be placed where there is least-load
+The MIRA service ([MIRA](./../documentation/services/mira.md)) returns a list
+of available QIX engines. New sessions should be placed where there is least-load
 and enough headroom resource-wise to place a new app. As for headroom, it is
 assumed that the Qlik Sense application is either already opened or small
 enough to not cause RAM issues. Hence, a simple least-load principle should
