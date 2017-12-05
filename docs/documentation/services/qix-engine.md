@@ -109,8 +109,8 @@ allocated by the document. If there are no requests to use the allocated memory,
 the cached result sets stay in memory since there is no reason to remove result
 sets that might be useful later on.
 
-In Frontira, which uses WebSocket, the session ends when the user drops the
-connection and does not reconnect before the session time to live timeout.
+A QIX Engine session is considered dropped once there are no more connected
+websockets to it, and the session TTL has lapsed (TTL is by default 0).
 
 ### Example: Allocation of memory when loading multiple documents
 
@@ -263,8 +263,8 @@ is a reoccurring warning in the logs, there is a shortage of RAM.
 
 By performing frequency analysis of these warnings you can gain an understanding
 of when it is time to optimize the RAM consumption (for example, by identifying
-costly applications to optimize, configuring timeouts, reviewing the rules and
-distribution of applications, ...) or scale up/out the deployment to add more RAM.
+costly documents to optimize, configuring timeouts, reviewing the rules and
+distribution of documents, ...) or scale up/out the deployment to add more RAM.
 
 ### Example: Frequency analysis
 
@@ -277,7 +277,7 @@ warnings.
 ![Frequency no worries](../../images/qix-service/frequency_noworries.png)
 
 This does not indicate any severe problems, but it could be good to investigate
-if a certain application not usually used was running during the time intervals
+if a certain documents not usually used was running during the time intervals
 when the warnings were issued. However, a longer timespan is needed to draw any
 conclusions.
 
@@ -304,12 +304,12 @@ a cluster or vertically by adding more resources to current nodes/hosts.
 Both of these options works well with QIX as it is very predictable and scales
 linearly to the load.
 
-If the users and their respective apps work well on the current
+If the users and their respective documents work well on the current
 nodes/hosts, horizontal scaling is recommended.
-However, if there are apps that require more resources than available
+However, if there are documents that require more resources than available
 on the current hosts/nodes, vertical scaling is recommended. This could then
-feed into any load balancing algorithm so that more costly apps gets placed on
-large nodes/hosts.
+feed into any load balancing algorithm so that more costly documents gets
+placed on large nodes/hosts.
 
 ## Logging
 
