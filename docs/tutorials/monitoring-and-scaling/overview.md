@@ -8,7 +8,7 @@ to think about performance, scalability and monitoring.
 It is recommended to start by reading up on how the most resource intensive
 service (QIX) works, handles resource and what drives it.
 
-[Monitoring and scaling QIX](./../documentation/services/qix-engine.md)
+[Monitoring and scaling QIX](./../../documentation/services/qix-engine.md)
 
 ## Real world use case
 
@@ -17,4 +17,4 @@ different, but relevant, implementations.
 
 - The Newspaper case: In this scenario, documents are hosted as a backend
   with a custom-built user interface and embedded in newspaper site for
-  storytelling or interactive charts. [The newspaper case](./monitoring-and-scaling/newspaper.md)
+  storytelling or interactive charts. [The newspaper case](./newspaper.md)
