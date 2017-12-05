@@ -126,11 +126,12 @@ the documents and session state information.
 
 ### Investigating memory usage
 
-It is good practice to investigate how QIX Engine uses memory. When the
-memory curve fluctuates a lot, it usually means that the Engine needs to
-allocate extra memory during a calculation. The memory is released when the
-result set is cached. Jitter on the memory curve might indicate poor document
-design that may be worth investigating as it often means slow response times.
+It is good practice to investigate how QIX Engine uses memory with your data
+models and documents. When the memory curve fluctuates a lot, it usually means
+that the Engine needs to allocate extra memory during a calculation. The memory
+is released when the result set is cached. Jitter on the memory curve might
+indicate poor document design that may be worth investigating as it often means
+slow response times.
 
 ![Monitoring RAM](../../images/qix-service/monitoring_ram.png)
 
@@ -301,8 +302,8 @@ Scaling a deployment of QIX Engines to match a given or dynamic workload
 can be done in two ways. Either horizontally by adding more nodes/hosts to
 a cluster or vertically by adding more resources to current nodes/hosts.
 
-Both of these options works well with QIX as it is very predictable and scales
-linearly to the load.
+Both of these options works well with QIX Engine as it is very predictable
+and scales linearly to the load.
 
 If the users and their respective documents work well on the current
 nodes/hosts, horizontal scaling is recommended.
