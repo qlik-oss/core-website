@@ -25,12 +25,11 @@ When a user requests a document, QIX Engine loads it into memory, if it
 has not been previously loaded. The dataset for a document is only loaded
 once and is not duplicated for multiple users who concurrently access and
 analyze it. As the user makes selections in the document, QIX Engine
-performs the needed calculations in real time. To render a chart, the
-QIX engine must first access the core unaggregated dataset and then calculate
-and store the totals. The user session states and aggregates are stored
-in the RAM above and beyond the RAM used to store the core unaggregated
-dataset. Most of the session information is shared between sessions in
-the same state. Aggregates are shared across all users in a central cache.
+performs the needed calculations in real time if they have not been previously
+calculated and cached. Newly calculated results are then added to the in
+memory cache shared with all users. User session states are also stored
+in memory and most of the session information is shared between sessions in
+the same state.
 
 ### Controlling the allocation of memory
 
