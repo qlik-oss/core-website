@@ -18,5 +18,3 @@ different, but relevant, implementations.
 - The Newspaper case: In this scenario, documents are hosted as a backend
   with a custom-built user interface and embedded in newspaper site for
   storytelling or interactive charts. [The newspaper case](./monitoring-and-scaling/newspaper.md)
-
-
