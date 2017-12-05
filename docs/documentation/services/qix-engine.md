@@ -150,10 +150,10 @@ The following is important to consider when it comes to memory management:
   and cached results are purged to make room for new values.
 * The age, size, and time of calculation are factors in the prioritization
   of which values to purge.
-* QIX Engine purges old sessions when the “maximum inactive session time”
+* QIX Engine purges old sessions when the "maximum inactive session time"
   value is reached.
-* High memory usage is usually the result of many cached results. As long
-  as paging does not occur, high memory usage is a good thing.
+* High memory usage is usually the result of many cached results.
+* As long as paging does not occur, high memory usage is a good thing.
 
 ## QIX Engine CPU utilization and scaling over cores
 
