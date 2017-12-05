@@ -40,7 +40,7 @@ tutorials are; in recommended order to explore:
 - [Data Loading](./tutorials/data-loading.md) - Loading user data into QIX Engine
 - [Document Distribution](./tutorials/document-distribution.md) - Distributing updated documents/data
     in a cluster of QIX Engine instances
-- [Monitoring and Scaling](./tutorials/monitoring-and-scaling.md)
+- [Monitoring and Scaling](./tutorials/scalability/overview.md)
     - Taking decisions on when to scale up or down the number of QIX Engine instances
     - Placing and scheduling of QIX Engine sessions
 - [Authorization](./tutorials/authorization.md)
