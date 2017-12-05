@@ -60,7 +60,7 @@ RAM and CPU resources available for each QIX engine (for least-load placement)
 
 ## Document session placement using Mira
 
-The MIRA service ([Mira](./../documentation/services/mira.md)) returns an array
+The MIRA service ([Mira](./../../documentation/services/mira.md)) returns an array
 of available QIX engines. New sessions should be placed where there is least-load
 and enough headroom resource-wise to place a new document. As for headroom, it is
 assumed that the document is either already opened or small
