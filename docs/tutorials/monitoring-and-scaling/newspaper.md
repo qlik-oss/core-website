@@ -69,9 +69,10 @@ be applied to properly place a new users (which corresponds to a QIX engine
 session).
 
 The simplest form of the algorithm then becomes
-* Get QIX engines from MIRA and sort them by least load.
-* The sorting algorithm then returns the QIX Engine with the most free RAM
-* If multiple QIX engines have the same amount of free RAM then the QIX Engine
+
+- Get QIX engines from MIRA and sort them by least load.
+- The sorting algorithm then returns the QIX Engine with the most free RAM
+- If multiple QIX engines have the same amount of free RAM then the QIX Engine
   with lower CPU consumption is preferred and then chosen/returned.
 
 ```javascript
