@@ -26,7 +26,9 @@ pages:
     - Authorization: tutorials/authorization.md
     - Data Loading: tutorials/data-loading.md
     - Document Distribution: tutorials/document-distribution.md
-    - Monitoring and Scaling: tutorials/monitoring-and-scaling.md
+    - Scalability:
+      - Overview: tutorials/scalability/overview.md
+      - The Newspaper Case: tutorials/scalability/newspaper.md
   - Documentation:
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
