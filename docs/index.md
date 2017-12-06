@@ -22,6 +22,16 @@ Developers building their solutions on Frontira are provided with a large range 
 [Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple QIX Engine
 instances in distributed environments.
 
+## Live Demo
+
+To see an example of what can be built using Frontira, a live demo available at
+[ca.qliktive.com](https://ca.qliktive.com). GitHub authentication is used, so to sign in a GitHub account is required.
+
+The demo is based on Qliktive, a fictive company, that provides an assisting application for drug prescriptions.
+
+The complete demo including more detailed documentation is available as open source on GitHub in the
+[qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repo.
+
 ## New to Frontira?
 
 If you are new to Frontira, it is recommended to begin in the [Getting Started](./getting-started.md) section.
