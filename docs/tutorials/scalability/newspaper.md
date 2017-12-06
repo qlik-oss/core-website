@@ -4,7 +4,7 @@
 
 In this scenario, documents are hosted as a backend with a custom-built
 user interface and embedded in a newspaper site for storytelling or interactive
-charts. In this type of deployment, there are there are typically bursts in
+charts. In this type of deployment, there are typically bursts in
 traffic towards specific documents, viewing the content presented rather than
 making many selections. A successful deployment has reasonable uptake against
 a discrete amount of documents/data models.
@@ -32,13 +32,13 @@ are made in this example scenario:
 - There are a few distinct and known document entities with known
   sizes and characteristics.
 
-- There is a predefined set of hosts/nodes running QIX engine. These are, if
+- There is a predefined set of hosts/nodes running QIX Engine. These are, if
   unused, idling awaiting workload.
 
-- It is expected that loading all of these on all QIX engine nodes is not an
+- It is expected that loading all of these on all QIX Engine nodes is not an
   issue and they could almost be pre-populated for speed.
 
-- Having all documents already present on the QIX engine nodes
+- Having all documents already present on the QIX Engine nodes
   removes the need to continuously check whether there is enough resource
   headroom to add another one.
 
@@ -48,7 +48,7 @@ added by checking for headroom and rejecting when there is not enough left.
 
 ## Metrics to look for
 
-A continuous monitoring of system-wide, but predominantly QIX engine-related,
+A continuous monitoring of system-wide, but predominantly QIX Engine related,
 metrics will provide the current health of the system and information on how
 much more load can be added.
 
@@ -56,23 +56,23 @@ In this case, several assumptions (such as known document sizes)
 that simplify the metrics have been made. With these given, the below metrics
 are enough to determine, and later predict, the scaling needs.
 
-RAM and CPU resources available for each QIX engine (for least-load placement)
+RAM and CPU resources available for each QIX Engine (for least-load placement)
 
 ## Document session placement using Mira
 
-The MIRA service ([Mira](./../../documentation/services/mira.md)) returns an array
-of available QIX engines. New sessions should be placed where there is least-load
+The Mira service ([Mira](./../../documentation/services/mira.md)) returns an array
+of available QIX Engines. New sessions should be placed where there is least-load
 and enough headroom resource-wise to place a new document. As for headroom, it is
 assumed that the document is either already opened or small
 enough to not cause RAM issues. Hence, a simple least-load principle chould
-be applied to properly place a new users (which corresponds to a QIX engine
+be applied to properly place a new users (which corresponds to a QIX Engine
 session).
 
 The simplest form of the algorithm then becomes
 
-- Get QIX engines from MIRA and sort them by least load.
+- Get QIX Engines from Mira and sort them by least load.
 - The sorting algorithm then returns the QIX Engine with the most free RAM
-- If multiple QIX engines have the same amount of free RAM then the QIX Engine
+- If multiple QIX Engines have the same amount of free RAM then the QIX Engine
   with lower CPU consumption is preferred and then chosen/returned.
 
 ```javascript
@@ -92,8 +92,7 @@ function compareResources(a, b) {
 }
 
 function getLeastLoadedQixEngine() {
-  var qixEngines = [];
-  qixEngines = "Retrieved from http://<docker swarm hostname>:9100/v1/engines"
+  const qixEngines = []; // retrieved from your Mira service
   var sortedQIXEngines = qixEngines.sort(compareResources);
   console.log("QIX Engine selected: "+ sortedQIXEngines[0].engine.ip);
   return sortedQIXEngines[0].engine.ip;

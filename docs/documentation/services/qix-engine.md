@@ -9,7 +9,7 @@ QIX Engine has some unique resource characteristics, which are presented
 here along with some ways to monitor the QIX Engine for health and scaling
 purposes.
 
-### QIX Engine memory management
+### Memory management
 
 The main memory RAM is the primary
 storage for all data to be analyzed by QIX Engine. The engine mainly
@@ -134,7 +134,7 @@ slow response times.
 
 ![Monitoring RAM](../../images/qix-service/monitoring_ram.png)
 
-### Summary of QIX Engine memory management
+### Summary of memory management
 
 The following is important to consider when it comes to memory management:
 
@@ -154,7 +154,7 @@ The following is important to consider when it comes to memory management:
 * High memory usage is usually the result of many cached results.
 * As long as paging does not occur, high memory usage is a good thing.
 
-## QIX Engine CPU utilization and scaling over cores
+## CPU utilization and scaling over cores
 
 QIX Engine leverages the processor to dynamically create aggregations as
 needed in real time, which results in a fast, flexible, and intuitive user
@@ -193,7 +193,7 @@ The cases where QIX Engine will not scale well over cores include:
 
 ![CPU Average High](../../images/qix-service/cpu_high_average.png)
 
-### Summary of QIX Engine CPU utilization and scaling over cores
+### Summary of CPU utilization and scaling over cores
 
 The following is important to consider when it comes to how QIX Engine utilizes
 the CPU:
@@ -207,7 +207,7 @@ the CPU:
   increasing the clock frequency. More processing capacity makes the Engine
   handle load peaks in a robust manner.
 
-## Linear scaling of QIX Engine resources
+## Linear scaling of resources
 
 QIX Engine consumes approximately the same amount of resources when documents
 are loaded and accessed at the same time on a server as when they are loaded
@@ -226,7 +226,7 @@ shared environment: by examining the resource usage of individual documents,
 you can get an estimate of the total amount of resources needed to load and
 access the documents at the same time.
 
-### Summary of linear scaling of QIX Engine resources
+### Summary of linear scaling of resources
 
 The following is important to consider when it comes to linear scaling:
 
