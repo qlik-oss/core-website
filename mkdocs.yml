@@ -48,7 +48,6 @@ pages:
         - Generic Variable: documentation/apis/qix-engine-genericvariable.md
         - Field: documentation/apis/qix-engine-field.md
         - Variable: documentation/apis/qix-engine-variable.md
-    - Custom Analytics UI: documentation/custom-analytics-ui.md
     - Contract: documentation/contract.md
   - Support & Services:
     - Licensing: support-and-services/licensing.md
