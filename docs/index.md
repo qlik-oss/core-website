@@ -24,10 +24,10 @@ instances in distributed environments.
 
 ## Live Demo
 
-To see an example of what can be built using Frontira, a live demo available at
-[ca.qliktive.com](https://ca.qliktive.com). GitHub authentication is used, so to sign in a GitHub account is required.
+To see an example of what can be built using Frontira, a live demo is available at
+[ca.qliktive.com](https://ca.qliktive.com).
 
-The demo is based on Qliktive, a fictive company, that provides an assisting application for drug prescriptions.
+The demo uses Qliktive as a fictive company. Qliktive provides an application to assist with drug prescriptions.
 
 The complete demo including more detailed documentation is available as open source on GitHub in the
 [qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repo.
