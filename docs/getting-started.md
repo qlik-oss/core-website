@@ -46,3 +46,5 @@ tutorials are; in recommended order to explore:
 - [Authorization](./tutorials/authorization.md)
     - Using JWTs and JWT validation in QIX Engine
     - Making sure users only see the data they are supposed to see
+- [Doc Distro](./tutorials/doc-distribution)
+    - Example of doc-distribution

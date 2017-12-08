@@ -25,6 +25,7 @@ pages:
     - Setting up the Core Services: tutorials/core.md
     - Authorization: tutorials/authorization.md
     - Data Loading: tutorials/data-loading.md
+    - Doc Distro: tutorials/doc-distribution.md
     - Document Distribution: tutorials/document-distribution.md
     - Scalability:
       - Overview: tutorials/scalability/overview.md
