@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.101.0._
+_QIX methods for version 12.110.0._
 
 ## `AbortModal`
 
@@ -359,7 +359,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 ## `CreateVariable`
 
-Creates a variable.<br>This method is deprecated (not recommended to use). Use [`CreateVariableEx`](#createvariableex) method instead. 
+Creates a variable.
 
 **Parameters:**
 
@@ -624,22 +624,6 @@ Evaluates an expression as a dual.<br><br>
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qValue` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | Expression to evaluate. |
-
-## `ExportReducedData`
-
-_No details._
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qOptions` | [`NxDownloadOptions`](./qix-engine-definitions.md#nxdownloadoptions) | No | _No description._ |
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qDownloadInfo` | [`NxDownloadInfo`](./qix-engine-definitions.md#nxdownloadinfo) | _No description._ |
 
 ## `FindMatchingFields`
 
@@ -1173,7 +1157,7 @@ Retrieves any fields that match all or one of the specified tags in the data mod
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qTags` | array | Yes | List of tags.<br>The [`GetMatchingFields`](#getmatchingfields) method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
-| `qMatchingFieldMode` | string | No | Matching field mode.<br><br>The default value is 0. |
+| `qMatchingFieldMode` | string | No | Matching field mode.<br><br>The default value is 0.<br><br>One of:<br>* MATCHINGFIELDMODE_MATCH_ALL<br>* MATCHINGFIELDMODE_MATCH_ONE |
 
 **Returns:**
 
@@ -1199,7 +1183,7 @@ Returns the handle of a measure.
 
 ## `GetMediaList`
 
-Lists the media files.<br>This method is deprecated (not recommended to use). Use [`GetLibraryContent`](#getlibrarycontent) method instead. 
+Lists the media files.
 
 _No parameters._
 
@@ -1320,7 +1304,7 @@ _No parameters._
 
 ## `GetVariable`
 
-Gets the handle of a variable.<br>This method is deprecated (not recommended to use). Use [`GetVariableById`](#getvariablebyid) method or [`GetVariableByName`](#getvariablebyname) method instead. 
+Gets the handle of a variable.
 
 **Parameters:**
 
@@ -1407,22 +1391,6 @@ Locks all selections in all fields of the current app.
 
 _No return values._
 
-## `MigrateDerivedFields`
-
-_No details._
-
-_No parameters._
-
-_No return values._
-
-## `MigrateVariables`
-
-_No details._
-
-_No parameters._
-
-_No return values._
-
 ## `ModifyConnection`
 
 Updates a connection.<br>The identifier of a connection cannot be updated. qType cannot be modified with the [`ModifyConnection`](#modifyconnection) method.
@@ -1476,7 +1444,7 @@ _No return values._
 
 ## `RemoveVariable`
 
-Removes a variable.<br>This method is deprecated (not recommended to use). Use [`DestroyVariableById`](#destroyvariablebyid) method or [`DestroyVariableByName`](#destroyvariablebyname) method instead. 
+Removes a variable.
 
 **Parameters:**
 
@@ -1520,7 +1488,7 @@ _No return values._
 
 ## `SearchAssociations`
 
-Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions)<br>This method is deprecated (not recommended to use). Use [`SearchResults`](#searchresults) method instead. <br><br>
+Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions)<br><br>
 
 **Parameters:**
 
@@ -1709,14 +1677,6 @@ Sets the positions of the tables in the data model viewer.<br>The position of th
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qInfo` | [`TableViewDlgSaveInfo`](./qix-engine-definitions.md#tableviewdlgsaveinfo) | Yes | Information about the table. |
-
-_No return values._
-
-## `UnPublish`
-
-Unpublishes an app.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>
-
-_No parameters._
 
 _No return values._
 

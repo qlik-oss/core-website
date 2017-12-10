@@ -1,11 +1,11 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_QIX methods for version 12.101.0._
+_QIX methods for version 12.110.0._
 
 ## `ForceContent`
 
-Sets the value of a dual variable overriding any input constraints.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. The [`ForceContent`](#forcecontent) method does not evaluate any expression. 
+Sets the value of a dual variable overriding any input constraints.
 
 **Parameters:**
 
@@ -18,7 +18,7 @@ _No return values._
 
 ## `GetContent`
 
-Returns the calculated value of a variable.<br>This method is deprecated (not recommended to use). Use _GetProperties method_ instead. 
+Returns the calculated value of a variable.
 
 _No parameters._
 
@@ -30,7 +30,7 @@ _No parameters._
 
 ## `GetNxProperties`
 
-Gets the properties of a variable.<br>This method is deprecated (not recommended to use). Use _GetProperties method_ instead. 
+Gets the properties of a variable.
 
 _No parameters._
 
@@ -42,7 +42,7 @@ _No parameters._
 
 ## `GetRawContent`
 
-Returns the raw value of a variable.<br>This method is deprecated (not recommended to use). Use _GetProperties method_ instead. 
+Returns the raw value of a variable.
 
 _No parameters._
 
@@ -54,7 +54,7 @@ _No parameters._
 
 ## `SetContent`
 
-Sets a value to a variable.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. 
+Sets a value to a variable.
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ Sets a value to a variable.<br>This method is deprecated (not recommended to use
 
 ## `SetNxProperties`
 
-Sets some properties to a variable.<br>This method is deprecated (not recommended to use). Use _SetProperties method_ instead. 
+Sets some properties to a variable.
 
 **Parameters:**
 
