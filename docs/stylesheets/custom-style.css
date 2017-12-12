@@ -6,6 +6,10 @@
   background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
 }
 
+.md-footer-nav {
+  display: none;
+}
+
 .md-typeset {
   font-size: 16px;
 }
@@ -94,6 +98,27 @@
   color: rgba(0, 0, 0, .87);
 }
 
+.md-nav__link[data-md-state=blur]:hover {
+  color: #f8981d;
+}
+
+@media only screen and (max-width: 76.1875em) {
+  html .md-nav--primary .md-nav__title--site {
+    background-color: #5f6062;
+  }
+
+  html .md-nav--primary .md-nav__title--site .md-nav__button {
+    width: 13.4rem;
+  }
+}
+
+@media only screen and (max-width: 59.9375em) {
+  .md-nav__source {
+    background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
+  }
+}
+
+/*Add slash in the title*/
 @media only screen and (min-width: 76.25em) {
   .md-header-nav__button.md-icon--menu {
     display: inline;
@@ -121,21 +146,5 @@
 @media only screen and (max-width: 1600px) and (min-width: 76.25em) {
   .md-icon--menu:before {
     font-size: 35px;
-  }
-}
-
-@media only screen and (max-width: 76.1875em) {
-  html .md-nav--primary .md-nav__title--site {
-    background-color: #5f6062;
-  }
-
-  html .md-nav--primary .md-nav__title--site .md-nav__button {
-    width: 13.4rem;
-  }
-}
-
-@media only screen and (max-width: 59.9375em) {
-  .md-nav__source {
-    background: #9fa1a4;
   }
 }
