@@ -2,6 +2,12 @@ site_name: Frontira
 
 theme:
   name: 'material'
+  logo: 'images/QlikLogo-White.svg'
+  feature:
+    tabs: true
+
+extra_css:
+  - 'stylesheets/custom-style.css'
 
 markdown_extensions:
   - admonition
