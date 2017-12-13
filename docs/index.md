@@ -1,7 +1,5 @@
 # Home
 
-![Frontira](./images/frontira-banner.jpg "Frontira")
-
 ## What is Frontira?
 
 Frontira by [Qlik](https://qlik.com) provides a development platform for building custom data exploration and data
