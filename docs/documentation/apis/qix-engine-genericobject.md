@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_QIX methods for version 12.101.0._
+_QIX methods for version 12.110.0._
 
 ## `AbortListObjectSearch`
 
@@ -31,7 +31,7 @@ _No return values._
 
 ## `ApplyPatches`
 
-Applies a patch to the properties of an object. Allows an update to some of the properties.<br>It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing [`GetProperties`](#getproperties) , and only a [`GetLayout`](#getlayout) call shows the result of the operation.<br>Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>Soft properties apply only to generic objects. Applying a patch takes less time than resetting all the properties.
+Applies a patch to the properties of an object. Allows an update to some of the properties.<br>It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing [`GetProperties`](#getproperties) , and only a [`GetLayout`](#getlayout) call shows the result of the operation.<br>Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>Soft properties apply only to generic objects.
 
 **Parameters:**
 
@@ -240,10 +240,10 @@ Exports the data of any generic object to an Excel file or a open XML file. If t
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFileType` | string | Yes | Type of the file to export. |
+| `qFileType` | string | Yes | Type of the file to export.<br><br>One of:<br>* CSV_C or EXPORT_CSV_C<br>* CSV_T or EXPORT_CSV_T<br>* OOXML or EXPORT_OOXML |
 | `qPath` | string | No | Path to the definition of the object to be exported.<br>For example, _/qHyperCubeDef_ .<br>This parameter is mandatory if the file type is _CSV_C_ or _CSV_T_ . |
 | `qFileName` | string | No | Name of the exported file after download from browser.<br>This parameter is optional and only used in Qlik Sense Desktop. |
-| `qExportState` | string | No | Defines the values to be exported.<br>The default value is A. |
+| `qExportState` | string | No | Defines the values to be exported.<br>The default value is A.<br><br>One of:<br>* P or EXPORT_POSSIBLE<br>* A or EXPORT_ALL |
 
 **Returns:**
 
@@ -282,7 +282,7 @@ _No parameters._
 
 ## `GetEffectiveProperties`
 
-Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.<br>GetEffectiveProperties method<br>Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.<br><br>
+Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.<br>GetEffectiveProperties method<br>Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.
 
 _No parameters._
 
@@ -328,14 +328,14 @@ This method supports data binning.<br>When a generic object with two or three me
 
 ## `GetHyperCubeContinuousData`
 
-Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.<br>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.<br>A data set is returned.
+Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.<br>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qOptions` | [`NxContinuousDataOptions`](./qix-engine-definitions.md#nxcontinuousdataoptions) | Yes | Options.NbrPoints is number of bins for binning.<br>Options.MaxNbrTicks \- maximum number of ticks. |
+| `qOptions` | [`NxContinuousDataOptions`](./qix-engine-definitions.md#nxcontinuousdataoptions) | Yes | Defines the data to return. |
 | `qReverseSort` | boolean | No | If set to true the returned data pages are reverse sorted.<br>Optional. |
 
 **Returns:**
@@ -347,7 +347,7 @@ Retrieves and packs compressed hypercube and axis data. It is possible to retrie
 
 ## `GetHyperCubeData`
 
-Retrieves the values of a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.<br>This method does not apply to stacked tables.<br>A data set is returned.
+Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_STRAIGHT.<br>A data set is returned.
 
 **Parameters:**
 
@@ -364,7 +364,7 @@ Retrieves the values of a chart, a table, or a scatter plot. It is possible to r
 
 ## `GetHyperCubePivotData`
 
-Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.<br><br>
+Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT.
 
 **Parameters:**
 
@@ -390,7 +390,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages. |
 | `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>* If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>* If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
-| `qReductionMode` | string | Yes | Defines the reduction mode. |
+| `qReductionMode` | string | Yes | Defines the reduction mode.<br><br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
 
 **Returns:**
 
@@ -400,7 +400,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 
 ## `GetHyperCubeStackData`
 
-Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.<br>A data set is returned.
+Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT_STACK.
 
 **Parameters:**
 
@@ -418,7 +418,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 
 ## `GetHyperCubeTreeData`
 
-Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br><br>
+Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT.<br><br>
 
 **Parameters:**
 
@@ -488,7 +488,7 @@ Retrieves the values of a list object.<br>A data set is returned.
 
 ## `GetProperties`
 
-Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the member delta is set to true in the request object, only the delta is retrieved.<br>The following is always returned in the output:
+Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>The properties depends on the generic object type, see [properties](generic-object-properties-render.html).<br>If the member delta is set to true in the request object, only the delta is retrieved.
 
 _No parameters._
 
@@ -802,7 +802,7 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a generic object.
+Sets some properties for a generic object.<br>The properties depends on the generic object type, see [properties](generic-object-properties-set.html).
 
 **Parameters:**
 

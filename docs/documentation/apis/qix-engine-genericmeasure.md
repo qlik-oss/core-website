@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericMeasure
 
-_QIX methods for version 12.101.0._
+_QIX methods for version 12.110.0._
 
 ## `ApplyPatches`
 
