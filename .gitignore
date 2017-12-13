@@ -1,5 +1,6 @@
 # VS Code folder
 .vscode/
+.idea/
 # Merge files (BC, KDiff3 etc.)
 *.orig
 # Site generation folder

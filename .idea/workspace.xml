@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7319915-9431-467f-860c-c0c6d126d360" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/tutorials/data-loading.md" afterPath="$PROJECT_DIR$/docs/tutorials/data-loading.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="info.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data-loading.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data-loading.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/tutorials/data-loading.md">
           <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
@@ -65,6 +66,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,6 +113,7 @@
         <option value="$PROJECT_DIR$/docs/recipe/performance.md" />
         <option value="$PROJECT_DIR$/docs/recipe/monitoring-and-scaling.md" />
         <option value="$PROJECT_DIR$/docs/tutorials/data-loading.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -283,12 +295,12 @@
       <workItem from="1506003346195" duration="6295000" />
       <workItem from="1506422241601" duration="631000" />
       <workItem from="1506423016238" duration="935000" />
-      <workItem from="1513168967664" duration="1904000" />
+      <workItem from="1513168967664" duration="1992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11884000" />
+    <option name="totallyTimeSpent" value="11972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="2" width="1936" height="1056" extended-state="6" />
@@ -590,6 +602,14 @@
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
