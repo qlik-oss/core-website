@@ -3,16 +3,35 @@
 This recipe outlines a couple of different approaches and things to keep in mind when loading data into your document
 in a scalable environment.
 
-## End-user defined data
+It assumes you are running in a \*nix environment or use Git Bash on Windows. Basic Docker knowledge is also assumed.
 
-This section is mainly documentation how to use the halyard.js stream service to allow customized end-user
-data through services like Dropbox.
+## End-user defined file based data
+
+This section is mainly documentation on how to use the File-Connectivity-Service to access end-user file based
+data through services like Dropbox, OneDrive, GoogleDrive or S3. This example will focus on Dropbox but the workflow is very similar for the other providers.
+
+Start by cloning the File-Connectivity-Service repository with `git clone https://github.com/qlik-ea/outhaul.git`
+Copy the file [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv) located in the `/data` folder to your Dropbox.
+
+- Goto [Dropbox to setup a OAuth 2.0 application](https://www.dropbox.com/developers/apps). 
+- Press `Create app`
+- Choose `Dropbox API`
+- Choose the type of access you need to `Full Dropbox`
+- Give your app a name
+- Press `Create app`
+- Fill in `Redirect URIs` to: http://localhost:3000/oauth2/callback
+- Copy `App key` and `App secret`
+- Set the following environment variables in the terminal
+    - `export DROPBOX_CLIENT_ID="your App key"`
+    - `export DROPBOX_CLIENT_SECRET="your App secret"`
+- Go to the `/examples` folder in the File-Connectivity-Service repository
+- run `docker-compose up --build`
+
 
 ## Developer defined data
 
 This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol
 in the QIX Engine.
-It assumes you are running in a \*nix environment or use Git Bash on Windows. Basic Docker knowledge is also assumed.
 
 First clone and open the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector) repository
 and move to the `example` folder.
