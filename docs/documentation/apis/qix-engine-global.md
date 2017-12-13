@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.102.0._
+_QIX methods for version 12.110.0._
 
 ## `AbortAll`
 
@@ -244,13 +244,13 @@ _No parameters._
 
 ## `GetBNF`
 
-Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.<br>In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.<br>This method is deprecated (not recommended for use). Use the [`GetBaseBNF`](#getbasebnf) method instead. 
+Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.<br>In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | Returns a set of rules defining the syntax for:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E. |
+| `qBnfType` | string | Yes | Returns a set of rules defining the syntax for:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -266,7 +266,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E. |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -283,7 +283,7 @@ Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E. |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -299,7 +299,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* **S** : returns the script statements and the script functions.<br>* **E** : returns the chart functions. |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* **S** : returns the script statements and the script functions.<br>* **E** : returns the chart functions.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -307,18 +307,6 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 | ---- | ---- | ----------- |
 | `qBnfStr` | string | Description of the scripting language grammar. |
 | `qBnfHash` | string | A string hash of the BNF definition. |
-
-## `GetConfiguration`
-
-_No details._
-
-_No parameters._
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qConfig` | [`NxConfigurationInfo`](./qix-engine-definitions.md#nxconfigurationinfo) | _No description._ |
 
 ## `GetCustomConnectors`
 
@@ -400,7 +388,7 @@ Gets the list of all the script functions.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br>One of:<br>* ALL for FUNC_GROUP_ALL<br>* U for FUNC_GROUP_UNKNOWN<br>* NONE for FUNC_GROUP_NONE<br>* AGGR for FUNC_GROUP_AGGR<br>* NUM for FUNC_GROUP_NUMERIC<br>* RNG for FUNC_GROUP_RANGE<br>* EXP for FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG for FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN for FUNC_GROUP_FINANCIAL<br>* MATH for FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT for FUNC_GROUP_COUNTER<br>* STR for FUNC_GROUP_STRING<br>* MAPP for FUNC_GROUP_MAPPING<br>* RCRD for FUNC_GROUP_INTER_RECORD<br>* CND for FUNC_GROUP_CONDITIONAL<br>* LOG for FUNC_GROUP_LOGICAL<br>* NULL for FUNC_GROUP_NULL<br>* SYS for FUNC_GROUP_SYSTEM<br>* FILE for FUNC_GROUP_FILE<br>* TBL for FUNC_GROUP_TABLE<br>* DATE for FUNC_GROUP_DATE_AND_TIME<br>* NUMI for FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT for FUNC_GROUP_FORMATTING<br>* CLR for FUNC_GROUP_COLOR<br>* RNK for FUNC_GROUP_RANKING<br>* GEO for FUNC_GROUP_GEO<br>* EXT for FUNC_GROUP_EXTERNAL |
+| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL |
 
 **Returns:**
 
@@ -491,7 +479,7 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 
 ## `GetStreamList`
 
-Lists the streams.<br>This method is deprecated (not recommended to use). Use general purpose endpoint in [QRS API: GET qrs/stream/](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Get.htm) instead.
+Lists the streams.
 
 _No parameters._
 
@@ -525,39 +513,6 @@ _No parameters._
 | ---- | ---- | ----------- |
 | `qUniqueID` | string | Unique identifier of the endpoint. |
 
-## `ImportApp`
-
-Imports an app to the Qlik Sense repository.<br>This operation is possible only in Qlik Sense Enterprise. It is not recommended to use this method to import an app. Use the Qlik Sense Repository Service API instead. In addition to importing the app, the Qlik Sense Repository Service API migrates the app if needed.<br><br>
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qAppId` | string | Yes | Identifier (GUID) of the app entity in the Qlik Sense repository.<br>The app entity must have been previously created by the repository (via the REST API). |
-| `qSrcPath` | string | Yes | Path and name of the source app.<br>To import apps they have to be located in a specified folder, which is _C:\ProgramData\Qlik\Sense\Apps\ &lt;login domain&gt;\&lt;login user&gt;_ .<br>The path can differ if you have performed a customized installation of Qlik Sense. |
-| `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be imported must be given. This list must contain the names of all these objects. |
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qSuccess` | boolean | `true` |
-
-## `ImportAppEx`
-
-Imports an app to the Qlik Sense repository. The connections in the app can be excluded from the import.<br>This operation is possible only in Qlik Sense Enterprise. It is not recommended to use this method to import an app. Use the Qlik Sense Repository Service API instead. In addition to importing the app, the Qlik Sense Repository Service API migrates the app if needed.<br><br>
-
-**Parameters:**
-
-| Name | Type | Mandatory | Description |
-| ---- | ---- | --------- | ----------- |
-| `qAppId` | string | Yes | Identifier (GUID) of the app entity in the Qlik Sense repository.<br>The app entity must have been previously created by the repository (via the REST API). |
-| `qSrcPath` | string | Yes | Path and name of the source app. |
-| `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be imported must be given. This list must contain the names of all these objects. |
-| `qExcludeConnections` | boolean | Yes | If this parameter is set to true, the connections in the app are not imported. |
-
-_No return values._
-
 ## `InteractDone`
 
 Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates the engine what to do next.
@@ -585,7 +540,7 @@ _No parameters._
 
 ## `IsPersonalMode`
 
-Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).<br>This method is deprecated.
+Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).
 
 _No parameters._
 
@@ -695,7 +650,7 @@ _No parameters._
 
 ## `QvVersion`
 
-Returns the Qlik Sense version number.<br>This method is deprecated (not recommended to use). Use the [`EngineVersion`](#engineversion) method instead. 
+Returns the Qlik Sense version number.
 
 _No parameters._
 

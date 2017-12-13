@@ -1,0 +1,115 @@
+.md-header {
+  background: #5f6062;
+}
+
+.md-tabs, .md-footer-nav {
+  background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
+}
+
+.md-footer-nav {
+  display: none;
+}
+
+.md-typeset {
+  font-size: 16px;
+}
+
+.md-nav__link:focus, .md-nav__link:hover, .md-typeset a:active, .md-typeset a:hover, .md-nav__link--active,
+.md-typeset h2[id] .headerlink:focus, .md-typeset h2[id]:hover .headerlink:hover, .md-typeset h2[id]:target .headerlink,
+.md-typeset h3[id] .headerlink:focus, .md-typeset h3[id]:hover .headerlink:hover, .md-typeset h3[id]:target .headerlink,
+.md-typeset h4[id] .headerlink:focus, .md-typeset h4[id]:hover .headerlink:hover, .md-typeset h4[id]:target .headerlink {
+  color: #f8981d;
+}
+
+.md-header-nav__topic {
+  font-weight: 100;
+}
+
+.md-flex__cell--shrink:first-child {
+  vertical-align: middle;
+}
+
+.md-header-nav__button img {
+  height: 21px;
+  width: 68px;
+}
+
+.md-main__inner {
+  padding: 0;
+}
+
+.md-content {
+  background: rgba(0, 0, 0, 0.02);
+  height: 100%;
+}
+
+.md-content__inner {
+  margin-bottom: 0;
+  padding: 20px 0 40px 0;
+}
+
+.md-sidebar {
+  padding: 33px 0 20px 0;
+}
+
+.md-sidebar__scrollwrap {
+  margin: 0;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+  background: #f8981d;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid RGBA(0, 0, 0, 0.08);
+}
+
+.md-sidebar--secondary .md-nav__item {
+  padding: 0;
+}
+
+.md-sidebar--secondary .md-nav__link {
+  border-bottom: 1px solid RGBA(0, 0, 0, 0.05);
+  margin: 0;
+  padding: 7px 14px 7px 20px;
+}
+
+.md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link {
+  background: none;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, .77);
+  padding: 8px 14px 8px 40px;
+}
+
+.md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link:hover {
+  color: #f8981d;
+}
+
+.md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
+  padding-left: 60px;
+}
+
+.md-nav__link[data-md-state=blur] {
+  color: rgba(0, 0, 0, .87);
+}
+
+.md-nav__link[data-md-state=blur]:hover {
+  color: #f8981d;
+}
+
+@media only screen and (max-width: 76.1875em) {
+  html .md-nav--primary .md-nav__title--site {
+    background-color: #5f6062;
+  }
+
+  html .md-nav--primary .md-nav__title--site .md-nav__button {
+    width: 13.4rem;
+  }
+}
+
+@media only screen and (max-width: 59.9375em) {
+  .md-nav__source {
+    background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
+  }
+}

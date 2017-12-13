@@ -111,9 +111,8 @@ This is also why `/var/run/docker.sock` is mounted into the service.
 
 #### Ports
 
-Mira and the License Service expose their REST APIs on ports `9100` and `9200` respectively.
-QIX Engine exposes port `9076` which serves the QIX websocket API
-and port `9090` which serves that Prometheus `/metric` endpoint separately.
+Mira and the License Service expose their REST APIs on ports `9100` and `9200` respectively. QIX Engine exposes port
+`9076` which serves the QIX websocket API and port `9090` which serves that Prometheus `/metric` endpoint separately.
 
 Although not strictly necessary, these ports are exposed to the outside of the swarm
 so that they can be easily accessed for demonstration purposes.

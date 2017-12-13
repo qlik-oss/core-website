@@ -1,7 +1,5 @@
 # Home
 
-![Frontira](./images/frontira-banner.jpg "Frontira")
-
 ## What is Frontira?
 
 Frontira by [Qlik](https://qlik.com) provides a development platform for building custom data exploration and data
@@ -21,6 +19,16 @@ The QIX Engine on Linux, provided as a Docker image, forms the foundation of thi
 Developers building their solutions on Frontira are provided with a large range of powerful technologies, for example
 [Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple QIX Engine
 instances in distributed environments.
+
+## Live Demo
+
+To see an example of what can be built using Frontira, a live demo is available at
+[ca.qliktive.com](https://ca.qliktive.com).
+
+The demo uses Qliktive as a fictive company. Qliktive provides an application to assist with drug prescriptions.
+
+The complete demo including more detailed documentation is available as open source on GitHub in the
+[qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repo.
 
 ## New to Frontira?
 

@@ -48,9 +48,9 @@ starts three services.
 The first is the database using the image we just created.
 The second is the postgres-grp-connector and the final one is the QIX Engine.
 
-For the QIX Engine we have opened and mapped port `9076` on the container to port `9076` on our local machine,
+For the QIX Engine we have opened and mapped port `9076` on the container to port `19076` on our local machine,
 this is because we will access the QIX Engine from outside of the docker network to trigger a load of our airport data
- and thus the port needs to open to the outside.
+and thus the port needs to open to the outside.
 
 We have also added a few commands to the QIX Engine `-S EnableGrpcCustomConnectors=1` enables grpc-connectors
 in the QIX Engine and `-S GrpcConnectorPlugins="postgres-grpc-connector,postgres-grpc-connector:50051"`
@@ -72,8 +72,8 @@ to talk to it on with the commands in the `docker-compose` file.
 Finally we can see that the engine exposes the ports `9076` and `9090`. The `9090` port is used for metrics
 and is not interesting in this example.
 
-The `9076` port is the QIX Engines standard API port and here we have also opened it to the _outside_
-and mapped it to port `9076` on your local machine. So requests to your machine on port `9076` will go to QIX Engine container.
+The `9076` port is the QIX Engines standard API port and here we have also opened it to the _outside_ and mapped it to
+port `19076` on your local machine. So requests to your machine on port `19076` will go to QIX Engine container.
 
 Now that we have a database container with the data, a GRPC-Connector container
 and a QIX Engine running all we need is to trigger a load of the data.

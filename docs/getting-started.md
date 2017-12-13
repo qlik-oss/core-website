@@ -38,18 +38,9 @@ tutorials are; in recommended order to explore:
 - [Data Loading](./tutorials/data-loading.md) - Loading user data into QIX Engine
 - [Document Distribution](./tutorials/document-distribution.md) - Distributing updated documents/data
     in a cluster of QIX Engine instances
-- [Monitoring and Scaling](./tutorials/monitoring-and-scaling.md)
+- [Monitoring and Scaling](./tutorials/scalability/overview.md)
     - Taking decisions on when to scale up or down the number of QIX Engine instances
     - Placing and scheduling of QIX Engine sessions
 - [Authorization](./tutorials/authorization.md)
     - Using JWTs and JWT validation in QIX Engine
     - Making sure users only see the data they are supposed to see
-
-## A Fully Deployed Use Case
-
-A fully deployed example application built with Frontira is also provided
-
-- [Qliktive - Assisted Prescription](./documentation/custom-analytics-ui.md)
-
-This shows how a fictive company, called Qliktive, provides an assisting application for drug prescriptions. It is hosted
-and deployed to AWS [here](https://ca.qliktive.com).

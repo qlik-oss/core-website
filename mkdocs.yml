@@ -2,6 +2,12 @@ site_name: Frontira
 
 theme:
   name: 'material'
+  logo: 'images/QlikLogo-White.svg'
+  feature:
+    tabs: true
+
+extra_css:
+  - 'stylesheets/custom-style.css'
 
 markdown_extensions:
   - admonition
@@ -22,12 +28,13 @@ pages:
     - Hello Engine: tutorials/hello-engine.md
     - Hello Data: tutorials/hello-data.md
     - Hello Visualization: tutorials/hello-visualization.md
-    - Web Platform: tutorials/web-platform.md
     - Setting up the Core Services: tutorials/core.md
     - Authorization: tutorials/authorization.md
     - Data Loading: tutorials/data-loading.md
     - Document Distribution: tutorials/document-distribution.md
-    - Monitoring and Scaling: tutorials/monitoring-and-scaling.md
+    - Scalability:
+      - Overview: tutorials/scalability/overview.md
+      - The Newspaper Case: tutorials/scalability/newspaper.md
   - Documentation:
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
@@ -47,7 +54,6 @@ pages:
         - Generic Variable: documentation/apis/qix-engine-genericvariable.md
         - Field: documentation/apis/qix-engine-field.md
         - Variable: documentation/apis/qix-engine-variable.md
-    - Custom Analytics UI: documentation/custom-analytics-ui.md
     - Contract: documentation/contract.md
   - Support & Services:
     - Licensing: support-and-services/licensing.md
