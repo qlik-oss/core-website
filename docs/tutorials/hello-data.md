@@ -6,7 +6,7 @@ Load data into and retrieve data from the QIX engine running in a Docker contain
 
 Clone the [Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform) Git repository to your local machine. All tutorials are located here, and all commands should be executed from this Git repository. 
 
-You must have [node.js](https://nodejs.org/en/) and npm installed on your local machine. 
+You must have [Node.js](https://nodejs.org/en/) and npm installed on your local machine. 
 
 **Note:** Make sure the QIX engine is running. Run `docker-compose up -d` command in a command shell to start the engine in a Docker container. If you are unfamiliar with starting the QIX engine in a Docker container, we recommend that you begin with the [Hello Engine](./hello-engine.md) tutorial.
 
