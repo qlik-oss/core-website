@@ -17,11 +17,12 @@ To load and retrieve data, you will run a small Node.js application that loads d
 The application consists of the `hello-engine.js` file and the `package-json` file, which is also shared among the Hello Data and Hello Visualization tutorials. 
 
 1. Install dependencies.  
+   **Note:** If you already installed the dependencies in the previous tutorial, go to step 2.    
    Run the following command from a command shell:
 
         npm install  
 
-    This command installs all of the dependent packages in the `package.json` file.
+    This command installs all of the dependent packages in the `package.json` file. 
 
 2. Run the application.  
    Run the following command in a command shell:  
