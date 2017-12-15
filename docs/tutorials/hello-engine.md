@@ -1,11 +1,11 @@
-# Hello Engine: Running the QIX engine in Docker
+# Hello Engine
 
 Get started by running the QIX engine in a Docker container on your local machine and communicating with it using [enigma.js](https://github.com/qlik-oss/enigma.js).
 
 ## Prerequisites
 
-Clone the Git repository to your local machine. The Hello Engine tutorial is located in the Getting started with Web Platform repository. 
-[Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform).
+Clone the Git repository to your local machine. The Hello Engine tutorial is located in the 
+[Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform) repository. 
 
 You must have [node.js](https://nodejs.org/en/) and npm installed on your local machine. 
 
@@ -20,7 +20,7 @@ Run the following command in a command shell:
 ```bash
 docker-compose up -d
 ```
-When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that the creating the container is done.
+When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that creating the container is done.
 
 2. Verify that the dockerized engine is running
 
@@ -36,10 +36,10 @@ The `docker ps` command lists the containers that are running. The `-a` option l
 
 ### What is happening?
 
-When you execute the `docker-compose up` command, Docker builds and starts a Docker container with the services configured in the docker-compose file. The `-d` option keeps the container running in the background. In this example, Docker builds the container from the docker-compose.yml file, located in the root folder of the getting started with web platform Git repository. Open the [docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml) file to see what the compose file looks like. It
-specifies how the engine runs as a Docker container,using the `qlik/engine` Docker image. 
+When you execute the `docker-compose up` command, Docker builds and starts a Docker container with the services configured in the docker-compose file. The `-d` option keeps the container running in the background. In this example, Docker builds the container from the docker-compose.yml file, which is located in the root folder of the getting started with web platform Git repository. Open the [docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml) file to see what the compose file looks like. It
+specifies how the engine runs as a Docker container, using the `qlik/engine` Docker image. 
 
-To learn more about Docker compose files, see [Compose file](https://docs.docker.com/compose/compose-file/).
+**Tip:** To learn more about Docker compose files, see [Compose file](https://docs.docker.com/compose/compose-file/).
 
 ## Communicating with the QIX engine
 
@@ -63,18 +63,21 @@ Run the following command in a command shell:
 ```bash
 $ npm run hello-engine
 ```
-This command runs the application, which communicates with QIX Engine and retrieves the version number. If successful, you will see a response like the following:
+This command runs the application, which communicates with QIX engine and retrieves the version number. If successful, you will see a response like the following:
 
-```
+```bash
+$ npm run hello-engine
+
 Creating and opening session.
 Engine version retrieved: 12.91.0
 Session closed.
 ```
 
-**Note:** Open the [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
-file to see how enigma.js is configured to communicate with the QIX Engine.
+**Tip:** Open the [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
+file to see how enigma.js is configured to communicate with the QIX engine.
 
 3. Stop and remove the Docker container
+
 Run the following command from a command shell:
 
 ```bash
