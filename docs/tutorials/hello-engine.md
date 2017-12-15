@@ -1,75 +1,87 @@
-# Hello Engine
+# Hello Engine: Running the QIX engine in Docker
 
-This example shows how to get QIX Engine running in a Docker container on the local machine and how to set up simple
-communication with it.
+Get started by running the QIX engine in a Docker container on your local machine and communicating with it using [enigma.js](https://github.com/qlik-oss/enigma.js).
 
-[enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX Engine through its JSON-RPC over
-websocket API. It is recommended to use enigma.js when building custom solutions on Frontira and QIX Engine.
+## Prerequisites
 
-## GitHub Repository
+Clone the Git repository to your local machine. The Hello Engine tutorial is located in the Getting started with Web Platform repository. 
+[Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform).
 
-The Hello Engine example is located on [GitHub](https://github.com/qlik-ea/getting-started-with-web-platform).
+You must have [node.js](https://nodejs.org/en/) and npm installed on your local machine. 
 
-When running this example, it is assumed that the repository is cloned to the local machine and that commands and
-actions are performed in that repository.
+**Note:** All commands should be executed from this Git repository. 
 
-## Starting QIX Engine in a Docker Container
+## Create a dockerized QIX engine
+
+1. Start the engine in a Docker container
+Run the following command:
 
 ```bash
 docker-compose up -d
 ```
+When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that the creating the container is done.
 
-QIX Engine is now running as a Docker container!
-
-Using `docker-compose` is a convenient way to get containers up and running. The root folder contains the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
-file that describes how QIX Engine shall run as a container, using the `qlik/engine` Docker image, and exposing port
-19076 on the local machine.
-
-Study the
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
-file and refer to the Docker documentation for more information on how `docker-compose` works.
-
-Verify that one Docker container with QIX Engine is running with:
+2. Verify that the dockerized engine is running
+Run the following command:
 
 ```bash
-docker ps
+docker ps -a
 ```
 
-This should list a container running with the `qlik/engine` image (possibly with other Docker containers started on the
-local machine).
+The `docker ps` command lists the containers that are running. The `-a` option lists all containers, even those that are not running 
 
-## Communicating with QIX Engine
+**Note:** If the engine is not running, you may have to let Docker connect through your firewall. 
 
-QIX Engine running as a Docker container is not useful unless there is a way to communicate with it. The `hello-engine/`
-folder contains a small Node.js application, `hello-engine`, that uses enigma.js to retrieve the version of QIX Engine.
-enigma.js is of course capable of much more, but this gives a good introduction.
+### What is happening?
 
-The `hello-engine` application consists of a single JavaScript file,
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
-, and the
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file,
-which is shared with [Hello Data](./hello-data.md) and [Hello Visualization](./hello-visualization.md) examples.
+When you execute the `docker-compose up` command, Docker builds and starts a Docker container with the services configured in the docker-compose file. The `-d` option keeps the container running in the background. In this example, Docker builds the container from the docker-compose.yml file, located in the root folder of the getting started with web platform Git repository. Open the [docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml) file to see what the compose file looks like. It
+specifies how the engine runs as a Docker container,using the `qlik/engine` Docker image. 
 
-To run and observe the output that includes the QIX Engine version:
+To learn more about Docker compose files, see [Compose file](https://docs.docker.com/compose/compose-file/).
+
+## Communicating with the QIX engine
+
+To communicate with the engine in a Docker container, we use a small node.js application that uses [enigma.js](https://github.com/qlik-oss/enigma.js) to retrieve the engine version number. 
+
+The application consists of the hello-engine.js file and the package-json file, which is also shared among the Hello Data and Hello Visualization tutorials. 
+
+1. Install the required packages
+Run the following command in a command shell:
 
 ```bash
 $ npm install
-$ npm run hello-engine
+```
+This command installs all of the dependent packages listed in the package.json file.
 
+2. Run the application
+Run the following command in a command shell:
+
+```bash
+$ npm run hello-engine
+```
+This command runs the application, which communicates with QIX Engine and retrieves the version number. If successful, you will see a response like the following:
+
+```
 Creating and opening session.
 Engine version retrieved: 12.91.0
 Session closed.
 ```
 
-Study the
-[hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
-file and observe how enigma.js is configured to communicate to the QIX Engine on port 19076.
+**Note:** Open the [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
+file to see how enigma.js is configured to communicate with the QIX Engine.
+
+3. Stop and remove the Docker container
+Run the following command from a command shell:
+
+```bash
+docker-compose down
+```
+
+This command stops the container and removes it. 
 
 ## Next Steps
 
-The [Hello Data](./hello-data.md) example builds on this example, by showing how user data can be loaded into QIX
-Engine.
+The [Hello Data](./hello-data.md) example extends this tutorial by loading data into the QIX engine.
 
-It is also recommended to get a closer look at [enigma.js](https://github.com/qlik-oss/enigma.js) and its full range of
+To learn more about enigma.js, We recommended that you take a look at [enigma.js](https://github.com/qlik-oss/enigma.js) to learn about its full range of
 features.
