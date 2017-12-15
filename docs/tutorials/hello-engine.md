@@ -14,7 +14,8 @@ You must have [node.js](https://nodejs.org/en/) and npm installed on your local 
 ## Create a dockerized QIX engine
 
 1. Start the engine in a Docker container
-Run the following command:
+
+Run the following command in a command shell:
 
 ```bash
 docker-compose up -d
@@ -22,7 +23,8 @@ docker-compose up -d
 When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that the creating the container is done.
 
 2. Verify that the dockerized engine is running
-Run the following command:
+
+Run the following command in a command shell:
 
 ```bash
 docker ps -a
@@ -46,6 +48,7 @@ To communicate with the engine in a Docker container, we use a small node.js app
 The application consists of the hello-engine.js file and the package-json file, which is also shared among the Hello Data and Hello Visualization tutorials. 
 
 1. Install the required packages
+
 Run the following command in a command shell:
 
 ```bash
@@ -54,6 +57,7 @@ $ npm install
 This command installs all of the dependent packages listed in the package.json file.
 
 2. Run the application
+
 Run the following command in a command shell:
 
 ```bash
@@ -79,9 +83,11 @@ docker-compose down
 
 This command stops the container and removes it. 
 
+**Note:** To continue with the next tutorial, leave the Docker container running. 
+
 ## Next Steps
 
-The [Hello Data](./hello-data.md) example extends this tutorial by loading data into the QIX engine.
+Continue with the [Hello Data](./hello-data.md) tutorial to learn how to load data into the QIX engine. Hello Data is a continuation of this tutorial. 
 
-To learn more about enigma.js, We recommended that you take a look at [enigma.js](https://github.com/qlik-oss/enigma.js) to learn about its full range of
+**Tip:** To learn more about enigma.js, we recommended that you take a look at [enigma.js](https://github.com/qlik-oss/enigma.js) to learn about its many
 features.
