@@ -16,24 +16,19 @@ To load and retrieve data, you will run a small Node.js application that loads d
 
 The application consists of the `hello-engine.js` file and the `package-json` file, which is also shared among the Hello Data and Hello Visualization tutorials. 
 
-1. Install dependencies
+1. Install dependencies.  
+   Run the following command from a command shell:
 
-Run the following command from a command shell:
+        npm install  
 
-```bash
-npm install
-```
-This command installs all of the dependent packages in the `package.json` file.
+    This command installs all of the dependent packages in the `package.json` file.
 
-2. Run the application
+2. Run the application.  
+   Run the following command in a command shell:  
 
-Run the following command in a command shell:
+        npm run hello-data    
 
-```bash
-npm run hello-data
-```
-
-This command runs the application, which creates a representation of the data and loads it into QIX Engine as a part of opening a session.
+    This command runs the application, which creates a representation of the data and loads it into QIX Engine as a part of opening a session.
 
 ## What is happening?
 
