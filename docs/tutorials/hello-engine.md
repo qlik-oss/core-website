@@ -4,12 +4,9 @@ Get started by running the QIX engine in a Docker container on your local machin
 
 ## Prerequisites
 
-Clone the Git repository to your local machine. The Hello Engine tutorial is located in the 
-[Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform) repository. 
+Clone the [Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform) Git repository to your local machine. All tutorials are located here, and all commands should be executed from this Git repository.  
 
-You must have [node.js](https://nodejs.org/en/) and npm installed on your local machine. 
-
-**Note:** All commands should be executed from this Git repository. 
+You must have [Node.js](https://nodejs.org/en/) and npm installed on your local machine. 
 
 ## Create a dockerized QIX engine
 
