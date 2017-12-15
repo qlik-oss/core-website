@@ -39,7 +39,7 @@ To communicate with the engine in a Docker container, we use a small node.js app
 
 The application consists of the hello-engine.js file and the package-json file, which is also shared among the Hello Data and Hello Visualization tutorials. 
 
-1. Install the required packages.  
+1. Install dependencies.  
    Run the following command in a command shell:  
 
         $ npm install  
