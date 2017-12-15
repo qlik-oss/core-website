@@ -10,24 +10,19 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
 
 ## Create a dockerized QIX engine
 
-1. Start the engine in a Docker container
+1. Start the engine in a Docker container.  
+   Run the following command in a command shell:  
 
-Run the following command in a command shell:
+        docker-compose up -d
+  
+    When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that creating the container is done.
 
-```bash
-docker-compose up -d
-```
-When you run this command, Docker builds the container and leaves it running in the background. If successful, you will see a message that creating the container is done.
+2. Verify that the dockerized engine is running.  
+   Run the following command in a command shell:  
 
-2. Verify that the dockerized engine is running
+        docker ps -a
 
-Run the following command in a command shell:
-
-```bash
-docker ps -a
-```
-
-The `docker ps` command lists the containers that are running. The `-a` option lists all containers, even those that are not running 
+    The `docker ps` command lists the containers that are running. The `-a` option lists all containers, even those that are not running 
 
 **Note:** If the engine is not running, you may have to let Docker connect through your firewall. 
 
@@ -44,44 +39,35 @@ To communicate with the engine in a Docker container, we use a small node.js app
 
 The application consists of the hello-engine.js file and the package-json file, which is also shared among the Hello Data and Hello Visualization tutorials. 
 
-1. Install the required packages
+1. Install the required packages.  
+   Run the following command in a command shell:  
 
-Run the following command in a command shell:
+        $ npm install  
 
-```bash
-$ npm install
-```
-This command installs all of the dependent packages listed in the package.json file.
+    This command installs all of the dependent packages listed in the package.json file.
 
-2. Run the application
+2. Run the application.  
+   Run the following command in a command shell:  
 
-Run the following command in a command shell:
+        $ npm run hello-engine  
 
-```bash
-$ npm run hello-engine
-```
-This command runs the application, which communicates with QIX engine and retrieves the version number. If successful, you will see a response like the following:
+    This command runs the application, which communicates with QIX engine and retrieves the version number. If successful, you will see a response like the following:  
 
-```bash
-$ npm run hello-engine
+        $ npm run hello-engine  
 
-Creating and opening session.
-Engine version retrieved: 12.91.0
-Session closed.
-```
+        Creating and opening session.
+        Engine version retrieved: 12.91.0
+        Session closed.  
 
 **Tip:** Open the [hello-engine.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-engine/hello-engine.js)
 file to see how enigma.js is configured to communicate with the QIX engine.
 
-3. Stop and remove the Docker container
+3. Stop and remove the Docker container.  
+   Run the following command from a command shell:
 
-Run the following command from a command shell:
+        docker-compose down  
 
-```bash
-docker-compose down
-```
-
-This command stops the container and removes it. 
+    This command stops the container and removes it. 
 
 **Note:** To continue with the next tutorial, leave the Docker container running. 
 
