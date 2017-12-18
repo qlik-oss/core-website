@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.110.0._
+_QIX methods for version 12.113.0._
 
 ## `AbortAll`
 
@@ -65,44 +65,44 @@ Configures the engine's behavior during a reload.<br>The [`ConfigureReload`](#co
 | ---- | ---- | --------- | ----------- |
 | `qCancelOnScriptError` | boolean | Yes | If set to true, the script execution is halted on error.<br>Otherwise, the engine continues the script execution.<br>This parameter is relevant only if the variable _ErrorMode_ is set to 1. |
 | `qUseErrorData` | boolean | Yes | If set to true, any script execution error is returned in _qErrorData_ by the [`GetProgress`](#getprogress) method. |
-| `qInteractOnError` | boolean | Yes | If set to true, the script execution is halted on error and the engine is waiting for an interaction to be performed. If the result from the interaction is 1 ( _qDef.qResult_ is 1), the engine continues the script execution otherwise the execution is halted.<br>This parameter is relevant only if the variable _ErrorMode_ is set to 1 and the script is run in debug mode ( _qDebug_ is set to true when calling the _DoReload method_ ). |
+| `qInteractOnError` | boolean | Yes | If set to true, the script execution is halted on error and the engine is waiting for an interaction to be performed. If the result from the interaction is 1 (_qDef.qResult_ is 1), the engine continues the script execution otherwise the execution is halted.<br>This parameter is relevant only if the variable _ErrorMode_ is set to 1 and the script is run in debug mode (_qDebug_ is set to true when calling the _DoReload method_). |
 
 _No return values._
 
 ## `CopyApp`
 
-Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Introduction.htm) for more information.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>
+Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Introduction.htm) for more information.<br>This operation is possible only in Qlik Sense Enterprise.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qTargetAppId` | string | Yes | Identifier (GUID) of the app entity in the Qlik Sense repository.<br>The app entity must have been previously created by the Qlik Sense Repository Service API. |
+| `qTargetAppId` | string | Yes | Identifier (GUID) of the app entity in the Qlik Sense repository.<br>The app entity must have been previously created by the Qlik Sense Repository Service (QRS) API. |
 | `qSrcAppId` | string | Yes | Identifier (GUID) of the source app in the Qlik Sense repository. |
-| `qIds` | array | Yes | Array of QRS identifiers.<br>The list of all the objects in the app to be copied must be given. This list must contain the GUIDs of all these objects.<br>If the list of the QRS identifiers is empty, the [`CopyApp`](#copyapp) method copies all objects to the target app.<br>Script-defined variables are automatically copied when copying an app. To be able to copy variables not created via script, the GUID of each variable must be provided in the list of QRS identifiers.<br>To get the QRS identifiers of the objects in an app, you can use the QRS API. The GET method (from the QRS API) returns the identifiers of the objects in the app.<br>The following example returns the QRS identifiers of all the objects in a specified app:<br>GET /qrs/app/9c3f8634-6191-4a34-a114-a39102058d13<br>Where<br>_9c3f8634-6191-4a34-a114-a39102058d13_ is the identifier of the app. |
+| `qIds` | array | Yes | Array of QRS identifiers.<br>The list of all objects in the app to be copied must be given. This list must contain the GUIDs of all these objects.<br>If the list of the QRS identifiers is empty, the [`CopyApp`](#copyapp) method copies all objects to the target app.<br>Script-defined variables are automatically copied when copying an app. To be able to copy variables not created via script, the GUID of each variable must be provided in the list of QRS identifiers.<br>To get the QRS identifiers of the objects in an app, you can use the QRS API. The GET method (from the QRS API) returns the identifiers of the objects in the app.<br>The following example returns the QRS identifiers of all the objects in a specified app:<br>GET /qrs/app/9c3f8634-6191-4a34-a114-a39102058d13<br>Where<br>_9c3f8634-6191-4a34-a114-a39102058d13_ is the identifier of the app. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | &lt;true or false&gt; |
+| `qSuccess` | boolean | _No description._ |
 
 ## `CreateApp`
 
-Creates an app.<br><br>
+Creates an app.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qAppName` | string | Yes | Name of the app. |
-| `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_ . |
+| `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | True or false |
+| `qSuccess` | boolean | _No description._ |
 | `qAppId` | string | One of:<br>* Path and name of the app (Qlik Sense Desktop)<br>* GUID (Qlik Sense Enterprise) |
 
 ## `CreateDocEx`
@@ -116,8 +116,8 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 | `qDocName` | string | Yes | Name of the app. |
 | `qUserName` | string | No | Name of the user. |
 | `qPassword` | string | No | Password of the user. |
-| `qSerial` | string | No | Current Qlik Sense serial number |
-| `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_ . |
+| `qSerial` | string | No | Current Qlik Sense serial number. |
+| `qLocalizedScriptMainSection` | string | No | Name of the first section in the script editor.<br>The default value is _Main_. |
 
 **Returns:**
 
@@ -164,7 +164,7 @@ Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qAppId` | string | Yes | Identifier of the app to delete.<br>In Qlik Sense Enterprise, the identifier of the app is a GUID in the Qlik Sense repository.<br>In Qlik Sense Desktop, the identifier of the app is the name of the app, as defined in the apps folder _%userprofile%\Documents\Qlik\Sense\Apps_ . |
+| `qAppId` | string | Yes | Identifier of the app to delete.<br>In Qlik Sense Enterprise, the identifier of the app is a GUID in the Qlik Sense repository.<br>In Qlik Sense Desktop, the identifier of the app is the name of the app, as defined in the apps folder _%userprofile%\Documents\Qlik\Sense\Apps_. |
 
 **Returns:**
 
@@ -186,7 +186,7 @@ _No parameters._
 
 ## `ExportApp`
 
-Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>
+Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
 
 **Parameters:**
 
@@ -222,7 +222,7 @@ Retrieves the meta data of an app.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qAppID` | string | Yes | Identifier of the app, as returned by the [`CreateApp`](#createapp) method.<br>One of:<br>* Path and name of the app ()<br>* GUID (Qlik Sense Enterprise) |
+| `qAppID` | string | Yes | Identifier of the app, as returned by the [`CreateApp`](#createapp) method.<br>One of:<br>* Path and name of the app (Qlik Sense Desktop)<br>* GUID (Qlik Sense Enterprise) |
 
 **Returns:**
 
@@ -266,7 +266,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -283,7 +283,7 @@ Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* the script statements and the script functions if _qBnfType_ is set to S.<br>* the chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -299,7 +299,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* **S** : returns the script statements and the script functions.<br>* **E** : returns the chart functions.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>* S: returns the script statements and the script functions.<br>* E: returns the chart functions.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -354,7 +354,7 @@ _No parameters._
 
 ## `GetDocList`
 
-Returns the list of apps.<br>In Qlik Sense Enterprise:<br>The list is generated by the QRS. The [`GetDocList`](#getdoclist) method only returns documents the current user is allowed to access.<br>In Qlik Sense Desktop:<br>The apps are located in _C:\Users\ &lt;user name&gt;\Documents\Qlik\Sense\Apps_ .
+Returns the list of apps.<br><br>**In Qlik Sense Enterprise:**<br><br>The list is generated by the QRS. The [`GetDocList`](#getdoclist) method only returns documents the current user is allowed to access.<br><br>**In Qlik Sense Desktop:**<br><br>The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
 
 _No parameters._
 
@@ -372,7 +372,7 @@ Returns the files and folders located at a specified path.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Absolute or relative path.<br>Relative paths are relative to the default _Apps_ folder.<br>In Qlik Sense Enterprise:<br>The list is generated by the QRS. The [`GetDocList`](#getdoclist) method only returns documents the current user is allowed to access.<br>In Qlik Sense Desktop:<br>The apps are located in _C:\Users\ &lt;user name&gt;\Documents\Qlik\Sense\Apps_ . |
+| `qPath` | string | Yes | Absolute or relative path.<br>Relative paths are relative to the default _Apps_ folder.<br><br>**In Qlik Sense Enterprise:**<br><br>The list is generated by the QRS. The [`GetDocList`](#getdoclist) method only returns documents the current user is allowed to access.<br><br>**In Qlik Sense Desktop:**<br><br>The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_. |
 
 **Returns:**
 
@@ -463,7 +463,7 @@ _No parameters._
 
 ## `GetProgress`
 
-Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. <br><br>
+Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. 
 
 **Parameters:**
 
@@ -515,7 +515,7 @@ _No parameters._
 
 ## `InteractDone`
 
-Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates the engine what to do next.
+Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
 
 **Parameters:**
 
@@ -624,15 +624,15 @@ _No parameters._
 
 ## `PublishApp`
 
-_No details._
+Publishes an app to the supplied stream.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qAppId` | string | Yes | _No description._ |
-| `qName` | string | Yes | _No description._ |
-| `qStreamId` | string | Yes | _No description._ |
+| `qAppId` | string | Yes | The Id of the app to publish. |
+| `qName` | string | Yes | The name of the app to publish. |
+| `qStreamId` | string | Yes | The stream Id of the app to publish. |
 
 _No return values._
 
@@ -670,7 +670,7 @@ _No return values._
 
 ## `ReplaceAppFromID`
 
-Replaces an app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_ .<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
+Replaces objects of a target app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_.<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
