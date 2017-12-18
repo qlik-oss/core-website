@@ -8,7 +8,7 @@ on GitHub.
 
 ## Hello Frontira!
 
-Users new to Frontira, QIX Engine, and Qlik products should start here.
+Users new to Qlik products and QIX Engine should start here.
 
 The first set of examples introduce basic operations and usage of QIX Engine. Think of it as the "Hello World" of QIX
 Engine and the next steps after that. This is divided into three separate parts
