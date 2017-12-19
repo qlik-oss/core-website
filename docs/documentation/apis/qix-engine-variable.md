@@ -5,6 +5,9 @@ _QIX methods for version 12.113.0._
 
 ## `ForceContent`
 
+!!! warning "Deprecated"
+    Use _GenericVariable::SetProperties_ method instead
+
 Sets the value of a dual variable overriding any input constraints.
 
 **Parameters:**
@@ -18,6 +21,9 @@ _No return values._
 
 ## `GetContent`
 
+!!! warning "Deprecated"
+    Use _GenericVariable::GetProperties_ method instead
+
 Returns the calculated value of a variable.
 
 _No parameters._
@@ -29,6 +35,9 @@ _No parameters._
 | `qContent` | [`AlfaNumString`](./qix-engine-definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
+
+!!! warning "Deprecated"
+    Use _GetProperties_ method instead
 
 Gets the properties of a variable.
 
@@ -42,6 +51,9 @@ _No parameters._
 
 ## `GetRawContent`
 
+!!! warning "Deprecated"
+    Use _GenericVariable::GetProperties_ method instead
+
 Returns the raw value of a variable.
 
 _No parameters._
@@ -53,6 +65,9 @@ _No parameters._
 | `qReturn` | string | &lt;Definition of the variable&gt; |
 
 ## `SetContent`
+
+!!! warning "Deprecated"
+    Use _GenericVariable::SetProperties_ method instead
 
 Sets a value to a variable.
 
@@ -70,6 +85,9 @@ Sets a value to a variable.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SetNxProperties`
+
+!!! warning "Deprecated"
+    Use _SetProperties_ method instead
 
 Sets some properties to a variable.
 
