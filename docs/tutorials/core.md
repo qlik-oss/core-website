@@ -1,6 +1,7 @@
 # Setting up the Core Services
 
-In this tutorial, you will learn how to set up and deploy the minimal Frontira stack comprising the core services. The core services represent the foundation on which to build full Frontira solutions.
+In this tutorial, you will learn how to set up and deploy the minimal Frontira stack
+comprising the core services. The core services represent the foundation on which to build full Frontira solutions.
 
 The core Frontira stack consists of the following services:
 
@@ -10,29 +11,36 @@ The core Frontira stack consists of the following services:
 
 In a typical solution, all services are deployed on the server side.
 
-**Note:** Tutorials that describe components outside of the core services, like authorization, data loading, and document distribution, are covered in separate tutorials. 
+**Note:** Tutorials that describe how to configure the core components
+for things like authorization, data loading, and document distribution, are covered in separate tutorials.
 
 ## Before you begin
 
-Clone the [Core](https://github.com/qlik-ea/core) Git repository, which contains all tutorial assets, to your local machine. All commands should be executed from this Git repository.
+Clone the [Core](https://github.com/qlik-ea/core) Git repository,
+which contains all tutorial assets, to your local machine.
+All commands should be executed from this Git repository.
 
 ## Licensing
 
-Since QIX Engine runs under a license model, you should complete licensing configuration before you start this tutorial.
+Since QIX Engine runs under a license model,
+you should complete licensing configuration before you start this tutorial.
 
-**NOTE**: The examples do not yet contain these configuration options since the QIX engine does not yet support it.
+**NOTE**: The examples do not yet contain these configuration options
+since the QIX Engine does not yet support it.
 Examples will be updated as soon as this becomes available.
 
 ### Configuring the License Service
 
-There are two license variables that the License Service requires to determine which service license to use. 
+There are two license variables that the License Service
+requires to determine which service license to use.
 
 - `LEF_SERIAL` - The LEF serial number which identifies the license to use.
 - `LEF_CONTROL` - A control number used to validate the LEF serial number.
 
-Both numbers are provided by Qlik when you receive the license details for the QIX engine. 
+Both numbers are provided by Qlik when you receive the license details for the QIX Engine.
 
-In a docker-compose file, the license variables are specified in the environment definition.
+In a `docker-compose.yml` file,
+the license variables are specified in the environment definition.
 
 ```yml
 version: "3.0"
@@ -47,9 +55,14 @@ services:
 ...
 ```
 
-### Configuring the QIX engine
+### Configuring the QIX Engine
 
-When the QIX engine is running, it periodically communicates with the License Service to verify that it is running with a valid license. A QIX engine deployment must be configured with the URL that is used to call the License Service REST API. You can do this by providing the `LicenseServiceURL` command switch to the engine in a docker-compose file in the services definition.
+When the QIX Engine is running, it periodically communicates with the License Service
+to verify that it is running with a valid license.
+A QIX Engine deployment must be configured with the URL
+that is used to call the License Service REST API.
+You can do this by providing the `LicenseServiceUrl` command switch
+to the engine in a docker-compose file in the services definition.
 
 ```yml
 version: "3.0"
@@ -63,21 +76,26 @@ services:
 
 ## Container orchestration
 
-We provide examples on how to deploy the Frontira core services using the following container orchestration platforms:
+We provide examples on how to deploy the Frontira core services
+using the following container orchestration platforms:
 
 - [Docker Swarm](#deploying-to-docker-swarm)
 - [Kubernetes](#deploying-to-kubernetes)
 - [Nomad](#deploying-to-nomad) (Experimental)
 
-**Note:** In the examples that follow, all shell commands should be run in a Bash shell. If you are using Windows, we recommend using Git Bash.
+**Note:** In the examples that follow, all shell commands should be run in a Bash shell.
+If you are using Windows, we recommend using Git Bash.
 
 ## Deploying to Docker Swarm
 
 ### Prerequisites
 
-You must have a Docker Swarm cluster set up. To learn how to set up a Docker Swarm cluster in a local environment, see [Install Docker](https://docs.docker.com/engine/swarm/).
+You must have a Docker Swarm cluster set up.
+To learn how to set up a Docker Swarm cluster in a local environment,
+see [Install Docker](https://docs.docker.com/engine/swarm/).
 
-Your Docker CLI must be set to issue commands to the swarm manager. You can do this with the `eval` command. For example: 
+Your Docker CLI must be set to issue commands to the swarm manager.
+You can do this with the `eval` command. For example:
 
 ```sh
 eval $(docker-machine env <swarm manager node>)
@@ -87,11 +105,13 @@ eval $(docker-machine env <swarm manager node>)
 
 The Frontira stack is specified in the
 [docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file.
-The stack consists of one QIX engine, one Mira discovery service, and one License Service.
+The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
 
 #### Placement constraints
 
-The Mira service is placed on the swarm manager node so that it can communicate with the manager Docker Engine. This is why `/var/run/docker.sock` is mounted into the service.
+The Mira service is placed on the swarm manager node
+so that it can communicate with the manager Docker Engine.
+This is why `/var/run/docker.sock` is mounted into the service.
 
 #### Ports
 
@@ -101,21 +121,25 @@ Relevant APIs are exposed on the following ports:
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
 | License Service | `9200`        | REST API                   |
-| QIX engine      | `9076`        | QIX websocket API          |
-| QIX engine      | `9090`        | Prometheus/metric endpoint |
+| QIX Engine      | `9076`        | QIX websocket API          |
+| QIX Engine      | `9090`        | Prometheus/metric endpoint |
 
-These ports are exposed outside of the swarm so that they are easily available for demonstrations. This is not a requirement. 
+These ports are exposed outside of the swarm
+so that they are easily available for demonstrations.
+This is not a requirement.
 
 #### Labeling
 
-The QIX engine service requires the following note to be added to the labels definition in the `docker-compose.yaml` file:
+The QIX Engine service requires the following note to be added
+to the labels definition in the `docker-compose.yml` file:
 
 ```yml
 labels:
   qix-engine: ""
 ```
 
-This label is required for Mira to identify the engine service as a QIX engine instance. To learn more about labeling, see [Mira documentation](https://github.com/qlik-ea/mira).
+This label is required for Mira to identify service as a QIX Engine instance.
+To learn more about labeling, see [Mira documentation](https://github.com/qlik-ea/mira).
 
 ### Deploying the stack
 
@@ -125,55 +149,70 @@ Deploy the stack by running the following command:
 docker stack deploy -c ./docker-compose.yml --with-registry-auth frontira
 ```
 
-**Note**: `--with-registry-auth` is currently required because the Docker images are not public, and credentials are needed to pull them from Docker Hub.
+**Note**: `--with-registry-auth` is currently required because the Docker images are not public,
+and credentials are needed to pull them from Docker Hub.
 
 ### Accessing the stack
 
-Once the stack is deployed, you can retrieve a list of the tasks running on the stack by running the following command:
+Once the stack is deployed,
+you can retrieve a list of the tasks running on the stack by running the following command:
 
 ```sh
 docker stack ps frontira
 ```
 
-You can query Mira to return the list of QIX engines it has discovered by calling its `/engines` endpoint:
+You can query Mira to return the list of QIX Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
 curl http://<swarm manager node ip>:9100/v1/engines
 ```
 
-This endpoint returns one or more QIX engine instances and information about these instances in JSON format.
+This endpoint returns one or more QIX Engine instances and information about these instances in JSON format.
 
 ## Deploying to Kubernetes
 
 ### Prerequisites
 
-You must have a Kubernetes cluster with one or more nodes set up on your machine. If you need to set up a local, single-node environment, see [Running Kubernetes locally via Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/).
+You must have a Kubernetes cluster with one or more nodes set up.
+If you need to set up a local, single-node environment,
+see [Running Kubernetes locally via Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/).
 
-The *kubectl CLI* must be available on the local machine and it must be configured to communicate with the correct Kubernetes API server. To learn more about the *kubectl CLI* and how to configure it, see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). 
+The *kubectl CLI* must be available on the local machine
+and it must be configured to communicate with the correct Kubernetes API server.
+To learn more about the *kubectl CLI* and how to configure it,
+see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 ### Docker Hub Credentials
 
-The Docker images that are being used are not public, so you must add a secret to Kubernetes to be able to pull these images from Docker Hub.
+The Docker images that are being used are not public,
+so you must add a secret to Kubernetes to be able to pull these images from Docker Hub.
 
-To add this secret to Kubernetes, run the following command: 
+To add this secret to Kubernetes, run the following command:
 
 ```sh
 kubectl create secret docker-registry dockerhub --docker-username=<your-name> --docker-password=<your-password> --docker-email=<your-email>
 ```
 
-**Note**: The leading space character before the kubectl command is intentional. This prevents the command from being stored in the Bash shell command history.
+**Note**: The leading space character before the kubectl command is intentional.
+This prevents the command from being stored in the Bash shell command history.
 
 ### The Stack
 
-The Frontira stack is specified in the docker-compose.yml file. The stack consists of one QIX engine, one Mira discovery service, and one License Service.
+The Frontira stack is specified in the `docker-compose.yml` file.
+The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
 
 #### Mira Kubernetes mode
 
-Open the [mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yaml) file to see how Mira is configured.
+Open the
+[mira-deployment.yml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yml)
+file to see how Mira is configured.
 
-The Mira deployment specifies two containers to run in the pod. This is because Mira needs to communicate with the Kubernetes API server through *kubectl* as a proxy.
+The Mira deployment specifies two containers to run in the pod.
+This is because Mira needs to communicate with the Kubernetes API server through *kubectl* as a proxy.
 
-Mira must also be configured to run in Kubernetes mode. This does not happen automatically. To do this, you must set the environment variable `MIRA_MODE` to `kubernetes`.
+Mira must also be configured to run in Kubernetes mode.
+This does not happen automatically.
+To do this, you must set the environment variable `MIRA_MODE` to `kubernetes`.
 
 #### Ports
 
@@ -183,26 +222,30 @@ Relevant APIs are exposed on the following ports:
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
 | License Service | `9200`        | REST API                   |
-| QIX engine      | `9076`        | QIX websocket API          |
-| QIX engine      | `9090`        | Prometheus/metric endpoint |
+| QIX Engine      | `9076`        | QIX websocket API          |
+| QIX Engine      | `9090`        | Prometheus/metric endpoint |
 
-These ports are exposed outside of the swarm so that they are easily available for demonstrations. This is not a requirement. 
+These ports are exposed outside of the swarm so that they are easily available for demonstrations.
+This is not a requirement.
 
 #### Labeling
 
-The QIX engine service requires the following note to be added to the labels definition in the `engine-deployment.yaml` file:
+The QIX Engine service requires the following note to be added to the labels definition in the `engine-deployment.yml` file:
 
 ```yml
 labels:
   qix-engine: ""
 ```
 
-This label is required for Mira to identify the engine service as a QIX engine instance. To learn more about labeling, see [QIX engine labeling](https://github.com/qlik-ea/info/blob/master/docs/documentation/services/mira.md#qix-engine-labeling).
-
+This label is required for Mira to identify the engine service as a QIX Engine instance.
+To learn more about labeling, see [QIX Engine labeling](../services/mira.md#qix-engine-labeling).
 
 ### Deploying the stack
 
-We show two types of deployments to Kubernetes below. The first one is the *plain* Kubernetes method, which uses standard deployments and services. The second one uses [Helm](https://helm.sh/), which provides a powerful way to manage Kubernetes applications.
+We show two types of deployments to Kubernetes below.
+The first one is the *plain* Kubernetes method, which uses standard deployments and services.
+The second one uses [Helm](https://helm.sh/),
+which provides a powerful way to manage Kubernetes applications.
 
 #### Deploying to plain Kubernetes
 
@@ -215,7 +258,10 @@ kubectl create -f ./frontira/
 
 #### Deploying to Kubernetes with Helm
 
-To deploy kubernetes with Helm, you must install Helm on the client side and Tiller on the server side. For information on how to do this, see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
+To deploy kubernetes with Helm,
+you must install Helm on the client side and Tiller on the server side.
+For information on how to do this,
+see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
 Deploy the stack using Helm by running the following command:
 
@@ -226,19 +272,20 @@ helm install ./frontira/
 
 ### Accessing the stack
 
-Once the stack is deployed, you can retrieve a list of the tasks running on the stack by running the following command:
+Once the stack is deployed,
+you can retrieve a list of the tasks running on the stack by running the following command:
 
 ```sh
 kubectl get all
 ```
 
-You can query Mira to return the list of QIX engines it has discovered by calling its `/engines` endpoint:
+You can query Mira to return the list of QIX Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
 curl http://<kubernetes node ip>:9100/v1/engines
 ```
 
-This endpoint returns one or more QIX engine instances and information about these instances in JSON format.
+This endpoint returns one or more QIX Engine instances and information about these instances in JSON format.
 
 ## Deploying to Nomad
 
@@ -251,13 +298,23 @@ You must have a Nomad environment set up. If you need to setup a local enviromen
 
 ### Docker Hub credentials
 
-The Docker images that are being used are not public, so you must add a secret to Nomad to be able to pull these images from Docker Hub. In this example, we use the Docker auths that is stored when logging into Docker Hub with `docker login`.
+The Docker images that are being used are not public,
+so you must add a secret to Nomad to be able to pull these images from Docker Hub.
+In this example, we use the Docker auths that is stored when logging into Docker Hub with `docker login`.
 
-**Note:** Nomad stores the Docker credentials as plain text. To learn more on how Nomad stores these credentials, see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config). To see an example of how the Nomad client can be configured to use local docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
+**Note:** Nomad stores the Docker credentials as plain text.
+To learn more on how Nomad stores these credentials,
+see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
+To see an example of how the Nomad client can be configured to use local docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
 
 ### Service Discovery
 
-In a Nomad orchestration, Mira uses the DNS mode for service discovery. A Consul server must be running in the Nomad environment. Nomad will automatically register services in Consul when deploying the nomad files. You can find the hostname that Mira should use for discovering QIX engine instances in the task configuration of  [mira.noamd](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad) file.
+In a Nomad orchestration, Mira uses the DNS mode for service discovery.
+A Consul server must be running in the Nomad environment.
+Nomad will automatically register services in Consul when deploying the nomad files.
+You can find the hostname that Mira should use for discovering QIX Engine instances
+in the task configuration of
+[mira.noamd](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad) file.
 
 ### Deploying the stack
 
