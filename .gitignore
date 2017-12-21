@@ -7,3 +7,6 @@
 # Site generation folder
 site/
 .DS_Store
+
+*.new
+mkdocs.yml.old
