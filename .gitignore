@@ -1,7 +1,12 @@
 # VS Code folder
 .vscode/
+# WebStorm Code folder
+.idea/
 # Merge files (BC, KDiff3 etc.)
 *.orig
 # Site generation folder
 site/
 .DS_Store
+
+*.new
+mkdocs.yml.old

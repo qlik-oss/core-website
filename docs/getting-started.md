@@ -1,12 +1,15 @@
 # Getting Started
 
-To get started with Frontira and QIX Engine, and learn the basic concepts, a number of examples and tutorials are
-provided. Here, a recommended path through the examples is provided that introduces different concepts step by step.
+To get started with Frontira and QIX Engine, and learn the basic concepts,
+a number of examples and tutorials are provided.
+Here, a recommended path through the examples is provided that introduces different concepts step by step.
 
-The tutorials often contain runnable examples, with source code that is available in separate open source repositories
-on GitHub.
+The tutorials often contain runnable examples,
+with source code that is available in separate open source repositories on GitHub.
 
 ## Hello Frontira!
+
+Users new to Qlik products and QIX Engine should start here.
 
 The first set of examples introduce basic operations and usage of QIX Engine. Think of it as the "Hello World" of QIX
 Engine and the next steps after that. This is divided into three separate parts
@@ -16,8 +19,6 @@ Engine and the next steps after that. This is divided into three separate parts
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into QIX Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js)
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js
-
-Users new to Frontira, QIX Engine, and Qlik products should start here.
 
 ## The Core Services and Orchestration
 

@@ -1,66 +1,78 @@
 # Hello Data
 
-This example shows how to load and retrieve user data in QIX Engine running in a Docker container. It extends the
-[Hello Engine](./hello-engine.md) example.
+Load data into and retrieve data from the QIX Engine running in a Docker container.
 
-[halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine. halyard.js provides
-convenient functionality for building custom solutions on Frontira and QIX Engine.
+## Prerequisites
 
-As in the Hello Engine example, [enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX
-Engine.
+Clone the
+[Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform)
+Git repository to your local machine. The *Hello* tutorials are located here,
+and all commands should be executed from this Git repository.
 
-## GitHub Repository
+You must have [Node.js](https://nodejs.org/en/) and npm
+installed on your local machine.
 
-The Hello Data example is located on [GitHub](https://github.com/qlik-ea/getting-started-with-web-platform).
+**Note:** Make sure the QIX Engine is running. Run `docker-compose up -d`
+command in a command shell to start the engine in a Docker container.
+If you are unfamiliar with starting the QIX Engine in a Docker container, we
+recommend that you begin with the [Hello Engine](./hello-engine.md) tutorial.
 
-When running this example, it is assumed that the repository is cloned to the local machine and that commands and
-actions are performed in that repository.
+## Loading and retrieving data
 
-## Making Data Available to QIX Engine
+To load and retrieve data, you will run a small Node.js application
+ that loads data into, and then retrieves that data from the QIX Engine.
 
-Unless QIX Engine is already running from the [Hello Engine](./hello-engine.md) example, start it with with:
+The application consists of the `hello-engine.js` file and the `package.json`
+file, which is also shared among the Hello Data and
+Hello Visualization tutorials.
 
-```bash
-docker-compose up -d
-```
+1. Install dependencies.
 
-The
-[docker-compose.yml](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/docker-compose.yml)
-file contains a volumes section:
+    **Note:** If you already installed the dependencies in the previous tutorial, go to step 2.
+
+    Run the following command from a command shell:
+
+    ```bash
+    npm install
+    ```
+
+    This command installs all of the dependent packages
+    in the `package.json` file.
+
+1. Run the application.
+
+    Run the following command in a command shell:
+
+    ```bash
+    npm run hello-data
+    ```
+
+    This command runs the application, which creates a representation
+    of the data and loads it into QIX Engine as a part of opening a session.
+
+## What is happening
+
+When you start QIX Engine, the docker-compose file makes the movies.csv file
+available to QIX Engine. In the docker-compose file, this data location is specified in the volumes section.
 
 ```yml
 volumes:
   - ./data:/data
 ```
 
-this makes the
-[movies.csv](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/data/movies.csv) file
-available to QIX Engine running in the container. This file contains the user data that is loaded into QIX Engine and
-then later retrieved.
+**Tip:** To learn more about volumes, see
+[Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/).
 
-## Loading and Retrieving Movies Data with QIX Engine
+To load the data, the `hello-data` application uses
+[halyard.js](https://github.com/qlik-oss/halyard.js) to create
+a representation of the data and loads it into the QIX Engine as part of opening a session.
+Then, it uses enigma.js _mixin_ support to create a session
+object that holds the first 10 movie titles from the `movies.csv` dataset.
+The application then retrieves the movie titles from the dataset, prints the results, and closes the session.
 
-When starting the QIX Engine container in the previous step, the CSV file with data on popular movies becomes accessible
-to QIX Engine, but no data is yet loaded into QIX Engine. QIX Engine must use _load scripts_ with actions specifying how
-to do this. This can be rather complex, and here [halyard.js](https://github.com/qlik-oss/halyard.js) provides simple
-and powerful features to help.
-
-The `hello-data` Node.js application uses [halyard.js](https://github.com/qlik-oss/halyard.js) to create a
-representation of the data and load it into QIX Engine as a part of opening a session. This is handled conveniently
-using the enigma.js _mixin_ support.
-
-As the next step, enigma.js is used to create a session object that holds the 10 first movie titles in the data model,
-now present in QIX Engine memory. The titles retrieved are printed and then the session is closed.
-
-The `hello-data` application consists of a single JavaScript file,
-[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-data/hello-data.js)
-, and the shared
-[package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json) file.
-
-To run and observe the listed movie titles:
+If the application runs successfully, you will see the list of 10 movies from the dataset.
 
 ```bash
-$ npm install
 $ npm run hello-data
 
 Creating table data representation.
@@ -80,25 +92,22 @@ Indiana Jones and the Kingdom of the Crystal Skull
 Session closed.
 ```
 
-Study the
-[hello-data.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-data/hello-data.js)
-file and observe how halyard.js and enigma.js are used together to load and retrieve data with QIX Engine.
+**Tip:** Open the `hello-data.js` file to see how enigma.js and
+halyard.js are used to load to and retrieve data from the QIX Engine.
 
-## Hypercubes
-
-As can be observed in the example source code, some intricate details of QIX Engine are exposed. For example,
-the `properties` object used to create the session object contains a field called `qHyperCubeDef`. This relates to the
-central concept of _hypercubes_ in QIX Engine.
-
-Users not familiar with hypercubes are encouraged to learn more about them in the
-[Hypercube](http://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm)
-help section of the Qlik Sense product.
+**Note:** You might see some unfamiliar details of
+the QIX Engine in the source code.
+For example, the `properties` object that is used to create the session object
+contains a field called `qHyperCubeDef`. This relates to the
+central concept of _hypercubes_ in the QIX Engine.
+To learn more about hypercubes, see
+[Hypercubes](http://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm).
 
 ## Next Steps
 
-In this example, it was shown how to load and retrieve data with QIX Engine. In the
-[Hello Visualization](./hello-visualization.md) tutorial the same concepts are built upon to provide a visualization of
-the same data set.
+Continue with the [Hello Visualization](./hello-visualization.md) tutorial
+to learn how to display the data that you loaded in this tutorial as a scatter plot.
 
-It is also recommended to get a closer look at [enigma.js](https://github.com/qlik-oss/enigma.js) and
-[halyard.js](https://github.com/qlik-oss/enigma.js), and the full range of features in these libraries.
+**Tip:** To learn more about the libraries that are used in this tutorial,
+we recommend that you take a look at [enigma.js](https://github.com/qlik-oss/enigma.js) and
+[halyard.js](https://github.com/qlik-oss/enigma.js) to learn about their many features.

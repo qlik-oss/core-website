@@ -3,16 +3,52 @@
 This recipe outlines a couple of different approaches and things to keep in mind when loading data into your document
 in a scalable environment.
 
-## End-user defined data
+It assumes you are running in a \*nix environment or use Git Bash on Windows. Basic Docker knowledge is also assumed.
 
-This section is mainly documentation how to use the halyard.js stream service to allow customized end-user
-data through services like Dropbox.
+## End-user defined file based data
+
+This section is mainly documentation on how to use the [file-connectivity-service](https://github.com/qlik-ea/outhaul)
+to access end-user file based data.
+The [file-connectivity-service](https://github.com/qlik-ea/outhaul) is built to simplify accessing [OAuth 2.0](https://oauth.net/2/)
+protected data sources like Dropbox, OneDrive, GoogleDrive.
+Connection providers are registered with the [file-connectivity-service](https://github.com/qlik-ea/outhaul)
+and in return a unique HTTP endpoint is defined.
+The unique HTTP endpoint is used to access the data source.
+This solution enables the QIX Engine to access a wide variety of different data sources using the built in web file connector.
+
+### Example on how to load data from Dropbox using OAuth2.0
+
+``` bash
+git clone https://github.com/qlik-ea/outhaul.git
+cd file-connectivity-service
+npm install
+```
+
+Copying the file [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
+located in the `/data` folder to your Dropbox.
+Follow [this guide](https://www.dropbox.com/developers/reference/oauth-guide) and create a OAuth 2.0 application.
+The `Redirect URIs` should be the address to the `http://[host]:[port]/oauth2/callback` running the service, for example:
+`http://localhost:3000/oauth2/callback`
+
+**Set the following environment variables in the terminal**
+
+``` bash
+cd examples
+export DROPBOX_CLIENT_ID="your App key
+export DROPBOX_CLIENT_SECRET="your App secret"
+docker-compose up -d --build
+node ./dropbox
+```
+
+The first 10 lines of the [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
+table should be outputted in the console window.
+
+GoogleDrive and OneDrive have similar workflow as the one described above and are supported in the [file-connectivity-service](https://github.com/qlik-ea/outhaul).
 
 ## Developer defined data
 
 This section contains a runnable example how to load some airport data from a postgres database using the GRPC protocol
 in the QIX Engine.
-It assumes you are running in a \*nix environment or use Git Bash on Windows. Basic Docker knowledge is also assumed.
 
 First clone and open the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector) repository
 and move to the `example` folder.
