@@ -1,10 +1,11 @@
 # Getting Started
 
-To get started with Frontira and QIX Engine, and learn the basic concepts, a number of examples and tutorials are
-provided. Here, a recommended path through the examples is provided that introduces different concepts step by step.
+To get started with Frontira and QIX Engine, and learn the basic concepts,
+a number of examples and tutorials are provided.
+Here, a recommended path through the examples is provided that introduces different concepts step by step.
 
-The tutorials often contain runnable examples, with source code that is available in separate open source repositories
-on GitHub.
+The tutorials often contain runnable examples,
+with source code that is available in separate open source repositories on GitHub.
 
 ## Hello Frontira!
 
