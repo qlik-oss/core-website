@@ -1,7 +1,7 @@
 # VS Code folder
 .vscode/
 # WebStorm Code folder
-#.idea/
+.idea/
 # Merge files (BC, KDiff3 etc.)
 *.orig
 # Site generation folder
