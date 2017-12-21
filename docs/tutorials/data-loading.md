@@ -7,15 +7,14 @@ It assumes you are running in a \*nix environment or use Git Bash on Windows. Ba
 
 ## End-user defined file based data
 
-This section is mainly documentation on how to use the [file-connectivity-service](https://github.com/qlik-ea/outhaul) to access end-user file based
-data. The [file-connectivity-service](https://github.com/qlik-ea/outhaul) is built to simplify accessing [OAuth 2.0](https://oauth.net/2/) protected data sources like Dropbox, OneDrive, GoogleDrive. 
-Connection providers are registered with the [file-connectivity-service](https://github.com/qlik-ea/outhaul) and in return a unique HTTP endpoint is defined. 
-The unique HTTP endpoint is used to access the data source. This solution enables the QIX Engine to access a wide variety of different data sources 
-using the built in web file connector.
+This section is mainly documentation on how to use the [file-connectivity-service](https://github.com/qlik-ea/outhaul) to access end-user file based data.
+The [file-connectivity-service](https://github.com/qlik-ea/outhaul) is built to simplify accessing [OAuth 2.0](https://oauth.net/2/) protected data sources like Dropbox, OneDrive, GoogleDrive.
+Connection providers are registered with the [file-connectivity-service](https://github.com/qlik-ea/outhaul) and in return a unique HTTP endpoint is defined.
+The unique HTTP endpoint is used to access the data source. This solution enables the QIX Engine to access a wide variety of different data sources using the built in web file connector.
 
-#### Example on how to load data from Dropbox using OAuth2.0 ####
+### Example on how to load data from Dropbox using OAuth2.0
 
-```
+``` bash
 git clone https://github.com/qlik-ea/outhaul.git
 cd file-connectivity-service
 npm install
@@ -27,7 +26,7 @@ The `Redirect URIs` should be the address to the `http://[host]:[port]/oauth2/ca
 
 **Set the following environment variables in the terminal**
 
-```
+``` bash
 cd examples
 export DROPBOX_CLIENT_ID="your App key
 export DROPBOX_CLIENT_SECRET="your App secret"
