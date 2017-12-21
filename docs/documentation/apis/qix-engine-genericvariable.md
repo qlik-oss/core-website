@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericVariable
 
-_QIX methods for version 12.110.0._
+_QIX methods for version 12.113.0._
 
 ## `ApplyPatches`
 

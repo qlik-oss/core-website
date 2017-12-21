@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.110.0._
+_QIX methods for version 12.113.0._
 
 ## `AbortModal`
 
@@ -29,7 +29,7 @@ _No return values._
 
 ## `AddFieldFromExpression`
 
-Adds a field on the fly.<br>The expression of a field on the fly is persisted but not its values. <br><br>The operation is successful if **qSuccess** is set to true. 
+Adds a field on the fly.<br>The expression of a field on the fly is persisted but not its values. <br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -42,11 +42,11 @@ Adds a field on the fly.<br>The expression of a field on the fly is persisted bu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | &lt;true or false&gt; |
+| `qSuccess` | boolean | True or False. |
 
 ## `ApplyBookmark`
 
-Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
+Applies a bookmark.<br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -58,7 +58,7 @@ Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | &lt;true or false&gt; |
+| `qSuccess` | boolean | True or False. |
 
 ## `Back`
 
@@ -95,13 +95,13 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
-| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
-| `qDangerousFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | `[]` |
+| `qErrorMsg` | string | Message displayed when there is a syntax error. |
+| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | A list of bad field names. |
+| `qDangerousFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | A list of dangerous field names. |
 
 ## `CheckNumberOrExpression`
 
-Checks if:<br>* A given expression is valid.<br>* A number is correct according to the locale.<br>The expression is correct if the parameters _qErrorMsg_ and _qBadFieldNames_ are empty. 
+Checks if
 
 **Parameters:**
 
@@ -113,8 +113,8 @@ Checks if:<br>* A given expression is valid.<br>* A number is correct according 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrorMsg` | string | &lt;message displayed when there is a syntax error&gt; |
-| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | [<br>{ "qFrom": &lt;position in the expression of the first character of the field name&gt;, "qCount": &lt;number of characters of the field name&gt; } ] |
+| `qErrorMsg` | string | Message displayed when there is a syntax error. |
+| `qBadFieldNames` | [`NxRange`](./qix-engine-definitions.md#nxrange) | A list of bad field names. |
 
 ## `CheckScriptSyntax`
 
@@ -151,7 +151,7 @@ _No return values._
 
 ## `CloneBookmark`
 
-Clones a bookmark.<br><br>The identifier is set by the engine.
+Clones a bookmark.<br>The identifier is set by the engine.
 
 **Parameters:**
 
@@ -163,7 +163,7 @@ Clones a bookmark.<br><br>The identifier is set by the engine.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCloneId` | string | &lt;identifier of the clone&gt; |
+| `qCloneId` | string | Identifier of the clone. |
 
 ## `CloneDimension`
 
@@ -233,14 +233,14 @@ Creates a bookmark.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Yes | Information about the object. |
+| `qProp` | [`GenericBookmarkProperties`](./qix-engine-definitions.md#genericbookmarkproperties) | Yes | Properties for the object. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the bookmark>","qType":"Bookmark"}` |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle":  &lt;handle of the bookmark&gt; } |
+| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | Information about the bookmark. |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Generic bookmark |
 
 ## `CreateConnection`
 
@@ -404,7 +404,7 @@ _No return values._
 
 ## `DestroyBookmark`
 
-Removes a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
+Removes a bookmark.<br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
@@ -416,7 +416,7 @@ Removes a bookmark.<br><br>The operation is successful if **qSuccess** is set to
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | &lt;true or false&gt; |
+| `qSuccess` | boolean | True or False. |
 
 ## `DestroyDimension`
 
@@ -729,7 +729,7 @@ Returns the handle of a bookmark.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle": &lt;handle of the bookmark&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Generic bookmark. |
 
 ## `GetBookmarks`
 
@@ -973,19 +973,19 @@ Retrieves the description of a field.
 
 ## `GetFieldOnTheFlyByName`
 
-_No details._
+Find the field-on-the-fly by passing its readable name.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qReadableName` | string | Yes | _No description._ |
+| `qReadableName` | string | Yes | Readable name of the field-on-the-fly. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qName` | string | _No description._ |
+| `qName` | string | Fields-on-the-fly expression in form of a name. |
 
 ## `GetFileTableFields`
 
@@ -1150,14 +1150,14 @@ _No parameters._
 
 ## `GetMatchingFields`
 
-Retrieves any fields that match all or one of the specified tags in the data model of an app.<br>Tags set by Qlik Sense are prefixed by the _$_ sign.  
+Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.<br>Tags set by Qlik Sense are prefixed by the _$_ sign.  
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qTags` | array | Yes | List of tags.<br>The [`GetMatchingFields`](#getmatchingfields) method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
-| `qMatchingFieldMode` | string | No | Matching field mode.<br><br>The default value is 0.<br><br>One of:<br>* MATCHINGFIELDMODE_MATCH_ALL<br>* MATCHINGFIELDMODE_MATCH_ONE |
+| `qMatchingFieldMode` | string | No | Matching field mode.<br>The default value is MATCHINGFIELDMODE_MATCH_ALL.<br><br>One of:<br>* MATCHINGFIELDMODE_MATCH_ALL<br>* MATCHINGFIELDMODE_MATCH_ONE |
 
 **Returns:**
 
@@ -1407,7 +1407,7 @@ _No return values._
 
 ## `Publish`
 
-Publishes an app. The published app can have a different name than the original app.<br>All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.<br>This operation is possible only in Qlik Sense Enterprise. An app can only be published once and cannot be published to more than one stream.<br><br>
+Publishes an app.<br>All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.<br>An app can only be published once and cannot be published to more than one stream.
 
 **Parameters:**
 
