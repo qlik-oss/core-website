@@ -6,7 +6,7 @@ _QIX methods for version 12.113.0._
 ## `ForceContent`
 
 !!! warning "Deprecated"
-    Use [`SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
 
 Sets the value of a dual variable overriding any input constraints.
 
@@ -22,7 +22,7 @@ _No return values._
 ## `GetContent`
 
 !!! warning "Deprecated"
-    Use [`GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
 
 Returns the calculated value of a variable.
 
@@ -52,7 +52,7 @@ _No parameters._
 ## `GetRawContent`
 
 !!! warning "Deprecated"
-    Use [`GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
 
 Returns the raw value of a variable.
 
@@ -67,7 +67,7 @@ _No parameters._
 ## `SetContent`
 
 !!! warning "Deprecated"
-    Use [`SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
 
 Sets a value to a variable.
 
