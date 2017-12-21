@@ -360,7 +360,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 ## `CreateVariable`
 
 !!! warning "Deprecated"
-    Use _Doc::CreateVariableEx_ method instead
+    Use [`CreateVariableEx`](#createvariableex) method instead
 
 Creates a variable.
 
@@ -1311,7 +1311,7 @@ _No parameters._
 ## `GetVariable`
 
 !!! warning "Deprecated"
-    Use Doc::GetVariableById_ method or _Doc::GetVariableByName_ method instead
+    Use Doc::GetVariableById_ method or [`GetVariableByName`](#getvariablebyname) method instead
 
 Gets the handle of a variable.
 
@@ -1454,7 +1454,7 @@ _No return values._
 ## `RemoveVariable`
 
 !!! warning "Deprecated"
-    Use _Doc::DestroyVariableById_ method or _Doc::DestroyVariableByName_ method instead
+    Use [`DestroyVariableById`](#destroyvariablebyid) method or [`DestroyVariableByName`](#destroyvariablebyname) method instead
 
 Removes a variable.
 
