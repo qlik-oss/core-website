@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.115.0._
 
 ## `AbortModal`
 
@@ -358,9 +358,6 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 | `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle":  &lt;Handle of the variable&gt; } |
 
 ## `CreateVariable`
-
-!!! warning "Deprecated"
-    Use [`Doc::CreateVariableEx`](#createvariableex) method instead
 
 Creates a variable.
 
@@ -1186,9 +1183,6 @@ Returns the handle of a measure.
 
 ## `GetMediaList`
 
-!!! warning "Deprecated"
-    Use [`GetLibraryContent`](#getlibrarycontent) method instead
-
 Lists the media files.
 
 _No parameters._
@@ -1309,9 +1303,6 @@ _No parameters._
 | `qMacros` | [`TextMacro`](./qix-engine-definitions.md#textmacro) | List of variables. |
 
 ## `GetVariable`
-
-!!! warning "Deprecated"
-    Use Doc::GetVariableById_ method or [`Doc::GetVariableByName`](#getvariablebyname) method instead
 
 Gets the handle of a variable.
 
@@ -1453,9 +1444,6 @@ _No return values._
 
 ## `RemoveVariable`
 
-!!! warning "Deprecated"
-    Use [`Doc::DestroyVariableById`](#destroyvariablebyid) method or [`Doc::DestroyVariableByName`](#destroyvariablebyname) method instead
-
 Removes a variable.
 
 **Parameters:**
@@ -1499,9 +1487,6 @@ _No details._
 _No return values._
 
 ## `SearchAssociations`
-
-!!! warning "Deprecated"
-    Use [`SearchResults`](#searchresults) method instead
 
 Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions)<br><br>
 
