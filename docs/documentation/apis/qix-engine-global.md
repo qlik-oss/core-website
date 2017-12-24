@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.115.0._
 
 ## `AbortAll`
 
@@ -244,9 +244,6 @@ _No parameters._
 
 ## `GetBNF`
 
-!!! warning "Deprecated"
-    Use the [`GetBaseBNF`](#getbasebnf) method instead
-
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.<br>In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
 **Parameters:**
@@ -482,9 +479,6 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 
 ## `GetStreamList`
 
-!!! warning "Deprecated"
-    Use general purpose endpoint in [QRS API: GET qrs/stream/](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Get.htm) instead.
-
 Lists the streams.
 
 _No parameters._
@@ -545,9 +539,6 @@ _No parameters._
 | `qReturn` | boolean | &lt;true or false&gt;<br>The engine returns **true** if the user is working with Qlik Sense Desktop. |
 
 ## `IsPersonalMode`
-
-!!! warning "Deprecated"
-    Use _GetConfiguration_ method instead
 
 Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).
 
@@ -658,9 +649,6 @@ _No parameters._
 | `qReturn` | string | &lt;Qlik product name&gt; |
 
 ## `QvVersion`
-
-!!! warning "Deprecated"
-    Use the [`EngineVersion`](#engineversion) method instead
 
 Returns the Qlik Sense version number.
 

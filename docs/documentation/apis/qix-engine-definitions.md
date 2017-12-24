@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.113.0._
+_QIX definitions for version 12.115.0._
 
 ## `AlfaNumString`
 
@@ -45,7 +45,7 @@ Lists the app objects. Is the layout for [`AppObjectListDef`](#appobjectlistdef)
 
 ## `AppObjectListDef`
 
-Defines the list of objects in an app.<br>An app object is a generic object created at app level.
+Defines the list of objects in an app.<br>An app object is a generic object created at app level.<br>@see [List all app objects](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -120,7 +120,7 @@ Lists the bookmarks. Is the layout for [`BookmarkListDef`](#bookmarklistdef).
 
 ## `BookmarkListDef`
 
-Defines the list of bookmarks.
+Defines the list of bookmarks.<br>@see [List the bookmarks in an app](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -315,7 +315,7 @@ Lists the dimensions. Is the layout for [`DimensionListDef`](#dimensionlistdef).
 
 ## `DimensionListDef`
 
-Defines the lists of dimensions.
+Defines the lists of dimensions.<br>@see [List the dimensions in an app](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -487,7 +487,7 @@ Lists the fields present in the data model viewer. Is the layout for [`FieldList
 
 ## `FieldListDef`
 
-Defines the fields to show.
+Defines the fields to show.<br>@see [List the fields in an app](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -736,7 +736,7 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 
 ## `HyperCubeDef`
 
-Defines the properties of a hypercube.<br>For more information about the definition of a hypercube, see _Generic object_.
+Defines the properties of a hypercube.<br>For more information about the definition of a hypercube, see _Generic object_.<br>@see [Drill up a hierarchy](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -806,7 +806,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDiscriminator` | string | A string indicating the origin of the data:<br>* [filename]: the data comes from a local file.<br>* INLINE: the data is entered inline in the load script.<br>* RESIDENT: the data comes from a resident table. The table name is listed.<br>* AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>* Provider: the data comes from a data connection. The connector source name is listed.<br>* [webfile]: the data comes from a web-based file. |
+| `qDiscriminator` | string | A string indicating the origin of the data:<br>* [filename]: the data comes from a local file.<br>* INLINE: the data is entered inline in the load script.<br>* RESIDENT: the data comes from a resident table. The table name is listed.<br>* AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>* Provider: the data comes from a data connection. The connector source name is listed.<br>* [webfile]: the data comes from a web-based file.<br>* STORE: path to QVD or TXT file where data is stored.<br>* EXTENSION: the data comes from a Server Side Extension (SSE). |
 | `qStatement` | string | The LOAD and SELECT script statements from the data load script. |
 
 ## `ListObject`
@@ -824,7 +824,7 @@ Renders the properties of a list object. Is the layout for [`ListObjectDef`](#li
 
 ## `ListObjectDef`
 
-Defines the properties of a list object.<br>For more information about the definition of a list object, see _Generic object_.
+Defines the properties of a list object.<br>For more information about the definition of a list object, see _Generic object_.<br>@see [Create a list object](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -870,7 +870,7 @@ Lists the measures. Is the layout for [`MeasureListDef`](#measurelistdef).
 
 ## `MeasureListDef`
 
-Defines the list of measures.
+Defines the list of measures.<br>@see [Get the list of measures in an app](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2425,7 +2425,7 @@ _No description._
 
 ## `VariableList`
 
-Lists the variables in an app. Is the layout for [`VariableListDef`](#variablelistdef).
+Lists the variables in an app. Is the layout for [`VariableListDef`](#variablelistdef).<br>@see [List all app objects](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2433,7 +2433,7 @@ Lists the variables in an app. Is the layout for [`VariableListDef`](#variableli
 
 ## `VariableListDef`
 
-Defines the list of variables in an app.
+Defines the list of variables in an app.<br>@see [List all app objects](
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
