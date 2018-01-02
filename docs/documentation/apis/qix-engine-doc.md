@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.117.0._
 
 ## `AbortModal`
 
@@ -130,14 +130,14 @@ _No parameters._
 
 ## `ClearAll`
 
-Clears all selections in all fields of the current app.
+Clear selections in fields for current state. Locked fields are not cleared by default.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qLockedAlso` | boolean | No | Set this parameter to true to clear all selections, including the locked fields.<br>Default is false. Selections on locked fields are not cleared. |
-| `qStateName` | string | No | Name of the alternate state.<br>If an alternate state is defined in _qStateName_ , only the selections related to this alternate state are cleared.<br>Default state is current selections. |
+| `qLockedAlso` | boolean | No | When true, clears the selection for locked fields. |
+| `qStateName` | string | No | Alternate state name. When set, applies to alternate state instead of current |
 
 _No return values._
 
@@ -339,7 +339,7 @@ Creates a transient object. For example, you can use a transient object to creat
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | `{"qType":"GenericObject","qHandle":"<handle>"}` |
 
 ## `CreateSessionVariable`
 
@@ -358,6 +358,9 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 | `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle":  &lt;Handle of the variable&gt; } |
 
 ## `CreateVariable`
+
+!!! warning "Deprecated"
+    Use [`Doc::CreateVariableEx`](#createvariableex) method instead
 
 Creates a variable.
 
@@ -595,7 +598,7 @@ _No return values._
 
 ## `Evaluate`
 
-Evaluates an expression as a string.<br><br>
+Evaluates an expression and returns the result as a string.<br><br>
 
 **Parameters:**
 
@@ -607,11 +610,11 @@ Evaluates an expression as a string.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | string | &lt;expression evaluated as a string&gt; |
+| `qReturn` | string | The result of the evaluation. |
 
 ## `EvaluateEx`
 
-Evaluates an expression as a dual.<br><br>
+Evaluates an expression and returns the result as a dual.<br><br>
 
 **Parameters:**
 
@@ -623,7 +626,7 @@ Evaluates an expression as a dual.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qValue` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | Expression to evaluate. |
+| `qValue` | [`FieldValue`](./qix-engine-definitions.md#fieldvalue) | The result of the evaluation as a dual. |
 
 ## `FindMatchingFields`
 
@@ -912,7 +915,7 @@ Returns the handle of a dimension.
 
 ## `GetEmptyScript`
 
-Creates a script that contains one section. This section contains **Set** statements that give localized information from the regional settings of the computer.<br>The computer regional settings are retrieved when the engine starts.
+Creates a script that contains one section. This section contains **SET** statements that give localized information from the regional settings of the computer.<br>The computer regional settings are retrieved when the engine starts.
 
 **Parameters:**
 
@@ -924,7 +927,7 @@ Creates a script that contains one section. This section contains **Set** statem
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | string | &lt;List of script variables&gt;  |
+| `qReturn` | string | Script contents with SET statements containing localized information |
 
 ## `GetFavoriteVariables`
 
@@ -940,7 +943,7 @@ _No parameters._
 
 ## `GetField`
 
-Retrieves the handle of a field.
+Returns a handle to a field.
 
 **Parameters:**
 
@@ -953,11 +956,11 @@ Retrieves the handle of a field.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Field", "qHandle": &lt;handle of the field&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Handle to the field |
 
 ## `GetFieldDescription`
 
-Retrieves the description of a field.
+Returns the description of a field.
 
 **Parameters:**
 
@@ -969,7 +972,7 @@ Retrieves the description of a field.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`FieldDescription`](./qix-engine-definitions.md#fielddescription) | Information about the field. |
+| `qReturn` | [`FieldDescription`](./qix-engine-definitions.md#fielddescription) | Description of the field. |
 
 ## `GetFieldOnTheFlyByName`
 
@@ -1126,7 +1129,7 @@ _No parameters._
 
 ## `GetLocaleInfo`
 
-Retrieves locale information.
+Returns locale information.
 
 _No parameters._
 
@@ -1138,7 +1141,7 @@ _No parameters._
 
 ## `GetLooselyCoupledVector`
 
-Returns a vector of loosely coupled state flags, one element for each table in the app.<br>The last three values in the vector are extra values. These values are for internal use. In case of circular references, the engine automatically create loosely coupled tables so that the circular references do not create a loop.<br><br>Where &lt;array of bytes&gt; is an array of state flags, one for each table in the app.<br>The following applies:<br>* 0 means that the table is not loose.<br>* 1 means that the table is loose.<br>* 2 means that the table is always loose and cannot be unloose using the Qlik Engine API.
+Returns a list of table states.<br><br>The following states apply:<br>* 0 The table is not loosely coupled.<br>* 1 The table is loosely coupled.<br>* 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.<br>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.
 
 _No parameters._
 
@@ -1146,7 +1149,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qv` | array | [&lt;array of bytes&gt;] |
+| `qv` | array | The list of table states |
 
 ## `GetMatchingFields`
 
@@ -1182,6 +1185,9 @@ Returns the handle of a measure.
 | `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericMeasure", "qHandle": &lt;handle of the measure&gt; }The handle of the measure is returned. |
 
 ## `GetMediaList`
+
+!!! warning "Deprecated"
+    Use [`GetLibraryContent`](#getlibrarycontent) method instead
 
 Lists the media files.
 
@@ -1277,7 +1283,7 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qWindowSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | Defines the size of the window that is used to display the results. |
+| `qWindowSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | Size of the window that is used to display the results. |
 | `qNullSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | _No description._ |
 | `qCellHeight` | integer | Yes | Height of a cell in a table in pixels. |
 | `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer<br>* _false_ for source table viewer |
@@ -1304,7 +1310,10 @@ _No parameters._
 
 ## `GetVariable`
 
-Gets the handle of a variable.
+!!! warning "Deprecated"
+    Use [`Doc::GetVariableById`](#getvariablebyid) method or [`Doc::GetVariableByName`](#getvariablebyname) method instead
+
+Returns a handle to a variable.
 
 **Parameters:**
 
@@ -1316,7 +1325,7 @@ Gets the handle of a variable.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Variable", "qHandle": &lt;Handle of the variable&gt; } |
+| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | Handle to the variable. |
 
 ## `GetVariableById`
 
@@ -1352,7 +1361,7 @@ Gets the handle of a variable.
 
 ## `GetViewDlgSaveInfo`
 
-Retrieves information about the position of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.<br><br>
+Returns information about the position of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.<br><br>
 
 _No parameters._
 
@@ -1381,13 +1390,13 @@ Guesses the data format for a given file.<br>Recognized file formats are:<br>* _
 
 ## `LockAll`
 
-Locks all selections in all fields of the current app.
+Locks all selections in fields for current state.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qStateName` | string | No | Alternate state name.<br>If this parameter is set, the method locks all selections that are in the specified state name.<br>The default value is an empty string. |
+| `qStateName` | string | No | Alternate state name. When set, applies to alternate state instead of current. |
 
 _No return values._
 
@@ -1444,6 +1453,9 @@ _No return values._
 
 ## `RemoveVariable`
 
+!!! warning "Deprecated"
+    Use [`Doc::DestroyVariableById`](#destroyvariablebyid) method or [`Doc::DestroyVariableByName`](#destroyvariablebyname) method instead
+
 Removes a variable.
 
 **Parameters:**
@@ -1488,6 +1500,9 @@ _No return values._
 
 ## `SearchAssociations`
 
+!!! warning "Deprecated"
+    Use [`SearchResults`](#searchresults) method instead
+
 Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./qix-engine-definitions.md#searchcombinationoptions)<br><br>
 
 **Parameters:**
@@ -1506,7 +1521,7 @@ Returns the search matches for one or more search terms.<br>The search results d
 
 ## `SearchObjects`
 
-Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .<br><br>
+Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
 
 **Parameters:**
 
@@ -1630,13 +1645,13 @@ _No return values._
 
 ## `SetLooselyCoupledVector`
 
-Sets a vector of loosely coupled state flags, one element for each table in the app.<br>The last three values in the vector are extra values. These values are for internal use.
+Sets a list of table states, one for each table.<br><br>The following states apply:<br>* 0 The table is not loosely coupled.<br>* 1 The table is loosely coupled.<br>* 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qv` | array | Yes | Vector of loosely coupled state flags, one element for each table in the app.<br>Set the flag to 1 to loose a table.<br>Set the flag to 0 to not loose a table. |
+| `qv` | array | Yes | The list of table states to set. A state will not be changed if already set to 2. |
 
 **Returns:**
 
@@ -1694,12 +1709,12 @@ _No parameters._
 
 ## `UnlockAll`
 
-Unlocks all selections in all fields of the current app.
+Unlocks all selections in fields for current state.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qStateName` | string | No | Alternate state name.<br>If this parameter is set, the method unlocks all selections that are in the specified state name.<br>The default value is an empty string. |
+| `qStateName` | string | No | Alternate state name. When set, applies to alternate state instead of current. |
 
 _No return values._

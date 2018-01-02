@@ -1,71 +1,72 @@
 # Hello Visualization
 
-This example shows how to visualize data in a QIX Engine running inside a Docker container. It extends the
-[Hello Data](./hello-data.md) example.
+Build a data visualization from data loaded into a QIX Engine running inside a Docker container.
 
-[picasso.js](https://github.com/qlik-ea/picasso.js) is used to build the visualization. picasso.js is a charting library
-streamlined for building visualizations with Frontira.
+## Prerequisites
 
-As in the Hello Data example, [enigma.js](https://github.com/qlik-oss/enigma.js) is used to communicate with QIX
-Engine and [halyard.js](https://github.com/qlik-oss/halyard.js) is used to load data into QIX Engine.
+Clone the [Getting Started with Web Platform](https://github.com/qlik-ea/getting-started-with-web-platform) Git repository
+to your local machine. The *Hello* tutorials are located here, and all commands should be executed from this Git repository.
 
-## GitHub Repository
+You must have [Node.js](https://nodejs.org/en/) and npm installed on your local machine.
 
-The Hello Visualization example is located on [GitHub](https://github.com/qlik-ea/getting-started-with-web-platform).
+**Note:** Make sure the QIX Engine is running and that you have loaded data into the QIX Engine.
+If you are unfamiliar with starting the QIX Engine in a Docker container and loading data,
+we recommend that you begin with the [Hello Engine](./hello-engine.md) tutorial followed by the
+[Hello Data](./hello-data.md) tutorial.
 
-When running this example, it is assumed that the repository is cloned to the local machine and that commands and
-actions are performed in that repository.
+## Building a visualization
 
-## Start QIX Engine
+To build a visualization, you will run a small Node.js application
+that creates a visualization from the data loaded into your dockerized QIX Engine.
 
-Unless QIX Engine is already running from the [Hello Data](./hello-data.md) example, start it with with:
+1. Install dependencies.
 
-```bash
-docker-compose up -d
-```
+    **Note:** If you already installed the dependencies in the previous tutorial, go to step 2.
 
-This makes the same movie data available to QIX Engine as in the [Hello Data](./hello-data.md) example.
+    Run the following command from a command shell:
 
-## Load and Visualize Data
+    ```bash
+    npm install
+    ```
 
-This example uses [AngularJS](https://angularjs.org/) and [picasso.js](https://github.com/qlik-ea/picasso.js)
-to create a simple web application with visualization of movie data.
+    This command installs all of the dependent packages in the `package.json` file.
 
-In [app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-visualization/app.js)
-information about _what_ data to load and _where_ to fetch the data is put into
-[halyard.js](https://github.com/qlik-oss/halyard.js). This information is then used to create and populate a session app
-in QIX Engine using [enigma.js](https://github.com/qlik-oss/enigma.js) and
-[halyard.js](https://github.com/qlik-oss/halyard.js). A session app only lives as long as the session is alive.
+1. Run the application.
 
-The visualization is created in [scatterplot.js](src/scatterplot.js).
+    Run the following command from a command shell:
 
-Install the dependencies (see [package.json](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/package.json))
-and run the app with:
+    ```bash
+    npm run hello-visualization
+    ```
 
-```bash
-npm install
-npm run hello-visualization
-```
+    This command runs the application, which contains information on where to fetch the data and which data to load.
+    This information is then used to create and populate a session app.
 
-Open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the movies in the scatter plot.
-Observe how a movie can be selected to bring up more information about it.
+1. Open the visualization in a browser.
 
-Study the
-[app.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-visualization/app.js) file
-and observe how enigma.js and halyard.js are used to load and retrive the movies data with QIX Engine.
+    Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in a scatter plot.
 
-Study the
-[scatterplot.js](https://github.com/qlik-ea/getting-started-with-web-platform/blob/master/src/hello-visualization/app.js)
-file and observe how picasso.js is used to render a scatter plot from data retrieved from QIX Engine.
+    If the application runs successfully,
+    you will see that the visualization is deployed to localhost:8080
+    and you will receive a message that the webpack has compiled successfully.
+
+## What is happening
+
+When you run `Hello Visualization`, app.js creates and populates a session app
+from the data that is available to the QIX Engine using enigma.js
+to communicate with the engine and halyard.js to manage the data.
+A session app only lives while the session is alive.
+
+**Tip:** We recommend that you take a look at [picasso.js](https://github.com/qlik-ea/picasso.js),
+a charting library that is streamlined for building visualizations with Frontira.
+You can also open the `app.js` file to see how enigma.js and halard.js are used
+to load and retrieve the movies data from the engine.
 
 ## Next Steps
 
-In this example, it was shown how to load and visualize data with QIX Engine and picasso.js.
-
-A recommended next step is to explore the [Core](./core.md) tutorial, which shows how to run all core services of
-Frontira together. This will cover important topics such as how to run several QIX Engine instances using
+Now that you have seen how to start the QIX Engine in a Docker container,
+load data, and build a visualization from that data,
+we recommend that you explore the [Core](./core.md) tutorial,
+which shows how to run all core services of Frontira together.
+This will cover important topics such as how to run several QIX Engine instances using
 different container orchestration platforms.
-
-It is also recommended to get a closer look at [enigma.js](https://github.com/qlik-oss/enigma.js),
-[halyard.js](https://github.com/qlik-oss/enigma.js), [picasso.js](https://github.com/qlik-ea/picasso.js)
-and the full range of features in these libraries.

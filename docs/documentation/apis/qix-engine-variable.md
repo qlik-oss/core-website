@@ -1,9 +1,12 @@
 <!-- markdownlint-disable -->
 # Variable
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.117.0._
 
 ## `ForceContent`
+
+!!! warning "Deprecated"
+    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
 
 Sets the value of a dual variable overriding any input constraints.
 
@@ -18,6 +21,9 @@ _No return values._
 
 ## `GetContent`
 
+!!! warning "Deprecated"
+    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+
 Returns the calculated value of a variable.
 
 _No parameters._
@@ -29,6 +35,9 @@ _No parameters._
 | `qContent` | [`AlfaNumString`](./qix-engine-definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
+
+!!! warning "Deprecated"
+    Use [`GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
 
 Gets the properties of a variable.
 
@@ -42,6 +51,9 @@ _No parameters._
 
 ## `GetRawContent`
 
+!!! warning "Deprecated"
+    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+
 Returns the raw value of a variable.
 
 _No parameters._
@@ -53,6 +65,9 @@ _No parameters._
 | `qReturn` | string | &lt;Definition of the variable&gt; |
 
 ## `SetContent`
+
+!!! warning "Deprecated"
+    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
 
 Sets a value to a variable.
 
@@ -70,6 +85,9 @@ Sets a value to a variable.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SetNxProperties`
+
+!!! warning "Deprecated"
+    Use [`SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
 
 Sets some properties to a variable.
 
