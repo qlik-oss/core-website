@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.113.0._
+_QIX definitions for version 12.117.0._
 
 ## `AlfaNumString`
 
@@ -155,6 +155,22 @@ _No description._
 | ---- | ---- | ----------- |
 | `qCharPos` | integer | Position of the first search occurrence. |
 | `qCharCount` | integer | Number of occurrences found. |
+
+## `ChildList`
+
+Lists the children of a generic object. Is the layout for [`ChildListDef`](#childlistdef).<br>ChildList is used by the _GetLayout Method_ to list the children of a generic object. 
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the items in the app object. |
+
+## `ChildListDef`
+
+Defines the list of children of a generic object.<br>What is defined in [`ChildListDef`](#childlistdef) has an impact on what the _GetLayout_ method returns. See _Example_ for more information.
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qData` | [`JsonObject`](#jsonobject) | Data that you want to include in the child list definition.<br>You need to enter the paths to the information you want to retrieve. |
 
 ## `CodePage`
 
@@ -806,7 +822,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDiscriminator` | string | A string indicating the origin of the data:<br>* [filename]: the data comes from a local file.<br>* INLINE: the data is entered inline in the load script.<br>* RESIDENT: the data comes from a resident table. The table name is listed.<br>* AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>* Provider: the data comes from a data connection. The connector source name is listed.<br>* [webfile]: the data comes from a web-based file. |
+| `qDiscriminator` | string | A string indicating the origin of the data:<br>* [filename]: the data comes from a local file.<br>* INLINE: the data is entered inline in the load script.<br>* RESIDENT: the data comes from a resident table. The table name is listed.<br>* AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>* Provider: the data comes from a data connection. The connector source name is listed.<br>* [webfile]: the data comes from a web-based file.<br>* STORE: path to QVD or TXT file where data is stored.<br>* EXTENSION: the data comes from a Server Side Extension (SSE). |
 | `qStatement` | string | The LOAD and SELECT script statements from the data load script. |
 
 ## `ListObject`
@@ -1760,6 +1776,14 @@ _No description._
 | `qCalcCondMsg` | string | _No description._ |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 
+## `NxTreeMultiRangeSelectInfo`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qRanges` | [`NxTreeRangeSelectInfo`](#nxtreerangeselectinfo) | _No description._ |
+
 ## `NxTreeNode`
 
 Represents a dimension in the tree.<br><br>
@@ -1776,6 +1800,16 @@ Represents a dimension in the tree.<br><br>
 | `qNodes` | [`NxTreeNode`](#nxtreenode) | The children of this node in the tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Attribute dimension values. |
+
+## `NxTreeRangeSelectInfo`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qRange` | [`Range`](#range) | [`Range`](#range) of values. |
+| `qMeasureIx` | integer | Number of the measure to select.<br>Numbering starts from 0. |
+| `qDimensionIx` | integer | Number of the dimension to select<br>measure from. Numbering starts from 0. |
 
 ## `NxTreeValue`
 
@@ -1987,8 +2021,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qKey` | string | _No description._ |
-| `qValue` | string | _No description._ |
+| `qKey` | string | String corresponding to _SearchObjectOptions.qAttributes_. It will be _qProperty_ for [`SearchObjectOptions`](#searchobjectoptions). |
+| `qValue` | string | String corresponding to _qKey_ for the current [`SearchGroupItemMatch`](#searchgroupitemmatch). For example, if the match is _Make by Price_ found in the title of a generic object, _qValue_ will be _qMetaDef/title_. |
 
 ## `SearchCharRange`
 
@@ -2033,7 +2067,7 @@ _No description._
 
 ## `SearchGroup`
 
-
+_No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2045,7 +2079,7 @@ _No description._
 
 ## `SearchGroupItem`
 
-
+_No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2057,7 +2091,7 @@ _No description._
 
 ## `SearchGroupItemMatch`
 
-
+_No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2118,7 +2152,7 @@ _No description._
 
 ## `SearchResult`
 
-
+_No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2374,7 +2408,6 @@ _No description._
 | `qError` | [`NxValidationError`](#nxvalidationerror) | _No description._ |
 | `qDimensionInfo` | [`NxTreeDimensionInfo`](#nxtreedimensioninfo) | _No description._ |
 | `qEffectiveInterColumnSortOrder` | array | _No description._ |
-| `qGrandTotalRow` | [`NxCell`](#nxcell) | _No description._ |
 | `qHasOtherValues` | boolean | _No description._ |
 | `qTitle` | string | _No description._ |
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | _No description._ |
@@ -2393,7 +2426,6 @@ _No description._
 | `qSuppressMissing` | boolean | _No description._ |
 | `qOpenFullyExpanded` | boolean | _No description._ |
 | `qPopulateMissing` | boolean | _No description._ |
-| `qShowTotalsAbove` | boolean | _No description._ |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 
