@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.117.0._
 
 ## `AbortListObjectSearch`
 
@@ -425,7 +425,7 @@ Retrieves data for nodes in a tree structure. It is possible to retrieve specifi
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected. |
-| `qNodeOptions` | [`NxTreeDataOption`](./qix-engine-definitions.md#nxtreedataoption) | Yes | Specifies all the paging filters needed to define the tree to be fetched. |
+| `qNodeOptions` | [`NxTreeDataOption`](./qix-engine-definitions.md#nxtreedataoption) | No | Specifies all the paging filters needed to define the tree to be fetched. If left out the complete tree is returned. |
 
 **Returns:**
 
@@ -533,6 +533,25 @@ _No details._
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | _No description._ |
 | `qRanges` | [`NxMultiRangeSelectInfo`](./qix-engine-definitions.md#nxmultirangeselectinfo) | Yes | _No description._ |
+| `qOrMode` | boolean | No | _No description._ |
+| `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | _No description._ |
+
+## `MultiRangeSelectTreeDataValues`
+
+_No details._
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qPath` | string | Yes | _No description._ |
+| `qRanges` | [`NxTreeMultiRangeSelectInfo`](./qix-engine-definitions.md#nxtreemultirangeselectinfo) | Yes | _No description._ |
 | `qOrMode` | boolean | No | _No description._ |
 | `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
 

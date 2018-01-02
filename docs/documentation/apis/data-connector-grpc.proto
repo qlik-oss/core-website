@@ -79,6 +79,26 @@ message RawDataChunk
     bytes data = 1;
 }
 
+
+/// A structure for horizontal data. Horizontal data starts anywhere in any row
+/// and continues for an arbitary length and may wrap to another row. Typically
+/// sized to fit 64 KB.
+message HorizontalChunk
+{
+    repeated string stringValues = 1;    /// Strings the bundle
+    repeated double doubleValues = 2;    /// Doubles in the bundle.
+
+    repeated sint32 stringIndex = 3;     /// -1 = Null string.
+                                         /// -2 = Empty string.
+                                         /// Zero or greater = Index into stringValues.
+
+    repeated sint32 numberIndex = 4;     /// -1 = Null number.
+                                         /// Zero or greater = Index into doubleValues.
+                                         /// -2 = The next index is not an index but a 32bit signed integer value.
+}
+
+
+
 /** How to interpret the data.
     If dates already in the 1899-12-30 format, then the fastest way to import then is to use SemanticType=DEFAULT.
     And transferr the date as a double and set FieldAttributes::Type = DATE.
@@ -128,6 +148,13 @@ message GetDataResponse {
 
 service Connector
 {
+
+    /** The standard way to send data.
+        First send GetDataResponse as initial meta data.
+        Then send HorizontalChunk stream.
+    */
+    rpc GetHorizontalData(GetDataOptions) returns(stream HorizontalChunk) {}
+
     /** The standard way to send data.
         First send GetDataResponse as initial meta data.
         Then send DataChunk stream.

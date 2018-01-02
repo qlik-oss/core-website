@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.113.0._
+_QIX methods for version 12.117.0._
 
 ## `AbortAll`
 
@@ -547,7 +547,7 @@ _No parameters._
 ## `IsPersonalMode`
 
 !!! warning "Deprecated"
-    Use _GetConfiguration_ method instead
+    Use [`IsDesktopMode`](#isdesktopmode) method instead
 
 Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).
 
