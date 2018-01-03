@@ -1,12 +1,12 @@
 # Authorization
 
-In this tutorial, you will learn how to configure the QIX Engine
-and JSON Web Tokens (JWT) to manage and authenticate users.
+In this tutorial, you will learn how to configure JSON Web Tokens (JWT) and the QIX Engine
+to manage and authenticate users.
 
 ## JSON Web Token
 
-JWT is an open standard for creating access tokens. To read more about the details of JWTs,
-see to [JWT documentation](https://jwt.io/) and the [JWT Standard](https://tools.ietf.org/html/rfc7519).
+JWT is an open standard for creating access tokens. To learn more about JWT,
+see the [JWT documentation](https://jwt.io/) and the [JWT Standard](https://tools.ietf.org/html/rfc7519).
 
 The QIX Engine uses JWTs for the following tasks:
 
@@ -15,14 +15,14 @@ The QIX Engine uses JWTs for the following tasks:
 - Applying data security (for example, section access).
 - Enforcing document level access control.
 
-### Format
+### JWT format
 
 A typical JWT consists of three parts.
 
 `{header}.{payload}.{signature}`
 
-**Note:** Each part of the JWT is Base64Url-encoded and separated by a dot.
-See [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
+**Note:** Each part of the JWT is base64url-encoded and separated by a dot.
+To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
 
 #### Header
 
@@ -39,12 +39,12 @@ and the hashing algorithm that is used to sign the token. For example:
 #### Payload
 
 The payload contains the claims of the JWT.
-The QIX Engine evaluates the `sub` and `exp` claims.
+The relavant claims that are evaluated by the QIX Engine are the subject and the expiration date.
 
-| Key | Description |
+| Field | Description |
 | -----|------------|
-| `sub` | The subject - a unique identifier for a user. |
-| `exp` | The numerical expiration date - never expires if omitted. |
+| `sub` | The subject is a unique identifier for a user. |
+| `exp` | The numerical expiration date. It never expires if it is omitted. |
 
 For example:
 
@@ -66,11 +66,14 @@ The QIX Engine supports the following JWT signing algorithms:
 | Elliptic curve  | ES256, ES384, ES512 |
 | RSA             | RS256, RS384,  RS512 |
 
-To learn more about signatures, see [Signature](https://jwt.io/introduction/#signature).
+To learn more about JWT signatures, see [Signature](https://jwt.io/introduction/#signature).
 
 ### QIX Engine configuration
 
-To configure the QIX Engine to validate JWTs, use the following command line parameter:
+To validate JWTs, you must configure the QIX Engine by specifying
+the JWT enforcement type and the JWT secret in the docker compose file.
+
+The enforcement type is defined as:
 
 `-S ValidateJsonWebTokens=<enforcement type>`
 
@@ -86,7 +89,8 @@ HMAC secrets are injected through the command line parameter:
 
 `-S JsonWebTokenSecret=<secret>`
 
-Elliptic curve and RSA algorithms require a public key, packaged in a `pem` file.
+Elliptic curve and RSA secrets are retrieved from a public key,
+stored on a `pem` file.
 
 `-S JsonWebTokenPath=<path to pem file>`
 
@@ -104,30 +108,33 @@ services:
 
 ### Validation
 
-The JWT is passed to the QIX Engine in the `Authorization` header using the `Bearer` schema:
+The JWT is passed to the QIX Engine in the `Authorization` header using
+the `Bearer` schema, and is validated once the websocket connection is established.
 
 `Authorization: Bearer <token>`
 
-The JWT is validated once the websocket connection is established. In order for validation to be successful, two
+In order for validation to be successful, two
 conditions must be met:
 
 1. The signature must be valid.
 1. If the `exp` field exists, then the expiry date must not have passed.
 
-If validation fails, the request is rejected with the `401 Unauthorized` HTTP response code.
+If validation fails, the request is rejected and a `401 Unauthorized` HTTP response code is returned.
 
 ## Section access
 
-You can use section access to segment application data so that specific
-sections are available only to certain users.
-See [Section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
+You can use section access to segment application data so specific
+sections are available only to certain users or groups.
+To learn more about section access, see [Managing security with section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
 
-### Manage access control
+### Managing access control
 
-Access control is managed through one or more security tables,
-which are loaded in the same way that the QIX Engine normally loads data.
+Access control is managed through one or several security tables loaded
+in the same way that the QIX Engine normally loads data.
 
-For example, the load script below grants regional users access to their respective country data:
+In the example below, the load script grants regional
+users access to their respective country data
+while the admin user has access to all data.
 
 ```none
 section access;
@@ -155,10 +162,8 @@ DE, Other, 303
 ];
 ```
 
-The QIX Engine takes the `sub` field of the JWT and maps it to the user names that are specified in the section access table.
-In theexample above, notice that the `COUNTRY` key connects the section access and `Sales` tables,
-and that the section access table now specifies which rows of the `Sales` table are visible to the specific user.
-
-Similarily, you can use groups to segment the application data.
-See [Managing security with section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
-site for more information.
+The QIX Engine maps the `sub` field from the JWT to the user names
+that are specified in the section access table.
+In the example above, the section access table is linked to the `Sales` table
+through the `COUNTRY` field value,
+which allows the visiability of row data to be controlled by section access.
