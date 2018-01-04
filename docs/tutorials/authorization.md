@@ -1,25 +1,33 @@
-# Authorization Recipe
+# Authorization
 
-This recipe explains how the QIX Engine can be configured to manage authenticated users.
+In this tutorial, you will learn how to configure JSON Web Tokens (JWT) and the QIX Engine
+to manage and authenticate users.
 
 ## JSON Web Token
 
-JSON Web Token (JWT) is an open standard for creating access tokens. To read more about the details of JWTs please
-refer to [https://jwt.io/](https://jwt.io/) and [RFC7519](https://tools.ietf.org/html/rfc7519).
+JWT is an open standard for creating access tokens. To learn more about JWT,
+see the [JWT documentation](https://jwt.io/) and the [JWT Standard](https://tools.ietf.org/html/rfc7519).
 
-The QIX Engine will use JWTs to:
+The QIX Engine uses JWTs for the following tasks:
 
-- ensure that only authenticated users are allowed to connect
-- connect users to the same sessions
-- apply data security (i.e. section access)
-- enforce document level access control <---- needs to be verified
+- Ensuring that only authenticated users are allowed to connect.
+- Connecting users to the same sessions.
+- Applying data security (for example, section access).
+- Enforcing document level access control.
 
-### Format
+### JWT format
 
-A typical JWT consists of three parts (each being [base64url](https://tools.ietf.org/html/rfc4648#section-5)-encoded
-and separated by a dot): `{header}.{payload}.{signature}`.
+A typical JWT consists of three parts.
 
-The header describes the type of token, and the hashing algorithm used to sign the token. For example:
+`{header}.{payload}.{signature}`
+
+**Note:** Each part of the JWT is base64url-encoded and separated by a dot.
+To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
+
+#### Header
+
+The header describes the type of token,
+and the hashing algorithm that is used to sign the token. For example:
 
 ```json
 {
@@ -28,12 +36,15 @@ The header describes the type of token, and the hashing algorithm used to sign t
 }
 ```
 
-The payload contains the claims made by the token. The QIX Engine considers the `sub` and `exp` properties:
+#### Payload
 
-| Key | Description |
+The payload contains the claims of the JWT.
+The relavant claims that are evaluated by the QIX Engine are the subject and the expiration date.
+
+| Field | Description |
 | -----|------------|
-| `sub` | The subject, a unique identifier for a user |
-| `exp` | The numerical expiration date, never expires if omitted |
+| `sub` | The subject is a unique identifier for a user. |
+| `exp` | The numerical expiration date. It never expires if it is omitted. |
 
 For example:
 
@@ -44,16 +55,25 @@ For example:
 }
 ```
 
-The signature is used to verify the authenticity of the token. The QIX Engine supports the following JWT signing
-algorithms:
+#### Signature
 
-- HMAC: HS256, HS384 and HS512
-- Elliptic curve: ES256, ES384 and ES512
-- RSA: RS256, RS384 and RS512
+The signature is used to verify the authenticity of the token.
+The QIX Engine supports the following JWT signing algorithms:
 
-### QIX Engine Configuration
+| Encryption type | Algorithms |
+| ----            | --------- |
+| HMAC            | HS256, HS384, HS512 |
+| Elliptic curve  | ES256, ES384, ES512 |
+| RSA             | RS256, RS384,  RS512 |
 
-The QIX Engine can be configured to validate JWTs using the following command line parameter:
+To learn more about JWT signatures, see [Signature](https://jwt.io/introduction/#signature).
+
+### QIX Engine configuration
+
+To validate JWTs, you must configure the QIX Engine by specifying
+the JWT enforcement type and the JWT secret in the docker compose file.
+
+The enforcement type is defined as:
 
 `-S ValidateJsonWebTokens=<enforcement type>`
 
@@ -62,13 +82,19 @@ where `enforcement type` is one of the following values:
 | Value | Description |
 |---|---|
 | 0 | Not enforced (default) |
-| 1 | Enforce JWT validation; JWT can be either signed or unsigned |
-| 2 | Enforce JWT validation; JWT must be signed |
+| 1 | Enforce JWT validation (JWT can be either signed or unsigned) |
+| 2 | Enforce JWT validation (JWT must be signed) |
 
-HMAC secrets are injected through the command line parameter: `-S JsonWebTokenSecret=<secret>`. Elliptic curve and RSA
-requires a public key (packaged in a `pem` file)  which is set through: `-S JsonWebTokenPath=<path to pem file>`.
+HMAC secrets are injected through the command line parameter:
 
-For example:
+`-S JsonWebTokenSecret=<secret>`
+
+Elliptic curve and RSA secrets are retrieved from a public key,
+stored on a `pem` file.
+
+`-S JsonWebTokenPath=<path to pem file>`
+
+Example:
 
 ```yaml
 version: "3.1"
@@ -82,28 +108,33 @@ services:
 
 ### Validation
 
-The JWT shall be passed to the QIX Engine in the `Authorization` header using the `Bearer` schema:
+The JWT is passed to the QIX Engine in the `Authorization` header using
+the `Bearer` schema, and is validated once the websocket connection is established.
+
 `Authorization: Bearer <token>`
 
-The JWT is validated once the websocket connection is established. In order for validation to be successful, two
+In order for validation to be successful, two
 conditions must be met:
 
-1. the signature must be valid
-1. if the `exp` field exists, the expiry date must not have passed
+1. The signature must be valid.
+1. If the `exp` field exists, then the expiry date must not have passed.
 
-If validation fails, the request is rejected with the `401 Unauthorized` HTTP response code.
+If validation fails, the request is rejected and a `401 Unauthorized` HTTP response code is returned.
 
 ## Section access
 
-[Section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
-can be used to segment application data in portions that are only viewable by certain users.
+You can use section access to segment application data so specific
+sections are available only to certain users or groups.
+To learn more about section access, see [Managing security with section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
 
-### Manage access control
+### Managing access control
 
-Access control is managed through one (or more) security tables loaded in the same way that the QIX Engine normally
-loads data.
+Access control is managed through one or several security tables loaded
+in the same way that the QIX Engine normally loads data.
 
-For example, the load script below grants regional users access to their respective country data:
+In the example below, the load script grants regional
+users access to their respective country data
+while the admin user has access to all data.
 
 ```none
 section access;
@@ -131,10 +162,8 @@ DE, Other, 303
 ];
 ```
 
-The QIX Engine will use the `sub` field of the JWT and map it to the user names specified in the access table. In the
-example above, note how the `COUNTRY` key connects the access and `Sales` tables and thus declares which portions of
-the data that are visible to the specific user.
-
-In a similar way, groups can be used to segment the application data.
-Please consult the [Qlik Sense help](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm)
-site for detailed documentation.
+The QIX Engine maps the `sub` field from the JWT to the user names
+that are specified in the section access table.
+In the example above, the section access table is linked to the `Sales` table
+through the `COUNTRY` field value,
+which allows the visiability of row data to be controlled by section access.
