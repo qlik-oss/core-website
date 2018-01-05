@@ -97,7 +97,8 @@ Do the following:
     When the PostgreSQL image starts, it will run all `.sql` files inside the folder.
 
     When the
-    [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) is executed,
+    [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql)
+    is executed,
     it creates a table in the default database that contains
     the data copied from the `airports.csv` file.
     The result is a standard PostgreSQL database with a table that contains
