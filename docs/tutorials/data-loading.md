@@ -72,7 +72,8 @@ and loading data from these data sources is supported by the
 In this example workflow, you will load data from a PostgreSQL database
 using the GRPC protocol in the QIX Engine.
 
-Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector) Git repository to your local machine.
+Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
+Git repository to your local machine.
 
 ``` bash
 git clone https://github.com/qlik-ea/postgres-grpc-connector.git
@@ -95,8 +96,10 @@ Do the following:
     and places them on the image. The script is copied to the `docker-entrypoint-initdb.d` folder.
     When the PostgreSQL image starts, it will run all `.sql` files inside the folder.
 
-    When the [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) is executed,
-    it creates a table in the default database that contains the data copied from the `airports.csv` file.
+    When the
+    [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql) is executed,
+    it creates a table in the default database that contains
+    the data copied from the `airports.csv` file.
     The result is a standard PostgreSQL database with a table that contains
     the data from the `airports.csv` file.
 
@@ -113,8 +116,11 @@ Do the following:
     - A postgres-grp-connector
     - The QIX Engine
 
-    **Note:** For the QIX Engine, port `9076` on the container is mapped to port `19076` on the local machine.
-    This lets you access the QIX Engine from outside of the docker network. In this example, we want to trigger a load of the airport data, thus the port needs open outside of the container.
+    **Note:** For the QIX Engine, port `9076` on the container
+    is mapped to port `19076` on the local machine.
+    This lets you access the QIX Engine from outside of the docker network.
+    In this example, we want to trigger a load of the airport data,
+    thus the port needs open outside of the container.
 
     **Special commands for the QIX Engine**
 
