@@ -4,10 +4,9 @@ Start loading data into your document by working through a data load workflow us
 
 ## Prerequisites
 
-To follow along in this tutorial, you should be running in a \*Nix environment,
-or if you are working in a Windows environment,
-we recommend that you run commands from Git Bash.
-You should also have basic understanding of Docker.
+To follow along in this tutorial, you should have basic understanding of Docker.
+**Note:** In the examples that follow, all shell commands should be run in a Bash shell.
+If you are using Windows, we recommend using Git Bash.
 
 ## File connectivity service
 
