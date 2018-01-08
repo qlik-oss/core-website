@@ -1,7 +1,6 @@
 # Loading Data
 
-In this tutorial, you will learn how to load data into your document,
-and some important considerations to keep in mind while loading data in a scalable environment.
+Start loading data into your document by working through a data load workflow using OAuth2.0 or the GRPC protocol.
 
 ## Prerequisites
 
@@ -13,17 +12,17 @@ You should also have basic understanding of Docker.
 ## File connectivity service
 
 The QIX Engine can access many data sources by using the `File-Connectivity-Service`.
-This service provides built-in data connectivity, to simplify accessing
+This service provides built-in data connectivity, which provides simple access to
 [OAuth 2.0](https://oauth.net/2/)-protected data sources
 like Dropbox, OneDrive, and GoogleDrive.
 
 The file connectivity service works by defining a unique HTTP endpoint for
 registered connection providers.
-You can then access data by making calls to the HTTP endpoint for the registered data source.
+Access data by making calls to the HTTP endpoint for the registered data source.
 
 ### Loading data from Dropbox using OAuth2.0
 
-In this example workflow, you will create an OAuth2.0 Dropbox application, load data,
+In this example workflow, create an OAuth2.0 Dropbox application, load data,
 and print some data to the console.
 
 Before you start this example, you must clone the [outhaul](https://github.com/qlik-ea/outhaul)
@@ -35,7 +34,7 @@ git clone https://github.com/qlik-ea/outhaul.git
 
 Do the following:
 
-1. Install the dependencies
+1. Install the dependencies.
     ``` bash
     cd file-connectivity-service
     npm install
@@ -54,7 +53,7 @@ Do the following:
     export DROPBOX_CLIENT_ID="your App key
     export DROPBOX_CLIENT_SECRET="your App secret"
     ```
-1. Start the docker container and run the example `dropbox.js` application.
+1. Start the docker container and run the `dropbox.js` application.
     ```bash
     cd examples
     docker-compose up -d --build
@@ -65,11 +64,11 @@ Do the following:
 
 The workflow for loading data from GoogleDrive and OneDrive is similar to the example above,
 and loading data from these data sources is supported by the
-[file-connectivity-service](https://github.com/qlik-ea/outhaul).
+[File-Connectivity-Service](https://github.com/qlik-ea/outhaul).
 
 ## Loading data from a PostgreSQL database using GRPC protocol
 
-In this example workflow, you will load data from a PostgreSQL database
+In this example workflow, load data from a PostgreSQL database
 using the GRPC protocol in the QIX Engine.
 
 Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
@@ -81,14 +80,12 @@ git clone https://github.com/qlik-ea/postgres-grpc-connector.git
 
 Do the following:
 
-1. Build the PostgreSQL image containing the example data.
+1. Build the PostgreSQL image that contains the example data.
 
     ```bash
     cd examples/postgres-image
     docker build . -t example/postgres-grpc-connector-database
     ```
-
-    **The Dockerfile**
 
     The [Dockerfile](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/Dockerfile)
     builds a PostgreSQL image.
@@ -96,11 +93,10 @@ Do the following:
     and places them on the image. The script is copied to the `docker-entrypoint-initdb.d` folder.
     When the PostgreSQL image starts, it will run all `.sql` files inside the folder.
 
-    When the
+    The
     [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql)
-    is executed,
-    it creates a table in the default database that contains
-    the data copied from the `airports.csv` file.
+    creates a table in the default database that contains
+    the data that is copied from the `airports.csv` file.
     The result is a standard PostgreSQL database with a table that contains
     the data from the `airports.csv` file.
 
@@ -111,19 +107,19 @@ Do the following:
     docker-compose up -d
     ```
 
-    The `docker-compose.yml` starts the following services in containers:
+    The `docker-compose` file starts the following services in containers:
 
     - A database
     - A postgres-grp-connector
     - The QIX Engine
 
-    **Note:** For the QIX Engine, port `9076` on the container
+    **Note:** If you look at the `docker-compose` file, port `9076` on the container
     is mapped to port `19076` on the local machine.
     This lets you access the QIX Engine from outside of the docker network.
-    In this example, we want to trigger a load of the airport data,
-    thus the port needs open outside of the container.
+    In this example, we want to trigger a load of the airport data
+    from outside of the container.
 
-    **Special commands for the QIX Engine**
+    The following special commands are important for enabling the GRPC connectors:
 
     - `-S EnableGrpcCustomConnectors=1`
 
@@ -141,15 +137,12 @@ Do the following:
     docker ps
     ```
 
-    **Ports**
-
-    The database container exposes port `5432` on the network
-    that the containers share among themselves. The `postgres-grpc-connector`
-    can therefore access the database container on this port.
+    The database containers share a common port `5432`, which is exposed on the network.
+    The `postgres-grpc-connector` can therefore access the database container on this port.
 
     The `postgres-grpc-connector` container exposes port `50051`.
     This is the port that we told the QIX Engine to talk to
-    with the commands in the `docker-compose.yml` file.
+    with the commands in the `docker-compose` file.
 
     The engine exposes ports `9076` and `9090`.
     Port `9090` is used for metrics, which is not relevant for this example.
@@ -159,11 +152,11 @@ Do the following:
 
 1. Trigger the data load.
 
-    Now that we have a database container with the data, a GRPC-Connector container,
+    Now that we have a database container with data, a GRPC-Connector container,
     and a QIX Engine running, all we need is to trigger a load of the data.
 
-    In this example, we use a small `Node.JS` program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
-    that talks to the QIX Engine to trigger a load of the airport data via the GRPC-Connector.
+    For this example, a small `Node.JS` program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
+    that talks to the QIX Engine triggers a load of the airport data with the GRPC-Connector.
 
     ```bash
     cd reload-runner
@@ -171,12 +164,12 @@ Do the following:
     npm start
     ```
 
-    You should see the info from 10 different airports in your terminal.
+    You should see the info from 10 different airports printed to the console.
 
 ## What is happening
 
 Once the containers are running and you trigger the data load,
-the program creates or opens an app called `reloadapp.qvf` on the QIX Engine.
+the program creates and opens an app called `reloadapp.qvf` on the QIX Engine.
 Then it creates a connection of the type we defined earlier.
 
 ```js
@@ -196,7 +189,7 @@ tells the QIX Engine to use the `postgres-grpc-connector`.
 The remaing part of the connection string specifies parameters to the GRPC-Connector,
 such as the database host, address, and port.
 You can see that the host is the name of the service we defined in the `docker-compose` file
-and the port is the port that the database-container exposes.
+and the port is the port that the database container exposes.
 
 Then, we set a script to use the connection that we just created.
 
@@ -211,9 +204,9 @@ app.setScript(script);
 
 We use the name `postgresgrpc`, which we defined when we created our connection.
 Then, we load the airport data from the PostgreSQL `airports` table into
-the QIX Engine table named `Airports`.
+a QIX Engine table that is named `Airports`.
 
-Next, we reload the data to load the new data into the QIX Engine and finally, we
+Next, we reload the data to load the new data into the QIX Engine. Finally, we
 fetch the first 10 results of the `Airports` table and print them to the console.
 
 **Tip:** We recommend that you take a look inside the `index.js` file
