@@ -34,7 +34,7 @@ The `Redirect URIs` should be the address to the `http://[host]:[port]/oauth2/ca
 
 ``` bash
 cd examples
-export DROPBOX_CLIENT_ID="your App key
+export DROPBOX_CLIENT_ID="your App key"
 export DROPBOX_CLIENT_SECRET="your App secret"
 docker-compose up -d --build
 node ./dropbox
