@@ -1,21 +1,117 @@
-# Scaling Recipe
+# Scaling
 
-These documents provide an overview of what drives performance and how
-to think about performance, scalability and monitoring.
+Learn about scalability, performance, and mornitoring, by walking through a real-world use case.
 
-## General principles and scaling characteristics
+## Before you begin
 
-It is recommended to start by reading up on how the most resource intensive
-service (QIX) works, handles resource and what drives it.
-
+We recommend that before you walk through this tutorial, read the
 [QIX Engine documentation](./../../documentation/services/qix-engine.md)
+to understand how the QIX Engine works with difference resources.
 
-## Real world use case
+## Newspaper website: a real-world use case
 
-Frontira can be used in many different ways. The documents available here cover vastly
-different, but relevant, implementations.
+Frontira can be used in many different ways.
+This real-world user case covers a relevant but unique implementation.
+Each implementation will be unqiue but the concepts and solutions provide useful information.
 
-[The newspaper case](./newspaper.md)
+In the Newspaper scenario, documents are hosted as a backend with a custom-built user
+interface that is embedded in the newspaper site for storytelling and interactive charts.
 
-In this scenario, documents are hosted as a backendcwith a custom-built user
-interface and embedded in newspaper site for storytelling or interactive charts.
+In this type of deployment, there are typically bursts in
+traffic volume for specific documents. The assumption is that
+traffic is heavy as users click through content that is presented rather than
+users making chart selections in an interactive chart.
+A successful deployment has reasonable uptake against
+a discrete amount of documents or data models.
+
+### Web usage pattern
+
+Online newspaper articles have the potential to reach a worlwide audience.
+This means that web traffic is likely to be determined users' timezone.
+For example, the traffic to an article might increase
+during business hours in the EU time zones, drop after business hours,
+and then increase again when US buisness hours start.
+This means that the time zone affects the arrival of new readers,
+and this load is incurred on the Frontira backend.
+
+The amount of users reading and interacting with such an article is hard to
+predict, but the idea is to have enough nodes/hosts to handle a reasonable peak
+usage even though this could exceed thousands of new users per hour.
+
+Based on this usage pattern and assumptions, the system could become reasonably
+predictable and scale for need.
+
+## Assumptions
+
+Beyond what is stated regarding the usage pattern above, several assumptions
+are made in this example scenario:
+
+- There are a few distinct and known document entities with known
+  sizes and characteristics.
+
+- There is a predefined set of hosts/nodes running QIX Engine. These are, if
+  unused, idling awaiting workload.
+
+- It is expected that loading all of these on all QIX Engine nodes is not an
+  issue and they could almost be pre-populated for speed.
+
+- Having all documents already present on the QIX Engine nodes
+  removes the need to continuously check whether there is enough resource
+  headroom to add another one.
+
+In this pseudo implementation there is no logic to reject new sessions
+even if the current cluster is fully loaded or over-loaded. This could be
+added by checking for headroom and rejecting when there is not enough left.
+
+## Metrics to look for
+
+A continuous monitoring of system-wide, but predominantly QIX Engine related,
+metrics will provide the current health of the system and information on how
+much more load can be added.
+
+In this case, several assumptions (such as known document sizes)
+that simplify the metrics have been made. With these given, the below metrics
+are enough to determine, and later predict, the scaling needs.
+
+RAM and CPU resources available for each QIX Engine (for least-load placement)
+
+## Document session placement using Mira
+
+The Mira service ([Mira](./../../documentation/services/mira.md)) returns an array
+of available QIX Engines. New sessions should be placed where there is least-load
+and enough headroom resource-wise to place a new document. As for headroom, it is
+assumed that the document is either already opened or small
+enough to not cause RAM issues. Hence, a simple least-load principle chould
+be applied to properly place a new users (which corresponds to a QIX Engine
+session).
+
+The simplest form of the algorithm then becomes
+
+- Get QIX Engines from Mira and sort them by least load.
+- The sorting algorithm then returns the QIX Engine with the most free RAM
+- If multiple QIX Engines have the same amount of free RAM then the QIX Engine
+  with lower CPU consumption is preferred and then chosen/returned.
+
+```javascript
+//RAM free takes priority, but if equal then CPU is the deciding factor
+function compareResources(a, b) {
+  if (a.engine.health.mem.free > b.engine.health.mem.free) {
+    return -1;
+  }
+  if (a.engine.health.mem.free < b.engine.health.mem.free) {
+    return 1;
+  }
+  if (a.engine.health.cpu.total < b.engine.health.cpu.total){
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
+function getLeastLoadedQixEngine() {
+  const qixEngines = []; // retrieved from your Mira service
+  var sortedQIXEngines = qixEngines.sort(compareResources);
+  console.log("QIX Engine selected: "+ sortedQIXEngines[0].engine.ip);
+  return sortedQIXEngines[0].engine.ip;
+}
+```

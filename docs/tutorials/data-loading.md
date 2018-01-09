@@ -1,35 +1,41 @@
 # Loading Data
 
-Start loading data into your document by working through a data load workflow using OAuth2.0 or the GRPC protocol.
+Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.
 
 ## Prerequisites
 
 To follow along in this tutorial, you should have basic understanding of Docker.
+
 **Note:** In the examples that follow, all shell commands should be run in a Bash shell.
 If you are using Windows, we recommend using Git Bash.
 
-## File connectivity service
+## Accessing data throug a connection service
 
-The QIX Engine can access many data sources by using the `File-Connectivity-Service`.
-This service provides built-in data connectivity, which provides simple access to
+Learn how you can connect to an [OAuth 2.0](https://oauth.net/2/)-protected data source
+using the _example_ data-connection service to retrieve and load data.
+
+### File connectivity service
+
+The `File-Connectiviy-Service` is an example of a service that can be used to load data from
+remote files in a Frontira stack.
+This service can be configured to provide built-in data connectivity to connect to
 [OAuth 2.0](https://oauth.net/2/)-protected data sources
 like Dropbox, OneDrive, and GoogleDrive.
 
-The file connectivity service works by defining a unique HTTP endpoint for
-registered connection providers.
-Access data by making calls to the HTTP endpoint for the registered data source.
+The data connection service that is used in this tutorial
+works by defining a unique HTTP endpoint for each registered connection provider.
+The QIX Engine can then access different data sources by making calls
+to the service-defined HTTP endpoints.
 
-### Loading data from Dropbox using OAuth2.0
-
-In this example workflow, create an OAuth2.0 Dropbox application, load data,
-and print some data to the console.
-
-Before you start this example, you must clone the [outhaul](https://github.com/qlik-ea/outhaul)
+Before you start this example, you must clone the
+[File-Connectiviy-Service](https://github.com/qlik-ea/outhaul)
 Git repository to your local machine.
 
 ``` bash
 git clone https://github.com/qlik-ea/outhaul.git
 ```
+
+### Dropbox example
 
 Do the following:
 
@@ -39,7 +45,7 @@ Do the following:
     npm install
     ```
 1. Copy the [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv) file,
-    which is located in the `/data` folder of the `outhaul` repository, and paste it into your Dropbox.
+    which is located in the `/data` folder of the `File-Connectivity-Service` repository, and paste it into your Dropbox.
 1. Create an OAuth2.0 application by following the
     [OAuth guide instructions](https://www.dropbox.com/developers/reference/oauth-guide).
 
@@ -49,7 +55,7 @@ Do the following:
 
 1. Set the following environment variables in the command shell:
     ``` bash
-    export DROPBOX_CLIENT_ID="your App key
+    export DROPBOX_CLIENT_ID="your App key"
     export DROPBOX_CLIENT_SECRET="your App secret"
     ```
 1. Start the docker container and run the `dropbox.js` application.
@@ -58,17 +64,17 @@ Do the following:
     docker-compose up -d --build
     node ./dropbox
     ```
-    **Note:** When you run the `dropbox.js` application, the first 10 lines of the [`airports.csv](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
-    are pritned to the console window.
+    **Note:** When you run the `dropbox.js` application, the first 10 lines of the [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
+    are printed to the console window.
 
 The workflow for loading data from GoogleDrive and OneDrive is similar to the example above,
 and loading data from these data sources is supported by the
 [File-Connectivity-Service](https://github.com/qlik-ea/outhaul).
 
-## Loading data from a PostgreSQL database using GRPC protocol
+## Loading data from a PostgreSQL database using gRPC protocol
 
 In this example workflow, load data from a PostgreSQL database
-using the GRPC protocol in the QIX Engine.
+using the gRPC protocol in the QIX Engine.
 
 Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
 Git repository to your local machine.
@@ -86,18 +92,10 @@ Do the following:
     docker build . -t example/postgres-grpc-connector-database
     ```
 
-    The [Dockerfile](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/Dockerfile)
-    builds a PostgreSQL image.
-    It also copies the `airports.csv` data file and the `init-airports-data.sql`,
-    and places them on the image. The script is copied to the `docker-entrypoint-initdb.d` folder.
-    When the PostgreSQL image starts, it will run all `.sql` files inside the folder.
-
-    The
-    [script](https://github.com/qlik-ea/postgres-grpc-connector/blob/master/example/postgres-image/init-airports-data.sql)
-    creates a table in the default database that contains
-    the data that is copied from the `airports.csv` file.
-    The result is a standard PostgreSQL database with a table that contains
-    the data from the `airports.csv` file.
+    **Note:** The `Dockerfile` copies the the example data to the image.
+    The PostgreSQL container then automatically populates the database.
+    The result is a PostgreSQL database with a table that is populated with the
+    data from the `airports.csv` file.
 
 1. Start the containers.
 
@@ -112,17 +110,17 @@ Do the following:
     - A postgres-grp-connector
     - The QIX Engine
 
-    **Note:** If you look at the `docker-compose` file, port `9076` on the container
+    **Note:** If you look at the `docker-compose.yml` file, port `9076` on the container
     is mapped to port `19076` on the local machine.
     This lets you access the QIX Engine from outside of the docker network.
     In this example, we want to trigger a load of the airport data
     from outside of the container.
 
-    The following special commands are important for enabling the GRPC connectors:
+    The following special commands are important for enabling the gRPC connectors:
 
     - `-S EnableGrpcCustomConnectors=1`
 
-        Enables grpc-connectors in the QIX Engine.
+        Enables gRPC connectors in the QIX Engine.
 
     - `-S GrpcConnectorPlugins="postgres-grpc-connector,postgres-grpc-connector:50051"`
 
@@ -141,9 +139,9 @@ Do the following:
 
     The `postgres-grpc-connector` container exposes port `50051`.
     This is the port that we told the QIX Engine to talk to
-    with the commands in the `docker-compose` file.
+    with the commands in the `docker-compose.yml` file.
 
-    The engine exposes ports `9076` and `9090`.
+    The QIX Engine exposes ports `9076` and `9090`.
     Port `9090` is used for metrics, which is not relevant for this example.
     Port `9076` is the standard QIX Engine API port. Since we mapped it to
     port `19076` on your local machine, _outside_ of the container,
@@ -151,11 +149,11 @@ Do the following:
 
 1. Trigger the data load.
 
-    Now that we have a database container with data, a GRPC-Connector container,
+    Now that we have a populated database, a gRPC connector container,
     and a QIX Engine running, all we need is to trigger a load of the data.
 
-    For this example, a small `Node.JS` program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
-    that talks to the QIX Engine triggers a load of the airport data with the GRPC-Connector.
+    For this example, a small `Node.js` program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
+    that talks to the QIX Engine triggers a load of the airport data with the gRPC connector.
 
     ```bash
     cd reload-runner
@@ -177,17 +175,17 @@ app.createConnection({
   qName: 'postgresgrpc',
   //the connection string inclues both the provider to use and parameters to it.
   qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"',
-  qUserName: 'postgres', //username and password for the PostgreSQL database, provided to the grpc-connector
+  qUserName: 'postgres', //username and password for the PostgreSQL database, provided to the gRPC connector
   qPassword: 'postgres'
 });
 ```
 
 The connection string
 `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres`
-tells the QIX Engine to use the `postgres-grpc-connector`.
-The remaing part of the connection string specifies parameters to the GRPC-Connector,
+tells the QIX Engine to use the newly created connection.
+The remaing part of the connection string specifies parameters to the gRPC connector,
 such as the database host, address, and port.
-You can see that the host is the name of the service we defined in the `docker-compose` file
+You can see that the host is the name of the service we defined in the `docker-compose.yml` file
 and the port is the port that the database container exposes.
 
 Then, we set a script to use the connection that we just created.
@@ -197,7 +195,7 @@ const script = `
   lib connect to 'postgresgrpc';
   Airports:
   sql select rowID,Airport,City,Country,IATACode,ICAOCode,Latitude,Longitude,Altitude,TimeZone,DST,TZ,clock_timestamp() from airports;
-`; // add script to use the grpc-connector and load a table
+`; // add script to use the gRPC connector and load a table
 app.setScript(script);
 ```
 
