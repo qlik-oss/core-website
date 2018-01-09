@@ -92,7 +92,7 @@ Do the following:
     docker build . -t example/postgres-grpc-connector-database
     ```
 
-    **Note:** The `Dockerfile` copies the the example data to the image.
+    **Note:** The `Dockerfile` copies the example data to the image.
     The PostgreSQL container then automatically populates the database.
     The result is a PostgreSQL database with a table that is populated with the
     data from the `airports.csv` file.
