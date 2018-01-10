@@ -9,7 +9,7 @@ To follow along in this tutorial, you should have basic understanding of Docker.
 **Note:** In the examples that follow, all shell commands should be run in a Bash shell.
 If you are using Windows, we recommend using Git Bash.
 
-## Accessing data throug a connection service
+## Accessing data through a connection service
 
 Learn how you can connect to an [OAuth 2.0](https://oauth.net/2/)-protected data source
 using the _example_ data-connection service to retrieve and load data.
@@ -104,10 +104,10 @@ Do the following:
     docker-compose up -d
     ```
 
-    The `docker-compose` file starts the following services in containers:
+    The `docker-compose.yml` file starts the following services in containers:
 
     - A database
-    - A postgres-grp-connector
+    - A postgres-grpc-connector
     - The QIX Engine
 
     **Note:** If you look at the `docker-compose.yml` file, port `9076` on the container
@@ -152,7 +152,7 @@ Do the following:
     Now that we have a populated database, a gRPC connector container,
     and a QIX Engine running, all we need is to trigger a load of the data.
 
-    For this example, a small `Node.js` program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
+    For this example, a small Node.js program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
     that talks to the QIX Engine triggers a load of the airport data with the gRPC connector.
 
     ```bash
@@ -183,7 +183,7 @@ app.createConnection({
 The connection string
 `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres`
 tells the QIX Engine to use the newly created connection.
-The remaing part of the connection string specifies parameters to the gRPC connector,
+The remaining part of the connection string specifies parameters to the gRPC connector,
 such as the database host, address, and port.
 You can see that the host is the name of the service we defined in the `docker-compose.yml` file
 and the port is the port that the database container exposes.
