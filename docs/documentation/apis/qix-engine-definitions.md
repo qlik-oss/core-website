@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.119.0._
+_QIX definitions for version 12.117.0._
 
 ## `AlfaNumString`
 
@@ -398,6 +398,7 @@ _No description._
 
 
 
+
 ## `ErrorData`
 
 _No description._
@@ -776,6 +777,14 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qColumnOrder` | array | _No description._ |
+
+## `If`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qExpr` | string | _No description._ |
 
 ## `InteractDef`
 
@@ -2386,6 +2395,7 @@ _No description._
 | `qDisplayString` | string | Variable value. |
 | `qIsSystem` | boolean | Is set to true if the variable is a system variable. |
 | `qIsReserved` | boolean | Is set to true if the variable is a reserved variable. |
+
 
 ## `TreeData`
 
