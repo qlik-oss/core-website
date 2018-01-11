@@ -51,7 +51,7 @@ RAM and CPU are important metrics for
 determining how to scale the system and where to place new sessions.
 
 New sessions should be placed on the QIX Engine node that has the most headroom and least amount of load.
-A simple least-load principle should could be applied to
+A simple least-load principle could be applied to
 properly place a new user on the appropriate QIX Engine node.
 
 You can do this by using the [Mira service](./../../documentation/services/mira.md) to return an array
