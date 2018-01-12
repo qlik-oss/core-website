@@ -47,12 +47,12 @@ in order to make license activation requests to it.
 This is done by providing the following command line argument to QIX Engine:
 
 ```sh
--S LicenseServiceURL=<License Service URL>
+-S LicenseServiceUrl=<License Service URL>
 ```
 
 ## Examples
 
-For running examples of basic license configuration, see the [Core Recipe](../../recipes/core/).
+For running examples of basic license configuration, see the [Core Recipe](../../tutorials/core.md).
 
 ## Deployment
 
