@@ -1,21 +1,13 @@
-# Scaling Recipe
+# Scalability Use Cases
 
-These documents provide an overview of what drives performance and how
-to think about performance, scalability and monitoring.
+Learn about scalability, performance, and monitoring, by reading through some real-world use cases.
+These real-world implementations will help you understand your requirements when building your solution.
 
-## General principles and scaling characteristics
+## Before you begin
 
-It is recommended to start by reading up on how the most resource intensive
-service (QIX) works, handles resource and what drives it.
+We recommended that you start by reading the [QIX Engine documentation](./../../documentation/services/qix-engine.md),
+which will help you understand how the QIX Engine handles resources and interacts with other services.
 
-[QIX Engine documentation](./../../documentation/services/qix-engine.md)
+## Use cases
 
-## Real world use case
-
-Frontira can be used in many different ways. The documents available here cover vastly
-different, but relevant, implementations.
-
-[The newspaper case](./newspaper.md)
-
-In this scenario, documents are hosted as a backendcwith a custom-built user
-interface and embedded in newspaper site for storytelling or interactive charts.
+- [The newspaper case](./newspaper.md)
