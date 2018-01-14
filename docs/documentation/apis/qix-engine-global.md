@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.117.0._
+_QIX methods for version 12.121.0._
 
 ## `AbortAll`
 
@@ -71,7 +71,7 @@ _No return values._
 
 ## `CopyApp`
 
-Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Introduction.htm) for more information.<br>This operation is possible only in Qlik Sense Enterprise.
+Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](
 
 **Parameters:**
 
