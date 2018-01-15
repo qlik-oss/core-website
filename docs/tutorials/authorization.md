@@ -71,7 +71,7 @@ To learn more about JWT signatures, see [Signature](https://jwt.io/introduction/
 ### QIX Engine configuration
 
 To validate JWTs, you must configure the QIX Engine by specifying
-the JWT enforcement type and the JWT secret in the Docker compose file.
+the JWT enforcement type and the JWT secret in the `docker-compose.yml` file.
 
 The enforcement type is defined as:
 

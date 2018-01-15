@@ -36,7 +36,7 @@ to verify that it is running with a valid license.
 A QIX Engine deployment must be configured with the URL
 that is used to call the License Service REST API.
 You can do this by providing the `LicenseServiceUrl` command switch
-to the engine in a docker-compose file in the services definition.
+to the engine in the `docker-compose.yml` file in the services definition.
 
 ```yml
 version: "3.0"
