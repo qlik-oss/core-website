@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericDimension
 
-_QIX methods for version 12.117.0._
+_QIX methods for version 12.122.0._
 
 ## `ApplyPatches`
 
