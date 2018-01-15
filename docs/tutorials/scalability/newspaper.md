@@ -1,9 +1,10 @@
 # Newspaper website
 
 Qlik Core can be used in many different ways and each implementation will be unique,
-but the concepts and solutions in this use case provide useful information when building your solution.
+but the concepts and solutions in this use case
+can provide useful information for you as you build your solution.
 
-In this scenario, documents are hosted as a backend with a custom-built user interface
+In this scenario, documents are hosted as a back end with a custom-built user interface
 that is embedded in the newspaper site for storytelling and interactive charts.
 
 In this type of deployment, there are typically bursts in traffic volume for specific documents
@@ -13,12 +14,12 @@ against a discrete amount of documents or data models.
 
 ## Assumptions
 
-There are several assumptions that are made in this example.
+We make the following assumptions in this example.
 
 - __Web usage pattern__
 
     User traffic to the website
-    and the load incurred by the Qlik Core backend fluctuates across timezones.
+    and the load incurred by the Qlik Core back end fluctuates across timezones.
     For example, as traffic from users in American timezones declines,
     traffic from users in European timezones increases.
 
@@ -62,11 +63,11 @@ enough to not cause RAM issues.
 
 A document session placement algorithm does the following:
 
-- Get QIX Engine instances from Mira and sort them by least load.
-- Sort the QIX Engine instances by the most free RAM.
-- If multiple QIX Engines have the same amount of free RAM,
+1. Get QIX Engine instances from Mira and sort them by least load.
+1. Sort the QIX Engine instances by the most free RAM.
+1. If multiple QIX Engines have the same amount of free RAM,
     then sort the QIX Engine instances by CPU consumption.
-- Choose the QIX Engine instance with the least amount of load (RAM and CPU).
+1. Choose the QIX Engine instance with the least amount of load (RAM and CPU).
 
 ```javascript
 //RAM free takes priority, but if equal then CPU is the deciding factor

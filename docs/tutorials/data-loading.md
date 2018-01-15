@@ -58,7 +58,7 @@ Do the following:
     export DROPBOX_CLIENT_ID="your App key"
     export DROPBOX_CLIENT_SECRET="your App secret"
     ```
-1. Start the docker container and run the `dropbox.js` application.
+1. Start the Docker container and run the `dropbox.js` application.
     ```bash
     cd examples
     docker-compose up -d --build
@@ -112,7 +112,7 @@ Do the following:
 
     **Note:** If you look at the `docker-compose.yml` file, port `9076` on the container
     is mapped to port `19076` on the local machine.
-    This lets you access the QIX Engine from outside of the docker network.
+    This lets you access the QIX Engine from outside of the Docker network.
     In this example, we want to trigger a load of the airport data
     from outside of the container.
 

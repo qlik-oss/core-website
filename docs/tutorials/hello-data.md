@@ -52,8 +52,8 @@ Hello Visualization tutorials.
 
 ## What is happening
 
-When you start QIX Engine, the docker-compose file makes the movies.csv file
-available to QIX Engine. In the docker-compose file, this data location is specified in the volumes section.
+When you start QIX Engine, the `docker-compose.yml` file makes the movies.csv file
+available to QIX Engine, and the data location is specified in the volumes section.
 
 ```yml
 volumes:

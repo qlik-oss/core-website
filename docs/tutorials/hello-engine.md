@@ -43,7 +43,7 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
 ### What is happening
 
 When you execute the `docker-compose up` command,
-Docker builds and starts a Docker container with the services configured in the docker-compose file.
+Docker builds and starts a Docker container with the services configured in the `docker-compose.yml` file.
 The `-d` option keeps the container running in the background.
 In this example, Docker builds the container from the `docker-compose.yml` file,
 which is located in the root folder of the getting started with web platform Git repository.
