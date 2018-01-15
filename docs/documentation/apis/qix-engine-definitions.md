@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.117.0._
+_QIX definitions for version 12.122.0._
 
 ## `AlfaNumString`
 
@@ -34,6 +34,7 @@ _No description._
 | `qReadOnly` | boolean | Is set to true if the app is read-only. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Meta data. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
+| `qFileSize` | integer | _No description._ |
 
 ## `AppObjectList`
 
@@ -398,7 +399,6 @@ _No description._
 
 
 
-
 ## `ErrorData`
 
 _No description._
@@ -546,7 +546,7 @@ _No description._
 | `qType` | string | Type of the file.<br><br>One of:<br>* CSV or FILE_TYPE_CSV<br>* FIX or FILE_TYPE_FIX<br>* DIF or FILE_TYPE_DIF<br>* EXCEL_BIFF or FILE_TYPE_EXCEL_BIFF<br>* EXCEL_OOXML or FILE_TYPE_EXCEL_OOXML<br>* HTML or FILE_TYPE_HTML<br>* QVD or FILE_TYPE_QVD<br>* XML or FILE_TYPE_XML<br>* QVX or FILE_TYPE_QVX<br>* JSON or FILE_TYPE_JSON<br>* KML or FILE_TYPE_KML |
 | `qLabel` | string | One of:<br>* Embedded labels (field names are present in the file)<br>* No labels<br>* Explicit labels (for DIFfiles) |
 | `qQuote` | string | One of:<br>* None (no quotes)<br>* MSQ (Modern Style Quoting)<br>* Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)<br><br>This property is used for delimited files. |
-| `qComment` | string | String that marks the beginning of the comment line.<br>Example: “ |
+| `qComment` | string | String that marks the beginning of the comment line.<br>Example: “#” or “//”<br>The engine ignores the commented lines during the data load.<br>This property is only used for delimited files. |
 | `qDelimiter` | [`DelimiterInfo`](#delimiterinfo) | Information about the delimiter.<br>This property is used for delimited files. |
 | `qCodePage` | integer | Character set used in the file. |
 | `qHeaderSize` | integer | Size of the header.<br>Example: If the header size is 2, the first two rows in the file are considered as header and not as data. The header can contain the field names. |
@@ -778,14 +778,6 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qColumnOrder` | array | _No description._ |
 
-## `If`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qExpr` | string | _No description._ |
-
 ## `InteractDef`
 
 _No description._
@@ -865,7 +857,7 @@ _No description._
 | `qMoneyDecimalSep` | string | Money decimal separator. |
 | `qMoneyThousandSep` | string | Money thousand separator. |
 | `qCurrentYear` | integer | Current year. |
-| `qMoneyFmt` | string | Money format.<br>Example: _ |
+| `qMoneyFmt` | string | Money format.<br>Example: _#.##0,00 kr;-#.##0,00 kr_ |
 | `qTimeFmt` | string | Time format.<br>Example: _hh:mm:ss_ |
 | `qDateFmt` | string | Date format.<br>Example: _YYYY-MM-DD_ |
 | `qTimestampFmt` | string | Time stamp format.<br>Example: _YYYY-MM-DD hh:mm:ss[.fff]_ |
@@ -2395,7 +2387,6 @@ _No description._
 | `qDisplayString` | string | Variable value. |
 | `qIsSystem` | boolean | Is set to true if the variable is a system variable. |
 | `qIsReserved` | boolean | Is set to true if the variable is a reserved variable. |
-
 
 ## `TreeData`
 
