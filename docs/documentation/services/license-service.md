@@ -28,7 +28,7 @@ This is done by providing the following command line argument to QIX Engine:
 
 ## Examples
 
-For running examples of basic license configuration, see the [Core Recipe](../../tutorials/core.md).
+For running examples of basic license configuration, see the [Orchestration](../../tutorials/orchestration.md) tutorial.
 
 ## Deployment
 
