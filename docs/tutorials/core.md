@@ -1,9 +1,9 @@
 # Setting up the Core Services
 
-In this tutorial, you will learn how to set up and deploy the minimal Frontira stack
-comprising the core services. The core services represent the foundation on which to build full Frontira solutions.
+In this tutorial, you will learn how to set up and deploy the minimal Qlik Core stack
+comprising the core services. The core services represent the foundation on which to build full Qlik Core solutions.
 
-The core Frontira stack consists of the following services:
+The core Qlik Core stack consists of the following services:
 
 - [QIX Engine](../documentation/services/qix-engine.md)
 - [License Service](../documentation/services/license-service.md)
@@ -29,32 +29,6 @@ you should complete licensing configuration before you start this tutorial.
 since the QIX Engine does not yet support it.
 Examples will be updated as soon as this becomes available.
 
-### Configuring the License Service
-
-There are two license variables that the License Service
-requires to determine which service license to use.
-
-- `LEF_SERIAL` - The LEF serial number which identifies the license to use.
-- `LEF_CONTROL` - A control number used to validate the LEF serial number.
-
-Both numbers are provided by Qlik when you receive the license details for the QIX Engine.
-
-In a `docker-compose.yml` file,
-the license variables are specified in the environment definition.
-
-```yml
-version: "3.0"
-services:
-  license-service:
-    image: qlikea/license-service:<version>
-    ports:
-      - 9200:9200
-    environment:
-      - LEF_SERIAL=<LEF serial number here>
-      - LEF_CONTROL=<LEF control number here>
-...
-```
-
 ### Configuring the QIX Engine
 
 When the QIX Engine is running, it periodically communicates with the License Service
@@ -76,7 +50,7 @@ services:
 
 ## Container orchestration
 
-We provide examples on how to deploy the Frontira core services
+We provide examples on how to deploy the Qlik Core core services
 using the following container orchestration platforms:
 
 - [Docker Swarm](#deploying-to-docker-swarm)
@@ -103,7 +77,7 @@ eval $(docker-machine env <swarm manager node>)
 
 ### The Stack
 
-The Frontira stack is specified in the
+The Qlik Core stack is specified in the
 [docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file.
 The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
 
@@ -198,7 +172,7 @@ This prevents the command from being stored in the Bash shell command history.
 
 ### The Stack
 
-The Frontira stack is specified in the `docker-compose.yml` file.
+The Qlik Core stack is specified in the `docker-compose.yml` file.
 The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
 
 #### Mira Kubernetes mode
@@ -238,7 +212,7 @@ labels:
 ```
 
 This label is required for Mira to identify the engine service as a QIX Engine instance.
-To learn more about labeling, see [QIX Engine labeling](../services/mira.md#qix-engine-labeling).
+To learn more about labeling, see [QIX Engine labeling](../documentation/services/mira.md#qix-engine-labeling).
 
 ### Deploying the stack
 
@@ -289,7 +263,7 @@ This endpoint returns one or more QIX Engine instances and information about the
 
 ## Deploying to Nomad
 
-**Note**: Deploying to Nomad is not officially supported by Frontira.
+**Note**: Deploying to Nomad is not officially supported by Qlik Core.
 
 ### Prerequisites
 

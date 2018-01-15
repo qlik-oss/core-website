@@ -1,8 +1,8 @@
-site_name: Frontira
+site_name: Qlik Core
 
 theme:
   name: 'material'
-  logo: 'images/QlikLogo-White.svg'
+  logo: 'images/QlikCore-Horizontal-Print-white.svg'
   feature:
     tabs: true
 

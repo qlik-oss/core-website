@@ -29,9 +29,14 @@
   vertical-align: middle;
 }
 
-.md-header-nav__button img {
-  height: 21px;
-  width: 68px;
+.md-logo {
+  padding: 0;
+  margin: 0;
+}
+
+.md-logo img {
+  height: auto;
+  width: 200px;
 }
 
 .md-main__inner {

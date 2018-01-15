@@ -1,6 +1,6 @@
 # Newspaper website
 
-Frontira can be used in many different ways and each implementation will be unique,
+Qlik Core can be used in many different ways and each implementation will be unique,
 but the concepts and solutions in this use case provide useful information when building your solution.
 
 In this scenario, documents are hosted as a backend with a custom-built user interface
@@ -18,7 +18,7 @@ There are several assumptions that are made in this example.
 - __Web usage pattern__
 
     User traffic to the website
-    and the load incurred by the Frontira backend fluctuates across timezones.
+    and the load incurred by the Qlik Core backend fluctuates across timezones.
     For example, as traffic from users in American timezones declines,
     traffic from users in European timezones increases.
 

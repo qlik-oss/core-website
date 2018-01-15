@@ -74,7 +74,7 @@ Mira defaults to setting the QIX API port to 9076 and the `/metrics` port to 909
 
 ## Logging
 
-Mira follows the logging format and levels specified in the [Frontira Service Contract](../contract.md).
+Mira follows the logging format and levels specified in the [Qlik Core Service Contract](../contract.md).
 
 Default minimum log level is `info`, but can be set using the `MIRA_LOG_LEVEL` environment variable.
 

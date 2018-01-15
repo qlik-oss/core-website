@@ -1,6 +1,6 @@
-# Frontira Documentation Sources
+# Qlik Core Documentation Sources
 
-This repo contains sources to the Frontira end-user documentation.
+This repo contains sources to the Qlik Core end-user documentation.
 
 Documentation is primarily represented as markdown files and images.
 Markdown files are organized in the same way as the generated site is organized.
@@ -13,7 +13,7 @@ For a bleeding edge generated site (based on master branch), see [this link](htt
 
 ## Prerequisites
 
-To develop and contribute to the Frontira documentation, the following must be available on the local machine:
+To develop and contribute to the Qlik Core documentation, the following must be available on the local machine:
 
 - Docker - [Docker for Windows](https://www.docker.com/docker-windows) or [Docker for Mac](https://www.docker.com/docker-mac)
 - Bash - On Windows, Git Bash included in [Git for Windows](https://git-for-windows.github.io/) is recommended

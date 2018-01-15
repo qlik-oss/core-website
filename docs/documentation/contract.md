@@ -1,6 +1,6 @@
 # Contract
 
-This document contains a contract for Frontira services to keep the services aligned in aspects such as
+This document contains a contract for Qlik Core services to keep the services aligned in aspects such as
 logging formats, health checks and metrics.
 
 ## Logging

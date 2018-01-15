@@ -58,7 +58,7 @@ to communicate with the engine and halyard.js to manage the data.
 A session app only lives while the session is alive.
 
 **Tip:** We recommend that you take a look at [picasso.js](https://github.com/qlik-ea/picasso.js),
-a charting library that is streamlined for building visualizations with Frontira.
+a charting library that is streamlined for building visualizations with Qlik Core.
 You can also open the `app.js` file to see how enigma.js and halard.js are used
 to load and retrieve the movies data from the engine.
 
@@ -67,6 +67,6 @@ to load and retrieve the movies data from the engine.
 Now that you have seen how to start the QIX Engine in a Docker container,
 load data, and build a visualization from that data,
 we recommend that you explore the [Core](./core.md) tutorial,
-which shows how to run all core services of Frontira together.
+which shows how to run all core services of Qlik Core together.
 This will cover important topics such as how to run several QIX Engine instances using
 different container orchestration platforms.

@@ -6,7 +6,7 @@ The License Service shall be deployed together with the QIX Engine.
 In a deployment, each QIX Engine unlocks itself by checking for a valid license,
 both at start up and periodically, using the License Service.
 
-As such, the License Service API is not primarily intended to be consumed by applications built on top of Frontira.
+As such, the License Service API is not primarily intended to be consumed by applications built on top of Qlik Core.
 The License Service only works as a required side-car service to QIX Engine.
 
 ## Distribution
@@ -34,7 +34,7 @@ For running examples of basic license configuration, see the [Core Recipe](../..
 
 ### Single Instance
 
-Normally, only one License Service instance should be required in a Frontira deployment.
+Normally, only one License Service instance should be required in a Qlik Core deployment.
 Traffic between QIX Engine instances and the License Service is low.
 For load balancing or availability concerns, running multiple replicas of the License Service is supported.
 
@@ -70,7 +70,7 @@ The following metrics are provided.
 
 #### Logging
 
-The License Service complies with logging as described in the Frontira [Contract](../contract.md).
+The License Service complies with logging as described in the Qlik Core [Contract](../contract.md).
 By default, the minimum log level is `info`.
 However, for the Microsoft libraries the default minimum logging level is set to `warning` to avoid too verbose logging.
 
