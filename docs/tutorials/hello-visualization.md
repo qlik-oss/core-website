@@ -66,7 +66,7 @@ to load and retrieve the movies data from the engine.
 
 Now that you have seen how to start the QIX Engine in a Docker container,
 load data, and build a visualization from that data,
-we recommend that you explore the [Core](./core.md) tutorial,
+we recommend that you explore the [Orchestration](./orchestration.md) tutorial,
 which shows how to run all core services of Qlik Core together.
 This will cover important topics such as how to run several QIX Engine instances using
 different container orchestration platforms.
