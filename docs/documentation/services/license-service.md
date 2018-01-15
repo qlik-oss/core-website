@@ -2,7 +2,7 @@
 
 The _License Service_ is required to run QIX Engine with a valid license.
 
-The License Service shall be configured and deployed together with the QIX Engine.
+The License Service shall be deployed together with the QIX Engine.
 In a deployment, each QIX Engine unlocks itself by checking for a valid license,
 both at start up and periodically, using the License Service.
 
@@ -18,31 +18,7 @@ The License Service is developed by Qlik as closed source.
 
 ## Configuration
 
-### License Service
-
-The License Service shall be configured with information on the license to use with the deployment of QIX Engine.
-This is done by providing two environment variables to the License Service:
-
-| Name        | Description |
-|-------------|-------------|
-| LEF_SERIAL  | The LEF serial number which identifies the license to use. |
-| LEF_CONTROL | A control number used to validate the LEF serial number. |
-
-If these environment variables are not provided, or contain incorrect values,
-the License Service will still start, but it will deny all activation request with error status codes.
-
-The information can also be provided in files by instead using the envionment variables
-
-| Name | Description |
-| ---- | ----------- |
-| LEF_SERIAL_FILE  | Path to file containing the LEF serial number. |
-| LEF_CONTROL_FILE | Path to file containing the control number used to validate the LEF serial number. |
-
-This can be useful, for example when providing the values using Docker secrets in Docker Swarm.
-
-### QIX Engine
-
-The QIX Engine must also be configured with the URL of the License Service
+The QIX Engine must be configured with the URL of the License Service
 in order to make license activation requests to it.
 This is done by providing the following command line argument to QIX Engine:
 
