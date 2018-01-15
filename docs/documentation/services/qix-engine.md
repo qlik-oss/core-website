@@ -313,7 +313,7 @@ placed on large nodes/hosts.
 
 ## Logging
 
-The QIX Engine follows the logging format and levels specified in the [Frontira Service Contract](../contract.md#logging).
+The QIX Engine follows the logging format and levels specified in the [Qlik Core Service Contract](../contract.md#logging).
 
 ### Log Types
 
@@ -339,7 +339,7 @@ Below is a list of the different log types that are available and the default ve
 Configuration of the log levels is done by providing settings through command line parameters when starting the docker container.
 
 !!! note
-    The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Frontira Service Contract_,
+    The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Qlik Core Service Contract_,
     but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
 
 | Log level | Value |
@@ -367,7 +367,7 @@ services:
 
 ### Log Format
 
-In addition to the required fields in the _Frontira Service Contract_ the QIX Engine also has a few log fields that
+In addition to the required fields in the _Qlik Core Service Contract_ the QIX Engine also has a few log fields that
 are common to all log types:
 
 | Field | Description |

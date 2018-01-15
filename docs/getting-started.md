@@ -1,13 +1,13 @@
 # Getting Started
 
-To get started with Frontira and QIX Engine, and learn the basic concepts,
+To get started with Qlik Core and QIX Engine, and learn the basic concepts,
 a number of examples and tutorials are provided.
 Here, a recommended path through the examples is provided that introduces different concepts step by step.
 
 The tutorials often contain runnable examples,
 with source code that is available in separate open source repositories on GitHub.
 
-## Hello Frontira!
+## Hello Qlik Core!
 
 Users new to Qlik products and QIX Engine should start here.
 
@@ -35,7 +35,7 @@ This tutorial covers aspects such as:
 
 ## In-Depth Tutorials
 
-The in-depth tutorials provide more detailed examples of how to work with more specific aspects of Frontira. These
+The in-depth tutorials provide more detailed examples of how to work with more specific aspects of Qlik Core. These
 tutorials are; in recommended order to explore:
 
 - [Data Loading](./tutorials/data-loading.md) - Loading user data into QIX Engine

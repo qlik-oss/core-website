@@ -17,7 +17,7 @@ using the _example_ data-connection service to retrieve and load data.
 ### File connectivity service
 
 The `File-Connectiviy-Service` is an example of a service that can be used to load data from
-remote files in a Frontira stack.
+remote files in a Qlik Core stack.
 This service can be configured to provide built-in data connectivity to connect to
 [OAuth 2.0](https://oauth.net/2/)-protected data sources
 like Dropbox, OneDrive, and GoogleDrive.
