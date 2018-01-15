@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.117.0._
+_QIX methods for version 12.121.0._
 
 ## `AbortModal`
 
@@ -1286,7 +1286,7 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 | `qWindowSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | Size of the window that is used to display the results. |
 | `qNullSize` | [`Size`](./qix-engine-definitions.md#size) | Yes | _No description._ |
 | `qCellHeight` | integer | Yes | Height of a cell in a table in pixels. |
-| `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer<br>* _false_ for source table viewer |
+| `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer:<br>Shows a more detailed view on how the Qlik engine defines the relations between fields and the quality of the keys.<br>* _false_ for source table viewer:<br>Shows the natural relation between fields without reference to synthetic keys and resultant linking synthetic tables. Instead synthetic keys are represented by multiple connectors between tables. |
 | `qIncludeSysVars` | boolean | Yes | If set to true, the system variables are included. |
 
 **Returns:**

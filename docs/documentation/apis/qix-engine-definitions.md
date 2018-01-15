@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.117.0._
+_QIX definitions for version 12.121.0._
 
 ## `AlfaNumString`
 
@@ -34,6 +34,7 @@ _No description._
 | `qReadOnly` | boolean | Is set to true if the app is read-only. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Meta data. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
+| `qFileSize` | integer | _No description._ |
 
 ## `AppObjectList`
 
@@ -395,7 +396,6 @@ _No description._
 | `qbufferName` | string | Name of the breakpoint. |
 | `qlineIx` | integer | Line number in the script where the breakpoint is set. |
 | `qEnabled` | boolean | If set to true then the breakpoint is enabled (in use). |
-
 
 
 
@@ -777,14 +777,6 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
 | `qColumnOrder` | array | _No description._ |
-
-## `If`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qExpr` | string | _No description._ |
 
 ## `InteractDef`
 
@@ -2395,7 +2387,6 @@ _No description._
 | `qDisplayString` | string | Variable value. |
 | `qIsSystem` | boolean | Is set to true if the variable is a system variable. |
 | `qIsReserved` | boolean | Is set to true if the variable is a reserved variable. |
-
 
 ## `TreeData`
 
