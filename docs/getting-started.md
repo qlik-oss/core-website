@@ -20,12 +20,12 @@ Engine and the next steps after that. This is divided into three separate parts
     [halyard.js](https://github.com/qlik-oss/halyard.js)
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js
 
-## The Core Services and Orchestration
+## Orchestration
 
 Users with previous knowledge about QIX Engine, its supporting libraries, and Qlik products, but that are new to
 container technologies such as Docker, will benefit from looking at:
 
-- [Setting up the Core Services](./tutorials/core.md)
+- [Orchestration](./tutorials/orchestration.md)
 
 This tutorial covers aspects such as:
 

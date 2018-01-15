@@ -29,7 +29,7 @@ pages:
     - Hello Engine: tutorials/hello-engine.md
     - Hello Data: tutorials/hello-data.md
     - Hello Visualization: tutorials/hello-visualization.md
-    - Setting up the Core Services: tutorials/core.md
+    - Orchestration: tutorials/orchestration.md
     - Authorization: tutorials/authorization.md
     - Data Loading: tutorials/data-loading.md
     - Document Distribution: tutorials/document-distribution.md
