@@ -39,7 +39,7 @@ and the hashing algorithm that is used to sign the token. For example:
 #### Payload
 
 The payload contains the claims of the JWT.
-The relavant claims that are evaluated by the QIX Engine are the subject and the expiration date.
+The relevant claims that are evaluated by the QIX Engine are the subject and the expiration date.
 
 | Field | Description |
 | -----|------------|
@@ -71,7 +71,7 @@ To learn more about JWT signatures, see [Signature](https://jwt.io/introduction/
 ### QIX Engine configuration
 
 To validate JWTs, you must configure the QIX Engine by specifying
-the JWT enforcement type and the JWT secret in the docker compose file.
+the JWT enforcement type and the JWT secret in the Docker compose file.
 
 The enforcement type is defined as:
 
@@ -166,4 +166,4 @@ The QIX Engine maps the `sub` field from the JWT to the user names
 that are specified in the section access table.
 In the example above, the section access table is linked to the `Sales` table
 through the `COUNTRY` field value,
-which allows the visiability of row data to be controlled by section access.
+which allows the visibility of row data to be controlled by section access.

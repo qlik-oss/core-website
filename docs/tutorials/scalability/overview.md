@@ -10,4 +10,4 @@ which will help you understand how the QIX Engine handles resources and interact
 
 ## Use cases
 
-- [The newspaper case](./newspaper.md)
+- [Newspaper website](./newspaper.md)

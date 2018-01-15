@@ -11,8 +11,8 @@ The core Qlik Core stack consists of the following services:
 
 In a typical solution, all services are deployed on the server side.
 
-**Note:** Tutorials that describe how to configure the core components
-for things like authorization, data loading, and document distribution, are covered in separate tutorials.
+**Note:** We describe how to configure the core components for things like authorization,
+data loading, and document distribution in separate tutorials.
 
 ## Before you begin
 
@@ -178,7 +178,7 @@ The stack consists of one QIX Engine, one Mira discovery service, and one Licens
 #### Mira Kubernetes mode
 
 Open the
-[mira-deployment.yml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yml)
+[mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yaml)
 file to see how Mira is configured.
 
 The Mira deployment specifies two containers to run in the pod.
@@ -267,7 +267,7 @@ This endpoint returns one or more QIX Engine instances and information about the
 
 ### Prerequisites
 
-You must have a Nomad environment set up. If you need to setup a local enviroment, see
+You must have a Nomad environment set up. If you need to setup a local environment, see
 [Install Nomad](https://www.nomadproject.io/intro/getting-started/install.html).
 
 ### Docker Hub credentials
@@ -279,7 +279,7 @@ In this example, we use the Docker auths that is stored when logging into Docker
 **Note:** Nomad stores the Docker credentials as plain text.
 To learn more on how Nomad stores these credentials,
 see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
-To see an example of how the Nomad client can be configured to use local docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
+To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
 
 ### Service Discovery
 

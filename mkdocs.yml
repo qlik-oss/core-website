@@ -35,7 +35,7 @@ pages:
     - Document Distribution: tutorials/document-distribution.md
     - Scalability:
       - Overview: tutorials/scalability/overview.md
-      - The Newspaper Case: tutorials/scalability/newspaper.md
+      - Newspaper website: tutorials/scalability/newspaper.md
   - Documentation:
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
