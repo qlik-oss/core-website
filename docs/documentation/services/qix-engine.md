@@ -297,8 +297,9 @@ to avoid future peaks.
 
 Scaling a deployment of QIX Engines to match a given or dynamic workload
 can be done in two ways:
-  * horizontally, by adding more nodes/hosts to a cluster
-  * vertically, by adding more resources to current nodes/hosts
+
+* horizontally, by adding more nodes/hosts to a cluster
+* vertically, by adding more resources to current nodes/hosts
 
 Both of these options work well with the QIX Engine as it is very predictable
 and scales linearly to the load.
