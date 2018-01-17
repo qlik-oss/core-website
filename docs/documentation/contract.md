@@ -1,4 +1,4 @@
-# Contract
+# Qlik Core Service Contract
 
 This document contains a contract for Qlik Core services to keep the services aligned in aspects such as
 logging formats, health checks, and metrics.
@@ -17,7 +17,7 @@ and make sure that the content of the logs is sufficient for monitoring and fixi
 In staging and production environments, each service's log output will be captured by the execution environment
 and aggregated in near real-time.
 
-###Logging conventions
+### Logging conventions
 
 1. Write events only on `stdout`; never write events to files.
     * Events _must_ be on `stdout` and not `stderr`.
@@ -35,9 +35,10 @@ and aggregated in near real-time.
     | `logseverity` | String value indicating the level of importance of the log message. | <ul><li>The `logseverity` specified in the log _must_ be one of the following values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` or `FATAL`. The definition of each level is further described [here](#logging-levels).</li></ul> |
 
 1. Additional fields will be required in specific contexts,
-  and should be coordinated between services so that analysis can be correctly aggregated across different services. For example,
-  if multiple services track session IDs, they should agree on a common field name, such as `session_id`.
-   Case and word separation style must be consistent. The _snake_case_ style is preferred (e.g., use `session_id`, _not_ `SessionId`)
+  and should be coordinated between services so that analysis can be correctly aggregated across different services.
+  For example, if multiple services track session IDs, they should agree on a common field name, such as `session_id`.
+  Case and word separation style must be consistent. The _snake_case_ style is preferred
+ (e.g., use `session_id`, _not_ `SessionId`)
 
 ### Logging Levels
 

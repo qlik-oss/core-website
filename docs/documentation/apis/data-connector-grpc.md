@@ -15,7 +15,8 @@ understands: the [Data Connector GRPC API](data-connector-grpc.proto).
 
 ## Configuring Connectors
 
-There are several ways the QIX Engine can discover available connectors. The simplest way is to use GrpcConnectorPlugins settings.
+There are several ways the QIX Engine can discover available connectors. The simplest way is to use
+GrpcConnectorPlugins settings.
 
 ## The GetData Function
 
@@ -51,7 +52,7 @@ supply a GRPC header `x-qlik-getdata-bin` with metadata.
 ### Data Chunks
 
 For performance reasons the data is sent column by column, where
-each column holds the corresponding column values for a all rows in the chunk. 
+each column holds the corresponding column values for a all rows in the chunk.
 All values in a specific column share the same format, which allows GRPC (and hence protobuf) to encode
 the data more efficiently. To further improve the performance, each column can be in one of several different formats:
 strings, floating point numbers, and integers. Along with the column data, a structure called `ValueFlag` is used to
@@ -86,10 +87,11 @@ message GetDataResponse {
 
 ## Examples
 
-We have provided two example connectors to help you get started, one in Go and one in JavaScript. See their respective projects in GitHub for more information:
+We have provided two example connectors to help you get started, one in Go and one in JavaScript. See their respective projects
+in GitHub for more information:
 
- * Postgres/Go: [github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
- * MongoDB/JavaScript: [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
+* Postgres/Go: [github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
+* MongoDB/JavaScript: [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
 
 ## A Note On Performance
 
