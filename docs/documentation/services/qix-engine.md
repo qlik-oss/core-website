@@ -10,7 +10,7 @@ purposes.
 ## Memory management
 
 The main memory RAM is the primary
-storage for all data to be analyzed by QIX Engine. The engine mainly
+storage for all data to be analyzed by the QIX Engine. The engine mainly
 allocates memory for:
 
 * The unaggregated dataset that is defined by the document data model.
@@ -31,11 +31,11 @@ the same state.
 
 ### Controlling the allocation of memory
 
-There are two fundamental settings for controlling how QIX Engine
+There are two fundamental settings for controlling how the QIX Engine
 allocates and releases memory:
 
 * Working set Low / Min memory usage: This setting defines the amount of
-  memory that QIX Engine will use. Prior to this point, the QIX Engine will
+  memory that the QIX Engine will use. Prior to this point, the QIX Engine will
   not try to minimize its allocation of memory. For example, if the
   physical RAM on your server is 256 GB and Working set Low / Min memory
   usage is set to 70%, the QIX Engine will not try to minimize its memory
@@ -43,7 +43,7 @@ allocates and releases memory:
   will not use any memory if it is not used for a beneficial purpose and
   it also employs compression algorithms to minimize memory consumption.
 * Working set High / Max memory usage: This setting is the point above
-  which QIX Engine cannot allocate any memory. Obviously, Working set
+  which the QIX Engine cannot allocate any memory. Obviously, Working set
   Low / Min memory usage must be lower than Working set High / Max memory
   usage and leave enough room for handling of transients (that is, the
   amount of RAM temporarily allocated while the QIX Engine purges cached
@@ -123,9 +123,9 @@ the documents and session state information.
 
 ### Investigating memory usage
 
-It is good practice to investigate how QIX Engine uses memory with your data
+It is good practice to investigate how the QIX Engine uses memory with your data
 models and documents. When the memory curve fluctuates a lot, it usually means
-that the Engine needs to allocate extra memory during a calculation. The memory
+that the engine needs to allocate extra memory during a calculation. The memory
 is released when the result set is cached. Jitter on the memory curve might
 indicate poor document design that may be worth investigating as it often means
 slow response times.
@@ -133,8 +133,6 @@ slow response times.
 ![Monitoring RAM](../../images/qix-service/monitoring_ram.png)
 
 ### Summary of memory management
-
-The following points are important to consider when it comes to memory management:
 
 * The QIX Engine caches all result sets as long as there is RAM available for
   allocation.
@@ -147,7 +145,7 @@ The following points are important to consider when it comes to memory managemen
   and cached results are purged to make room for new values.
 * The age, size, and time of calculation are factors in the prioritization
   of the values to purge.
-* QIX Engine purges old sessions when the "maximum inactive session time"
+* The QIX Engine purges old sessions when the "maximum inactive session time"
   value is reached.
 * High memory usage is usually the result of many cached results.
 * As long as paging does not occur, high memory usage is a good thing.
@@ -183,7 +181,7 @@ have to be queued prior to being calculated as there is no processing capacity
 immediately available (see the figure below). This is an indication of poor
 performance.
 
-The cases where QIX Engine will not scale well over cores include:
+The cases where the QIX Engine will not scale well over cores include:
 
 * A single user triggers single-threaded operations.
 * The underlying hardware does not allow for good scaling (for example, when
@@ -193,15 +191,12 @@ The cases where QIX Engine will not scale well over cores include:
 
 ### Summary of CPU utilization and scaling over cores
 
-The following are key points to consider regarding the CPU utilization of the QIX
-Engine:
-
-* Peaks with 100% CPU utilization are good as they indicate that QIX Engine
-  utilizes all available capacity to deliver the responses as fast as possible.
+* Peaks with 100% CPU utilization are good because they indicate that the QIX Engine
+  is using all available capacity to deliver the responses as fast as possible.
 * High average CPU utilization (>70%) is bad as it means that the system
   saturates and incoming selections in documents have to be queued prior to
   being served.
-* QIX Engine processing capacity can be increased by adding more cores or by
+* The QIX Engine processing capacity can be increased by adding more cores or by
   increasing the clock frequency. More processing capacity makes the Engine
   handle load peaks in a robust manner.
 
@@ -225,8 +220,6 @@ you can get an estimate of the total amount of resources needed to load and
 access the documents at the same time.
 
 ### Summary of linear scaling of resources
-
-The following points are important to consider when it comes to linear scaling:
 
 * No matter if documents are loaded and accessed in parallel or in sequence
   on a specific server, they consume approximately the same amount of resources
@@ -326,14 +319,14 @@ The following table lists the log types that are available and the default verbo
 | Type | Description | CLI parameter | Default verbosity level |
 | ---- | ----------- | ------------- | ----------------------- |
 | System | All _standard_ debug messages | SystemLogVerbosity | 4 |
-| Performance | Performance log, typically containing metrics e.g. NbrActiveUsers and CPULoad | PerformanceLogVerbosity | 4 |
-| Audit | User based detailed logging e.g. when the user makes a selection in a doc | AuditLogVerbosity | 0 |
-| Session |  Information about a client session e.g. user, machine id, ip-address, port | SessionLogVerbosity | 4 |
-| Traffic | JSON traffic to and from the QIX Engine | TrafficLogVerbosity | 0 |
-| QixPerformance | QIX protocol performance | QixPerformanceLogVerbosity | 0 |
-| SmartSearchQuery | Smart Search query log | SmartSearchQueryLogVerbosity | 3 |
-| SmartSearchIndex | Smart Search index log | SmartSearchIndexLogVerbosity | 3 |
-| SSE | Server Side Extension log | SSELogVerbosity | 4 |
+| Performance | Performance log, typically containing metrics (for example, NbrActiveUsers and CPULoad). | PerformanceLogVerbosity | 4 |
+| Audit | User based detailed logging (for example, when the user makes a selection in a document). | AuditLogVerbosity | 0 |
+| Session |  Information about a client session (for example, user, machine ID, ip-address, port). | SessionLogVerbosity | 4 |
+| Traffic | JSON traffic to and from the QIX Engine. | TrafficLogVerbosity | 0 |
+| QixPerformance | QIX protocol performance. | QixPerformanceLogVerbosity | 0 |
+| SmartSearchQuery | Smart Search query log. | SmartSearchQueryLogVerbosity | 3 |
+| SmartSearchIndex | Smart Search index log. | SmartSearchIndexLogVerbosity | 3 |
+| SSE | Server Side Extension log. | SSELogVerbosity | 4 |
 
 ### Log Levels
 
@@ -341,7 +334,7 @@ You configure the log levels by providing settings through command line paramete
 
 !!! Note
     The QIX Engine uses the [log levels](../contract.md#logging-levels) defined in the _Qlik Core Service Contract_,
-    but each log level is also mapped to a numeric value used to set the verbosity level of QIX Engine logging.
+    but each log level is also mapped to a numeric value used to set the logging verbosity level of the QIX Engine.
 
 | Log level | Value |
 | --------- | ----- |
@@ -368,61 +361,61 @@ services:
 
 ### Log Format
 
-In addition to the required fields in the _Qlik Core Service Contract_ the QIX Engine also has a few log fields that
+In addition to the required fields in the _Qlik Core Service Contract_, the QIX Engine also has a few log fields that
 are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
-| user_id | Current active user |
-| log_type | Type of log: one of the listed [types](#log-types) |
-| thread_id | Thread identifier |
+| user_id | The ID of the current active user. |
+| log_type | The type of the log. Must be one of the listed [types](#log-types). |
+| thread_id | Thread identifier. |
 
-Apart from the common fields, some of the log types contain additional fields,
-and the fields are listed below in separate sections.
+Apart from the common fields, some of the log types contain additional fields.
+These fields are listed in the sections that follow.
 
 #### Audit
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | Document identifier |
-| object_id | Object identifier |
-| session_id | Session identifier |
+| doc_id | Document identifier. |
+| object_id | Object identifier. |
+| session_id | Session identifier. |
 
 #### Performance
 
 | Field | Description |
 | ----- | ----------- |
-| version | QIX Engine component version |
-| entry_type | The state (Server Starting, Normal) |
-| active_doc_sessions | Number of sessions with a connected client |
-| doc_sessions | Number of idle sessions waiting for termination |
-| active_anonymous_doc_sessions | Number of sessions with a connected anonymous client |
-| anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination |
+| version | The QIX Engine component version. |
+| entry_type | The state (Server Starting, Normal). |
+| active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content. |
+| doc_sessions | Number of idle sessions waiting for termination. |
+| active_anonymous_doc_sessions | Number of active sessions with a connected anonymous client. |
+| anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination. |
 | active_tunneled_doc_sessions | |
 | tunneled_doc_sessions| |
 | doc_sessions_start | |
-| active_docs | |
-| ref_docs | |
-| loaded_docs| |
+| active_docs | Number of active apps. An app is active when a user is currently performing some action on it. |
+| ref_docs | Number of apps currently loaded into the memory, even if they do not have any open sessions or connections. |
+| loaded_docs| Number of apps currently loaded into memory that have open sessions or connections. |
 | doc_loads | |
 | doc_loads_fails | |
-| calls | |
-| selections | |
+| calls | Total number of requests made to the engine. |
+| selections | Total number of selections made to the engine. |
 | active_ip_addrs | |
 | ip_addrs | |
-| active_users | |
-| users | |
+| active_users | Number of distinct active users. An active user is one who is currently performing an action on an app. |
+| users | Total number of distinct users within the current engine sessions. |
 | cpu_loads | |
-| vm_commited_mb | |
-| vm_allocated_mb | |
-| vm_free_mb | |
-| vm_largest_free_bock_mb | |
-| cache_hits | |
-| cache_lookups | |
-| cache_objects_added | |
-| cache_bytes_added | |
-| cache_times_added | |
-| cache_replaced | |
+| vm_commited_mb | The total amount of committed memory for the engine process in MB. |
+| vm_allocated_mb | The total amount of allocated memory (committed + reserved) from the operating system in MB. |
+| vm_free_mb | The total amount of free memory (minimum of free virtual and physical memory) in MB. |
+| vm_largest_free_block_mb | |
+| cache_hits | Number of cache hits. |
+| cache_lookups | Number of cache lookups. |
+| cache_objects_added | Number of cache objects added. |
+| cache_bytes_added | Size in bytes of cache objects added. |
+| cache_times_added |  |
+| cache_replaced | Number of cache objects replaced. |
 
 #### Session
 
@@ -430,75 +423,75 @@ This entry is logged on each session termination.
 
 | Field | Description |
 | ----- | ----------- |
-| version | Engine component version |
-| doc_id | Document identifier |
-| title | Document title |
-| doc_modified | Document last modified time |
-| exit_reason | Reason for exit e.g. socket closed by client |
-| session_start | Session start time |
-| session_duration | Duration of the session in milliseconds |
-| cpu_spent_s | CPU spent in seconds |
-| bytes_received | Bytes received |
-| bytes_sent | Bytes sent |
-| calls | Number of RPC calls |
-| selections | Number of selections made |
-| secure_protocol | Is the HTTP connection secure or not |
+| version | Engine component version. |
+| doc_id | Document identifier. |
+| title | Document title. |
+| doc_modified | Document last modified time. |
+| exit_reason | Reason for exit (for example, socket closed by client). |
+| session_start | Session start time. |
+| session_duration | Duration of the session in milliseconds. |
+| cpu_spent_s | CPU spent in seconds. |
+| bytes_received | Bytes received. |
+| bytes_sent | Bytes sent. |
+| calls | Number of RPC calls. |
+| selections | Number of selections made. |
+| secure_protocol | Indicates whether the HTTP session is secure. |
 
 #### QixPerformance
 
-Log of each request and metrics around resource utilization.
-Should be used with caution as it will produce a lot of log entries.
+This log type includes each request as well as metrics around resource utilization.
+Use this log type with caution because it will produce a lot of log entries.
 
 | Field | Description |
 | ----- | ----------- |
-| server_id | Server identifier |
-| session_id | Session identifier |
-| request_id | Request identifier |
-| method | RPC method |
+| server_id | Server identifier. |
+| session_id | Session identifier. |
+| request_id | Request identifier .|
+| method | RPC method. |
 | target |
-| handle | Object identifier |
-| exception | Exception information |
-| exception_extra | Extra exception information |
-| process_time | The process time (start until end of request) |
-| work_time | Actual work time spent |
-| lock_time | Time spent suspended |
-| validation_time | Time spent calculating an object |
-| traverse_time | Time spent in the inference engine |
+| handle | Object identifier. |
+| exception | Exception information. |
+| exception_extra | Extra exception information. |
+| process_time | The process time (start until end of request). |
+| work_time | Actual work time spent. |
+| lock_time | Time spent suspended. |
+| validation_time | Time spent calculating an object. |
+| traverse_time | Time spent in the inference engine. |
 
 #### SSE
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | Document identifier |
-| title | Document title |
-| plugin_name | The name of the plugin |
-| plugin_host | URL to the host endpoint |
+| doc_id | Document identifier. |
+| title | Document title. |
+| plugin_name | The name of the plugin. |
+| plugin_host | URL to the host endpoint. |
 
 #### SmartSearchQuery
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | Document identifier |
-| session_id | Session identifier |
-| query_type | Query type |
-| query_terms | Query terms |
-| query_terms_count | Number of query terms |
-| caret_pos | Caret position |
-| sub_task | Sub task |
-| sub_task_args | Sub task arguments |
-| calc_time | Calculation time |
-| description | Text message |
+| doc_id | Document identifier. |
+| session_id | Session identifier. |
+| query_type | Query type. |
+| query_terms | Query terms. |
+| query_terms_count | Number of query terms. |
+| caret_pos | Caret position. |
+| sub_task | Sub task. |
+| sub_task_args | Sub task arguments. |
+| calc_time | Calculation time. |
+| description | Text message. |
 
 #### SmartSearchIndex
 
 | Field | Description |
 | ----- | ----------- |
-| doc_id | Document identifier |
-| data_model_ix | |
-| field_ix | Field Index |
-| field_name | Field name |
-| field_type | Field type |
-| field_symbol_count | Field Symbol count |
-| field_memory | Memory used by field |
-| ix_elem_count | Number of element in index |
-| ix_memory | Used memory by the index |
+| doc_id | Document identifier. |
+| data_model_ix | Data model index. |
+| field_ix | Field index. |
+| field_name | Field name. |
+| field_type | Field type. |
+| field_symbol_count | Field symbol count. |
+| field_memory | Memory used by field. |
+| ix_elem_count | Number of element in index. |
+| ix_memory | Used memory by the index. |
