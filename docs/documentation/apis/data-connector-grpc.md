@@ -11,24 +11,24 @@ is typically implemented as a stateless docker container sitting between QIX Eng
 ```
 
 The role of the connector is to translate the APIs and formats of a data source into a format that QIX Engine
-understands - namely the [Data Connector GRPC API](data-connector-grpc.proto).
+understands: the [Data Connector GRPC API](data-connector-grpc.proto).
 
 ## Configuring Connectors
 
-There are several ways in which QIX Engine can discover available connectors, where using the GrpcConnectorPlugins settings
-is the simplest one.
+There are several ways the QIX Engine can discover available connectors. The simplest way is to use
+GrpcConnectorPlugins settings.
 
 ## The GetData Function
 
-When loading data QIX Engine sends one GRPC call, `GetData`, per table.
+When it loads data, the QIX Engine sends one GRPC call, `GetData`, per table.
 
 ``` proto
 rpc GetData(GetDataOptions) returns(stream DataChunk) {}
 ```
 
-The input to the call is a structure that contains among other things a connection string, username, password, and a
-query statement. The format of the connection string and query are connector specific. The input structure can for
-instance look like this:
+The input to the call is a structure that contains among other things a connection string, a username, a password, and a
+query statement. The format of the connection string and query are connector specific. For example, the input structure might
+look like this:
 
 ``` json
 {
@@ -46,17 +46,17 @@ instance look like this:
 ## Output
 
 The `GetData` call returns a stream of data chunks. This allows a connector to stream data from the data source to
-QIX Engine while translating the data piece by piece. In addition to the actual data stream the connector also has to
+the QIX Engine while translating the data piece by piece. In addition to the actual data stream, the connector also has to
 supply a GRPC header `x-qlik-getdata-bin` with metadata.
 
 ### Data Chunks
 
-For performance reasons the data is sent column by column where
-each column holds the corresponding column values for a all rows in the chunk. The reason for this is simply
-performance. All values in a specific column share the same format which allows GRPC (and hence protobuf) to encode
-the data more efficiently. To further improve the performance each column can be in several different formats -
-strings, floating point numbers, and integers. Along with the column data a structure called `ValueFlag` is used to
-further specify the format of the data. This is for instance used to specify date formats.
+For performance reasons the data is sent column by column, where
+each column holds the corresponding column values for a all rows in the chunk.
+All values in a specific column share the same format, which allows GRPC (and hence protobuf) to encode
+the data more efficiently. To further improve the performance, each column can be in one of several different formats:
+strings, floating point numbers, and integers. Along with the column data, a structure called `ValueFlag` is used to
+further specify the format of the data. This could be used, for example, to specify date formats.
 
 ``` proto
 message DataChunk {
@@ -87,21 +87,16 @@ message GetDataResponse {
 
 ## Examples
 
-To get started there are two example connectors. One in Golang and one in javascript. See the respective projects
-for more information.
+We have provided two example connectors to help you get started, one in Go and one in JavaScript. See their respective projects
+in GitHub for more information:
 
-### Postgres/Golang
-
-[github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
-
-### MongoDB/Javascript
-
-[github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
+* Postgres/Go: [github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
+* MongoDB/JavaScript: [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
 
 ## A Note On Performance
 
-For large data sets it is important to choose a language that gives required performance.
-Although GRPC is a fast protocol it still comes with some computational overhead, especially in
-managed/interpreted languages like javascript. Golang, it seems, is fast enough to saturate a gigabit line
-which would cover most needs. To go even further and utilize for instance a 10Gbps line or faster a C/C++
-implementation is needed.
+For large data sets it is important to choose a language that provides adequate performance.
+Although GRPC is a fast protocol, it still comes with some computational overhead, especially in
+managed/interpreted languages like JavaScript. Go, it seems, is fast enough to saturate a Gigabit line
+which would cover most needs. To utilize a 10 Gbps line or faster, for instance, a C/C++
+implementation would be needed.
