@@ -1,9 +1,10 @@
-.md-header {
+.md-header, .md-footer {
   background: #5f6062;
 }
 
 .md-tabs, .md-footer-nav {
-  background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
+  /* background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%); */
+  background: #5f6062; 
 }
 
 .md-footer-nav {
@@ -101,6 +102,35 @@
 
 .md-nav__link[data-md-state=blur]:hover {
   color: #f8981d;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.md-tabs {
+  text-align: right;
+}
+
+.md-footer-copyright ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.md-footer-copyright {
+  text-align: center;
+}
+
+.md-footer-copyright ul li {
+  margin-left: 0;
+}
+
+.md-footer-link-list {
+  padding-right: 1em;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
 }
 
 @media only screen and (max-width: 76.1875em) {

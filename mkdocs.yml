@@ -3,8 +3,9 @@ site_name: Qlik Core
 theme:
   name: 'material'
   logo: 'images/QlikCore-Horizontal-Print-white.svg'
-  feature:
-    tabs: true
+  # feature:
+  #   tabs: true
+  custom_dir: 'theme'
 
 extra_css:
   - 'stylesheets/custom-style.css'
@@ -17,26 +18,32 @@ markdown_extensions:
   - toc:
       permalink: true
 
-repo_name: 'qlik-ea/info'
-repo_url: 'https://github.com/qlik-ea/info'
+# repo_name: 'qlik-ea/info'
+# repo_url: 'https://github.com/qlik-ea/info'
 google_analytics: ['UA-110266862-1', 'ca.qliktive.com']
 
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/qlik-ea/info'
+
 pages:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Downloads: downloads.md
-  - Tutorials:
-    - Hello Engine: tutorials/hello-engine.md
-    - Hello Data: tutorials/hello-data.md
-    - Hello Visualization: tutorials/hello-visualization.md
-    - Orchestration: tutorials/orchestration.md
-    - Authorization: tutorials/authorization.md
-    - Data Loading: tutorials/data-loading.md
-    - Document Distribution: tutorials/document-distribution.md
-    - Scalability:
-      - Overview: tutorials/scalability/overview.md
-      - Newspaper website: tutorials/scalability/newspaper.md
+  - startpage: index.md
   - Documentation:
+    - Home: home.md
+    - Getting Started: getting-started.md
+    - Downloads: downloads.md
+    - Tutorials:
+      - Hello Engine: tutorials/hello-engine.md
+      - Hello Data: tutorials/hello-data.md
+      - Hello Visualization: tutorials/hello-visualization.md
+      - Orchestration: tutorials/orchestration.md
+      - Authorization: tutorials/authorization.md
+      - Data Loading: tutorials/data-loading.md
+      - Document Distribution: tutorials/document-distribution.md
+      - Scalability:
+        - Overview: tutorials/scalability/overview.md
+        - Newspaper website: tutorials/scalability/newspaper.md
     - Services:
       - QIX Engine: documentation/services/qix-engine.md
       - License Service: documentation/services/license-service.md
@@ -56,8 +63,9 @@ pages:
         - Field: documentation/apis/qix-engine-field.md
         - Variable: documentation/apis/qix-engine-variable.md
     - Contract: documentation/contract.md
-  - Support & Services:
-    - Licensing: support-and-services/licensing.md
-    - Sales: support-and-services/sales.md
-    - Technical Support: support-and-services/tech-support.md
-    - Training: support-and-services/training.md
+    - Support & Services:
+      - Licensing: support-and-services/licensing.md
+      - Sales: support-and-services/sales.md
+      - Technical Support: support-and-services/tech-support.md
+      - Training: support-and-services/training.md
+  - Beta: beta.md
