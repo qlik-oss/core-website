@@ -148,3 +148,23 @@
     background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
   }
 }
+
+@media only screen and (min-width: 60em) {
+  .md-search__inner {
+    width: 0;
+  }
+}
+
+.md-tabs__list {
+  margin-right: 10rem;
+}
+
+.md-search__input {
+  background-color: #5f6062;
+}
+
+@media only screen and (max-width: 59.9375em) {
+  [data-md-toggle=search]:checked~.md-header .md-search__input {
+    background-color: white;
+  }
+}
