@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Edit button, if URL was defined -->
+  {% if page.edit_url %}
+  <a href="{{ page.edit_url }}"
+      title="{{ lang.t('edit.link.title') }}"
+      class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
+{% endif %}
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+{% if not "\x3ch1" in page.content %}
+  <h1>{{ page.title | default(config.site_name, true)}}</h1>
+{% endif %}
+
+{% if page.is_homepage %}
+  <div id="marketing-page">
+      <!-- Content -->
+      {{ page.content }}
+  </div>
+{% else %}
+  <!-- Content -->
+  {{ page.content }}
+{% endif %}
+
+{% endblock %}
