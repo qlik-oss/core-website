@@ -19,14 +19,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# repo_name: 'qlik-ea/info'
-# repo_url: 'https://github.com/qlik-ea/info'
+repo_name: 'qlik-ea/info'
+repo_url: 'https://github.com/qlik-ea/info'
 google_analytics: ['UA-110266862-1', 'ca.qliktive.com']
-
-extra:
-  social:
-    - type: 'github'
-      link: 'https://github.com/qlik-ea/info'
 
 pages:
   - startpage: index.md
