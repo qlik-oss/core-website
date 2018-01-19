@@ -6,6 +6,7 @@ theme:
   # feature:
   #   tabs: true
   custom_dir: 'theme'
+  favicon: 'images/favicon.ico'
 
 extra_css:
   - 'stylesheets/custom-style.css'
