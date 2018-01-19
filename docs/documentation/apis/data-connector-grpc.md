@@ -1,7 +1,7 @@
-# Data Connector GRPC API
+# Data Connector gRPC API
 
-In order to allow any kind of data to be fed into QIX Engine each data source is abstracted by a connector. A connector
-is typically implemented as a stateless docker container sitting between QIX Engine and the data source.
+Typically, a connector is implemented as a stateless Docker container that
+sits between the QIX Engine and the data source, as shown below.
 
 ``` asciiart
 +-------------+              +-------------+                +-------------+
@@ -10,13 +10,23 @@ is typically implemented as a stateless docker container sitting between QIX Eng
 +-------------+              +-------------+                +-------------+
 ```
 
-The role of the connector is to translate the APIs and formats of a data source into a format that QIX Engine
-understands - namely the [Data Connector GRPC API](data-connector-grpc.proto).
+[//]: # (This graphic will have to be replaced)
 
-## Configuring Connectors
+The role of the data connector is to fetch data from the source and send data back to the engine,
+in a format that is consumable.
+The connector uses the gRPC API to make calls to the data source from the engine.
 
-There are several ways in which QIX Engine can discover available connectors, where using the GrpcConnectorPlugins settings
-is the simplest one.
+[Data Connector gRPC API](data-connector-grpc.proto)
+
+## Discovering Connectors
+
+The simplest way for the QIX Engine to discover
+available connectors is to use the GrpcConnectorPlugins.
+
+[//]: # (I'm unsure about the plugins?? what is it?)
+
+**Note:** There are other ways in which
+QIX Engine can discover available connectors.
 
 ## The GetData Function
 
