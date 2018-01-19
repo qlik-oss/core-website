@@ -1,2 +1,2 @@
-#PLACEHOLDER FOR MARKETING
+# PLACEHOLDER FOR MARKETING
 ![alt text](images/Marketing.png "Marketing page")
