@@ -1,11 +1,10 @@
 .md-header, .md-footer {
   background: #5f6062;
   border-bottom: 3px solid #6eb43f;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .md-tabs, .md-footer-nav {
-  /* background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%); */
   background: #5f6062; 
 }
 
