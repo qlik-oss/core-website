@@ -3,13 +3,14 @@ site_name: Qlik Core
 theme:
   name: 'material'
   logo: 'images/QlikCore-Horizontal-Print-white.svg'
-  # feature:
-  #   tabs: true
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
 
 extra_css:
   - 'stylesheets/custom-style.css'
+  
+extra_javascript:
+  - 'javascripts/extra.js'
 
 markdown_extensions:
   - admonition
