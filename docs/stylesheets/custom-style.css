@@ -175,6 +175,13 @@
   }
 }
 .marketing-page-main-content {
-  margin-left: 0;
-  margin-right: 0;
+  width: 103.5vw;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: calc(-50vw + 48%);
+}
+
+#marketing-page {
+  margin-top: -33px;
+  margin-bottom: -56px;
 }
