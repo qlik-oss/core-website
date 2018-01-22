@@ -3,7 +3,6 @@
 Typically, a connector is implemented as a stateless Docker container that
 sits between the QIX Engine and the data source, as shown below.
 
-
 ``` asciiart
 +-------------+              +-------------+                +-------------+
 | QIX Engine  | --GetData--> |  Connector  | -------------> | Data Source |
@@ -112,4 +111,4 @@ see a full working connector.
 Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
 managed/interpreted languages like JavaScript.
 Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
-For very large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
+For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
