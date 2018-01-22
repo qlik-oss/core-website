@@ -15,8 +15,9 @@ The QIX Engine communicates with the data source through the
 The data connector fetches data from the source and sends it to the engine
 in a consumable format.
 
-**Note:** The simplest way for the QIX Engine to discover
-available connectors is to use the GrpcConnectorPlugins.
+!!! Tip
+    The simplest way for the QIX Engine to discover
+    available connectors is to use the GrpcConnectorPlugins.
 
 ## GetData Function
 
@@ -61,7 +62,8 @@ To improve engine performance, data is sent column by column.
 Each column holds the corresponding column values for all rows in the chunk,
 and as column values have the same format, gRPC can encode the data more efficiently.
 
-**Note:** Protobuf is the underlying encoding technology used in gRPC.
+!!! Note
+    Protobuf is the underlying encoding technology used in gRPC.
 
 In addition, each column can be saved in several different formats, such as strings, floating point numbers,
 and integers.
@@ -107,8 +109,9 @@ see a full working connector.
 
 [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
 
-**Note:** For large data sets, it is important to choose a language that meets your performance requirements.
-Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
-managed/interpreted languages like JavaScript.
-Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
-For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
+!!! Tip
+    For large data sets, it is important to choose a language that meets your performance requirements.
+    Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
+    managed/interpreted languages like JavaScript.
+    Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
+    For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
