@@ -387,16 +387,16 @@ These fields are listed in the sections that follow.
 | ----- | ----------- |
 | version | The QIX Engine component version. |
 | entry_type | The state (Server Starting, Normal). |
-| active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content. |
+| active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an document, for example, making selections or creating content. |
 | doc_sessions | Number of idle sessions waiting for termination. |
 | active_anonymous_doc_sessions | Number of active sessions with a connected anonymous client. |
 | anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination. |
 | active_tunneled_doc_sessions | |
 | tunneled_doc_sessions| |
 | doc_sessions_start | |
-| active_docs | Number of active apps. An app is active when a user is currently performing some action on it. |
-| ref_docs | Number of apps currently loaded into the memory, even if they do not have any open sessions or connections. |
-| loaded_docs| Number of apps currently loaded into memory that have open sessions or connections. |
+| active_docs | Number of active documents. An document is active when a user is currently performing some action on it. |
+| ref_docs | Number of documents currently loaded into the memory, even if they do not have any open sessions or connections. |
+| loaded_docs| Number of documents currently loaded into memory that have open sessions or connections. |
 | doc_loads | |
 | doc_loads_fails | |
 | calls | Total number of requests made to the engine. |
