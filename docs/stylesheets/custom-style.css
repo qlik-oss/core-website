@@ -1,7 +1,6 @@
 .md-header, .md-footer {
   background: #5f6062;
   border-bottom: 3px solid #6eb43f;
-  overflow: hidden;
 }
 
 .md-tabs, .md-footer-nav {
@@ -121,7 +120,8 @@
 
 .md-tabs {
   text-align: right;
-  height: auto;
+  height: 45px;
+  overflow: hidden;
 }
 
 .md-footer-copyright ul {
