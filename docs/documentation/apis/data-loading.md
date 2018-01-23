@@ -1,4 +1,4 @@
-# Data Connector GRPC API
+# Data Loading API
 
 In order to allow any kind of data to be fed into QIX Engine each data source is abstracted by a connector. A connector
 is typically implemented as a stateless docker container sitting between QIX Engine and the data source.

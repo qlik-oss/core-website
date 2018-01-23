@@ -23,13 +23,6 @@
   font-weight: bold;
 }
 
-.md-nav__link:focus, .md-nav__link:hover, .md-typeset a:hover,
-.md-typeset h2[id]:hover .headerlink:hover,
-.md-typeset h3[id]:hover .headerlink:hover,
-.md-typeset h4[id]:hover .headerlink:hover {
-  text-decoration: underline;
-}
-
 .md-header-nav__topic {
   font-weight: 100;
 }
@@ -216,4 +209,22 @@
     padding: 0;
     margin-top: -3px;
   }
+}
+
+.marketing-header {
+  font-family: Arial;
+  font-weight: 600;
+  padding: 60px 0 0;
+  color: white;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.marketing-background {
+  background-image:URL('../images/QlikBranch_headerImage.jpg');
+}
+.marketing-text {
+  padding: 30px;
+  width: 50%;
 }
