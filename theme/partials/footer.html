@@ -57,16 +57,18 @@
         </ul>
         </div>
         </div>
-        <label>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</label>
-      </div>
-
-      {% if config.repo_url %}
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            {% include "partials/source.html" %}
+        <div class="md-footer-legal">
+          <div class="md-footer-legal-text">
+            <label>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</label>
+          </div>
+          <div class="md-footer-legal-social">
+            <!-- Social links -->
+            {% block social %}
+              {% include "partials/social.html" %}
+            {% endblock %}
           </div>
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 </footer>

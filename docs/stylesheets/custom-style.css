@@ -4,7 +4,7 @@
 }
 
 .md-tabs, .md-footer-nav {
-  background: #5f6062; 
+  background: #5f6062;
 }
 
 .md-footer-nav {
@@ -130,7 +130,10 @@
 }
 
 .md-footer-copyright {
-  text-align: center;
+  overflow: auto;
+  max-width: 100%;
+  float: none;
+  margin: 0 21rem;
 }
 
 .md-footer-copyright ul li {
@@ -184,4 +187,33 @@
 #marketing-page {
   margin-top: -33px;
   margin-bottom: -56px;
+}
+
+.md-footer-social a, .md-footer-social a:hover {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.md-footer-legal {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+.md-footer-legal-text {
+  width: 80%;
+  float: left;
+  padding-top: 13px;
+}
+
+.md-footer-legal-social {
+  width: 20%;
+  float: right;
+}
+
+@media only screen and (min-width: 45em) {
+  .md-footer-social, .md-footer-social {
+    padding: 0;
+    margin-top: -3px;
+  }
 }

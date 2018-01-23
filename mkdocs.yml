@@ -8,9 +8,14 @@ theme:
 
 extra_css:
   - 'stylesheets/custom-style.css'
-  
 extra_javascript:
   - 'javascripts/extra.js'
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/qlik-ea/info'
+    - type: 'slack'
+      link: 'http://qlikbranch-slack-invite.herokuapp.com/'
 
 markdown_extensions:
   - admonition
