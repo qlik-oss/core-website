@@ -101,6 +101,13 @@ message GetDataResponse {
 We recommend that have a look at the respective example projects below to
 see a full working connector.
 
+!!! Tip
+    For large data sets, it is important to choose a language that meets your performance requirements.
+    Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
+    managed/interpreted languages like JavaScript.
+    Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
+    For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
+
 ### PostgreSQL connector built with Go
 
 [github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
@@ -108,10 +115,3 @@ see a full working connector.
 ### MongoDB connector built with JavaScript
 
 [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
-
-!!! Tip
-    For large data sets, it is important to choose a language that meets your performance requirements.
-    Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
-    managed/interpreted languages like JavaScript.
-    Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
-    For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
