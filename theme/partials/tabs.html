@@ -34,6 +34,7 @@
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav %}
+      <!-- Start page should not be included in the tabs -->
         {% if nav_item.title != "startpage" %}    
           {% include "partials/tabs-item.html" %}
         {% endif %}
