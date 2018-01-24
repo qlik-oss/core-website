@@ -1,8 +1,7 @@
 <div class="marketing-background">
   <div class="marketing-header">
-    <img src="images/QlikCore-Horizontal-Print-white.svg"
-    width="100%"><br>
-    <h1 style="color:white">βeta</h1>
+    <img src="images/QlikCore-Horizontal-Print-white.svg"><br>
+    <h1>βeta</h1>
     <h3>Exciting things are happening in the Qlik Factory</h3><br><br>
    </div>
 </div>
