@@ -23,6 +23,10 @@
   font-weight: bold;
 }
 
+.md-tabs__link:focus {
+  opacity: 1;
+}
+
 .md-header-nav__topic {
   font-weight: 100;
 }
@@ -133,7 +137,7 @@
   margin-left: 0;
 }
 
-.md-footer-link-list {
+.md-footer-link-list {  
   padding-right: 1em;
   width: 49%;
   display: inline-block;
