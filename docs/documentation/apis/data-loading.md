@@ -1,7 +1,7 @@
 # Data Loading API
 
-In order to allow any kind of data to be fed into QIX Engine each data source is abstracted by a connector. A connector
-is typically implemented as a stateless docker container sitting between QIX Engine and the data source.
+Typically, a connector is implemented as a stateless Docker container that
+sits between the QIX Engine and the data source, as shown below.
 
 ``` asciiart
 +-------------+              +-------------+                +-------------+
@@ -10,25 +10,30 @@ is typically implemented as a stateless docker container sitting between QIX Eng
 +-------------+              +-------------+                +-------------+
 ```
 
-The role of the connector is to translate the APIs and formats of a data source into a format that QIX Engine
-understands - namely the [Data Connector GRPC API](data-connector-grpc.proto).
+The QIX Engine communicates with the data source through the
+[Data Connector gRPC API](data-connector-grpc.proto).
+The data connector fetches data from the source and sends it to the engine
+in a consumable format.
 
-## Configuring Connectors
+!!! Tip
+    The simplest way for the QIX Engine to discover
+    available connectors is to use the GrpcConnectorPlugins.
 
-There are several ways in which QIX Engine can discover available connectors, where using the GrpcConnectorPlugins settings
-is the simplest one.
+## GetData Function
 
-## The GetData Function
-
-When loading data QIX Engine sends one GRPC call, `GetData`, per table.
+When loading data, the QIX Engine sends one gRPC `GetData` call per table,
+and the server returns a stream of data chunks.
 
 ``` proto
 rpc GetData(GetDataOptions) returns(stream DataChunk) {}
 ```
 
-The input to the call is a structure that contains among other things a connection string, username, password, and a
-query statement. The format of the connection string and query are connector specific. The input structure can for
-instance look like this:
+### Input
+
+The input to the `GetData` call must contain a connection string, a username, a password,
+and a query statement.
+The connection string and query have a connector-specific format.
+For example, the input structure might look like this:
 
 ``` json
 {
@@ -43,20 +48,27 @@ instance look like this:
 }
 ```
 
-## Output
+### Output
 
-The `GetData` call returns a stream of data chunks. This allows a connector to stream data from the data source to
-QIX Engine while translating the data piece by piece. In addition to the actual data stream the connector also has to
-supply a GRPC header `x-qlik-getdata-bin` with metadata.
+The `GetData` call returns a stream of data chunks.
+
+The connector sends data from the data source to the
+QIX Engine, translating the data piece by piece.
+The connector also supplies a gRPC header `x-qlik-getdata-bin` that contains metadata.
 
 ### Data Chunks
 
-For performance reasons the data is sent column by column where
-each column holds the corresponding column values for a all rows in the chunk. The reason for this is simply
-performance. All values in a specific column share the same format which allows GRPC (and hence protobuf) to encode
-the data more efficiently. To further improve the performance each column can be in several different formats -
-strings, floating point numbers, and integers. Along with the column data a structure called `ValueFlag` is used to
-further specify the format of the data. This is for instance used to specify date formats.
+To improve engine performance, data is sent column by column.
+Each column holds the corresponding column values for all rows in the chunk,
+and as column values have the same format, gRPC can encode the data more efficiently.
+
+!!! Note
+    Protobuf is the underlying encoding technology used in gRPC.
+
+In addition, each column can be saved in several different formats, such as strings, floating point numbers,
+and integers.
+The connector also uses a structure called `ValueFlag` to
+indicate the format of the data. This is useful when, for example, specifying date formats.
 
 ``` proto
 message DataChunk {
@@ -75,8 +87,7 @@ message Column {
 
 ### Metadata
 
-The metadata sent in the `x-qlik-getdata-bin` header is the `GetDataResponse` message encoded using protobuf which
-is the underlying encoding technology in GRPC.
+The `GetDataResponse` message is encoded and sent as metadata in the `x-qlik-getdata-bin` header.
 
 ``` proto
 message GetDataResponse {
@@ -87,21 +98,20 @@ message GetDataResponse {
 
 ## Examples
 
-To get started there are two example connectors. One in Golang and one in javascript. See the respective projects
-for more information.
+We recommend that have a look at the respective example projects below to
+see a full working connector.
 
-### Postgres/Golang
+!!! Tip
+    For large data sets, it is important to choose a language that meets your performance requirements.
+    Although gRPC is a fast protocol, it still comes with some computational overhead, especially in
+    managed/interpreted languages like JavaScript.
+    Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
+    For large requirements however (10Gbps line or faster), you will need to build your connector using C/C++.
+
+### PostgreSQL connector built with Go
 
 [github.com/qlik-ea/postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
 
-### MongoDB/Javascript
+### MongoDB connector built with JavaScript
 
 [github.com/qlik-ea/mongodb-grpc-connector](https://github.com/qlik-ea/mongodb-grpc-connector)
-
-## A Note On Performance
-
-For large data sets it is important to choose a language that gives required performance.
-Although GRPC is a fast protocol it still comes with some computational overhead, especially in
-managed/interpreted languages like javascript. Golang, it seems, is fast enough to saturate a gigabit line
-which would cover most needs. To go even further and utilize for instance a 10Gbps line or faster a C/C++
-implementation is needed.
