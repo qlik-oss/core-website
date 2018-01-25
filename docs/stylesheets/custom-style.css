@@ -248,3 +248,44 @@
 .marketing-header h1 {
   color: white;
 }
+
+.md-typeset .admonition.tip>.admonition-title:before, .md-typeset .admonition.tip>summary:before, 
+.md-typeset details.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
+  color: var(--custom-green);
+}
+
+.md-typeset .admonition.tip, .md-typeset details.tip {
+  border-left-color: var(--custom-green);
+}
+
+.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.tip>summary, 
+.md-typeset details.tip>.admonition-title, .md-typeset details.tip>summary {
+  background-color: rgba(61,135,6,.1);
+}
+
+.md-typeset .admonition.warning>.admonition-title:before, .md-typeset .admonition.warning>summary:before,
+.md-typeset details.warning>.admonition-title:before, .md-typeset details.warning>summary:before {
+  color: #f8981d;
+}
+
+.md-typeset .admonition.warning, .md-typeset details.warning {
+  border-left-color: #f8981d;
+}
+
+.md-typeset .admonition.warning>.admonition-title, .md-typeset .admonition.warning>summary, 
+.md-typeset details.warning>.admonition-title, .md-typeset details.warning>summary {
+  background-color: rgba(248,152,29,.1);
+}
+
+.md-typeset .admonition>.admonition-title:before, .md-typeset .admonition>summary:before, 
+.md-typeset details>.admonition-title:before, .md-typeset details>summary:before {
+  color: #007FCA;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  border-left-color: #007FCA;
+}
+
+.md-typeset .admonition>.admonition-title {
+  background-color: rgba(0,127,202,.1);
+}
