@@ -53,21 +53,18 @@
           <div class="md-flex__ellipsis md-header-nav__title"
               data-md-component="title">
             {% block site_name %}
-              <!-- {% if config.site_name == page.title %}
+              {% if config.site_name == page.title %}
                 {{ config.site_name }}
               {% else %}
                 <span class="md-header-nav__topic">
-
-                  {{ config.site_name }}
                 </span>
                 <span class="md-header-nav__topic">
                   {{ page.title }}
                 </span>
-              {% endif %} -->
+              {% endif %}
             {% endblock %}
           </div>
         </div>
-
         <!-- Qlik Core customization: Adding tabs to header -->
         {% include "partials/tabs.html" %}
   

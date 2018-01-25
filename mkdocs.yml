@@ -31,6 +31,7 @@ google_analytics: ['UA-110266862-1', 'ca.qliktive.com']
 
 pages:
   - startpage: index.md
+  - Beta: beta.md
   - Documentation:
     - Home: home.md
     - Getting Started: getting-started.md
@@ -70,4 +71,3 @@ pages:
       - Sales: support-and-services/sales.md
       - Technical Support: support-and-services/tech-support.md
       - Training: support-and-services/training.md
-  - Beta: beta.md
