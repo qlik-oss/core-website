@@ -1,9 +1,15 @@
-.md-header {
-  background: #5f6062;
+:root {
+  --custom-green: #3D8706;
+  --custom-grey: #5f6062;
+}
+
+.md-header, .md-footer {
+  background: var(--custom-grey);
+  border-bottom: 3px solid var(--custom-green);
 }
 
 .md-tabs, .md-footer-nav {
-  background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
+  background: var(--custom-grey);
 }
 
 .md-footer-nav {
@@ -14,15 +20,36 @@
   font-size: 16px;
 }
 
-.md-nav__link:focus, .md-nav__link:hover, .md-typeset a:active, .md-typeset a:hover, .md-nav__link--active,
+.md-typeset a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.md-nav__link:focus, .md-nav__link:hover, .md-nav__link--active,
 .md-typeset h2[id] .headerlink:focus, .md-typeset h2[id]:hover .headerlink:hover, .md-typeset h2[id]:target .headerlink,
 .md-typeset h3[id] .headerlink:focus, .md-typeset h3[id]:hover .headerlink:hover, .md-typeset h3[id]:target .headerlink,
 .md-typeset h4[id] .headerlink:focus, .md-typeset h4[id]:hover .headerlink:hover, .md-typeset h4[id]:target .headerlink {
-  color: #f8981d;
+  color: var(--custom-green);
+  text-decoration: underline;
+}
+
+.md-tabs__link {
+  opacity: 0.8;
+}
+
+.md-tabs__link:focus {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.md-tabs__link--active, .md-tabs__link:hover {
+  text-decoration: underline;
+  opacity: 1;
 }
 
 .md-header-nav__topic {
   font-weight: 100;
+  max-width: 30%;
 }
 
 .md-flex__cell--shrink:first-child {
@@ -44,13 +71,16 @@
 }
 
 .md-content {
-  background: rgba(0, 0, 0, 0.02);
   height: 100%;
 }
 
 .md-content__inner {
   margin-bottom: 0;
   padding: 20px 0 40px 0;
+}
+
+.md-icon.md-content__icon {
+  text-decoration: none;
 }
 
 .md-sidebar {
@@ -62,11 +92,11 @@
 }
 
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
-  background: #f8981d;
+  background: var(--custom-green);
 }
 
 .md-sidebar--secondary .md-nav__title {
-  padding-bottom: 10px;
+  margin-bottom: 10px;
   border-bottom: 1px solid RGBA(0, 0, 0, 0.08);
 }
 
@@ -75,37 +105,61 @@
 }
 
 .md-sidebar--secondary .md-nav__link {
-  border-bottom: 1px solid RGBA(0, 0, 0, 0.05);
   margin: 0;
-  padding: 7px 14px 7px 20px;
+  padding: 4px 14px 4px 20px;
 }
 
 .md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link {
   background: none;
-  font-size: 1.2rem;
-  color: rgba(0, 0, 0, .77);
-  padding: 8px 14px 8px 40px;
+  padding: 4px 14px 4px 40px;
 }
 
 .md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link:hover {
-  color: #f8981d;
+  color: var(--custom-green);
 }
 
 .md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
   padding-left: 60px;
 }
 
-.md-nav__link[data-md-state=blur] {
-  color: rgba(0, 0, 0, .87);
+.hidden {
+  visibility: hidden;
 }
 
-.md-nav__link[data-md-state=blur]:hover {
-  color: #f8981d;
+.md-tabs {
+  text-align: right;
+  height: 45px;
+  overflow: hidden;
+}
+
+.md-footer-copyright ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.md-footer-copyright {
+  overflow: auto;
+  max-width: 100%;
+  float: none;
+  margin: 0 21rem;
+  color: hsla(0,0%,100%,.5);
+}
+
+.md-footer-copyright ul li {
+  margin-left: 0;
+}
+
+.md-footer-link-list {
+  padding-right: 1em;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
 }
 
 @media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title--site {
-    background-color: #5f6062;
+    background-color: var(--custom-grey);
   }
 
   html .md-nav--primary .md-nav__title--site .md-nav__button {
@@ -117,4 +171,121 @@
   .md-nav__source {
     background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
   }
+}
+
+.md-tabs__list {
+  margin-right: 10rem;
+}
+
+.md-search__input {
+  background-color: var(--custom-grey);
+}
+
+@media only screen and (max-width: 59.9375em) {
+  [data-md-toggle=search]:checked~.md-header .md-search__input {
+    background-color: white;
+  }
+}
+.marketing-page-main-content {
+  width: 103.5vw;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: calc(-50vw + 48%);
+}
+
+#marketing-page {
+  margin-top: -33px;
+  margin-bottom: -56px;
+}
+
+.md-footer-social a, .md-footer-social a:hover {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.md-footer-legal {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+.md-footer-legal-text {
+  width: 80%;
+  float: left;
+  padding-top: 13px;
+}
+
+.md-footer-legal-social {
+  width: 20%;
+  float: right;
+}
+
+@media only screen and (min-width: 45em) {
+  .md-footer-social, .md-footer-social {
+    padding: 0;
+    margin-top: -3px;
+  }
+}
+
+.marketing-header {
+  font-family: Arial;
+  font-weight: 600;
+  padding: 60px 0 0;
+  color: white;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.marketing-background {
+  background-image:URL('../images/QlikBranch_headerImage.jpg');
+}
+.marketing-text {
+  padding: 30px;
+  width: 50%;
+}
+
+.marketing-header h1 {
+  color: white;
+}
+
+.md-typeset .admonition.tip>.admonition-title:before, .md-typeset .admonition.tip>summary:before, 
+.md-typeset details.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
+  color: var(--custom-green);
+}
+
+.md-typeset .admonition.tip, .md-typeset details.tip {
+  border-left-color: var(--custom-green);
+}
+
+.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.tip>summary, 
+.md-typeset details.tip>.admonition-title, .md-typeset details.tip>summary {
+  background-color: rgba(61,135,6,.1);
+}
+
+.md-typeset .admonition.warning>.admonition-title:before, .md-typeset .admonition.warning>summary:before,
+.md-typeset details.warning>.admonition-title:before, .md-typeset details.warning>summary:before {
+  color: #f8981d;
+}
+
+.md-typeset .admonition.warning, .md-typeset details.warning {
+  border-left-color: #f8981d;
+}
+
+.md-typeset .admonition.warning>.admonition-title, .md-typeset .admonition.warning>summary, 
+.md-typeset details.warning>.admonition-title, .md-typeset details.warning>summary {
+  background-color: rgba(248,152,29,.1);
+}
+
+.md-typeset .admonition>.admonition-title:before, .md-typeset .admonition>summary:before, 
+.md-typeset details>.admonition-title:before, .md-typeset details>summary:before {
+  color: #007FCA;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  border-left-color: #007FCA;
+}
+
+.md-typeset .admonition>.admonition-title {
+  background-color: rgba(0,127,202,.1);
 }
