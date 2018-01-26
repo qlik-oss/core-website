@@ -17,10 +17,12 @@ access, so it is important that you also include rules when enabling it
 or you will cause access problems for your users.
 
 ```bash
-docker run qlikea/engine:<version> \
+docker run
+    -v ./local-rules:/container-rules
+    qlikea/engine:<version> \
     -S EnableABAC=1 \
-    -S SystemAllowRulePath=/allow-rules.txt \
-    -S SystemDenyRulePath=/deny-rules.txt
+    -S SystemAllowRulePath=/container-rules/allow.txt \
+    -S SystemDenyRulePath=/container-rules/deny.txt
 ```
 
 ## Allow versus Deny
