@@ -34,42 +34,42 @@ pages:
   - Beta: beta.md
   - Documentation:
     - Home: home.md
-  - Getting Started: getting-started.md
-  - Downloads: downloads.md
-  - Tutorials:
-    - Hello Engine: tutorials/hello-engine.md
-    - Hello Data: tutorials/hello-data.md
-    - Hello Visualization: tutorials/hello-visualization.md
-    - Orchestration: tutorials/orchestration.md
-    - Authorization: tutorials/authorization.md
-    - Data Loading: tutorials/data-loading.md
-    - Document Distribution: tutorials/document-distribution.md
-    - Scalability:
-      - Overview: tutorials/scalability/overview.md
-      - Newspaper website: tutorials/scalability/newspaper.md
+    - Getting Started: getting-started.md
+    - Downloads: downloads.md
+    - Tutorials:
+      - Hello Engine: tutorials/hello-engine.md
+      - Hello Data: tutorials/hello-data.md
+      - Hello Visualization: tutorials/hello-visualization.md
+      - Orchestration: tutorials/orchestration.md
+      - Authorization: tutorials/authorization.md
+      - Data Loading: tutorials/data-loading.md
+      - Document Distribution: tutorials/document-distribution.md
+      - Scalability:
+        - Overview: tutorials/scalability/overview.md
+        - Newspaper website: tutorials/scalability/newspaper.md
     - Services:
-      - QIX Engine:
+      - QIX Engine: 
         - Overview: documentation/services/qix-engine.md
         - Access Control: documentation/apis/access-control.md
         - QIX API: 
-        - Definitions: documentation/apis/qix-engine-definitions.md
-        - Global: documentation/apis/qix-engine-global.md
-        - Doc: documentation/apis/qix-engine-doc.md
-        - Generic Object: documentation/apis/qix-engine-genericobject.md
-        - Generic Bookmark: documentation/apis/qix-engine-genericbookmark.md
-        - Generic Derived Field: documentation/apis/qix-engine-genericderivedfields.md
-        - Generic Dimension: documentation/apis/qix-engine-genericdimension.md
-        - Generic Measure: documentation/apis/qix-engine-genericmeasure.md
-        - Generic Variable: documentation/apis/qix-engine-genericvariable.md
-        - Field: documentation/apis/qix-engine-field.md
-        - Variable: documentation/apis/qix-engine-variable.md
+          - Definitions: documentation/apis/qix-engine-definitions.md
+          - Global: documentation/apis/qix-engine-global.md
+          - Doc: documentation/apis/qix-engine-doc.md
+          - Generic Object: documentation/apis/qix-engine-genericobject.md
+          - Generic Bookmark: documentation/apis/qix-engine-genericbookmark.md
+          - Generic Derived Field: documentation/apis/qix-engine-genericderivedfields.md
+          - Generic Dimension: documentation/apis/qix-engine-genericdimension.md
+          - Generic Measure: documentation/apis/qix-engine-genericmeasure.md
+          - Generic Variable: documentation/apis/qix-engine-genericvariable.md
+          - Field: documentation/apis/qix-engine-field.md
+          - Variable: documentation/apis/qix-engine-variable.md
         - Data Loading API: documentation/apis/data-loading.md
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
     - API Strategy: documentation/api-strategy.md
-  - Support & Services:
-    - Licensing: support-and-services/licensing.md
-    - Sales: support-and-services/sales.md
-    - Technical Support: support-and-services/tech-support.md
-    - Training: support-and-services/training.md
+    - Support & Services:
+      - Licensing: support-and-services/licensing.md
+      - Sales: support-and-services/sales.md
+      - Technical Support: support-and-services/tech-support.md
+      - Training: support-and-services/training.md
