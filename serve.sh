@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 
-MKDOCS_IMAGE=squidfunk/mkdocs-material
+MKDOCS_IMAGE=squidfunk/mkdocs-material:2.5.3
 
 if [[ "$OS" == "Windows_NT" ]]; then
   winpty docker run --rm -it -p 8000:8000 -v /`pwd -W`://docs $MKDOCS_IMAGE

@@ -40,8 +40,8 @@ Create       | Create resource.
 Read         | Read resource.
 Update       | Update resource.
 Delete       | Delete resource.
-Export       | Export an app from Qlik Sense Enterprise into a qvf file.
-Publish      | Publish a resource to a stream.
+Export       | Export a document.
+Publish      | Publish a resource.
 Change owner | Change the owner of a resource.
 Change role  | Change user role.
 Export data  | Export data from an object.
@@ -66,6 +66,7 @@ Example JWT:
 
 ```json
 {
+  "sub": "john-doe",
   "name": "John Doe",
   "employeeType": "developer",
   "tags": ["research"],
@@ -86,14 +87,16 @@ user.employeeType = "developer" and user.custom.country = "sweden"
 
 The document (called App in the rules syntax) context.
 
+It has no additional attributes.
+
 ### App.Object
 
 An object inside a document context.
 
 Attribute | Description | Example condition
 --------- | ----------- | -----------------
-approved | Indicator of whether the object was part of the original app when the app was published. Values: `true` or `false`. | `resource.approved="true"`
-description | Object description. | `resource.description="old"`
+approved | Indicator of whether the object was part of the original document when the document was published. Values: `true` or `false`. | `resource.approved="true"`
+description | The object description. | `resource.description="My custom description"`
 objectType | The object type. | `resource.objectType="field" or resource.objectType="my-generic-object"`
 published | Indicator of whether the object is published. Values: `true` or `false`. | `resource.published="false"`
 app.name | Name of the document that the object is part of. | `app.name="Q3_Report"`
@@ -120,6 +123,15 @@ resources first and then the user and/or resource conditions or the other way ro
 However, it is recommended that you are consistent in the order in which you define
 resources and conditions as this simplifies troubleshooting. When using multiple conditions,
 you can group two conditions by wrapping them in parentheses.
+
+**Example**
+
+```c
+// If the resource is of any type,
+// and the user is a developer,
+// then allow all actions:
+resource.resourcetype = "*" and user.employeeType = "developer" and resource.actions = "*"
+```
 
 ## Operators
 
@@ -169,7 +181,7 @@ resource.org = "UK"
 // Evaluates to `true`:
 resource.org = "uk"
 
-// Evaluates to `false` because the values re different:
+// Evaluates to `false` because the values are different:
 resource.org = "United Kingdom"
 ```
 
@@ -236,7 +248,7 @@ are implicitly added.
 resource.name matches ".*yAp.*"
 
 // Evaluates to `true` if the access request resource filter starts with
-// "myresource" and ends with "_<four digits>":
+// "myresource_" and ends with "<four digits>":
 resource.resourcefilter matches "myresource_\\d{4}"
 ```
 
@@ -256,7 +268,7 @@ are not equal. If a list is used, only one value needs not to match.
 Given that `org` is `"uk"` in the access request.
 
 ```c
-// Evaluates to False because the operator is case insensitive:
+// Evaluates to `false` because the operator is case insensitive:
 resource.org != "UK"
 
 // Evalues to `true`:
@@ -332,7 +344,7 @@ Given that `org` is `"united states"` in the access request.
 // Evaluates to `true` because the operator is case sensitive:
 resource.org !== "United States"
 
-// Evaluates to False:
+// Evaluates to `false`:
 resource.org !== "united states"
 ```
 
@@ -407,4 +419,4 @@ resource.IsOwned()
 // Evaluates to `true` if the resource is owned by the user
 // being evaluated:
 resource.IsOwned() and resource.owner = user
-````
+```
