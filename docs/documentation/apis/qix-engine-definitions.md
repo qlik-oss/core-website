@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.122.0._
+_QIX definitions for version 12.125.0._
 
 ## `AlfaNumString`
 
@@ -867,6 +867,7 @@ _No description._
 | `qReferenceDay` | integer | Day in the year that is always in week 1.<br>According to ISO 8601, January 4th should always be part of the first week of the year ( _qReferenceDay_ =4).<br>Recommended values are in the range 1 and 7.<br>If this property has not been set in a script, the returned value comes from the Windows operating system.<br>This property is not relevant if there are broken weeks in the year. |
 | `qFirstMonthOfYear` | integer | First month of the year, starting from 1.<br>According to ISO 8601, _January_ is the first month of the year.<br>* 1 = January<br>* 2 = February<br>* 12 = January<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qCollation` | string | Locale name (following language tagging convention RFC 4646):<br>_&lt; language&gt;-&lt;REGION&gt;_<br>Where:<br>* _language_ is a lowercase ISO  639 language code<br>* _REGION_ specifies an uppercase ISO 3166 country code.<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
+| `qNumericalAbbreviation` | string | Number format.<br>Example: 3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y |
 
 ## `MeasureList`
 
