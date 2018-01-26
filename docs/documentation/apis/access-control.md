@@ -1,5 +1,9 @@
 # Access Control
 
+!!! warning "Experimental feature"
+    This feature is in an experimental state. Use with caution
+    since this feature may change in the future.
+
 Being able to control which users can do what in the context
 of a document is often necessary. In QIX Engine we support
 Attribute-Based Access Control (ABAC) which lets you control
