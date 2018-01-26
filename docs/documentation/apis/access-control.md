@@ -6,9 +6,9 @@
 
 Being able to control which users can do what in the context
 of a document is often necessary. In QIX Engine we support
-Attribute-Based Access Control (ABAC) which lets you control
-the document resources based on a users' attributes rather than
-using roles or other, more static, means.
+[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
+which lets you control the document resources based on a users'
+attributes rather than using roles or other, more static, means.
 
 ## Configuration
 
