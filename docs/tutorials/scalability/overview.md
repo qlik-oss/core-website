@@ -5,7 +5,7 @@ These real-world implementations will help you understand your requirements when
 
 ## Before you begin
 
-We recommended that you start by reading the [QIX Engine documentation](./../../documentation/services/qix-engine.md),
+We recommended that you start by reading the [QIX Engine documentation](./../../documentation/services/qix-engine/introduction.md),
 which will help you understand how the QIX Engine handles resources and interacts with other services.
 
 ## Use cases

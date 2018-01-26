@@ -11,7 +11,7 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
 
 _No return values._
 
@@ -25,7 +25,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDim` | [`NxLibraryDimensionDef`](./qix-engine-definitions.md#nxlibrarydimensiondef) | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
+| `qDim` | [`NxLibraryDimensionDef`](./definitions.md#nxlibrarydimensiondef) | `{"qGrouping":"...","qFieldDefs":["..."],"qFieldLabels":["..."]}` |
 
 ## `GetInfo`
 
@@ -37,7 +37,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -49,7 +49,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | [`GenericDimensionLayout`](./qix-engine-definitions.md#genericdimensionlayout) | Information on the object. |
+| `qLayout` | [`GenericDimensionLayout`](./definitions.md#genericdimensionlayout) | Information on the object. |
 
 ## `GetLinkedObjects`
 
@@ -61,7 +61,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxLinkedObjectInfo`](./qix-engine-definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
+| `qItems` | [`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
 
 ## `GetProperties`
 
@@ -73,7 +73,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Information about the generic object. |
+| `qProp` | [`GenericDimensionProperties`](./definitions.md#genericdimensionproperties) | Information about the generic object. |
 
 ## `Publish`
 
@@ -91,7 +91,7 @@ Sets some properties for a dimension.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | [`GenericDimensionProperties`](./qix-engine-definitions.md#genericdimensionproperties) | Yes | Information about the dimension. |
+| `qProp` | [`GenericDimensionProperties`](./definitions.md#genericdimensionproperties) | Yes | Information about the dimension. |
 
 _No return values._
 

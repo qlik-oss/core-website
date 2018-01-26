@@ -5,7 +5,7 @@ comprising the core services. The core services represent the foundation on whic
 
 The core Qlik Core stack consists of the following services:
 
-- [QIX Engine](../documentation/services/qix-engine.md)
+- [QIX Engine](../documentation/services/qix-engine/introduction.md)
 - [License Service](../documentation/services/license-service.md)
 - [Mira](../documentation/services/mira.md)
 
