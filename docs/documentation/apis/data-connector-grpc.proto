@@ -30,73 +30,29 @@ message GetDataOptions
 }
 
 
+/**
+    A structure for streaming field values.
 
-/** Qlik field values have three parts. String, Number and Info. Info is not supported at this level.
-    Every field value imported will have a string and/or a number.
+    Each chunk starts anywhere in any row and continues for an arbitary length and may wrap to
+    another row. Typically sized to fit 64 KB.
 
-    This enum is used to indicate null values and other special cases.
-*/
-enum ValueFlag {
-    Normal = 0;
-    Null = 1;       /** NullString and NullNum. Use to specify a null value. */
-    NullString = 2; /** Missing string as opposed to empty. */
-    NullNum = 3;    /** Missing numerical value. */
-}
+    A huge single field value can be transferred in one chunk, while hundreds or thounsands of smaller
+    values fit in one chunk.
 
-/** A chunk of values for one column.
-    The numerical value can be transffered as a double or an integer.
-    Inetegers will typically take up less bandwidth than doubles.
-
-    Qlik can recieve any number as a double or an integer. The connector
-    can use integers for better network performance.
-
-    Although unusual a feild value can have both a string and a number
-    part. Then the strings and one of number arrays will be used at the same
-    time. To inidicate a null value or a mising string or number, use
-    the flag array.
-*/
-message Column
-{
-    repeated string strings = 1;
-    repeated double doubles = 2;
-    repeated sint64 integers = 3;
-    repeated ValueFlag flags = 4;
-}
-
-/** Data for one or more rows in the import.
-    The datachunk should be serialized as less than 64KB for best performance.
+    This message conatins two parts. A value array part and a pointer part.
+    Every transferred value have a string index and a numeric index. These indicies can be -1 to indicate null. Otherwise they can point into the value arrays.
+    The numberIndex have a special mechanism to escape an integer value inline with -2.
 */
 message DataChunk
 {
-    repeated Column cols = 1;
+    // Value arrays
+    repeated string stringValues = 1;    /// Strings the chunk
+    repeated double doubleValues = 2;    /// Doubles in the chunk.
+
+    // Pointer arrays
+    repeated sint32 stringIndex = 3;     /// String value index or -1 for null string. -2 for empty string.
+    repeated sint64 numberIndex = 4;     /// Number value index or -1 for null number. Or -2, followed by an integer value.
 }
-
-/** Represents a binary stream. Each chunk is slighly less than 64 KB or smaller.
-    Use less than 64KB for best performance.
-*/
-message RawDataChunk
-{
-    bytes data = 1;
-}
-
-
-/// A structure for horizontal data. Horizontal data starts anywhere in any row
-/// and continues for an arbitary length and may wrap to another row. Typically
-/// sized to fit 64 KB.
-message HorizontalChunk
-{
-    repeated string stringValues = 1;    /// Strings the bundle
-    repeated double doubleValues = 2;    /// Doubles in the bundle.
-
-    repeated sint32 stringIndex = 3;     /// -1 = Null string.
-                                         /// -2 = Empty string.
-                                         /// Zero or greater = Index into stringValues.
-
-    repeated sint32 numberIndex = 4;     /// -1 = Null number.
-                                         /// Zero or greater = Index into doubleValues.
-                                         /// -2 = The next index is not an index but a 32bit signed integer value.
-}
-
 
 
 /** How to interpret the data.
@@ -125,7 +81,6 @@ enum FieldAttrType {
     MONEY = 12;
 }
 
-
 /** Subset of classic Qlik Engine number format */
 message FieldAttributes
 {
@@ -148,28 +103,9 @@ message GetDataResponse {
 
 service Connector
 {
-
-    /** The standard way to send data.
-        First send GetDataResponse as initial meta data.
-        Then send HorizontalChunk stream.
-    */
-    rpc GetHorizontalData(GetDataOptions) returns(stream HorizontalChunk) {}
-
     /** The standard way to send data.
         First send GetDataResponse as initial meta data.
         Then send DataChunk stream.
     */
     rpc GetData(GetDataOptions) returns(stream DataChunk) {}
-
-    /** An experimental way to send data. The raw method will bypass the slightly expensive protobuf
-        encoding and send byte chunks of slightly less than 64KB each as a binary stream. The first 4 bytes
-        transfferd is a little endian signed integer with the raw protocol number being used.
-
-        In some cases this method will provide better performance. It is also a more difficult
-        to implement. Not ready for public use.
-
-        First send GetDataResponse as initial meta data.
-        Then send RawDataChunk stream.
-    */
-    rpc GetRawData(GetDataOptions) returns(stream RawDataChunk) {}
 }
