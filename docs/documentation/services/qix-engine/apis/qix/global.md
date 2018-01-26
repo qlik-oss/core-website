@@ -124,7 +124,7 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qDocId` | string | &lt;path and name of the app&gt; |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; } |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; } |
 
 ## `CreateSessionApp`
 
@@ -137,7 +137,7 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSessionAppId` | string | &lt;Identifier of the session app&gt; |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
 
 ## `CreateSessionAppFromApp`
 
@@ -154,7 +154,7 @@ Creates a session app from a source app.<br>The following applies:<br>* The obje
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSessionAppId` | string | &lt;Identifier of the session app&gt; |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
 
 ## `DeleteApp`
 
@@ -182,7 +182,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qVersion` | [`NxEngineVersion`](./qix-engine-definitions.md#nxengineversion) | `{"qComponentVersion":"<Qlik engine component version>"}` |
+| `qVersion` | [`NxEngineVersion`](./definitions.md#nxengineversion) | `{"qComponentVersion":"<Qlik engine component version>"}` |
 
 ## `ExportApp`
 
@@ -212,7 +212,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; }<br>If no app is opened, an error message is returned:<br>{ "jsonrpc": "2.0", "id": 2, "error": { "code": 1007, "parameter": "No active document", "message": "App invalid" } } |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; }<br>If no app is opened, an error message is returned:<br>{ "jsonrpc": "2.0", "id": 2, "error": { "code": 1007, "parameter": "No active document", "message": "App invalid" } } |
 
 ## `GetAppEntry`
 
@@ -228,7 +228,7 @@ Retrieves the meta data of an app.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qEntry` | [`AppEntry`](./qix-engine-definitions.md#appentry) | Information about the app. |
+| `qEntry` | [`AppEntry`](./definitions.md#appentry) | Information about the app. |
 
 ## `GetAuthenticatedUser`
 
@@ -259,7 +259,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | [`BNFDef`](./qix-engine-definitions.md#bnfdef) | Description of the scripting language grammar. |
+| `qBnfDefs` | [`BNFDef`](./definitions.md#bnfdef) | Description of the scripting language grammar. |
 
 ## `GetBaseBNF`
 
@@ -275,7 +275,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | [`BNFDef`](./qix-engine-definitions.md#bnfdef) | Description of the scripting language grammar. |
+| `qBnfDefs` | [`BNFDef`](./definitions.md#bnfdef) | Description of the scripting language grammar. |
 | `qBnfHash` | string | A string hash of the BNF definition. |
 
 ## `GetBaseBNFHash`
@@ -325,7 +325,7 @@ List the custom connectors available in the system.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnectors` | [`CustomConnector`](./qix-engine-definitions.md#customconnector) | List of the custom connectors. |
+| `qConnectors` | [`CustomConnector`](./definitions.md#customconnector) | List of the custom connectors. |
 
 ## `GetDatabasesFromConnectionString`
 
@@ -335,13 +335,13 @@ Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection. |
+| `qConnection` | [`Connection`](./definitions.md#connection) | Yes | Information about the connection. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDatabases` | [`Database`](./qix-engine-definitions.md#database) | List of the databases in the connection. |
+| `qDatabases` | [`Database`](./definitions.md#database) | List of the databases in the connection. |
 
 ## `GetDefaultAppFolder`
 
@@ -365,7 +365,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDocList` | [`DocListEntry`](./qix-engine-definitions.md#doclistentry) | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
+| `qDocList` | [`DocListEntry`](./definitions.md#doclistentry) | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
 
 ## `GetFolderItemsForPath`
 
@@ -381,7 +381,7 @@ Returns the files and folders located at a specified path.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolderItems` | [`FolderItem`](./qix-engine-definitions.md#folderitem) | Path of the folder where the apps are stored. |
+| `qFolderItems` | [`FolderItem`](./definitions.md#folderitem) | Path of the folder where the apps are stored. |
 
 ## `GetFunctions`
 
@@ -397,7 +397,7 @@ Gets the list of all the script functions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFunctions` | [`Function`](./qix-engine-definitions.md#function) | Name of the group<br>Default is all groups. |
+| `qFunctions` | [`Function`](./definitions.md#function) | Name of the group<br>Default is all groups. |
 
 ## `GetInteract`
 
@@ -413,7 +413,7 @@ Retrieves information on the user interaction that is requested by the engine.<b
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDef` | [`InteractDef`](./qix-engine-definitions.md#interactdef) | Information to set up the user interaction.<br>Indicates which kind of interaction is wanted. |
+| `qDef` | [`InteractDef`](./definitions.md#interactdef) | Information to set up the user interaction.<br>Indicates which kind of interaction is wanted. |
 | `qReturn` | boolean | _No description._ |
 
 ## `GetLogicalDriveStrings`
@@ -426,7 +426,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDrives` | [`DriveInfo`](./qix-engine-definitions.md#driveinfo) | List of drives. |
+| `qDrives` | [`DriveInfo`](./definitions.md#driveinfo) | List of drives. |
 
 ## `GetMyDocumentsFolder`
 
@@ -450,7 +450,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOdbcDsns` | [`OdbcDsn`](./qix-engine-definitions.md#odbcdsn) | List of the ODBC connectors. |
+| `qOdbcDsns` | [`OdbcDsn`](./definitions.md#odbcdsn) | List of the ODBC connectors. |
 
 ## `GetOleDbProviders`
 
@@ -462,7 +462,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOleDbProviders` | [`OleDbProvider`](./qix-engine-definitions.md#oledbprovider) | List of the OLEDB providers. |
+| `qOleDbProviders` | [`OleDbProvider`](./definitions.md#oledbprovider) | List of the OLEDB providers. |
 
 ## `GetProgress`
 
@@ -478,7 +478,7 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProgressData` | [`ProgressData`](./qix-engine-definitions.md#progressdata) | Information about the progress of the request. |
+| `qProgressData` | [`ProgressData`](./definitions.md#progressdata) | Information about the progress of the request. |
 
 ## `GetStreamList`
 
@@ -493,7 +493,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStreamList` | [`NxStreamListEntry`](./qix-engine-definitions.md#nxstreamlistentry) | List of the streams. |
+| `qStreamList` | [`NxStreamListEntry`](./definitions.md#nxstreamlistentry) | List of the streams. |
 
 ## `GetSupportedCodePages`
 
@@ -505,7 +505,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCodePages` | [`CodePage`](./qix-engine-definitions.md#codepage) | List of the code pages |
+| `qCodePages` | [`CodePage`](./definitions.md#codepage) | List of the code pages |
 
 ## `GetUniqueID`
 
@@ -528,7 +528,7 @@ Informs the engine that a user interaction (which was earlier requested by the e
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qRequestId` | integer | Yes | Identifier of the request.<br>Corresponds to the identifier of the _DoReload_ request. |
-| `qDef` | [`InteractDef`](./qix-engine-definitions.md#interactdef) | Yes | User response to the current interaction. |
+| `qDef` | [`InteractDef`](./definitions.md#interactdef) | Yes | User response to the current interaction. |
 
 _No return values._
 
@@ -567,7 +567,7 @@ Checks if a connection string is valid.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qConnection` | [`Connection`](./qix-engine-definitions.md#connection) | Yes | Information about the connection. |
+| `qConnection` | [`Connection`](./definitions.md#connection) | Yes | Information about the connection. |
 
 **Returns:**
 
@@ -617,7 +617,7 @@ Opens an app and checks if the app needs to be migrated (if the app is deprecate
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | _No description._ |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | _No description._ |
 
 ## `ProductVersion`
 

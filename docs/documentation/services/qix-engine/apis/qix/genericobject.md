@@ -37,14 +37,14 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPatches` | [`NxPatch`](./qix-engine-definitions.md#nxpatch) | Yes | Array of patches. |
+| `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
 | `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
 
 _No return values._
 
 ## `BeginSelections`
 
-Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>* The sort criteria, see [`ListObjectDef`](./qix-engine-definitions.md#listobjectdef) or [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef).<br><br>
+Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>* The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br><br>
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ _No return values._
 
 ## `CollapseLeft`
 
-Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -92,7 +92,7 @@ _No return values._
 
 ## `CollapseTop`
 
-Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -125,15 +125,15 @@ Creates a generic object that is a child of another generic object.<br>It is pos
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the child.<br>It is possible to create a child that is linked to another object. |
-| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Yes | Information about the child.<br>It is possible to create a child that is linked to another object. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier of the child>","qType":"<type of the child>"}` |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the child&gt; } |
+| `qInfo` | [`NxInfo`](./definitions.md#nxinfo) | `{"qId":"<identifier of the child>","qType":"<type of the child>"}` |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the child&gt; } |
 
 ## `DestroyAllChildren`
 
@@ -143,7 +143,7 @@ Removes all children and all children to the children on an object.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 _No return values._
 
@@ -156,7 +156,7 @@ Removes a child object.<br>It is possible to update the properties of the child'
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the child to remove. |
-| `qPropForThis` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
@@ -204,7 +204,7 @@ _No return values._
 
 ## `ExpandLeft`
 
-Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -219,7 +219,7 @@ _No return values._
 
 ## `ExpandTop`
 
-Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
@@ -266,7 +266,7 @@ Returns the type of the object and the corresponding handle.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the object&gt; } |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the object&gt; } |
 
 ## `GetChildInfos`
 
@@ -278,7 +278,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfos` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>}, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>...<br>] |
+| `qInfos` | [`NxInfo`](./definitions.md#nxinfo) | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>}, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>...<br>] |
 
 ## `GetEffectiveProperties`
 
@@ -290,7 +290,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Information about the generic object. |
+| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Information about the generic object. |
 
 ## `GetFullPropertyTree`
 
@@ -302,7 +302,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPropEntry` | [`GenericObjectEntry`](./qix-engine-definitions.md#genericobjectentry) | Information about the properties. |
+| `qPropEntry` | [`GenericObjectEntry`](./definitions.md#genericobjectentry) | Information about the properties. |
 
 ## `GetHyperCubeBinnedData`
 
@@ -313,9 +313,9 @@ This method supports data binning.<br>When a generic object with two or three me
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
-| `qViewport` | [`NxViewPort`](./qix-engine-definitions.md#nxviewport) | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
-| `qDataRanges` | [`NxDataAreaPage`](./qix-engine-definitions.md#nxdataareapage) | Yes | [`Range`](./qix-engine-definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
+| `qViewport` | [`NxViewPort`](./definitions.md#nxviewport) | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
+| `qDataRanges` | [`NxDataAreaPage`](./definitions.md#nxdataareapage) | Yes | [`Range`](./definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
 | `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
 | `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
@@ -324,7 +324,7 @@ This method supports data binning.<br>When a generic object with two or three me
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxDataPage`](./qix-engine-definitions.md#nxdatapage) | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
+| `qDataPages` | [`NxDataPage`](./definitions.md#nxdatapage) | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
 
 ## `GetHyperCubeContinuousData`
 
@@ -335,15 +335,15 @@ Retrieves and packs compressed hypercube and axis data. It is possible to retrie
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qOptions` | [`NxContinuousDataOptions`](./qix-engine-definitions.md#nxcontinuousdataoptions) | Yes | Defines the data to return. |
+| `qOptions` | [`NxContinuousDataOptions`](./definitions.md#nxcontinuousdataoptions) | Yes | Defines the data to return. |
 | `qReverseSort` | boolean | No | If set to true the returned data pages are reverse sorted.<br>Optional. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxDataPage`](./qix-engine-definitions.md#nxdatapage) | Array of pages to retrieve.<br>The dimension values and the measure values. |
-| `qAxisData` | [`NxAxisData`](./qix-engine-definitions.md#nxaxisdata) | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
+| `qDataPages` | [`NxDataPage`](./definitions.md#nxdatapage) | Array of pages to retrieve.<br>The dimension values and the measure values. |
+| `qAxisData` | [`NxAxisData`](./definitions.md#nxaxisdata) | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
 
 ## `GetHyperCubeData`
 
@@ -354,13 +354,13 @@ Retrieves the calculated data for a chart, a table, or a scatter plot. It is pos
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxDataPage`](./qix-engine-definitions.md#nxdatapage) | A data set |
+| `qDataPages` | [`NxDataPage`](./definitions.md#nxdatapage) | A data set |
 
 ## `GetHyperCubePivotData`
 
@@ -371,13 +371,13 @@ Retrieves the values of a pivot table. It is possible to retrieve specific pages
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxPivotPage`](./qix-engine-definitions.md#nxpivotpage) | A data set. |
+| `qDataPages` | [`NxPivotPage`](./definitions.md#nxpivotpage) | A data set. |
 
 ## `GetHyperCubeReducedData`
 
@@ -388,7 +388,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages. |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages. |
 | `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>* If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>* If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
 | `qReductionMode` | string | Yes | Defines the reduction mode.<br><br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
 
@@ -396,7 +396,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxDataPage`](./qix-engine-definitions.md#nxdatapage) | A data set. |
+| `qDataPages` | [`NxDataPage`](./definitions.md#nxdatapage) | A data set. |
 
 ## `GetHyperCubeStackData`
 
@@ -407,14 +407,14 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages to retrieve. |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 | `qMaxNbrCells` | integer | No | Maximum number of cells at outer level.<br>The default value is 10 000. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxStackPage`](./qix-engine-definitions.md#nxstackpage) | A data set. |
+| `qDataPages` | [`NxStackPage`](./definitions.md#nxstackpage) | A data set. |
 
 ## `GetHyperCubeTreeData`
 
@@ -425,13 +425,13 @@ Retrieves data for nodes in a tree structure. It is possible to retrieve specifi
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected. |
-| `qNodeOptions` | [`NxTreeDataOption`](./qix-engine-definitions.md#nxtreedataoption) | No | Specifies all the paging filters needed to define the tree to be fetched. If left out the complete tree is returned. |
+| `qNodeOptions` | [`NxTreeDataOption`](./definitions.md#nxtreedataoption) | No | Specifies all the paging filters needed to define the tree to be fetched. If left out the complete tree is returned. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qNodes` | [`NxTreeNode`](./qix-engine-definitions.md#nxtreenode) | Represents the nodes and dimensions of the defined tree. |
+| `qNodes` | [`NxTreeNode`](./definitions.md#nxtreenode) | Represents the nodes and dimensions of the defined tree. |
 
 ## `GetInfo`
 
@@ -443,7 +443,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | [`NxInfo`](./qix-engine-definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
+| `qInfo` | [`NxInfo`](./definitions.md#nxinfo) | `{"qId":"<identifier>","qType":"<type>"}` |
 
 ## `GetLayout`
 
@@ -455,7 +455,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLayout` | [`GenericObjectLayout`](./qix-engine-definitions.md#genericobjectlayout) | Information on the object. |
+| `qLayout` | [`GenericObjectLayout`](./definitions.md#genericobjectlayout) | Information on the object. |
 
 ## `GetLinkedObjects`
 
@@ -467,7 +467,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxLinkedObjectInfo`](./qix-engine-definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
+| `qItems` | [`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo) | List of the linked objects. |
 
 ## `GetListObjectData`
 
@@ -478,13 +478,13 @@ Retrieves the values of a list object.<br>A data set is returned.
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qPages` | [`NxPage`](./qix-engine-definitions.md#nxpage) | Yes | Array of pages you are interested in. |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages you are interested in. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | [`NxDataPage`](./qix-engine-definitions.md#nxdatapage) | A data set. |
+| `qDataPages` | [`NxDataPage`](./definitions.md#nxdatapage) | A data set. |
 
 ## `GetProperties`
 
@@ -496,7 +496,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Information about the generic object. |
+| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Information about the generic object. |
 
 ## `GetSnapshotObject`
 
@@ -508,7 +508,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | [`ObjectInterface`](./qix-engine-definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle": &lt;Handle of the snapshot&gt; } |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericBookmark", "qHandle": &lt;Handle of the snapshot&gt; } |
 
 ## `Lock`
 
@@ -532,7 +532,7 @@ _No details._
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | _No description._ |
-| `qRanges` | [`NxMultiRangeSelectInfo`](./qix-engine-definitions.md#nxmultirangeselectinfo) | Yes | _No description._ |
+| `qRanges` | [`NxMultiRangeSelectInfo`](./definitions.md#nxmultirangeselectinfo) | Yes | _No description._ |
 | `qOrMode` | boolean | No | _No description._ |
 | `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
 
@@ -551,7 +551,7 @@ _No details._
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | _No description._ |
-| `qRanges` | [`NxTreeMultiRangeSelectInfo`](./qix-engine-definitions.md#nxtreemultirangeselectinfo) | Yes | _No description._ |
+| `qRanges` | [`NxTreeMultiRangeSelectInfo`](./definitions.md#nxtreemultirangeselectinfo) | Yes | _No description._ |
 | `qOrMode` | boolean | No | _No description._ |
 | `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
 
@@ -578,7 +578,7 @@ Make range selections in measures.<br> This method applies to hypercubes. For ex
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`NxRangeSelectInfo`](./qix-engine-definitions.md#nxrangeselectinfo) | Yes | Ranges of selection. |
+| `qRanges` | [`NxRangeSelectInfo`](./definitions.md#nxrangeselectinfo) | Yes | Ranges of selection. |
 | `qColumnsToSelect` | array | No | Indicates which dimensions to select.<br>The dimensions numbering starts at 0 (first dimension is 0).<br>If the array is empty, all dimensions are selected. |
 | `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>If set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>If set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>The default value is false. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
@@ -643,7 +643,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`NxContinuousRangeSelectInfo`](./qix-engine-definitions.md#nxcontinuousrangeselectinfo) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qRanges` | [`NxContinuousRangeSelectInfo`](./definitions.md#nxcontinuousrangeselectinfo) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
 **Returns:**
@@ -714,7 +714,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`Range`](./qix-engine-definitions.md#range) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qRanges` | [`Range`](./definitions.md#range) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 
 **Returns:**
@@ -778,14 +778,14 @@ Makes single selections in dimensions.<br>This method applies to list objects on
 
 ## `SelectPivotCells`
 
-This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./qix-engine-definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br><br>
+This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br><br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qSelections` | [`NxSelectionCell`](./qix-engine-definitions.md#nxselectioncell) | Yes | Information about the selections to perform. |
+| `qSelections` | [`NxSelectionCell`](./definitions.md#nxselectioncell) | Yes | Information about the selections to perform. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
@@ -815,7 +815,7 @@ Sets the properties of:<br>* A generic object.<br>* The children of the generic 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPropEntry` | [`GenericObjectEntry`](./qix-engine-definitions.md#genericobjectentry) | Yes | Information about the generic object entry. |
+| `qPropEntry` | [`GenericObjectEntry`](./definitions.md#genericobjectentry) | Yes | Information about the generic object entry. |
 
 _No return values._
 
@@ -827,7 +827,7 @@ Sets some properties for a generic object.<br>The properties depends on the gene
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | [`GenericObjectProperties`](./qix-engine-definitions.md#genericobjectproperties) | Yes | Information about the generic object. |
+| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Yes | Information about the generic object. |
 
 _No return values._
 

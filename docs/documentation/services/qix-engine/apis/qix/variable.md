@@ -6,7 +6,7 @@ _QIX methods for version 12.125.0._
 ## `ForceContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
 
 Sets the value of a dual variable overriding any input constraints.
 
@@ -22,7 +22,7 @@ _No return values._
 ## `GetContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
 
 Returns the calculated value of a variable.
 
@@ -32,12 +32,12 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qContent` | [`AlfaNumString`](./qix-engine-definitions.md#alfanumstring) | Information about the calculated value. |
+| `qContent` | [`AlfaNumString`](./definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
 
 !!! warning "Deprecated"
-    Use [`GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+    Use [`GetProperties`](./genericvariable.md#getproperties) method instead
 
 Gets the properties of a variable.
 
@@ -47,12 +47,12 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Information about the properties of the variable. |
+| `qProperties` | [`NxVariableProperties`](./definitions.md#nxvariableproperties) | Information about the properties of the variable. |
 
 ## `GetRawContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./qix-engine-genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
 
 Returns the raw value of a variable.
 
@@ -67,7 +67,7 @@ _No parameters._
 ## `SetContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
 
 Sets a value to a variable.
 
@@ -87,7 +87,7 @@ Sets a value to a variable.
 ## `SetNxProperties`
 
 !!! warning "Deprecated"
-    Use [`SetProperties`](./qix-engine-genericvariable.md#setproperties) method instead
+    Use [`SetProperties`](./genericvariable.md#setproperties) method instead
 
 Sets some properties to a variable.
 
@@ -95,6 +95,6 @@ Sets some properties to a variable.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProperties` | [`NxVariableProperties`](./qix-engine-definitions.md#nxvariableproperties) | Yes | Information about the properties of the variable |
+| `qProperties` | [`NxVariableProperties`](./definitions.md#nxvariableproperties) | Yes | Information about the properties of the variable |
 
 _No return values._
