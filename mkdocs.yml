@@ -67,6 +67,7 @@ pages:
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
     - Contract: documentation/contract.md
+    - API Strategy: documentation/api-strategy.md
     - Support & Services:
       - Licensing: support-and-services/licensing.md
       - Sales: support-and-services/sales.md
