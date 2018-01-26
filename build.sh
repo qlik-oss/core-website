@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 
-MKDOCS_IMAGE=squidfunk/mkdocs-material
+MKDOCS_IMAGE=squidfunk/mkdocs-material:2.5.3
 
 echo "Building site into `pwd`/site/ folder."
 
