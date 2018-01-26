@@ -50,6 +50,7 @@ pages:
     - Services:
       - QIX Engine: 
         - Overview: documentation/services/qix-engine.md
+        - Access Control: documentation/apis/access-control.md
         - QIX API: 
           - Definitions: documentation/apis/qix-engine-definitions.md
           - Global: documentation/apis/qix-engine-global.md

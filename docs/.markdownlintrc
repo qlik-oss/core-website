@@ -11,5 +11,6 @@
   "MD026": {
     "punctuation": ".,;:"   // Allow headers ending with question mark or exclamation mark
   },
-  "MD033": false            // Allow inline html
+  "MD033": false,           // Allow inline html
+  "MD036": false            // Allow using emphasis as a form of header
 }

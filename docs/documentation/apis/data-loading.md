@@ -1,5 +1,9 @@
 # Data Loading API
 
+!!! warning "Experimental feature"
+    This feature is in an experimental state. Use with caution
+    since this feature may change in the future.
+
 Typically, a connector is implemented as a stateless Docker container that
 sits between the QIX Engine and the data source, as shown below.
 
