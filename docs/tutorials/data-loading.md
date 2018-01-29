@@ -53,19 +53,19 @@ Do the following:
     should be the address of the callback that is running the service: `http://[host]:[port]/oauth2/callback`.
     For example: `http://localhost:3000/oauth2/callback`
 
-1. Set the following environment variables in the command shell:
-    ``` bash
-    export DROPBOX_CLIENT_ID="your App key"
-    export DROPBOX_CLIENT_SECRET="your App secret"
-    ```
-1. Start the Docker container and run the `dropbox.js` application.
+1. Start the Docker container, ensure that you set the proper
+    credentials in the environment variables prefixing the
+    `docker-compose` command.
     ```bash
     cd examples
-    docker-compose up -d --build
-    node ./dropbox
+    DROPBOX_CLIENT_ID="your App key" DROPBOX_CLIENT_SECRET="your App secret" docker-compose up -d --build
     ```
-    **Note:** When you run the `dropbox.js` application, the first 10 lines of the [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
-    are printed to the console window.
+1. Run the `dropbox.js` application.
+    ```bash
+    node dropbox.js
+    ```
+    It should output the 10 lines of the [`airports.csv`](https://github.com/qlik-ea/outhaul/blob/master/data/airports.csv)
+        to the console window.
 
 The workflow for loading data from GoogleDrive and OneDrive is similar to the example above,
 and loading data from these data sources is supported by the
