@@ -126,6 +126,18 @@
   visibility: hidden;
 }
 
+@media only screen and (max-width: 76.1875em) {
+  .md-nav--primary {
+    visibility: unset;
+  }
+}
+
+@media only screen and (max-width: 76.1875em) {
+  html .md-nav--primary .md-nav__title {
+    height: unset;
+  }
+}
+
 .md-tabs {
   text-align: right;
   height: 45px;
