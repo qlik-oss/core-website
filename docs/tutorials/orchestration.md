@@ -120,7 +120,7 @@ To learn more about labeling, see [Mira documentation](https://github.com/qlik-e
 Deploy the stack by running the following command:
 
 ```sh
-docker stack deploy -c ./docker-compose.yml --with-registry-auth frontira
+docker stack deploy -c ./docker-compose.yml --with-registry-auth qlik-core
 ```
 
 **Note**: `--with-registry-auth` is currently required because the Docker images are not public,
@@ -132,7 +132,7 @@ Once the stack is deployed,
 you can retrieve a list of the tasks running on the stack by running the following command:
 
 ```sh
-docker stack ps frontira
+docker stack ps qlik-core
 ```
 
 You can query Mira to return the list of QIX Engines it has discovered by calling its `/engines` endpoint:
@@ -178,7 +178,7 @@ The stack consists of one QIX Engine, one Mira discovery service, and one Licens
 #### Mira Kubernetes mode
 
 Open the
-[mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/frontira/mira-deployment.yaml)
+[mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/qlik-core/mira-deployment.yaml)
 file to see how Mira is configured.
 
 The Mira deployment specifies two containers to run in the pod.
@@ -227,7 +227,7 @@ Deploy the stack by running the following command:
 
 ```sh
 cd kubernetes/plain
-kubectl create -f ./frontira/
+kubectl create -f ./qlik-core/
 ```
 
 #### Deploying to Kubernetes with Helm
@@ -241,7 +241,7 @@ Deploy the stack using Helm by running the following command:
 
 ```sh
 cd kubernetes/helm
-helm install ./frontira/
+helm install ./qlik-core/
 ```
 
 ### Accessing the stack
