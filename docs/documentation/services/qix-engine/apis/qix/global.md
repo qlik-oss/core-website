@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.125.0._
+_QIX methods for version 12.129.0._
 
 ## `AbortAll`
 
@@ -428,18 +428,6 @@ _No parameters._
 | ---- | ---- | ----------- |
 | `qDrives` | [`DriveInfo`](./definitions.md#driveinfo) | List of drives. |
 
-## `GetMyDocumentsFolder`
-
-_No details._
-
-_No parameters._
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qFolder` | string | _No description._ |
-
 ## `GetOdbcDsns`
 
 Returns the list of the ODBC connectors that are installed in the system.
@@ -621,7 +609,10 @@ Opens an app and checks if the app needs to be migrated (if the app is deprecate
 
 ## `ProductVersion`
 
-Returns the Qlik Sense version number.<br>This method is deprecated (not recommended for use). Use the [`EngineVersion`](#engineversion) method instead. 
+!!! warning "Deprecated"
+    Use [`EngineVersion`](#engineversion) method instead
+
+Returns the Qlik Sense version number.
 
 _No parameters._
 
