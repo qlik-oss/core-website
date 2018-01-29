@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.125.0._
+_QIX definitions for version 12.129.0._
 
 ## `AlfaNumString`
 
@@ -744,11 +744,11 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 | `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category<br>* One pseudo dimension in position 1<br>* Three left dimensions.<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position -1.<br>* Three left dimensions.<br><br>implies that:<br>* The index -1 corresponds to the pseudo dimension; the pseudo dimension is the most to the right.<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension. |
 | `qIndentMode` | boolean | Is used for pivot tables only.<br>If set to true, the formatting of the results is slightly different.<br>This property is optional. |
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | Is used for pivot tables only.<br>Position of the last expended cell.<br>This property is optional. |
-| `qHasOtherValues` | boolean | _No description._ |
-| `qTitle` | string | _No description._ |
+| `qHasOtherValues` | boolean | True if other row exists. |
+| `qTitle` | string | Title of the hypercube, for example the title of a chart. |
 | `qTreeNodesOnDim` | array | The total number of nodes on each dimension (only applicable when _qMode = T_ ). |
-| `qCalcCondMsg` | string | _No description._ |
-| `qColumnOrder` | array | _No description._ |
+| `qCalcCondMsg` | string | The message dislayed if calculation condition is not fulfilled. |
+| `qColumnOrder` | array | The order of the columns. |
 
 ## `HyperCubeDef`
 
@@ -774,9 +774,9 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qIndentMode` | boolean | This property applies for pivot tables and allows to change the layout of the table. An indentation is added to the beginning of each row.<br>The default value is false. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.<br>As long as the condition is not met, the engine does not perform a new calculation.<br>This property is optional. By default, there is no calculation condition. |
 | `qSortbyYValue` | integer | To enable the sorting by ascending or descending order in the values of a measure.<br>This property applies to pivot tables and stacked pivot tables.<br>In the case of a pivot table, the measure or pseudo dimension should be defined as a top dimension. The sorting is restricted to the values of the first measure in a pivot table. |
-| `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
-| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
-| `qColumnOrder` | array | _No description._ |
+| `qTitle` | [`StringExpr`](#stringexpr) | Title of the hypercube, for example the title of a chart. |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qColumnOrder` | array | The order of the columns. |
 
 ## `InteractDef`
 
@@ -1035,8 +1035,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCond` | [`ValueExpr`](#valueexpr) | _No description._ |
-| `qMsg` | [`StringExpr`](#stringexpr) | _No description._ |
+| `qCond` | [`ValueExpr`](#valueexpr) | Condition for calculating an hypercube, dimension or measure. |
+| `qMsg` | [`StringExpr`](#stringexpr) | Evaluated if Cond is not fullfilled. |
 
 ## `NxCell`
 
@@ -1203,7 +1203,7 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the dimension is
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.<br>If the calculation condition is not met, the dimension is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
-| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
 ## `NxDimensionInfo`
 
@@ -1467,7 +1467,7 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the measure is s
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
 ## `NxMeasureInfo`
 
@@ -1731,7 +1731,7 @@ _No description._
 | `qShowAll` | boolean | _No description._ |
 | `qOtherLabel` | [`StringExpr`](#stringexpr) | _No description._ |
 | `qTotalLabel` | [`StringExpr`](#stringexpr) | _No description._ |
-| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | _No description._ |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | _No description._ |
 
@@ -2418,7 +2418,7 @@ _No description._
 | `qSuppressMissing` | boolean | _No description._ |
 | `qOpenFullyExpanded` | boolean | _No description._ |
 | `qPopulateMissing` | boolean | _No description._ |
-| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 
 ## `UndoInfo`

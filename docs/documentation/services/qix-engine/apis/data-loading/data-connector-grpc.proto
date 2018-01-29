@@ -33,15 +33,25 @@ message GetDataOptions
 /**
     A structure for streaming field values.
 
+    This message conatins two parts. A value array part and a pointer part.
+
+    Every transferred value have a string index and a numeric index. These indicies can be -1 to indicate null.
+    Otherwise they can point into the value arrays.
+    The numberIndex have a special mechanism to escape an integer value inline with -2.
+
+    A value with a null string and a null number is a null value in the Qlik Engine.
+
     Each chunk starts anywhere in any row and continues for an arbitary length and may wrap to
     another row. Typically sized to fit 64 KB.
 
-    A huge single field value can be transferred in one chunk, while hundreds or thounsands of smaller
-    values fit in one chunk.
+    Each DataChunk must be equal or less in size to the default Grpc message size limit. This is
+    currently 4 mB.
 
-    This message conatins two parts. A value array part and a pointer part.
-    Every transferred value have a string index and a numeric index. These indicies can be -1 to indicate null. Otherwise they can point into the value arrays.
-    The numberIndex have a special mechanism to escape an integer value inline with -2.
+    But should be between 50 kB (good) to 64 kB (best) for best performance.
+    Its not easy to make a message exactly 64 kb in size but just under that will be perfectly fine
+    as well.
+
+    Very large strings can be sent in many DataChunk messages by using the -3 escape sequence.
 */
 message DataChunk
 {
@@ -50,8 +60,16 @@ message DataChunk
     repeated double doubleValues = 2;    /// Doubles in the chunk.
 
     // Pointer arrays
-    repeated sint32 stringIndex = 3;     /// String value index or -1 for null string. -2 for empty string.
-    repeated sint64 numberIndex = 4;     /// Number value index or -1 for null number. Or -2, followed by an integer value.
+    repeated sint32 stringIndex = 3;     /// 0 or greater is an index into the stringValues array.
+                                         /// -1 for a missning string. (null string) (no string value entry required).
+                                         /// -2 for an empty string. (no string value entry required).
+
+    repeated sint64 numberIndex = 4;     /// 0 or greater is an index into the doubleValues array.
+                                         /// -1 for a null number.
+                                         /// -2 followed by an integer value. In this case there is no index into doubleValues.
+                                         ///    Instead -2 is followed by an actual field value number. This is a variable
+                                         ///    length encoded integer and will take up less space than a full double in most cases.
+                                         /// -3 is partial message special case.
 }
 
 
