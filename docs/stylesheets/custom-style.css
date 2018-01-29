@@ -130,9 +130,6 @@
   .md-nav--primary {
     visibility: unset;
   }
-}
-
-@media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title {
     height: unset;
   }
