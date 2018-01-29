@@ -1,9 +1,4 @@
-# Qlik Core Service Contract
-
-This document contains a contract for Qlik Core services to keep the services aligned in aspects such as
-logging formats, health checks, and metrics.
-
-## Logging
+# Logging
 
 Services must log enough information for a developer to be able to debug and fix issues using the information
 available in the logs.
@@ -17,7 +12,7 @@ and make sure that the content of the logs is sufficient for monitoring and fixi
 In staging and production environments, each service's log output will be captured by the execution environment
 and aggregated in near real-time.
 
-### Logging conventions
+## Logging conventions
 
 1. Write events only on `stdout`; never write events to files.
     * Events _must_ be on `stdout` and not `stderr`.
@@ -40,7 +35,7 @@ and aggregated in near real-time.
   Case and word separation style must be consistent. The _snake_case_ style is preferred
  (e.g., use `session_id`, _not_ `SessionId`)
 
-### Logging Levels
+## Logging Levels
 
 The allowed log levels are as follows:
 
@@ -61,7 +56,3 @@ The allowed log levels are as follows:
     * Service can continue normal operation after error recovery.
 * `FATAL`
     * Non-recoverable error that forces the service to terminate.
-
-## Health Checks
-
-## Metrics

@@ -1,4 +1,4 @@
-# Introduction
+# QIX Engine
 
 The QIX Engine is the central service in the Qlik Core stack. It has a lot of features and configuration options
 which we have dedicated pages for. Please use the menu on your left to read more about the unique capabilities

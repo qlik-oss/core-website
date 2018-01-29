@@ -70,7 +70,7 @@ The following metrics are provided.
 
 #### Logging
 
-The License Service complies with logging as described in the Qlik Core [Contract](../contract.md).
+The License Service complies with the [Logging](../conventions/logging.md) conventions.
 By default, the minimum log level is `info`.
 However, for the Microsoft libraries the default minimum logging level is set to `warning` to avoid too verbose logging.
 

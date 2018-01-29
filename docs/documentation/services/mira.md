@@ -84,7 +84,7 @@ Mira uses the following default port values:
 ### Logging
 
 Mira uses the same the logging format and logging levels that are described
-in the [Qlik Core Service Contract](../contract.md).
+in the [Logging](../conventions/logging.md) conventions.
 The default log level is set to `info`.
 You can change the log level by setting the `MIRA_LOG_LEVEL` environment variable.
 
