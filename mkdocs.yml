@@ -69,10 +69,8 @@ pages:
         - Data Loading API: documentation/services/qix-engine/apis/data-loading/data-loading.md
       - License Service: documentation/services/license-service.md
       - Mira: documentation/services/mira.md
-    - Contract: documentation/contract.md
-    - API Strategy: documentation/api-strategy.md
-    - Support & Services:
-      - Licensing: support-and-services/licensing.md
-      - Sales: support-and-services/sales.md
-      - Technical Support: support-and-services/tech-support.md
-      - Training: support-and-services/training.md
+    - Conventions:
+      - Introduction: documentation/conventions/introduction.md
+      - API Strategy: documentation/conventions/api-strategy.md
+      - Logging: documentation/conventions/logging.md
+      - Metrics: documentation/conventions/metrics.md

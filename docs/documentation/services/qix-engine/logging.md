@@ -1,6 +1,6 @@
 # Logging
 
-The QIX Engine follows the logging format and levels specified in the [Qlik Core Service Contract](../../contract.md#logging).
+The QIX Engine follows the logging format and levels specified in the [Logging](../../conventions/logging.md) conventions.
 
 ## Log Types
 
@@ -27,8 +27,8 @@ The following table lists the log types that are available and the default verbo
 You configure the log levels by providing settings through command line parameters when you start the docker container.
 
 !!! Note
-    The QIX Engine uses the [log levels](../../contract.md#logging-levels) defined in the _Qlik Core Service Contract_,
-    but each log level is also mapped to a numeric value used to set the logging verbosity level of the QIX Engine.
+    While the QIX Engine follows the [Logging](../../conventions/logging.md#logging-levels) conventions,
+    each log level is also mapped to a numeric value used to set the logging verbosity level.
 
 | Log level | Value |
 | --------- | ----- |
@@ -55,8 +55,8 @@ services:
 
 ## Log Format
 
-In addition to the required fields in the _Qlik Core Service Contract_, the QIX Engine also has a few log fields that
-are common to all log types:
+In addition to the required fields in the [Logging](../../conventions/logging.md) conventions, the QIX Engine also
+has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
