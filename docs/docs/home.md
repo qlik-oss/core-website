@@ -33,10 +33,11 @@ instances in distributed environments.
 To see an example of what can be built using Qlik Core, a live demo is available at
 [ca.qliktive.com](https://ca.qliktive.com).
 
-The demo uses Qliktive as a fictive company. Qliktive provides an application to assist with drug prescriptions.
+The demo is built on the requirements from a fictive company, which provides an interactive application to
+assist doctors with drug prescriptions.
 
-The complete demo including more detailed documentation is available as open source on GitHub in the
-[qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repo.
+The source code for the demo including more detailed documentation is available as open source on GitHub
+in the [qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repo.
 
 ## New to Qlik Core?
 
