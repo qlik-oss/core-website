@@ -1,17 +1,12 @@
 # API Strategy
 
-## Why Have an API Strategy?
+We take our relationship with our partners and customers seriously. This is why we have a transparent
+and reliable API strategy that supports our partners and customers,
+so they can be confident in their investments that depend on our API.
 
-We take our relationship with our partners and customers seriously. The fact that we abide by a
-transparent and reliable API Strategy supports our trusted relationship with partners and customers.
+## Elements of our API Strategy
 
-Partners and customers need to be able to plan and rely on their investments on top of our APIs,
-therefore the main intention of our API strategy is to be fully transparent and predictable.
-
-## The Elements of our API Strategy
-
-To be able to secure Qlik’s commitment to our API consumers, we have established an API
-Governance Policy that consists of five main areas:
+The API Governance Policy consists of five areas:
 
 * Versioning
 * Visibility Index
@@ -21,97 +16,110 @@ Governance Policy that consists of five main areas:
 
 ### Versioning
 
-Our versioning policy describes a simple set of rules and requirements that dictate how API's version
+Our versioning policy describes a simple set of rules and requirements for an API, that dictate how the version
 numbers should be assigned and incremented.
 
-We are following the industry standard of Semantic Versioning. A version number must take the form
-X.Y.Z where X is the major version, Y is the minor version, and Z is the patch version.
+We follow industry standard semantic versioning. A version number must take the form
+X.Y.Z, where X is the major version, Y is the minor version, and Z is the patch version.
 
-The major advantage of using this versioning concept is that, by just comparing two different versions,
-one can automatically recognize whether the changes between two different versions contain:
+The advantage of using this method of versioning is that by comparing two versions, you can
+determine the compatibility differences.
 
-* backwards-compatible bug fixes (Z is incremented)
-* new backwards-compatible features (Y is incremented)
-* backwards-incompatible changes (X is incremented)
+* Backwards-compatible bug fixes (Z is incremented)
+* New backwards-compatible features (Y is incremented)
+* Backwards-incompatible changes (X is incremented)
 
-Major version zero is for initial development and so our API Governance policy does not apply. All our
-public APIs will always be at major version one or higher.
+Major version zero (0.Y.Z) is for initial development, so our API Governance Policy does not apply. Our
+public APIs will always be at major version one (1.Y.Z) or higher.
 
 ### Visibility Index
 
-Visibility Index defines who is the intended user of the API, and today we have two main types of
-APIs - Private and Public.
+The visibility index defines who is the intended user of the API. We currently have two types of
+APIs: private and public.
 
-Only Public APIs are supported, and they are documented officially in our Help section. Partners and
-customers should only use Public APIs for custom solutions built on top of our Qlik Analytics Platform.
-This to avoid the risk that the custom solution might break with any new version of our products.
+Public APIs are officially supported, and they are documented on the
+[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+To avoid the risk that your solution might break with any new version of our products,
+you should always use public APIs for custom solutions built on top of our Qlik Analytics Platform.
 
 ### Stability Index
 
-The Stability Index indicates how stable or mature an API is, and we have three levels:
+The stability index indicates how stable or mature an API is.
+We currently have three levels:
 
-* Experimental
-    We want to expose new APIs to our partners and customers as soon as possible, to allow to
-    work on early prototypes and especially to collect feedback in the early stage of a new API.
+* **Experimental**
+
     Experimental APIs are under development and might change with every new release, as
     there is no need to deprecate before removing.
-* Stable
+    We want to expose new APIs to our partners and customers as soon as possible.
+    This lets customers and partners develop early prototypes with experimental APIs and
+    provides us with important feedback in the early stage of the API.
+
+* **Stable**
+
     Stable APIs are reliable and breaking changes are unlikely. The deprecation period for stable
     APIs is set to 6 months.
-* Locked
+
+* **Locked**
+
     Locked APIs are extremely reliable and will not be broken unless necessary. The
     deprecation period for locked APIs is set to 12 months.
-    The Stability Index can be assigned to the whole API or have different values set within the API. APIs
-    can only be promoted and go to a more reliable Stability Index.
+    The stability index can be assigned to the whole API or part of the API.
+    Different areas of an API can have different stability index values.
+
+!!! Note
+    APIs can only be promoted and move to a more reliable stability index.
 
 ### Deprecation Policy
 
-The Deprecation Policy defines when and how an API is considered to be deprecated.
+The deprecation policy defines when and how an API is considered to be deprecated.
 
-Even if we intend to minimize changes in our APIs, it is though necessary that APIs can also change
-and evolve due to architectural changes, new functionalities, etc.
+We aim to minimize the changes to our APIs, but it is sometimes necessary due to
+architectural changes and with the introduction of new functionality.
 
 The deprecation period starts when the deprecation has been communicated, which means that it has
-been published to our API consumer, i.e. documented officially in our Help section, together with an
-available API replacement. The replacement is published at the same time as the deprecation so that
-API consumers can start adapting their custom solution and prepare it for the removal of the API.
-
-The deprecation period lasts until the removal has been communicated, and that means that the
-removal affects the API consumer.
+been officially documented on the
+[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+A replacement must be announced at the same time as the deprecation period starts. This gives
+API consumers a period in which they can start adapting their custom solution to the API replacement
+and prepare for the API deprecation.
 
 The deprecation period varies depending on the maturity of the API, which is set as the stability index.
+The deprecation period lasts until the removal has been officially communicated to the API consumer.
 
-Although the API Governance Policy is applicable also for our Private APIs, they are treated
-differently for deprecations.
+The API governance policy applies to both our public and private APIs,
+but private APIs are treated differently for deprecations.
 
 ### Breaking Change Definition
 
-The breaking change definition is a set of rules that defines if a change is considered a backward or
+The breaking change definition is a set of rules that defines if a change is considered to be a backward or
 non-backward compatible change.
 
 ## Bringing our API Strategy to Life
 
+In December 2016, we established the API Governance Policy within Qlik's R&D organization.
+This policy ensures that we meet the high standards of our API strategy.
+
 ### API Governance
 
-We have established an internal API Governance Council, taking of the overall execution of our API
-Strategy.
-
-To make sure that we meet the high standards of our API Strategy, we established the API
-Governance Policy within Qlik’s R&D organization in December 2016.
-
-Monitoring the compliance to the API Governance Policy is tightly embedded into our R&D’s internal
-day-to-day life, supported by a collection of processes we have established and internal tools we have
-developed.
+We have established an internal API Governance Council
+whose role is to take care of the overall execution of our API strategy.
+Furthermore, the API Governance Policy is embedded into our R&D organization.
+R&D has the internal tools and processes in place ot ensure that they meet the API Governance Policy,
+with the overall support from the API Governance Council.
 
 ### Qlik Help
 
-We have started to introduce the Stability Index in our Help section. This is an ongoing effort and to
-be continued in upcoming milestones.
+We have started to introduce the stability index in our [Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+This is an ongoing effort and we will continue with future
+[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm)
+updates.
 
 ### API Insights
 
-As part of the API Strategy, Qlik’s intention is to be fully transparent to our partners and customers.
-Therefore, we have launched Qlik Sense API Insights – a tool that provides visibility into changes to
-the APIs in Qlik Sense releases. The Qlik Sense apps used in the mashup compare each API’s
-specifications to identify API changes and show if something has been added, updated, deprecated or
-removed.
+Our intention is to be fully transparent to our partners and customers.
+Therefore, we have launched
+[Qlik API Insights](https://api-insights.qlik.com/?_ga=2.240450371.1316921484.1517254575-1425872494.1511967817#/start-page).
+This is a tool that lets you see the changes to APIs for different Qlik Sense releases.
+It shows you if something has been added, updated, deprecated, or removed, from an API.
+It also lets you compare an API across product release versions.
