@@ -33,44 +33,44 @@ pages:
   - startpage: index.md
   - Beta: beta.md
   - Documentation:
-    - Home: home.md
-    - Getting Started: getting-started.md
-    - Downloads: downloads.md
+    - Home: docs/home.md
+    - Getting Started: docs/getting-started.md
+    - Downloads: docs/downloads.md
     - Tutorials:
-      - Hello Engine: tutorials/hello-engine.md
-      - Hello Data: tutorials/hello-data.md
-      - Hello Visualization: tutorials/hello-visualization.md
-      - Orchestration: tutorials/orchestration.md
-      - Authorization: tutorials/authorization.md
-      - Data Loading: tutorials/data-loading.md
-      - Document Distribution: tutorials/document-distribution.md
+      - Hello Engine: docs/tutorials/hello-engine.md
+      - Hello Data: docs/tutorials/hello-data.md
+      - Hello Visualization: docs/tutorials/hello-visualization.md
+      - Orchestration: docs/tutorials/orchestration.md
+      - Authorization: docs/tutorials/authorization.md
+      - Data Loading: docs/tutorials/data-loading.md
+      - Document Distribution: docs/tutorials/document-distribution.md
       - Scalability:
-        - Overview: tutorials/scalability/overview.md
-        - Newspaper website: tutorials/scalability/newspaper.md
+        - Overview: docs/tutorials/scalability/overview.md
+        - Newspaper website: docs/tutorials/scalability/newspaper.md
     - Services:
       - QIX Engine:
-        - Introduction: documentation/services/qix-engine/introduction.md
-        - Access Control: documentation/services/qix-engine/access-control.md
-        - Logging: documentation/services/qix-engine/logging.md
-        - Resource Management: documentation/services/qix-engine/resource-management.md
+        - Introduction: docs/services/qix-engine/introduction.md
+        - Access Control: docs/services/qix-engine/access-control.md
+        - Logging: docs/services/qix-engine/logging.md
+        - Resource Management: docs/services/qix-engine/resource-management.md
         - QIX API: 
-          - Introduction: documentation/services/qix-engine/apis/qix/introduction.md
-          - Definitions: documentation/services/qix-engine/apis/qix/definitions.md
-          - Global: documentation/services/qix-engine/apis/qix/global.md
-          - Doc: documentation/services/qix-engine/apis/qix/doc.md
-          - Generic Object: documentation/services/qix-engine/apis/qix/genericobject.md
-          - Generic Bookmark: documentation/services/qix-engine/apis/qix/genericbookmark.md
-          - Generic Derived Field: documentation/services/qix-engine/apis/qix/genericderivedfields.md
-          - Generic Dimension: documentation/services/qix-engine/apis/qix/genericdimension.md
-          - Generic Measure: documentation/services/qix-engine/apis/qix/genericmeasure.md
-          - Generic Variable: documentation/services/qix-engine/apis/qix/genericvariable.md
-          - Field: documentation/services/qix-engine/apis/qix/field.md
-          - Variable: documentation/services/qix-engine/apis/qix/variable.md
-        - Data Loading API: documentation/services/qix-engine/apis/data-loading/data-loading.md
-      - License Service: documentation/services/license-service.md
-      - Mira: documentation/services/mira.md
+          - Introduction: docs/services/qix-engine/apis/qix/introduction.md
+          - Definitions: docs/services/qix-engine/apis/qix/definitions.md
+          - Global: docs/services/qix-engine/apis/qix/global.md
+          - Doc: docs/services/qix-engine/apis/qix/doc.md
+          - Generic Object: docs/services/qix-engine/apis/qix/genericobject.md
+          - Generic Bookmark: docs/services/qix-engine/apis/qix/genericbookmark.md
+          - Generic Derived Field: docs/services/qix-engine/apis/qix/genericderivedfields.md
+          - Generic Dimension: docs/services/qix-engine/apis/qix/genericdimension.md
+          - Generic Measure: docs/services/qix-engine/apis/qix/genericmeasure.md
+          - Generic Variable: docs/services/qix-engine/apis/qix/genericvariable.md
+          - Field: docs/services/qix-engine/apis/qix/field.md
+          - Variable: docs/services/qix-engine/apis/qix/variable.md
+        - Data Loading API: docs/services/qix-engine/apis/data-loading/data-loading.md
+      - License Service: docs/services/license-service.md
+      - Mira: docs/services/mira.md
     - Conventions:
-      - Introduction: documentation/conventions/introduction.md
-      - API Strategy: documentation/conventions/api-strategy.md
-      - Logging: documentation/conventions/logging.md
-      - Metrics: documentation/conventions/metrics.md
+      - Introduction: docs/conventions/introduction.md
+      - API Strategy: docs/conventions/api-strategy.md
+      - Logging: docs/conventions/logging.md
+      - Metrics: docs/conventions/metrics.md

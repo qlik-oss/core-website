@@ -6,9 +6,9 @@ Qlik Core consists of a core set of services, including QIX Engine, that can be 
 
 | Service    | Feature | Docker Image | Source Code |
 | ---------- | ------- | ------------ | ----------- |
-| [QIX Engine](./documentation/services/qix-engine/introduction.md) | The powerful associative indexing engine from Qlik and the foundation of Qlik Core | [qlikea/engine](https://hub.docker.com/r/qlikea/engine) | Closed source |
-| [License Service](./documentation/services/license-service.md) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
-| [Mira](./documentation/services/mira.md) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
+| [QIX Engine](./services/qix-engine/introduction.md) | The powerful associative indexing engine from Qlik and the foundation of Qlik Core | [qlikea/engine](https://hub.docker.com/r/qlikea/engine) | Closed source |
+| [License Service](./services/license-service.md) | Service required to run QIX Engine with a valid license | [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service) | Closed source |
+| [Mira](./services/mira.md) | QIX Engine discovery service | [qlikea/mira](https://hub.docker.com/r/qlikea/mira) | [GitHub](https://github.com/qlik-ea/mira) |
 
 ## JavaScript Libraries
 

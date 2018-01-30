@@ -5,9 +5,9 @@ comprising the core services. The core services represent the foundation on whic
 
 The core Qlik Core stack consists of the following services:
 
-- [QIX Engine](../documentation/services/qix-engine/introduction.md)
-- [License Service](../documentation/services/license-service.md)
-- [Mira](../documentation/services/mira.md)
+- [QIX Engine](../services/qix-engine/introduction.md)
+- [License Service](../services/license-service.md)
+- [Mira](../services/mira.md)
 
 In a typical solution, all services are deployed on the server side.
 
@@ -212,7 +212,7 @@ labels:
 ```
 
 This label is required for Mira to identify the engine service as a QIX Engine instance.
-To learn more about labeling, see [QIX Engine labeling](../documentation/services/mira.md#qix-engine-labeling).
+To learn more about labeling, see [QIX Engine labeling](../services/mira.md#qix-engine-labeling).
 
 ### Deploying the stack
 
