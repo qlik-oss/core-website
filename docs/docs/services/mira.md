@@ -369,7 +369,14 @@ services:
       qix-engine: ""
       qix-engine-api-port: "9076"
       qix-engine-metrics-port: "9090"
-
 ```
 
 Mira discovers the engine instance by looking for the `qix-engine` label.
+
+## Metrics
+
+Following the [Metrics](../conventions/metrics.md) conventions, Mira exposes
+some metrics that can be used to monitor the service.
+
+Mira exposes the recommended standard metrics from
+[Prometheus](https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors).
