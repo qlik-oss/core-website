@@ -49,13 +49,11 @@ which means it needs to be able to access the following external URLs:
 
 The hosting environment may need to open access to these locations, otherwise activation requests will fail.
 
-### Monitoring
-
-#### Health Check
+### Health Check
 
 The License Service exposes `/v1/health` on port 9200, for health checking. Always responds with `200 OK`.
 
-#### Metrics
+### Metrics
 
 The License Service exposes `/v1/metrics` on port 9200, for Prometheus metrics scraping.
 The following metrics are provided.
@@ -68,7 +66,7 @@ The following metrics are provided.
 | active_instances | GAUGE | Number of active instances (Engines with an active license). |
 | license_expiry_seconds | GAUGE | Number of seconds until the license expires. |
 
-#### Logging
+### Logging
 
 The License Service complies with the [Logging](../conventions/logging.md) conventions.
 By default, the minimum log level is `info`.
