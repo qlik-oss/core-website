@@ -9,6 +9,14 @@ QIX Engine differentiates from other vendors by dynamically calculating and prov
 selections, without the need to rely on query-based analysis which restricts to linear exploration within a partial view
 of the data.
 
+## Open Source
+
+We believe in Open Source—Therefore, almost everything in Qlik Core is available, and developed, as Open Source projects!
+We encourage you to explore the different git repositories and do not hesitate to star repositories, file issues, or send
+pull requests.
+
+You can find us on [GitHub under the qlik-oss organization](https://github.com/qlik-oss/).
+
 ## Containers
 
 Qlik Core is designed to utilize the power of container-based solutions and microservice architectures, such as
