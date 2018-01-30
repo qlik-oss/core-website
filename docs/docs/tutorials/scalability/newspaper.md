@@ -55,7 +55,7 @@ New sessions should be placed on the QIX Engine node that has the most headroom 
 A simple least-load principle could be applied to
 properly place a new user on the appropriate QIX Engine node.
 
-You can do this by using the [Mira service](./../../documentation/services/mira.md) to return an array
+You can do this by using the [Mira service](../../services/mira.md) to return an array
 of available QIX Engine instances and then sort them by load.
 
 **Note:** In this scenario, it is assumed that the document is either already open or small

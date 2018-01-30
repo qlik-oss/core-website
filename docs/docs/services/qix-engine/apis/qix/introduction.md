@@ -29,7 +29,7 @@ In a non-browser environment, most websocket client implementations support to a
 Header | Description
 ------ | -----------
 `X-Qlik-Session: <guid>` | Defines the session id, regardless of the user. If you use this header, the websocket URL could simply be `ws://hostname:9076/app/`.
-`Authorization: Bearer <token>` | If the [JWT feature](../../../../../tutorials/authorization.md) is enabled, this header will identify the user and its attributes.
+`Authorization: Bearer <token>` | If the [JWT feature](../../../../tutorials/authorization.md) is enabled, this header will identify the user and its attributes.
 
 ## JSONRPC Protocol
 

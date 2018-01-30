@@ -66,7 +66,7 @@ resource.name     | The name of the resource, if any.
 
 ### User
 
-The user resource contains all attributes defined in the [JWT header used to authenticate the user](../../../tutorials/authorization.md#json-web-token).
+The user resource contains all attributes defined in the [JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
 
 Example JWT:
 
