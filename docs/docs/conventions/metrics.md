@@ -1,11 +1,11 @@
 # Metrics
 
-Services must expose enough metrics to support public features, as well as
-monitoring the health of the service.
+Service metrics are collected with [Prometheus](https://prometheus.io/docs/introduction/overview/).
+A service must expose enough run-time metadata to provide metrics about the health of the service,
+and to support public features.
 
-The service shall expose metrics in the [Prometheus](https://prometheus.io/docs/introduction/overview/)
-formats, including:
+The service should follow these conventions:
 
-* It shall be exposed on an `/metrics` endpoint.
-* It shall support protobuf and plain text representations, based on the `Content-Type` passed in.
-* Following the [Prometheus best practices](https://prometheus.io/docs/practices/naming/).
+* Expose metrics on a `/metrics` endpoint.
+* Support protobuf and plain text representations, based on the `Content-Type` that is passed in.
+* Follow the [Prometheus best practices](https://prometheus.io/docs/practices/naming/) for naming.
