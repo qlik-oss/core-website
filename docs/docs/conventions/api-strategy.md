@@ -1,8 +1,7 @@
 # API Strategy
 
 We take our relationship with our partners and customers seriously. This is why we have a transparent
-and reliable API strategy that supports our partners and customers,
-so they can be confident in their investments that depend on our API.
+and reliable API strategy to support you and your investments that rely on our API.
 
 ## Elements of our API Strategy
 
@@ -19,7 +18,7 @@ The API Governance Policy consists of five areas:
 Our versioning policy describes a simple set of rules and requirements for an API, that dictate how the version
 numbers should be assigned and incremented.
 
-We follow industry standard semantic versioning. A version number must take the form
+We follow industry standard [Semantic Versioning](https://semver.org/). A version number must take the form
 X.Y.Z, where X is the major version, Y is the minor version, and Z is the patch version.
 
 The advantage of using this method of versioning is that by comparing two versions, you can
@@ -37,8 +36,8 @@ public APIs will always be at major version one (1.Y.Z) or higher.
 The visibility index defines who is the intended user of the API. We currently have two types of
 APIs: private and public.
 
-Public APIs are officially supported, and they are documented on the
-[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+Public APIs are officially supported, and they are documented in the
+[Qlik Core documentation](/docs/home.md).
 To avoid the risk that your solution might break with any new version of our products,
 you should always use public APIs for custom solutions built on top of our Qlik Analytics Platform.
 
@@ -77,11 +76,11 @@ The deprecation policy defines when and how an API is considered to be deprecate
 We aim to minimize the changes to our APIs, but it is sometimes necessary due to
 architectural changes and with the introduction of new functionality.
 
-The deprecation period starts when the deprecation has been communicated, which means that it has
-been officially documented on the
-[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+The deprecation period starts when the deprecation has been communicated,which means that it has
+been officially documented in the
+[Qlik Core documentation](/docs/home.md).
 A replacement must be announced at the same time as the deprecation period starts. This gives
-API consumers a period in which they can start adapting their custom solution to the API replacement
+you a period in which you can start adapting your custom solution to the API replacement
 and prepare for the API deprecation.
 
 The deprecation period varies depending on the maturity of the API, which is set as the stability index.
@@ -100,19 +99,12 @@ non-backward compatible change.
 In December 2016, we established the API Governance Policy within Qlik's R&D organization.
 This policy ensures that we meet the high standards of our API strategy.
 
-### API Governance
-
-We have established an internal API Governance Council
-whose role is to take care of the overall execution of our API strategy.
-Furthermore, the API Governance Policy is embedded into our R&D organization.
-R&D has the internal tools and processes in place ot ensure that they meet the API Governance Policy,
-with the overall support from the API Governance Council.
-
 ### Qlik Help
 
-We have started to introduce the stability index in our [Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm).
+We have started to introduce the stability index in our Qlik Core
+documentation.
 This is an ongoing effort and we will continue with future
-[Qlik Help site](https://help.qlik.com/en-US/sense-developer/November2017/Content/APIs-and-SDKs.htm)
+[Qlik Core documentation](/docs/home.md)
 updates.
 
 ### API Insights
@@ -120,6 +112,5 @@ updates.
 Our intention is to be fully transparent to our partners and customers.
 Therefore, we have launched
 [Qlik API Insights](https://api-insights.qlik.com/?_ga=2.240450371.1316921484.1517254575-1425872494.1511967817#/start-page).
-This is a tool that lets you see the changes to APIs for different Qlik Sense releases.
-It shows you if something has been added, updated, deprecated, or removed, from an API.
-It also lets you compare an API across product release versions.
+This is a tool that lets you see API changes over time.
+Wit this tool, you can see when something has been added, updated, deprecated, or removed, from an API.
