@@ -1,12 +1,12 @@
 # Conventions
 
-The service conventions are common concepts and features shared between
+Service conventions are common concepts and features that are shared among
 all services in Qlik Core.
 
 We currently have the following conventions:
 
 Convention                          | Description
 ----------------------------------- | -----------
-[API Strategy](./api-strategy.md)   | How things like versioning and deprecations work.
-[Logging](./logging.md)             | Conventions around logging.
-[Metrics](./metrics.md)             | What run-time metadata to expose, and how to expose it.
+[API Strategy](./api-strategy.md)   | API versioning and deprecation.
+[Logging](./logging.md)             | Service event logging.
+[Metrics](./metrics.md)             | Run-time metadata and how to expose it.
