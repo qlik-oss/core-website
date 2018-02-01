@@ -6,8 +6,9 @@
 
 ## Description
 
-QIX Engine services running in a cluster regardless of orchestration will assume that the cluster uses a shared persistence layer.
 To share e.g. documents or rules between multiple instances the QIX Engine uses a message broker called [RabbitMQ](https://www.rabbitmq.com/).
+With this feature the QIX Engine services running in a cluster, regardless of orchestration,
+will assume that the cluster uses a shared persistence layer.
 The QIX Engines subscribes and publishes events to the message broker which propagates change events to other instances.
 
 ## Configuration
@@ -31,4 +32,16 @@ docker run
     -S UseEventBus=1
 ```
 
-If this feature is enabled the QIX Engine will assume that there is a `RabbitMQ` message broker available on the address specified by the `RabbitHost` parameter.
+If this feature is enabled the QIX Engine will assume that there is a `RabbitMQ` message broker
+available on the address specified by the `RabbitHost` parameter.
+
+In the configuration example above we are mounting a folder named `docs`,
+which is also passed in as `DocumentDirectory`.
+This is the folder which the QIX Engine container will use for storing documents,
+and the mounted folder can then be shared with other QIX Engine instances.
+
+## Example
+
+To show how two QIX Engine instances are sharing the same document using the message broker,
+we have implemented a basic example in `Kubernetes` using `Persisted Volumes`.
+You can find the example [here](https://github.com/qlik-ea/example-doc-sync).
