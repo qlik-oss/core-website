@@ -6,9 +6,11 @@
 
 ## Description
 
-To share e.g. documents or rules between multiple instances the QIX Engine uses a message broker called [RabbitMQ](https://www.rabbitmq.com/).
-With this feature the QIX Engine services running in a cluster, regardless of orchestration,
+For sharing documents between multiple instances the QIX Engine uses a message broker called [RabbitMQ](https://www.rabbitmq.com/).
+With this feature the QIX Engine instances running in a cluster, regardless of orchestration,
 will assume that the cluster uses a shared persistence layer.
+What type of shared persistence volume that should be used is configurable by the end-user,
+as long as the volume is based on a block file system.
 The QIX Engines subscribes and publishes events to the message broker which propagates change events to other instances.
 
 ## Configuration
@@ -19,13 +21,13 @@ Further information regarding access control in QIX Engine can be found [here](a
 
 ```bash
 docker run
-    -v ./local-rules:/container-rules
-    -v ./docs:/docs
+    -v <host rules folder>:<container rules folder>
+    -v <host document folder>:<container document folder>
     qlikea/engine:<version> \
     -S EnableABAC=1 \
-    -S SystemAllowRulePath=/container-rules/allow.txt \
-    -S SystemDenyRulePath=/container-rules/deny.txt \
-    -S DocumentDirectory=/docs \
+    -S SystemAllowRulePath=/<container rules folder>/allow.txt \
+    -S SystemDenyRulePath=/<container rules folder>/deny.txt \
+    -S DocumentDirectory=<container document folder> \
     -S Gen3=1 \
     -S PersistenceMode=3 \
     -S RabbitHost=rabbitmq:5672 \
@@ -35,7 +37,7 @@ docker run
 If this feature is enabled the QIX Engine will assume that there is a `RabbitMQ` message broker
 available on the address specified by the `RabbitHost` parameter.
 
-In the configuration example above we are mounting a folder named `docs`,
+In the configuration example above we are mounting a folder `-v <host document folder>:<container document folder>`,
 which is also passed in as `DocumentDirectory`.
 This is the folder which the QIX Engine container will use for storing documents,
 and the mounted folder can then be shared with other QIX Engine instances.
