@@ -103,7 +103,10 @@ Mount `docker.sock` as a volume into the Mira container as shown in this [exampl
 It is however only possible to mount `docker.sock` on a Swarm manager node.
 
 If Mira should be running on a worker node Mira needs to be configured to access the Docker Remote API by a URL.
-This can be configured by setting the environment variable `DOCKER_HOST` as shown in the example below:
+In this case there is no need to mount `docker.sock` into the Mira container,
+but the Docker Remote API must be exposed remotely in the Swarm using the [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option).
+For Mira the remotely exposed API can be configured by setting the environment variable `DOCKER_HOST`,
+as shown in the example below:
 
 ```yaml
 services:
@@ -111,7 +114,7 @@ services:
     image: qlikea/mira
     environment:
      - MIRA_MODE=swarm
-     - DOCKER_HOST=http://docker.sock:2375
+     - DOCKER_HOST=tcp://docker.sock:2375
     ...
 ```
 
