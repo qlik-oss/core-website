@@ -150,20 +150,38 @@
   overflow: auto;
   max-width: 100%;
   float: none;
-  margin: 0 21rem;
+  margin: 0 15rem;
   color: hsla(0,0%,100%,.5);
 }
 
 .md-footer-copyright ul li {
   margin-left: 0;
+  margin-bottom: 0.3em;
 }
 
-.md-footer-link-list {
+.md-footer-copyright .md-footer-link-header {
+  color: hsla(0,0%,100%,.55);
+  font-weight: 700;
+}
+
+.md-footer-inner-container {
   padding-right: 1em;
-  width: 49%;
   display: inline-block;
   vertical-align: top;
   text-align: left;
+}
+
+.md-footer-logo {
+  width: 40%;
+}
+
+.md-footer-logo img {
+  width: 250px;
+  height: auto;
+}
+
+.md-footer-link-list {
+  width: 20%;
 }
 
 @media only screen and (max-width: 76.1875em) {
