@@ -18,8 +18,8 @@ The License Service is developed by Qlik as closed source.
 
 ## Configuration
 
-The QIX Engine must be configured with the URL of the License Service
-in order to make license activation requests to it.
+The License Service has no configuration, but you need to instruct
+[QIX Engine](./qix-engine/introduction.md) where to find it.
 This is done by providing the following command line argument to QIX Engine:
 
 ```sh
@@ -37,17 +37,6 @@ For running examples of basic license configuration, see the [Orchestration](../
 Normally, only one License Service instance should be required in a Qlik Core deployment.
 Traffic between QIX Engine instances and the License Service is low.
 For load balancing or availability concerns, running multiple replicas of the License Service is supported.
-
-### LEF back-end connectivity
-
-When deployed, the License Service must have access to the Qlik licensing back-end,
-which means it needs to be able to access the following external URLs:
-
-- `http://lef1.qliktech.com`
-- `http://lef2.qliktech.com`
-- `http://lef3.qliktech.com`
-
-The hosting environment may need to open access to these locations, otherwise activation requests will fail.
 
 ### Health Check
 
