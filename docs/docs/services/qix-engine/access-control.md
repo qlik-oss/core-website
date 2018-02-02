@@ -24,6 +24,8 @@ or you will cause access problems for your users.
 docker run
     -v <host folder>:<container folder>
     qlikea/engine:<version> \
+    -S Gen3=1 \
+    -S PersistenceMode=3 \
     -S EnableABAC=1 \
     -S SystemAllowRulePath=/<container folder>/allow.txt \
     -S SystemDenyRulePath=/<container folder>/deny.txt
