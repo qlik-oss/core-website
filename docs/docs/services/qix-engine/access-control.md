@@ -22,11 +22,11 @@ or you will cause access problems for your users.
 
 ```bash
 docker run
-    -v ./local-rules:/container-rules
+    -v <host folder>:<container folder>
     qlikea/engine:<version> \
     -S EnableABAC=1 \
-    -S SystemAllowRulePath=/container-rules/allow.txt \
-    -S SystemDenyRulePath=/container-rules/deny.txt
+    -S SystemAllowRulePath=/<container folder>/allow.txt \
+    -S SystemDenyRulePath=/<container folder>/deny.txt
 ```
 
 ## Allow versus Deny

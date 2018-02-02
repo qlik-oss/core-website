@@ -22,7 +22,7 @@ API | Description
 
 ## Metrics
 
-Following the [Metrics](../conventions/metrics.md) conventions, QIX Engine exposes
+Following the [Metrics](../../conventions/metrics.md) conventions, QIX Engine exposes
 metrics that can be used to monitor the service.
 
 QIX Engine exposes the metrics data on a separate port from its other APIs, this separation
