@@ -96,8 +96,24 @@ the QIX Engine instances running as Docker Swarm services.
 You can enable _Swarm_ mode by setting the environment variable `MIRA_MODE` to `swarm`
 before starting the Mira Docker service.
 
-!!! Note
-    Since Mira needs to communicate with a Docker engine, Mira must be configured to run on a Swarm manager node.
+In _Swarm_ mode Mira communicates with Docker Remote API to discover QIX Engine instances in the orchestration.
+How Mira should access the Docker Remote API can be configured in two ways.
+
+Either `docker.sock` is mounted as a volume into the Mira container as shown in this [example](https://github.com/qlik-ea/mira/blob/master/docker-compose.yml).
+It is however only possible to mount `docker.sock` on a Swarm manager node.
+
+If Mira should be running on a worker node Mira needs to be configured to access the Docker Remote API by a URL.
+This can be configured by setting the environment variable `DOCKER_HOST` as shown in the example below:
+
+```yaml
+services:
+  mira:
+    image: qlikea/mira
+    environment:
+     - MIRA_MODE=swarm
+     - DOCKER_HOST=http://docker.sock:2375
+    ...
+```
 
 ### Example of Swarm Mode
 
