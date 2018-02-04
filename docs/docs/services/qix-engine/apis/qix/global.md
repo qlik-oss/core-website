@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Global
 
-_QIX methods for version 12.129.0._
+_QIX methods for version 12.134.0._
 
 ## `AbortAll`
 
