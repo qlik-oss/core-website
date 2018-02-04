@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.129.0._
+_QIX methods for version 12.134.0._
 
 ## `AbortModal`
 
@@ -1471,13 +1471,13 @@ _No return values._
 
 ## `Scramble`
 
-_No details._
+Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.<br>Update access is required to use the function in Qlik Sense Enterprise.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFieldName` | string | Yes | _No description._ |
+| `qFieldName` | string | Yes | Name of the field to scramble. |
 
 _No return values._
 
