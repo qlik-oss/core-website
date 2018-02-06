@@ -7,6 +7,18 @@ Here, a recommended path through the examples is provided that introduces differ
 The tutorials often contain runnable examples,
 with source code that is available in separate open source repositories on GitHub.
 
+## Tooling Requirements
+
+Since Qlik Core is based on Docker containers you must have Docker Community Edition installed locally.
+
+| Tool | Minimum Version | Download |
+| ---------- | ------- | ------------ |
+| Docker Community Edition (CE) | 17.06.0 | [link](https://docs.docker.com/install/) |
+
+To be able to run the examples provided in Qlik Core there might also be additional tooling requirements
+for each github repository,
+however any such prerequisite should also be specified in the `README.md` of each repository.
+
 ## Hello Qlik Core!
 
 Users new to Qlik products and QIX Engine should start here.
