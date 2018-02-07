@@ -322,8 +322,10 @@
   background-image:URL('../images/QlikBranch_headerImage.jpg');
 }
 .marketing-text {
-  padding: 30px;
-  width: 50%;
+  padding-top: 4%;
+  padding-right: 30%;
+  padding-bottom: 6%;
+  padding-left: 30%;
 }
 
 .marketing-header h1 {
