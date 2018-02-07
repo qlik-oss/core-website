@@ -104,6 +104,18 @@
   padding: 0;
 }
 
+/* Hide the Beta nav item in full size menu */
+.md-nav__item a[title="Beta"] {
+  display: none;
+}
+
+/* Show the Beta nav item in hamburger menu */
+@media only screen and (max-width: 76.1875em) {
+  .md-nav__item a[title="Beta"] {
+    display: block;
+  }
+}
+
 .md-sidebar--secondary .md-nav__link {
   margin: 0;
   padding: 4px 14px 4px 20px;
