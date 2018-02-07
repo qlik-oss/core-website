@@ -32,10 +32,11 @@ The following environment variables can optionally be set:
 | MIRA_DISCOVERY_HOSTNAME               | n/a                     | Hostname that Mira uses to query DNS for QIX Engine instances.<br>- Applicable in mode `dns`. |
 | MIRA_ENGINE_API_PORT_LABEL            | qix-engine-api-port     | Label that Mira uses to determine the QIX API (websocket) port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
 | MIRA_ENGINE_METRICS_PORT_LABEL        | qix-engine-metrics-port | Label that Mira uses to determine the `/metrics` port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
-| MIRA_ENGINE_DISCOVERY_INTERVAL        | 1000                    | Interval in milliseconds for discovering QIX Engine instances. |
-| MIRA_ENGINE_UPDATE_INTERVAL           | 1000                    | Interval in milliseconds for updating health and metrics for QIX Engine instances. |
+| MIRA_ENGINE_DISCOVERY_INTERVAL        | 10000                    | Interval in milliseconds for discovering QIX Engine instances. |
+| MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for QIX Engine instances. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira uses to communicate with the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
+| MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request is received until a response is being sent. |
 
 ### Operation Modes
 
