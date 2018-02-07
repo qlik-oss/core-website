@@ -72,7 +72,6 @@ If you are using Windows, we recommend using Git Bash.
     the `README.md` file in each orchestration example for instructions
     how to do this.
 
-
 ## Deploying to Docker Swarm
 
 ### Prerequisites
