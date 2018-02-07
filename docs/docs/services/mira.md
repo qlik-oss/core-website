@@ -36,7 +36,8 @@ The following environment variables can optionally be set:
 | MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for QIX Engine instances. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira uses to communicate with the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
-| MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request until a response is being sent.
+| MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request is received until a response is being sent. |
+
 ### Operation Modes
 
 Mira supports different operation modes. The operation mode determines how Mira discovers QIX Engine instances.
