@@ -22,21 +22,25 @@ All commands should be executed from this Git repository.
 
 ## Licensing
 
-Since QIX Engine runs under a license model,
-you should complete licensing configuration before you start this tutorial.
+During beta, Qlik Core will not require licensing credentials. However, we highly
+recommend that you configure QIX Engine to use the license service which will
+enable you to transition out of the beta easily.
 
-**NOTE**: The examples do not yet contain these configuration options
-since the QIX Engine does not yet support it.
-Examples will be updated as soon as this becomes available.
-
-### Configuring the QIX Engine
+On top of this, during beta each QIX Engine version will have a 30 day expiration (from
+when it was published), it will stop working after this time so make sure you can update
+and deploy often.
 
 When the QIX Engine is running, it periodically communicates with the License Service
 to verify that it is running with a valid license.
 A QIX Engine deployment must be configured with the URL
 that is used to call the License Service REST API.
-You can do this by providing the `LicenseServiceUrl` command switch
-to the engine in the `docker-compose.yml` file in the services definition.
+You can do this by providing the `LicenseServiceUrl` setting.
+See the orchestration examples below how that works for your targeted environment.
+
+## Configuring the QIX Engine
+
+You supply configuration to QIX Engine by adding `-S <setting>=<value>` arguments
+during startup. In a `docker-compose.yml` file it may look something like this.
 
 ```yml
 version: "3.0"
@@ -44,21 +48,29 @@ services:
   qix-engine:
     image: qlikea/engine:<version>
     ...
-    command: -S LicenseServiceURL=license-service:9200
+    command: -S <setting1>=<value> -S <setting2>=<value> ...
 ...
 ```
 
+To start QIX Engine in Qlik Core, you also need to accept the [EULA](../../beta.md) by
+supplying `-S AcceptEULA=yes`.
+
 ## Container orchestration
 
-We provide examples on how to deploy the Qlik Core core services
+We provide examples on how to deploy the Qlik Core services
 using the following container orchestration platforms:
 
 - [Docker Swarm](#deploying-to-docker-swarm)
 - [Kubernetes](#deploying-to-kubernetes)
 - [Nomad](#deploying-to-nomad) (Experimental)
 
-**Note:** In the examples that follow, all shell commands should be run in a Bash shell.
+In the examples that follow, all shell commands should be run in a Bash shell.
 If you are using Windows, we recommend using Git Bash.
+
+!!! Note
+    You need to accept the EULA before these examples can be run, see
+    the `README.md` file in each orchestration example for instructions
+    how to do this.
 
 ## Deploying to Docker Swarm
 
