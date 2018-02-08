@@ -1,21 +1,21 @@
 # Logging
 
-The QIX Engine follows the logging format and levels specified in the [Logging](../../conventions/logging.md) conventions.
+The QIX Engine follows the logging format and levels that are specified in the [logging](../../conventions/logging.md) conventions.
 
 ## Log Types
 
-The QIX Engine uses different log types depending on the category of the log event.
-Each of these log types can have individual log verbosity as described in [log levels](#log-levels),
-and can be toggled depending on scenario.
+Depending on the category of the log event, the QIX Engine uses different log types, and each
+log type can have an individual log verbosity, as described in [Log Levels](#log-levels) section.
+You can also toggle log types depending on scenario.
 
 The following table lists the log types that are available and the default verbosity level for each.
 
 | Type | Description | CLI parameter | Default verbosity level |
 | ---- | ----------- | ------------- | ----------------------- |
-| System | All _standard_ debug messages | SystemLogVerbosity | 4 |
-| Performance | Performance log, typically containing metrics (for example, NbrActiveUsers and CPULoad). | PerformanceLogVerbosity | 4 |
-| Audit | User based detailed logging (for example, when the user makes a selection in a document). | AuditLogVerbosity | 0 |
-| Session |  Information about a client session (for example, user, machine ID, ip-address, port). | SessionLogVerbosity | 4 |
+| System | All _standard_ debug messages. | SystemLogVerbosity | 4 |
+| Performance | Performance log, typically containing metrics, for example, NbrActiveUsers and CPULoad. | PerformanceLogVerbosity | 4 |
+| Audit | User based detailed logging. </br> For example, when the user makes a selection in a document. | AuditLogVerbosity | 0 |
+| Session |  Information about a client session, for example, user, machine ID, ip-address, port. | SessionLogVerbosity | 4 |
 | Traffic | JSON traffic to and from the QIX Engine. | TrafficLogVerbosity | 0 |
 | QixPerformance | QIX protocol performance. | QixPerformanceLogVerbosity | 0 |
 | SmartSearchQuery | Smart Search query log. | SmartSearchQueryLogVerbosity | 3 |
@@ -24,11 +24,11 @@ The following table lists the log types that are available and the default verbo
 
 ## Log Levels
 
-You configure the log levels by providing settings through command line parameters when you start the docker container.
+When you start the docker container, you configure the log type and the log level by setting the command line parameter.
 
 !!! Note
     While the QIX Engine follows the [Logging](../../conventions/logging.md#logging-levels) conventions,
-    each log level is also mapped to a numeric value used to set the logging verbosity level.
+    each log level is also mapped to a numeric value that is used to set the logging verbosity level.
 
 | Log level | Value |
 | --------- | ----- |
@@ -55,17 +55,17 @@ services:
 
 ## Log Format
 
-In addition to the required fields in the [Logging](../../conventions/logging.md) conventions, the QIX Engine also
-has a few log fields that are common to all log types:
+In addition to the required fields that are listed in the [Logging](../../conventions/logging.md) conventions,
+the QIX Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
 | user_id | The ID of the current active user. |
-| log_type | The type of the log. Must be one of the listed [types](#log-types). |
+| log_type | The type of the log.</br> It must be one of the listed [types](#log-types). |
 | thread_id | Thread identifier. |
 
-Apart from the common fields, some of the log types contain additional fields.
-These fields are listed in the sections that follow.
+Some of these log types contain additional fields.
+These fields are listed in the tables that follow.
 
 ### Audit
 
@@ -81,14 +81,14 @@ These fields are listed in the sections that follow.
 | ----- | ----------- |
 | version | The QIX Engine component version. |
 | entry_type | The state (Server Starting, Normal). |
-| active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an document, for example, making selections or creating content. |
+| active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an document, for example, when making selections or creating content. |
 | doc_sessions | Number of idle sessions waiting for termination. |
 | active_anonymous_doc_sessions | Number of active sessions with a connected anonymous client. |
 | anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination. |
 | active_tunneled_doc_sessions | |
 | tunneled_doc_sessions| |
 | doc_sessions_start | |
-| active_docs | Number of active documents. An document is active when a user is currently performing some action on it. |
+| active_docs | Number of active documents. A document is active when a user is currently performing some action on it. |
 | ref_docs | Number of documents currently loaded into the memory, even if they do not have any open sessions or connections. |
 | loaded_docs| Number of documents currently loaded into memory that have open sessions or connections. |
 | doc_loads | |
@@ -98,11 +98,11 @@ These fields are listed in the sections that follow.
 | active_ip_addrs | |
 | ip_addrs | |
 | active_users | Number of distinct active users. An active user is one who is currently performing an action on an app. |
-| users | Total number of distinct users within the current engine sessions. |
+| users | Total number of distinct users within the current engine session.|
 | cpu_loads | |
-| vm_commited_mb | The total amount of committed memory for the engine process in MB. |
-| vm_allocated_mb | The total amount of allocated memory (committed + reserved) from the operating system in MB. |
-| vm_free_mb | The total amount of free memory (minimum of free virtual and physical memory) in MB. |
+| vm_commited_mb | The total amount of committed memory in MB for the engine process. |
+| vm_allocated_mb | The total amount of allocated memory in MB (committed + reserved) from the operating system.  |
+| vm_free_mb | The total amount of free memory in MB (minimum of free virtual and physical memory). |
 | vm_largest_free_block_mb | |
 | cache_hits | Number of cache hits. |
 | cache_lookups | Number of cache lookups. |
@@ -121,7 +121,7 @@ This entry is logged on each session termination.
 | doc_id | Document identifier. |
 | title | Document title. |
 | doc_modified | Document last modified time. |
-| exit_reason | Reason for exit (for example, socket closed by client). |
+| exit_reason | Reason for exit, for example, the socket closed by client. |
 | session_start | Session start time. |
 | session_duration | Duration of the session in milliseconds. |
 | cpu_spent_s | CPU spent in seconds. |
@@ -146,7 +146,7 @@ Use this log type with caution because it will produce a lot of log entries.
 | handle | Object identifier. |
 | exception | Exception information. |
 | exception_extra | Extra exception information. |
-| process_time | The process time (start until end of request). |
+| process_time | The process time, from the start until the end of request). |
 | work_time | Actual work time spent. |
 | lock_time | Time spent suspended. |
 | validation_time | Time spent calculating an object. |
