@@ -3,6 +3,10 @@
   --custom-grey: #5f6062;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .md-header, .md-footer {
   background: var(--custom-grey);
   border-bottom: 3px solid var(--custom-green);
