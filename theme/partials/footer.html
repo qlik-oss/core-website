@@ -63,14 +63,17 @@
         </div>
         <div class="md-footer-legal">
           <div class="md-footer-legal-text">
-            <label>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</label>
+            <div>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</div>
+            Powered by
+              <a href="http://www.mkdocs.org">MkDocs</a>
+              and
+              <a href="https://squidfunk.github.io/mkdocs-material/">
+              Material for MkDocs</a>
           </div>
-          <div class="md-footer-legal-social">
-            <!-- Social links -->
-            {% block social %}
-              {% include "partials/social.html" %}
-            {% endblock %}
-          </div>
+          <!-- Social links -->
+          {% block social %}
+            {% include "partials/social.html" %}
+          {% endblock %}
         </div>
       </div>
     </div>

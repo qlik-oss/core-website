@@ -235,17 +235,18 @@
 .md-footer-legal {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
+  overflow: auto;
 }
 
 .md-footer-legal-text {
-  width: 80%;
   float: left;
-  padding-top: 13px;
 }
 
-.md-footer-legal-social {
-  width: 20%;
-  float: right;
+@media only screen and (min-width: 45em) {
+  .md-footer-legal-text {
+      max-width: 75%;
+      float: left;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -256,16 +257,23 @@
     width: unset;
   }
   .md-footer-legal {
+    max-width: 80%;
     border-top: none;
   }
 }
 
-@media only screen and (min-width: 45em) {
-  .md-footer-social, .md-footer-social {
-    padding: 0;
-    margin-top: -3px;
-  }
+.md-footer-social {
+  margin: 0;
 }
+
+@media only screen and (min-width: 45em) {
+  .md-footer-social {
+    margin-top: -15px;
+    margin-right: 0.8rem;
+    margin-bottom: 0px;
+    margin-left: 0.8rem;
+  }
+} 
 
 @media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title--site {
