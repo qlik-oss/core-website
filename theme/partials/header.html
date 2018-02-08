@@ -59,7 +59,9 @@
                 <span class="md-header-nav__topic">
                 </span>
                 <span class="md-header-nav__topic">
-                  {{ page.title }}
+                  {% if not page.is_homepage %}
+                    {{ page.title }}
+                  {% endif %}
                 </span>
               {% endif %}
             {% endblock %}

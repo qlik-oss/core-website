@@ -7,7 +7,6 @@
 </div>
 
 <div class="marketing-text">
-    <h1>Qlik Core βeta</h1>
     <p>Get the power in QIX Engine in the way you need it. With our containerized
     QIX Engine we are giving you the most flexible solution ever for data
     discovery. Qlik Core is ready for Cloud deployment and has a large set of examples
