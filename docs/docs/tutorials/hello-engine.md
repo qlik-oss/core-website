@@ -94,6 +94,8 @@ which is also shared among the Hello Data and Hello Visualization tutorials.
 
 1. Stop and remove the Docker container.
 
+    **Note:** To continue with the next tutorial, leave the Docker container running.
+
     Run the following command from a command shell:
 
     ```bash
@@ -101,8 +103,6 @@ which is also shared among the Hello Data and Hello Visualization tutorials.
     ```
 
     This command stops the container and removes it.
-
-**Note:** To continue with the next tutorial, leave the Docker container running.
 
 ## Next Steps
 
