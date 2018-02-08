@@ -332,6 +332,22 @@
   color: white;
 }
 
+.md-header-nav__title[data-md-state=active] .md-header-nav__topic+.md-header-nav__topic {
+  margin-left: 4.2rem;
+}
+
+@media only screen and (max-width: 76.1875em) {
+  .md-header-nav__title[data-md-state=active] .md-header-nav__topic+.md-header-nav__topic {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 100em) {
+  html {
+    font-size: 62.75%;
+  }
+}
+
 .md-typeset .admonition.tip>.admonition-title:before, .md-typeset .admonition.tip>summary:before, 
 .md-typeset details.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
   color: var(--custom-green);
