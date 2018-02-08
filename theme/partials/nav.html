@@ -18,7 +18,7 @@
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
       {% for nav_item in nav %}
-        {% if nav_item.title != "startpage" and nav_item.title != "Beta" %}  
+        {% if nav_item.title != "startpage" %} 
           {% set path = "nav-" + loop.index | string %}
           {% set level = 1 %}
           {% include "partials/nav-item.html" %}
