@@ -93,7 +93,7 @@ which is also shared among the Hello Data and Hello Visualization tutorials.
     file to see how enigma.js is configured to communicate with the QIX Engine.
 
 1. Stop and remove the Docker container.
-    
+
     **Note:** To continue with the next tutorial, leave the Docker container running.
 
     Run the following command from a command shell:
