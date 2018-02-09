@@ -48,7 +48,7 @@ pages:
         - Overview: docs/tutorials/scalability/overview.md
         - Newspaper website: docs/tutorials/scalability/newspaper.md
     - Services:
-      - QIX Engine:
+      - Qlik Associative Engine:
         - Introduction: docs/services/qix-engine/introduction.md
         #- Access Control: docs/services/qix-engine/access-control.md
         #- Document Synchronization: docs/services/qix-engine/doc-synchronization.md
