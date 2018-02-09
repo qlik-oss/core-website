@@ -339,7 +339,7 @@
   background-color: rgba(0,0,0,0.6);
   color: white;
   padding: 3% 30%;
-  padding-bottom: 10%;
+  padding-bottom: 17%;
 }
 
 @media screen and (max-width: 1050px) {
@@ -352,6 +352,9 @@
 @media screen and (max-width: 815px) {
   .marketing-background {
     background-size: unset;
+  }
+  .marketing-text {
+    padding-bottom: 28%;
   }
 }
 
