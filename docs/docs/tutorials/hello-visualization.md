@@ -57,7 +57,7 @@ from the data that is available to the QIX Engine using enigma.js
 to communicate with the engine and halyard.js to manage the data.
 A session app only lives while the session is alive.
 
-**Tip:** We recommend that you take a look at [picasso.js](https://github.com/qlik-ea/picasso.js),
+**Tip:** We recommend that you take a look at [picasso.js](https://github.com/qlik-oss/picasso.js),
 a charting library that is streamlined for building visualizations with Qlik Core.
 You can also open the `app.js` file to see how enigma.js and halard.js are used
 to load and retrieve the movies data from the engine.
