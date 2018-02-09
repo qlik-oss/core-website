@@ -16,6 +16,6 @@
         love to get your feedback, how you are using Qlik Core Beta and what we can to
         do make it better.</p>
         <br>
-        <a href="./docs/getting-started/" class="marketing-text-button">Get Started</a>
+        <a href="./docs/home/" class="marketing-text-button">Get Started</a>
     </div>
 </div>
