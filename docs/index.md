@@ -3,7 +3,7 @@
         <img src="images/QlikCore-Horizontal-Print-white.svg"/><br>
     </div>
     <div class="marketing-text">
-        <h1>Qlik Core βeta</h1>
+        <h1>Qlik Core Beta</h1>
         <p>Welcome to Qlik Core Beta! This beta program gives you early access to Qlik Core,
         our brand-new plug-and-play developer platform for custom analytics that lets you
         drop the Qlik Associative Engine into your systems today – and act on your insight
@@ -16,6 +16,6 @@
         love to get your feedback, how you are using Qlik Core Beta and what we can to
         do make it better.</p>
         <br>
-        <a href="/docs/getting-started/" class="marketing-text-button">Get Started</a>
+        <a href="./docs/getting-started/" class="marketing-text-button">Get Started</a>
     </div>
 </div>
