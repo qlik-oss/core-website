@@ -7,8 +7,8 @@
 </div>
 
 <div class="marketing-text">
-    <p>Get the power in QIX Engine in the way you need it. With our containerized
-    QIX Engine we are giving you the most flexible solution ever for data
+    <p>Get the power in Qlik Associative Engine in the way you need it. With our containerized
+    Qlik Associative Engine we are giving you the most flexible solution ever for data
     discovery. Qlik Core is ready for Cloud deployment and has a large set of examples
     and use cases that will help you with your development Qlik Core is
     for everyone with a data problem.</p>

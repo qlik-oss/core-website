@@ -5,7 +5,7 @@ comprising the core services. The core services represent the foundation on whic
 
 The core Qlik Core stack consists of the following services:
 
-- [QIX Engine](../services/qix-engine/introduction.md)
+- [Qlik Associative Engine](../services/qix-engine/introduction.md)
 - [License Service](../services/license-service.md)
 - [Mira](../services/mira.md)
 
@@ -23,23 +23,23 @@ All commands should be executed from this Git repository.
 ## Licensing
 
 During beta, Qlik Core will not require licensing credentials. However, we highly
-recommend that you configure QIX Engine to use the license service which will
+recommend that you configure Qlik Associative Engine to use the license service which will
 enable you to transition out of the beta easily.
 
-On top of this, during beta each QIX Engine version will have a 30 day expiration (from
+On top of this, during beta each Qlik Associative Engine version will have a 30 day expiration (from
 when it was published), it will stop working after this time so make sure you can update
 and deploy often.
 
-When the QIX Engine is running, it periodically communicates with the License Service
+When the Qlik Associative Engine is running, it periodically communicates with the License Service
 to verify that it is running with a valid license.
-A QIX Engine deployment must be configured with the URL
+A Qlik Associative Engine deployment must be configured with the URL
 that is used to call the License Service REST API.
 You can do this by providing the `LicenseServiceUrl` setting.
 See the orchestration examples below how that works for your targeted environment.
 
-## Configuring the QIX Engine
+## Configuring the Qlik Associative Engine
 
-You supply configuration to QIX Engine by adding `-S <setting>=<value>` arguments
+You supply configuration to Qlik Associative Engine by adding `-S <setting>=<value>` arguments
 during startup. In a `docker-compose.yml` file it may look something like this.
 
 ```yml
@@ -52,7 +52,7 @@ services:
 ...
 ```
 
-To start QIX Engine in Qlik Core, you also need to accept the [EULA](../../beta.md) by
+To start Qlik Associative Engine in Qlik Core, you also need to accept the [EULA](../../beta.md) by
 supplying `-S AcceptEULA=yes`.
 
 ## Container orchestration
@@ -91,7 +91,7 @@ eval $(docker-machine env <swarm manager node>)
 
 The Qlik Core stack is specified in the
 [docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file.
-The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
 
 #### Placement constraints
 
@@ -107,8 +107,8 @@ Relevant APIs are exposed on the following ports:
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
 | License Service | `9200`        | REST API                   |
-| QIX Engine      | `9076`        | QIX websocket API          |
-| QIX Engine      | `9090`        | Prometheus/metric endpoint |
+| Qlik Associative Engine      | `9076`        | QIX websocket API          |
+| Qlik Associative Engine      | `9090`        | Prometheus/metric endpoint |
 
 These ports are exposed outside of the swarm
 so that they are easily available for demonstrations.
@@ -116,7 +116,7 @@ This is not a requirement.
 
 #### Labeling
 
-The QIX Engine service requires the following note to be added
+The Qlik Associative Engine service requires the following note to be added
 to the labels definition in the `docker-compose.yml` file:
 
 ```yml
@@ -124,7 +124,7 @@ labels:
   qix-engine: ""
 ```
 
-This label is required for Mira to identify service as a QIX Engine instance.
+This label is required for Mira to identify service as a Qlik Associative Engine instance.
 To learn more about labeling, see [Mira documentation](https://github.com/qlik-ea/mira).
 
 ### Deploying the stack
@@ -147,13 +147,13 @@ you can retrieve a list of the tasks running on the stack by running the followi
 docker stack ps qlik-core
 ```
 
-You can query Mira to return the list of QIX Engines it has discovered by calling its `/engines` endpoint:
+You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
 curl http://<swarm manager node ip>:9100/v1/engines
 ```
 
-This endpoint returns one or more QIX Engine instances and information about these instances in JSON format.
+This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
 
 ## Deploying to Kubernetes
 
@@ -185,7 +185,7 @@ This prevents the command from being stored in the Bash shell command history.
 ### The Stack
 
 The Qlik Core stack is specified in the `docker-compose.yml` file.
-The stack consists of one QIX Engine, one Mira discovery service, and one License Service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
 
 #### Mira Kubernetes mode
 
@@ -208,23 +208,24 @@ Relevant APIs are exposed on the following ports:
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
 | License Service | `9200`        | REST API                   |
-| QIX Engine      | `9076`        | QIX websocket API          |
-| QIX Engine      | `9090`        | Prometheus/metric endpoint |
+| Qlik Associative Engine      | `9076`        | QIX websocket API          |
+| Qlik Associative Engine      | `9090`        | Prometheus/metric endpoint |
 
 These ports are exposed outside of the swarm so that they are easily available for demonstrations.
 This is not a requirement.
 
 #### Labeling
 
-The QIX Engine service requires the following note to be added to the labels definition in the `engine-deployment.yml` file:
+The Qlik Associative Engine service requires the following note to be added to the labels definition in
+the `engine-deployment.yml` file:
 
 ```yml
 labels:
   qix-engine: ""
 ```
 
-This label is required for Mira to identify the engine service as a QIX Engine instance.
-To learn more about labeling, see [QIX Engine labeling](../services/mira.md#qix-engine-labeling).
+This label is required for Mira to identify the engine service as a Qlik Associative Engine instance.
+To learn more about labeling, see [Qlik Associative Engine labeling](../services/mira.md#qix-engine-labeling).
 
 ### Deploying the stack
 
@@ -265,13 +266,13 @@ you can retrieve a list of the tasks running on the stack by running the followi
 kubectl get all
 ```
 
-You can query Mira to return the list of QIX Engines it has discovered by calling its `/engines` endpoint:
+You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
 curl http://<kubernetes node ip>:9100/v1/engines
 ```
 
-This endpoint returns one or more QIX Engine instances and information about these instances in JSON format.
+This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
 
 ## Deploying to Nomad
 
@@ -298,7 +299,7 @@ To see an example of how the Nomad client can be configured to use local Docker 
 In a Nomad orchestration, Mira uses the DNS mode for service discovery.
 A Consul server must be running in the Nomad environment.
 Nomad will automatically register services in Consul when deploying the nomad files.
-You can find the hostname that Mira should use for discovering QIX Engine instances
+You can find the hostname that Mira should use for discovering Qlik Associative Engine instances
 in the task configuration of
 [mira.noamd](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad) file.
 

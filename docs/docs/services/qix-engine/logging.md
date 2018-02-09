@@ -1,10 +1,11 @@
 # Logging
 
-The QIX Engine follows the logging format and levels that are specified in the [logging](../../conventions/logging.md) conventions.
+The Qlik Associative Engine follows the logging format and levels that are specified in the
+[logging](../../conventions/logging.md) conventions.
 
 ## Log Types
 
-Depending on the category of the log event, the QIX Engine uses different log types, and each
+Depending on the category of the log event, the Qlik Associative Engine uses different log types, and each
 log type can have an individual log verbosity, as described in [Log Levels](#log-levels) section.
 You can also toggle log types depending on scenario.
 
@@ -16,7 +17,7 @@ The following table lists the log types that are available and the default verbo
 | Performance | Performance log, typically containing metrics, for example, NbrActiveUsers and CPULoad. | PerformanceLogVerbosity | 4 |
 | Audit | User based detailed logging. </br> For example, when the user makes a selection in a document. | AuditLogVerbosity | 0 |
 | Session |  Information about a client session, for example, user, machine ID, ip-address, port. | SessionLogVerbosity | 4 |
-| Traffic | JSON traffic to and from the QIX Engine. | TrafficLogVerbosity | 0 |
+| Traffic | JSON traffic to and from the Qlik Associative Engine. | TrafficLogVerbosity | 0 |
 | QixPerformance | QIX protocol performance. | QixPerformanceLogVerbosity | 0 |
 | SmartSearchQuery | Smart Search query log. | SmartSearchQueryLogVerbosity | 3 |
 | SmartSearchIndex | Smart Search index log. | SmartSearchIndexLogVerbosity | 3 |
@@ -27,7 +28,7 @@ The following table lists the log types that are available and the default verbo
 When you start the docker container, you configure the log type and the log level by setting the command line parameter.
 
 !!! Note
-    While the QIX Engine follows the [Logging](../../conventions/logging.md#logging-levels) conventions,
+    While the Qlik Associative Engine follows the [Logging](../../conventions/logging.md#logging-levels) conventions,
     each log level is also mapped to a numeric value that is used to set the logging verbosity level.
 
 | Log level | Value |
@@ -56,7 +57,7 @@ services:
 ## Log Format
 
 In addition to the required fields that are listed in the [Logging](../../conventions/logging.md) conventions,
-the QIX Engine also has a few log fields that are common to all log types:
+the Qlik Associative Engine also has a few log fields that are common to all log types:
 
 | Field | Description |
 | ----- | ----------- |
@@ -79,7 +80,7 @@ These fields are listed in the tables that follow.
 
 | Field | Description |
 | ----- | ----------- |
-| version | The QIX Engine component version. |
+| version | The Qlik Associative Engine component version. |
 | entry_type | The state (Server Starting, Normal). |
 | active_doc_sessions | Number of active engine sessions. A session is active when a user is currently performing some action on an document, for example, when making selections or creating content. |
 | doc_sessions | Number of idle sessions waiting for termination. |

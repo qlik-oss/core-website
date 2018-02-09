@@ -3,11 +3,11 @@
 ## What is Qlik Core?
 
 Qlik Core provides a development platform for building custom data exploration and data
-visualization solutions on top of QIX Engine, the powerful associative indexing engine from Qlik.
+visualization solutions on top of Qlik Associative Engine, the powerful associative indexing engine from Qlik.
 
-QIX Engine differentiates from other vendors by dynamically calculating and providing associations based on data
-selections, without the need to rely on query-based analysis which restricts to linear exploration within a partial view
-of the data.
+Qlik Associative Engine differentiates from other vendors by dynamically calculating and providing associations
+based on data selections, without the need to rely on query-based analysis which restricts to linear exploration
+within a partial view of the data.
 
 ## Open Source
 
@@ -22,11 +22,11 @@ You can find us on [GitHub under the qlik-oss organization](https://github.com/q
 Qlik Core is designed to utilize the power of container-based solutions and microservice architectures, such as
 [Docker](https://docker.com).
 
-The QIX Engine on Linux, provided as a Docker image, forms the foundation of this.
+The Qlik Associative Engine on Linux, provided as a Docker image, forms the foundation of this.
 
 Developers building their solutions on Qlik Core are provided with a large range of powerful technologies, for example
-[Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple QIX Engine
-instances in distributed environments.
+[Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple Qlik
+Associative Engine instances in distributed environments.
 
 ## Live Demo
 

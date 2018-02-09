@@ -5,14 +5,14 @@
     since this feature may change in the future.
 
 Being able to control which users can do what in the context
-of a document is often necessary. In QIX Engine we support
+of a document is often necessary. In Qlik Associative Engine we support
 [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
 which lets you control the document resources based on a users'
 attributes rather than using roles or other, more static, means.
 
 ## Configuration
 
-Rules are defined, one on each row, in text files. QIX Engine will
+Rules are defined, one on each row, in text files. Qlik Associative Engine will
 apply rules in order (except for deny rules which are always applied first,
 regardless of where they are defined).
 
@@ -33,7 +33,7 @@ docker run
 
 ## Allow versus Deny
 
-In addition to using _Allow_ rules to grant access, the QIX Engine
+In addition to using _Allow_ rules to grant access, the Qlik Associative Engine
 also supports _Deny_ rules to deny access.
 
 !!! Note

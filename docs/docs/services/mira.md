@@ -1,9 +1,9 @@
 # Mira
 
-Mira is a QIX Engine discovery service for containerized environments.
-Mira finds the available QIX Engine instances and the properties of each instance.
+Mira is a Qlik Associative Engine discovery service for containerized environments.
+Mira finds the available Qlik Associative Engine instances and the properties of each instance.
 You can then use this information to make decisions about scalability and performance, for example,
-on which engine should you open a new session, or when will you need to start a new QIX Engine instance.
+on which engine should you open a new session, or when will you need to start a new Qlik Associative Engine instance.
 
 ## Distribution
 
@@ -29,33 +29,33 @@ The following environment variables can optionally be set:
 | ------------------------------------- | ----------------------- | ----------- |
 | MIRA_MODE                             | swarm                   | Operation mode of Mira.<br>- Can be `swarm`, `kubernetes`, `dns`, or `local`. |
 | MIRA_DISCOVERY_LABEL                  | qix-engine              | Label key that Mira uses to identify engine instances.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
-| MIRA_DISCOVERY_HOSTNAME               | n/a                     | Hostname that Mira uses to query DNS for QIX Engine instances.<br>- Applicable in mode `dns`. |
+| MIRA_DISCOVERY_HOSTNAME               | n/a                     | Hostname that Mira uses to query DNS for Qlik Associative Engine instances.<br>- Applicable in mode `dns`. |
 | MIRA_ENGINE_API_PORT_LABEL            | qix-engine-api-port     | Label that Mira uses to determine the QIX API (websocket) port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
 | MIRA_ENGINE_METRICS_PORT_LABEL        | qix-engine-metrics-port | Label that Mira uses to determine the `/metrics` port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
-| MIRA_ENGINE_DISCOVERY_INTERVAL        | 10000                    | Interval in milliseconds for discovering QIX Engine instances. |
-| MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for QIX Engine instances. |
+| MIRA_ENGINE_DISCOVERY_INTERVAL        | 10000                    | Interval in milliseconds for discovering Qlik Associative Engine instances. |
+| MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for Qlik Associative Engine instances. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira uses to communicate with the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
 | MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request is received until a response is being sent. |
 
 ### Operation Modes
 
-Mira supports different operation modes. The operation mode determines how Mira discovers QIX Engine instances.
+Mira supports different operation modes. The operation mode determines how Mira discovers Qlik Associative Engine instances.
 
 Mira supports the following operation modes:
 
 | Mode                                  | Description |
 | ------------------------------------- |  ----------- |
-|[Swarm](#swarm-mode)                   | Discovers QIX Engine instances in a Docker Swarm environment.            |
-|[Kubernetes](#kubernetes-mode)         | Discovers QIX Engine instances in a Kubernetes environment.              |
-|[DNS](#dns-mode)                       | Discovers QIX Engine instances using DNS service look-ups.               |
-|[Local](#local-mode)                   | Discovers QIX Engine instances running on the local Docker Engine.        |
+|[Swarm](#swarm-mode)                   | Discovers Qlik Associative Engine instances in a Docker Swarm environment.            |
+|[Kubernetes](#kubernetes-mode)         | Discovers Qlik Associative Engine instances in a Kubernetes environment.              |
+|[DNS](#dns-mode)                       | Discovers Qlik Associative Engine instances using DNS service look-ups.               |
+|[Local](#local-mode)                   | Discovers Qlik Associative Engine instances running on the local Docker Engine.        |
 
 To set the operation mode, define the environment variable `MIRA_MODE` on the Mira container.
 
-### QIX Engine Labeling
+### Qlik Associative Engine Labeling
 
-In all modes, except _DNS_ mode, Mira uses labels to identify QIX Engine instances.
+In all modes, except _DNS_ mode, Mira uses labels to identify Qlik Associative Engine instances.
 By default, the label that Mira searches for is `qix-engine`.
 You can change the label that Mira looks for by defining the `MIRA_DISCOVERY_LABEL`
 environment variable.
@@ -92,12 +92,12 @@ You can change the log level by setting the `MIRA_LOG_LEVEL` environment variabl
 ## Swarm Mode
 
 When Mira is running in _Swarm_ mode, it looks for a single Docker Swarm cluster that contains
-the QIX Engine instances running as Docker Swarm services.
+the Qlik Associative Engine instances running as Docker Swarm services.
 
 You can enable _Swarm_ mode by setting the environment variable `MIRA_MODE` to `swarm`
 before starting the Mira Docker service.
 
-In _Swarm_ mode Mira communicates with Docker Remote API to discover QIX Engine instances in the orchestration.
+In _Swarm_ mode Mira communicates with Docker Remote API to discover Qlik Associative Engine instances in the orchestration.
 How Mira should access the Docker Remote API can be configured in two ways.
 
 Mount `docker.sock` as a volume into the Mira container as shown in this [example](https://github.com/qlik-ea/mira/blob/master/docker-compose.yml).
@@ -123,12 +123,12 @@ services:
 
 The [docker-compose-swarm.yml](https://github.com/qlik-ea/mira/blob/master/examples/swarm/docker-compose-swarm.yml)
 file is an example of how Mira can be started in _Swarm_ mode
-with a QIX Engine instance that is labeled so that Mira will discover it.
+with a Qlik Associative Engine instance that is labeled so that Mira will discover it.
 
 A Docker Swarm cluster should already be created with at least one manager,
 and the Docker CLI client should be configured to issue commands towards the manager node.
 
-Run the following command to deploy Mira and QIX Engine in a stack named `mira-stack`:
+Run the following command to deploy Mira and Qlik Associative Engine in a stack named `mira-stack`:
 
 ```sh
 docker stack deploy -c docker-compose-swarm.yml mira-stack
@@ -170,7 +170,7 @@ services:
 ```
 
 In the example Docker stack file, the `qix-engine1` service contains the discovery label `qix-engine`.
-The service also contains two replicas, so Mira discovers two instances of the QIX Engine.
+The service also contains two replicas, so Mira discovers two instances of the Qlik Associative Engine.
 
 !!! Note
     The discovery label (`qix-engine`) must be set at the container (`qix-engine1`) level, not at the task (`deploy`) level.
@@ -180,7 +180,8 @@ The service also contains two replicas, so Mira discovers two instances of the Q
 
 ## Kubernetes Mode
 
-When Mira is running in _Kubernetes_ mode, Mira looks for QIX Engine instances running as pods in the Kubernetes cluster.
+When Mira is running in _Kubernetes_ mode, Mira looks for Qlik Associative Engine instances running
+as pods in the Kubernetes cluster.
 
 You can enable _Kubernetes_ mode by setting the environment variable `MIRA_MODE` to `kubernetes`
 before starting the Mira pod.
@@ -194,7 +195,7 @@ before starting the Mira pod.
 ### Example of Kubernetes Mode
 
 The [mira-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-deployment.yml) file
-is an example of how to deploy Mira and QIX Engine instances to Kubernetes.
+is an example of how to deploy Mira and Qlik Associative Engine instances to Kubernetes.
 
 A Kubernetes cluster should be set up and configured correctly.
 A quick way to do this, for experimental purposes, is to use
@@ -239,9 +240,9 @@ You can reach the Mira health check locally by running the following command.
 curl http://$(minikube ip):31000/v1/health
 ```
 
-#### Deploy QIX Engine Instances
+#### Deploy Qlik Associative Engine Instances
 
-For Mira to discover QIX Engine instances in the cluster, you can use a Kubernetes deployment file.
+For Mira to discover Qlik Associative Engine instances in the cluster, you can use a Kubernetes deployment file.
 Apply the example
 [engine-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/engine-deployment.yml) file.
 
@@ -251,7 +252,7 @@ kubectl apply -f engine-deployment.yml
 
 This deployment file specifies two engine pod replicas.
 
-#### Expose QIX Engine Instances as Services
+#### Expose Qlik Associative Engine Instances as Services
 
 For Mira to be able to discover the engine instances,
 the engines must be exposed as services with named ports.
@@ -311,14 +312,14 @@ spec:
 ## DNS Mode
 
 When running Mira in _DNS_ mode, Mira resolves by hostname.
-Mira uses all returned IP addresses to fetch additional data on QIX Engine instances.
+Mira uses all returned IP addresses to fetch additional data on Qlik Associative Engine instances.
 
 You can enable _DNS_ mode by setting the environment variable `MIRA_MODE` to `dns`.
 
 ### Hostname Configuration
 
-When Mira is running in _DNS_ mode, Mira does not look for discovery labels to find QIX Engine instances.
-Instead, Mira uses the hostname that is used to resolve QIX Engine instances.
+When Mira is running in _DNS_ mode, Mira does not look for discovery labels to find Qlik Associative Engine instances.
+Instead, Mira uses the hostname that is used to resolve Qlik Associative Engine instances.
 You can set the hostname in the `MIRA_DISCOVERY_HOSTNAME` environment variable.
 
 ### Example of DNS Mode
@@ -328,7 +329,7 @@ is an example of how to configure DNS mode in a Docker Swarm environment.
 
 !!! Note
     By default, Docker Swarm assigns DNS names to services. The environment variables that set _DNS_ mode and
-    the QIX Engine instance hostname correspond to the service named `qix-engine`.
+    the Qlik Associative Engine instance hostname correspond to the service named `qix-engine`.
 
 ```yml
 services:
@@ -345,7 +346,7 @@ services:
 
 ## Local Mode
 
-When Mira is running in _Local_ mode, Mira looks for QIX Engine instances
+When Mira is running in _Local_ mode, Mira looks for Qlik Associative Engine instances
 that are running on the `localhost` Docker Engine, without any orchestration platform such as Docker Swarm or Kubernetes.
 
 You can enable _Local_ mode by setting the `MIRA_MODE` environment variable to `local`
@@ -362,7 +363,7 @@ With the `docker-compose.yml` file in the current working directory, run the fol
 docker-compose up -d
 ```
 
-To verify that Mira discovers the two QIX Engine containers, run the following command.
+To verify that Mira discovers the two Qlik Associative Engine containers, run the following command.
 
 ```sh
 curl http://localhost:9100/v1/engines
