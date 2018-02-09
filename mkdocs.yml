@@ -15,7 +15,8 @@ extra:
     - type: 'github'
       link: 'https://github.com/qlik-ea/info'
     - type: 'slack'
-      link: 'http://qlikbranch-slack-invite.herokuapp.com/'
+      # link: 'http://qlikbranch-slack-invite.herokuapp.com/'
+      link: 'https://qlikea.slack.com'
 
 markdown_extensions:
   - admonition
