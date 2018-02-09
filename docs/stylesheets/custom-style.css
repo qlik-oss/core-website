@@ -331,16 +331,48 @@
 }
 
 .marketing-background {
-  background-image:URL('../images/QlikBranch_headerImage.jpg');
+  background-image:URL('../images/marketing-background.jpeg');
+  background-size: 173%;
+  background-position-x: 50%;
 }
 .marketing-text {
-  padding-top: 4%;
-  padding-right: 30%;
-  padding-bottom: 6%;
-  padding-left: 30%;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 3% 30%;
+  padding-bottom: 10%;
 }
 
-.marketing-header h1 {
+@media screen and (max-width: 1050px) {
+  .marketing-text {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .marketing-background {
+    background-size: unset;
+  }
+}
+
+.marketing-text-button {
+  color: white;
+  background-color: var(--custom-green);
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.marketing-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.marketing-text a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.marketing-header h1, .marketing-text h1 {
   color: white;
 }
 
