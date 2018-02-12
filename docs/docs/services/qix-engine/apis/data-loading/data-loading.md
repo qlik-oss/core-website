@@ -9,7 +9,6 @@ sits between the Qlik Associative Engine and the data source, as shown below.
 
 ![connector](./QIXEngineConnector.png)
 
-
 The Qlik Associative Engine communicates with the data source through the
 [Data Connector gRPC API](data-connector-grpc.proto).
 The data connector fetches data from the source and sends it to the engine

@@ -35,7 +35,9 @@ This tutorial covers aspects such as:
     instances of Qlik Associative Engine in a cluster
 
 ## In-Depth Tutorials
-Start here if you want to cover in-depth tutorials that provide detailed examples of how to work with more specific aspects of Qlik Core.
+
+Start here if you want to cover in-depth tutorials that provide detailed
+examples of how to work with more specific aspects of Qlik Core.
 We recommend that you explore these tutorials in order:
 
 1. [Data Loading](./tutorials/data-loading.md)
