@@ -11,7 +11,7 @@ of the data.
 
 ## Open Source
 
-We believe in Open Source—Therefore, almost everything in Qlik Core is available, and developed, as Open Source projects!
+We believe in Open Source—Therefore, much in Qlik Core is available, and developed, as Open Source projects!
 We encourage you to explore the different git repositories and do not hesitate to star repositories, file issues, or send
 pull requests.
 
