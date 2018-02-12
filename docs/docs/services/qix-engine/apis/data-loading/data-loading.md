@@ -7,12 +7,8 @@
 Typically, a connector is implemented as a stateless Docker container that
 sits between the Qlik Associative Engine and the data source, as shown below.
 
-``` asciiart
-+-------------+              +-------------+                +-------------+
-| Qlik Associative Engine  | --GetData--> |  Connector  | -------------> | Data Source |
-|             | <----------  |             | <------------  |             |
-+-------------+              +-------------+                +-------------+
-```
+![connector](./QIXEngineConnector.png)
+
 
 The Qlik Associative Engine communicates with the data source through the
 [Data Connector gRPC API](data-connector-grpc.proto).
@@ -23,7 +19,7 @@ in a consumable format.
     The simplest way for the Qlik Associative Engine to discover
     available connectors is to use the GrpcConnectorPlugins.
 
-## GetData Function
+## GetData function
 
 When loading data, the Qlik Associative Engine sends one gRPC `GetData` call per table,
 and the server returns a stream of data chunks.
@@ -60,7 +56,7 @@ The connector sends data from the data source to the
 Qlik Associative Engine, translating the data piece by piece.
 The connector also supplies a gRPC header `x-qlik-getdata-bin` that contains metadata.
 
-### Data Chunks
+### Data chunks
 
 To improve engine performance, data is sent column by column.
 Each column holds the corresponding column values for all rows in the chunk,

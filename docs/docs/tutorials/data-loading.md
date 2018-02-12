@@ -6,8 +6,9 @@ Start loading data into your document by working through a data load workflow us
 
 To follow along in this tutorial, you should have basic understanding of Docker.
 
-**Note:** In the examples that follow, all shell commands should be run in a Bash shell.
-If you are using Windows, we recommend using Git Bash.
+!!! Note
+    In the examples that follow, all shell commands should be run in a Bash shell.
+    If you are using Windows, we recommend using Git Bash.
 
 ## Accessing data through a connection service
 
@@ -206,6 +207,7 @@ a Qlik Associative Engine table that is named `Airports`.
 Next, we reload the data to load the new data into the Qlik Associative Engine. Finally, we
 fetch the first 10 results of the `Airports` table and print them to the console.
 
-**Tip:** We recommend that you take a look inside the `index.js` file
-and that you read through the [enigma.js](https://github.com/qlik-oss/enigma.js) documentation
-to get a better understanding of the steps taken in this tutorial.
+!!! Tip
+    We recommend that you take a look inside the `index.js` file
+    and that you read through the [enigma.js](https://github.com/qlik-oss/enigma.js) documentation
+    to get a better understanding of the steps taken in this tutorial.

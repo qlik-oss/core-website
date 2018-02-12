@@ -11,8 +11,9 @@ The core Qlik Core stack consists of the following services:
 
 In a typical solution, all services are deployed on the server side.
 
-**Note:** We describe how to configure the core components for things like authorization,
-data loading, and document distribution in separate tutorials.
+!!! Note
+  We describe how to configure the core components for things like authorization,
+  data loading, and document distribution in separate tutorials.
 
 ## Before you begin
 
@@ -87,7 +88,7 @@ You can do this with the `eval` command. For example:
 eval $(docker-machine env <swarm manager node>)
 ```
 
-### The Stack
+### The stack
 
 The Qlik Core stack is specified in the
 [docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file.
@@ -135,8 +136,9 @@ Deploy the stack by running the following command:
 docker stack deploy -c ./docker-compose.yml --with-registry-auth qlik-core
 ```
 
-**Note**: `--with-registry-auth` is currently required because the Docker images are not public,
-and credentials are needed to pull them from Docker Hub.
+!!! Note
+  `--with-registry-auth` is currently required because the Docker images are not public,
+  and credentials are needed to pull them from Docker Hub.
 
 ### Accessing the stack
 
@@ -168,7 +170,7 @@ and it must be configured to communicate with the correct Kubernetes API server.
 To learn more about the *kubectl CLI* and how to configure it,
 see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
-### Docker Hub Credentials
+### Docker Hub credentials
 
 The Docker images that are being used are not public,
 so you must add a secret to Kubernetes to be able to pull these images from Docker Hub.
@@ -179,10 +181,11 @@ To add this secret to Kubernetes, run the following command:
 kubectl create secret docker-registry dockerhub --docker-username=<your-name> --docker-password=<your-password> --docker-email=<your-email>
 ```
 
-**Note**: The leading space character before the kubectl command is intentional.
-This prevents the command from being stored in the Bash shell command history.
+!!! Note
+  The leading space character before the kubectl command is intentional.
+  This prevents the command from being stored in the Bash shell command history.
 
-### The Stack
+### The stack
 
 The Qlik Core stack is specified in the `docker-compose.yml` file.
 The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
@@ -276,7 +279,8 @@ This endpoint returns one or more Qlik Associative Engine instances and informat
 
 ## Deploying to Nomad
 
-**Note**: Deploying to Nomad is not officially supported by Qlik Core.
+!!! Note
+  Deploying to Nomad is not officially supported by Qlik Core.
 
 ### Prerequisites
 
@@ -289,12 +293,13 @@ The Docker images that are being used are not public,
 so you must add a secret to Nomad to be able to pull these images from Docker Hub.
 In this example, we use the Docker auths that is stored when logging into Docker Hub with `docker login`.
 
-**Note:** Nomad stores the Docker credentials as plain text.
-To learn more on how Nomad stores these credentials,
-see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
-To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
+!!! Note
+  Nomad stores the Docker credentials as plain text.
+  To learn more on how Nomad stores these credentials,
+  see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
+  To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
 
-### Service Discovery
+### Service discovery
 
 In a Nomad orchestration, Mira uses the DNS mode for service discovery.
 A Consul server must be running in the Nomad environment.

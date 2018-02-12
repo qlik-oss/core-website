@@ -21,7 +21,7 @@ of the Mira REST API, open the [api-doc.yml](https://github.com/qlik-ea/mira/blo
 
 You configure Mira by setting environment variables inside the container.
 
-### Environment Variables
+### Environment variables
 
 The following environment variables can optionally be set:
 
@@ -38,7 +38,7 @@ The following environment variables can optionally be set:
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
 | MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request is received until a response is being sent. |
 
-### Operation Modes
+### Operation modes
 
 Mira supports different operation modes. The operation mode determines how Mira discovers Qlik Associative Engine instances.
 
@@ -53,7 +53,7 @@ Mira supports the following operation modes:
 
 To set the operation mode, define the environment variable `MIRA_MODE` on the Mira container.
 
-### Qlik Associative Engine Labeling
+### Qlik Associative Engine labeling
 
 In all modes, except _DNS_ mode, Mira uses labels to identify Qlik Associative Engine instances.
 By default, the label that Mira searches for is `qix-engine`.
@@ -64,7 +64,7 @@ environment variable.
     Mira only looks at the label key, not the value.
     The values can even be omitted. You can see examples of discovery labeling in the operation mode sections.
 
-### Port Labeling
+### Port labeling
 
 In all modes, except _DNS_ mode, Mira uses label values to determine
 on which ports to serve the QIX API (websocket) and the `/metrics` endpoint.
@@ -89,7 +89,7 @@ in the [Logging](../conventions/logging.md) conventions.
 The default log level is set to `info`.
 You can change the log level by setting the `MIRA_LOG_LEVEL` environment variable.
 
-## Swarm Mode
+## Swarm mode
 
 When Mira is running in _Swarm_ mode, it looks for a single Docker Swarm cluster that contains
 the Qlik Associative Engine instances running as Docker Swarm services.
@@ -119,7 +119,7 @@ services:
     ...
 ```
 
-### Example of Swarm Mode
+### Example of Swarm mode
 
 The [docker-compose-swarm.yml](https://github.com/qlik-ea/mira/blob/master/examples/swarm/docker-compose-swarm.yml)
 file is an example of how Mira can be started in _Swarm_ mode
@@ -140,7 +140,7 @@ To remove the stack, run the following command:
 docker stack rm mira-stack
 ```
 
-### Labeling for Swarm Mode
+### Labeling for Swarm mode
 
 When Mira is running in _Swarm_ mode, it looks for labels on Docker containers.
 Below is an example extract from a Docker stack file.
@@ -178,7 +178,7 @@ The service also contains two replicas, so Mira discovers two instances of the Q
 !!! Info
     The labeling scheme for _Swarm_ mode is similar to that of [_Local_ mode](#local-mode).
 
-## Kubernetes Mode
+## Kubernetes mode
 
 When Mira is running in _Kubernetes_ mode, Mira looks for Qlik Associative Engine instances running
 as pods in the Kubernetes cluster.
@@ -192,7 +192,7 @@ before starting the Mira pod.
     One way you can do this is to bundle the `kubectl` proxy as a container in the same pod as the Mira container,
     then Mira can reach the proxy on `localhost`.
 
-### Example of Kubernetes Mode
+### Example of Kubernetes mode
 
 The [mira-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-deployment.yml) file
 is an example of how to deploy Mira and Qlik Associative Engine instances to Kubernetes.
@@ -203,7 +203,7 @@ A quick way to do this, for experimental purposes, is to use
 
 This example respresents the minimal _Kubernetes_ mode setup.
 
-#### Start Mira in _Kubernetes_ Mode
+#### Start Mira in _Kubernetes_ mode
 
 You can start Mira in _Kubernetes_ mode from the example
 [mira-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-deployment.yml)
@@ -240,7 +240,7 @@ You can reach the Mira health check locally by running the following command.
 curl http://$(minikube ip):31000/v1/health
 ```
 
-#### Deploy Qlik Associative Engine Instances
+#### Deploy Qlik Associative Engine instances
 
 For Mira to discover Qlik Associative Engine instances in the cluster, you can use a Kubernetes deployment file.
 Apply the example
@@ -252,7 +252,7 @@ kubectl apply -f engine-deployment.yml
 
 This deployment file specifies two engine pod replicas.
 
-#### Expose Qlik Associative Engine Instances as Services
+#### Expose Qlik Associative Engine Instances as services
 
 For Mira to be able to discover the engine instances,
 the engines must be exposed as services with named ports.
@@ -278,7 +278,7 @@ curl http://$(minikube ip):31000/v1/engines
     The files in this section showed examples of a minimal setup to get Mira running with Kubernetes.
     In a production deployment, you will have to consider other aspects.
 
-### Labeling for Kubernetes Mode
+### Labeling for Kubernetes mode
 
 In _Kubernetes_ mode, Mira looks for the discovery labels on pods that are hosting engine containers.
 
@@ -309,20 +309,20 @@ spec:
     Mira does not support hosting multiple engine containers inside the same pod,
     since they would get the same IP address and port.
 
-## DNS Mode
+## DNS mode
 
 When running Mira in _DNS_ mode, Mira resolves by hostname.
 Mira uses all returned IP addresses to fetch additional data on Qlik Associative Engine instances.
 
 You can enable _DNS_ mode by setting the environment variable `MIRA_MODE` to `dns`.
 
-### Hostname Configuration
+### Hostname configuration
 
 When Mira is running in _DNS_ mode, Mira does not look for discovery labels to find Qlik Associative Engine instances.
 Instead, Mira uses the hostname that is used to resolve Qlik Associative Engine instances.
 You can set the hostname in the `MIRA_DISCOVERY_HOSTNAME` environment variable.
 
-### Example of DNS Mode
+### Example of DNS mode
 
 The [docker-compose-dns.yml](https://github.com/qlik-ea/mira/blob/master/examples/dns/docker-compose-dns.yml) file
 is an example of how to configure DNS mode in a Docker Swarm environment.
@@ -344,7 +344,7 @@ services:
     ...
 ```
 
-## Local Mode
+## Local mode
 
 When Mira is running in _Local_ mode, Mira looks for Qlik Associative Engine instances
 that are running on the `localhost` Docker Engine, without any orchestration platform such as Docker Swarm or Kubernetes.
@@ -352,7 +352,7 @@ that are running on the `localhost` Docker Engine, without any orchestration pla
 You can enable _Local_ mode by setting the `MIRA_MODE` environment variable to `local`
 before you start the Mira Docker container.
 
-### Example of Local Mode
+### Example of Local mode
 
 The [docker-compose.yml](https://github.com/qlik-ea/mira/blob/master/docker-compose.yml) file
 is an example of how Mira and a set of Docker containers can be started locally with Docker compose.
@@ -369,7 +369,7 @@ To verify that Mira discovers the two Qlik Associative Engine containers, run th
 curl http://localhost:9100/v1/engines
 ```
 
-### Labeling for Local Mode
+### Labeling for Local mode
 
 In _Local_ mode, Mira looks for labels on Docker containers.
 

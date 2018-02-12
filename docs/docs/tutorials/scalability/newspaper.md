@@ -41,9 +41,10 @@ We make the following assumptions in this example.
     would improve speed and removes the need to continuously check whether there is enough resource
     headroom.
 
-**Note:** In this scenario, there is no logic to reject new sessions
-even if the current cluster is fully loaded or overloaded. This type of feature could be
-implemented by checking for headroom and rejecting sessions when there is not enough left.
+!!! Note
+  In this scenario, there is no logic to reject new sessions
+  even if the current cluster is fully loaded or overloaded. This type of feature could be
+  implemented by checking for headroom and rejecting sessions when there is not enough left.
 
 ## Document session placement using Mira
 
@@ -58,8 +59,9 @@ properly place a new user on the appropriate Qlik Associative Engine node.
 You can do this by using the [Mira service](../../services/mira.md) to return an array
 of available Qlik Associative Engine instances and then sort them by load.
 
-**Note:** In this scenario, it is assumed that the document is either already open or small
-enough to not cause RAM issues.
+!!! Note
+  In this scenario, it is assumed that the document is either already open or small
+  enough to not cause RAM issues.
 
 A document session placement algorithm does the following:
 
