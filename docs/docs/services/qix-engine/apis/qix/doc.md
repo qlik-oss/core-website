@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.134.0._
+_QIX methods for version 12.136.0._
 
 ## `AbortModal`
 
@@ -98,6 +98,23 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 | `qErrorMsg` | string | Message displayed when there is a syntax error. |
 | `qBadFieldNames` | [`NxRange`](./definitions.md#nxrange) | A list of bad field names. |
 | `qDangerousFieldNames` | [`NxRange`](./definitions.md#nxrange) | A list of dangerous field names. |
+
+## `CheckNumberOrExpression`
+
+Checks if:<br>* A given expression is valid.<br>* A number is correct according to the locale.
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qExpr` | string | Yes | Expression to check. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qErrorMsg` | string | Message displayed when there is a syntax error. |
+| `qBadFieldNames` | [`NxRange`](./definitions.md#nxrange) | A list of bad field names. |
 
 ## `CheckScriptSyntax`
 
