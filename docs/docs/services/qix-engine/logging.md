@@ -3,7 +3,7 @@
 The Qlik Associative Engine follows the logging format and levels that are specified in the
 [logging](../../conventions/logging.md) conventions.
 
-## Log Types
+## Log types
 
 Depending on the category of the log event, the Qlik Associative Engine uses different log types, and each
 log type can have an individual log verbosity, as described in [Log Levels](#log-levels) section.
@@ -23,7 +23,7 @@ The following table lists the log types that are available and the default verbo
 | SmartSearchIndex | Smart Search index log. | SmartSearchIndexLogVerbosity | 3 |
 | SSE | Server Side Extension log. | SSELogVerbosity | 4 |
 
-## Log Levels
+## Log levels
 
 When you start the docker container, you configure the log type and the log level by setting the command line parameter.
 
@@ -54,7 +54,7 @@ services:
       ...
 ```
 
-## Log Format
+## Log format
 
 In addition to the required fields that are listed in the [Logging](../../conventions/logging.md) conventions,
 the Qlik Associative Engine also has a few log fields that are common to all log types:
@@ -86,30 +86,30 @@ These fields are listed in the tables that follow.
 | doc_sessions | Number of idle sessions waiting for termination. |
 | active_anonymous_doc_sessions | Number of active sessions with a connected anonymous client. |
 | anonymous_doc_sessions | Number of idle sessions with anonymous users waiting for termination. |
-| active_tunneled_doc_sessions | |
-| tunneled_doc_sessions| |
-| doc_sessions_start | |
+| active_tunneled_doc_sessions | The number of active tunneled engine sessions at the given point. |
+| tunneled_doc_sessions| The number of tunneled engine sessions at the given point. |
+| doc_sessions_start | The number of started engine sessions since the previous snapshot. |
 | active_docs | Number of active documents. A document is active when a user is currently performing some action on it. |
 | ref_docs | Number of documents currently loaded into the memory, even if they do not have any open sessions or connections. |
 | loaded_docs| Number of documents currently loaded into memory that have open sessions or connections. |
-| doc_loads | |
-| doc_loads_fails | |
+| doc_loads | The number of app loads in the QES since the previous snapshot. |
+| doc_loads_fails | The number of failed app loads in the QES since the previous snapshot. |
 | calls | Total number of requests made to the engine. |
 | selections | Total number of selections made to the engine. |
-| active_ip_addrs | |
-| ip_addrs | |
+| active_ip_addrs | The number of IP addresses of active connected clients in the QES at the given point. |
+| ip_addrs | The number of IP addresses of all connected clients in the QES at the given point. |
 | active_users | Number of distinct active users. An active user is one who is currently performing an action on an app. |
 | users | Total number of distinct users within the current engine session.|
-| cpu_loads | |
+| cpu_loads | A measurement of the load on the CPU on which the QES runs at the given point. |
 | vm_commited_mb | The total amount of committed memory in MB for the engine process. |
 | vm_allocated_mb | The total amount of allocated memory in MB (committed + reserved) from the operating system.  |
 | vm_free_mb | The total amount of free memory in MB (minimum of free virtual and physical memory). |
-| vm_largest_free_block_mb | |
+| vm_largest_free_block_mb | The largest freed Virtual Memory block (in megabytes) at the given point. |
 | cache_hits | Number of cache hits. |
 | cache_lookups | Number of cache lookups. |
 | cache_objects_added | Number of cache objects added. |
 | cache_bytes_added | Size in bytes of cache objects added. |
-| cache_times_added |  |
+| cache_times_added | Number of cache times added.  |
 | cache_replaced | Number of cache objects replaced. |
 
 ### Session
@@ -143,7 +143,7 @@ Use this log type with caution because it will produce a lot of log entries.
 | session_id | Session identifier. |
 | request_id | Request identifier .|
 | method | RPC method. |
-| target |
+| target | The memory address of the target for the QIX method call. |
 | handle | Object identifier. |
 | exception | Exception information. |
 | exception_extra | Extra exception information. |

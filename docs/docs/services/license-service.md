@@ -37,7 +37,7 @@ This is because traffic between Qlik Associative Engine instances and the Licens
 In cases where you need to consider load balancing or License Service availability,
 you can run multiple replicas of the License Service.
 
-### Health Check
+### Health check
 
 For health checking, the License Service exposes `/v1/health` on port 9200, and it always responds with `200 OK`.
 

@@ -31,7 +31,7 @@ determine the compatibility differences.
 Major version zero (0.Y.Z) is for initial development, so our API Governance Policy does not apply. Our
 public APIs will always be at major version one (1.Y.Z) or higher.
 
-### Visibility Index
+### Visibility index
 
 The visibility index defines who is the intended user of the API. We currently have two types of
 APIs: private and public.
@@ -41,7 +41,7 @@ Public APIs are officially supported, and they are documented in the
 To avoid the risk that your solution might break with any new version of our products,
 you should always use public APIs for custom solutions built on top of our Qlik Analytics Platform.
 
-### Stability Index
+### Stability index
 
 The stability index indicates how stable or mature an API is.
 We currently have three levels:
@@ -69,7 +69,7 @@ We currently have three levels:
 !!! Note
     APIs can only be promoted and move to a more reliable stability index.
 
-### Deprecation Policy
+### Deprecation policy
 
 The deprecation policy defines when and how an API is considered to be deprecated.
 
@@ -89,12 +89,12 @@ The deprecation period lasts until the removal has been officially communicated 
 The API governance policy applies to both our public and private APIs,
 but private APIs are treated differently for deprecations.
 
-### Breaking Change Definition
+### Breaking change definition
 
 The breaking change definition is a set of rules that defines if a change is considered to be a backward or
 non-backward compatible change.
 
-## Bringing our API Strategy to Life
+## Bringing our API strategy to life
 
 In December 2016, we established the API Governance Policy within Qlik's R&D organization.
 This policy ensures that we meet the high standards of our API strategy.
@@ -107,7 +107,7 @@ This is an ongoing effort and we will continue with future
 [Qlik Core documentation](/docs/home.md)
 updates.
 
-### API Insights
+### Qlik API Insights
 
 Our intention is to be fully transparent to our partners and customers.
 Therefore, we have launched

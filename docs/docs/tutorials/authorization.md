@@ -1,6 +1,6 @@
 # Authorization
 
-In this tutorial, you will learn how to configure JSON Web Tokens (JWT) and the Qlik Associative Engine
+Learn how to configure JSON Web Tokens (JWT) and how to use the Qlik Associative Engine
 to manage and authenticate users.
 
 ## JSON Web Token
@@ -21,8 +21,9 @@ A typical JWT consists of three parts.
 
 `{header}.{payload}.{signature}`
 
-**Note:** Each part of the JWT is base64url-encoded and separated by a dot.
-To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
+!!! Note
+  Each part of the JWT is base64url-encoded and separated by a dot.
+  To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
 
 #### Header
 
