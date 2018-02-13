@@ -36,7 +36,8 @@ The following environment variables can optionally be set:
 | MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for Qlik Associative Engine instances. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira uses to communicate with the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
-| MIRA_ALLOWED_RESPONSE_TIME            | 1000                    | Maximum allowed time in milliseconds from when a request is received until a response is being sent. |
+| MIRA_ALLOWED_RESPONSE_TIME            | 1                       | Maximum allowed time in seconds from when a request is received until a response is being sent. |
+| MIRA_SWARM_ENGINES_NETWORKS | n/a                               | Docker networks Mira should use for status checking. Only applicable in `swarm` mode. |
 
 ### Operation modes
 
@@ -177,6 +178,17 @@ The service also contains two replicas, so Mira discovers two instances of the Q
 
 !!! Info
     The labeling scheme for _Swarm_ mode is similar to that of [_Local_ mode](#local-mode).
+    
+### Using multiple Docker networks in Swarm mode
+
+In Docker swarm a service can be attached to multiple Docker networks simultaneously. 
+Mira will list all Docker networks a Qlik Associative Engine belongs to,
+but if using multiple networks Mira must also be configured with one or several Docker networks
+to use for performing health checks and gathering metrics.
+
+Which Docker network(s) where the Qlik Associative Engine is reachable by Mira can be defined using the environment variable `MIRA_SWARM_ENGINE_NETWORKS`. 
+It is possible to specify a specific network to use `MIRA_SWARM_ENGINE_NETWORKS=engine_network`,
+or several using a comma separated list `MIRA_SWARM_ENGINE_NETWORKS=engine_network,engine_network2`.
 
 ## Kubernetes mode
 
