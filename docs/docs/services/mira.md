@@ -178,15 +178,15 @@ The service also contains two replicas, so Mira discovers two instances of the Q
 
 !!! Info
     The labeling scheme for _Swarm_ mode is similar to that of [_Local_ mode](#local-mode).
-    
+
 ### Using multiple Docker networks in Swarm mode
 
-In Docker swarm a service can be attached to multiple Docker networks simultaneously. 
+In Docker swarm a service can be attached to multiple Docker networks simultaneously.
 Mira will list all Docker networks a Qlik Associative Engine belongs to,
 but if using multiple networks Mira must also be configured with one or several Docker networks
 to use for performing health checks and gathering metrics.
 
-Which Docker network(s) where the Qlik Associative Engine is reachable by Mira can be defined using the environment variable `MIRA_SWARM_ENGINE_NETWORKS`. 
+Which Docker network(s) where the Qlik Associative Engine is reachable by Mira can be defined using the environment variable `MIRA_SWARM_ENGINE_NETWORKS`.
 It is possible to specify a specific network to use `MIRA_SWARM_ENGINE_NETWORKS=engine_network`,
 or several using a comma separated list `MIRA_SWARM_ENGINE_NETWORKS=engine_network,engine_network2`.
 
