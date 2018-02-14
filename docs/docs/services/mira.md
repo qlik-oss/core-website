@@ -185,6 +185,8 @@ In Docker swarm a service can be attached to multiple Docker networks simultaneo
 Mira will list all Docker networks a Qlik Associative Engine belongs to,
 but if using multiple networks Mira must also be configured with one or several Docker networks
 to use for performing health checks and gathering metrics.
+Since Mira will be dependant on being able to communicate with all Qlik Associative Engines,
+they must at least have one network in common.
 
 Which Docker network(s) where the Qlik Associative Engine is reachable by Mira
 can be defined using the environment variable `MIRA_SWARM_ENGINE_NETWORKS`.
@@ -415,69 +417,4 @@ some metrics that can be used to monitor the service.
 Mira exposes the recommended standard metrics from
 [Prometheus](https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors).
 
-In addition to the standard metrics Mira will also supply metrics regarding build info and response times.
-An example of the output for Mira specific metrics can be found below.
-
-```text
-# HELP mira_build_info A metric with a constant 1 value labeled by version, revision, platform, nodeVersion, os from which mira was built
-# TYPE mira_build_info gauge
-mira_build_info{version="0.0.11-0",revision="59498db",buildTime="2018-02-13T06:35:39.218Z",platform="node",nodeVersion="v8.9.4",os="win32",osRelease="10.0.16299"} 1
-
-# HELP http_request_duration_seconds Time in seconds consumed from mira receiving a request until a response is sent per path
-# TYPE http_request_duration_seconds histogram
-http_request_duration_seconds_bucket{le="0.005",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.01",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.025",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.05",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.1",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.25",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="0.5",path="/v1/health"} 1
-http_request_duration_seconds_bucket{le="1",path="/v1/health"} 2
-http_request_duration_seconds_bucket{le="2.5",path="/v1/health"} 2
-http_request_duration_seconds_bucket{le="5",path="/v1/health"} 2
-http_request_duration_seconds_bucket{le="10",path="/v1/health"} 2
-http_request_duration_seconds_bucket{le="+Inf",path="/v1/health"} 2
-http_request_duration_seconds_sum{path="/v1/health"} 1
-http_request_duration_seconds_count{path="/v1/health"} 2
-http_request_duration_seconds_bucket{le="0.005",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.01",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.025",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.05",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.1",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.25",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="0.5",path="/v1/engines"} 1
-http_request_duration_seconds_bucket{le="1",path="/v1/engines"} 4
-http_request_duration_seconds_bucket{le="2.5",path="/v1/engines"} 4
-http_request_duration_seconds_bucket{le="5",path="/v1/engines"} 4
-http_request_duration_seconds_bucket{le="10",path="/v1/engines"} 4
-http_request_duration_seconds_bucket{le="+Inf",path="/v1/engines"} 4
-http_request_duration_seconds_sum{path="/v1/engines"} 3
-http_request_duration_seconds_count{path="/v1/engines"} 4
-http_request_duration_seconds_bucket{le="0.005",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.01",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.025",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.05",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.1",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.25",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="0.5",path="/v1/metrics"} 0
-http_request_duration_seconds_bucket{le="1",path="/v1/metrics"} 2
-http_request_duration_seconds_bucket{le="2.5",path="/v1/metrics"} 2
-http_request_duration_seconds_bucket{le="5",path="/v1/metrics"} 2
-http_request_duration_seconds_bucket{le="10",path="/v1/metrics"} 2
-http_request_duration_seconds_bucket{le="+Inf",path="/v1/metrics"} 2
-http_request_duration_seconds_sum{path="/v1/metrics"} 2
-http_request_duration_seconds_count{path="/v1/metrics"} 2
-
-# HELP http_request_duration_seconds_total Time in seconds consumed from mira receiving a request until a response is sent in total
-# TYPE http_request_duration_seconds_total summary
-http_request_duration_seconds_total{quantile="0.01"} 0
-http_request_duration_seconds_total{quantile="0.05"} 0
-http_request_duration_seconds_total{quantile="0.5"} 0.75
-http_request_duration_seconds_total{quantile="0.9"} 1
-http_request_duration_seconds_total{quantile="0.95"} 1
-http_request_duration_seconds_total{quantile="0.99"} 1
-http_request_duration_seconds_total{quantile="0.999"} 1
-http_request_duration_seconds_total_sum 6
-http_request_duration_seconds_total_count 8
-
-```
+In addition to the standard metrics Mira will also supply metrics regarding build info and response times of http requests.
