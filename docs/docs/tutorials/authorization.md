@@ -1,6 +1,6 @@
 # Authorization
 
-In this tutorial, you will learn how to configure JSON Web Tokens (JWT) and the QIX Engine
+Learn how to configure JSON Web Tokens (JWT) and how to use the Qlik Associative Engine
 to manage and authenticate users.
 
 ## JSON Web Token
@@ -8,7 +8,7 @@ to manage and authenticate users.
 JWT is an open standard for creating access tokens. To learn more about JWT,
 see the [JWT documentation](https://jwt.io/) and the [JWT Standard](https://tools.ietf.org/html/rfc7519).
 
-The QIX Engine uses JWTs for the following tasks:
+The Qlik Associative Engine uses JWTs for the following tasks:
 
 - Ensuring that only authenticated users are allowed to connect.
 - Connecting users to the same sessions.
@@ -21,8 +21,9 @@ A typical JWT consists of three parts.
 
 `{header}.{payload}.{signature}`
 
-**Note:** Each part of the JWT is base64url-encoded and separated by a dot.
-To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
+!!! Note
+  Each part of the JWT is base64url-encoded and separated by a dot.
+  To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
 
 #### Header
 
@@ -39,7 +40,7 @@ and the hashing algorithm that is used to sign the token. For example:
 #### Payload
 
 The payload contains the claims of the JWT.
-The relevant claims that are evaluated by the QIX Engine are the subject and the expiration date.
+The relevant claims that are evaluated by the Qlik Associative Engine are the subject and the expiration date.
 
 | Field | Description |
 | -----|------------|
@@ -58,7 +59,7 @@ For example:
 #### Signature
 
 The signature is used to verify the authenticity of the token.
-The QIX Engine supports the following JWT signing algorithms:
+The Qlik Associative Engine supports the following JWT signing algorithms:
 
 | Encryption type | Algorithms |
 | ----            | --------- |
@@ -68,9 +69,9 @@ The QIX Engine supports the following JWT signing algorithms:
 
 To learn more about JWT signatures, see [Signature](https://jwt.io/introduction/#signature).
 
-### QIX Engine configuration
+### Qlik Associative Engine configuration
 
-To validate JWTs, you must configure the QIX Engine by specifying
+To validate JWTs, you must configure the Qlik Associative Engine by specifying
 the JWT enforcement type and the JWT secret in the `docker-compose.yml` file.
 
 The enforcement type is defined as:
@@ -108,7 +109,7 @@ services:
 
 ### Validation
 
-The JWT is passed to the QIX Engine in the `Authorization` header using
+The JWT is passed to the Qlik Associative Engine in the `Authorization` header using
 the `Bearer` schema, and is validated once the websocket connection is established.
 
 `Authorization: Bearer <token>`
@@ -130,7 +131,7 @@ To learn more about section access, see [Managing security with section access](
 ### Managing access control
 
 Access control is managed through one or several security tables loaded
-in the same way that the QIX Engine normally loads data.
+in the same way that the Qlik Associative Engine normally loads data.
 
 In the example below, the load script grants regional
 users access to their respective country data
@@ -162,7 +163,7 @@ DE, Other, 303
 ];
 ```
 
-The QIX Engine maps the `sub` field from the JWT to the user names
+The Qlik Associative Engine maps the `sub` field from the JWT to the user names
 that are specified in the section access table.
 In the example above, the section access table is linked to the `Sales` table
 through the `COUNTRY` field value,

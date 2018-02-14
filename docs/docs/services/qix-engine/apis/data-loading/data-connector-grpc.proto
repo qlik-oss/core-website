@@ -22,7 +22,7 @@ message DataInfo
     string statementParameters = 2;
 }
 
-message GetDataOptions
+message DataRequest
 {
     ConnectionInfo connection = 1;
     SessionInfo sessionInfo = 2;
@@ -134,11 +134,27 @@ message GetDataResponse {
     string tableName = 2;
 }
 
+
+/**
+    Usefull for debugging.
+*/
+message MetaInfo {
+    string name = 1;                     /// Example: "AbcDb connector"
+    string version = 2;                  /// Version number in any format.
+                                         ///     Example: "1.0.0.0" or "1.23 Beta" or "Buildnumber: 1234" or "2018-Feb-06"
+    string developer = 3;                /// Example: "Qlik"
+}
+
+message MetaInfoRequest {
+    // Empty
+}
+
 service Connector
 {
     /** The standard way to send data.
         First send GetDataResponse as initial meta data.
         Then send DataChunk stream.
     */
-    rpc GetData(GetDataOptions) returns(stream DataChunk) {}
+    rpc GetData(DataRequest) returns(stream DataChunk) {}
+    rpc GetMetaInfo(MetaInfoRequest) returns(MetaInfo) {}
 }

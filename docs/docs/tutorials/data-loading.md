@@ -6,8 +6,9 @@ Start loading data into your document by working through a data load workflow us
 
 To follow along in this tutorial, you should have basic understanding of Docker.
 
-**Note:** In the examples that follow, all shell commands should be run in a Bash shell.
-If you are using Windows, we recommend using Git Bash.
+!!! Note
+    In the examples that follow, all shell commands should be run in a Bash shell.
+    If you are using Windows, we recommend using Git Bash.
 
 ## Accessing data through a connection service
 
@@ -24,7 +25,7 @@ like Dropbox, OneDrive, and GoogleDrive.
 
 The data connection service that is used in this tutorial
 works by defining a unique HTTP endpoint for each registered connection provider.
-The QIX Engine can then access different data sources by making calls
+The Qlik Associative Engine can then access different data sources by making calls
 to the service-defined HTTP endpoints.
 
 Before you start this example, you must clone the
@@ -74,7 +75,7 @@ and loading data from these data sources is supported by the
 ## Loading data from a PostgreSQL database using gRPC protocol
 
 In this example workflow, load data from a PostgreSQL database
-using the gRPC protocol in the QIX Engine.
+using the gRPC protocol in the Qlik Associative Engine.
 
 Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
 Git repository to your local machine.
@@ -108,11 +109,11 @@ Do the following:
 
     - A database
     - A postgres-grpc-connector
-    - The QIX Engine
+    - The Qlik Associative Engine
 
     **Note:** If you look at the `docker-compose.yml` file, port `9076` on the container
     is mapped to port `19076` on the local machine.
-    This lets you access the QIX Engine from outside of the Docker network.
+    This lets you access the Qlik Associative Engine from outside of the Docker network.
     In this example, we want to trigger a load of the airport data
     from outside of the container.
 
@@ -120,12 +121,12 @@ Do the following:
 
     - `-S EnableGrpcCustomConnectors=1`
 
-        Enables gRPC connectors in the QIX Engine.
+        Enables gRPC connectors in the Qlik Associative Engine.
 
     - `-S GrpcConnectorPlugins="postgres-grpc-connector,postgres-grpc-connector:50051"`
 
         Creates a connector of the type `postgres-grpc-connector`,
-        which we tell the QIX Engine exists on host `postgres-grpc-connector`
+        which we tell the Qlik Associative Engine exists on host `postgres-grpc-connector`
         and listening on port `50051`.
 
 1. Verify that the three services are running in containers.
@@ -138,22 +139,22 @@ Do the following:
     The `postgres-grpc-connector` can therefore access the database container on this port.
 
     The `postgres-grpc-connector` container exposes port `50051`.
-    This is the port that we told the QIX Engine to talk to
+    This is the port that we told the Qlik Associative Engine to talk to
     with the commands in the `docker-compose.yml` file.
 
-    The QIX Engine exposes ports `9076` and `9090`.
+    The Qlik Associative Engine exposes ports `9076` and `9090`.
     Port `9090` is used for metrics, which is not relevant for this example.
-    Port `9076` is the standard QIX Engine API port. Since we mapped it to
+    Port `9076` is the standard Qlik Associative Engine API port. Since we mapped it to
     port `19076` on your local machine, _outside_ of the container,
-    requests to your machine on port `19076` will go to QIX Engine container.
+    requests to your machine on port `19076` will go to Qlik Associative Engine container.
 
 1. Trigger the data load.
 
     Now that we have a populated database, a gRPC connector container,
-    and a QIX Engine running, all we need is to trigger a load of the data.
+    and a Qlik Associative Engine running, all we need is to trigger a load of the data.
 
     For this example, a small Node.js program that uses the Qlik library [enigma.js](https://github.com/qlik-oss/enigma.js)
-    that talks to the QIX Engine triggers a load of the airport data with the gRPC connector.
+    that talks to the Qlik Associative Engine triggers a load of the airport data with the gRPC connector.
 
     ```bash
     cd reload-runner
@@ -166,12 +167,12 @@ Do the following:
 ## What is happening
 
 Once the containers are running and you trigger the data load,
-the program creates and opens an app called `reloadapp.qvf` on the QIX Engine.
+the program creates and opens an app called `reloadapp.qvf` on the Qlik Associative Engine.
 Then it creates a connection of the type we defined earlier.
 
 ```js
 app.createConnection({
-  qType: 'postgres-grpc-connector', //the name we defined as a parameter to the QIX Engine in our docker-compose.yml
+  qType: 'postgres-grpc-connector', //the name we defined as a parameter to the Qlik Associative Engine in our docker-compose.yml
   qName: 'postgresgrpc',
   //the connection string inclues both the provider to use and parameters to it.
   qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"',
@@ -182,7 +183,7 @@ app.createConnection({
 
 The connection string
 `CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres`
-tells the QIX Engine to use the newly created connection.
+tells the Qlik Associative Engine to use the newly created connection.
 The remaining part of the connection string specifies parameters to the gRPC connector,
 such as the database host, address, and port.
 You can see that the host is the name of the service we defined in the `docker-compose.yml` file
@@ -201,11 +202,12 @@ app.setScript(script);
 
 We use the name `postgresgrpc`, which we defined when we created our connection.
 Then, we load the airport data from the PostgreSQL `airports` table into
-a QIX Engine table that is named `Airports`.
+a Qlik Associative Engine table that is named `Airports`.
 
-Next, we reload the data to load the new data into the QIX Engine. Finally, we
+Next, we reload the data to load the new data into the Qlik Associative Engine. Finally, we
 fetch the first 10 results of the `Airports` table and print them to the console.
 
-**Tip:** We recommend that you take a look inside the `index.js` file
-and that you read through the [enigma.js](https://github.com/qlik-oss/enigma.js) documentation
-to get a better understanding of the steps taken in this tutorial.
+!!! Tip
+    We recommend that you take a look inside the `index.js` file
+    and that you read through the [enigma.js](https://github.com/qlik-oss/enigma.js) documentation
+    to get a better understanding of the steps taken in this tutorial.

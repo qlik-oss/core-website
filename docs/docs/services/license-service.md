@@ -1,10 +1,10 @@
 # License Service
 
-To run QIX Engine with a valid license, you are required to run the License Service.
-You should deploy the License Service together with the QIX Engine.
+To run Qlik Associative Engine with a valid license, you are required to run the License Service.
+You should deploy the License Service together with the Qlik Associative Engine.
 
 At start up, and periodically while it is running,
-each QIX Engine instance checks the License Service for a valid license.
+each Qlik Associative Engine instance checks the License Service for a valid license.
 
 !!! Note
     Since it is just a sidecar service, the License Service API is generally
@@ -19,8 +19,8 @@ It is developed by Qlik as closed source.
 ## Configuration
 
 You do not need to configure the License Service,
-but you do need to tell the [QIX Engine](./qix-engine/introduction.md) where to find it.
-You can do this by passing the following command line argument to the QIX Engine.
+but you do need to tell the [Qlik Associative Engine](./qix-engine/introduction.md) where to find it.
+You can do this by passing the following command line argument to the Qlik Associative Engine.
 
 ```sh
 -S LicenseServiceUrl=<License Service URL>
@@ -33,11 +33,11 @@ To see an example of a basic license configuration, see the [Orchestration](../t
 ## Deployment
 
 In most Qlik Core deployments, you will only need to deploy a single License Service instance.
-This is because traffic between QIX Engine instances and the License Service is low.
+This is because traffic between Qlik Associative Engine instances and the License Service is low.
 In cases where you need to consider load balancing or License Service availability,
 you can run multiple replicas of the License Service.
 
-### Health Check
+### Health check
 
 For health checking, the License Service exposes `/v1/health` on port 9200, and it always responds with `200 OK`.
 
