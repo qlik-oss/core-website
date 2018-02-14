@@ -12,7 +12,7 @@ within a partial view of the data.
 
 ## Open Source
 
-We believe in Open Source! Almost everything in Qlik Core is developed as Open Source.
+We believe in Open Source! Much in Qlik Core is developed as Open Source.
 We encourage you to explore the different git repositories, _star_ your favorite repositories, file issues, and send
 pull requests.
 
