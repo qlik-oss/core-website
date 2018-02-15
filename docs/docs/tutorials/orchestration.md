@@ -12,8 +12,8 @@ The core Qlik Core stack consists of the following services:
 In a typical solution, all services are deployed on the server side.
 
 !!! Note
-  We describe how to configure the core components for things like authorization,
-  data loading, and document distribution in separate tutorials.
+    We describe how to configure the core components for things like authorization,
+    data loading, and document distribution in separate tutorials.
 
 ## Before you begin
 
@@ -182,8 +182,8 @@ kubectl create secret docker-registry dockerhub --docker-username=<your-name> --
 ```
 
 !!! Note
-  The leading space character before the kubectl command is intentional.
-  This prevents the command from being stored in the Bash shell command history.
+    The leading space character before the kubectl command is intentional.
+    This prevents the command from being stored in the Bash shell command history.
 
 ### The stack
 
@@ -294,10 +294,10 @@ so you must add a secret to Nomad to be able to pull these images from Docker Hu
 In this example, we use the Docker auths that is stored when logging into Docker Hub with `docker login`.
 
 !!! Note
-  Nomad stores the Docker credentials as plain text.
-  To learn more on how Nomad stores these credentials,
-  see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
-  To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
+    Nomad stores the Docker credentials as plain text.
+    To learn more on how Nomad stores these credentials,
+    see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
+    To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
 
 ### Service discovery
 
