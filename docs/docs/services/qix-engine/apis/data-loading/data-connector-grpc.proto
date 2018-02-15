@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package qlik;
+package qlik.connect;
 
 message ConnectionInfo
 {
@@ -16,10 +16,15 @@ message SessionInfo
     string docId = 3;
 }
 
+message Parameter {
+    string name = 1;
+    string value = 2;
+}
+
 message DataInfo
 {
     string statement = 1;
-    string statementParameters = 2;
+    repeated Parameter parameters = 2;
 }
 
 message DataRequest
@@ -49,8 +54,9 @@ message DataRequest
     Each DataChunk must be equal or less in size to the default Grpc message size limit. This is
     currently 4 MB.
 
-    But anything from 30 KB to 64 KB is preffered by the Grpc protocol. Most of the messages
-    should be within the prefered size for best performance.
+    64 KB or slightly less is the optimal size for bandwith performance. But anything from
+    20 to 120 KB will give good performance if used with the hint option when
+    writing.
 
     Very large strings can be sent in many DataChunk messages by using the -3 escape sequence.
 */

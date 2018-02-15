@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_QIX methods for version 12.136.0._
+_QIX methods for version 12.138.0._
 
 ## `AbortListObjectSearch`
 
