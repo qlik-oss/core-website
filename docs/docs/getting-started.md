@@ -42,9 +42,6 @@ We recommend that you explore these tutorials in order:
 
 1. [Data Loading](./tutorials/data-loading.md)
     - Loading user data into Qlik Associative Engine
-<!---1. [Document Distribution](./tutorials/document-distribution.md)
-    - Distributing updated documents/data
-    in a cluster of Qlik Associative Engine instances-->
 1. [Monitoring and Scaling](./tutorials/scalability/overview.md)
     - Taking decisions on when to scale up or down the number of Qlik Associative Engine instances
     - Placing and scheduling of Qlik Associative Engine sessions
