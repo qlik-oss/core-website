@@ -20,11 +20,6 @@
   display: none;
 }
 
-.md-typeset {
-  font-size: 1.4rem;
-  line-height: 1.4;
-}
-
 .md-typeset a {
   color: #0066cc;
   text-decoration: underline;
@@ -309,6 +304,12 @@
     background-color: white;
   }
 }
+
+#beta {
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
 .marketing-page-main-content {
   width: 103.5vw;
   margin-top: 0px;
