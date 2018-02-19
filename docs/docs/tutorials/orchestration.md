@@ -17,7 +17,7 @@ In a typical solution, all services are deployed on the server side.
 
 ## Before you begin
 
-Clone the [Core](https://github.com/qlik-ea/core) Git repository,
+Clone the [Core](https://github.com/qlik-ea/core-orchestration) Git repository,
 which contains all tutorial assets, to your local machine.
 All commands should be executed from this Git repository.
 
@@ -91,7 +91,7 @@ eval $(docker-machine env <swarm manager node>)
 ### The stack
 
 The Qlik Core stack is specified in the
-[docker-compose.yml](https://github.com/qlik-ea/core/blob/master/docker-swarm/docker-compose.yml) file.
+[docker-compose.yml](https://github.com/qlik-ea/core-orchestration/blob/master/docker-swarm/docker-compose.yml) file.
 The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
 
 #### Placement constraints
@@ -193,7 +193,7 @@ The stack consists of one Qlik Associative Engine, one Mira discovery service, a
 #### Mira Kubernetes mode
 
 Open the
-[mira-deployment.yaml](https://github.com/qlik-ea/core/blob/master/kubernetes/plain/qlik-core/mira-deployment.yaml)
+[mira-deployment.yaml](https://github.com/qlik-ea/core-orchestration/blob/master/kubernetes/plain/qlik-core/mira-deployment.yaml)
 file to see how Mira is configured.
 
 The Mira deployment specifies two containers to run in the pod.
@@ -297,7 +297,7 @@ In this example, we use the Docker auths that is stored when logging into Docker
     Nomad stores the Docker credentials as plain text.
     To learn more on how Nomad stores these credentials,
     see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
-    To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core/blob/master/nomad/nomad.hcl).
+    To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/nomad.hcl).
 
 ### Service discovery
 
@@ -306,7 +306,7 @@ A Consul server must be running in the Nomad environment.
 Nomad will automatically register services in Consul when deploying the nomad files.
 You can find the hostname that Mira should use for discovering Qlik Associative Engine instances
 in the task configuration of
-[mira.noamd](https://github.com/qlik-ea/core/blob/master/nomad/mira.nomad) file.
+[mira.noamd](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/mira.nomad) file.
 
 ### Deploying the stack
 
