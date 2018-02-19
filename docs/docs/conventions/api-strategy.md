@@ -63,8 +63,9 @@ We currently have three levels:
 
     Locked APIs are extremely reliable and will not be broken unless necessary. The
     deprecation period for locked APIs is set to 12 months.
-    
-The stability index can be assigned to the whole API or part of the API. Different areas of an API can have different Stability Index levels.
+
+The stability index can be assigned to the whole API or part of the API. 
+Different areas of an API can have different Stability Index levels.
 
 !!! Note
     APIs can only be promoted and move to a more reliable Stability Index.
