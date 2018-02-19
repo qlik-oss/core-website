@@ -21,6 +21,9 @@ extra:
 markdown_extensions:
   - admonition
   - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: docs/
+  - pymdownx.details
   - codehilite:
       guess_lang: false
   - toc:
