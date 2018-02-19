@@ -78,11 +78,11 @@ and loading data from these data sources is supported by the
 In this example workflow, load data from a PostgreSQL database
 using the gRPC protocol in the Qlik Associative Engine.
 
-Before you start this example, you must clone the [postgres-grpc-connector](https://github.com/qlik-ea/postgres-grpc-connector)
+Before you start this example, you must clone the [core-grpc-postgres-connector](https://github.com/qlik-ea/core-grpc-postgres-connector)
 Git repository to your local machine.
 
 ``` bash
-git clone https://github.com/qlik-ea/postgres-grpc-connector.git
+git clone https://github.com/qlik-ea/core-grpc-postgres-connector.git
 ```
 
 Do the following:
@@ -91,7 +91,7 @@ Do the following:
 
     ```bash
     cd examples/postgres-image
-    docker build . -t example/postgres-grpc-connector-database
+    docker build . -t example/core-grpc-postgres-connector-database
     ```
 
     **Note:** The `Dockerfile` copies the example data to the image.
@@ -109,7 +109,7 @@ Do the following:
     The `docker-compose.yml` file starts the following services in containers:
 
     - A database
-    - A postgres-grpc-connector
+    - A core-grpc-postgres-connector
     - The Qlik Associative Engine
 
     **Note:** If you look at the `docker-compose.yml` file, port `9076` on the container
@@ -124,10 +124,10 @@ Do the following:
 
         Enables gRPC connectors in the Qlik Associative Engine.
 
-    - `-S GrpcConnectorPlugins="postgres-grpc-connector,postgres-grpc-connector:50051"`
+    - `-S GrpcConnectorPlugins="core-grpc-postgres-connector,core-grpc-postgres-connector:50051"`
 
-        Creates a connector of the type `postgres-grpc-connector`,
-        which we tell the Qlik Associative Engine exists on host `postgres-grpc-connector`
+        Creates a connector of the type `core-grpc-postgres-connector`,
+        which we tell the Qlik Associative Engine exists on host `core-grpc-postgres-connector`
         and listening on port `50051`.
 
 1. Verify that the three services are running in containers.
@@ -137,9 +137,9 @@ Do the following:
     ```
 
     The database containers share a common port `5432`, which is exposed on the network.
-    The `postgres-grpc-connector` can therefore access the database container on this port.
+    The `core-grpc-postgres-connector` can therefore access the database container on this port.
 
-    The `postgres-grpc-connector` container exposes port `50051`.
+    The `core-grpc-postgres-connector` container exposes port `50051`.
     This is the port that we told the Qlik Associative Engine to talk to
     with the commands in the `docker-compose.yml` file.
 
@@ -173,17 +173,17 @@ Then it creates a connection of the type we defined earlier.
 
 ```js
 app.createConnection({
-  qType: 'postgres-grpc-connector', //the name we defined as a parameter to the Qlik Associative Engine in our docker-compose.yml
+  qType: 'core-grpc-postgres-connector', //the name we defined as a parameter to the Qlik Associative Engine in our docker-compose.yml
   qName: 'postgresgrpc',
   //the connection string inclues both the provider to use and parameters to it.
-  qConnectionString: 'CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres"',
+  qConnectionString: 'CUSTOM CONNECT TO "provider=core-grpc-postgres-connector;host=postgres-database;port=5432;database=postgres"',
   qUserName: 'postgres', //username and password for the PostgreSQL database, provided to the gRPC connector
   qPassword: 'postgres'
 });
 ```
 
 The connection string
-`CUSTOM CONNECT TO "provider=postgres-grpc-connector;host=postgres-database;port=5432;database=postgres`
+`CUSTOM CONNECT TO "provider=core-grpc-postgres-connector;host=postgres-database;port=5432;database=postgres`
 tells the Qlik Associative Engine to use the newly created connection.
 The remaining part of the connection string specifies parameters to the gRPC connector,
 such as the database host, address, and port.
