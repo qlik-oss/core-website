@@ -397,6 +397,10 @@
   }
 }
 
+.md-typeset .admonition {
+  font-size: 1.6rem;
+}
+
 .md-typeset .admonition.tip>.admonition-title:before, .md-typeset .admonition.tip>summary:before, 
 .md-typeset details.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
   color: var(--custom-green);
