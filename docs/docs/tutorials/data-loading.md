@@ -29,11 +29,11 @@ The Qlik Associative Engine can then access different data sources by making cal
 to the service-defined HTTP endpoints.
 
 Before you start this example, you must clone the
-[File Connectivity Service](https://github.com/qlik-ea/core-example-file-connectivity-service)
+[File Connectivity Service](https://github.com/qlik-ea/core-file-connectivity-service)
 Git repository to your local machine.
 
 ``` bash
-git clone https://github.com/qlik-ea/core-example-file-connectivity-service.git
+git clone https://github.com/qlik-ea/core-file-connectivity-service.git
 ```
 
 ### Dropbox example
@@ -42,11 +42,12 @@ Do the following:
 
 1. Install the dependencies.
     ``` bash
-    cd file-connectivity-service
+    cd core-file-connectivity-service
     npm install
     ```
-1. Copy the [`airports.csv`](https://github.com/qlik-ea/core-example-file-connectivity-service/blob/master/data/airports.csv)
-    file, which is located in the `/data` folder of the `file-connectivity-service` repository, and paste it into your Dropbox.
+1. Copy the [`airports.csv`](https://github.com/qlik-ea/core-file-connectivity-service/blob/master/data/airports.csv)
+    file, which is located in the `/data` folder of the `core-file-connectivity-service` repository, and paste
+    it into your Dropbox.
 1. Create an OAuth2.0 application by following the
     [OAuth guide instructions](https://www.dropbox.com/developers/reference/oauth-guide).
 
@@ -65,12 +66,12 @@ Do the following:
     ```bash
     node dropbox.js
     ```
-    It should output the 10 lines of the [`airports.csv`](https://github.com/qlik-ea/core-example-file-connectivity-service/blob/master/data/airports.csv)
+    It should output the 10 lines of the [`airports.csv`](https://github.com/qlik-ea/core-file-connectivity-service/blob/master/data/airports.csv)
         to the console window.
 
 The workflow for loading data from GoogleDrive and OneDrive is similar to the example above,
 and loading data from these data sources is supported by the
-[File Connectivity Service](https://github.com/qlik-ea/core-example-file-connectivity-service).
+[File Connectivity Service](https://github.com/qlik-ea/core-file-connectivity-service).
 
 ## Loading data from a PostgreSQL database using gRPC protocol
 
