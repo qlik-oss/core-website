@@ -47,4 +47,4 @@ and the mounted folder can then be shared with other Qlik Associative Engine ins
 
 To show how two Qlik Associative Engine instances are sharing the same document using the message broker,
 we have implemented a basic example in `Kubernetes` using `Persisted Volumes`.
-You can find the example [here](https://github.com/qlik-ea/example-doc-sync).
+You can find the example [here](https://github.com/qlik-ea/core-document-synchronization).
