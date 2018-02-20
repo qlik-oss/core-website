@@ -53,7 +53,7 @@ Do the following:
 
     **Note:** When you create your application, the `Redirect URI`
     should be the address of the callback that is running the service: `http://[host]:[port]/oauth2/callback`.
-    For example: `http://localhost:3000/oauth2/callback`
+    For example: `http://localhost:3000/v1/oauth2/callback`
 
 1. Start the Docker container, ensure that you set the proper
     credentials in the environment variables prefixing the
