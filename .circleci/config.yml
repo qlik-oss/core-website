@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set edit URL
+          command: grep -rl edit_uri ./mkdocs.yml | xargs sed -i "s:/master:/$CIRCLE_BRANCH:g" 
+      - run:
           name: Lint the documentation
           command: ./lint.sh
       - run:

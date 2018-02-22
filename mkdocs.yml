@@ -21,9 +21,9 @@ extra:
 markdown_extensions:
   - admonition
   - pymdownx.superfences
+  - pymdownx.details
   - pymdownx.snippets:
       base_path: docs/
-  - pymdownx.details
   - codehilite:
       guess_lang: false
   - toc:
@@ -31,6 +31,7 @@ markdown_extensions:
 
 repo_name: 'qlik-ea/info'
 repo_url: 'https://github.com/qlik-ea/info'
+edit_uri: edit/master/docs
 google_analytics: ['UA-110266862-1', 'ca.qliktive.com']
 
 pages:
