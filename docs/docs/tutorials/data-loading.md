@@ -17,7 +17,7 @@ using the _example_ data-connection service to retrieve and load data.
 
 ### File connectivity service
 
-The `File-Connectiviy-Service` is an example of a service that can be used to load data from
+The File Connectivity Service is an example of a service that can be used to load data from
 remote files in a Qlik Core stack.
 This service can be configured to provide built-in data connectivity to connect to
 [OAuth 2.0](https://oauth.net/2/)-protected data sources
@@ -57,10 +57,13 @@ Do the following:
 
 1. Start the Docker container, ensure that you set the proper
     credentials in the environment variables prefixing the
-    `docker-compose` command.
+    multi-lined `docker-compose` command below.
     ```bash
     cd examples
-    DROPBOX_CLIENT_ID="your App key" DROPBOX_CLIENT_SECRET="your App secret" docker-compose up -d --build
+    ACCEPT_EULA=yes \
+    DROPBOX_CLIENT_ID="your App key" \
+    DROPBOX_CLIENT_SECRET="your App secret" \
+    docker-compose up -d --build
     ```
 1. Run the `dropbox.js` application.
     ```bash
