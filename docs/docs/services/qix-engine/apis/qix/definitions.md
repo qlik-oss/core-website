@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.139.0._
+_QIX definitions for version 12.141.0._
 
 
 
@@ -57,6 +57,15 @@ Defines the list of objects in an app.<br>An app object is a generic object crea
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the app list. |
 | `qData` | [`JsonObject`](#jsonobject) | Data that you want to include in the app list definition.<br>You need to enter the paths to the information you want to retrieve. |
+
+## `AppScript`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qScript` | string | Script text. |
+| `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions.<br>This parameter is optional. |
 
 
 ## `AssociationScore`

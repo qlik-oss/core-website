@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.139.0._
+_QIX methods for version 12.141.0._
 
 ## `AbortModal`
 
@@ -1255,6 +1255,18 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qBreakpoints` | [`EditorBreakpoint`](./definitions.md#editorbreakpoint) | Information about the breakpoints. |
+
+## `GetScriptEx`
+
+Gets script and script meta-data.
+
+_No parameters._
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qScript` | [`AppScript`](./definitions.md#appscript) | The script and meta data of the script. |
 
 ## `GetTableData`
 
