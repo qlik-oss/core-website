@@ -37,8 +37,8 @@ _No description._
 | `qPath` | string | Path of the app. |
 | `qLastReloadTime` | string | Last reload time of the app. |
 | `qReadOnly` | boolean | Is set to true if the app is read-only. |
-| `qMeta` | object | Meta data. |
-| `qThumbnail` | object | App thumbnail. |
+| `qMeta` | [`NxMeta`](#nxmeta) | Meta data. |
+| `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
 | `qFileSize` | integer | _No description._ |
 
 ## `AppObjectList`
@@ -56,7 +56,7 @@ Defines the list of objects in an app.<br>An app object is a generic object crea
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the app list. |
-| `qData` | object | Data that you want to include in the app list definition.<br>You need to enter the paths to the information you want to retrieve. |
+| `qData` | [`JsonObject`](#jsonobject) | Data that you want to include in the app list definition.<br>You need to enter the paths to the information you want to retrieve. |
 
 ## `AppScript`
 
@@ -76,8 +76,8 @@ _No description._
 | ---- | ---- | ----------- |
 | `qFieldPairName` | string | Pair of fields.<br>_&lt; FieldName1&gt;_ / _&lt; FieldName2&gt;_<br>Where:<br>&lt; _FieldName1_ &gt; is a field in the table 1 (defined in _qTable1_ )<br>&lt; _FieldName2_ &gt; is a field in the table 2 (defined in _qTable2_ )<br>If the field is a synthetic key, the name of the field is preceded by _[Synthetic key]:_ . |
 | `qScoreSummary` | integer | Flag used to interpret calculated scores.<br>One of the following values or sum of values that apply:<br>* 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.<br>* -1: The fields do not have the same type.<br>* -2: The number of rows of the field _FieldName1_ is zero.<br>* -4: The number of distinct values of the field _FieldName1_ is zero.<br>* -8: The number of rows of the field _FieldName2_ is zero.<br>* -16: The number of distinct values of the field _FieldName2_ is zero.<br><br>Example:<br>The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18. |
-| `qField1Scores` | object | Association information about the field _FieldName1_ defined in _qFieldPairName_ . |
-| `qField2Scores` | object | Association information about the field _FieldName2_ defined in _qFieldPairName_ . |
+| `qField1Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName1_ defined in _qFieldPairName_ . |
+| `qField2Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName2_ defined in _qFieldPairName_ . |
 
 ## `BNFDef`
 
@@ -110,9 +110,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDef` | object | Name and type of the field. |
+| `qDef` | [`FieldDefEx`](#fielddefex) | Name and type of the field. |
 | `qLocked` | boolean | Indicates if the field is locked.<br>Default is false. |
-| `qSelectInfo` | object | Information on the selections criteria. |
+| `qSelectInfo` | [`SelectInfo`](#selectinfo) | Information on the selections criteria. |
 | `qValues` | [`FieldValue`](#fieldvalue) | _No description._ |
 | `qExcludedValues` | [`FieldValue`](#fieldvalue) | List of excluded values.<br>Either the list of selected values or the list of excluded values is displayed. |
 | `qAndMode` | boolean | If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.<br>The default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.<br>This parameter is not returned if set to false. |
@@ -142,7 +142,7 @@ Defines the list of bookmarks.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the list. |
-| `qData` | object | Data |
+| `qData` | [`JsonObject`](#jsonobject) | Data |
 
 
 ## `BookmarkVariableItem`
@@ -152,7 +152,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the variable. |
-| `qValue` | object | Value of the variable. |
+| `qValue` | [`FieldValue`](#fieldvalue) | Value of the variable. |
 
 ## `CalendarStrings`
 
@@ -188,7 +188,7 @@ Defines the list of children of a generic object.<br>What is defined in [`ChildL
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | object | Data that you want to include in the child list definition.<br>You need to enter the paths to the information you want to retrieve. |
+| `qData` | [`JsonObject`](#jsonobject) | Data that you want to include in the child list definition.<br>You need to enter the paths to the information you want to retrieve. |
 
 
 
@@ -215,7 +215,7 @@ _No description._
 | `qUserName` | string | Name of the user who creates the connection.<br>This parameter is optional; it is only used for OLEDB, ODBC and CUSTOM connections.<br>A call to _GetConnection Method_ does not return the user name. |
 | `qPassword` | string | Password of the user who creates the connection.<br>This parameter is optional; it is only used for OLEDB, ODBC and CUSTOM connections.<br>A call to _GetConnection Method_ does not return the password. |
 | `qModifiedDate` | string | Is generated by the engine.<br>Creation date of the connection or last modification date of the connection. |
-| `qMeta` | object | Information about the connection. |
+| `qMeta` | [`NxMeta`](#nxmeta) | Information about the connection. |
 | `qLogOn` | string | Select which user credentials to use to connect to the source.<br>* LOG_ON_SERVICE_USER: Disables<br>* LOG_ON_CURRENT_USER: Enables<br><br>One of:<br>* LOG_ON_SERVICE_USER<br>* LOG_ON_CURRENT_USER |
 
 ## `ContentLibraryList`
@@ -356,7 +356,7 @@ Defines the lists of dimensions.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the list. |
-| `qData` | object | Data |
+| `qData` | [`JsonObject`](#jsonobject) | Data |
 
 
 ## `DoReloadExParams`
@@ -389,11 +389,11 @@ _No description._
 | `qFileTime` | number | Last modified time stamp of the app.<br>This property is used only with Qlik Sense Desktop.<br>It is set to 0 for Qlik Sense Enterprise. |
 | `qFileSize` | number | Size of remote app.<br>This property is used only with Qlik Sense Desktop.<br>It is set to 0 for Qlik Sense Enterprise. |
 | `qDocId` | string | Identifier of the app.<br>* In Qlik Sense Desktop, the identifier is the path and name of the app.<br>* In Qlik Sense Enterprise, the identifier is the app's GUID. |
-| `qMeta` | object | Meta data related to the app. |
+| `qMeta` | [`NxMeta`](#nxmeta) | Meta data related to the app. |
 | `qLastReloadTime` | string | Last reload time of the app. |
 | `qReadOnly` | boolean | If set to true, the app is read-only. |
 | `qTitle` | string | Title of the app. |
-| `qThumbnail` | object | Thumbnail of the app. |
+| `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | Thumbnail of the app. |
 
 
 
@@ -431,7 +431,7 @@ _No description._
 | `qLineEnd` | string | Line termination characters. |
 | `qLine` | string | Script statement where the error occurs. |
 | `qErrorDataCode` | string | Type of the error messages.<br><br>One of:<br>* EDC_ERROR<br>* EDC_WARNING<br>* EDC_CIRCULAR_REFERENCE |
-| `qMessage` | object | _No description._ |
+| `qMessage` | [`ProgressMessage`](#progressmessage) | _No description._ |
 
 
 
@@ -572,7 +572,7 @@ _No description._
 | `qLabel` | string | One of:<br>* Embedded labels (field names are present in the file)<br>* No labels<br>* Explicit labels (for DIFfiles) |
 | `qQuote` | string | One of:<br>* None (no quotes)<br>* MSQ (Modern Style Quoting)<br>* Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)<br><br>This property is used for delimited files. |
 | `qComment` | string | String that marks the beginning of the comment line.<br>Example: “#” or “//”<br>The engine ignores the commented lines during the data load.<br>This property is only used for delimited files. |
-| `qDelimiter` | object | Information about the delimiter.<br>This property is used for delimited files. |
+| `qDelimiter` | [`DelimiterInfo`](#delimiterinfo) | Information about the delimiter.<br>This property is used for delimited files. |
 | `qCodePage` | integer | Character set used in the file. |
 | `qHeaderSize` | integer | Size of the header.<br>Example: If the header size is 2, the first two rows in the file are considered as header and not as data. The header can contain the field names. |
 | `qRecordSize` | integer | Record length.<br>Each record (row of data) contains a number of columns with a fixed field size.<br>This property is used for fixed record data files. |
@@ -619,8 +619,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperties` | object | Information about the properties of the bookmark. |
-| `qBookmark` | object | Information about the bookmark. |
+| `qProperties` | [`GenericBookmarkProperties`](#genericbookmarkproperties) | Information about the properties of the bookmark. |
+| `qBookmark` | [`NxBookmark`](#nxbookmark) | Information about the bookmark. |
 
 ## `GenericBookmarkLayout`
 
@@ -628,9 +628,9 @@ Is the layout for [`GenericBookmarkProperties`](#genericbookmarkproperties).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the object. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
-| `qBookmark` | object | Information about the bookmark. |
+| `qBookmark` | [`NxBookmark`](#nxbookmark) | Information about the bookmark. |
 | `qFieldInfos` | [`LayoutFieldInfo`](#layoutfieldinfo) | _No description._ |
 
 ## `GenericBookmarkProperties`
@@ -639,8 +639,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the bookmark.<br>This parameter is mandatory. |
-| `qMetaDef` | object | Definition of the dynamic properties. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the bookmark.<br>This parameter is mandatory. |
+| `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 
 ## `GenericDimensionInfo`
 
@@ -660,9 +660,9 @@ Is the layout for [`GenericDimensionProperties`](#genericdimensionproperties).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the dimension. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the dimension. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions. |
-| `qDim` | object | Name and label of the dimension, information about grouping. |
+| `qDim` | [`NxLibraryDimension`](#nxlibrarydimension) | Name and label of the dimension, information about grouping. |
 | `qDimInfos` | [`GenericDimensionInfo`](#genericdimensioninfo) | Cardinal and tags related to the dimension.<br>Length of the longest value in the field. |
 
 ## `GenericDimensionProperties`
@@ -671,9 +671,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the dimension.<br>This parameter is mandatory. |
-| `qDim` | object | Definition of the dimension.<br>This parameter is mandatory. |
-| `qMetaDef` | object | Definition of the dynamic properties. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the dimension.<br>This parameter is mandatory. |
+| `qDim` | [`NxLibraryDimensionDef`](#nxlibrarydimensiondef) | Definition of the dimension.<br>This parameter is mandatory. |
+| `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 
 ## `GenericMeasureLayout`
 
@@ -681,8 +681,8 @@ Is the layout for [`GenericMeasureProperties`](#genericmeasureproperties).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the object. |
-| `qMeasure` | object | Information about the measure. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
+| `qMeasure` | [`NxLibraryMeasure`](#nxlibrarymeasure) | Information about the measure. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
 
 ## `GenericMeasureProperties`
@@ -691,9 +691,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the measure.<br>This parameter is mandatory. |
-| `qMeasure` | object | Definition of the measure.<br>This parameter is mandatory. |
-| `qMetaDef` | object | Definition of the dynamic properties. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the measure.<br>This parameter is mandatory. |
+| `qMeasure` | [`NxLibraryMeasureDef`](#nxlibrarymeasuredef) | Definition of the measure.<br>This parameter is mandatory. |
+| `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 
 ## `GenericObjectEntry`
 
@@ -701,7 +701,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qProperty` | object | Information about the generic object properties. |
+| `qProperty` | [`GenericObjectProperties`](#genericobjectproperties) | Information about the generic object properties. |
 | `qChildren` | [`GenericObjectEntry`](#genericobjectentry) | Information about the children of the generic object. |
 | `qEmbeddedSnapshotRef` | [`GenericBookmarkEntry`](#genericbookmarkentry) | Reference to a bookmark/snapshot that is embedded in the generic object. |
 
@@ -711,12 +711,12 @@ Is the layout for [`GenericObjectProperties`](#genericobjectproperties).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the generic object. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the generic object. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions.<br>This parameter is optional. |
 | `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the object you want to link to.<br>If you do not want to link your object, set this parameter to an empty string. |
 | `qHasSoftPatches` | boolean | Is set to true if the generic object contains some properties that are not persistent (a soft patch was applied). |
 | `qError` | [`NxLayoutErrors`](#nxlayouterrors) | Gives information on the error.<br>This parameter is optional. |
-| `qSelectionInfo` | object | Information about the selections. |
+| `qSelectionInfo` | [`NxSelectionInfo`](#nxselectioninfo) | Information about the selections. |
 
 ## `GenericObjectProperties`
 
@@ -724,9 +724,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the object.<br>This parameter is mandatory. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
 | `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>This parameter is mandatory.<br>If you do not want to link your object, set this parameter to an empty string. |
-| `qMetaDef` | object | Definition of the dynamic properties. |
+| `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 
 ## `GenericVariableLayout`
 
@@ -734,7 +734,7 @@ Is the layout for [`GenericVariableProperties`](#genericvariableproperties).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the object.<br>This parameter is mandatory. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions.<br>This parameter is optional. |
 | `qText` | string | Some text. |
 | `qNum` | number | A value. |
@@ -746,11 +746,11 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Identifier and type of the object.<br>This parameter is mandatory. |
-| `qMetaDef` | object | Meta data. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
+| `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Meta data. |
 | `qName` | string | Name of the variable.<br>The name must be unique.<br>This parameter is mandatory. |
 | `qComment` | string | Comment related to the variable.<br>This parameter is optional. |
-| `qNumberPresentation` | object | Defines the format of the value.<br>This parameter is optional. |
+| `qNumberPresentation` | [`FieldAttributes`](#fieldattributes) | Defines the format of the value.<br>This parameter is optional. |
 | `qIncludeInBookmark` | boolean | Set this property to true to update the variable when applying a bookmark. The variable value will be persisted in the bookmark.<br>The value of a variable can affect the state of the selections.<br>Script variables cannot be persisted in the bookmark.<br>The default value is false. |
 | `qDefinition` | string | Definition of the variable. |
 
@@ -761,7 +761,7 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
-| `qSize` | object | Defines the size of the hypercube. |
+| `qSize` | [`Size`](#size) | Defines the size of the hypercube. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
 | `qDimensionInfo` | [`NxDimensionInfo`](#nxdimensioninfo) | Information on the dimension. |
 | `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | Information on the measure. |
@@ -802,10 +802,10 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qPopulateMissing` | boolean | If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.<br>The default value is false. |
 | `qShowTotalsAbove` | boolean | If set to true, the total (if any) is shown on the first row.<br>The default value is false. |
 | `qIndentMode` | boolean | This property applies for pivot tables and allows to change the layout of the table. An indentation is added to the beginning of each row.<br>The default value is false. |
-| `qCalcCond` | object | Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.<br>As long as the condition is not met, the engine does not perform a new calculation.<br>This property is optional. By default, there is no calculation condition. |
+| `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.<br>As long as the condition is not met, the engine does not perform a new calculation.<br>This property is optional. By default, there is no calculation condition. |
 | `qSortbyYValue` | integer | To enable the sorting by ascending or descending order in the values of a measure.<br>This property applies to pivot tables and stacked pivot tables.<br>In the case of a pivot table, the measure or pseudo dimension should be defined as a top dimension. The sorting is restricted to the values of the first measure in a pivot table. |
-| `qTitle` | object | Title of the hypercube, for example the title of a chart. |
-| `qCalcCondition` | object | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qTitle` | [`StringExpr`](#stringexpr) | Title of the hypercube, for example the title of a chart. |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qColumnOrder` | array | The order of the columns. |
 
 ## `InteractDef`
@@ -854,9 +854,9 @@ Renders the properties of a list object. Is the layout for [`ListObjectDef`](#li
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
-| `qSize` | object | Defines the size of a list object. |
+| `qSize` | [`Size`](#size) | Defines the size of a list object. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
-| `qDimensionInfo` | object | Information about the dimension. |
+| `qDimensionInfo` | [`NxDimensionInfo`](#nxdimensioninfo) | Information about the dimension. |
 | `qExpressions` | [`NxListObjectExpression`](#nxlistobjectexpression) | Lists the expressions in the list object. |
 | `qDataPages` | [`NxDataPage`](#nxdatapage) | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`ListObjectDef`](#listobjectdef). |
 
@@ -868,7 +868,7 @@ Defines the properties of a list object.<br>For more information about the defin
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 | `qLibraryId` | string | Refers to a dimension stored in the library. |
-| `qDef` | object | Refers to a dimension stored in the list object. |
+| `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | Refers to a dimension stored in the list object. |
 | `qAutoSortByState` | [`NxAutoSortByStateDef`](#nxautosortbystatedef) | Defines the sorting by state. |
 | `qFrequencyMode` | string | Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.<br>Default is _NX_FREQUENCY_NONE_ .<br>This parameter is optional.<br><br>One of:<br>* N or NX_FREQUENCY_NONE<br>* V or NX_FREQUENCY_VALUE<br>* P or NX_FREQUENCY_PERCENT<br>* R or NX_FREQUENCY_RELATIVE |
 | `qShowAlternatives` | boolean | If set to true, alternative values are allowed in _qData_ .<br>If set to false, no alternative values are displayed in _qData_ . Values are excluded instead.<br>The default value is false.<br>Note that on the contrary, the _qStateCounts_ parameter counts the excluded values as alternative values.<br>This parameter is optional. |
@@ -891,7 +891,7 @@ _No description._
 | `qTimeFmt` | string | Time format.<br>Example: _hh:mm:ss_ |
 | `qDateFmt` | string | Date format.<br>Example: _YYYY-MM-DD_ |
 | `qTimestampFmt` | string | Time stamp format.<br>Example: _YYYY-MM-DD hh:mm:ss[.fff]_ |
-| `qCalendarStrings` | object | Information about the calendar. |
+| `qCalendarStrings` | [`CalendarStrings`](#calendarstrings) | Information about the calendar. |
 | `qFirstWeekDay` | integer | First day of the week, starting from 0.<br>According to ISO 8601, _Monday_ is the first day of the week.<br>* 0 = Monday<br>* 1 = Tuesday<br>* ...<br>* 6 = Sunday<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qBrokenWeeks` | boolean | Is set to true if broken weeks are allowed in a year.<br>According to ISO 8601, no broken weeks should be allowed.<br>This property is not shown if set to false.<br>If _qBrokenWeeks_ is set to true, _qReferenceDay_ is irrelevant.<br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qReferenceDay` | integer | Day in the year that is always in week 1.<br>According to ISO 8601, January 4th should always be part of the first week of the year ( _qReferenceDay_ =4).<br>Recommended values are in the range 1 and 7.<br>If this property has not been set in a script, the returned value comes from the Windows operating system.<br>This property is not relevant if there are broken weeks in the year. |
@@ -914,7 +914,7 @@ Defines the list of measures.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the list. |
-| `qData` | object | Data |
+| `qData` | [`JsonObject`](#jsonobject) | Data |
 
 ## `MediaList`
 
@@ -948,12 +948,12 @@ In addition, this structure can return dynamic properties.
 | `qModified` | boolean | Is set to true if the app has been updated since the last save. |
 | `qHasScript` | boolean | Is set to true if a script is defined in the app. |
 | `qStateNames` | array | Array of alternate states. |
-| `qMeta` | object | Information on publishing and permissions. |
-| `qLocaleInfo` | object | Information about the locale. |
+| `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
+| `qLocaleInfo` | [`LocaleInfo`](#localeinfo) | Information about the locale. |
 | `qHasData` | boolean | Is set to true if the app contains data following a script reload. |
 | `qReadOnly` | boolean | If set to true, it means that the app is read-only. |
 | `qIsOpenedWithoutData` | boolean | If set to true, it means that the app was opened without loading its data. |
-| `qThumbnail` | object | App thumbnail. |
+| `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
 
 ## `NxAppProperties`
 
@@ -965,7 +965,7 @@ In addition, this structure can return dynamic properties.
 | `qLastReloadTime` | string | Last reload time of the app. |
 | `qMigrationHash` | string | Internal property reserved for app migration.<br>Patch version of the app.<br>Do not update. |
 | `qSavedInProductVersion` | string | Internal property reserved for app migration.<br>The app is saved in this version of the product.<br>Do not update. |
-| `qThumbnail` | object | App thumbnail. |
+| `qThumbnail` | [`StaticContentUrlDef`](#staticcontenturldef) | App thumbnail. |
 
 ## `NxAttrDimDef`
 
@@ -975,7 +975,7 @@ Layout for [`NxAttrDimDef`](#nxattrdimdef).
 | ---- | ---- | ----------- |
 | `qDef` | string | Expression or field name. |
 | `qLibraryId` | string | LibraryId for dimension. |
-| `qSortBy` | object | Sorting. |
+| `qSortBy` | [`SortCriteria`](#sortcriteria) | Sorting. |
 
 ## `NxAttrDimInfo`
 
@@ -984,7 +984,7 @@ Layout for [`NxAttrDimDef`](#nxattrdimdef).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qCardinal` | integer | Cardinality of the attribute expression. |
-| `qSize` | object | Number of rows. |
+| `qSize` | [`Size`](#size) | Number of rows. |
 | `qFallbackTitle` | string | The title for the attribute dimension. |
 | `qLocked` | boolean | The Locked value of the dimension. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | Validation error. |
@@ -1067,8 +1067,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCond` | object | Condition for calculating an hypercube, dimension or measure. |
-| `qMsg` | object | Evaluated if Cond is not fullfilled. |
+| `qCond` | [`ValueExpr`](#valueexpr) | Condition for calculating an hypercube, dimension or measure. |
+| `qMsg` | [`StringExpr`](#stringexpr) | Evaluated if Cond is not fullfilled. |
 
 ## `NxCell`
 
@@ -1105,9 +1105,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfo` | object | Information about the object. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
-| `qData` | object | Set of data. |
+| `qData` | [`JsonObject`](#jsonobject) | Set of data. |
 
 ## `NxContinuousDataOptions`
 
@@ -1127,7 +1127,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRange` | object | [`Range`](#range) information. |
+| `qRange` | [`Range`](#range) | [`Range`](#range) information. |
 | `qDimIx` | integer | Dimension index. |
 
 ## `NxCurrentSelectionItem`
@@ -1146,7 +1146,7 @@ _No description._
 | `qSelected` | string | Values that are selected. |
 | `qRangeInfo` | [`RangeSelectInfo`](#rangeselectinfo) | Information about the range of selected values.<br>Is empty if there is no range of selected values. |
 | `qSortIndex` | integer | Sort index of the field. Indexing starts from 0. |
-| `qStateCounts` | object | Number of values in a particular state. |
+| `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qSelectedFieldSelectionInfo` | [`NxFieldSelectionInfo`](#nxfieldselectioninfo) | Information about the fields that are selected. |
 | `qNotSelectedFieldSelectionInfo` | [`NxFieldSelectionInfo`](#nxfieldselectioninfo) | Information about the fields that are not selected. |
 | `qSelectionThreshold` | integer | Maximum values to show in the current selections.<br>The default value is 6. |
@@ -1172,7 +1172,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qMatrix` | [`NxCellRows`](#nxcellrows) | Array of data. |
 | `qTails` | [`NxGroupTail`](#nxgrouptail) | Array of tails.<br>Is used for hypercube objects with multiple dimensions. It might happen that due to the window size some elements in a group cannot be displayed in the same page as the other elements of the group. Elements of a group of dimensions can be part of the previous or the next tail.<br>If there is no tail, the array is empty _[ ]_ . |
-| `qArea` | object | Size and offset of the data in the matrix. |
+| `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 | `qIsReduced` | boolean | Is set to true, if the data have been reduced.<br>The default value is false. |
 
 
@@ -1225,18 +1225,18 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the dimension is
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qLibraryId` | string | Refers to a dimension stored in the library. |
-| `qDef` | object | Refers to a dimension stored in the hypercube. |
+| `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | Refers to a dimension stored in the hypercube. |
 | `qNullSuppression` | boolean | If set to true, no null values are returned. |
 | `qIncludeElemValue` | boolean | _No description._ |
-| `qOtherTotalSpec` | object | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
+| `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
 | `qShowTotal` | boolean | _No description._ |
 | `qShowAll` | boolean | If set to true, all dimension values are shown. |
-| `qOtherLabel` | object | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
-| `qTotalLabel` | object | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
-| `qCalcCond` | object | Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.<br>If the calculation condition is not met, the dimension is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
+| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
+| `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.<br>If the calculation condition is not met, the dimension is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
-| `qCalcCondition` | object | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
 ## `NxDimensionInfo`
 
@@ -1251,14 +1251,14 @@ _No description._
 | `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
 | `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drilldown groups) or cycle groups. |
-| `qStateCounts` | object | Number of values in a particular state. |
+| `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qTags` | array | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
 | `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
 | `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
-| `qNumFormat` | object | Format of the field.<br>This parameter is optional. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
 | `qGroupFieldDefs` | array | Array of field names. |
 | `qMin` | number | Minimum value. |
@@ -1325,7 +1325,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qTypes` | array | List of object types. |
-| `qData` | object | Set of data. |
+| `qData` | [`JsonObject`](#jsonobject) | Set of data. |
 
 ## `NxGetObjectOptions`
 
@@ -1335,7 +1335,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qTypes` | array | List of object types. |
 | `qIncludeSessionObjects` | boolean | Set to true to include session objects.<br>The default value is false. |
-| `qData` | object | Set of data. |
+| `qData` | [`JsonObject`](#jsonobject) | Set of data. |
 
 ## `NxGroupTail`
 
@@ -1389,7 +1389,7 @@ _No description._
 | `qTags` | array | Name connected to the measure that is used for search purposes.<br>A measure can have several tags.<br>This parameter is optional. |
 | `qGrouping` | string | Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qDef` | string | Definition of the expression in the measure.<br>Example: _Sum (OrderTotal)_<br>This parameter is mandatory. |
-| `qNumFormat` | object | Format of the field.<br>This parameter is optional. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qRelative` | boolean | If set to true, percentage values are returned instead of absolute numbers.<br>Default value is false.<br>This parameter is optional. |
 | `qBrutalSum` | boolean | If set to true, the sum of rows total should be used rather than real expression total.<br>This parameter is optional and applies to straight tables.<br>Default value is false.<br>If using the Qlik Sense interface, it means that the total mode is set to **Expression Total** . |
 | `qAggrFunc` | string | Aggregate function.<br>For more information on the aggregate function syntax, see the section Working with Qlik Sense on the online help portal.<br>The default value is 0 (Sum of rows)<br>This parameter is optional. |
@@ -1462,7 +1462,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qRootId` | string | Identifier of the root object.<br>If the linked object is a child, the root identifier is the identifier of the parent.<br>If the linked object is an app object, the root identifier is the same than the identifier of the linked object since the linked object is a root object. |
-| `qInfo` | object | Information about the linked object. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Information about the linked object. |
 
 ## `NxListObjectExpression`
 
@@ -1501,12 +1501,12 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the measure is s
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qLibraryId` | string | Refers to a measure stored in the library. |
-| `qDef` | object | Refers to a measure stored in the hypercube. |
-| `qSortBy` | object | Defines the sort criteria.<br>The default value is sort by ascending alphabetic order.<br>This property is optional. |
+| `qDef` | [`NxInlineMeasureDef`](#nxinlinemeasuredef) | Refers to a measure stored in the hypercube. |
+| `qSortBy` | [`SortCriteria`](#sortcriteria) | Defines the sort criteria.<br>The default value is sort by ascending alphabetic order.<br>This property is optional. |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
-| `qCalcCond` | object | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qCalcCondition` | object | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
 ## `NxMeasureInfo`
 
@@ -1518,7 +1518,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qApprMaxGlyphCount` | integer | Length of the longest value in the field. |
 | `qCardinal` | integer | Number of distinct field values. |
 | `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
-| `qNumFormat` | object | Format of the field.<br>This parameter is optional. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qMin` | number | Lowest value in the range. |
 | `qMax` | number | Highest value in the range. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
@@ -1572,7 +1572,7 @@ Defines an area of the tree to be fetched.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qArea` | object | The area of the tree to be fetched. If no area is defined on a dimension, all existing nodes are included. |
+| `qArea` | [`Rect`](#rect) | The area of the tree to be fetched. If no area is defined on a dimension, all existing nodes are included. |
 | `qAllValues` | boolean | When set to true, generated nodes (based on current selection) will be inserted into the returned tree even when there is no actual value. For example, suppose you are looking for hybrid car sales at all car dealerships. Normally, only dealerships where hybrid cars are sold would be part of the returned tree but with qAllValues set to true, all available dealerships will be included regardless if they sold any hybrid cars or not. |
 
 ## `NxPatch`
@@ -1612,7 +1612,7 @@ _No description._
 | `qLeft` | [`NxPivotDimensionCell`](#nxpivotdimensioncell) | Information about the left dimension values of a pivot table. |
 | `qTop` | [`NxPivotDimensionCell`](#nxpivotdimensioncell) | Information about the top dimension values of a pivot table. If there is no top dimension in the pivot table, information about the measures are given. |
 | `qData` | [`ArrayOfNxValuePoint`](#arrayofnxvaluepoint) | Array of data. |
-| `qArea` | object | Size and offset of the data in the matrix. |
+| `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 
 ## `NxPivotValuePoint`
 
@@ -1642,7 +1642,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRange` | object | [`Range`](#range) of values. |
+| `qRange` | [`Range`](#range) | [`Range`](#range) of values. |
 | `qMeasureIx` | integer | Number of the measure to select.<br>Numbering starts from 0. |
 
 ## `NxSelectionCell`
@@ -1689,7 +1689,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qData` | [`NxStackedPivotCell`](#nxstackedpivotcell) | Array of data. |
-| `qArea` | object | Size and offset of the data in the matrix. |
+| `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 
 ## `NxStackedPivotCell`
 
@@ -1754,7 +1754,7 @@ Specifies all the paging filters needed to define the tree to be fetched.<br><br
 | ---- | ---- | ----------- |
 | `qMaxNbrOfNodes` | integer | Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted. |
 | `qTreeNodes` | [`NxPageTreeNode`](#nxpagetreenode) | Defines areas of the tree to be fetched. Areas must be defined left to right. |
-| `qTreeLevels` | object | Filters out complete dimensions from the fetched tree. |
+| `qTreeLevels` | [`NxPageTreeLevel`](#nxpagetreelevel) | Filters out complete dimensions from the fetched tree. |
 
 ## `NxTreeDimensionDef`
 
@@ -1763,14 +1763,14 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qLibraryId` | string | _No description._ |
-| `qDef` | object | _No description._ |
+| `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | _No description._ |
 | `qValueExprs` | [`NxMeasure`](#nxmeasure) | _No description._ |
 | `qNullSuppression` | boolean | _No description._ |
-| `qOtherTotalSpec` | object | _No description._ |
+| `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | _No description._ |
 | `qShowAll` | boolean | _No description._ |
-| `qOtherLabel` | object | _No description._ |
-| `qTotalLabel` | object | _No description._ |
-| `qCalcCondition` | object | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qOtherLabel` | [`StringExpr`](#stringexpr) | _No description._ |
+| `qTotalLabel` | [`StringExpr`](#stringexpr) | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | _No description._ |
 | `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | _No description._ |
 
@@ -1787,14 +1787,14 @@ _No description._
 | `qSortIndicator` | string | <br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array | _No description._ |
 | `qGroupPos` | integer | _No description._ |
-| `qStateCounts` | object | _No description._ |
+| `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | _No description._ |
 | `qTags` | array | _No description._ |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | _No description._ |
 | `qDimensionType` | string | <br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
 | `qReverseSort` | boolean | _No description._ |
 | `qGrouping` | string | <br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | _No description._ |
-| `qNumFormat` | object | _No description._ |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | _No description._ |
 | `qIsAutoFormat` | boolean | _No description._ |
 | `qGroupFieldDefs` | array | _No description._ |
 | `qMin` | number | _No description._ |
@@ -1839,7 +1839,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRange` | object | [`Range`](#range) of values. |
+| `qRange` | [`Range`](#range) | [`Range`](#range) of values. |
 | `qMeasureIx` | integer | Number of the measure to select.<br>Numbering starts from 0. |
 | `qDimensionIx` | integer | Number of the dimension to select<br>measure from. Numbering starts from 0. |
 
@@ -1876,8 +1876,8 @@ _No description._
 | `qIsConfig` | boolean | If set to true, it means that the variable is a system variable.<br>A system variable provides information about the system and is set by the engine. The content cannot be changed by the user.<br>This parameter is optional.<br>The default value is false. |
 | `qIsReserved` | boolean | If set to true, it means that the variable is reserved.<br>The default value is false.<br>This parameter is optional.<br>Examples:<br>* _ScriptError_ is a reserved variable, set by the engine.<br>* _DayNames_ is a reserved variable, set by the user. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions.<br>This parameter is optional. |
-| `qInfo` | object | Identifier and type of the object.<br>This parameter is mandatory. |
-| `qData` | object | Data. |
+| `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
+| `qData` | [`JsonObject`](#jsonobject) | Data. |
 | `qIsScriptCreated` | boolean | If set to true, it means that the variable was defined via script. |
 
 ## `NxVariableProperties`
@@ -1887,7 +1887,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the variable. |
-| `qNumberPresentation` | object | Defines the format of the value of a variable. |
+| `qNumberPresentation` | [`FieldAttributes`](#fieldattributes) | Defines the format of the value of a variable. |
 | `qIncludeInBookmark` | boolean | Set this property to true to update the variable when applying a bookmark.<br>The value of a variable can affect the state of the selections.<br>The default value is false. |
 | `qUsePredefListedValues` | boolean | The value of a variable can be an enumeration.<br>Set this property to true to reflect the predefined values in an enumeration. |
 | `qPreDefinedList` | array | List of enumerations.<br>This property is used if _qUsePredefListedValues_ is set to true. |
@@ -1942,8 +1942,8 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qOtherMode` | string | Determines how many dimension values are displayed.<br>The default value is _OTHER_OFF_ .<br><br>One of:<br>* OTHER_OFF<br>* OTHER_COUNTED<br>* OTHER_ABS_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>* OTHER_REL_LIMITED<br>* OTHER_REL_ACC_TARGET |
-| `qOtherCounted` | object | Number of values to display. The number of values can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to _OTHER_COUNTED_ . |
-| `qOtherLimit` | object | Value used to limit the dimension values. The limit can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET |
+| `qOtherCounted` | [`ValueExpr`](#valueexpr) | Number of values to display. The number of values can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to _OTHER_COUNTED_ . |
+| `qOtherLimit` | [`ValueExpr`](#valueexpr) | Value used to limit the dimension values. The limit can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET |
 | `qOtherLimitMode` | string | Sets the limit for the _Others_ mode.<br>This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>One of:<br>* OTHER_GE_LIMIT<br>* OTHER_LE_LIMIT<br>* OTHER_GT_LIMIT<br>* OTHER_LT_LIMIT |
 | `qSuppressOther` | boolean | If set to true, the group _Others_ is not displayed as a dimension value.<br>The default value is false. |
 | `qForceBadValueKeeping` | boolean | This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>and when the dimension values include not numeric values.<br>Set this parameter to true to include text values in the returned values.<br>The default value is true. |
@@ -1952,7 +1952,7 @@ _No description._
 | `qOtherCollapseInnerDimensions` | boolean | If set to true, it collapses the inner dimensions (if any) in the group _Others_ .<br>The default value is false. |
 | `qOtherSortMode` | string | Defines the sort order of the dimension values.<br>The default value is _OTHER_SORT_DESCENDING_ .<br><br>One of:<br>* OTHER_SORT_DEFAULT<br>* OTHER_SORT_DESCENDING<br>* OTHER_SORT_ASCENDING |
 | `qTotalMode` | string | If set to _TOTAL_EXPR_ , the total of the dimension values is returned.<br>The default value is _TOTAL_OFF_ .<br><br>One of:<br>* TOTAL_OFF<br>* TOTAL_EXPR |
-| `qReferencedExpression` | object | This parameter applies when there are several measures.<br>Name of the measure to use for the calculation of _Others_ for a specific dimension. |
+| `qReferencedExpression` | [`StringExpr`](#stringexpr) | This parameter applies when there are several measures.<br>Name of the measure to use for the calculation of _Others_ for a specific dimension. |
 
 
 ## `Point`
@@ -1981,7 +1981,7 @@ _No description._
 | `qTransientProgress` | string | A progress message is transient when it informs about the progress of an ongoing statement. For example, it can tell how many lines are currently fetched from a data source. All transient progress messages between two *GetProgress* calls are summarized in this string. Contrarily to *qTransientProgressMessage*, the content of the localized message string is displayed (not its message code). |
 | `qErrorData` | [`ErrorData`](#errordata) | Information about the error messages that occur during the script execution. |
 | `qPersistentProgressMessages` | [`ProgressMessage`](#progressmessage) | List of persistent progress messages. |
-| `qTransientProgressMessage` | object | Transient progress message. |
+| `qTransientProgressMessage` | [`ProgressMessage`](#progressmessage) | Transient progress message. |
 
 ## `ProgressMessage`
 
@@ -2235,7 +2235,7 @@ _No description._
 | `qTextSearch` | string | Text search string.<br>Everything that matches the text is selected.<br>This parameter is optional. |
 | `qRangeLo` | number | Lower value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
 | `qRangeHi` | number | Highest value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
-| `qNumberFormat` | object | Gives information about the formatting of the range.<br>This parameter is used when performing range selections or text searches in dimensions. |
+| `qNumberFormat` | [`FieldAttributes`](#fieldattributes) | Gives information about the formatting of the range.<br>This parameter is used when performing range selections or text searches in dimensions. |
 | `qRangeInfo` | [`RangeSelectInfo`](#rangeselectinfo) | This parameter is used when performing range selections or text searches in measures.<br>Gives information about the range of selections.<br>bool SoftLock = false; |
 | `qSoftLock` | boolean | _No description._ |
 | `qContinuousRangeInfo` | [`Range`](#range) | List of information about ranges for selections. |
@@ -2280,7 +2280,7 @@ _No description._
 | `qSortByAscii` | integer | Sorts the field by alphabetical order. |
 | `qSortByLoadOrder` | integer | Sorts the field values by the initial load order. |
 | `qSortByExpression` | integer | Sorts the field by expression. |
-| `qExpression` | object | Sort by expression. |
+| `qExpression` | [`ValueExpr`](#valueexpr) | Sort by expression. |
 | `qSortByGreyness` | integer | _No description._ |
 
 ## `SourceKeyRecord`
@@ -2352,7 +2352,7 @@ _No description._
 | `qLoose` | boolean | This property is set to true if the table is loose. |
 | `qNoOfRows` | integer | Number of rows in the table. |
 | `qFields` | [`FieldInTableData`](#fieldintabledata) | Information about the fields in the table. |
-| `qPos` | object | Information about the position of the table. |
+| `qPos` | [`Point`](#point) | Information about the position of the table. |
 | `qComment` | string | Comment related to the table. |
 | `qIsDirectDiscovery` | boolean | If set to true, Direct Discovery is used.<br>Direct Discovery fields are not loaded into memory and remain in the external database. |
 | `qIsSynthetic` | boolean | This property is set to true if the table contains a synthetic key. |
@@ -2371,7 +2371,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPos` | object | Information about the position of the broom point. |
+| `qPos` | [`Point`](#point) | Information about the position of the broom point. |
 | `qTable` | string | Name of the table. |
 | `qFields` | array | List of fields in the table. |
 
@@ -2381,7 +2381,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPos` | object | Information about the position of the connection point. |
+| `qPos` | [`Point`](#point) | Information about the position of the connection point. |
 | `qFields` | array | List of the fields in the table. |
 
 ## `TableViewCtlSaveInfo`
@@ -2390,8 +2390,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInternalView` | object | Internal view mode. |
-| `qSourceView` | object | Source view mode. |
+| `qInternalView` | [`TableViewSaveInfo`](#tableviewsaveinfo) | Internal view mode. |
+| `qSourceView` | [`TableViewSaveInfo`](#tableviewsaveinfo) | Source view mode. |
 
 ## `TableViewDlgSaveInfo`
 
@@ -2399,8 +2399,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPos` | object | Information about the position of the dialog window.<br>Not used in Qlik Sense. |
-| `qCtlInfo` | object | Set of data for internal and source view modes. |
+| `qPos` | [`Rect`](#rect) | Information about the position of the dialog window.<br>Not used in Qlik Sense. |
+| `qCtlInfo` | [`TableViewCtlSaveInfo`](#tableviewctlsaveinfo) | Set of data for internal and source view modes. |
 | `qMode` | integer | View mode to display when opening Qlik Sense data model viewer.<br>One of:<br>* 0 for internal view mode.<br>* 1 for source view mode. |
 
 ## `TableViewSaveInfo`
@@ -2420,7 +2420,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPos` | object | Information about the position of the table. |
+| `qPos` | [`Rect`](#rect) | Information about the position of the table. |
 | `qCaption` | string | Table name. |
 
 ## `TextMacro`
@@ -2466,8 +2466,8 @@ _No description._
 | `qSuppressMissing` | boolean | _No description._ |
 | `qOpenFullyExpanded` | boolean | _No description._ |
 | `qPopulateMissing` | boolean | _No description._ |
-| `qCalcCondition` | object | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qTitle` | object | _No description._ |
+| `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
 
 ## `UndoInfo`
 
@@ -2512,5 +2512,5 @@ Defines the list of variables in an app.
 | `qType` | string | Type of the list. |
 | `qShowReserved` | boolean | Shows the reserved variables if set to true. |
 | `qShowConfig` | boolean | Shows the system variables if set to true. |
-| `qData` | object | Data |
+| `qData` | [`JsonObject`](#jsonobject) | Data |
 
