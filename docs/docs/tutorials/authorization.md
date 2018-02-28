@@ -46,7 +46,7 @@ The relevant claims that are evaluated by the Qlik Associative Engine are the su
 | -----|------------|
 | `sub` | The subject is a unique identifier for a user. |
 | `exp` | The numerical expiration date. It never expires if it is omitted. |
-| `groups` | Optional array of user groups. If present the GROUPS column can be used in section access |
+| `groups` | Optional array of user groups. If present the GROUP column can be used in section access |
 
 For example:
 
