@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Definitions
 
-_QIX definitions for version 12.141.0._
+_QIX definitions for version 12.145.0._
 
 
 
@@ -78,6 +78,25 @@ _No description._
 | `qScoreSummary` | integer | Flag used to interpret calculated scores.<br>One of the following values or sum of values that apply:<br>* 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.<br>* -1: The fields do not have the same type.<br>* -2: The number of rows of the field _FieldName1_ is zero.<br>* -4: The number of distinct values of the field _FieldName1_ is zero.<br>* -8: The number of rows of the field _FieldName2_ is zero.<br>* -16: The number of distinct values of the field _FieldName2_ is zero.<br><br>Example:<br>The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18. |
 | `qField1Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName1_ defined in _qFieldPairName_ . |
 | `qField2Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName2_ defined in _qFieldPairName_ . |
+
+## `BDIObject`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qValid` | boolean | _No description._ |
+| `qConnectionString` | string | _No description._ |
+| `qCurrentHandle` | string | _No description._ |
+| `qGeneratedHandleCopy` | string | _No description._ |
+
+## `BDIObjectDef`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qHandleCopyInLayout` | string | Mode of GetLayout call behavior.<br>* "none" is just default,<br>* "model"/ "session"  tells the final scope of the handle. Model means persisted and session means persist in BDI side.<br><br>One of:<br>* none or BDI_HANDLE_SCOPE_NONE<br>* model or BDI_HANDLE_SCOPE_MODEL<br>* session or BDI_HANDLE_SCOPE_SESSION |
 
 ## `BNFDef`
 
@@ -777,7 +796,7 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 | `qHasOtherValues` | boolean | True if other row exists. |
 | `qTitle` | string | Title of the hypercube, for example the title of a chart. |
 | `qTreeNodesOnDim` | array | The total number of nodes on each dimension (only applicable when _qMode = T_ ). |
-| `qCalcCondMsg` | string | The message dislayed if calculation condition is not fulfilled. |
+| `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qColumnOrder` | array | The order of the columns. |
 
 ## `HyperCubeDef`
@@ -1008,6 +1027,8 @@ Layout for [`NxAttrExprDef`](#nxattrexprdef).
 | `qMin` | number | Minimum value. |
 | `qMax` | number | Maximum value. |
 | `qFallbackTitle` | string | _No description._ |
+| `qMinText` | string | String version of the minimum Value. |
+| `qMaxText` | string | String version of the maximum Value. |
 
 ## `NxAttributeDimValues`
 
@@ -1268,7 +1289,7 @@ _No description._
 | `qDerivedField` | boolean | Is derived field is used as a dimension. |
 | `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | Array of attribute expressions. |
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | Array of attribute dimensions. |
-| `qCalcCondMsg` | string | _No description._ |
+| `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 
 ## `NxEngineVersion`
@@ -1526,7 +1547,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's expression. |
 | `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | List of attribute expressions. |
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | List of attribute dimensions. |
-| `qCalcCondMsg` | string | _No description._ |
+| `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 
 ## `NxMeta`
 
@@ -1559,7 +1580,7 @@ _No description._
 
 ## `NxPageTreeLevel`
 
-
+_No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1568,7 +1589,7 @@ _No description._
 
 ## `NxPageTreeNode`
 
-Defines an area of the tree to be fetched.<br><br>
+Defines an area of the tree to be fetched.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1679,8 +1700,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qText` | string | Text related to the attribute expression value.<br>No text is returned if the attribute expression value is a numeric.<br>This property is optional. |
-| `qNum` | number | Numeric value of the attribute expression.<br>This property is set to _NaN_ (Not a Number) if the attribute expression value is not a numeric.<br>Numerical values are not returned as text. |
+| `qText` | string | Text related to the attribute expression value. |
+| `qNum` | number | Numeric value of the attribute expression.<br>Set to NaN (Not a Number) if the attribute expression value is not numeric. |
 
 ## `NxStackPage`
 
@@ -1748,7 +1769,7 @@ _No description._
 
 ## `NxTreeDataOption`
 
-Specifies all the paging filters needed to define the tree to be fetched.<br><br>
+Specifies all the paging filters needed to define the tree to be fetched.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1762,17 +1783,17 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLibraryId` | string | _No description._ |
-| `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | _No description._ |
-| `qValueExprs` | [`NxMeasure`](#nxmeasure) | _No description._ |
-| `qNullSuppression` | boolean | _No description._ |
-| `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | _No description._ |
-| `qShowAll` | boolean | _No description._ |
-| `qOtherLabel` | [`StringExpr`](#stringexpr) | _No description._ |
-| `qTotalLabel` | [`StringExpr`](#stringexpr) | _No description._ |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
+| `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | Refers to a dimension. |
+| `qValueExprs` | [`NxMeasure`](#nxmeasure) | List of measures. |
+| `qNullSuppression` | boolean | If set to true, no null values are returned. |
+| `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
+| `qShowAll` | boolean | If set to true, all dimension values are shown. |
+| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
+| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | _No description._ |
-| `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | _No description._ |
+| `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
+| `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
 
 ## `NxTreeDimensionInfo`
 
@@ -1780,32 +1801,32 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFallbackTitle` | string | _No description._ |
-| `qApprMaxGlyphCount` | integer | _No description._ |
-| `qCardinal` | integer | _No description._ |
-| `qLocked` | boolean | _No description._ |
-| `qSortIndicator` | string | <br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
-| `qGroupFallbackTitles` | array | _No description._ |
-| `qGroupPos` | integer | _No description._ |
-| `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | _No description._ |
-| `qTags` | array | _No description._ |
-| `qError` | [`NxValidationError`](#nxvalidationerror) | _No description._ |
-| `qDimensionType` | string | <br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
-| `qReverseSort` | boolean | _No description._ |
-| `qGrouping` | string | <br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
-| `qIsSemantic` | boolean | _No description._ |
-| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | _No description._ |
-| `qIsAutoFormat` | boolean | _No description._ |
-| `qGroupFieldDefs` | array | _No description._ |
-| `qMin` | number | _No description._ |
-| `qMax` | number | _No description._ |
-| `qContinuousAxes` | boolean | _No description._ |
-| `qIsCyclic` | boolean | _No description._ |
-| `qDerivedField` | boolean | _No description._ |
-| `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | _No description._ |
-| `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | _No description._ |
-| `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | _No description._ |
-| `qCalcCondMsg` | string | _No description._ |
+| `qFallbackTitle` | string | Corresponds to the label of the dimension that is selected.<br>If the label is not defined then the field name is used. |
+| `qApprMaxGlyphCount` | integer | Length of the longest value in the field. |
+| `qCardinal` | integer | Number of distinct field values. |
+| `qLocked` | boolean | Is set to true if the field is locked. |
+| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
+| `qGroupFallbackTitles` | array | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
+| `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drilldown groups) or cycle groups. |
+| `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
+| `qTags` | array | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
+| `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
+| `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
+| `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
+| `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
+| `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
+| `qGroupFieldDefs` | array | Array of field names. |
+| `qMin` | number | Minimum value. |
+| `qMax` | number | Maximum value. |
+| `qContinuousAxes` | boolean | Is continuous axis used. |
+| `qIsCyclic` | boolean | Is a cyclic dimension used. |
+| `qDerivedField` | boolean | Is derived field is used as a dimension. |
+| `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | A List of measures to be calculated on this TreeDimension. |
+| `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | List of attribute expressions. |
+| `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | List of attribute dimensions. |
+| `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 
 ## `NxTreeMultiRangeSelectInfo`
@@ -1814,11 +1835,11 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRanges` | [`NxTreeRangeSelectInfo`](#nxtreerangeselectinfo) | _No description._ |
+| `qRanges` | [`NxTreeRangeSelectInfo`](#nxtreerangeselectinfo) | An array of Ranges. |
 
 ## `NxTreeNode`
 
-Represents a dimension in the tree.<br><br>
+Represents a dimension in the tree.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -1845,7 +1866,7 @@ _No description._
 
 ## `NxTreeValue`
 
-Represents a measure.<br><br>
+Represents a measure.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2439,35 +2460,35 @@ _No description._
 
 ## `TreeData`
 
-_No description._
+Renders the properties of a [`TreeData`](#treedata) object. Is the layout for TreeDataDef.<br>For more information about the definition of TreeData, see _Generic object_.<br>To retrieve data from the [`TreeData`](#treedata) object, use the method called GetHyperCubeTreeData.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStateName` | string | _No description._ |
-| `qNodesOnDim` | array | _No description._ |
-| `qError` | [`NxValidationError`](#nxvalidationerror) | _No description._ |
-| `qDimensionInfo` | [`NxTreeDimensionInfo`](#nxtreedimensioninfo) | _No description._ |
-| `qEffectiveInterColumnSortOrder` | array | _No description._ |
-| `qHasOtherValues` | boolean | _No description._ |
-| `qTitle` | string | _No description._ |
-| `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | _No description._ |
-| `qCalcCondMsg` | string | _No description._ |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
+| `qNodesOnDim` | array | The total number of nodes on each dimension. |
+| `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
+| `qDimensionInfo` | [`NxTreeDimensionInfo`](#nxtreedimensioninfo) | Information on the dimension. |
+| `qEffectiveInterColumnSortOrder` | array | Defines the order of the dimenion levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2. |
+| `qHasOtherValues` | boolean | True if other row exists. |
+| `qTitle` | string | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
+| `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | Position of the last expended cell.<br>This property is optional. |
+| `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 
 ## `TreeDataDef`
 
-_No description._
+Defines the properties of a [`TreeData`](#treedata) object.<br>For more information about the definition of a [`TreeData`](#treedata) object, see _Generic object_.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStateName` | string | _No description._ |
-| `qDimensions` | [`NxTreeDimensionDef`](#nxtreedimensiondef) | _No description._ |
-| `qInterColumnSortOrder` | array | _No description._ |
-| `qSuppressZero` | boolean | _No description._ |
-| `qSuppressMissing` | boolean | _No description._ |
-| `qOpenFullyExpanded` | boolean | _No description._ |
-| `qPopulateMissing` | boolean | _No description._ |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
+| `qDimensions` | [`NxTreeDimensionDef`](#nxtreedimensiondef) | Array of dimensions. |
+| `qInterColumnSortOrder` | array | Defines the order of the dimenion levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
+| `qSuppressZero` | boolean | Removes zero values. |
+| `qSuppressMissing` | boolean | Removes missing values. |
+| `qOpenFullyExpanded` | boolean | If this property is set to true, the cells are opened expanded. The default value is false. |
+| `qPopulateMissing` | boolean | If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.<br>The default value is false. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qTitle` | [`StringExpr`](#stringexpr) | _No description._ |
+| `qTitle` | [`StringExpr`](#stringexpr) | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
 
 ## `UndoInfo`
 

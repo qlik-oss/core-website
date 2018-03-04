@@ -45,10 +45,10 @@ message DataRequest {
 /**
  *  A structure for streaming field values.
  *
- *  This message conatins two parts. A value bucket part and a code part.
+ *  This message contains two parts. A value bucket part and a code part.
  *
  *  Every transferred value have a string code and one or two numeric codes.
- *  These codes can be negative to inicate special things. -1 indicates null for example.
+ *  These codes can be negative to indicate special things. -1 indicates null for example.
  *
  *  Otherwise they can index into the value buckets.
  *  A value with a null string and a null number is a null value in the Qlik Engine.
@@ -105,14 +105,14 @@ message DataChunk
 
 /** How to interpret the data.
  *  If dates or times are already in the Qlik Engine format (fractional day since 1899-12-30), then the fastest way
- *  to import is to use SemanticType=DEFAULT. And transferr the date as a double and set FieldAttributes::Type = DATE.
+ *  to import is to use SemanticType=DEFAULT. And transfer the date as a double and set FieldAttributes::Type = DATE.
  *  If the dates are in "days since 1904-01-01" format the best way is to add 1462 to them and send as
  *  1899-12-30 dates.
  */
 enum SemanticType {
     DEFAULT = 0;                     /** The normal value. */
-    UNIX_SECONDS_SINCE_1970_UTC = 1; /** Transfered as double or integer. */
-    ISO_8601 = 2;                    /** Date and time format. Transfered as string. */
+    UNIX_SECONDS_SINCE_1970_UTC = 1; /** Transferred as double or integer. */
+    ISO_8601 = 2;                    /** Date and time format. Transferred as string. */
 }
 
 /** Direct copy of FieldAttrType in Qlik Engine. How to display the data. */
@@ -129,7 +129,7 @@ enum FieldAttrType {
     MONEY = 12;
 }
 
-/** Subset of classic Qlik Engine number format */
+/** Subset of classic Qlik Engine number format. */
 message FieldAttributes {
     FieldAttrType Type = 1;
 }
@@ -149,7 +149,7 @@ message GetDataResponse {
 
 
 /**
- *   Usefull for debugging.
+ *   Useful for debugging.
  */
 message MetaInfo {
     string name = 1;                     /** Example: "AbcDb connector" */

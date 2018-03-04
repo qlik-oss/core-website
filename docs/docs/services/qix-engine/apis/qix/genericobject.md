@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # GenericObject
 
-_QIX methods for version 12.141.0._
+_QIX methods for version 12.145.0._
 
 ## `AbortListObjectSearch`
 
@@ -418,7 +418,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 
 ## `GetHyperCubeTreeData`
 
-Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT.<br><br>
+Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT.
 
 **Parameters:**
 

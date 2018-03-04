@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 # Doc
 
-_QIX methods for version 12.141.0._
+_QIX methods for version 12.145.0._
 
 ## `AbortModal`
 
