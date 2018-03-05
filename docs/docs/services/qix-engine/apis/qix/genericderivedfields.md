@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+<!-- proselint-disable -->
 # GenericDerivedFields
 
 _QIX methods for version 12.101.0._

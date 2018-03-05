@@ -1,3 +1,4 @@
 linters:
   - markdownlint . # Markdown syntax linting
-  - proselint docs/. # English prose linting
+  # The magic parameter filters out all files that has 'proselint-disable' in them
+  - proselint $(grep -L "proselint-disable" -r . | grep .md) # English prose linting
