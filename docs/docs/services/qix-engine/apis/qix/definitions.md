@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+<!-- proselint-disable -->
 # Definitions
 
 _QIX definitions for version 12.145.0._

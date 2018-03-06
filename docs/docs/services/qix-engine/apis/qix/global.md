@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+<!-- proselint-disable -->
 # Global
 
 _QIX methods for version 12.145.0._

@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+<!-- proselint-disable -->
 # GenericDimension
 
 _QIX methods for version 12.145.0._
