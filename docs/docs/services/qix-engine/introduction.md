@@ -17,7 +17,7 @@ Qlik Associative Engine supports multiple APIs, designed for specific use cases.
 
 API | Description
 --- | -----------
-[Data loading](./apis/data-loading/data-loading.md) | High-performance data loading using the gRPC protocol.
+[Data Connector](./apis/data-loading/introduction.md) | High-performance data loading using the gRPC protocol.
 [QIX](./apis/qix/introduction.md) | Document consumption using JSONRPC and WebSocket protocols.
 
 ## Metrics

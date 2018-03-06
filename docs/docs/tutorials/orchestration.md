@@ -306,7 +306,7 @@ A Consul server must be running in the Nomad environment.
 Nomad will automatically register services in Consul when deploying the nomad files.
 You can find the hostname that Mira should use for discovering Qlik Associative Engine instances
 in the task configuration of
-[mira.noamd](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/mira.nomad) file.
+[mira.nomad](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/mira.nomad) file.
 
 ### Deploying the stack
 
