@@ -1,10 +1,10 @@
-# Data Loading API
+# Data Connector API
 
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution
     since this feature may change in the future.
 
-The data loading API in Qlik Associative Engine is based on gRPC. If you are new
+The Data Connector API in Qlik Associative Engine is based on gRPC. If you are new
 to gRPC we recommend that you [read their documentation](https://grpc.io/docs/) as well
 as check our [examples](#examples) how they are used when loading data into the engine.
 
@@ -15,12 +15,7 @@ sits between the engine and the data source, as shown in the diagram below.
 
 ## API Specification
 
-[Download the protobuf API specification](data-connector-grpc.proto).
-
-??? info "Inline protobuf API"
-    ```proto
-    --8<-- "docs/services/qix-engine/apis/data-loading/data-connector-grpc.proto"
-    ```
+The Data Connector API is documented [here](./data-connector-api.md).
 
 ## Examples
 
