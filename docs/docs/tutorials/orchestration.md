@@ -239,7 +239,14 @@ which provides a powerful way to manage Kubernetes applications.
 
 #### Deploying to plain Kubernetes
 
-Deploy the stack by running the following command:
+If you are running kubernetes version 1.8 or above with role-based access control (RBAC) enabled you need to give Mira permission for view access to the kubernetes API.
+You do that by running this command:
+
+```sh
+kubectl create -f ./kubernetes/plain/rbac-config.yaml
+```
+
+Then you can deploy the stack by running the following command:
 
 ```sh
 cd kubernetes/plain
@@ -253,7 +260,15 @@ you must install Helm on the client side and Tiller on the server side.
 For information on how to do this,
 see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
-Deploy the stack using Helm by running the following command:
+If you are running kubernetes version 1.8 or above with role-based access control (RBAC) enabled you need to give Mira permission for view access to the kubernetes API as well as giving Tiller permission for write access to the kubernetes API before installing Tiller on the cluster. See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
+
+You do that by running this command:
+
+```sh
+kubectl create -f ./kubernetes/helm/rbac-config.yaml
+```
+
+Then you can deploy the stack using Helm by running the following command:
 
 ```sh
 cd kubernetes/helm
@@ -276,6 +291,8 @@ curl http://<kubernetes node ip>:9100/v1/engines
 ```
 
 This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
+
+If you deployed to a cluster in the cloud you might have to open the firewall as well before being able to query Mira.
 
 ## Deploying to Nomad
 
