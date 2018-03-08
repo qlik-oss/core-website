@@ -287,6 +287,7 @@ you can retrieve a list of the tasks running on the stack by running the followi
 ```sh
 kubectl get all
 ```
+
 !!! Note
   You might have to open your cloud provider firewall for port 9200 to be able to query Mira
 
