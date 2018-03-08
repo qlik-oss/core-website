@@ -239,8 +239,8 @@ which provides a powerful way to manage Kubernetes applications.
 
 #### Deploying to plain Kubernetes
 
-If you are running kubernetes version 1.8 or above with role-based access control (RBAC)
-enabled you need to give Mira view access permission to the kubernetes API.
+If you are running Kubernetes version 1.8 or above with role-based access control (RBAC)
+enabled you need to give Mira view access permission to the Kubernetes API.
 You do that by running this command:
 
 ```sh
@@ -256,14 +256,14 @@ kubectl create -f ./qlik-core/
 
 #### Deploying to Kubernetes with Helm
 
-To deploy kubernetes with Helm,
+To deploy Kubernetes with Helm,
 you must install Helm on the client side and Tiller on the server side.
 For information on how to do this,
 see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
-If you are running kubernetes version 1.8 or above with role-based access control (RBAC) enabled
+If you are running Kubernetes version 1.8 or above with role-based access control (RBAC) enabled
 you need to give Mira view access permission to the kubernetes API. You also need to give the Tiller service account
-write access permission to the kubernetes API before installing Tiller on the cluster.
+write access permission to the Kubernetes API before installing Tiller on the cluster.
 See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
 
 You do both of that by running this command:
@@ -287,6 +287,8 @@ you can retrieve a list of the tasks running on the stack by running the followi
 ```sh
 kubectl get all
 ```
+!!! Note
+  You might have to open your cloud provider firewall for port 9200 to be able to query Mira
 
 You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
@@ -295,8 +297,6 @@ curl http://<kubernetes node ip>:9100/v1/engines
 ```
 
 This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
-
-If you deployed to a cluster in the cloud you might have to open the firewall as well before being able to query Mira.
 
 ## Deploying to Nomad
 
