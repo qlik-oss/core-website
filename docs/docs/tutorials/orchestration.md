@@ -240,7 +240,7 @@ which provides a powerful way to manage Kubernetes applications.
 #### Deploying to plain Kubernetes
 
 If you are running kubernetes version 1.8 or above with role-based access control (RBAC)
-enabled you need to give Mira permission for view access to the kubernetes API.
+enabled you need to give Mira view access permission to the kubernetes API.
 You do that by running this command:
 
 ```sh
@@ -262,11 +262,11 @@ For information on how to do this,
 see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
 If you are running kubernetes version 1.8 or above with role-based access control (RBAC) enabled
-you need to give Mira permission for view access to the kubernetes API as well as giving Tiller
-permission for write access to the kubernetes API before installing Tiller on the cluster.
+you need to give Mira view access permission to the kubernetes API. You also need to give the Tiller service account
+write access permission to the kubernetes API before installing Tiller on the cluster.
 See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
 
-You do that by running this command:
+You do both of that by running this command:
 
 ```sh
 kubectl create -f ./kubernetes/helm/rbac-config.yaml
