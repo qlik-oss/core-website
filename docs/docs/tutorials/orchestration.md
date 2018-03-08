@@ -262,7 +262,7 @@ For information on how to do this,
 see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
 If you are running Kubernetes version 1.8 or above with role-based access control (RBAC) enabled
-you need to give Mira view access permission to the kubernetes API. You also need to give the Tiller service account
+you need to give Mira view access permission to the Kubernetes API. You also need to give the Tiller service account
 write access permission to the Kubernetes API before installing Tiller on the cluster.
 See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
 
