@@ -1,8 +1,9 @@
+
 <!-- markdownlint-disable -->
 <!-- proselint-disable -->
 # gRPC Data Connector API
 
-_gRPC Data Connector API for version 12.145.0._
+_gRPC Data Connector API for version 12.147.0._
 
 Package: **qlik.connect**
 
@@ -14,17 +15,35 @@ Package: **qlik.connect**
 
 The standard way to send data. First send GetDataResponse as initial meta data. Then send DataChunk stream. 
 
-| Request Type | Response Type |
-| ------------ | ------------- |
-| [DataRequest](#datarequest) | [DataChunk](#datachunk) |
+**Parameters:**
+
+| Type | Description |
+| ---- | ----------- |
+| [DataRequest](#datarequest) | _No description._ |
+
+**Response:**
+
+| Type | Description |
+| ---- | ----------- |
+| [DataChunk](#datachunk) |  A structure for streaming field values.  This message contains two parts. A value bucket part and a code part.  Every transferred value have a string code and one or two numeric codes. These codes can be negative to indicate special things. -1 indicates null for example.  Otherwise they can index into the value buckets. A value with a null string and a null number is a null value in the Qlik Engine.  Number code have a special mechanism to escape an integer value inline with -2.  Each chunk starts anywhere in any row and continues for an arbitary length and may wrap to another row. A DataChunk will typically transfer many rows.  Each DataChunk must be equal or less in size to the default Grpc message size limit. This is currently 4 MB.  64 KB or slightly less is the optimal size for bandwith performance. But anything from 20 to 120 KB will give good performance if used with the hint option when writing.  Very large strings can be sent in many DataChunk messages by using the -3 escape sequence.  |
+
 
 ### `GetMetaInfo`
 
 _No description._
 
-| Request Type | Response Type |
-| ------------ | ------------- |
-| [MetaInfoRequest](#metainforequest) | [MetaInfo](#metainfo) |
+**Parameters:**
+
+| Type | Description |
+| ---- | ----------- |
+| [MetaInfoRequest](#metainforequest) | Empty  |
+
+**Response:**
+
+| Type | Description |
+| ---- | ----------- |
+| [MetaInfo](#metainfo) |  Useful for debugging.  |
+
 
 ## Definitions
 
