@@ -266,7 +266,7 @@ you need to give Mira view access permission to the Kubernetes API. You also nee
 write access permission to the Kubernetes API before installing Tiller on the cluster.
 See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
 
-You do both of that by running this command:
+You can do this by running the following command:
 
 ```sh
 kubectl create -f ./kubernetes/helm/rbac-config.yaml
