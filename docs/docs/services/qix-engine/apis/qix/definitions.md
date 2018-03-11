@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.147.0._
+_QIX definitions for version 12.150.0._
 
 
 
@@ -512,6 +512,7 @@ _No description._
 | `qComment` | string | Field comment. |
 | `qTags` | array | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII. |
 | `qIsDefinitionOnly` | boolean | If set to true, it means that the field is a field on the fly.<br>The default value is false. |
+| `qByteSize` | integer | Static RAM memory used in bytes. |
 
 ## `FieldInTableData`
 
