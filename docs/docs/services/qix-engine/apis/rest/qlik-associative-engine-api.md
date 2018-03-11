@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.147.0._
+_Qlik Associative Engine API for version 12.150.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -85,6 +85,7 @@ _No parameters_
 | Name | Type | Schema | Items | Format | Description |
 | ---- | ---- | ------ | ----- | ------ | ----------- |
 | `reload_meta` | object | [NxLastReloadMetadata](#nxlastreloadmetadata) | _No items_ | _No format_ | Meta data for the last app reload. |
+| `static_byte_size` | integer | _No schema_ | _No items_ | int64 | Static memory usage for the app. |
 | `fields` | array | _No schema_ | [RestFieldDescription](#restfielddescription) | _No format_ | List of field descriptions. |
 | `tables` | array | _No schema_ | [RestTableDescription](#resttabledescription) | _No format_ | List of table descriptions. |
 
@@ -99,6 +100,7 @@ _No parameters_
 
 | Name | Type | Schema | Items | Format | Description |
 | ---- | ---- | ------ | ----- | ------ | ----------- |
+| `cpu_time_spent_ms` | integer | _No schema_ | _No items_ | int64 | Number of CPU milliseconds it took to reload the app. |
 | `hardware` | object | [NxHardwareMeta](#nxhardwaremeta) | _No items_ | _No format_ | Hardware available for the engine doing the reload. |
 
 ### `NxHardwareMeta`
@@ -113,6 +115,7 @@ _No parameters_
 | Name | Type | Schema | Items | Format | Description |
 | ---- | ---- | ------ | ----- | ------ | ----------- |
 | `logical_cores` | integer | _No schema_ | _No items_ | int32 | Number of logical cores available. |
+| `total_memory` | integer | _No schema_ | _No items_ | int64 | RAM available. |
 
 ### `RestFieldDescription`
 
@@ -138,6 +141,7 @@ _No parameters_
 | `is_numeric` | boolean | _No schema_ | _No items_ | _No format_ | Is set to true if the value is a numeric. The default value is false. |
 | `comment` | string | _No schema_ | _No items_ | _No format_ | Field comment. |
 | `tags` | array | _No schema_ | string | _No format_ | Gives information on a field. For example, it can return the type of the field. Examples: key, text, ASCII. |
+| `byte_size` | integer | _No schema_ | _No items_ | int64 | Static RAM memory used in bytes. |
 
 ### `RestTableDescription`
 
@@ -158,6 +162,7 @@ _No parameters_
 | `no_of_fields` | integer | _No schema_ | _No items_ | int32 | Number of fields. |
 | `no_of_key_fields` | integer | _No schema_ | _No items_ | int32 | Number of key fields. |
 | `comment` | string | _No schema_ | _No items_ | _No format_ | Table comment. |
+| `byte_size` | integer | _No schema_ | _No items_ | int64 | Static RAM memory used in bytes. |
 
 ### `HealthcheckStatus`
 
