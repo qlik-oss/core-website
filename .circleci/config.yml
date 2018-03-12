@@ -22,3 +22,10 @@ jobs:
             export BUILD_NUMBER=$CIRCLE_BUILD_NUM
             export BRANCH_NAME=$CIRCLE_BRANCH
             .circleci/deploy.sh
+      - run:
+          name: Sync documentation to S3 bucket
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync site/ s3://qlikcoresite/ --delete
+            fi
+
