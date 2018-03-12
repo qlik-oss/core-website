@@ -66,13 +66,16 @@ pages:
           - Doc: docs/services/qix-engine/apis/qix/doc.md
           - Generic Object: docs/services/qix-engine/apis/qix/genericobject.md
           - Generic Bookmark: docs/services/qix-engine/apis/qix/genericbookmark.md
-          - Generic Derived Field: docs/services/qix-engine/apis/qix/genericderivedfields.md
           - Generic Dimension: docs/services/qix-engine/apis/qix/genericdimension.md
           - Generic Measure: docs/services/qix-engine/apis/qix/genericmeasure.md
           - Generic Variable: docs/services/qix-engine/apis/qix/genericvariable.md
           - Field: docs/services/qix-engine/apis/qix/field.md
           - Variable: docs/services/qix-engine/apis/qix/variable.md
-        - Data Loading API: docs/services/qix-engine/apis/data-loading/data-loading.md
+        - Data Connector API:
+          - Introduction: docs/services/qix-engine/apis/data-loading/introduction.md
+          - API Specification: docs/services/qix-engine/apis/data-loading/data-connector-api.md
+        - Analytical Connector API: docs/services/qix-engine/apis/server-side-extension/analytical-connector-api.md
+        - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
       - License Service: docs/services/license-service.md
       - Mira: docs/services/mira.md
     - Conventions:

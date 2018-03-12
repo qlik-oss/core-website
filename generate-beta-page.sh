@@ -20,4 +20,4 @@ $docker_cmd run --rm -it -v $pwd:/pandoc dalibo/pandocker:latest \
   -o docs/beta.md
 
 content=$(cat docs/beta.md)
-echo -e "<!-- markdownlint-disable -->\n$content" > docs/beta.md
+echo -e "<!-- markdownlint-disable -->\n<!-- proselint-disable -->\n$content" > docs/beta.md

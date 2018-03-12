@@ -441,3 +441,7 @@
 .md-typeset .admonition>.admonition-title {
   background-color: rgba(0,127,202,.1);
 }
+
+.md-typeset code {
+  word-break: normal;
+}

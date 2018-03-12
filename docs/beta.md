@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+<!-- proselint-disable -->
 BETA SOFTWARE LICENSE AGREEMENT
 ===============================
 

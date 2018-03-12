@@ -239,7 +239,15 @@ which provides a powerful way to manage Kubernetes applications.
 
 #### Deploying to plain Kubernetes
 
-Deploy the stack by running the following command:
+If you are running Kubernetes version 1.8 or above with role-based access control (RBAC)
+enabled you need to give Mira view access permission to the Kubernetes API.
+You do that by running this command:
+
+```sh
+kubectl create -f ./kubernetes/plain/rbac-config.yaml
+```
+
+Then you can deploy the stack by running the following command:
 
 ```sh
 cd kubernetes/plain
@@ -248,12 +256,23 @@ kubectl create -f ./qlik-core/
 
 #### Deploying to Kubernetes with Helm
 
-To deploy kubernetes with Helm,
+To deploy Kubernetes with Helm,
 you must install Helm on the client side and Tiller on the server side.
 For information on how to do this,
 see [Initialize Helm and install Tiller](https://docs.helm.sh/using_helm/#initialize-helm-and-install-tiller).
 
-Deploy the stack using Helm by running the following command:
+If you are running Kubernetes version 1.8 or above with role-based access control (RBAC) enabled
+you need to give Mira view access permission to the Kubernetes API. You also need to give the Tiller service account
+write access permission to the Kubernetes API before installing Tiller on the cluster.
+See [Tiller and role-based access control](https://docs.helm.sh/using_helm/#role-based-access-control)
+
+You can do this by running the following command:
+
+```sh
+kubectl create -f ./kubernetes/helm/rbac-config.yaml
+```
+
+Then you can deploy the stack using Helm by running the following command:
 
 ```sh
 cd kubernetes/helm
@@ -268,6 +287,9 @@ you can retrieve a list of the tasks running on the stack by running the followi
 ```sh
 kubectl get all
 ```
+
+!!! Note
+  You might have to open your cloud provider firewall for port 9200 to be able to query Mira
 
 You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
@@ -306,7 +328,7 @@ A Consul server must be running in the Nomad environment.
 Nomad will automatically register services in Consul when deploying the nomad files.
 You can find the hostname that Mira should use for discovering Qlik Associative Engine instances
 in the task configuration of
-[mira.noamd](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/mira.nomad) file.
+[mira.nomad](https://github.com/qlik-ea/core-orchestration/blob/master/nomad/mira.nomad) file.
 
 ### Deploying the stack
 
