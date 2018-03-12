@@ -137,8 +137,8 @@ docker stack deploy -c ./docker-compose.yml --with-registry-auth qlik-core
 ```
 
 !!! Note
-  `--with-registry-auth` is currently required because the Docker images are not public,
-  and credentials are needed to pull them from Docker Hub.
+    `--with-registry-auth` is currently required because the Docker images are not public,
+    and credentials are needed to pull them from Docker Hub.
 
 ### Accessing the stack
 
@@ -289,7 +289,7 @@ kubectl get all
 ```
 
 !!! Note
-  You might have to open your cloud provider firewall for port 9200 to be able to query Mira
+    You might have to open your cloud provider firewall for port 9200 to be able to query Mira
 
 You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
@@ -302,7 +302,7 @@ This endpoint returns one or more Qlik Associative Engine instances and informat
 ## Deploying to Nomad
 
 !!! Note
-  Deploying to Nomad is not officially supported by Qlik Core.
+    Deploying to Nomad is not officially supported by Qlik Core.
 
 ### Prerequisites
 
