@@ -17,15 +17,15 @@ jobs:
       - store_artifacts:
           path: ./site
       - run:
-          name: Deploy the site
+          name: Deploy the site 
           command: |
             export BUILD_NUMBER=$CIRCLE_BUILD_NUM
             export BRANCH_NAME=$CIRCLE_BRANCH
             .circleci/deploy.sh
       - run:
-          name: Sync to S3
+          name: Sync documentation to S3 bucket
           command: |
-            if [ "${CIRCLE_BRANCH}" == "s3deploy" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
               aws s3 sync site/ s3://qlikcoresite/ --delete
             fi
 
