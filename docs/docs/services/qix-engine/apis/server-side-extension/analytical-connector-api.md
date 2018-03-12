@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC Analytical Connector API
 
-_gRPC Analytical Connector API for version 12.147.0._
+_gRPC Analytical Connector API for version 12.150.0._
 
 Package: **qlik.sse**
 
@@ -68,7 +68,7 @@ Requests a script to be evaluated as specified in the header.
 
 A number of rows collected in one message. The actual number will depend on the size of each row and is adjusted to optimize throughput. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -78,7 +78,7 @@ A number of rows collected in one message. The actual number will depend on the 
 
 A full description of the plugin, sent to the Qlik engine, listing all functions available and indicating whether script evaluation is allowed. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -91,7 +91,7 @@ A full description of the plugin, sent to the Qlik engine, listing all functions
 
 A header sent at the start of both an EvaluateScript request and an ExecuteFunction request under the key "qlik-commonrequestheader-bin". 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -103,7 +103,7 @@ A header sent at the start of both an EvaluateScript request and an ExecuteFunct
 
 The basic data type for the data stream. Can contain double, string, or both. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -119,7 +119,7 @@ An empty message used when nothing is to be passed in a call.
 
 Field definition for function and script calls. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -131,7 +131,7 @@ Field definition for function and script calls.
 
 The definition of a function, which informs the Qlik engine how to use it. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -145,7 +145,7 @@ The definition of a function, which informs the Qlik engine how to use it.
 
 A header sent at the start of an ExecuteFunction request under the key "qlik-functionrequestheader-bin". 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -156,7 +156,7 @@ A header sent at the start of an ExecuteFunction request under the key "qlik-fun
 
 Parameter definition for functions and script calls. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -167,7 +167,7 @@ Parameter definition for functions and script calls.
 
 A row of duals. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -177,7 +177,7 @@ A row of duals.
 
 A header sent at the start of an EvaluateScript request under the key "qlik-scriptrequestheader-bin". 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -190,7 +190,7 @@ A header sent at the start of an EvaluateScript request under the key "qlik-scri
 
 A header sent before returning data to Qlik, under the key "qlik-tabledescription-bin". 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -222,105 +222,105 @@ Types of functions (determined by their return values).
 
 ## Scalar Value Types
 
-## `double`
+### `double`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | double | double | float64 | double | float | float | Float |
 
 
-## `float`
+### `float`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | float | float | float32 | float | float | float | Float |
 
 
-## `int32`
+### `int32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `int64`
+### `int64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `uint32`
+### `uint32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint32 | uint | uint32 | int | integer | int/long | Bignum or Fixnum (as required) |
 
 
-## `uint64`
+### `uint64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint64 | ulong | uint64 | long | integer/string | int/long | Bignum or Fixnum (as required) |
 
 
-## `sint32`
+### `sint32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `sint64`
+### `sint64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `fixed32`
+### `fixed32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint32 | uint | uint32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `fixed64`
+### `fixed64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint64 | ulong | uint64 | long | integer/string | int/long | Bignum |
 
 
-## `sfixed32`
+### `sfixed32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `sfixed64`
+### `sfixed64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `bool`
+### `bool`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | bool | bool | bool | boolean | boolean | boolean | TrueClass/FalseClass |
 
 
-## `string`
+### `string`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | string | string | string | String | string | str/unicode | String (UTF-8) |
 
 
-## `bytes`
+### `bytes`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |

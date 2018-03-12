@@ -51,7 +51,7 @@ _No description._
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -63,7 +63,7 @@ _No description._
 
 A structure for streaming field values.  This message contains two parts. A value bucket part and a code part.  Every transferred value have a string code and one or two numeric codes. These codes can be negative to indicate special things. -1 indicates null for example.  Otherwise they can index into the value buckets. A value with a null string and a null number is a null value in the Qlik Engine.  Number code have a special mechanism to escape an integer value inline with -2.  Each chunk starts anywhere in any row and continues for an arbitary length and may wrap to another row. A DataChunk will typically transfer many rows.  Each DataChunk must be equal or less in size to the default Grpc message size limit. This is currently 4 MB.  64 KB or slightly less is the optimal size for bandwith performance. But anything from 20 to 120 KB will give good performance if used with the hint option when writing.  Very large strings can be sent in many DataChunk messages by using the -3 escape sequence. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -76,7 +76,7 @@ A structure for streaming field values.  This message contains two parts. A valu
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -88,7 +88,7 @@ _No description._
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -100,7 +100,7 @@ _No description._
 
 Subset of classic Qlik Engine number format.
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -110,7 +110,7 @@ Subset of classic Qlik Engine number format.
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -123,7 +123,7 @@ _No description._
 
 Transferred as initial metadata with the name "x-qlik-getdata-bin".
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -134,7 +134,7 @@ Transferred as initial metadata with the name "x-qlik-getdata-bin".
 
 Useful for debugging. 
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -151,7 +151,7 @@ Empty
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -162,7 +162,7 @@ _No description._
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -173,7 +173,7 @@ _No description._
 
 _No description._
 
-#### Fields
+**Fields:**
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
@@ -212,105 +212,105 @@ How to interpret the data. If dates or times are already in the Qlik Engine form
 
 ## Scalar Value Types
 
-## `double`
+### `double`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | double | double | float64 | double | float | float | Float |
 
 
-## `float`
+### `float`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | float | float | float32 | float | float | float | Float |
 
 
-## `int32`
+### `int32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `int64`
+### `int64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `uint32`
+### `uint32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint32 | uint | uint32 | int | integer | int/long | Bignum or Fixnum (as required) |
 
 
-## `uint64`
+### `uint64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint64 | ulong | uint64 | long | integer/string | int/long | Bignum or Fixnum (as required) |
 
 
-## `sint32`
+### `sint32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `sint64`
+### `sint64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `fixed32`
+### `fixed32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint32 | uint | uint32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `fixed64`
+### `fixed64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | uint64 | ulong | uint64 | long | integer/string | int/long | Bignum |
 
 
-## `sfixed32`
+### `sfixed32`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int32 | int | int32 | int | integer | int | Bignum or Fixnum (as required) |
 
 
-## `sfixed64`
+### `sfixed64`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | int64 | long | int64 | long | integer/string | int/long | Bignum |
 
 
-## `bool`
+### `bool`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | bool | bool | bool | boolean | boolean | boolean | TrueClass/FalseClass |
 
 
-## `string`
+### `string`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
 | string | string | string | String | string | str/unicode | String (UTF-8) |
 
 
-## `bytes`
+### `bytes`
 
 | cpp | cs | go | java | php | python | ruby |
 | --- | -- | -- | ---- | --- | ------ | ---- |
