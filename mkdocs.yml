@@ -74,6 +74,7 @@ pages:
         - Data Connector API:
           - Introduction: docs/services/qix-engine/apis/data-loading/introduction.md
           - API Specification: docs/services/qix-engine/apis/data-loading/data-connector-api.md
+        - Analytical Connector API: docs/services/qix-engine/apis/server-side-extension/analytical-connector-api.md
         - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
       - License Service: docs/services/license-service.md
       - Mira: docs/services/mira.md
