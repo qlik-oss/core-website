@@ -22,8 +22,8 @@ A typical JWT consists of three parts.
 `{header}.{payload}.{signature}`
 
 !!! Note
-  Each part of the JWT is base64url-encoded and separated by a dot.
-  To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
+    Each part of the JWT is base64url-encoded and separated by a dot.
+    To learn more about JWT encoding, see [Base 64 Encoding with URL and Filename Safe Alphabet](https://tools.ietf.org/html/rfc4648#section-5).
 
 #### Header
 
