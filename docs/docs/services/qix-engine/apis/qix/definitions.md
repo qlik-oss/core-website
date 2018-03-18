@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.150.0._
+_QIX definitions for version 12.154.0._
 
 
 
@@ -998,6 +998,7 @@ Layout for [`NxAttrDimDef`](#nxattrdimdef).
 | `qDef` | string | Expression or field name. |
 | `qLibraryId` | string | LibraryId for dimension. |
 | `qSortBy` | [`SortCriteria`](#sortcriteria) | Sorting. |
+| `qAttribute` | boolean | If set to true, this attribute will not affect the number of rows in the cube. |
 
 ## `NxAttrDimInfo`
 
@@ -1020,6 +1021,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qExpression` | string | Definition of the attribute expression.<br>Example: _"Max(OrderID)"_ |
 | `qLibraryId` | string | Definition of the attribute expression stored in the library.<br>Example: _"MyGenericMeasure"_ |
+| `qAttribute` | boolean | If set to true, this measure will not affect the number of rows in the cube. |
 
 ## `NxAttrExprInfo`
 
@@ -2485,7 +2487,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 | `qDimensions` | [`NxTreeDimensionDef`](#nxtreedimensiondef) | Array of dimensions. |
-| `qInterColumnSortOrder` | array | Defines the order of the dimenion levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
+| `qInterColumnSortOrder` | array | Defines the order of the dimension levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
 | `qOpenFullyExpanded` | boolean | If this property is set to true, the cells are opened expanded. The default value is false. |
