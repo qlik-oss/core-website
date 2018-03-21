@@ -12,18 +12,20 @@ The source code is available in separate open source repositories on GitHub.
 Start here if you are new to Qlik products and Qlik Associative Engine.
 
 The first set of examples introduce basic operations and usage of the Qlik Associative Engine. Think of
-it as the "Hello World" of the engine and the next steps after that. This is divided into three separate parts
-
-!!! Note
-    You need to accept the EULA before these examples can be run, see
-    the `README.md` file in [core-get-started](https://github.com/qlik-ea/core-get-started) for instructions
-    how to do this.
+it as the "Hello World" of the engine and the next steps after that. The Hello Qlik Core examples are divided into three separate parts:
 
 - [Hello Engine](./tutorials/hello-engine.md) - Running Qlik Associative Engine as a Docker container and using
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it.
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into Qlik Associative Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js).
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js.
+
+!!! Note
+    Before you can run these examples, you need to accept the EULA.</br>
+    You can read the EULA here: [BETA SOFTWARE LICENSE AGREEMENT](https://ca.qliktive.com/docs/master/beta/).</br>Before you deploy, you need to set the `ACCEPT_EULA` environment variable.</br>
+    ```bash
+    ACCEPT_EULA=yes docker-compose up -d
+    ```
 
 ## Orchestration
 
