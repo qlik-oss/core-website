@@ -22,7 +22,7 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
     ```
 
     !!! Note
-        Before you deploy, you need to set the `ACCEPT_EULA` environment variable, otherwise the engine won't start.
+        Before you deploy, you need to set the `ACCEPT_EULA` environment variable, otherwise the Qlik Associative Engine won't start.
 
     When you run this command, Docker builds the container and leaves it running in the background.
     If successful, you will see a message that creating the container is done.

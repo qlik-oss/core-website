@@ -24,7 +24,7 @@ The Hello Qlik Core examples are divided into three separate parts:
 !!! Note
     Before you can run these examples, you need to accept the EULA.</br>
     You can read the EULA here:
-    [BETA SOFTWARE LICENSE AGREEMENT](https://ca.qliktive.com/docs/master/beta/).
+    [BETA SOFTWARE LICENSE AGREEMENT](../beta.md).
     </br>Set the `ACCEPT_EULA` environment variable before you deploy the engine.</br>
     ```bash
     ACCEPT_EULA=yes docker-compose up -d
