@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.154.0._
+_QIX methods for version 12.156.0._
 
 ## `AbortAll`
 
@@ -197,6 +197,7 @@ Exports an app from the Qlik Sense repository to the file system.<br>This operat
 | `qTargetPath` | string | Yes | Path and name of the target app. |
 | `qSrcAppId` | string | Yes | Identifier of the source app. The identifier is a GUID from the Qlik Sense repository. |
 | `qIds` | array | Yes | Array of identifiers.<br>The list of all the objects in the app to be exported must be given. This list must contain the GUIDs of all these objects. |
+| `qNoData` | boolean | No | Set this parameter to true if the data should be omitted in the exported app. |
 
 **Returns:**
 
@@ -683,7 +684,7 @@ Replaces objects of a target app with the objects from a source app.<br>The list
 | ---- | ---- | --------- | ----------- |
 | `qTargetAppId` | string | Yes | Identifier (GUID) of the target app.<br>The target app is the app to be replaced. |
 | `qSrcAppID` | string | Yes | Identifier (GUID) of the source app.<br>The objects in the source app will replace the objects in the target app. |
-| `qIds` | array | Yes | QRS identifiers (GUID) of the objects in the target app to be replaced. Only QRS-approved GUIDs are applicable.<br>An object that is QRS-approved, is for example an object that has been published (for example, not private anymore).<br>If an object is private, it should not be included in this list.<br>If _qIds_ is empty, the engine automatically creates a list that contains all QRS-approved objects.<br>If the array of identifiers contains objects that are not present in the source app, the objects related to these identifiers are removed from the target app. |
+| `qIds` | array | Yes | QRS identifiers (GUID) of the objects in the target app to be replaced. Only QRS-approved GUIDs are applicable.<br>An object that is QRS-approved, is for example an object that has been published (for example, not private anymore).<br>If an object is private, it should not be included in this list.<br>If the array of identifiers contains objects that are not present in the source app, the objects related to these identifiers are removed from the target app.<br>If _qIds_ is empty, no objects are deleted in the target app. |
 
 **Returns:**
 
