@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.154.0._
+_QIX methods for version 12.156.0._
 
 ## `AbortListObjectSearch`
 
@@ -626,7 +626,7 @@ Makes selections in multiple dimensions and measures.<br> This method applies to
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
 | `qRowIndices` | array | Yes | Array of row indexes to select, starting from 0.<br>If the array is empty _[ ]_ , all rows are selected. |
-| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension or a measure depending on the definition of the hypercube.<br>Example:<br>If the hypercube has two dimensions and one measure:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br>* [2] selects the third column (i.e the measure).<br><br>If the array is empty _[ ]_ , all columns are selected. |
+| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension or a measure depending on the definition of the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions and one measure:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br>* [2] selects the third column (i.e the measure).<br><br>If the array is empty _[ ]_ , all columns are selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
