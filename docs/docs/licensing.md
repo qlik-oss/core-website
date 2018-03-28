@@ -10,8 +10,8 @@ develop, or test solutions. Note that it cannot be used for commercial purposes.
 
 The current limitations are applied to the community version:
 
-* 30 day expiration: Qlik Associative Engine will expire 30 days after the version has been released
-* 5 concurrent sessions: Qlik Associative Engine will limit the amount of concurrent sessions
+* 30 day expiration: Qlik Associative Engine will expire 30 days after the version has been released.
+* 5 concurrent sessions: Qlik Associative Engine will limit the amount of concurrent sessions.
 
 !!! Note "Accepting the EULA"
     You need to pass in a setting to Qlik Associative Engine to acknowledge that

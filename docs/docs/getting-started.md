@@ -51,7 +51,7 @@ We recommend that you explore these tutorials in order:
 
 1. [Data loading](./tutorials/data-loading.md)
     - Loading user data into Qlik Associative Engine
-1. [Monitoring and zcaling](./tutorials/scalability/overview.md)
+1. [Monitoring and scaling](./tutorials/scalability/overview.md)
     - Taking decisions on when to scale up or down the number of Qlik Associative Engine instances
     - Placing and scheduling of Qlik Associative Engine sessions
 1. [Authorization](./tutorials/authorization.md)
