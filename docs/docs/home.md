@@ -38,7 +38,7 @@ The demo is built on the requirements from a fictive company, which provides an 
 assist doctors with drug prescriptions.
 
 The source code for the demo, including more detailed documentation, is available as open source on GitHub
-in the [qlik-ea/qliktive-custom-analytics](https://github.com/qlik-ea/qliktive-custom-analytics) repository.
+in the [qlik-ea/core-assisted-prescription](https://github.com/qlik-ea/core-assisted-prescription) repository.
 
 ## New to Qlik Core?
 
