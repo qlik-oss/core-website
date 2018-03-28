@@ -6,7 +6,7 @@ comprising the core services. The core services represent the foundation on whic
 The core Qlik Core stack consists of the following services:
 
 - [Qlik Associative Engine](../services/qix-engine/introduction.md)
-- [License Service](../services/license-service.md)
+- [Licenses](../services/licenses.md)
 - [Mira](../services/mira.md)
 
 In a typical solution, all services are deployed on the server side.
@@ -20,23 +20,6 @@ In a typical solution, all services are deployed on the server side.
 Clone the [Core](https://github.com/qlik-ea/core-orchestration) Git repository,
 which contains all tutorial assets, to your local machine.
 All commands should be executed from this Git repository.
-
-## Licensing
-
-During beta, Qlik Core will not require licensing credentials. However, we highly
-recommend that you configure Qlik Associative Engine to use the license service which will
-enable you to transition out of the beta easily.
-
-On top of this, during beta each Qlik Associative Engine version will have a 30 day expiration (from
-when it was published), it will stop working after this time so make sure you can update
-and deploy often.
-
-When the Qlik Associative Engine is running, it periodically communicates with the License Service
-to verify that it is running with a valid license.
-A Qlik Associative Engine deployment must be configured with the URL
-that is used to call the License Service REST API.
-You can do this by providing the `LicenseServiceUrl` setting.
-See the orchestration examples below how that works for your targeted environment.
 
 ## Configuring the Qlik Associative Engine
 
@@ -53,10 +36,15 @@ services:
 ...
 ```
 
-To start Qlik Associative Engine in Qlik Core, you also need to accept the [EULA](../../beta.md) by
-supplying `-S AcceptEULA=yes`.
+To start Qlik Associative Engine in Qlik Core correctly, you need to
+[configure licensing](../licensing.md) for it.
 
 ## Container orchestration
+
+!!! Note
+    You need to accept the EULA before these examples can be run, see
+    the `README.md` file in each orchestration example for instructions
+    how to do this.
 
 We provide examples on how to deploy the Qlik Core services
 using the following container orchestration platforms:
@@ -67,11 +55,6 @@ using the following container orchestration platforms:
 
 In the examples that follow, all shell commands should be run in a Bash shell.
 If you are using Windows, we recommend using Git Bash.
-
-!!! Note
-    You need to accept the EULA before these examples can be run, see
-    the `README.md` file in each orchestration example for instructions
-    how to do this.
 
 ## Deploying to Docker Swarm
 
@@ -92,7 +75,7 @@ eval $(docker-machine env <swarm manager node>)
 
 The Qlik Core stack is specified in the
 [docker-compose.yml](https://github.com/qlik-ea/core-orchestration/blob/master/docker-swarm/docker-compose.yml) file.
-The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one Licenses service.
 
 #### Placement constraints
 
@@ -107,7 +90,7 @@ Relevant APIs are exposed on the following ports:
 | Service         | Port          | API                        |
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
-| License Service | `9200`        | REST API                   |
+| Licenses        | `9200`        | REST API                   |
 | Qlik Associative Engine      | `9076`        | QIX websocket API          |
 | Qlik Associative Engine      | `9090`        | Prometheus/metric endpoint |
 
@@ -188,7 +171,7 @@ kubectl create secret docker-registry dockerhub --docker-username=<your-name> --
 ### The stack
 
 The Qlik Core stack is specified in the `docker-compose.yml` file.
-The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License Service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one Licenses service.
 
 #### Mira Kubernetes mode
 
@@ -210,7 +193,7 @@ Relevant APIs are exposed on the following ports:
 | Service         | Port          | API                        |
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
-| License Service | `9200`        | REST API                   |
+| Licenses        | `9200`        | REST API                   |
 | Qlik Associative Engine      | `9076`        | QIX websocket API          |
 | Qlik Associative Engine      | `9090`        | Prometheus/metric endpoint |
 

@@ -39,6 +39,7 @@ pages:
   - Beta: beta.md
   - Documentation:
     - Home: docs/home.md
+    - Licensing: docs/licensing.md
     - Getting Started: docs/getting-started.md
     - Downloads: docs/downloads.md
     - Tutorials:
@@ -76,7 +77,7 @@ pages:
           - API Specification: docs/services/qix-engine/apis/data-loading/data-connector-api.md
         - Analytical Connector API: docs/services/qix-engine/apis/server-side-extension/analytical-connector-api.md
         - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
-      - License Service: docs/services/license-service.md
+      - Licenses: docs/services/licenses.md
       - Mira: docs/services/mira.md
     - Conventions:
       - Introduction: docs/conventions/introduction.md
