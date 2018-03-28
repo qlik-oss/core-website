@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.150.0._
+_QIX definitions for version 12.156.0._
 
 
 
@@ -80,25 +80,6 @@ _No description._
 | `qScoreSummary` | integer | Flag used to interpret calculated scores.<br>One of the following values or sum of values that apply:<br>* 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.<br>* -1: The fields do not have the same type.<br>* -2: The number of rows of the field _FieldName1_ is zero.<br>* -4: The number of distinct values of the field _FieldName1_ is zero.<br>* -8: The number of rows of the field _FieldName2_ is zero.<br>* -16: The number of distinct values of the field _FieldName2_ is zero.<br><br>Example:<br>The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18. |
 | `qField1Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName1_ defined in _qFieldPairName_ . |
 | `qField2Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName2_ defined in _qFieldPairName_ . |
-
-## `BDIObject`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qValid` | boolean | _No description._ |
-| `qConnectionString` | string | _No description._ |
-| `qCurrentHandle` | string | _No description._ |
-| `qGeneratedHandleCopy` | string | _No description._ |
-
-## `BDIObjectDef`
-
-_No description._
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qHandleCopyInLayout` | string | Mode of GetLayout call behavior.<br>* "none" is just default,<br>* "model"/ "session"  tells the final scope of the handle. Model means persisted and session means persist in BDI side.<br><br>One of:<br>* none or BDI_HANDLE_SCOPE_NONE<br>* model or BDI_HANDLE_SCOPE_MODEL<br>* session or BDI_HANDLE_SCOPE_SESSION |
 
 ## `BNFDef`
 
@@ -998,6 +979,7 @@ Layout for [`NxAttrDimDef`](#nxattrdimdef).
 | `qDef` | string | Expression or field name. |
 | `qLibraryId` | string | LibraryId for dimension. |
 | `qSortBy` | [`SortCriteria`](#sortcriteria) | Sorting. |
+| `qAttribute` | boolean | If set to true, this attribute will not affect the number of rows in the cube. |
 
 ## `NxAttrDimInfo`
 
@@ -1020,6 +1002,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qExpression` | string | Definition of the attribute expression.<br>Example: _"Max(OrderID)"_ |
 | `qLibraryId` | string | Definition of the attribute expression stored in the library.<br>Example: _"MyGenericMeasure"_ |
+| `qAttribute` | boolean | If set to true, this measure will not affect the number of rows in the cube. |
 
 ## `NxAttrExprInfo`
 
@@ -1282,6 +1265,7 @@ _No description._
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
 | `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
+| `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
 | `qGroupFieldDefs` | array | Array of field names. |
@@ -1831,6 +1815,7 @@ _No description._
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | List of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
+| `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 
 ## `NxTreeMultiRangeSelectInfo`
 
@@ -2485,7 +2470,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 | `qDimensions` | [`NxTreeDimensionDef`](#nxtreedimensiondef) | Array of dimensions. |
-| `qInterColumnSortOrder` | array | Defines the order of the dimenion levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
+| `qInterColumnSortOrder` | array | Defines the order of the dimension levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
 | `qOpenFullyExpanded` | boolean | If this property is set to true, the cells are opened expanded. The default value is false. |
