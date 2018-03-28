@@ -7,6 +7,8 @@ We created three learning paths to introduce different concepts step by step.
 Many of the tutorials contain runnable examples.
 The source code is available in separate open source repositories on GitHub.
 
+Before you run these examples, make sure you read the [Licensing](./licensing.md) page.
+
 ## Hello Qlik Core!
 
 Start here if you are new to Qlik products and Qlik Associative Engine.
@@ -15,20 +17,17 @@ The first set of examples introduce basic operations and usage of the Qlik Assoc
 it as the "Hello World" of the engine and the next steps after that.
 The Hello Qlik Core examples are divided into three separate parts:
 
+!!! Note
+    In the following tutorials, you accept the EULA by defining the `ACCEPT_EULA` environment variable.</br>
+    ```bash
+    ACCEPT_EULA=yes docker-compose up -d
+    ```
+
 - [Hello Engine](./tutorials/hello-engine.md) - Running Qlik Associative Engine as a Docker container and using
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it.
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into Qlik Associative Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js).
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js.
-
-!!! Note
-    Before you can run these examples, you need to accept the EULA.</br>
-    You can read the EULA here:
-    [BETA SOFTWARE LICENSE AGREEMENT](../beta.md).
-    </br>Set the `ACCEPT_EULA` environment variable before you deploy the engine.</br>
-    ```bash
-    ACCEPT_EULA=yes docker-compose up -d
-    ```
 
 ## Orchestration
 
@@ -44,15 +43,15 @@ This tutorial covers aspects such as:
 - Using Mira - the Qlik Associative Engine discovery service - when running multiple
     instances of Qlik Associative Engine in a cluster
 
-## In-Depth Tutorials
+## In-depth tutorials
 
 Start here if you want to cover in-depth tutorials that provide detailed
 examples of how to work with more specific aspects of Qlik Core.
 We recommend that you explore these tutorials in order:
 
-1. [Data Loading](./tutorials/data-loading.md)
+1. [Data loading](./tutorials/data-loading.md)
     - Loading user data into Qlik Associative Engine
-1. [Monitoring and Scaling](./tutorials/scalability/overview.md)
+1. [Monitoring and zcaling](./tutorials/scalability/overview.md)
     - Taking decisions on when to scale up or down the number of Qlik Associative Engine instances
     - Placing and scheduling of Qlik Associative Engine sessions
 1. [Authorization](./tutorials/authorization.md)
