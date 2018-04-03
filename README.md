@@ -1,4 +1,4 @@
-# Qlik Core Documentation Sources
+# Qlik Core Website
 
 This repo contains sources to the Qlik Core end-user documentation.
 
