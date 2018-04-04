@@ -30,4 +30,4 @@ prepare your solution for Qlik Core licensing.
 
 ## Third Party Licenses
 
-Click [here](./third-party-licenses) for information about our third party-licenses
+Click [here](./third-party-licenses) for information about our third party licenses
