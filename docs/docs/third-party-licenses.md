@@ -1,7 +1,7 @@
 
 <!-- markdownlint-disable -->
 <!-- proselint-disable -->
-# Third Party Licenses
+# Third-Party Licenses
 
 The following libraries are used in our closed source components,
 and therefore listing all licenses below.

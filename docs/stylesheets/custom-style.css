@@ -109,8 +109,8 @@
   display: none;
 }
 
-/* Hide the Third Party Licenes in the menu */
-.md-nav__item a[title="Third Party Licenses"] {
+/* Hide the Third-Party Licenes in the menu */
+.md-nav__item a[title="Third-Party Licenses"] {
   display: none;
 }
 
