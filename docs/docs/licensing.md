@@ -27,3 +27,7 @@ prepare your solution for Qlik Core licensing.
 !!! Note "Configuring licensing"
     You need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [Licenses configuration](./services/licenses.md#configuration) page.
+
+## Third Party Licenses
+
+Click [here](./third-party-licenses) for information about our third party-licenses

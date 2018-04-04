@@ -79,9 +79,9 @@ pages:
         - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
       - Licenses: docs/services/licenses.md
       - Mira: docs/services/mira.md
-      - Third Party Licenses: docs/services/third-party-licenses.md
     - Conventions:
       - Introduction: docs/conventions/introduction.md
       - API Strategy: docs/conventions/api-strategy.md
       - Logging: docs/conventions/logging.md
       - Metrics: docs/conventions/metrics.md
+    - Third Party Licenses: docs/third-party-licenses.md
