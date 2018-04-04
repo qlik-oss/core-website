@@ -109,6 +109,11 @@
   display: none;
 }
 
+/* Hide the Third-Party Licenes in the menu */
+.md-nav__item a[title="Third-Party Licenses"] {
+  display: none;
+}
+
 /* Show the Beta nav item in hamburger menu */
 @media only screen and (max-width: 76.1875em) {
   .md-nav__item a[title="Beta"] {

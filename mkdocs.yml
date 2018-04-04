@@ -84,3 +84,4 @@ pages:
       - API Strategy: docs/conventions/api-strategy.md
       - Logging: docs/conventions/logging.md
       - Metrics: docs/conventions/metrics.md
+    - Third Party Licenses: docs/third-party-licenses.md
