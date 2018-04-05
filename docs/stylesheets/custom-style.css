@@ -104,13 +104,9 @@
   padding: 0;
 }
 
-/* Hide the Beta nav item in full size menu */
-.md-nav__item a[title="Beta"] {
-  display: none;
-}
-
-/* Hide the Third-Party Licenes in the menu */
-.md-nav__item a[title="Third-Party Licenses"] {
+/* Hide Beta/Third Party Licenses nav items in full size menu */
+.md-nav__item a[title="Beta"],
+.md-nav__item a[title="Third Party Licenses"] {
   display: none;
 }
 
