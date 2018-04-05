@@ -11,7 +11,7 @@ as check our [examples](#examples) how they are used when loading data into the 
 In Qlik Core, a connector is typically implemented as a stateless Docker container that
 sits between the engine and the data source, as shown in the diagram below.
 
-![connector](./QIXEngineConnector.png)
+![connector](./data-connector.png)
 
 ## API Specification
 
