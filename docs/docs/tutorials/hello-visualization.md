@@ -4,7 +4,7 @@ Build a data visualization from data loaded into a Qlik Associative Engine runni
 
 ## Prerequisites
 
-Clone the [Get Started](https://github.com/qlik-ea/core-get-started) Git repository
+Clone the [Get Started](https://github.com/qlik-oss/core-get-started) Git repository
 to your local machine. The *Hello* tutorials are located here, and all commands should be executed from this Git repository.
 
 You must have [Node.js](https://nodejs.org/en/) and npm installed on your local machine.

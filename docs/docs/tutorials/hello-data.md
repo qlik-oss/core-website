@@ -5,7 +5,7 @@ Load data into and retrieve data from the Qlik Associative Engine running in a D
 ## Prerequisites
 
 Clone the
-[Get Started](https://github.com/qlik-ea/core-get-started)
+[Get Started](https://github.com/qlik-oss/core-get-started)
 Git repository to your local machine. The *Hello* tutorials are located here,
 and all commands should be executed from this Git repository.
 

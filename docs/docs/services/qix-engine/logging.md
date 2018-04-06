@@ -47,7 +47,7 @@ version: "3.1"
 
 services:
   qix-engine:
-    image: qlikea/engine
+    image: qlikcore/engine
     command: -S SystemLogVerbosity=5
     labels:
       qix-engine: ""

@@ -7,7 +7,7 @@ of Qlik Associative Engine, and check out our tutorials how to configure your in
 ## Distribution
 
 Qlik Associative Engine is distributed as a Docker image and is available on Docker Hub as
-[qlikea/engine](https://hub.docker.com/r/qlikea/engine).
+[qlikcore/engine](https://hub.docker.com/r/qlikcore/engine).
 
 The Qlik Associative Engine is developed by Qlik as closed source.
 

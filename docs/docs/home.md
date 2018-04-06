@@ -32,13 +32,13 @@ Associative Engine instances in distributed environments.
 ## Live Demo
 
 To see an example of what can be built using Qlik Core, a live demo is available at
-[ca.qliktive.com](https://ca.qliktive.com).
+[ap.qlikcore.com](https://ap.qlikcore.com).
 
 The demo is built on the requirements from a fictive company, which provides an interactive application to
 assist doctors with drug prescriptions.
 
 The source code for the demo, including more detailed documentation, is available as open source on GitHub
-in the [qlik-ea/core-assisted-prescription](https://github.com/qlik-ea/core-assisted-prescription) repository.
+in the [qlik-oss/core-assisted-prescription](https://github.com/qlik-oss/core-assisted-prescription) repository.
 
 ## New to Qlik Core?
 

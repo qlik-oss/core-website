@@ -13,10 +13,9 @@ extra_javascript:
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/qlik-ea/core-website'
+      link: 'https://github.com/qlik-oss/core-website'
     - type: 'slack'
-      # link: 'http://qlikbranch-slack-invite.herokuapp.com/'
-      link: 'https://qlikea.slack.com'
+      link: 'http://branch.qlik.com/slack'
 
 markdown_extensions:
   - admonition
@@ -29,8 +28,8 @@ markdown_extensions:
   - toc:
       permalink: true
 
-repo_name: 'qlik-ea/core-website'
-repo_url: 'https://github.com/qlik-ea/core-website'
+repo_name: 'qlik-oss/core-website'
+repo_url: 'https://github.com/qlik-oss/core-website'
 edit_uri: edit/master/docs
 google_analytics: ['UA-110266862-2', 'auto']
 

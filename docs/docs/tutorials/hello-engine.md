@@ -6,7 +6,7 @@ communicating with it using [enigma.js](https://github.com/qlik-oss/enigma.js).
 ## Prerequisites
 
 Clone the
-[Get Started](https://github.com/qlik-ea/core-get-started)
+[Get Started](https://github.com/qlik-oss/core-get-started)
 Git repository to your local machine. The *Hello* tutorials are located here,
 and all commands should be executed from this Git repository.
 
@@ -53,7 +53,7 @@ Docker builds and starts a Docker container with the services configured in the 
 The `-d` option keeps the container running in the background.
 In this example, Docker builds the container from the `docker-compose.yml` file.
 This file is located in the root folder of the Getting Started with Web Platform Git repository.
-Open the [docker-compose.yml](https://github.com/qlik-ea/core-get-started/blob/master/docker-compose.yml)
+Open the [docker-compose.yml](https://github.com/qlik-oss/core-get-started/blob/master/docker-compose.yml)
 file to see what the compose file looks like.
 It specifies how the engine runs as a Docker container, using the `qlik/engine` Docker image.
 
@@ -98,7 +98,7 @@ which is also shared among the Hello Data and Hello Visualization tutorials.
     ```
 
     !!! Tip
-        Open the [hello-engine.js](https://github.com/qlik-ea/core-get-started/blob/master/src/hello-engine/hello-engine.js)
+        Open the [hello-engine.js](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-engine/hello-engine.js)
         file to see how enigma.js is configured to communicate with the Qlik Associative Engine.
 
 1. Stop and remove the Docker container.
