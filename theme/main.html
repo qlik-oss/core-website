@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <!-- Edit button, if URL was defined -->
-  {% if page.edit_url and not page.is_homepage %}
-  <a href="{{ page.edit_url }}"
-      title="{{ lang.t('edit.link.title') }}"
-      class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
+
+{% if page.is_homepage %}
+<style>.md-sidebar--primary { display: none; }</style>
+{% endif %}
+<!-- Edit button, if URL was defined -->
+{% if page.edit_url and not page.is_homepage %}
+<a href="{{ page.edit_url }}"
+    title="{{ lang.t('edit.link.title') }}"
+    class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
 {% endif %}
 
 <!--
