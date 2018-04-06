@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if page.is_homepage %}
-<style>.md-sidebar--primary { display: none; }</style>
+<style>.md-sidebar--primary { z-index: 1000; } @media screen and (min-width: 76.1875em) {.md-sidebar--primary { z-index: -1; }}</style>
 {% endif %}
 <!-- Edit button, if URL was defined -->
 {% if page.edit_url and not page.is_homepage %}
