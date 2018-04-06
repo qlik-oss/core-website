@@ -8,7 +8,7 @@ To run Qlik Associative Engine with a paid license, you are required to run this
 
 ## Distribution
 
-The Licenses service is available on Docker Hub as a Docker image: [qlikea/license-service](https://hub.docker.com/r/qlikea/license-service).
+The Licenses service is available on Docker Hub as a Docker image: [qlikcore/licenses](https://hub.docker.com/r/qlikcore/licenses).
 
 It is developed by Qlik as closed source.
 

@@ -24,7 +24,7 @@ Further information regarding access control in Qlik Associative Engine can be f
 docker run
     -v <host rules folder>:<container rules folder>
     -v <host document folder>:<container document folder>
-    qlikea/engine:<version> \
+    qlikcore/engine:<version> \
     -S EnableABAC=1 \
     -S SystemAllowRulePath=/<container rules folder>/allow.txt \
     -S SystemDenyRulePath=/<container rules folder>/deny.txt \
@@ -47,4 +47,4 @@ and the mounted folder can then be shared with other Qlik Associative Engine ins
 
 To show how two Qlik Associative Engine instances are sharing the same document using the message broker,
 we have implemented a basic example in `Kubernetes` using `Persisted Volumes`.
-You can find the example [here](https://github.com/qlik-ea/core-document-synchronization).
+You can find the example [here](https://github.com/qlik-oss/core-document-synchronization).

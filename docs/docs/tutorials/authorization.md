@@ -104,7 +104,7 @@ version: "3.1"
 
 services:
   engine:
-    image: qlikea/engine
+    image: qlikcore/engine
     command: -S ValidateJsonWebTokens=2 -S JsonWebTokenSecret=passw0rd
   ...
 ```

@@ -23,7 +23,7 @@ or you will cause access problems for your users.
 ```bash
 docker run
     -v <host folder>:<container folder>
-    qlikea/engine:<version> \
+    qlikcore/engine:<version> \
     -S Gen3=1 \
     -S PersistenceMode=3 \
     -S EnableABAC=1 \

@@ -30,8 +30,8 @@ see a full working connector.
 
 ### PostgreSQL connector built with Go
 
-[github.com/qlik-ea/core-grpc-postgres-connector](https://github.com/qlik-ea/core-grpc-postgres-connector)
+[github.com/qlik-oss/core-grpc-postgres-connector](https://github.com/qlik-oss/core-grpc-postgres-connector)
 
 ### MongoDB connector built with JavaScript
 
-[github.com/qlik-ea/core-grpc-mongodb-connector](https://github.com/qlik-ea/core-grpc-mongodb-connector)
+[github.com/qlik-oss/core-grpc-mongodb-connector](https://github.com/qlik-oss/core-grpc-mongodb-connector)

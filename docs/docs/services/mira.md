@@ -7,15 +7,15 @@ on which engine should you open a new session, or when will you need to start a 
 
 ## Distribution
 
-Mira is distributed as a Docker image, and it is available on Docker Hub as [qlikea/mira](https://hub.docker.com/r/qlikea/mira).
-It is also available as open source on [GitHub](https://github.com/qlik-ea/mira).
+Mira is distributed as a Docker image, and it is available on Docker Hub as [qlikcore/mira](https://hub.docker.com/r/qlikcore/mira).
+It is also available as open source on [GitHub](https://github.com/qlik-oss/mira).
 
 ## Mira REST API
 
 Mira exposes its REST API on port 9100.
 
 To see an OpenAPI specification
-of the Mira REST API, open the [api-doc.yml](https://github.com/qlik-ea/mira/blob/master/doc/api-doc.yml) file.
+of the Mira REST API, open the [api-doc.yml](https://github.com/qlik-oss/mira/blob/master/doc/api-doc.yml) file.
 
 ## Configuration
 
@@ -101,7 +101,7 @@ before starting the Mira Docker service.
 In _Swarm_ mode Mira communicates with Docker Remote API to discover Qlik Associative Engine instances in the orchestration.
 How Mira should access the Docker Remote API can be configured in two ways.
 
-Mount `docker.sock` as a volume into the Mira container as shown in this [example](https://github.com/qlik-ea/mira/blob/master/docker-compose.yml).
+Mount `docker.sock` as a volume into the Mira container as shown in this [example](https://github.com/qlik-oss/mira/blob/master/docker-compose.yml).
 It is however only possible to mount `docker.sock` on a Swarm manager node.
 
 If Mira should be running on a worker node Mira needs to be configured to access the Docker Remote API by a URL.
@@ -113,7 +113,7 @@ as shown in the example below:
 ```yaml
 services:
   mira:
-    image: qlikea/mira
+    image: qlikcore/mira
     environment:
      - MIRA_MODE=swarm
      - DOCKER_HOST=tcp://docker.sock:2375
@@ -122,7 +122,7 @@ services:
 
 ### Example of Swarm mode
 
-The [docker-compose-swarm.yml](https://github.com/qlik-ea/mira/blob/master/examples/swarm/docker-compose-swarm.yml)
+The [docker-compose-swarm.yml](https://github.com/qlik-oss/mira/blob/master/examples/swarm/docker-compose-swarm.yml)
 file is an example of how Mira can be started in _Swarm_ mode
 with a Qlik Associative Engine instance that is labeled so that Mira will discover it.
 
@@ -151,13 +151,13 @@ version: "3.1"
 
 services:
   mira:
-    image: qlikea/mira
+    image: qlikcore/mira
     environment:
      - MIRA_MODE=swarm
     ...
 
   qix-engine1:
-    image: qlikea/engine
+    image: qlikcore/engine
     labels:
       qix-engine: ""
       qix-engine-api-port: "9076"
@@ -209,7 +209,7 @@ before starting the Mira pod.
 
 ### Example of Kubernetes mode
 
-The [mira-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-deployment.yml) file
+The [mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-deployment.yml) file
 is an example of how to deploy Mira and Qlik Associative Engine instances to Kubernetes.
 
 A Kubernetes cluster should be set up and configured correctly.
@@ -221,7 +221,7 @@ This example respresents the minimal _Kubernetes_ mode setup.
 #### Start Mira in _Kubernetes_ mode
 
 You can start Mira in _Kubernetes_ mode from the example
-[mira-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-deployment.yml)
+[mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-deployment.yml)
 file. With the `kubectl` command line tool, run the following command:
 
 ```sh
@@ -238,7 +238,7 @@ In the deployment file, these credentials are held in an object of type `secret`
 
 The Mira REST API should also be exposed as a service.
 You can apply the service configuration with the example
-[mira-service.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/mira-service.yml) file.
+[mira-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-service.yml) file.
 
 ```sh
 kubectl apply -f mira-service.yml
@@ -259,7 +259,7 @@ curl http://$(minikube ip):31000/v1/health
 
 For Mira to discover Qlik Associative Engine instances in the cluster, you can use a Kubernetes deployment file.
 Apply the example
-[engine-deployment.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/engine-deployment.yml) file.
+[engine-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/engine-deployment.yml) file.
 
 ```sh
 kubectl apply -f engine-deployment.yml
@@ -273,7 +273,7 @@ For Mira to be able to discover the engine instances,
 the engines must be exposed as services with named ports.
 
 You can apply the services with the example.
-[engine-service.yml](https://github.com/qlik-ea/mira/blob/master/examples/kubernetes/engine-service.yml) file.
+[engine-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/engine-service.yml) file.
 
 ```sh
 kubectl apply -f engine-service.yml
@@ -316,7 +316,7 @@ spec:
     spec:
       containers:
         ...
-        image: qlikea/engine
+        image: qlikcore/engine
         ...
 ```
 
@@ -339,7 +339,7 @@ You can set the hostname in the `MIRA_DISCOVERY_HOSTNAME` environment variable.
 
 ### Example of DNS mode
 
-The [docker-compose-dns.yml](https://github.com/qlik-ea/mira/blob/master/examples/dns/docker-compose-dns.yml) file
+The [docker-compose-dns.yml](https://github.com/qlik-oss/mira/blob/master/examples/dns/docker-compose-dns.yml) file
 is an example of how to configure DNS mode in a Docker Swarm environment.
 
 !!! Note
@@ -369,7 +369,7 @@ before you start the Mira Docker container.
 
 ### Example of Local mode
 
-The [docker-compose.yml](https://github.com/qlik-ea/mira/blob/master/docker-compose.yml) file
+The [docker-compose.yml](https://github.com/qlik-oss/mira/blob/master/docker-compose.yml) file
 is an example of how Mira and a set of Docker containers can be started locally with Docker compose.
 
 With the `docker-compose.yml` file in the current working directory, run the following command.
@@ -395,11 +395,11 @@ version: "3.1"
 
 services:
   mira:
-    image: qlikea/mira
+    image: qlikcore/mira
     ...
 
   engine1:
-    image: qlikea/engine
+    image: qlikcore/engine
     ...
     labels:
       qix-engine: ""
