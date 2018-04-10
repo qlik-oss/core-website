@@ -17,12 +17,6 @@ jobs:
       - store_artifacts:
           path: ./site
       - run:
-          name: Deploy the site
-          command: |
-            export BUILD_NUMBER=$CIRCLE_BUILD_NUM
-            export BRANCH_NAME=$CIRCLE_BRANCH
-            .circleci/deploy.sh
-      - run:
           name: Sync documentation to S3 bucket
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
