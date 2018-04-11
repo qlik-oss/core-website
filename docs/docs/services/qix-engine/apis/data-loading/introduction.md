@@ -35,3 +35,7 @@ see a full working connector.
 ### MongoDB connector built with JavaScript
 
 [github.com/qlik-oss/core-grpc-mongodb-connector](https://github.com/qlik-oss/core-grpc-mongodb-connector)
+
+### Prometheus connector built with Python
+
+[github.com/qlik-oss/core-grpc-prometheus-connector](https://github.com/qlik-oss/core-grpc-prometheus-connector)
