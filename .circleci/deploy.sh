@@ -42,12 +42,12 @@ scp $ssh_opts -r ./site/. $target_machine:$target_path
 # also update latest for this branch:
 ssh $ssh_opts $target_machine "cd docs && ln -sfn ./$BUILD_NUMBER ./$latest_name"
 
-echo "Atomic URL: https://$TARGET_HOST/docs/$BUILD_NUMBER"
-echo "Latest URL: https://$TARGET_HOST/docs/$latest_name"
+echo "Atomic URL: https://$TARGET_HOST/$BUILD_NUMBER"
+echo "Latest URL: https://$TARGET_HOST/$latest_name"
 
-curl -u none:$GH_TOKEN https://api.github.com/repos/qlik-oss/core-website/pulls --request POST --data "{ 
+curl -s -S -o /dev/null -u none:$GH_TOKEN https://api.github.com/repos/qlik-oss/core-website/pulls --request POST --data "{ 
   \"title\": \"Automated: Qlik Core website preview\",
-  \"body\": \"Hello! The changes to Qlik Core website has been deployed for easy review.\n\nAtomic URL: https://$TARGET_HOST/docs/$BUILD_NUMBER\",
+  \"body\": \"Hello! The changes to Qlik Core website has been deployed for easy review.\n\nAtomic URL: https://$TARGET_HOST/$BUILD_NUMBER\",
   \"head\": \"$BRANCH_NAME\",
   \"base\": \"master\"
 }"
