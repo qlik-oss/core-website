@@ -47,6 +47,5 @@ echo "Atomic URL: https://$TARGET_HOST/$BUILD_NUMBER"
 echo "Latest URL: https://$TARGET_HOST/$latest_name"
 
 curl -s -S -o /dev/null -u none:$GH_TOKEN https://api.github.com/repos/qlik-oss/core-website/commits/$SHA/comments --request POST --data "{ 
-  \"title\": \"Automated: Qlik Core website preview\",
-  \"body\": \"Hello! The changes to Qlik Core website has been deployed for easy review.\n\nAtomic URL: https://$TARGET_HOST/$BUILD_NUMBER\"
+  \"body\": \"A generated website with your changes can be accessed here: https://$TARGET_HOST/$BUILD_NUMBER\"
 }"
