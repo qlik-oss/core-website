@@ -116,7 +116,7 @@ To learn more about labeling, see [Mira documentation](https://github.com/qlik-o
 Deploy the stack by running the following command:
 
 ```sh
-docker stack deploy -c ./docker-compose.yml --with-registry-auth qlik-core
+docker stack deploy -c ./docker-swarm/docker-compose.yml --with-registry-auth qlik-core
 ```
 
 !!! Note
