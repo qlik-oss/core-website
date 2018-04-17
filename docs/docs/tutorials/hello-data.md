@@ -96,7 +96,7 @@ Session closed.
 ```
 
 !!! Tip
-    Open the `hello-data.js` file to see how enigma.js and
+    Open the [`hello-data.js`](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) file to see how enigma.js and
     halyard.js are used to load to and retrieve data from the Qlik Associative Engine.
 
 !!! Note
