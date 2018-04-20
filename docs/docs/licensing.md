@@ -15,7 +15,7 @@ The current limitations are applied to the community version:
 
 !!! Note "Accepting the EULA"
     You need to pass in a setting to Qlik Associative Engine to acknowledge that
-    you accept the EULA. Example: `docker run qlikcore/engine -S AcceptEULA=yes`
+    you accept the EULA. Example: `docker run qlikcore/engine:<version> -S AcceptEULA=yes`
 
 ## Licensed
 
