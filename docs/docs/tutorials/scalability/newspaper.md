@@ -43,7 +43,8 @@ We make the following assumptions in this example.
 
 !!! Note
     In this scenario, there is no logic to reject new sessions
-    even if the current cluster is fully loaded or overloaded. This type of feature could be implemented by checking for headroom and rejecting sessions when there is not enough left.
+    even if the current cluster is fully loaded or overloaded. This type of feature could be implemented
+    by checking for headroom and rejecting sessions when there is not enough left.
 
 ## Document session placement using Mira
 
