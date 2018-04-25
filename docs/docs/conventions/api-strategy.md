@@ -52,7 +52,7 @@ We currently have three levels:
     there is no need to deprecate before removing.
     We want to expose new APIs to our partners and customers as soon as possible.
     This lets customers and partners develop early prototypes with experimental APIs and
-    provides us with important feedback in the early stage of the API. Experimental APIs 
+    provides us with important feedback in the early stage of the API. Experimental APIs
     are not subject to the Versioning policy.
 
 * **Stable**
