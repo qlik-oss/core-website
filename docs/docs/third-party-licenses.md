@@ -4,14 +4,12 @@
 # Third-Party Licenses
 
 The following libraries are used in our closed source components,
-and therefore listing all licenses below.
+and therefore listing all licenses below. Our open source components list their own third-party dependencies.
 
 
 ## [boost](http://www.boost.org/)
 
 ```text
-
-
 Boost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization
@@ -41,7 +39,6 @@ DEALINGS IN THE SOFTWARE.
 ## [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/)
 
 ```text
-
 Copyright (c) 2006, Google Inc.
 All rights reserved.
 
@@ -70,15 +67,12 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
 ```
 
 
 ## [clang-headers](http://clang.llvm.org/)
 
 ```text
-
 Permission is hereby granted, free of charge, to any person obtaining a copy 
 of this software and associated documentation files (the "Software"), to deal 
 in the Software without restriction, including without limitation the rights 
@@ -102,7 +96,6 @@ THE SOFTWARE.
 ## [dtoa](http://www.ampl.com/netlib/fp/dtoa.c)
 
 ```text
-
 The author of this software is David M. Gay.
 
 Copyright (c) 1991, 2000, 2001 by Lucent Technologies.
@@ -123,8 +116,6 @@ OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
 ## [grpc](http://www.grpc.io/)
 
 ```text
-
-
 Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
@@ -332,7 +323,6 @@ limitations under the License.
 ## [gsl](https://github.com/Microsoft/GSL)
 
 ```text
-
 Permission is hereby granted, free of charge, to any person obtaining a copy 
 of this software and associated documentation files (the "Software"), to deal 
 in the Software without restriction, including without limitation the rights 
@@ -356,7 +346,6 @@ THE SOFTWARE.
 ## [http-parser](https://github.com/joyent/http-parser)
 
 ```text
-
 http_parser.c is based on src/http/ngx_http_parse.c from NGINX copyright
 Igor Sysoev.
 
@@ -390,7 +379,6 @@ IN THE SOFTWARE.
 ## [icu4c](https://github.com/Microsoft/GSL)
 
 ```text
-
 ICU License - ICU 1.8.1 and later
 
 COPYRIGHT AND PERMISSION NOTICE
@@ -427,16 +415,12 @@ of the copyright holder.
 
 All trademarks and registered trademarks mentioned herein are the
 property of their respective owners.
-
-
 ```
 
 
 ## [Int128](http://www.angusj.com/delphi/clipper.php)
 
 ```text
-
-
 Boost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization
@@ -466,7 +450,6 @@ DEALINGS IN THE SOFTWARE.
 ## [libc++](http://libcxx.llvm.org/)
 
 ```text
-
 University of Illinois/NCSA Open Source License 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal with the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
@@ -481,7 +464,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## [LibCurl](http://curl.haxx.se/)
 
 ```text
-
 COPYRIGHT AND PERMISSION NOTICE
 
 Copyright (c) 1996 - 2015, Daniel Stenberg, <daniel@haxx.se>.
@@ -509,7 +491,6 @@ in this Software without prior written authorization of the copyright holder.
 ## [libuv](https://github.com/libuv/libuv)
 
 ```text
-
 libuv is part of the Node project: http://nodejs.org/
 libuv may be distributed alone under Node's license:
 
@@ -574,7 +555,6 @@ n° 289016). Three clause BSD license.
 ## [libxls](https://sourceforge.net/projects/libxls/)
 
 ```text
-
 libxls -- A multiplatform, C/C++ library for parsing Excel(TM) files.
 
 Redistribution and use in source and binary forms, with or without modification, are
@@ -607,7 +587,6 @@ Copyright 2008-2013 David Hoerl
 ## [libxml2](http://xmlsoft.org/)
 
 ```text
-
 Except where otherwise noted in the source code (e.g. the files hash.c,
 list.c and the trio files, which are covered by a similar licence but
 with different Copyright notices) all the files are:
@@ -637,7 +616,6 @@ THE SOFTWARE.
 ## [Linux Syscall Support](https://chromium.googlesource.com/breakpad/breakpad/)
 
 ```text
-
 /* Copyright (c) 2005-2011, Google Inc.
 * All rights reserved.
 *
@@ -667,14 +645,13 @@ THE SOFTWARE.
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
-* 
+*
 ```
 
 
 ## [Microsoft .NET Library](https://dot.net/)
 
 ```text
-
 MICROSOFT SOFTWARE LICENSE TERMS
 
 MICROSOFT .NET LIBRARY
@@ -806,7 +783,6 @@ EFFET JURIDIQUE.  Le présent contrat décrit certains droits juridiques. Vous p
 ## [Microsoft.AspNetCore.All](https://asp.net/)
 
 ```text
-
 Copyright (c) .NET Foundation and Contributors
 
 All rights reserved.
@@ -827,8 +803,6 @@ specific language governing permissions and limitations under the License.
 ## [prometheus-cpp](https://github.com/jupp0r/prometheus-cpp)
 
 ```text
-
-
 MIT License
 
 Copyright (c) [year] [fullname]
@@ -856,7 +830,6 @@ SOFTWARE.
 ## [Prometheus.Client](https://github.com/PrometheusClientNet/Prometheus.Client)
 
 ```text
-
 Permission is hereby granted, free of charge, to any person obtaining a copy 
 of this software and associated documentation files (the "Software"), to deal 
 in the Software without restriction, including without limitation the rights 
@@ -880,7 +853,6 @@ THE SOFTWARE.
 ## [protobuf](https://developers.google.com/protocol-buffers/)
 
 ```text
-
 This license applies to all parts of Protocol Buffers except the following:
 
 - Atomicops support for generic gcc, located in
@@ -929,7 +901,6 @@ support library is itself covered by the above license.
 ## [rabbitmq-c](https://github.com/alanxz/rabbitmq-c)
 
 ```text
-
 Portions created by Alan Antonuk are Copyright (c) 2012-2013
 Alan Antonuk. All Rights Reserved.
 
@@ -964,7 +935,6 @@ SOFTWARE.
 ## [RIPEMD-160](http://homes.esat.kuleuven.be/~bosselae/ripemd160.html)
 
 ```text
-
 Copyright© 1996(Katholieke Universiteit Leuven), All Rights Reserved.
 
 Conditions for use of the RIPEMD-160 Software:
@@ -993,7 +963,6 @@ www.esat.kuleuven.ac.be/~cosicart/ps/AB-9601/.
 ## [sais](https://sites.google.com/site/yuta256/)
 
 ```text
-
 Copyright (c) 2008-2010 Yuta Mori All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person

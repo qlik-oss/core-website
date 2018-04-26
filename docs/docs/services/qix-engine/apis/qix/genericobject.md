@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.167.0._
 
 ## `AbortListObjectSearch`
 
@@ -41,6 +41,14 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
 | `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
+
+_No return values._
+
+## `Approve`
+
+Adds the generic object to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 
@@ -626,7 +634,7 @@ Makes selections in multiple dimensions and measures.<br> This method applies to
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
 | `qRowIndices` | array | Yes | Array of row indexes to select, starting from 0.<br>If the array is empty _[ ]_ , all rows are selected. |
-| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension or a measure depending on the definition of the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions and one measure:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br>* [2] selects the third column (i.e the measure).<br><br>If the array is empty _[ ]_ , all columns are selected. |
+| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension in the order they are added to the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br><br>If the array is empty _[ ]_ , all columns are selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
@@ -830,6 +838,14 @@ Sets some properties for a generic object.<br>The properties depends on the gene
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Yes | Information about the generic object. |
+
+_No return values._
+
+## `UnApprove`
+
+Removes the generic object from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 

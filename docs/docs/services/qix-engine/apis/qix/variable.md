@@ -3,12 +3,12 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.167.0._
 
 ## `ForceContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
 
 Sets the value of a dual variable overriding any input constraints.
 
@@ -24,7 +24,7 @@ _No return values._
 ## `GetContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
 
 Returns the calculated value of a variable.
 
@@ -54,7 +54,7 @@ _No parameters._
 ## `GetRawContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
 
 Returns the raw value of a variable.
 
@@ -69,7 +69,7 @@ _No parameters._
 ## `SetContent`
 
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
 
 Sets a value to a variable.
 
