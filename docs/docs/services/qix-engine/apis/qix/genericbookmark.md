@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.167.0._
 
 ## `Apply`
 
@@ -26,6 +26,14 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
+
+_No return values._
+
+## `Approve`
+
+Adds the generic bookmark to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 
@@ -100,6 +108,14 @@ Sets some properties for a bookmark.
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | [`GenericBookmarkProperties`](./definitions.md#genericbookmarkproperties) | Yes | Information about the bookmark. |
+
+_No return values._
+
+## `UnApprove`
+
+Removes the generic bookmark from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 

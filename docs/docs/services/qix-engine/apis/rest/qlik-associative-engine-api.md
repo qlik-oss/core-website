@@ -3,33 +3,12 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.156.0._
+_Qlik Associative Engine API for version 12.167.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
 
 ## Paths
-
-### `GET /docs/{docId}/metadata`
-
-Retrieves the data model and reload statistics meta data of an app.
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Experimental |
-| Produces | application/json |
-
-**Parameters**
-
-| Parameter | In | Type | Required | Description |
-| --------- | -- | ---- | -------- | ----------- |
-| `docId` | path | string | true | Identifier of the app. One of:<br/>&bull; Path and name of the app (Qlik Sense Desktop)<br/>&bull; GUID (Qlik Sense Enterprise)<br/>&bull; Relativ path and name of the app (Qlik Core) |
-
-**Responses**
-
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
-| `200` | OK | [NxAppMetadata](#nxappmetadata) |
 
 ### `GET /health`
 
@@ -71,44 +50,126 @@ _No parameters_
 | ------ | ----------- | ------ |
 | `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
 
-## Definitions
+### `GET /v1/apps/{appId}/data/metadata`
 
-### `NxAppMetadata`
+Retrieves the data model and reload statistics meta data of an app.
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Required | Description |
+| --------- | -- | ---- | -------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | [DataModelMetadata](#datamodelmetadata) |
+
+## Definitions
+
+### `HealthcheckStatus`
 
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
 | ---- | ---- | ------ | ----- | ------ | ----------- |
-| `reload_meta` | object | [NxLastReloadMetadata](#nxlastreloadmetadata) | _No items_ | _No format_ | Meta data for the last app reload. |
+| `version` | string | _No schema_ | _No items_ | _No format_ | _No description._ |
+| `started` | string | _No schema_ | _No items_ | _No format_ | _No description._ |
+| `mem` | object | [MemoryUsage](#memoryusage) | _No items_ | _No format_ | _No description._ |
+| `cpu` | object | [CPUUsage](#cpuusage) | _No items_ | _No format_ | _No description._ |
+| `session` | object | [SessionUsage](#sessionusage) | _No items_ | _No format_ | _No description._ |
+| `apps` | object | [AppUsage](#appusage) | _No items_ | _No format_ | _No description._ |
+| `users` | object | [UserUsage](#userusage) | _No items_ | _No format_ | _No description._ |
+| `cache` | object | [CacheUsage](#cacheusage) | _No items_ | _No format_ | _No description._ |
+| `saturated` | boolean | _No schema_ | _No items_ | _No format_ | _No description._ |
+
+### `MemoryUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `committed` | number | _No schema_ | _No items_ | double | _No description._ |
+| `allocated` | number | _No schema_ | _No items_ | double | _No description._ |
+| `free` | number | _No schema_ | _No items_ | double | _No description._ |
+
+### `CPUUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `total` | number | _No schema_ | _No items_ | double | _No description._ |
+
+### `SessionUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `active` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+
+### `AppUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `active_docs` | array | _No schema_ | string | _No format_ | _No description._ |
+| `loaded_docs` | array | _No schema_ | string | _No format_ | _No description._ |
+| `in_memory_docs` | array | _No schema_ | string | _No format_ | _No description._ |
+| `calls` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `selections` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+
+### `UserUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `active` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+
+### `CacheUsage`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `hits` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `lookups` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `added` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `replaced` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+| `bytes_added` | integer | _No schema_ | _No items_ | int32 | _No description._ |
+
+### `DataModelMetadata`
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `reload_meta` | object | [LastReloadMetadata](#lastreloadmetadata) | _No items_ | _No format_ | Meta data for the last app reload. |
 | `static_byte_size` | integer | _No schema_ | _No items_ | int64 | Static memory usage for the app. |
-| `fields` | array | _No schema_ | [RestFieldDescription](#restfielddescription) | _No format_ | List of field descriptions. |
-| `tables` | array | _No schema_ | [RestTableDescription](#resttabledescription) | _No format_ | List of table descriptions. |
+| `fields` | array | _No schema_ | [FieldMetadata](#fieldmetadata) | _No format_ | List of field descriptions. |
+| `tables` | array | _No schema_ | [TableMetadata](#tablemetadata) | _No format_ | List of table descriptions. |
 
-### `NxLastReloadMetadata`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
+### `LastReloadMetadata`
 
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
 | ---- | ---- | ------ | ----- | ------ | ----------- |
 | `cpu_time_spent_ms` | integer | _No schema_ | _No items_ | int64 | Number of CPU milliseconds it took to reload the app. |
-| `hardware` | object | [NxHardwareMeta](#nxhardwaremeta) | _No items_ | _No format_ | Hardware available for the engine doing the reload. |
+| `hardware` | object | [HardwareMeta](#hardwaremeta) | _No items_ | _No format_ | Hardware available for the engine doing the reload. |
 
-### `NxHardwareMeta`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
+### `HardwareMeta`
 
 **Properties**
 
@@ -117,12 +178,7 @@ _No parameters_
 | `logical_cores` | integer | _No schema_ | _No items_ | int32 | Number of logical cores available. |
 | `total_memory` | integer | _No schema_ | _No items_ | int64 | RAM available. |
 
-### `RestFieldDescription`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
+### `FieldMetadata`
 
 **Properties**
 
@@ -143,12 +199,7 @@ _No parameters_
 | `tags` | array | _No schema_ | string | _No format_ | Gives information on a field. For example, it can return the type of the field. Examples: key, text, ASCII. |
 | `byte_size` | integer | _No schema_ | _No items_ | int64 | Static RAM memory used in bytes. |
 
-### `RestTableDescription`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
+### `TableMetadata`
 
 **Properties**
 
@@ -163,114 +214,3 @@ _No parameters_
 | `no_of_key_fields` | integer | _No schema_ | _No items_ | int32 | Number of key fields. |
 | `comment` | string | _No schema_ | _No items_ | _No format_ | Table comment. |
 | `byte_size` | integer | _No schema_ | _No items_ | int64 | Static RAM memory used in bytes. |
-
-### `HealthcheckStatus`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `version` | string | _No schema_ | _No items_ | _No format_ | _No description._ |
-| `started` | string | _No schema_ | _No items_ | _No format_ | _No description._ |
-| `mem` | object | [MemoryUsage](#memoryusage) | _No items_ | _No format_ | _No description._ |
-| `cpu` | object | [CPUUsage](#cpuusage) | _No items_ | _No format_ | _No description._ |
-| `session` | object | [SessionUsage](#sessionusage) | _No items_ | _No format_ | _No description._ |
-| `apps` | object | [AppUsage](#appusage) | _No items_ | _No format_ | _No description._ |
-| `users` | object | [UserUsage](#userusage) | _No items_ | _No format_ | _No description._ |
-| `cache` | object | [CacheUsage](#cacheusage) | _No items_ | _No format_ | _No description._ |
-| `saturated` | boolean | _No schema_ | _No items_ | _No format_ | _No description._ |
-
-### `MemoryUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `committed` | number | _No schema_ | _No items_ | double | _No description._ |
-| `allocated` | number | _No schema_ | _No items_ | double | _No description._ |
-| `free` | number | _No schema_ | _No items_ | double | _No description._ |
-
-### `CPUUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `total` | number | _No schema_ | _No items_ | double | _No description._ |
-
-### `SessionUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `active` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-
-### `AppUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `active_docs` | array | _No schema_ | string | _No format_ | _No description._ |
-| `loaded_docs` | array | _No schema_ | string | _No format_ | _No description._ |
-| `in_memory_docs` | array | _No schema_ | string | _No format_ | _No description._ |
-| `calls` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `selections` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-
-### `UserUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `active` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-
-### `CacheUsage`
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Type | object |
-
-**Properties**
-
-| Name | Type | Schema | Items | Format | Description |
-| ---- | ---- | ------ | ----- | ------ | ----------- |
-| `hits` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `lookups` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `added` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `replaced` | integer | _No schema_ | _No items_ | int32 | _No description._ |
-| `bytes_added` | integer | _No schema_ | _No items_ | int32 | _No description._ |
