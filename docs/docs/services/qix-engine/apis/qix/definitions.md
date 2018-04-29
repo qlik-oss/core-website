@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.156.0._
+_QIX definitions for version 12.167.0._
 
 
 
@@ -449,7 +449,7 @@ _No description._
 
 ## `FieldAttributes`
 
-IMPORTANT: WHENEVER YOU DO A CHANGE IN THIS TOPIC, DO THE EQUIVALENT CHANGE IN THE [`FieldAttributes`](#fieldattributes) SNIPPET AS WELL!<br>Sets the formatting of a field.<br>The properties of _qFieldAttributes_ and the formatting mechanism are described below.<br><br>
+Sets the formatting of a field.<br>The properties of _qFieldAttributes_ and the formatting mechanism are described below.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -799,7 +799,7 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qReductionMode` | string | <br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
 | `qMode` | string | Defines the way the data are handled internally by the engine.<br>Default value is _DATA_MODE_STRAIGHT_ .<br>A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.<br><br>One of:<br>* S or DATA_MODE_STRAIGHT<br>* P or DATA_MODE_PIVOT<br>* K or DATA_MODE_PIVOT_STACK<br>* T or DATA_MODE_TREE |
 | `qPseudoDimPos` | integer | _No description._ |
-| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1. In that case, all dimensions are left dimensions.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )<br>_qInterColumnSortOrder_ is (0,-1,1,2,3).<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br>* One pseudo dimension.<br>* The property _qInterColumnSortOrder_ is left empty.<br><br>Implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension.<br>* The pseudo dimension is a top dimension. |
+| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1. In that case, all dimensions are left dimensions.<br>Hidden dimensions (e.g. due to unfulfilled calc condition on dimension level) is still counted in this context.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )<br>_qInterColumnSortOrder_ is (0,-1,1,2,3).<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br>* One pseudo dimension.<br>* The property _qInterColumnSortOrder_ is left empty.<br><br>Implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension.<br>* The pseudo dimension is a top dimension. |
 | `qAlwaysFullyExpanded` | boolean | If this property is set to true, the cells are always expanded. It implies that it is not possible to collapse any cells.<br>The default value is false. |
 | `qMaxStackedCells` | integer | Maximum number of cells for an initial data fetch (set in _qInitialDataFetch_ ) when in stacked mode ( _qMode_ is K).<br>The default value is 5000. |
 | `qPopulateMissing` | boolean | If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.<br>The default value is false. |
@@ -1265,7 +1265,6 @@ _No description._
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
 | `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
-| `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
 | `qGroupFieldDefs` | array | Array of field names. |
@@ -1278,6 +1277,7 @@ _No description._
 | `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | Array of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
+| `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 
 ## `NxEngineVersion`
 

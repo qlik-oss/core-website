@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericDimension
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.167.0._
 
 ## `ApplyPatches`
 
@@ -14,6 +14,14 @@ Applies a patch to the properties of an object. Allows an update to some of the 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
+
+_No return values._
+
+## `Approve`
+
+Adds the generic dimension to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 
@@ -94,6 +102,14 @@ Sets some properties for a dimension.
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | [`GenericDimensionProperties`](./definitions.md#genericdimensionproperties) | Yes | Information about the dimension. |
+
+_No return values._
+
+## `UnApprove`
+
+Removes the generic dimension from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+
+_No parameters._
 
 _No return values._
 

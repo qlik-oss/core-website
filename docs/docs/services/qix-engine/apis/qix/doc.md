@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.167.0._
 
 ## `AbortModal`
 
@@ -362,7 +362,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 ## `CreateVariable`
 
 !!! warning "Deprecated"
-    Use [`Doc::CreateVariableEx`](#createvariableex) method instead
+    Use [`Doc::CreateVariableEx`](#doc::createvariableex) method instead
 
 Creates a variable.
 
@@ -1325,7 +1325,7 @@ _No parameters._
 ## `GetVariable`
 
 !!! warning "Deprecated"
-    Use [`Doc::GetVariableById`](#getvariablebyid) method or [`Doc::GetVariableByName`](#getvariablebyname) method instead
+    Use [`Doc::GetVariableById`](#doc::getvariablebyid) method or [`Doc::GetVariableByName`](#doc::getvariablebyname) method instead
 
 Returns a handle to a variable.
 
@@ -1468,7 +1468,7 @@ _No return values._
 ## `RemoveVariable`
 
 !!! warning "Deprecated"
-    Use [`Doc::DestroyVariableById`](#destroyvariablebyid) method or [`Doc::DestroyVariableByName`](#destroyvariablebyname) method instead
+    Use [`Doc::DestroyVariableById`](#doc::destroyvariablebyid) method or [`Doc::DestroyVariableByName`](#doc::destroyvariablebyname) method instead
 
 Removes a variable.
 
@@ -1623,7 +1623,7 @@ Sends a generic command to a custom connector.<br>For more information on the co
 
 ## `SetAppProperties`
 
-Sets properties to an app.
+Sets properties to an app.<br>The qLastReloadTime, qMigrationHash and qSavedInProductVersion properties does not need to be set but if they are, they should match the current values in the app layout. 
 
 **Parameters:**
 
