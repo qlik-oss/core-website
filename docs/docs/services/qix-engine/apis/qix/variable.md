@@ -3,12 +3,11 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.156.0._
+_QIX methods for version 12.166.0._
 
 ## `ForceContent`
-
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
 
 Sets the value of a dual variable overriding any input constraints.
 
@@ -22,9 +21,8 @@ Sets the value of a dual variable overriding any input constraints.
 _No return values._
 
 ## `GetContent`
-
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
 
 Returns the calculated value of a variable.
 
@@ -37,7 +35,6 @@ _No parameters._
 | `qContent` | [`AlfaNumString`](./definitions.md#alfanumstring) | Information about the calculated value. |
 
 ## `GetNxProperties`
-
 !!! warning "Deprecated"
     Use [`GetProperties`](./genericvariable.md#getproperties) method instead
 
@@ -52,9 +49,8 @@ _No parameters._
 | `qProperties` | [`NxVariableProperties`](./definitions.md#nxvariableproperties) | Information about the properties of the variable. |
 
 ## `GetRawContent`
-
 !!! warning "Deprecated"
-    Use [`GenericVariable::GetProperties`](./genericvariable.md#getproperties) method instead
+    Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
 
 Returns the raw value of a variable.
 
@@ -67,9 +63,8 @@ _No parameters._
 | `qReturn` | string | &lt;Definition of the variable&gt; |
 
 ## `SetContent`
-
 !!! warning "Deprecated"
-    Use [`GenericVariable::SetProperties`](./genericvariable.md#setproperties) method instead
+    Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
 
 Sets a value to a variable.
 
@@ -87,7 +82,6 @@ Sets a value to a variable.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SetNxProperties`
-
 !!! warning "Deprecated"
     Use [`SetProperties`](./genericvariable.md#setproperties) method instead
 
