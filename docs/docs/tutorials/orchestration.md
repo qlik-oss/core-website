@@ -3,7 +3,7 @@
 In this tutorial, you will learn how to set up and deploy the minimal Qlik Core stack
 comprising the core services. The core services represent the foundation on which to build full Qlik Core solutions.
 
-The core Qlik Core stack consists of the following services:
+The core stack of Qlik Core consists of the following services:
 
 - [Qlik Associative Engine](../services/qix-engine/introduction.md)
 - [Licenses](../services/licenses.md)
