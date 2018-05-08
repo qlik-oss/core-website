@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Deploy the site for review
           command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+            if [ "${CIRCLE_BRANCH}" != "master" ] && [ "${TARGET_USER}" != "" ]; then
               export BUILD_NUMBER=$CIRCLE_BUILD_NUM
               export BRANCH_NAME=$CIRCLE_BRANCH	
               export SHA=$CIRCLE_SHA1
