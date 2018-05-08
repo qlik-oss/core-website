@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Sync documentation to S3 bucket
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${TARGET_USER}" != "" ]; then
               aws s3 sync site/ s3://qlikcoresite/ --delete
               aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
             fi
