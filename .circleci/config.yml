@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Deploy the site for review
           command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+            if [ "${CIRCLE_BRANCH}" != "master" ] && [ "${TARGET_USER}" != "" ]; then
               export BUILD_NUMBER=$CIRCLE_BUILD_NUM
               export BRANCH_NAME=$CIRCLE_BRANCH	
               export SHA=$CIRCLE_SHA1
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Sync documentation to S3 bucket
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${TARGET_USER}" != "" ]; then
               aws s3 sync site/ s3://qlikcoresite/ --delete
               aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
             fi
