@@ -4,11 +4,7 @@
 
 Qlik Core consists of a core set of services, including the Qlik Associative Engine, that you can download as Docker images:
 
-| Service    | Feature | Docker Image | Source Code |
-| ---------- | ------- | ------------ | ----------- |
-| [Qlik Associative Engine](./services/qix-engine/introduction.md) | The powerful associative indexing engine from Qlik and the foundation of Qlik Core. | [qlikcore/engine](https://hub.docker.com/r/qlikcore/engine) | Closed source |
-| [Licenses](./services/licenses.md) | Service required to run Qlik Associative Engine with a paid license. | [qlikcore/licenses](https://hub.docker.com/r/qlikcore/licenses) | Closed source |
-| [Mira](./services/mira.md) | Qlik Associative Engine discovery service. | [qlikcore/mira](https://hub.docker.com/r/qlikcore/mira) | [GitHub](https://github.com/qlik-oss/mira) |
+<div id="downloads-table-wrapper"></div>
 
 ## JavaScript Libraries
 

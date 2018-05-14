@@ -1,0 +1,42 @@
+.title__version {
+  font-weight: bold;
+  display: block;
+}
+
+.title__release-date {
+  font-style: italic;
+  display: block;
+}
+
+.changes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.changes__circle {
+  --size: 24px;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  text-align: center;
+  line-height: var(--size);
+  border-radius: 50%;
+  color: white;
+  font-size: .8em;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+.changes__circle--added {
+  background-color: var(--custom-green);
+}
+.changes__circle--updated {
+  background-color: orange;
+}
+.changes__circle--removed {
+  background-color: red;
+}
+.changes__circle--deprecated {
+  background-color: var(--custom-grey);
+}
