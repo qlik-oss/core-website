@@ -113,7 +113,7 @@
                   </a>
                 </div>
               `
-              : api[0].qText
+              : ''
             ;
             const circleProperties = number => {
               switch(number) {
