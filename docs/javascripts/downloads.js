@@ -62,7 +62,7 @@
     const tableBody = document.createElement('tbody');
     table.appendChild(tableBody);
 
-    const latestChangesCells = [];
+    const latestVersionCells = [];
     services.forEach(service => {
       const tableBodyRow = document.createElement('tr');
       tableBody.appendChild(tableBodyRow);
@@ -75,7 +75,7 @@
       const cell = document.createElement('td');
       cell.appendChild(loader.cloneNode(true));
       tableBodyRow.appendChild(cell);
-      latestChangesCells.push(cell);
+      latestVersionCells.push(cell);
     })
     downloadsTableWrapper.appendChild(scrollWrap);
 
@@ -175,7 +175,7 @@
             }</div>`;
           };
 
-          latestChangesCells.forEach((cell, index) => {
+          latestVersionCells.forEach((cell, index) => {
             const service = services[index]
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
             cell.innerText = '';
