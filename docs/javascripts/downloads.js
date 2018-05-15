@@ -1,6 +1,17 @@
 (function() {
   const downloadsTableWrapper = document.getElementById('downloads-table-wrapper');
+
   if (downloadsTableWrapper) {
+    const loader = document.createElement('div');
+    loader.id = 'loader';
+    loader.className = 'dots';
+    for (let i = 0; i < 7; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dots__dot';
+      loader.appendChild(dot);
+    }
+    downloadsTableWrapper.appendChild(loader);
+
     const appId = '52e3297d-ceeb-45c9-bbe4-6069fe920760';
     const services = [
       {
@@ -61,7 +72,6 @@
 
           const scrollWrap = document.createElement('div');
           scrollWrap.className = 'md-typeset__scrollwrap';
-          downloadsTableWrapper.appendChild(scrollWrap);
 
           const tableContainer = document.createElement('div');
           tableContainer.className = 'md-typeset__table';
@@ -168,6 +178,8 @@
             serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
             cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 6, 7]));
           })
+
+          downloadsTableWrapper.replaceChild(scrollWrap, loader);
         })
         .then(() => doc.session.close());
     });
