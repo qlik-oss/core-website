@@ -2,16 +2,6 @@
   const downloadsTableWrapper = document.getElementById('downloads-table-wrapper');
 
   if (downloadsTableWrapper) {
-    const loader = document.createElement('div');
-    loader.id = 'loader';
-    loader.className = 'dots';
-    for (let i = 0; i < 7; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'dots__dot';
-      loader.appendChild(dot);
-    }
-    downloadsTableWrapper.appendChild(loader);
-
     const appId = '52e3297d-ceeb-45c9-bbe4-6069fe920760';
     const services = [
       {
@@ -39,6 +29,55 @@
         ],
       },
     ];
+
+    const loader = document.createElement('div');
+    loader.className = 'dots';
+    for (let i = 0; i < 7; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dots__dot';
+      loader.appendChild(dot);
+    }
+
+    const scrollWrap = document.createElement('div');
+    scrollWrap.className = 'md-typeset__scrollwrap';
+
+    const tableContainer = document.createElement('div');
+    tableContainer.className = 'md-typeset__table';
+    scrollWrap.appendChild(tableContainer);
+
+    const table = document.createElement('table');
+    tableContainer.appendChild(table);
+
+    const tableHeader = document.createElement('thead');
+    table.appendChild(tableHeader);
+
+    const tableHeaderRow = document.createElement('tr');
+    tableHeader.appendChild(tableHeaderRow);
+    ['Service', 'Feature', 'Links', 'Latest Version'].forEach(title => {
+      const cell = document.createElement('th');
+      cell.appendChild(document.createTextNode(title));
+      tableHeaderRow.appendChild(cell);
+    });
+
+    const tableBody = document.createElement('tbody');
+    table.appendChild(tableBody);
+
+    const latestChangesCells = [];
+    services.forEach(service => {
+      const tableBodyRow = document.createElement('tr');
+      tableBody.appendChild(tableBodyRow);
+      ['service', 'feature', 'link'].forEach(column => {
+        const cell = document.createElement('td');
+        cell.insertAdjacentHTML('beforeend', service[column]);
+        tableBodyRow.appendChild(cell);
+      });
+
+      const cell = document.createElement('td');
+      cell.appendChild(loader.cloneNode(true));
+      tableBodyRow.appendChild(cell);
+      latestChangesCells.push(cell);
+    })
+    downloadsTableWrapper.appendChild(scrollWrap);
 
     fetch('https://unpkg.com/enigma.js/schemas/12.34.11.json')
     .then(response => response.json())
@@ -69,119 +108,83 @@
         .then(obj => obj.getLayout())
         .then(layout => {
           const apis = layout.qHyperCube.qDataPages[0].qMatrix;
-
-          const scrollWrap = document.createElement('div');
-          scrollWrap.className = 'md-typeset__scrollwrap';
-
-          const tableContainer = document.createElement('div');
-          tableContainer.className = 'md-typeset__table';
-          scrollWrap.appendChild(tableContainer);
-
-          const table = document.createElement('table');
-          tableContainer.appendChild(table);
-
-          const tableHeader = document.createElement('thead');
-          table.appendChild(tableHeader);
-
-          const tableHeaderRow = document.createElement('tr');
-          tableHeader.appendChild(tableHeaderRow);
-          ['Service', 'Feature', 'Links', 'Latest Version'].forEach(title => {
-            const cell = document.createElement('th');
-            cell.appendChild(document.createTextNode(title));
-            tableHeaderRow.appendChild(cell);
-          });
-
-          const tableBody = document.createElement('tbody');
-          table.appendChild(tableBody);
-
-          services.forEach(service => {
-            const cellTitle = api => `
-              <div class="title">
-                <span class="title__version">
-                  ${api[1].qText}
-                </span>
-                <span class="title__release-date">
-                  (${api[3].qText})
-                </span>
+          const cellTitle = api => `
+            <div class="title">
+              <span class="title__version">
+                ${api[1].qText}
+              </span>
+              <span class="title__release-date">
+                (${api[3].qText})
+              </span>
+            </div>
+          `;
+          const apiLink = api => api[8].qText === 'public'
+            ? `
+              <div class="api-link">
+                <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[1].qText}/${api[2].qText}">
+                  ${api[0].qText}
+                </a>
               </div>
-            `;
-            const apiLink = api => api[8].qText === 'public'
-              ? `
-                <div class="api-link">
-                  <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[1].qText}/${api[2].qText}">
-                    ${api[0].qText}
-                  </a>
-                </div>
-              `
-              : ''
-            ;
-            const circleProperties = number => {
-              switch(number) {
-                case 4:
-                  return { extraClass: 'changes__circle--added', title: 'Added' } ;
-                case 5:
-                  return { extraClass: 'changes__circle--updated', title: 'Updated' } ;
-                case 6:
-                  return { extraClass: 'changes__circle--removed', title: 'Removed' } ;
-                case 7:
-                  return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' } ;
-                default:
-                  return { extraClass: '', title: '' };
-              }
-            };
-            const changesCircles = (apis, indexes = []) => {
-              const publicApis = apis.filter(api => api[8].qText === 'public');
-              const changes = [];
+            `
+            : ''
+          ;
+          const circleProperties = number => {
+            switch(number) {
+              case 4:
+                return { extraClass: 'changes__circle--added', title: 'Added' } ;
+              case 5:
+                return { extraClass: 'changes__circle--updated', title: 'Updated' } ;
+              case 6:
+                return { extraClass: 'changes__circle--removed', title: 'Removed' } ;
+              case 7:
+                return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' } ;
+              default:
+                return { extraClass: '', title: '' };
+            }
+          };
+          const changesCircles = (apis, indexes = []) => {
+            const publicApis = apis.filter(api => api[8].qText === 'public');
+            const changes = [];
 
-              indexes.forEach(index => {
-                changes[index] = publicApis.map(api => parseInt(api[index].qText)).reduce(
-                  (accumulator, currentValue) => accumulator + currentValue
-                  , 0
-                )
-              });
-
-              if (
-                publicApis.length === 0 ||
-                changes.every(change => change === 0)
-              ) {
-                return '';
-              }
-
-              return `<div class="changes">${
-                (indexes.map(index => {
-                  return `
-                    <div
-                      title="${circleProperties(index).title}"
-                      class="changes__circle ${circleProperties(index).extraClass}"
-                    >
-                      ${changes[index]}
-                    </div>
-                  `;
-                }))
-                .join('')
-              }</div>`;
-            };
-
-            const tableBodyRow = document.createElement('tr');
-            tableBody.appendChild(tableBodyRow);
-            ['service', 'feature', 'link'].forEach(column => {
-              const cell = document.createElement('td');
-              cell.insertAdjacentHTML('beforeend', service[column]);
-              tableBodyRow.appendChild(cell);
+            indexes.forEach(index => {
+              changes[index] = publicApis.map(api => parseInt(api[index].qText)).reduce(
+                (accumulator, currentValue) => accumulator + currentValue
+                , 0
+              )
             });
 
-            const cell = document.createElement('td');
-            tableBodyRow.appendChild(cell);
+            if (
+              publicApis.length === 0 ||
+              changes.every(change => change === 0)
+            ) {
+              return '';
+            }
 
+            return `<div class="changes">${
+              (indexes.map(index => {
+                return `
+                  <div
+                    title="${circleProperties(index).title}"
+                    class="changes__circle ${circleProperties(index).extraClass}"
+                  >
+                    ${changes[index]}
+                  </div>
+                `;
+              }))
+              .join('')
+            }</div>`;
+          };
+
+          latestChangesCells.forEach((cell, index) => {
+            const service = services[index]
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
+            cell.innerText = '';
             cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
             serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
             cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 6, 7]));
           })
-
-          downloadsTableWrapper.replaceChild(scrollWrap, loader);
         })
         .then(() => doc.session.close());
-    });
+      });
   }
 })();

@@ -1,9 +1,13 @@
+#downloads-table-wrapper {
+  min-height: 373px;
+}
+
 .dots {
   --timer: 1s;
   --delay: calc(var(--timer) * .4);
   --delay-coefficient: calc(var(--delay) * .25);
 
-  height: 353px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
