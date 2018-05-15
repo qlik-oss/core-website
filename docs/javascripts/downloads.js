@@ -178,6 +178,7 @@
           latestVersionCells.forEach((cell, index) => {
             const service = services[index]
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
+
             cell.innerText = '';
             cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
             serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
