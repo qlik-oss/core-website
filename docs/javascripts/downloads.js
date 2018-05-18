@@ -79,13 +79,33 @@
     })
     downloadsTableWrapper.appendChild(scrollWrap);
 
-    fetch('https://unpkg.com/enigma.js/schemas/12.34.11.json')
-    .then(response => response.json())
-    .then(schema => enigma.create({
+    const schema = {
+      "structs": {
+        "Global": {
+          "OpenDoc": {
+            "In": [{ "Name": "qDocName", "DefaultValue": "" }, { "Name": "qUserName", "DefaultValue": "", "Optional": true }, { "Name": "qPassword", "DefaultValue": "", "Optional": true }, { "Name": "qSerial", "DefaultValue": "", "Optional": true }, { "Name": "qNoData", "DefaultValue": false, "Optional": true }],
+            "Out": []
+          }
+        },
+        "Doc": {
+          "CreateSessionObject": {
+            "In": [{ "Name": "qProp", "DefaultValue": { "qInfo": { "qId": "", "qType": "" }, "qExtendsId": "", "qMetaDef": {} } }],
+            "Out": []
+          },
+        },
+        "GenericObject": {
+          "GetLayout": {
+            "In": [],
+            "Out": [{ "Name": "qLayout" }]
+          }
+        }
+      },
+    };
+
+    enigma.create({
       schema,
       url: `wss://branch.qlik.com/anon/app/${appId}`,
-    }))
-    .then(session => session.open())
+    }).open()
     .then(global => global.openDoc(appId))
     .then(doc => {
       doc.createSessionObject({
