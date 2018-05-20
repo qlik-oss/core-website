@@ -3,9 +3,10 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.166.0._
+_QIX methods for version 12.171.0._
 
 ## `AbortAll`
+
 Sets an abort flag on all pending and ongoing requests in the current engine session.<br>* If an abort flag is set on a pending request, the request is aborted.<br>* If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
 
 _No parameters._
@@ -13,6 +14,7 @@ _No parameters._
 _No return values._
 
 ## `AbortRequest`
+
 _No details._
 
 **Parameters:**
@@ -24,6 +26,7 @@ _No details._
 _No return values._
 
 ## `AllowCreateApp`
+
 Indicates whether or not a user is able to create an app.
 
 _No parameters._
@@ -35,6 +38,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true or false&gt;<br>_False_ means that the user cannot create an app. |
 
 ## `CancelReload`
+
 Cancels an ongoing reload. The reload of the app is stopped. The indexation can be canceled and _true_ is still the return value of the reload task.
 
 _No parameters._
@@ -42,6 +46,7 @@ _No parameters._
 _No return values._
 
 ## `CancelRequest`
+
 Cancels an ongoing request. The request is stopped.
 
 **Parameters:**
@@ -53,6 +58,7 @@ Cancels an ongoing request. The request is stopped.
 _No return values._
 
 ## `ConfigureReload`
+
 Configures the engine's behavior during a reload.<br>The [`ConfigureReload`](#configurereload) method should be run before the _DoReload method_. 
 
 **Parameters:**
@@ -66,6 +72,7 @@ Configures the engine's behavior during a reload.<br>The [`ConfigureReload`](#co
 _No return values._
 
 ## `CopyApp`
+
 Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.<br>This operation is possible only in Qlik Sense Enterprise.
 
 **Parameters:**
@@ -83,6 +90,7 @@ Copies an app that is in the Qlik Sense repository.<br>The engine copies the app
 | `qSuccess` | boolean | _No description._ |
 
 ## `CreateApp`
+
 Creates an app.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
 
 **Parameters:**
@@ -100,6 +108,7 @@ Creates an app.<br><br>The operation is successful if **qSuccess** is set to tru
 | `qAppId` | string | One of:<br>* Path and name of the app (Qlik Sense Desktop)<br>* GUID (Qlik Sense Enterprise) |
 
 ## `CreateDocEx`
+
 Creates an app and opens an engine session.<br>This operation is possible only in Qlik Sense Desktop.
 
 **Parameters:**
@@ -120,6 +129,7 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; } |
 
 ## `CreateSessionApp`
+
 Creates an empty session app.<br>The following applies:<br>* The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>* A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
 _No parameters._
@@ -132,6 +142,7 @@ _No parameters._
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
 
 ## `CreateSessionAppFromApp`
+
 Creates a session app from a source app.<br>The following applies:<br>* The objects in the source app are copied into the session app but contain no data.<br>* The script of the session app can be edited and reloaded.<br>* The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>* A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
 **Parameters:**
@@ -148,6 +159,7 @@ Creates a session app from a source app.<br>The following applies:<br>* The obje
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;Handle of the session app&gt; }<br>The identifier of the session app is composed of the prefix _SessionApp__ and of a GUID. |
 
 ## `DeleteApp`
+
 Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 
 **Parameters:**
@@ -163,6 +175,7 @@ Deletes an app from the Qlik Sense repository or from the file system.<br><br>
 | `qSuccess` | boolean | `true` |
 
 ## `EngineVersion`
+
 Returns the version number of the Qlik engine component.
 
 _No parameters._
@@ -174,6 +187,7 @@ _No parameters._
 | `qVersion` | [`NxEngineVersion`](./definitions.md#nxengineversion) | `{"qComponentVersion":"<Qlik engine component version>"}` |
 
 ## `ExportApp`
+
 Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
 
 **Parameters:**
@@ -192,6 +206,7 @@ Exports an app from the Qlik Sense repository to the file system.<br>This operat
 | `qSuccess` | boolean | `true` |
 
 ## `GetActiveDoc`
+
 Returns the handle of the current app.
 
 _No parameters._
@@ -203,6 +218,7 @@ _No parameters._
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "Doc", "qHandle": &lt;handle of the app&gt; }<br>If no app is opened, an error message is returned:<br>{ "jsonrpc": "2.0", "id": 2, "error": { "code": 1007, "parameter": "No active document", "message": "App invalid" } } |
 
 ## `GetAppEntry`
+
 Retrieves the meta data of an app.
 
 **Parameters:**
@@ -218,6 +234,7 @@ Retrieves the meta data of an app.
 | `qEntry` | [`AppEntry`](./definitions.md#appentry) | Information about the app. |
 
 ## `GetAuthenticatedUser`
+
 Retrieves information about the authenticated user.
 
 _No parameters._
@@ -229,6 +246,7 @@ _No parameters._
 | `qReturn` | string | UserDirectory=&lt;directory&gt;; UserId=&lt;identifier&gt; |
 
 ## `GetBNF`
+
 !!! warning "Deprecated"
     Use the [`GetBaseBNF`](#getbasebnf) method instead
 
@@ -244,9 +262,10 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | [`BNFDef`](./definitions.md#bnfdef) | Description of the scripting language grammar. |
+| `qBnfDefs` | array<[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
 
 ## `GetBaseBNF`
+
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.<br>In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
 **Parameters:**
@@ -259,10 +278,11 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | [`BNFDef`](./definitions.md#bnfdef) | Description of the scripting language grammar. |
+| `qBnfDefs` | array<[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
 | `qBnfHash` | string | A string hash of the BNF definition. |
 
 ## `GetBaseBNFHash`
+
 Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. If the hash changes between subsequent calls to this method, this indicates that the BNF grammar has changed.
 
 **Parameters:**
@@ -278,6 +298,7 @@ Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of
 | `qBnfHash` | string | A string hash of the BNF definition. |
 
 ## `GetBaseBNFString`
+
 Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.<br>In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
 
 **Parameters:**
@@ -294,6 +315,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 | `qBnfHash` | string | A string hash of the BNF definition. |
 
 ## `GetCustomConnectors`
+
 List the custom connectors available in the system.
 
 **Parameters:**
@@ -306,9 +328,10 @@ List the custom connectors available in the system.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnectors` | [`CustomConnector`](./definitions.md#customconnector) | List of the custom connectors. |
+| `qConnectors` | array<[`CustomConnector`](./definitions.md#customconnector)> | List of the custom connectors. |
 
 ## `GetDatabasesFromConnectionString`
+
 Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 **Parameters:**
@@ -321,9 +344,10 @@ Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDatabases` | [`Database`](./definitions.md#database) | List of the databases in the connection. |
+| `qDatabases` | array<[`Database`](./definitions.md#database)> | List of the databases in the connection. |
 
 ## `GetDefaultAppFolder`
+
 Returns the folder where the apps are stored.<br>This method applies only if running Qlik Sense Desktop.
 
 _No parameters._
@@ -335,6 +359,7 @@ _No parameters._
 | `qPath` | string | Path of the folder where the apps are stored. |
 
 ## `GetDocList`
+
 Returns the list of apps.<br><br>**In Qlik Sense Enterprise:**<br><br>The list is generated by the QRS. The [`GetDocList`](#getdoclist) method only returns documents the current user is allowed to access.<br><br>**In Qlik Sense Desktop:**<br><br>The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
 
 _No parameters._
@@ -343,9 +368,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDocList` | [`DocListEntry`](./definitions.md#doclistentry) | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
+| `qDocList` | array<[`DocListEntry`](./definitions.md#doclistentry)> | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
 
 ## `GetFolderItemsForPath`
+
 Returns the files and folders located at a specified path.
 
 **Parameters:**
@@ -358,9 +384,10 @@ Returns the files and folders located at a specified path.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolderItems` | [`FolderItem`](./definitions.md#folderitem) | Path of the folder where the apps are stored. |
+| `qFolderItems` | array<[`FolderItem`](./definitions.md#folderitem)> | Path of the folder where the apps are stored. |
 
 ## `GetFunctions`
+
 Gets the list of all the script functions.
 
 **Parameters:**
@@ -373,9 +400,10 @@ Gets the list of all the script functions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFunctions` | [`Function`](./definitions.md#function) | Name of the group<br>Default is all groups. |
+| `qFunctions` | array<[`Function`](./definitions.md#function)> | Name of the group<br>Default is all groups. |
 
 ## `GetInteract`
+
 Retrieves information on the user interaction that is requested by the engine.<br>Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).<br>When running reload in debug mode, the engine pauses the script execution to receive data about user interaction. The engine can pause:<br>* Before executing a new script statement.<br>* When an error occurs while executing the script.<br>* When the script execution is finished.<br><br>To know if the engine is paused and waits for a response to an interaction request, the [`GetProgress`](#getprogress) method should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the [`GetProgress`](#getprogress) request.
 
 **Parameters:**
@@ -392,6 +420,7 @@ Retrieves information on the user interaction that is requested by the engine.<b
 | `qReturn` | boolean | _No description._ |
 
 ## `GetLogicalDriveStrings`
+
 Lists the logical drives in the system.<br>This method applies only if running Qlik Sense Desktop.
 
 _No parameters._
@@ -400,9 +429,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDrives` | [`DriveInfo`](./definitions.md#driveinfo) | List of drives. |
+| `qDrives` | array<[`DriveInfo`](./definitions.md#driveinfo)> | List of drives. |
 
 ## `GetOdbcDsns`
+
 Returns the list of the ODBC connectors that are installed in the system.
 
 _No parameters._
@@ -411,9 +441,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOdbcDsns` | [`OdbcDsn`](./definitions.md#odbcdsn) | List of the ODBC connectors. |
+| `qOdbcDsns` | array<[`OdbcDsn`](./definitions.md#odbcdsn)> | List of the ODBC connectors. |
 
 ## `GetOleDbProviders`
+
 Returns the list of the OLEDB providers installed on the system.
 
 _No parameters._
@@ -422,9 +453,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOleDbProviders` | [`OleDbProvider`](./definitions.md#oledbprovider) | List of the OLEDB providers. |
+| `qOleDbProviders` | array<[`OleDbProvider`](./definitions.md#oledbprovider)> | List of the OLEDB providers. |
 
 ## `GetProgress`
+
 Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. 
 
 **Parameters:**
@@ -440,6 +472,7 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 | `qProgressData` | [`ProgressData`](./definitions.md#progressdata) | Information about the progress of the request. |
 
 ## `GetStreamList`
+
 !!! warning "Deprecated"
     Use general purpose endpoint in [QRS API: GET qrs/stream/](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Get.htm) instead.
 
@@ -451,9 +484,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStreamList` | [`NxStreamListEntry`](./definitions.md#nxstreamlistentry) | List of the streams. |
+| `qStreamList` | array<[`NxStreamListEntry`](./definitions.md#nxstreamlistentry)> | List of the streams. |
 
 ## `GetSupportedCodePages`
+
 Lists the supported code pages.
 
 _No parameters._
@@ -462,9 +496,10 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCodePages` | [`CodePage`](./definitions.md#codepage) | List of the code pages |
+| `qCodePages` | array<[`CodePage`](./definitions.md#codepage)> | List of the code pages |
 
 ## `GetUniqueID`
+
 Returns the unique identifier of the endpoint for the current user in the current app.<br>This unique identifier can be used for logging purposes.
 
 _No parameters._
@@ -476,6 +511,7 @@ _No parameters._
 | `qUniqueID` | string | Unique identifier of the endpoint. |
 
 ## `InteractDone`
+
 Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
 
 **Parameters:**
@@ -488,6 +524,7 @@ Informs the engine that a user interaction (which was earlier requested by the e
 _No return values._
 
 ## `IsDesktopMode`
+
 Indicates whether the user is working in Qlik Sense Desktop.
 
 _No parameters._
@@ -499,6 +536,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true or false&gt;<br>The engine returns **true** if the user is working with Qlik Sense Desktop. |
 
 ## `IsPersonalMode`
+
 !!! warning "Deprecated"
     Use [`IsDesktopMode`](#isdesktopmode) method instead
 
@@ -513,6 +551,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true or false&gt;<br>The engine returns **true** if the user is working with Qlik Sense Desktop. |
 
 ## `IsValidConnectionString`
+
 Checks if a connection string is valid.
 
 **Parameters:**
@@ -528,6 +567,7 @@ Checks if a connection string is valid.
 | `qReturn` | boolean | &lt;true or false&gt;<br>_True_ means that the connection string is correct. |
 
 ## `OSName`
+
 Returns the name of the operating system.
 
 _No parameters._
@@ -539,6 +579,7 @@ _No parameters._
 | `qReturn` | string | &lt;operating system name&gt; |
 
 ## `OSVersion`
+
 Returns the version number of the operating system.
 
 _No parameters._
@@ -550,6 +591,7 @@ _No parameters._
 | `qReturn` | string | &lt;operating system version&gt; |
 
 ## `OpenDoc`
+
 Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The [`OpenDoc`](#opendoc) method compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>* The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>* The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>* Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.<br><br>
 
 **Parameters:**
@@ -569,6 +611,7 @@ Opens an app and checks if the app needs to be migrated (if the app is deprecate
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | _No description._ |
 
 ## `ProductVersion`
+
 !!! warning "Deprecated"
     Use [`EngineVersion`](#engineversion) method instead
 
@@ -583,6 +626,7 @@ _No parameters._
 | `qReturn` | string | &lt;Qlik Sense version&gt; |
 
 ## `PublishApp`
+
 Publishes an app to the supplied stream.
 
 **Parameters:**
@@ -596,6 +640,7 @@ Publishes an app to the supplied stream.
 _No return values._
 
 ## `QTProduct`
+
 Returns the Qlik product name.
 
 _No parameters._
@@ -607,6 +652,7 @@ _No parameters._
 | `qReturn` | string | &lt;Qlik product name&gt; |
 
 ## `QvVersion`
+
 !!! warning "Deprecated"
     Use the [`EngineVersion`](#engineversion) method instead
 
@@ -621,6 +667,7 @@ _No parameters._
 | `qReturn` | string | &lt;Qlik Sense version&gt; |
 
 ## `ReloadExtensionList`
+
 Reloads the list of extensions.
 
 _No parameters._
@@ -628,6 +675,7 @@ _No parameters._
 _No return values._
 
 ## `ReplaceAppFromID`
+
 Replaces objects of a target app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_.<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
@@ -645,6 +693,7 @@ Replaces objects of a target app with the objects from a source app.<br>The list
 | `qSuccess` | boolean | &lt;true or false&gt; |
 
 ## `ShutdownProcess`
+
 Shuts down the Qlik engine.<br>This operation is possible only in Qlik Sense Desktop.
 
 _No parameters._

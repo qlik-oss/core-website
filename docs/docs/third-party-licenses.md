@@ -376,7 +376,7 @@ IN THE SOFTWARE.
 ```
 
 
-## [icu4c](https://github.com/Microsoft/GSL)
+## [icu4c](http://site.icu-project.org/)
 
 ```text
 ICU License - ICU 1.8.1 and later

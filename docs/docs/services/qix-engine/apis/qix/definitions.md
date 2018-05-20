@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.166.0._
+_QIX definitions for version 12.171.0._
 
 
 
@@ -26,7 +26,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections: $ |
-| `qFieldItems` | [`BookmarkFieldItem`](#bookmarkfielditem) | List of the selections. |
+| `qFieldItems` | array<[`BookmarkFieldItem`](#bookmarkfielditem)> | List of the selections. |
 
 ## `AppEntry`
 
@@ -43,13 +43,14 @@ _No description._
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
 | `qFileSize` | integer | _No description._ |
 
+
 ## `AppObjectList`
 
 Lists the app objects. Is the layout for [`AppObjectListDef`](#appobjectlistdef).<br>An app object is a generic object created at app level.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the list of dimensions. |
+| `qItems` | array<[`NxContainerEntry`](#nxcontainerentry)> | Information about the list of dimensions. |
 
 ## `AppObjectListDef`
 
@@ -115,8 +116,8 @@ _No description._
 | `qDef` | [`FieldDefEx`](#fielddefex) | Name and type of the field. |
 | `qLocked` | boolean | Indicates if the field is locked.<br>Default is false. |
 | `qSelectInfo` | [`SelectInfo`](#selectinfo) | Information on the selections criteria. |
-| `qValues` | [`FieldValue`](#fieldvalue) | _No description._ |
-| `qExcludedValues` | [`FieldValue`](#fieldvalue) | List of excluded values.<br>Either the list of selected values or the list of excluded values is displayed. |
+| `qValues` | array<[`FieldValue`](#fieldvalue)> | _No description._ |
+| `qExcludedValues` | array<[`FieldValue`](#fieldvalue)> | List of excluded values.<br>Either the list of selected values or the list of excluded values is displayed. |
 | `qAndMode` | boolean | If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.<br>The default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.<br>This parameter is not returned if set to false. |
 | `qOneAndOnlyOne` | boolean | If set to true, the field has always one selection (not 0 and not more than 1). If another value is selected, the previous one is unselected.<br>The default value is false. This parameter is not returned if set to false. |
 
@@ -135,7 +136,7 @@ Lists the bookmarks. Is the layout for [`BookmarkListDef`](#bookmarklistdef).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the list of bookmarks. |
+| `qItems` | array<[`NxContainerEntry`](#nxcontainerentry)> | Information about the list of bookmarks. |
 
 ## `BookmarkListDef`
 
@@ -182,7 +183,7 @@ Lists the children of a generic object. Is the layout for [`ChildListDef`](#chil
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the items in the app object. |
+| `qItems` | array<[`NxContainerEntry`](#nxcontainerentry)> | Information about the items in the app object. |
 
 ## `ChildListDef`
 
@@ -226,7 +227,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`ContentLibraryListItem`](#contentlibrarylistitem) | Information about the content library. |
+| `qItems` | array<[`ContentLibraryListItem`](#contentlibrarylistitem)> | Information about the content library. |
 
 ## `ContentLibraryListItem`
 
@@ -284,7 +285,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the table. |
-| `qFields` | [`DataField`](#datafield) | List of the fields in the table. |
+| `qFields` | array<[`DataField`](#datafield)> | List of the fields in the table. |
 | `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `Database`
@@ -349,7 +350,7 @@ Lists the dimensions. Is the layout for [`DimensionListDef`](#dimensionlistdef).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the list of dimensions. |
+| `qItems` | array<[`NxContainerEntry`](#nxcontainerentry)> | Information about the list of dimensions. |
 
 ## `DimensionListDef`
 
@@ -517,7 +518,7 @@ _No description._
 | `qKeyType` | string | Tells if the field is a key field.<br><br>One of:<br>* NOT_KEY<br>* ANY_KEY<br>* PRIMARY_KEY<br>* PERFECT_KEY |
 | `qComment` | string | Comment related to the field. |
 | `qTags` | array | List of tags related to the field. |
-| `qDerivedFields` | [`DerivedFieldsInTableData`](#derivedfieldsintabledata) | List of the derived fields. |
+| `qDerivedFields` | array<[`DerivedFieldsInTableData`](#derivedfieldsintabledata)> | List of the derived fields. |
 | `qIsFieldOnTheFly` | boolean | _No description._ |
 | `qReadableName` | string | _No description._ |
 
@@ -527,7 +528,7 @@ Lists the fields present in the data model viewer. Is the layout for [`FieldList
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxFieldDescription`](#nxfielddescription) | Array of items. |
+| `qItems` | array<[`NxFieldDescription`](#nxfielddescription)> | Array of items. |
 
 ## `FieldListDef`
 
@@ -634,7 +635,7 @@ Is the layout for [`GenericBookmarkProperties`](#genericbookmarkproperties).
 | `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
 | `qBookmark` | [`NxBookmark`](#nxbookmark) | Information about the bookmark. |
-| `qFieldInfos` | [`LayoutFieldInfo`](#layoutfieldinfo) | _No description._ |
+| `qFieldInfos` | array<[`LayoutFieldInfo`](#layoutfieldinfo)> | _No description._ |
 
 ## `GenericBookmarkProperties`
 
@@ -666,7 +667,7 @@ Is the layout for [`GenericDimensionProperties`](#genericdimensionproperties).
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the dimension. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions. |
 | `qDim` | [`NxLibraryDimension`](#nxlibrarydimension) | Name and label of the dimension, information about grouping. |
-| `qDimInfos` | [`GenericDimensionInfo`](#genericdimensioninfo) | Cardinal and tags related to the dimension.<br>Length of the longest value in the field. |
+| `qDimInfos` | array<[`GenericDimensionInfo`](#genericdimensioninfo)> | Cardinal and tags related to the dimension.<br>Length of the longest value in the field. |
 
 ## `GenericDimensionProperties`
 
@@ -705,7 +706,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qProperty` | [`GenericObjectProperties`](#genericobjectproperties) | Information about the generic object properties. |
-| `qChildren` | [`GenericObjectEntry`](#genericobjectentry) | Information about the children of the generic object. |
+| `qChildren` | array<[`GenericObjectEntry`](#genericobjectentry)> | Information about the children of the generic object. |
 | `qEmbeddedSnapshotRef` | [`GenericBookmarkEntry`](#genericbookmarkentry) | Reference to a bookmark/snapshot that is embedded in the generic object. |
 
 ## `GenericObjectLayout`
@@ -766,13 +767,13 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 | `qSize` | [`Size`](#size) | Defines the size of the hypercube. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
-| `qDimensionInfo` | [`NxDimensionInfo`](#nxdimensioninfo) | Information on the dimension. |
-| `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | Information on the measure. |
+| `qDimensionInfo` | array<[`NxDimensionInfo`](#nxdimensioninfo)> | Information on the dimension. |
+| `qMeasureInfo` | array<[`NxMeasureInfo`](#nxmeasureinfo)> | Information on the measure. |
 | `qEffectiveInterColumnSortOrder` | array | Sort order of the columns in the hypercube.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first column to be sorted was the column 1, followed by the column 0 and the column 2. |
-| `qGrandTotalRow` | [`NxCell`](#nxcell) | Aggregate for measures of all values in the field.<br>The result value depends on the _qAggrFunc_ defined in [`HyperCubeDef`](#hypercubedef). |
-| `qDataPages` | [`NxDataPage`](#nxdatapage) | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
-| `qPivotDataPages` | [`NxPivotPage`](#nxpivotpage) | Set of data for pivot tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
-| `qStackedDataPages` | [`NxStackPage`](#nxstackpage) | Set of data for stacked tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
+| `qGrandTotalRow` | array<[`NxCell`](#nxcell)> | Aggregate for measures of all values in the field.<br>The result value depends on the _qAggrFunc_ defined in [`HyperCubeDef`](#hypercubedef). |
+| `qDataPages` | array<[`NxDataPage`](#nxdatapage)> | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
+| `qPivotDataPages` | array<[`NxPivotPage`](#nxpivotpage)> | Set of data for pivot tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
+| `qStackedDataPages` | array<[`NxStackPage`](#nxstackpage)> | Set of data for stacked tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
 | `qMode` | string | Information about the mode of the visualization.<br><br>One of:<br>* S or DATA_MODE_STRAIGHT<br>* P or DATA_MODE_PIVOT<br>* K or DATA_MODE_PIVOT_STACK<br>* T or DATA_MODE_TREE |
 | `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category<br>* One pseudo dimension in position 1<br>* Three left dimensions.<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position -1.<br>* Three left dimensions.<br><br>implies that:<br>* The index -1 corresponds to the pseudo dimension; the pseudo dimension is the most to the right.<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension. |
 | `qIndentMode` | boolean | Is used for pivot tables only.<br>If set to true, the formatting of the results is slightly different.<br>This property is optional. |
@@ -790,12 +791,12 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
-| `qDimensions` | [`NxDimension`](#nxdimension) | Array of dimensions. |
-| `qMeasures` | [`NxMeasure`](#nxmeasure) | Array of measures. |
+| `qDimensions` | array<[`NxDimension`](#nxdimension)> | Array of dimensions. |
+| `qMeasures` | array<[`NxMeasure`](#nxmeasure)> | Array of measures. |
 | `qInterColumnSortOrder` | array | Defines the sort order of the columns in the hypercube.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first column to be sorted should be the column 1, followed by the column 0 and the column 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the hypercube. By default, the pseudo-dimension (if any) is the most to the right in the array.<br>The index of the pseudo-dimension (if any) is -1.<br>Pseudo dimensions only apply for pivot tables with more than one measure.<br>A pseudo dimension groups together the measures defined in a pivot table. You can neither collapse/expand a pseudo dimension nor make any selections in it.<br>Stacked pivot tables can only contain one measure. |
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
-| `qInitialDataFetch` | [`NxPage`](#nxpage) | Initial data set. |
+| `qInitialDataFetch` | array<[`NxPage`](#nxpage)> | Initial data set. |
 | `qReductionMode` | string | <br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
 | `qMode` | string | Defines the way the data are handled internally by the engine.<br>Default value is _DATA_MODE_STRAIGHT_ .<br>A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.<br><br>One of:<br>* S or DATA_MODE_STRAIGHT<br>* P or DATA_MODE_PIVOT<br>* K or DATA_MODE_PIVOT_STACK<br>* T or DATA_MODE_TREE |
 | `qPseudoDimPos` | integer | _No description._ |
@@ -860,8 +861,8 @@ Renders the properties of a list object. Is the layout for [`ListObjectDef`](#li
 | `qSize` | [`Size`](#size) | Defines the size of a list object. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
 | `qDimensionInfo` | [`NxDimensionInfo`](#nxdimensioninfo) | Information about the dimension. |
-| `qExpressions` | [`NxListObjectExpression`](#nxlistobjectexpression) | Lists the expressions in the list object. |
-| `qDataPages` | [`NxDataPage`](#nxdatapage) | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`ListObjectDef`](#listobjectdef). |
+| `qExpressions` | array<[`NxListObjectExpression`](#nxlistobjectexpression)> | Lists the expressions in the list object. |
+| `qDataPages` | array<[`NxDataPage`](#nxdatapage)> | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`ListObjectDef`](#listobjectdef). |
 
 ## `ListObjectDef`
 
@@ -875,8 +876,8 @@ Defines the properties of a list object.<br>For more information about the defin
 | `qAutoSortByState` | [`NxAutoSortByStateDef`](#nxautosortbystatedef) | Defines the sorting by state. |
 | `qFrequencyMode` | string | Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.<br>Default is _NX_FREQUENCY_NONE_ .<br>This parameter is optional.<br><br>One of:<br>* N or NX_FREQUENCY_NONE<br>* V or NX_FREQUENCY_VALUE<br>* P or NX_FREQUENCY_PERCENT<br>* R or NX_FREQUENCY_RELATIVE |
 | `qShowAlternatives` | boolean | If set to true, alternative values are allowed in _qData_ .<br>If set to false, no alternative values are displayed in _qData_ . Values are excluded instead.<br>The default value is false.<br>Note that on the contrary, the _qStateCounts_ parameter counts the excluded values as alternative values.<br>This parameter is optional. |
-| `qInitialDataFetch` | [`NxPage`](#nxpage) | Fetches an initial data set. |
-| `qExpressions` | [`NxListObjectExpressionDef`](#nxlistobjectexpressiondef) | Lists the expressions in the list object.<br>This parameter is optional. |
+| `qInitialDataFetch` | array<[`NxPage`](#nxpage)> | Fetches an initial data set. |
+| `qExpressions` | array<[`NxListObjectExpressionDef`](#nxlistobjectexpressiondef)> | Lists the expressions in the list object.<br>This parameter is optional. |
 
 ## `LocaleInfo`
 
@@ -908,7 +909,7 @@ Lists the measures. Is the layout for [`MeasureListDef`](#measurelistdef).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxContainerEntry`](#nxcontainerentry) | Information about the list of measures. |
+| `qItems` | array<[`NxContainerEntry`](#nxcontainerentry)> | Information about the list of measures. |
 
 ## `MeasureListDef`
 
@@ -925,7 +926,7 @@ Lists the media files. Is the layout for [`MediaListDef`](#medialistdef).<br>Thi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`MediaListItem`](#medialistitem) | Information about the list of media files.<br>In Qlik Sense Desktop, the media files are retrieved from:<br>_%userprofile%\Documents\Qlik\Sense\Content\Default_<br>In Qlik Sense Enterprise, the media files are retrieved from:<br>&lt;installation_directory&gt;\Qlik\Sense\Repository\Content\Default<br>The default installation directory is _ProgramData_ . |
+| `qItems` | array<[`MediaListItem`](#medialistitem)> | Information about the list of media files.<br>In Qlik Sense Desktop, the media files are retrieved from:<br>_%userprofile%\Documents\Qlik\Sense\Content\Default_<br>In Qlik Sense Enterprise, the media files are retrieved from:<br>&lt;installation_directory&gt;\Qlik\Sense\Repository\Content\Default<br>The default installation directory is _ProgramData_ . |
 
 
 ## `MediaListItem`
@@ -1022,7 +1023,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qValues` | [`NxSimpleDimValue`](#nxsimpledimvalue) | List of values. |
+| `qValues` | array<[`NxSimpleDimValue`](#nxsimpledimvalue)> | List of values. |
 
 ## `NxAttributeExpressionValues`
 
@@ -1030,7 +1031,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qValues` | [`NxSimpleValue`](#nxsimplevalue) | List of attribute expressions values. |
+| `qValues` | array<[`NxSimpleValue`](#nxsimplevalue)> | List of attribute expressions values. |
 
 ## `NxAutoSortByStateDef`
 
@@ -1046,7 +1047,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qAxis` | [`NxAxisTicks`](#nxaxisticks) | List of axis data. |
+| `qAxis` | array<[`NxAxisTicks`](#nxaxisticks)> | List of axis data. |
 
 ## `NxAxisTicks`
 
@@ -1056,7 +1057,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the derived definition. |
 | `qTags` | array | List of tags. |
-| `qTicks` | [`NxTickCell`](#nxtickcell) | List of ticks. |
+| `qTicks` | array<[`NxTickCell`](#nxtickcell)> | List of ticks. |
 
 ## `NxBookmark`
 
@@ -1064,9 +1065,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStateData` | [`AlternateStateData`](#alternatestatedata) | List of selections for each state. |
+| `qStateData` | array<[`AlternateStateData`](#alternatestatedata)> | List of selections for each state. |
 | `qUtcModifyTime` | number | Time when the bookmark was created. |
-| `qVariableItems` | [`BookmarkVariableItem`](#bookmarkvariableitem) | List of the variables in the app at the time the bookmark was created. |
+| `qVariableItems` | array<[`BookmarkVariableItem`](#bookmarkvariableitem)> | List of the variables in the app at the time the bookmark was created. |
 
 ## `NxCalcCond`
 
@@ -1076,6 +1077,15 @@ _No description._
 | ---- | ---- | ----------- |
 | `qCond` | [`ValueExpr`](#valueexpr) | Condition for calculating an hypercube, dimension or measure. |
 | `qMsg` | [`StringExpr`](#stringexpr) | Evaluated if Cond is not fullfilled. |
+
+## `NxCardinalities`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qCardinal` | integer | Number of distinct field values. |
+| `qHypercubeCardinal` | integer | Number of distinct hypercube values. |
 
 ## `NxCell`
 
@@ -1151,11 +1161,11 @@ _No description._
 | `qTextSearch` | string | Text that was used for the search. This parameter is filled when searching for a value and selecting it.<br>This parameter is optional. |
 | `qSelectedCount` | integer | Number of values that are selected. |
 | `qSelected` | string | Values that are selected. |
-| `qRangeInfo` | [`RangeSelectInfo`](#rangeselectinfo) | Information about the range of selected values.<br>Is empty if there is no range of selected values. |
+| `qRangeInfo` | array<[`RangeSelectInfo`](#rangeselectinfo)> | Information about the range of selected values.<br>Is empty if there is no range of selected values. |
 | `qSortIndex` | integer | Sort index of the field. Indexing starts from 0. |
 | `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
-| `qSelectedFieldSelectionInfo` | [`NxFieldSelectionInfo`](#nxfieldselectioninfo) | Information about the fields that are selected. |
-| `qNotSelectedFieldSelectionInfo` | [`NxFieldSelectionInfo`](#nxfieldselectioninfo) | Information about the fields that are not selected. |
+| `qSelectedFieldSelectionInfo` | array<[`NxFieldSelectionInfo`](#nxfieldselectioninfo)> | Information about the fields that are selected. |
+| `qNotSelectedFieldSelectionInfo` | array<[`NxFieldSelectionInfo`](#nxfieldselectioninfo)> | Information about the fields that are not selected. |
 | `qSelectionThreshold` | integer | Maximum values to show in the current selections.<br>The default value is 6. |
 | `qReadableName` | string | Label that, if defined, is displayed in current selections instead of the actual expression. |
 | `qIsHidden` | boolean | Optional parameter. Indicates if the selection is to be hidden in the Selections bar.<br>Is set to true if the current selection is hidden. |
@@ -1177,8 +1187,8 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qMatrix` | [`NxCellRows`](#nxcellrows) | Array of data. |
-| `qTails` | [`NxGroupTail`](#nxgrouptail) | Array of tails.<br>Is used for hypercube objects with multiple dimensions. It might happen that due to the window size some elements in a group cannot be displayed in the same page as the other elements of the group. Elements of a group of dimensions can be part of the previous or the next tail.<br>If there is no tail, the array is empty _[ ]_ . |
+| `qMatrix` | array<[`NxCellRows`](#nxcellrows)> | Array of data. |
+| `qTails` | array<[`NxGroupTail`](#nxgrouptail)> | Array of tails.<br>Is used for hypercube objects with multiple dimensions. It might happen that due to the window size some elements in a group cannot be displayed in the same page as the other elements of the group. Elements of a group of dimensions can be part of the previous or the next tail.<br>If there is no tail, the array is empty _[ ]_ . |
 | `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 | `qIsReduced` | boolean | Is set to true, if the data have been reduced.<br>The default value is false. |
 
@@ -1201,7 +1211,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDerivedFieldLists` | [`NxDerivedFieldsData`](#nxderivedfieldsdata) | Information about the derived fields. |
+| `qDerivedFieldLists` | array<[`NxDerivedFieldsData`](#nxderivedfieldsdata)> | Information about the derived fields. |
 
 ## `NxDerivedFieldsData`
 
@@ -1210,8 +1220,8 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qDerivedDefinitionName` | string | Name of the derived definition. |
-| `qFieldDefs` | [`NxDerivedField`](#nxderivedfield) | List of the derived fields. |
-| `qGroupDefs` | [`NxDerivedGroup`](#nxderivedgroup) | List of the derived groups. |
+| `qFieldDefs` | array<[`NxDerivedField`](#nxderivedfield)> | List of the derived fields. |
+| `qGroupDefs` | array<[`NxDerivedGroup`](#nxderivedgroup)> | List of the derived groups. |
 | `qTags` | array | List of tags on the derived fields. |
 
 ## `NxDerivedGroup`
@@ -1241,8 +1251,8 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the dimension is
 | `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
 | `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.<br>If the calculation condition is not met, the dimension is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
-| `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
+| `qAttributeExpressions` | array<[`NxAttrExprDef`](#nxattrexprdef)> | List of attribute expressions. |
+| `qAttributeDimensions` | array<[`NxAttrDimDef`](#nxattrdimdef)> | List of attribute dimensions. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
 ## `NxDimensionInfo`
@@ -1273,11 +1283,12 @@ _No description._
 | `qContinuousAxes` | boolean | Is continuous axis used. |
 | `qIsCyclic` | boolean | Is a cyclic dimension used. |
 | `qDerivedField` | boolean | Is derived field is used as a dimension. |
-| `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | Array of attribute expressions. |
-| `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | Array of attribute dimensions. |
+| `qAttrExprInfo` | array<[`NxAttrExprInfo`](#nxattrexprinfo)> | Array of attribute expressions. |
+| `qAttrDimInfo` | array<[`NxAttrDimInfo`](#nxattrdiminfo)> | Array of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
+| `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
 
 ## `NxEngineVersion`
 
@@ -1360,7 +1371,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRanges` | [`CharRange`](#charrange) | Ranges of highlighted values. |
+| `qRanges` | array<[`CharRange`](#charrange)> | Ranges of highlighted values. |
 
 ## `NxInfo`
 
@@ -1380,8 +1391,8 @@ _No description._
 | `qGrouping` | string | Used to define a cyclic group or drilldown group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array | Array of field names.<br>When creating a grouped dimension, more than one field name is defined.<br>This parameter is optional. |
 | `qFieldLabels` | array | Array of field labels.<br>This parameter is optional. |
-| `qSortCriterias` | [`SortCriteria`](#sortcriteria) | Defines the sorting criteria in the field.<br>Default is to sort by alphabetical order, ascending.<br>This parameter is optional. |
-| `qNumberPresentations` | [`FieldAttributes`](#fieldattributes) | Defines the format of the value.<br>This parameter is optional. |
+| `qSortCriterias` | array<[`SortCriteria`](#sortcriteria)> | Defines the sorting criteria in the field.<br>Default is to sort by alphabetical order, ascending.<br>This parameter is optional. |
+| `qNumberPresentations` | array<[`FieldAttributes`](#fieldattributes)> | Defines the format of the value.<br>This parameter is optional. |
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
 | `qActiveField` | integer | Index of the active field in a cyclic dimension.<br>This parameter is optional. The default value is 0.<br>This parameter is used in case of cyclic dimensions ( _qGrouping_ is C). |
 | `qLabelExpression` | string | Label expression.<br>This parameter is optional. |
@@ -1511,8 +1522,8 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the measure is s
 | `qLibraryId` | string | Refers to a measure stored in the library. |
 | `qDef` | [`NxInlineMeasureDef`](#nxinlinemeasuredef) | Refers to a measure stored in the hypercube. |
 | `qSortBy` | [`SortCriteria`](#sortcriteria) | Defines the sort criteria.<br>The default value is sort by ascending alphabetic order.<br>This property is optional. |
-| `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
-| `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
+| `qAttributeExpressions` | array<[`NxAttrExprDef`](#nxattrexprdef)> | List of attribute expressions. |
+| `qAttributeDimensions` | array<[`NxAttrDimDef`](#nxattrdimdef)> | List of attribute dimensions. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 
@@ -1532,8 +1543,8 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's expression. |
-| `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | List of attribute expressions. |
-| `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | List of attribute dimensions. |
+| `qAttrExprInfo` | array<[`NxAttrExprInfo`](#nxattrexprinfo)> | List of attribute expressions. |
+| `qAttrDimInfo` | array<[`NxAttrDimInfo`](#nxattrdiminfo)> | List of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 
 ## `NxMeta`
@@ -1551,7 +1562,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRanges` | [`NxRangeSelectInfo`](#nxrangeselectinfo) | _No description._ |
+| `qRanges` | array<[`NxRangeSelectInfo`](#nxrangeselectinfo)> | _No description._ |
 | `qColumnsToSelect` | array | _No description._ |
 
 ## `NxPage`
@@ -1611,7 +1622,7 @@ _No description._
 | `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
 | `qUp` | integer | Number of elements that are part of the previous tail.<br>This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ . |
 | `qDown` | integer | Number of elements that are part of the next tail.<br>This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ . |
-| `qSubNodes` | [`NxPivotDimensionCell`](#nxpivotdimensioncell) | Information about sub nodes (or sub cells).<br>The array is empty _[ ]_ when there is no sub nodes. |
+| `qSubNodes` | array<[`NxPivotDimensionCell`](#nxpivotdimensioncell)> | Information about sub nodes (or sub cells).<br>The array is empty _[ ]_ when there is no sub nodes. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Information about attribute expressions.<br>The array is empty _[ ]_ when there is no attribute expressions. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Information about attribute dimensions. |
 
@@ -1621,9 +1632,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLeft` | [`NxPivotDimensionCell`](#nxpivotdimensioncell) | Information about the left dimension values of a pivot table. |
-| `qTop` | [`NxPivotDimensionCell`](#nxpivotdimensioncell) | Information about the top dimension values of a pivot table. If there is no top dimension in the pivot table, information about the measures are given. |
-| `qData` | [`ArrayOfNxValuePoint`](#arrayofnxvaluepoint) | Array of data. |
+| `qLeft` | array<[`NxPivotDimensionCell`](#nxpivotdimensioncell)> | Information about the left dimension values of a pivot table. |
+| `qTop` | array<[`NxPivotDimensionCell`](#nxpivotdimensioncell)> | Information about the top dimension values of a pivot table. If there is no top dimension in the pivot table, information about the measures are given. |
+| `qData` | array<[`ArrayOfNxValuePoint`](#arrayofnxvaluepoint)> | Array of data. |
 | `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 
 ## `NxPivotValuePoint`
@@ -1700,7 +1711,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | [`NxStackedPivotCell`](#nxstackedpivotcell) | Array of data. |
+| `qData` | array<[`NxStackedPivotCell`](#nxstackedpivotcell)> | Array of data. |
 | `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 
 ## `NxStackedPivotCell`
@@ -1720,7 +1731,7 @@ _No description._
 | `qUp` | integer | Number of elements that are part of the previous tail. |
 | `qDown` | integer | Number of elements that are part of the next tail. |
 | `qRow` | integer | Row index in the data matrix.<br>The indexing starts from 0. |
-| `qSubNodes` | [`NxStackedPivotCell`](#nxstackedpivotcell) | Information about sub nodes (or sub cells).<br>The array is empty _[ ]_ when there are no sub nodes. |
+| `qSubNodes` | array<[`NxStackedPivotCell`](#nxstackedpivotcell)> | Information about sub nodes (or sub cells).<br>The array is empty _[ ]_ when there are no sub nodes. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expressions values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Attribute dimensions values. |
 
@@ -1767,7 +1778,7 @@ Specifies all the paging filters needed to define the tree to be fetched.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qMaxNbrOfNodes` | integer | Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted. |
-| `qTreeNodes` | [`NxPageTreeNode`](#nxpagetreenode) | Defines areas of the tree to be fetched. Areas must be defined left to right. |
+| `qTreeNodes` | array<[`NxPageTreeNode`](#nxpagetreenode)> | Defines areas of the tree to be fetched. Areas must be defined left to right. |
 | `qTreeLevels` | [`NxPageTreeLevel`](#nxpagetreelevel) | Filters out complete dimensions from the fetched tree. |
 
 ## `NxTreeDimensionDef`
@@ -1780,15 +1791,15 @@ _No description._
 | ---- | ---- | ----------- |
 | `qLibraryId` | string | Refers to a dimension stored in the library. |
 | `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | Refers to a dimension. |
-| `qValueExprs` | [`NxMeasure`](#nxmeasure) | List of measures. |
+| `qValueExprs` | array<[`NxMeasure`](#nxmeasure)> | List of measures. |
 | `qNullSuppression` | boolean | If set to true, no null values are returned. |
 | `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
 | `qShowAll` | boolean | If set to true, all dimension values are shown. |
 | `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
 | `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
-| `qAttributeExpressions` | [`NxAttrExprDef`](#nxattrexprdef) | List of attribute expressions. |
-| `qAttributeDimensions` | [`NxAttrDimDef`](#nxattrdimdef) | List of attribute dimensions. |
+| `qAttributeExpressions` | array<[`NxAttrExprDef`](#nxattrexprdef)> | List of attribute expressions. |
+| `qAttributeDimensions` | array<[`NxAttrDimDef`](#nxattrdimdef)> | List of attribute dimensions. |
 
 ## `NxTreeDimensionInfo`
 
@@ -1820,12 +1831,13 @@ _No description._
 | `qContinuousAxes` | boolean | Is continuous axis used. |
 | `qIsCyclic` | boolean | Is a cyclic dimension used. |
 | `qDerivedField` | boolean | Is derived field is used as a dimension. |
-| `qMeasureInfo` | [`NxMeasureInfo`](#nxmeasureinfo) | A List of measures to be calculated on this TreeDimension. |
-| `qAttrExprInfo` | [`NxAttrExprInfo`](#nxattrexprinfo) | List of attribute expressions. |
-| `qAttrDimInfo` | [`NxAttrDimInfo`](#nxattrdiminfo) | List of attribute dimensions. |
+| `qMeasureInfo` | array<[`NxMeasureInfo`](#nxmeasureinfo)> | A List of measures to be calculated on this TreeDimension. |
+| `qAttrExprInfo` | array<[`NxAttrExprInfo`](#nxattrexprinfo)> | List of attribute expressions. |
+| `qAttrDimInfo` | array<[`NxAttrDimInfo`](#nxattrdiminfo)> | List of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
+| `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
 
 ## `NxTreeMultiRangeSelectInfo`
 
@@ -1835,7 +1847,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qRanges` | [`NxTreeRangeSelectInfo`](#nxtreerangeselectinfo) | An array of Ranges. |
+| `qRanges` | array<[`NxTreeRangeSelectInfo`](#nxtreerangeselectinfo)> | An array of Ranges. |
 
 ## `NxTreeNode`
 
@@ -1851,8 +1863,8 @@ Represents a dimension in the tree.
 | `qParentNode` | integer | The qNodeNr of this node's parent for the current page. |
 | `qRow` | integer | Row index in the data matrix.<br>The indexing starts from 0. |
 | `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
-| `qValues` | [`NxTreeValue`](#nxtreevalue) | The measures for this node. |
-| `qNodes` | [`NxTreeNode`](#nxtreenode) | The children of this node in the tree structure. |
+| `qValues` | array<[`NxTreeValue`](#nxtreevalue)> | The measures for this node. |
+| `qNodes` | array<[`NxTreeNode`](#nxtreenode)> | The children of this node in the tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Attribute dimension values. |
 
@@ -2006,8 +2018,8 @@ _No description._
 | `qUserInteractionWanted` | boolean | True when the engine pauses the script execution and waits for a user interaction. |
 | `qPersistentProgress` | string | A progress message is persistent when it informs about the start or end of a statement. For example, it can inform about the total number of lines fetched from a data source or tell that the app was saved. All persistent progress messages between two *GetProgress* calls are summarized in this string. Contrarily to *qPersistentProgressMessages*, the content of the localized message string is displayed (not its message code). |
 | `qTransientProgress` | string | A progress message is transient when it informs about the progress of an ongoing statement. For example, it can tell how many lines are currently fetched from a data source. All transient progress messages between two *GetProgress* calls are summarized in this string. Contrarily to *qTransientProgressMessage*, the content of the localized message string is displayed (not its message code). |
-| `qErrorData` | [`ErrorData`](#errordata) | Information about the error messages that occur during the script execution. |
-| `qPersistentProgressMessages` | [`ProgressMessage`](#progressmessage) | List of persistent progress messages. |
+| `qErrorData` | array<[`ErrorData`](#errordata)> | Information about the error messages that occur during the script execution. |
+| `qPersistentProgressMessages` | array<[`ProgressMessage`](#progressmessage)> | List of persistent progress messages. |
 | `qTransientProgressMessage` | [`ProgressMessage`](#progressmessage) | Transient progress message. |
 
 ## `ProgressMessage`
@@ -2076,8 +2088,8 @@ _No description._
 | ---- | ---- | ----------- |
 | `qFieldNames` | array | List of the fields that contains search associations. |
 | `qSearchTerms` | array | List of the search terms. |
-| `qFieldDictionaries` | [`SearchFieldDictionary`](#searchfielddictionary) | Information about the fields containing search hits. |
-| `qSearchTermsMatched` | [`SearchMatchCombinations`](#searchmatchcombinations) | List of search results.<br>The maximum number of search results in this list is set by _qPage/qCount_ . |
+| `qFieldDictionaries` | array<[`SearchFieldDictionary`](#searchfielddictionary)> | Information about the fields containing search hits. |
+| `qSearchTermsMatched` | array<[`SearchMatchCombinations`](#searchmatchcombinations)> | List of search results.<br>The maximum number of search results in this list is set by _qPage/qCount_ . |
 | `qTotalSearchResults` | integer | Total number of search results.<br>This number is not limited by _qPage/qCount_ . |
 
 ## `SearchAttribute`
@@ -2117,7 +2129,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qField` | integer | Position of the field in the list of fields, starting from 0.<br>The list of fields is defined in _qResults/qFieldNames_ and contains the search associations. |
-| `qResult` | [`SearchTermResult`](#searchtermresult) | List of the matching values.<br>The maximum number of values in this list is set by _qMaxNbrFieldMatches_ . |
+| `qResult` | array<[`SearchTermResult`](#searchtermresult)> | List of the matching values.<br>The maximum number of values in this list is set by _qMaxNbrFieldMatches_ . |
 
 ## `SearchFieldMatch`
 
@@ -2140,7 +2152,7 @@ _No description._
 | `qGroupType` | string | Type of the search group.<br><br>One of:<br>* DatasetType or DATASET_GROUP<br>* GenericObjectsType or GENERIC_OBJECTS_GROUP |
 | `qSearchTermsMatched` | array | Indexes of the search terms that are included in the group. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ . |
 | `qTotalNumberOfItems` | integer | Total number of distinct items in the search group. |
-| `qItems` | [`SearchGroupItem`](#searchgroupitem) | List of items in the search group.<br>The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_ |
+| `qItems` | array<[`SearchGroupItem`](#searchgroupitem)> | List of items in the search group.<br>The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_ |
 
 ## `SearchGroupItem`
 
@@ -2151,7 +2163,7 @@ _No description._
 | `qItemType` | string | Type of the group item.<br><br>One of:<br>* Field or FIELD<br>* GenericObject or GENERIC_OBJECT |
 | `qTotalNumberOfMatches` | integer | Total number of distinct matches in the search group item. |
 | `qIdentifier` | string | Identifier of the item.<br>It corresponds to:<br>* The name of the field, if the type of the search group is data set.<br>* The id of the generic object if the type of the search group is generic object. |
-| `qItemMatches` | [`SearchGroupItemMatch`](#searchgroupitemmatch) | List of matches in the search group item.<br>The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ . |
+| `qItemMatches` | array<[`SearchGroupItemMatch`](#searchgroupitemmatch)> | List of matches in the search group item.<br>The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ . |
 | `qSearchTermsMatched` | array | Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ . |
 
 ## `SearchGroupItemMatch`
@@ -2161,8 +2173,8 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qText` | string | Search match value.<br>Value of the search group item.<br>If the match is found in a field, it corresponds to the value of the field.<br>If the match is found in a generic object property, it corresponds to the property value. |
-| `qRanges` | [`SearchCharRange`](#searchcharrange) | List of ranges.<br>For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make. |
-| `qAttributes` | [`SearchAttribute`](#searchattribute) | Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_<br>If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.<br>For _SearchObjects_ requested with _qProperty_ , the _SearchGroupItemMatch.qAttributes_ return value contains _[“qProperty”, "qMetaDef/title”]_ if the match has been found in the title of the item. For dimension values, the returned _qProperty_ will be _“*”_ .<br>For _SearchResults_ requested with _qNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qNum", N]_ where _N_ is the numeric value of the element or _NaN_ if the value is not numeric.<br>For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element. |
+| `qRanges` | array<[`SearchCharRange`](#searchcharrange)> | List of ranges.<br>For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make. |
+| `qAttributes` | array<[`SearchAttribute`](#searchattribute)> | Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_<br>If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.<br>For _SearchObjects_ requested with _qProperty_ , the _SearchGroupItemMatch.qAttributes_ return value contains _[“qProperty”, "qMetaDef/title”]_ if the match has been found in the title of the item. For dimension values, the returned _qProperty_ will be _“*”_ .<br>For _SearchResults_ requested with _qNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qNum", N]_ where _N_ is the numeric value of the element or _NaN_ if the value is not numeric.<br>For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element. |
 
 ## `SearchGroupItemOptions`
 
@@ -2191,7 +2203,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qId` | integer | Index of the search result, starting from 0. |
-| `qFieldMatches` | [`SearchFieldMatch`](#searchfieldmatch) | Information about the search matches. |
+| `qFieldMatches` | array<[`SearchFieldMatch`](#searchfieldmatch)> | Information about the search matches. |
 
 
 ## `SearchObjectOptions`
@@ -2212,8 +2224,8 @@ _No description._
 | `qOffset` | integer | Position from the top, starting from 0.<br>If the offset is set to 0, the first search result to be returned is at position 0. |
 | `qCount` | integer | Number of search groups to return (in _qSearchGroupArray_ ). |
 | `qMaxNbrFieldMatches` | integer | Maximum number of matching values to return per search result.<br>The default value is -1; all values are returned.<br>This property is to be used with the _SearchAssociations method_. |
-| `qGroupOptions` | [`SearchGroupOptions`](#searchgroupoptions) | Options of the search groups.<br>If this property is not set, all values are returned.<br>This property is to be used with the _SearchResults method_ or the _SearchObjects method_. |
-| `qGroupItemOptions` | [`SearchGroupItemOptions`](#searchgroupitemoptions) | Options of the search group items.<br>If this property is not set, all values are returned.<br>This property is to be used with the _SearchResults method_ or the _SearchObjects method_. |
+| `qGroupOptions` | array<[`SearchGroupOptions`](#searchgroupoptions)> | Options of the search groups.<br>If this property is not set, all values are returned.<br>This property is to be used with the _SearchResults method_ or the _SearchObjects method_. |
+| `qGroupItemOptions` | array<[`SearchGroupItemOptions`](#searchgroupitemoptions)> | Options of the search group items.<br>If this property is not set, all values are returned.<br>This property is to be used with the _SearchResults method_ or the _SearchObjects method_. |
 
 ## `SearchResult`
 
@@ -2223,7 +2235,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qSearchTerms` | array | List of the search terms. |
 | `qTotalNumberOfGroups` | integer | Total number of groups. |
-| `qSearchGroupArray` | [`SearchGroup`](#searchgroup) | List of search groups.<br>The groups are numbered from the value of _SearchPage.qOffset_ to the value of _SearchPage.qOffset + SearchPage.qCount_ . |
+| `qSearchGroupArray` | array<[`SearchGroup`](#searchgroup)> | List of search groups.<br>The groups are numbered from the value of _SearchPage.qOffset_ to the value of _SearchPage.qOffset + SearchPage.qCount_ . |
 
 ## `SearchSuggestItem`
 
@@ -2240,7 +2252,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuggestions` | [`SearchSuggestItem`](#searchsuggestitem) | List of suggestions. |
+| `qSuggestions` | array<[`SearchSuggestItem`](#searchsuggestitem)> | List of suggestions. |
 | `qFieldNames` | array | List of field names that contain search hits. |
 
 ## `SearchTermResult`
@@ -2251,7 +2263,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qText` | string | Text of the associated value. |
 | `qElemNumber` | integer | Element number of the associated value. |
-| `qRanges` | [`SearchCharRange`](#searchcharrange) | List of ranges.<br>For example, if the user searches the term _read_ and the associative value is _Reading_ , then the corresponding range would be _Read_ in _Reading_ . |
+| `qRanges` | array<[`SearchCharRange`](#searchcharrange)> | List of ranges.<br>For example, if the user searches the term _read_ and the associative value is _Reading_ , then the corresponding range would be _Read_ in _Reading_ . |
 
 ## `SelectInfo`
 
@@ -2263,9 +2275,9 @@ _No description._
 | `qRangeLo` | number | Lower value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
 | `qRangeHi` | number | Highest value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
 | `qNumberFormat` | [`FieldAttributes`](#fieldattributes) | Gives information about the formatting of the range.<br>This parameter is used when performing range selections or text searches in dimensions. |
-| `qRangeInfo` | [`RangeSelectInfo`](#rangeselectinfo) | This parameter is used when performing range selections or text searches in measures.<br>Gives information about the range of selections.<br>bool SoftLock = false; |
+| `qRangeInfo` | array<[`RangeSelectInfo`](#rangeselectinfo)> | This parameter is used when performing range selections or text searches in measures.<br>Gives information about the range of selections.<br>bool SoftLock = false; |
 | `qSoftLock` | boolean | _No description._ |
-| `qContinuousRangeInfo` | [`Range`](#range) | List of information about ranges for selections. |
+| `qContinuousRangeInfo` | array<[`Range`](#range)> | List of information about ranges for selections. |
 
 ## `SelectionObject`
 
@@ -2275,7 +2287,7 @@ Indicates which selections are currently applied. It gives the current selection
 | ---- | ---- | ----------- |
 | `qBackCount` | integer | Number of steps back. |
 | `qForwardCount` | integer | Number of steps forward. |
-| `qSelections` | [`NxCurrentSelectionItem`](#nxcurrentselectionitem) | Lists the fields that are selected. |
+| `qSelections` | array<[`NxCurrentSelectionItem`](#nxcurrentselectionitem)> | Lists the fields that are selected. |
 
 ## `SelectionObjectDef`
 
@@ -2326,7 +2338,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`StaticContentListItem`](#staticcontentlistitem) | Information about the list of content files. |
+| `qItems` | array<[`StaticContentListItem`](#staticcontentlistitem)> | Information about the list of content files. |
 
 ## `StaticContentListItem`
 
@@ -2378,7 +2390,7 @@ _No description._
 | `qName` | string | Name of the table. |
 | `qLoose` | boolean | This property is set to true if the table is loose. |
 | `qNoOfRows` | integer | Number of rows in the table. |
-| `qFields` | [`FieldInTableData`](#fieldintabledata) | Information about the fields in the table. |
+| `qFields` | array<[`FieldInTableData`](#fieldintabledata)> | Information about the fields in the table. |
 | `qPos` | [`Point`](#point) | Information about the position of the table. |
 | `qComment` | string | Comment related to the table. |
 | `qIsDirectDiscovery` | boolean | If set to true, Direct Discovery is used.<br>Direct Discovery fields are not loaded into memory and remain in the external database. |
@@ -2390,7 +2402,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qValue` | [`FieldValue`](#fieldvalue) | Array of field values. |
+| `qValue` | array<[`FieldValue`](#fieldvalue)> | Array of field values. |
 
 ## `TableViewBroomPointSaveInfo`
 
@@ -2436,9 +2448,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | [`TableViewTableWinSaveInfo`](#tableviewtablewinsaveinfo) | List of the tables in the database model viewer. |
-| `qBroomPoints` | [`TableViewBroomPointSaveInfo`](#tableviewbroompointsaveinfo) | List of the broom points in the database model viewer.<br>Not used in Qlik Sense. |
-| `qConnectionPoints` | [`TableViewConnectionPointSaveInfo`](#tableviewconnectionpointsaveinfo) | List of connection points in the database model viewer.<br>Not used in Qlik Sense. |
+| `qTables` | array<[`TableViewTableWinSaveInfo`](#tableviewtablewinsaveinfo)> | List of the tables in the database model viewer. |
+| `qBroomPoints` | array<[`TableViewBroomPointSaveInfo`](#tableviewbroompointsaveinfo)> | List of the broom points in the database model viewer.<br>Not used in Qlik Sense. |
+| `qConnectionPoints` | array<[`TableViewConnectionPointSaveInfo`](#tableviewconnectionpointsaveinfo)> | List of connection points in the database model viewer.<br>Not used in Qlik Sense. |
 | `qZoomFactor` | number | Zoom factor in the database model viewer.<br>The default value is 1.0. |
 
 ## `TableViewTableWinSaveInfo`
@@ -2475,7 +2487,7 @@ Renders the properties of a [`TreeData`](#treedata) object. Is the layout for Tr
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 | `qNodesOnDim` | array | The total number of nodes on each dimension. |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional and is displayed in case of error. |
-| `qDimensionInfo` | [`NxTreeDimensionInfo`](#nxtreedimensioninfo) | Information on the dimension. |
+| `qDimensionInfo` | array<[`NxTreeDimensionInfo`](#nxtreedimensioninfo)> | Information on the dimension. |
 | `qEffectiveInterColumnSortOrder` | array | Defines the order of the dimenion levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2. |
 | `qHasOtherValues` | boolean | True if other row exists. |
 | `qTitle` | string | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
@@ -2491,7 +2503,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
-| `qDimensions` | [`NxTreeDimensionDef`](#nxtreedimensiondef) | Array of dimensions. |
+| `qDimensions` | array<[`NxTreeDimensionDef`](#nxtreedimensiondef)> | Array of dimensions. |
 | `qInterColumnSortOrder` | array | Defines the order of the dimension levels/columns in the [`TreeData`](#treedata) object.<br>Column numbers are separated by a comma.<br>Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.<br>The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef. |
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
@@ -2532,7 +2544,7 @@ Lists the variables in an app. Is the layout for [`VariableListDef`](#variableli
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | [`NxVariableListItem`](#nxvariablelistitem) | List of the variables. |
+| `qItems` | array<[`NxVariableListItem`](#nxvariablelistitem)> | List of the variables. |
 
 ## `VariableListDef`
 

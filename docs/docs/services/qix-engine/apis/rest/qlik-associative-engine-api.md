@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.166.0._
+_Qlik Associative Engine API for version 12.171.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -50,6 +50,29 @@ _No parameters_
 | ------ | ----------- | ------ |
 | `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
 
+### `POST /v1/apps/import`
+
+Imports an app to the system. <div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Required | Description | Schema |
+| --------- | -- | ---- | -------- | ----------- | ------ |
+| `filedata` | body | undefined | true | Path of the source app. | [FileData](#filedata) |
+| `name` | path | string | true | The name of the target app. | _No schema_ |
+| `mode` | query | string | undefined | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE | _No schema_ |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | [NxApp](#nxapp) |
+
 ### `GET /v1/apps/{appId}/data/metadata`
 
 Retrieves the data model and reload statistics meta data of an app.
@@ -61,9 +84,9 @@ Retrieves the data model and reload statistics meta data of an app.
 
 **Parameters**
 
-| Parameter | In | Type | Required | Description |
-| --------- | -- | ---- | -------- | ----------- |
-| `appId` | path | string | true | Identifier of the app. |
+| Parameter | In | Type | Required | Description | Schema |
+| --------- | -- | ---- | -------- | ----------- | ------ |
+| `appId` | path | string | true | Identifier of the app. | _No schema_ |
 
 **Responses**
 
@@ -74,6 +97,10 @@ Retrieves the data model and reload statistics meta data of an app.
 ## Definitions
 
 ### `HealthcheckStatus`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -91,6 +118,10 @@ Retrieves the data model and reload statistics meta data of an app.
 
 ### `MemoryUsage`
 
+
+_Type: object_
+
+
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
@@ -101,6 +132,10 @@ Retrieves the data model and reload statistics meta data of an app.
 
 ### `CPUUsage`
 
+
+_Type: object_
+
+
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
@@ -108,6 +143,10 @@ Retrieves the data model and reload statistics meta data of an app.
 | `total` | number | _No schema_ | _No items_ | double | _No description._ |
 
 ### `SessionUsage`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -117,6 +156,10 @@ Retrieves the data model and reload statistics meta data of an app.
 | `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
 
 ### `AppUsage`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -130,6 +173,10 @@ Retrieves the data model and reload statistics meta data of an app.
 
 ### `UserUsage`
 
+
+_Type: object_
+
+
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
@@ -138,6 +185,10 @@ Retrieves the data model and reload statistics meta data of an app.
 | `total` | integer | _No schema_ | _No items_ | int32 | _No description._ |
 
 ### `CacheUsage`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -149,7 +200,64 @@ Retrieves the data model and reload statistics meta data of an app.
 | `replaced` | integer | _No schema_ | _No items_ | int32 | _No description._ |
 | `bytes_added` | integer | _No schema_ | _No items_ | int32 | _No description._ |
 
+### `FileData`
+
+
+_Type: string_
+
+
+_Format: binary_
+
+
+
+### `NxApp`
+
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `appId` | string | _No schema_ | _No items_ | _No format_ | ID of the app. |
+| `attributes` | object | [NxAttributes](#nxattributes) | _No items_ | _No format_ | App attributes. |
+| `meta` | object | [NxMeta](#nxmeta) | _No items_ | _No format_ | App meta-data. |
+
+### `NxAttributes`
+
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `name` | string | _No schema_ | _No items_ | _No format_ | App name. |
+| `description` | string | _No schema_ | _No items_ | _No format_ | App description. |
+| `thumbnail` | string | _No schema_ | _No items_ | _No format_ | App thumbnail. |
+| `tags` | array | _No schema_ | string | _No format_ | App tags. |
+| `lastReloadTime` | string | _No schema_ | _No items_ | _No format_ | Date and time of the last reload of the app in ISO format. |
+| `createdDate` | string | _No schema_ | _No items_ | _No format_ | The date when the app was created. |
+
+### `NxMeta`
+
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Schema | Items | Format | Description |
+| ---- | ---- | ------ | ----- | ------ | ----------- |
+| `Name` | string | _No schema_ | _No items_ | _No format_ | Name. This property is optional. |
+
 ### `DataModelMetadata`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -162,6 +270,10 @@ Retrieves the data model and reload statistics meta data of an app.
 
 ### `LastReloadMetadata`
 
+
+_Type: object_
+
+
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
@@ -171,6 +283,10 @@ Retrieves the data model and reload statistics meta data of an app.
 
 ### `HardwareMeta`
 
+
+_Type: object_
+
+
 **Properties**
 
 | Name | Type | Schema | Items | Format | Description |
@@ -179,6 +295,10 @@ Retrieves the data model and reload statistics meta data of an app.
 | `total_memory` | integer | _No schema_ | _No items_ | int64 | RAM available. |
 
 ### `FieldMetadata`
+
+
+_Type: object_
+
 
 **Properties**
 
@@ -200,6 +320,10 @@ Retrieves the data model and reload statistics meta data of an app.
 | `byte_size` | integer | _No schema_ | _No items_ | int64 | Static RAM memory used in bytes. |
 
 ### `TableMetadata`
+
+
+_Type: object_
+
 
 **Properties**
 
