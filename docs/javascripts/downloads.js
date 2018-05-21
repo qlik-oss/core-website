@@ -156,7 +156,7 @@
           };
 
           lastBodyColumn.forEach((cell, index) => {
-            const service = services[index]
+            const service = services[index];
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
 
             cell.innerText = '';
