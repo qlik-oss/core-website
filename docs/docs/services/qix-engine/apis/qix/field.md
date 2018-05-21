@@ -3,9 +3,10 @@
 <!-- proselint-disable -->
 # Field
 
-_QIX methods for version 12.166.0._
+_QIX methods for version 12.171.0._
 
 ## `Clear`
+
 Clears the selections in a specific field.
 
 _No parameters._
@@ -17,6 +18,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true/false&gt;<br>The operation is successful if **qReturn** is set to true.  |
 
 ## `ClearAllButThis`
+
 Maintains the selections in the current field while clearing the selections in the other fields.
 
 **Parameters:**
@@ -32,6 +34,7 @@ Maintains the selections in the current field while clearing the selections in t
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `GetAndMode`
+
 Returns the AND mode status of a field.
 
 _No parameters._
@@ -43,6 +46,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true or false&gt;<br>The field is in AND mode if **qReturn** is set to true.  |
 
 ## `GetCardinal`
+
 Retrieves the number of distinct values in a field.
 
 _No parameters._
@@ -54,6 +58,7 @@ _No parameters._
 | `qReturn` | integer | &lt;cardinal value&gt; |
 
 ## `GetNxProperties`
+
 Gets the properties of a field.<br><br>The property _OneAndOnlyOne_ is set to true if one and only value has been selected in the field prior setting the property. 
 
 _No parameters._
@@ -65,6 +70,7 @@ _No parameters._
 | `qProperties` | [`NxFieldProperties`](./definitions.md#nxfieldproperties) | Information about the properties of the field. |
 
 ## `Lock`
+
 Locks all selected values of a specific field.
 
 _No parameters._
@@ -76,6 +82,7 @@ _No parameters._
 | `qReturn` | boolean | &lt;true/false&gt;<br>The operation is successful if **Return** is set to true.  |
 
 ## `LowLevelSelect`
+
 Selects some values in a field, by entering the element numbers related to the values to select.
 
 **Parameters:**
@@ -93,6 +100,7 @@ Selects some values in a field, by entering the element numbers related to the v
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `Select`
+
 Selects field values matching a search string.
 
 **Parameters:**
@@ -110,6 +118,7 @@ Selects field values matching a search string.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SelectAll`
+
 Selects all values of a field. Excluded values are also selected.
 
 **Parameters:**
@@ -125,6 +134,7 @@ Selects all values of a field. Excluded values are also selected.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SelectAlternative`
+
 Selects all alternatives values in a specific field.<br>In a field that contains at least one selected value, the values that are neither selected nor excluded are alternatives values.
 
 **Parameters:**
@@ -140,6 +150,7 @@ Selects all alternatives values in a specific field.<br>In a field that contains
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SelectExcluded`
+
 Inverts the current selections.
 
 **Parameters:**
@@ -155,6 +166,7 @@ Inverts the current selections.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SelectPossible`
+
 Selects all possible values in a specific field.
 
 **Parameters:**
@@ -170,6 +182,7 @@ Selects all possible values in a specific field.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SelectValues`
+
 Selects some values in a field, by entering the values to select.
 
 **Parameters:**
@@ -187,6 +200,7 @@ Selects some values in a field, by entering the values to select.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `SetAndMode`
+
 Sets a field in the AND mode.
 
 **Parameters:**
@@ -198,6 +212,7 @@ Sets a field in the AND mode.
 _No return values._
 
 ## `SetNxProperties`
+
 Sets some properties to a field.
 
 **Parameters:**
@@ -209,6 +224,7 @@ Sets some properties to a field.
 _No return values._
 
 ## `ToggleSelect`
+
 Toggle selects field values matching a search string.
 
 **Parameters:**
@@ -226,6 +242,7 @@ Toggle selects field values matching a search string.
 | `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
 
 ## `Unlock`
+
 Unlocks all selected values of a specific field if the target (or handle ) is a field.
 
 _No parameters._
