@@ -53,16 +53,9 @@
       qHyperCubeDef: {
         qInitialDataFetch: [{ qLeft: 0, qTop: 0, qWidth: 10, qHeight: 100 }],
         qDimensions: [
-          { qDef: { qFieldDefs: ["APIName"], } },
-          { qDef: { qFieldDefs: ["APIVersion"] } },
-          { qDef: { qFieldDefs: ["PrevAPIVersion"] } },
-          { qDef: { qFieldDefs: ["ReleaseDate"] } },
-          { qDef: { qFieldDefs: ["Added"] } },
-          { qDef: { qFieldDefs: ["Updated"] } },
-          { qDef: { qFieldDefs: ["Removed"] } },
-          { qDef: { qFieldDefs: ["Deprecated"] } },
-          { qDef: { qFieldDefs: ["Visibility"] } },
-        ],
+          "APIName", "APIVersion", "PrevAPIVersion", "ReleaseDate",
+          "Added", "Updated", "Removed", "Deprecated", "Visibility"
+        ].map(field => ({ qDef: { qFieldDefs: [field] } }))
       }
     })
     .then(obj => obj.getLayout())
