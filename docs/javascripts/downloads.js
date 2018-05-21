@@ -105,7 +105,7 @@
         const changes = [];
 
         indexes.forEach(index => {
-          changes[index] = publicApis.map(api => parseInt(api[index].qText)).reduce(
+          changes[index] = publicApis.map(api => parseFloat(api[index].qText)).reduce(
             (accumulator, currentValue) => accumulator + currentValue
             , 0
           )
