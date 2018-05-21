@@ -5,25 +5,19 @@
     const appId = '52e3297d-ceeb-45c9-bbe4-6069fe920760';
     const services = [
       {
-        service: '<a href="../services/qix-engine/introduction/">Qlik Associative Engine</a>',
-        feature: 'The powerful associative indexing engine from Qlik and the foundation of Qlik Core.',
-        link: '<a href="https://hub.docker.com/r/qlikcore/engine">qlikcore/engine</a>',
+        service: 'Qlik Associative Engine',
         apis: [
           'EngineAPI',
           'EngineRestAPI',
           'ScriptLanguageAPI',
         ],
       }, {
-        service: '<a href="../services/licenses/">Licenses</a>',
-        feature: 'Service required to run Qlik Associative Engine with a paid license',
-        link: '<a href="https://hub.docker.com/r/qlikcore/licenses">qlikcore/licenses</a>',
+        service: 'Licenses',
         apis: [
           'LicenseServiceAPI',
         ],
       }, {
-        service: '<a href="../services/mira/">Mira</a>',
-        feature: 'Qlik Associative Engine discovery service.',
-        link: '<a href="https://hub.docker.com/r/qlikcore/mira">qlikcore/mira</a><br>(source code: <a href="https://github.com/qlik-oss/mira">qlik-oss/mira</a>)',
+        service: 'Mira',
         apis: [
           'MiraAPI',
         ],
