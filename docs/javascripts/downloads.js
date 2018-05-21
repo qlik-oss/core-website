@@ -155,8 +155,6 @@
             }</div>`;
           };
 
-          table.querySelectorAll('tr th:last-child')[0].innerText = 'Latest Version';
-
           lastBodyColumn.forEach((cell, index) => {
             const service = services[index]
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
