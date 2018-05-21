@@ -34,7 +34,10 @@
 
     const table = document.getElementsByTagName('table')[0];
     const lastBodyColumn = table.querySelectorAll('tr td:last-child');
-    lastBodyColumn.forEach(cell => cell.appendChild(loader.cloneNode(true)));
+    lastBodyColumn.forEach(cell => {
+      cell.innerText = '';
+      cell.appendChild(loader.cloneNode(true));
+    });
 
     const schema = {
       "structs": {
