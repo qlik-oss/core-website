@@ -166,10 +166,7 @@
         cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 6, 7]));
       })
     })
-    .then(() => session.close())
   )
-  .catch(err => {
-    console.log
-    session.close();
-  });
+  .then(() => session.close())
+  .catch(err => console.log);
 })();
