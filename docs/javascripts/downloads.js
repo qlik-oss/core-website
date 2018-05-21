@@ -1,7 +1,7 @@
 (function() {
-  const downloadsTableWrapper = document.getElementById('downloads-table-wrapper');
+  const downloadsTableIdentifier = document.getElementById('downloads-table-identifier');
 
-  if (downloadsTableWrapper) {
+  if (downloadsTableIdentifier) {
     const appId = '52e3297d-ceeb-45c9-bbe4-6069fe920760';
     const services = [
       {
@@ -38,46 +38,9 @@
       loader.appendChild(dot);
     }
 
-    const scrollWrap = document.createElement('div');
-    scrollWrap.className = 'md-typeset__scrollwrap';
-
-    const tableContainer = document.createElement('div');
-    tableContainer.className = 'md-typeset__table';
-    scrollWrap.appendChild(tableContainer);
-
-    const table = document.createElement('table');
-    tableContainer.appendChild(table);
-
-    const tableHeader = document.createElement('thead');
-    table.appendChild(tableHeader);
-
-    const tableHeaderRow = document.createElement('tr');
-    tableHeader.appendChild(tableHeaderRow);
-    ['Service', 'Feature', 'Links', 'Latest Version'].forEach(title => {
-      const cell = document.createElement('th');
-      cell.appendChild(document.createTextNode(title));
-      tableHeaderRow.appendChild(cell);
-    });
-
-    const tableBody = document.createElement('tbody');
-    table.appendChild(tableBody);
-
-    const latestVersionCells = [];
-    services.forEach(service => {
-      const tableBodyRow = document.createElement('tr');
-      tableBody.appendChild(tableBodyRow);
-      ['service', 'feature', 'link'].forEach(column => {
-        const cell = document.createElement('td');
-        cell.insertAdjacentHTML('beforeend', service[column]);
-        tableBodyRow.appendChild(cell);
-      });
-
-      const cell = document.createElement('td');
-      cell.appendChild(loader.cloneNode(true));
-      tableBodyRow.appendChild(cell);
-      latestVersionCells.push(cell);
-    })
-    downloadsTableWrapper.appendChild(scrollWrap);
+    const table = document.getElementsByTagName('table')[0];
+    const lastBodyColumn = table.querySelectorAll('tr td:last-child');
+    lastBodyColumn.forEach(cell => cell.appendChild(loader.cloneNode(true)));
 
     const schema = {
       "structs": {
@@ -195,7 +158,9 @@
             }</div>`;
           };
 
-          latestVersionCells.forEach((cell, index) => {
+          table.querySelectorAll('tr th:last-child')[0].innerText = 'Latest Version';
+
+          lastBodyColumn.forEach((cell, index) => {
             const service = services[index]
             const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
 

@@ -1,7 +1,3 @@
-#downloads-table-wrapper {
-  min-height: 373px;
-}
-
 .dots {
   --timer: 1s;
   --delay: calc(var(--timer) * .4);
