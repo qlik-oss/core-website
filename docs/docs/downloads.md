@@ -21,3 +21,11 @@ You can install these libraries as npm packages:
 | [halyard.js](https://www.npmjs.com/package/halyard.js) | Simple data loading into the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/halyard.js) |
 | [after-work.js](https://www.npmjs.com/package/after-work.js) | Unified testing framework for different test levels. | [GitHub](https://github.com/qlik-oss/after-work.js) |
 | [picasso.js](https://www.npmjs.com/package/picasso.js) | Visualization library on top of the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/picasso.js/) |
+
+## Golang Library
+
+There is also a Golang library that can be used when communicating with the Qlik Associative Engine in Qlik Core.
+
+| Library | Feature | Installation |
+| ------- | ------- | ------------ |
+| [enigma-go](https://github.com/qlik-oss/enigma-go) | Communication with the Qlik Associative Engine. | `go get -u github.com/qlik-oss/enigma-go` |
