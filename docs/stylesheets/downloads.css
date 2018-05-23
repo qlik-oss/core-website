@@ -1,0 +1,101 @@
+.dots {
+  --timer: 1s;
+  --delay: calc(var(--timer) * .4);
+  --delay-coefficient: calc(var(--delay) * .25);
+
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.dots__dot {
+  background-color: #fff;
+  width: calc(80% / 7);
+  animation: bounce var(--timer) alternate infinite;
+  transform: scale(.3);
+  flex-shrink: 0;
+  animation-delay: var(--delay);
+}
+
+.dots__dot::before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.dots__dot:nth-child(1) {
+  animation-delay: calc(var(--delay) + (1 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(2) {
+  animation-delay: calc(var(--delay) + (2 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(3) {
+  animation-delay: calc(var(--delay) + (3 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(4) {
+  animation-delay: calc(var(--delay) + (4 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(5) {
+  animation-delay: calc(var(--delay) + (5 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(6) {
+  animation-delay: calc(var(--delay) + (6 * var(--delay-coefficient)));
+}
+.dots__dot:nth-child(7) {
+  animation-delay: calc(var(--delay) + (7 * var(--delay-coefficient)));
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    background-color: var(--custom-grey);
+  }
+}
+
+.title__version {
+  font-weight: bold;
+  display: block;
+}
+
+.title__release-date {
+  font-style: italic;
+  display: block;
+}
+
+.changes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.changes__circle {
+  --size: 24px;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  text-align: center;
+  line-height: var(--size);
+  border-radius: 50%;
+  color: white;
+  font-size: .8em;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+.changes__circle--added {
+  background-color: var(--custom-green);
+}
+
+.changes__circle--updated {
+  background-color: orange;
+}
+
+.changes__circle--removed {
+  background-color: red;
+}
+
+.changes__circle--deprecated {
+  background-color: var(--custom-grey);
+}
