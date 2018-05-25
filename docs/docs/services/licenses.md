@@ -14,7 +14,8 @@ It is developed by Qlik as closed source.
 
 ## Configuration
 
-You need to configure the Licenses service with two environment variables `LICENSES_SERIAL_NBR` with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
+You need to configure the Licenses service with two environment variables `LICENSES_SERIAL_NBR`
+with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
 
 You also need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
 where to find it. You can do this by passing the following command line argument to the Qlik
@@ -26,7 +27,8 @@ Associative Engine.
 
 ## Examples
 
-To see an example of a license configuration, see the [core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
+To see an example of a license configuration, see the
+[core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
 
 ## Deployment
 
@@ -54,7 +56,8 @@ metrics associated with your license:
 | license_time_consumption | GAUGE | Number of license minutes consumed this month. This metrics is only showed if any minutes have been consumed. |
 | license_time_total | GAUGE | The total amount of license minutes per month your license gives you. |
 
-To see an example of how you can use these metrics to create dashboards of your license consumption, see the [core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
+To see an example of how you can use these metrics to create dashboards of your license consumption,
+see the [core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
 
 ### Logging
 
@@ -65,6 +68,8 @@ You can override the minimum logging level by providing the `LICENSES_LOG_LEVEL`
 
 ### License Events
 
-If no valid license exists or all license minutes are already consumed and the Qlik Associative Engine is configured to run in licensed mode it will send a `SESSION_ERROR_NO_LICENSE` push event on the websocket and then close it.
+If no valid license exists or all license minutes are already consumed and the Qlik Associative Engine
+is configured to run in licensed mode it will send a `SESSION_ERROR_NO_LICENSE` push event on the websocket and then close it.
 
-If during a license renewal there are no more license minutes a `SESSION_ERROR_LICENSE_RENEW` push event will be sent from the Qlik Associative Engine and afterwards the websocket will be closed.
+If during a license renewal there are no more license minutes a `SESSION_ERROR_LICENSE_RENEW`
+push event will be sent from the Qlik Associative Engine and afterwards the websocket will be closed.
