@@ -40,9 +40,9 @@ support multiple instances if needed.
 
 For health checking, the service exposes `/health` on port 9200, and it always responds with:
 
-``` json
+```json
 {
-"alive": true
+    "alive": true
 }
 ```
 
