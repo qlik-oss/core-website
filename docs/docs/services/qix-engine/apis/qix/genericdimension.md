@@ -71,7 +71,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array&lt;[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
+| `qItems` | array<[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
 
 ## `GetProperties`
 

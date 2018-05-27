@@ -260,7 +260,7 @@ Exports the data of any generic object to an Excel file or a open XML file. If t
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qUrl` | string | &lt;url of the exported file&gt; |
-| `qWarnings` | array&lt;string> | `[1000]` |
+| `qWarnings` | array | `[1000]` |
 
 ## `GetChild`
 
@@ -288,7 +288,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfos` | array&lt;[`NxInfo`](./definitions.md#nxinfo)> | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>}, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>...<br>] |
+| `qInfos` | array<[`NxInfo`](./definitions.md#nxinfo)> | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>}, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>...<br>] |
 
 ## `GetEffectiveProperties`
 
@@ -334,7 +334,7 @@ This method supports data binning.<br>When a generic object with two or three me
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
+| `qDataPages` | array<[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
 
 ## `GetHyperCubeContinuousData`
 
@@ -352,7 +352,7 @@ Retrieves and packs compressed hypercube and axis data. It is possible to retrie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Array of pages to retrieve.<br>The dimension values and the measure values. |
+| `qDataPages` | array<[`NxDataPage`](./definitions.md#nxdatapage)> | Array of pages to retrieve.<br>The dimension values and the measure values. |
 | `qAxisData` | [`NxAxisData`](./definitions.md#nxaxisdata) | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
 
 ## `GetHyperCubeData`
@@ -370,7 +370,7 @@ Retrieves the calculated data for a chart, a table, or a scatter plot. It is pos
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | A data set |
+| `qDataPages` | array<[`NxDataPage`](./definitions.md#nxdatapage)> | A data set |
 
 ## `GetHyperCubePivotData`
 
@@ -387,7 +387,7 @@ Retrieves the values of a pivot table. It is possible to retrieve specific pages
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxPivotPage`](./definitions.md#nxpivotpage)> | A data set. |
+| `qDataPages` | array<[`NxPivotPage`](./definitions.md#nxpivotpage)> | A data set. |
 
 ## `GetHyperCubeReducedData`
 
@@ -406,7 +406,7 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | A data set. |
+| `qDataPages` | array<[`NxDataPage`](./definitions.md#nxdatapage)> | A data set. |
 
 ## `GetHyperCubeStackData`
 
@@ -424,7 +424,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxStackPage`](./definitions.md#nxstackpage)> | A data set. |
+| `qDataPages` | array<[`NxStackPage`](./definitions.md#nxstackpage)> | A data set. |
 
 ## `GetHyperCubeTreeData`
 
@@ -444,7 +444,7 @@ Retrieves data for nodes in a tree structure. It is possible to retrieve specifi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qNodes` | array&lt;[`NxTreeNode`](./definitions.md#nxtreenode)> | Represents the nodes and dimensions of the defined tree. |
+| `qNodes` | array<[`NxTreeNode`](./definitions.md#nxtreenode)> | Represents the nodes and dimensions of the defined tree. |
 
 ## `GetInfo`
 
@@ -480,7 +480,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array&lt;[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
+| `qItems` | array<[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
 
 ## `GetListObjectData`
 
@@ -497,7 +497,7 @@ Retrieves the values of a list object.<br>A data set is returned.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | A data set. |
+| `qDataPages` | array<[`NxDataPage`](./definitions.md#nxdatapage)> | A data set. |
 
 ## `GetProperties`
 
