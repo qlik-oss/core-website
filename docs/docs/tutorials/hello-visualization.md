@@ -51,7 +51,7 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 
 1. Open the visualization in a browser.
 
-    Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in a scatter plot.
+    Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in visualization.
 
     If the application runs successfully,
     you will see that the visualization is deployed to localhost:8080
