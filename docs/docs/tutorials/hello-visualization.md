@@ -45,8 +45,6 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
     ```bash
     npm run scatter-plot
     ```
-
-
     This command runs the application, which contains information on where to fetch the data and which data to load.
     This information is then used to create and populate a session app.
 
