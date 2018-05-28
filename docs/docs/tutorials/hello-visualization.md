@@ -36,6 +36,7 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 1. Run the application.
 
     Run the following command from a command shell:
+   
     For line chart
 
     ```bash
@@ -58,7 +59,7 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 
 ### What is happening
 
-When you run `Line chart (or) Scatter plot`, app.js creates and populates a session app
+When you run a visualization, app.js creates and populates a session app
 from the data that is available to the Qlik Associative Engine using enigma.js
 to communicate with the engine and halyard.js to manage the data.
 A session app only lives while the session is alive.
