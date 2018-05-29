@@ -38,13 +38,7 @@ support multiple instances if needed.
 
 ### Health check
 
-For health checking, the service exposes `/health` on port 9200, and it always responds with:
-
-```json
-{
-    "alive": true
-}
-```
+For health checking, the service exposes `/health` on port 9200, and it always responds with http status code `200 OK`.
 
 ### Metrics
 
