@@ -37,16 +37,21 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 
     Run the following command from a command shell:
 
-    ```bash
-    npm run hello-visualization
-    ```
+    For line chart
 
+    ```bash
+    npm run line-chart
+    ```
+    For Scatter plot
+    ```bash
+    npm run scatter-plot
+    ```
     This command runs the application, which contains information on where to fetch the data and which data to load.
     This information is then used to create and populate a session app.
 
 1. Open the visualization in a browser.
 
-    Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in a scatter plot.
+    Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in a visualization.
 
     If the application runs successfully,
     you will see that the visualization is deployed to localhost:8080
@@ -54,7 +59,7 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 
 ### What is happening
 
-When you run `Hello Visualization`, app.js creates and populates a session app
+When you run a visualization, app.js creates and populates a session app
 from the data that is available to the Qlik Associative Engine using enigma.js
 to communicate with the engine and halyard.js to manage the data.
 A session app only lives while the session is alive.
