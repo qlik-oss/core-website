@@ -42,7 +42,8 @@ To start Qlik Associative Engine in Qlik Core correctly, you need to
 ## Container orchestration
 
 !!! Note
-    You need to accept the EULA before these examples can be run, see
+    You need to accept the EULA and provide your licensing information
+    before these examples can be run, see
     the `README.md` file in each orchestration example for instructions
     how to do this.
 
@@ -116,12 +117,8 @@ To learn more about labeling, see [Mira documentation](https://github.com/qlik-o
 Deploy the stack by running the following command:
 
 ```sh
-docker stack deploy -c ./docker-swarm/docker-compose.yml --with-registry-auth qlik-core
+docker stack deploy -c ./docker-swarm/docker-compose.yml
 ```
-
-!!! Note
-    `--with-registry-auth` is currently required because the Docker images are not public,
-    and credentials are needed to pull them from Docker Hub.
 
 ### Accessing the stack
 
@@ -152,21 +149,6 @@ The *kubectl CLI* must be available on the local machine
 and it must be configured to communicate with the correct Kubernetes API server.
 To learn more about the *kubectl CLI* and how to configure it,
 see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
-
-### Docker Hub credentials
-
-The Docker images that are being used are not public,
-so you must add a secret to Kubernetes to be able to pull these images from Docker Hub.
-
-To add this secret to Kubernetes, run the following command:
-
-```sh
-kubectl create secret docker-registry dockerhub --docker-username=<your-name> --docker-password=<your-password> --docker-email=<your-email>
-```
-
-!!! Note
-    The leading space character before the kubectl command is intentional.
-    This prevents the command from being stored in the Bash shell command history.
 
 ### The stack
 
@@ -291,18 +273,6 @@ This endpoint returns one or more Qlik Associative Engine instances and informat
 
 You must have a Nomad environment set up. If you need to setup a local environment, see
 [Install Nomad](https://www.nomadproject.io/intro/getting-started/install.html).
-
-### Docker Hub credentials
-
-The Docker images that are being used are not public,
-so you must add a secret to Nomad to be able to pull these images from Docker Hub.
-In this example, we use the Docker auths that is stored when logging into Docker Hub with `docker login`.
-
-!!! Note
-    Nomad stores the Docker credentials as plain text.
-    To learn more on how Nomad stores these credentials,
-    see [here](https://www.nomadproject.io/docs/drivers/docker.html#docker-auth-config).
-    To see an example of how the Nomad client can be configured to use local Docker credentials, see [nomad.hcl](https://github.com/qlik-oss/core-orchestration/blob/master/nomad/nomad.hcl).
 
 ### Service discovery
 
