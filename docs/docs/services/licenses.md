@@ -14,21 +14,17 @@ It is developed by Qlik as closed source.
 
 ## Configuration
 
-You need to configure the Licenses service with two environment variables `LICENSES_SERIAL_NBR`
-with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
+You configure Licenses by setting environment variables inside the container.
 
-You also need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
-where to find it. You can do this by passing the following command line argument to the Qlik
-Associative Engine.
+### Environment variables
 
-```sh
--S LicenseServiceUrl=<Licenses service URL>
-```
+The following environment variables can be set when using the license service in Qlik Core mode:
 
-## Examples
-
-To see an example of a license configuration, see the
-[core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
+| Name                                  |Required| Default value           | Description |
+| ------------------------------------- |--------| ----------------------- | ----------- |
+| LICENSES_SERIAL_NBR                   | yes | N/A                     | The License serial number. |
+| LICENSES_CONTROL_NBR                  | yes |N/A                     | The License control number. |
+| LICENSES_LOG_LEVEL                    | no |info                    | Minimum log level that Licenses outputs when logging to `stdout`. |
 
 ## Deployment
 
@@ -42,8 +38,10 @@ For health checking, the service exposes `/health` on port 9200, and it always r
 
 ### Metrics
 
-For Prometheus metrics scraping, the service exposes `/metrics` on port 9200. It provides the following
-metrics associated with your license:
+Following the [Metrics](../conventions/metrics.md) conventions, Licenses exposes
+some metrics that can be used to monitor the service on port 9200.
+It provides the following specific
+metrics associated with your Qlik Core license:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -59,12 +57,3 @@ This service complies with the [Logging](../conventions/logging.md) conventions.
 By default, the minimum log level is `info`.
 
 You can override the minimum logging level by providing the `LICENSES_LOG_LEVEL` environment variable.
-
-### License Events
-
-If no valid license exists or all license minutes are already consumed and the Qlik Associative Engine
-is configured to run in licensed mode it will send a `SESSION_ERROR_NO_LICENSE`
-push event on the websocket and then close it.
-
-If during a license renewal there are no more license minutes a `SESSION_ERROR_LICENSE_RENEW`
-push event will be sent from the Qlik Associative Engine and afterwards the websocket will be closed.
