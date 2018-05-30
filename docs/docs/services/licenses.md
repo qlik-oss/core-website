@@ -4,6 +4,9 @@
     This service is subject to change in terms of
     configuration, metrics, and logging.
 
+!!! Note "Tutorial"
+    A tutorial on how to set up the licenses service can be found (here)[../tutorials/licensing.md]
+
 To run Qlik Associative Engine with a paid license, you are required to run this service.
 
 ## Distribution
