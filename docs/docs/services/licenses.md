@@ -4,6 +4,9 @@
     This service is subject to change in terms of
     configuration, metrics, and logging.
 
+!!! Note "Tutorial"
+    A tutorial on how to set up the licenses service can be found [here](../tutorials/licensing.md)
+
 To run Qlik Associative Engine with a paid license, you are required to run this service.
 
 ## Distribution
@@ -14,18 +17,17 @@ It is developed by Qlik as closed source.
 
 ## Configuration
 
-You do not need to configure this service right now but this will be required in the future.
-In addition, you do need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
-where to find it. You can do this by passing the following command line argument to the Qlik
-Associative Engine.
+You configure Licenses by setting environment variables inside the container.
 
-```sh
--S LicenseServiceUrl=<Licenses service URL>
-```
+### Environment variables
 
-## Examples
+The following environment variables can be set when using the license service in Qlik Core mode:
 
-To see an example of a basic license configuration, see the [Orchestration](../tutorials/orchestration.md) tutorial.
+| Name                                  |Required| Default value           | Description |
+| ------------------------------------- |--------| ----------------------- | ----------- |
+| LICENSES_SERIAL_NBR                   | yes | N/A                     | The License serial number. |
+| LICENSES_CONTROL_NBR                  | yes |N/A                     | The License control number. |
+| LICENSES_LOG_LEVEL                    | no |info                    | Minimum log level that Licenses outputs when logging to `stdout`. |
 
 ## Deployment
 
@@ -35,28 +37,26 @@ support multiple instances if needed.
 
 ### Health check
 
-For health checking, the service exposes `/v1/health` on port 9200, and it always responds with `200 OK`.
+For health checking, the service exposes `/health` on port 9200, and it always responds with http status code `200 OK`.
 
 ### Metrics
 
-For Prometheus metrics scraping, the service exposes `/v1/metrics` on port 9200. It provides the following
-metrics:
+Following the [Metrics](../conventions/metrics.md) conventions, Licenses exposes
+some metrics that can be used to monitor the service on port 9200.
+It provides the following specific
+metrics associated with your Qlik Core license:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| http_requests_total | COUNTER | Total number of HTTP requests since service start.<br>It includes both successful and unsuccessful requests.<br>The HTTP method and endpoint path are provided as labels. |
-| http_request_failures_total | COUNTER | Total number of HTTP request failures since service start.<br>The HTTP method and endpoint path are provided as labels |
-| http_request_duration_seconds | HISTOGRAM | Durations of HTTP request since service start.<br>The HTTP method and endpoint path are provided as labels. |
-| active_instances | GAUGE | Number of active instances (engines with an active license). |
-| license_expiry_seconds | GAUGE | Number of seconds until the license expires. |
+| license_time_consumption | GAUGE | Number of license minutes consumed this month. This metrics is only showed if any minutes have been consumed. |
+| license_time_total | GAUGE | The total amount of license minutes per month your license gives you. |
+
+To see an example of how you can use these metrics to create dashboards of your license consumption,
+see the [core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
 
 ### Logging
 
 This service complies with the [Logging](../conventions/logging.md) conventions.
 By default, the minimum log level is `info`.
-However, for Microsoft libraries, the default minimum logging level is set to `warning` to avoid too verbose logging.
 
-You can override the minimum logging level by providing the `LOG_LEVEL` environment variable.
-Note that if you provide this variable it will affect the logging level for all components in the License Service,
-including Microsoft libraries. We recommend that you use the default minimum level in a production environment,
-and only override the level for debugging purposes.
+You can override the minimum logging level by providing the `LICENSES_LOG_LEVEL` environment variable.
