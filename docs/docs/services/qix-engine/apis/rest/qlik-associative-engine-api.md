@@ -61,11 +61,11 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 
 **Parameters**
 
-| Parameter | In | Type | Required | Description | Schema |
-| --------- | -- | ---- | -------- | ----------- | ------ |
-| `filedata` | body | undefined | true | Path of the source app. | [FileData](#filedata) |
-| `name` | path | string | true | The name of the target app. | _No schema_ |
-| `mode` | query | string | undefined | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE | _No schema_ |
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
+| `name` | path | string | true | The name of the target app. |
+| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 
 **Responses**
 
@@ -84,9 +84,9 @@ Retrieves the data model and reload statistics meta data of an app.
 
 **Parameters**
 
-| Parameter | In | Type | Required | Description | Schema |
-| --------- | -- | ---- | -------- | ----------- | ------ |
-| `appId` | path | string | true | Identifier of the app. | _No schema_ |
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
 
 **Responses**
 
