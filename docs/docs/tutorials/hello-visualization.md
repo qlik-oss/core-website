@@ -36,12 +36,12 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 1. Run the application.
 
     Run the following command from a command shell:
-    
+
     For line chart
     ```bash
-    npm run line-chart 
+    npm run line-chart
     ```
-    For Scatter plot    
+    For Scatter plot
     ```bash
     npm run scatter-plot
     ```
