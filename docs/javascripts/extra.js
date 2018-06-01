@@ -5,3 +5,9 @@
       " marketing-page-main-content";
   }
 })();
+
+function hello() {
+  if (document.getElementById("myModal")){
+    document.getElementsByClassName("ca-accept-cookies")[0].className +=
+    " hidden";}
+  }

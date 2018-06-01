@@ -26,6 +26,12 @@
   <div id="marketing-page">
       <!-- Content -->
       {{ page.content }}
+
+      <div id="myModal" class="ca-accept-cookies" action="Close" onclick="hello()" >
+        <span>By continuing to browse the site, you are agreeing to <a href="https://www.qlik.com/us/legal/cookies-and-privacy-policy" style="text-decoration: underline">our use of cookies</a></span>
+          <button tabindex="0" type="button"  style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 6px -16px 0px 24px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; z-index: 1; height: 36px; line-height: 36px; min-width: 88px; color: rgb(255, 64, 129); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: transparent; text-align: center;">
+            <div><span class="popuptext" id="myPopup">Close</span></div></button></div>  
+
   </div>
 {% elif page.title == "Beta" %}
   <div id="beta">
