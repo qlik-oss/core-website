@@ -139,7 +139,7 @@
         }, {
           service: 'Licenses',
           apis: [
-            'LicenseServiceAPI',
+            'LicensesAPI',
           ],
         }, {
           service: 'Mira',
