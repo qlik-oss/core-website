@@ -26,6 +26,12 @@
   <div id="marketing-page">
       <!-- Content -->
       {{ page.content }}
+
+      <div id="cookieModal" class="accept-cookies" action="Close" onclick="cookiePopup()" >
+        <span>By continuing to browse the site, you are agreeing to <a href="https://www.qlik.com/us/legal/cookies-and-privacy-policy" style="text-decoration: underline">our use of cookies</a></span>
+          <button tabindex="0" type="button" class="cookieButton">
+            <div><span class="cookiePopupText" id="cookiePopup">Close</span></div></button></div>  
+
   </div>
 {% elif page.title == "Beta" %}
   <div id="beta">
