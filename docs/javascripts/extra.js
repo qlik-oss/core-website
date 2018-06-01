@@ -6,8 +6,8 @@
   }
 })();
 
-function hello() {
-  if (document.getElementById("myModal")){
-    document.getElementsByClassName("ca-accept-cookies")[0].className +=
+function cookiePopup() {
+  if (document.getElementById("cookieModal")){
+    document.getElementsByClassName("accept-cookies")[0].className +=
     " hidden";}
   }
