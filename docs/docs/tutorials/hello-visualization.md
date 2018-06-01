@@ -51,7 +51,6 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
 
 1. Open the visualization in a browser.
 
-
     Open a browse and navigate to [http://localhost:8080](http://localhost:8080) to view the data in a visualization.
 
     If the application runs successfully,
@@ -59,7 +58,6 @@ that creates a visualization from the data loaded into your dockerized Qlik Asso
     and you will receive a message that the webpack has compiled successfully.
 
 ### What is happening
-
 
 When you run a visualization, app.js creates and populates a session app
 
