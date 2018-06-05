@@ -8,11 +8,11 @@
 
 For sharing documents between multiple instances the Qlik Associative Engine uses file polling to detect document changes.
 This feature support changes based on creation, editing, and deletion of generic objects, as well as reload of the data.
-If there are e.g. changes to the data blob or objects in a document,
+If there are for example changes to the data blob or objects in a document,
 this would trigger a notification to other engine instances sharing the same document.
 The file polling interval for checking for document changes is every 10 seconds.
 
-When a document change has been detected the client will receive a push message in the outdated session,
+When a document change has been detected the client in the other session will receive invalidations on the affected objects,
 and can act on it as preferred.
 There is an example in `enigma.js` for how to subscribe on these events [here](https://github.com/qlik-oss/enigma.js/blob/master/docs/api.md#event-changed).
 
