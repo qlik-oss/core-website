@@ -4,21 +4,40 @@
     This feature is in an experimental state. Use with caution
     since this feature may change in the future.
 
-Being able to control which users can do what in the context
-of a document is often necessary. In Qlik Associative Engine we support
-[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
-which lets you control the document resources based on a users'
-attributes rather than using roles or other, more static, means.
+Being able to control which users can do what in the context of a document is often necessary. In Qlik Associative
+Engine we support [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
+which lets you control the document resources based on a user's attributes rather than using roles or other more static
+means.
 
 ## Configuration
 
-Rules are defined, one on each row, in text files. Qlik Associative Engine will
-apply rules in order (except for deny rules which are always applied first,
-regardless of where they are defined).
+### Rules
 
-If the ABAC feature is enabled, all users will by default have no
-access, so it is important that you also include rules when enabling it
-or you will cause access problems for your users.
+Each rule is a conditional expression that evaluates to either `true` or `false`. Typically, a rule asserts if a _User_
+with certain attributes is allowed to perform a specific _Action_ on a certain _Resource_.
+
+ABAC rule evaluation is enabled in the engine by using the `-S EnableABAC=1` command line switch.
+
+!!! Note
+    If the ABAC feature is enabled, all users will by default have no access, so it is important that you also include
+    rules when enabling it or you will cause access problems for your users.
+
+### Rule Files
+
+Rules are defined in text files with one rule on each row. Qlik Associative Engine applies rules in the order they
+appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
+
+The _Deny_ rule file denies access and is always evaluated first. If any rule in the _Deny_ file evaluates to `true`,
+access is immediately denied and no further processing of rules take place. The path to the _Deny_ rule file is passed
+to the engine using the `-S SystemDenyRulePath=<path to file>` command line switch.
+
+The _Allow_ rule file allows access. If any rule in the _Allow_ file evaluates to `true`, access is immediately granted
+and no further processing of rules take place. The path to the _Allow_ rule file is passed to the engine using the
+`-S SystemAllowRulePath=<path to file>` command line switch.
+
+### Example
+
+The following command shows how to start a Qlik Associative Engine instance as a Docker container, enabling ABAC
 
 ```bash
 docker run
@@ -31,46 +50,17 @@ docker run
     -S SystemDenyRulePath=/<container folder>/deny.txt
 ```
 
-## Allow versus Deny
+## User
 
-In addition to using _Allow_ rules to grant access, the Qlik Associative Engine
-also supports _Deny_ rules to deny access.
+All rules are evaluated in the context of a _User_. In the rules syntax, the user is represented by the `user`
+object.
 
-!!! Note
-    _Deny_ rules are always applied first, if none matched
-    it will continue with _Allow_ rules.
+### User Attributes
 
-## Actions
+`user` contains all attributes defined in the
+[JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
 
-Action       | Description
------------- | -----------
-Create       | Create resource.
-Read         | Read resource.
-Update       | Update resource.
-Delete       | Delete resource.
-Export       | Export a document.
-Publish      | Publish a resource.
-Change owner | Change the owner of a resource.
-Change role  | Change user role.
-Export data  | Export data from an object.
-
-## Resources
-
-There are a number of resources which you may use in your rule conditions.
-All supported resources are listed below.
-
-### Shared attributes
-
-Attribute         | Description
------------------ | -----------
-resource.id       | The unique identifier for the resource.
-resource.name     | The name of the resource, if any.
-
-### User
-
-The user resource contains all attributes defined in the [JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
-
-Example JWT:
+##### Examples
 
 ```json
 {
@@ -84,30 +74,154 @@ Example JWT:
 }
 ```
 
-Example usage in condition:
+Here, `employeeType`, and `custom.country` become attributes on `user` and can be used in a rule condition like this:
 
 ```c
-// Evaluates to `true` if the JWT looks like the example above:
 user.employeeType = "developer" and user.custom.country = "sweden"
 ```
 
-### App
+With the example JWT above, this rule evaluates to `true`.
 
-The document (called App in the rules syntax) context.
+### User Built-in Functions
 
-It has no additional attributes.
+#### `IsAnonymous()`
 
-### App.Object
+Boolean function for user conditions that returns `true` only if the user requesting access is logged in as anonymous.
 
-An object inside a document context.
+##### Syntax
+
+```c
+user.IsAnonymous()
+```
+
+##### Examples
+
+```c
+// Evaluates to `true` if the user is part of the "Developers"
+// organization, and is not anonymous:
+user.org == "Developers" and !user.IsAnonymous()
+```
+
+## Resources
+
+A _Resource_ is a generic concept can represent documents, or objects within documents when writing rules. Resources
+carries attributes which may also be used in your rule conditions. In the rules syntax the resource being accessed is
+represented by the `resource` object.
+
+### Resource Attributes
+
+#### Common Attributes
+
+There are different resource types but all share some common attributes:
+
+Attribute              | Description
+---------------------- | -----------
+resource.id            | The unique identifier for the resource.
+resource.name          | The name of the resource, if any.
+resource._resourcetype | The type of the resource being accessed. Equals:<br/>- `"App"` if accessing a document<br/>- `"App.Object"` if accessing an object within a document |
+resource._actions      | The action carried out on a resource. |
+
+**QUESTION: I have added `_resourcetype` and `_actions` the common attributes since `user` is not a resource. Is this correct?**
+
+**QUESTION: Is it `resourcetype` or `_resourcetype`?**
+
+**QUESTION: Is it `actions` or `_actions`?**
+
+#### Actions
+
+The supported actions are:
+
+Action       | Description
+------------ | -----------
+Create       | Create resource.
+Read         | Read resource.
+Update       | Update resource.
+Delete       | Delete resource.
+Export       | Export a document.
+Publish      | Publish a resource.
+Change owner | Change the owner of a resource.
+Change role  | Change user role.
+Export data  | Export data from an object.
+
+**QUESTION: Are not the actions referred to as `create`, `read`, ..., and `export` (not "Create", "Export data" and so on)?**
+
+##### Examples
+
+The following expression evaluates to `true` if the action is `read` or `update`:
+
+```c
+resource._actions = {"read", "update"}
+```
+
+#### Resource-type Specific Attributes
+
+Depending on what type of resource that is being accessed, `resource` carries different attributes
+
+If the resource type is `"App"`, `resource` has no additional attributes.
+
+If the resource type is `"App.Object"`, `resource` has the following additional attributes:
 
 Attribute | Description | Example condition
 --------- | ----------- | -----------------
-approved | Indicator of whether the object was part of the original document when the document was published. Values: `true` or `false`. | `resource.approved="true"`
-description | The object description. | `resource.description="My custom description"`
-objectType | The object type. | `resource.objectType="field" or resource.objectType="my-generic-object"`
-published | Indicator of whether the object is published. Values: `true` or `false`. | `resource.published="false"`
-app.name | Name of the document that the object is part of. | `app.name="Q3_Report"`
+`resource.approved` | Indicator of whether the object was part of the original document when the document was published. Values: `true` or `false`. | `resource.approved="true"`
+`resource.description` | The object description. | `resource.description="My custom description"`
+`resource.objectType` | The object type. | `resource.objectType="field" or resource.objectType="my-generic-object"`
+`resource.published` | Indicator of whether the object is published. Values: `true` or `false`. | `resource.published="false"`
+`resource.app.name` | Name of the document that the object is part of. | `resource.app.name="Q3_Report"`
+
+### Resource Built-in Functions
+
+#### `HasPrivilege(<action>)`
+
+Boolean function for resource conditions that returns `true` if the user making the request has the specified access
+right for the targeted resource or resources. Otherwise returns `false`.
+
+##### Syntax
+
+```c
+resource.HasPrivilege(ACTION)
+```
+
+The required parameter `ACTION` shall have a value of any of the supported actions described in [Actions](#Actions).
+
+##### Examples
+
+_None at the moment._
+
+#### `Empty()`
+
+Boolean function for resource conditions that returns `true` only if the specified resource has no connections
+(that is, has no value).
+
+##### Syntax
+
+```c
+resource.resourcetype.Empty()
+```
+
+##### Examples
+
+_None at the moment._
+
+#### `IsOwned()`
+
+Boolean function for resource conditions that returns `true` only if the specified resource has an owner.
+
+##### Syntax
+
+```c
+resource.IsOwned()
+```
+
+##### Examples
+
+```c
+// Evaluates to `true` if the resource is owned by the user
+// being evaluated:
+resource.IsOwned() and resource.owner = user
+```
+
+**QUESTION: Is `owner` a common attribute of all resources?**
 
 ## Conditions
 
@@ -135,9 +249,7 @@ you can group two conditions by wrapping them in parentheses.
 **Example**
 
 ```c
-// If the resource is of any type,
-// and the user is a developer,
-// then allow all actions:
+// If the resource is of any type, and the user is a developer, then allow all actions:
 resource.resourcetype = "*" and user.employeeType = "developer" and resource.actions = "*"
 ```
 
@@ -354,77 +466,4 @@ resource.org !== "United States"
 
 // Evaluates to `false`:
 resource.org !== "united states"
-```
-
-## Functions
-
-### `HasPrivilege(<action>)`
-
-Boolean function for resource conditions that returns `true` if
-the user making the request has the specified access right for
-the targeted resource or resources. Otherwise returns `false`.
-
-**Syntax**
-
-```c
-resource.HasPrivilege("action")
-```
-
-The required parameter `action` needs to be one of the actions listed under [Actions](#actions).
-
-**Examples**
-
-_None at the moment._
-
-### `IsAnonymous()`
-
-Boolean function for user conditions that returns `true` only if
-the user requesting access is logged in as anonymous.
-
-**Syntax**
-
-```c
-user.IsAnonymous()
-```
-
-**Examples**
-
-```c
-// Evaluates to `true` if the user is part of the "Developers"
-// organization, and is not anonymous:
-user.org == "Developers" and !user.IsAnonymous()
-```
-
-### `Empty()`
-
-Boolean function for resource conditions that returns `true` only if the
-specified resource has no connections (that is, has no value).
-
-**Syntax**
-
-```c
-resource.resourcetype.Empty()
-```
-
-**Examples**
-
-_None at the moment._
-
-### `IsOwned()`
-
-Boolean function for resource conditions that returns `true` only if the
-specified resource has an owner.
-
-**Syntax**
-
-```c
-resource.IsOwned()
-```
-
-**Examples**
-
-```c
-// Evaluates to `true` if the resource is owned by the user
-// being evaluated:
-resource.IsOwned() and resource.owner = user
 ```
