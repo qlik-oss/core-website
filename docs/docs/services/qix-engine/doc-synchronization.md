@@ -7,7 +7,8 @@
 ## Description
 
 For sharing documents between multiple instances the Qlik Associative Engine uses file polling to detect document changes.
-If there are e.g. changes to the data blob or generic objects being created/removed in a document,
+This feature support changes based on creation, editing, and deletion of generic objects, as well as reload of the data.
+If there are e.g. changes to the data blob or objects in a document,
 this would trigger a notification to other engine instances sharing the same document.
 The file polling interval for checking for document changes is every 10 seconds.
 
@@ -24,4 +25,4 @@ as long as the volume is based on a block file system.
 
 To show how two Qlik Associative Engine instances are sharing the same document using the file polling feature,
 we have implemented a basic example in `Kubernetes` using `Persisted Volumes`.
-You can find the example [here](https://github.com/qlik-oss/core-document-synchronization).
+You can find the example in the repository [core-document-synchronization](https://github.com/qlik-oss/core-document-synchronization).
