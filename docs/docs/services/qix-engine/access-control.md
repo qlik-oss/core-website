@@ -225,7 +225,7 @@ resource.IsOwned() and resource.owner = user
 
 ## Conditions
 
-**Syntax**
+##### Syntax
 
 ```c
 [resource.resourcetype = "resourcetypevalue"] [OPERATOR] [(((<resource.property = propertyvalue) [OPERATOR (resource.property = propertyvalue)))]
@@ -246,7 +246,7 @@ However, it is recommended that you are consistent in the order in which you def
 resources and conditions as this simplifies troubleshooting. When using multiple conditions,
 you can group two conditions by wrapping them in parentheses.
 
-**Example**
+##### Example
 
 ```c
 // If the resource is of any type, and the user is a developer, then allow all actions:
@@ -260,7 +260,7 @@ resource.resourcetype = "*" and user.employeeType = "developer" and resource.act
 This operator compares two expressions and returns `true` only if both evaluate
 to `true`.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) && (EXPRESSION)
@@ -269,7 +269,7 @@ to `true`.
 (EXPRESSION) and (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 ```c
 (resource.org = "UK") && (user.name = "John Doe")
@@ -284,13 +284,13 @@ This operator is case insensitive and returns `true` if the
 compared expressions are equal. If a list is used, only one
 value needs to match.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) = (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 Given that `org` is `"uk"` in the access request.
 
@@ -310,13 +310,13 @@ resource.org = "United Kingdom"
 The security rules support the regular expression operator "like".
 This operator is case insensitive.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) like (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 ```c
 // Evaluates all resources with names beginning with
@@ -330,13 +330,13 @@ This operator inverts the Boolean value of an expression and
 returns `true` if the expression is `false` and returns `false`
 if the expression is `true`.
 
-**Syntax**
+##### Syntax
 
 ```c
 !(EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 Given that `org` is `"UK"` in the access request.
 
@@ -354,13 +354,13 @@ This operator is case insensitive and returns results that match your
 expression, regardless of case. Regular expression start and end anchors
 are implicitly added.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) matches (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 ```c
 // Evaluates all resources with names containing "yap" to `true`,
@@ -377,13 +377,13 @@ resource.resourcefilter matches "myresource_\\d{4}"
 This operator is case insensitive and returns `true` if the compared expressions
 are not equal. If a list is used, only one value needs not to match.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) != (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 Given that `org` is `"uk"` in the access request.
 
@@ -400,7 +400,7 @@ resource.org != "SE"
 This operator compares two expressions and returns `true` if one
 or both evaluate to `true`.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) || (EXPRESSION)
@@ -409,7 +409,7 @@ or both evaluate to `true`.
 (EXPRESSION) or (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 ```c
 // Evaluates to `true` only if any of the
@@ -426,13 +426,13 @@ This operator is case sensitive and returns `true` if the compared
 expressions are exactly equal. The full list does not have to match
 when a value used in an expression exists in a list.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) == (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 Given that `org` is `"united states"` in the access request.
 
@@ -450,13 +450,13 @@ This operator is case sensitive and returns `true` if the compared
 expressions are exactly not equal. The full list does not have to
 match when a value used in an expression exists in a list.
 
-**Syntax**
+##### Syntax
 
 ```c
 (EXPRESSION) !== (EXPRESSION)
 ```
 
-**Examples**
+##### Examples
 
 Given that `org` is `"united states"` in the access request.
 
