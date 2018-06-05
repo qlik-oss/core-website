@@ -63,12 +63,13 @@ environment variable.
 
 !!! Tip
     Mira only looks at the label key, not the value.
-    The values can even be omitted. You can see examples of discovery labeling in the operation mode sections.
+    The values can be left as an empty string. You can see examples of discovery labeling in the operation mode sections.
 
 ### Port labeling
 
 In all modes, except _DNS_ mode, Mira uses label values to determine
-on which ports to serve the QIX API (websocket) and the `/metrics` endpoint.
+which ports to use when connecting to the QIX API (websocket)
+and the `/metrics` endpoint on the Qlik Associative Engine instances.
 By default, Mira looks at the values on the `qix-engine-api-port` and `qix-engine-metrics-port` lables.
 You can change these label values by using the environment variables
 `MIRA_ENGINE_API_PORT_LABEL` and `MIRA_ENGINE_METRICS_PORT_LABEL` respectively.
@@ -252,7 +253,7 @@ Use the `NodePort` type to expose Mira's default port 9100 outside the cluster a
 You can reach the Mira health check locally by running the following command.
 
 ```sh
-curl http://$(minikube ip):31000/v1/health
+curl http://$(minikube ip):31000/health
 ```
 
 #### Deploy Qlik Associative Engine instances
