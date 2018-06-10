@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.171.0._
+_QIX methods for version 12.181.0._
 
 ## `Apply`
 
@@ -53,7 +53,7 @@ Retrieves the values of a field.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldValues` | array&lt;[`FieldValue`](./definitions.md#fieldvalue)> | The field values from a defined range. |
+| `qFieldValues` | array<[`FieldValue`](./definitions.md#fieldvalue)> | The field values from a defined range. |
 
 ## `GetInfo`
 
