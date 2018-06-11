@@ -18,7 +18,7 @@ Qlik Associative Engine supports multiple APIs, designed for specific use cases.
 API | Description
 --- | -----------
 [QIX](./apis/qix/introduction.md) | Document consumption using JSONRPC and WebSocket protocols.
-[REST](./apis/rest/qlik-associative-engine.md) | REST API.
+[REST](./apis/rest/qlik-associative-engine-api.md) | REST API.
 [Data Connector](./apis/data-loading/introduction.md) | High-performance data loading using the gRPC protocol.
 [Analytical Connector](./apis/server-side-extension/analytical-connector-api.md) | Server side extensions using the gRPC protocol.
 
