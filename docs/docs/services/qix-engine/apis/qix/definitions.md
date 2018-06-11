@@ -3,12 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.171.0._
-
-
-
-
-
+_QIX definitions for version 12.181.0._
 
 ## `AlfaNumString`
 
@@ -42,7 +37,6 @@ _No description._
 | `qMeta` | [`NxMeta`](#nxmeta) | Meta data. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
 | `qFileSize` | integer | _No description._ |
-
 
 ## `AppObjectList`
 
@@ -105,8 +99,6 @@ _No description._
 | `qMT` | string | Type of the data.<br><br>One of:<br>* N or NOT_META<br>* D or META_DOC_NAME<br>* R or META_RET_TYPE<br>* V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
 
-
-
 ## `BookmarkFieldItem`
 
 _No description._
@@ -146,7 +138,6 @@ Defines the list of bookmarks.
 | ---- | ---- | ----------- |
 | `qType` | string | Type of the list. |
 | `qData` | [`JsonObject`](#jsonobject) | Data |
-
 
 ## `BookmarkVariableItem`
 
@@ -192,8 +183,6 @@ Defines the list of children of a generic object.<br>What is defined in [`ChildL
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qData` | [`JsonObject`](#jsonobject) | Data that you want to include in the child list definition.<br>You need to enter the paths to the information you want to retrieve. |
-
-
 
 ## `CodePage`
 
@@ -361,7 +350,6 @@ Defines the lists of dimensions.
 | `qType` | string | Type of the list. |
 | `qData` | [`JsonObject`](#jsonobject) | Data |
 
-
 ## `DoReloadExParams`
 
 _No description._
@@ -398,8 +386,6 @@ _No description._
 | `qTitle` | string | Title of the app. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | Thumbnail of the app. |
 
-
-
 ## `DriveInfo`
 
 _No description._
@@ -435,9 +421,6 @@ _No description._
 | `qLine` | string | Script statement where the error occurs. |
 | `qErrorDataCode` | string | Type of the error messages.<br><br>One of:<br>* EDC_ERROR<br>* EDC_WARNING<br>* EDC_CIRCULAR_REFERENCE |
 | `qMessage` | [`ProgressMessage`](#progressmessage) | _No description._ |
-
-
-
 
 ## `ExtensionList`
 
@@ -593,7 +576,6 @@ _No description._
 | `qType` | string | <br>One of:<br>* NONE or FILTER_TYPE_NONE<br>* RAW or FILTER_TYPE_RAW |
 | `qWherePredicate` | string | _No description._ |
 
-
 ## `FolderItem`
 
 _No description._
@@ -602,8 +584,6 @@ _No description._
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the folder item. |
 | `qType` | string | Type of the folder item.<br><br>One of:<br>* FOLDER or FOLDER_ITEM_FOLDER<br>* FILE or FOLDER_ITEM_FILE<br>* OTHER or FOLDER_ITEM_OTHER |
-
-
 
 ## `Function`
 
@@ -614,8 +594,6 @@ _No description._
 | `qName` | string | Name of the script function. |
 | `qGroup` | string | Group of the script function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL |
 | `qSignature` | string | Signature of the script function.<br>Gives general information about the function. |
-
-
 
 ## `GenericBookmarkEntry`
 
@@ -938,8 +916,6 @@ In addition, this structure can return dynamic properties.
 | `qUrlDef` | string | Relative path to the media file. The URL is static.<br>Media files located:<br>* in the _/content/default/_ folder are outside the qvf file.<br>* in the _/media/ folder_ are embedded in the qvf file. |
 | `qUrl` | string | Relative path to the media file.<br>Media files located:<br>* in the _/content/default/_ folder are outside the qvf file.<br>* in the _/media/ folder_ are embedded in the qvf file. |
 
-
-
 ## `NxAppLayout`
 
 
@@ -1192,7 +1168,6 @@ _No description._
 | `qArea` | [`Rect`](#rect) | Size and offset of the data in the matrix. |
 | `qIsReduced` | boolean | Is set to true, if the data have been reduced.<br>The default value is false. |
 
-
 ## `NxDerivedField`
 
 _No description._
@@ -1297,9 +1272,6 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qComponentVersion` | string | Version number of the Qlik engine component. |
-
-
-
 
 ## `NxFieldDescription`
 
@@ -1511,7 +1483,6 @@ _No description._
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the field. |
 | `qTags` | array&lt;string> | List of tags. |
-
 
 ## `NxMeasure`
 
@@ -1952,7 +1923,6 @@ _No description._
 | `qGenericType` | string | _No description._ |
 | `qGenericId` | string | _No description._ |
 
-
 ## `OdbcDsn`
 
 _No description._
@@ -1993,7 +1963,6 @@ _No description._
 | `qTotalMode` | string | If set to _TOTAL_EXPR_ , the total of the dimension values is returned.<br>The default value is _TOTAL_OFF_ .<br><br>One of:<br>* TOTAL_OFF<br>* TOTAL_EXPR |
 | `qReferencedExpression` | [`StringExpr`](#stringexpr) | This parameter applies when there are several measures.<br>Name of the measure to use for the calculation of _Others_ for a specific dimension. |
 
-
 ## `Point`
 
 _No description._
@@ -2031,8 +2000,6 @@ _No description._
 | `qMessageCode` | integer | Code number to the corresponding localized message string. |
 | `qMessageParameters` | array&lt;string> | Parameters to be inserted in the localized message string. |
 
-
-
 ## `Range`
 
 _No description._
@@ -2064,8 +2031,6 @@ _No description._
 | `qTop` | integer | Position from the top.<br>Corresponds to the first row. |
 | `qWidth` | integer | Number of columns in the page. The indexing of the columns may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in [`HyperCubeDef`](#hypercubedef) ). |
 | `qHeight` | integer | Number of rows or elements in the page. The indexing of the rows may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in [`HyperCubeDef`](#hypercubedef) ). |
-
-
 
 ## `ScriptSyntaxError`
 
@@ -2297,7 +2262,6 @@ To display the current selections.<br>Can be added to any generic object but is 
 | ---- | ---- | ----------- |
 | `qStateName` | string | _No description._ |
 
-
 ## `Size`
 
 _No description._
@@ -2330,7 +2294,6 @@ _No description._
 | ---- | ---- | ----------- |
 | `qKeyFields` | array&lt;string> | Name of the key field. |
 | `qTables` | array&lt;string> | Table the key belongs to. |
-
 
 ## `StaticContentList`
 
@@ -2475,7 +2438,6 @@ _No description._
 | `qIsSystem` | boolean | Is set to true if the variable is a system variable. |
 | `qIsReserved` | boolean | Is set to true if the variable is a reserved variable. |
 
-
 ## `TreeData`
 
 **Stability Index: Experimental**
@@ -2556,4 +2518,3 @@ Defines the list of variables in an app.
 | `qShowReserved` | boolean | Shows the reserved variables if set to true. |
 | `qShowConfig` | boolean | Shows the system variables if set to true. |
 | `qData` | [`JsonObject`](#jsonobject) | Data |
-
