@@ -11,12 +11,13 @@ Qlik Associative Engine is distributed as a Docker image and is available on Doc
 New versions of the Qlik Analytics Engine docker image will regularly be published to the Docker Hub repository.
 To find the last published or all available versions look [here](https://hub.docker.com/r/qlikcore/engine/tags/).
 
-Qlik Core does not make use of the opinionated `latest` image tag,
-due to that the concept is often misinterpreted.
-Fetching an image with the `latest` tag using for example `docker pull`,
-does not necessarily retrieve the last published image,
-and since the Qlik Analytics Engine version is essential for us to be able to provide support,
-we have decided to keep all published docker images versioned.
+!!! Note
+    Qlik Core does not make use of the opinionated `latest` image tag,
+    due to that the concept is often misinterpreted.
+    Fetching an image with the `latest` tag using for example `docker pull`,
+    does not necessarily retrieve the _last published_ image,
+    and since the Qlik Analytics Engine version is essential for us to be able to provide support,
+    we have decided to keep all published docker images versioned.
 
 The Qlik Associative Engine is developed by Qlik as closed source.
 
