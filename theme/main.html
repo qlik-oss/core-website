@@ -21,17 +21,34 @@
   <h1>{{ page.title | default(config.site_name, true)}}</h1>
 {% endif %}
 
+<!-- Cookie consent popup using https://github.com/insites/cookieconsent -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#5f6062",
+          "text": "#d6d6d6"
+        },
+        "button": {
+          "background": "#3D8706"
+        }
+      },
+      "theme": "classic",
+      "content": {
+        "href": "https://www.qlik.com/us/legal/cookies-and-privacy-policy"
+      }
+    })
+  });
+</script>
+
 <!-- Setting id of start page to modify content (in extra.js) -->
 {% if page.is_homepage %}
   <div id="marketing-page">
-      <!-- Content -->
-      {{ page.content }}
-
-      <div id="cookieModal" class="accept-cookies" action="Close" onclick="cookiePopup()" >
-        <span>By continuing to browse the site, you are agreeing to <a href="https://www.qlik.com/us/legal/cookies-and-privacy-policy" style="text-decoration: underline">our use of cookies</a></span>
-          <button tabindex="0" type="button" class="cookieButton">
-            <div><span class="cookiePopupText" id="cookiePopup">Close</span></div></button></div>  
-
+    <!-- Content -->
+    {{ page.content }}
   </div>
 {% elif page.title == "Beta" %}
   <div id="beta">
