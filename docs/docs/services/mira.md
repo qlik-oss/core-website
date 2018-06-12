@@ -232,9 +232,6 @@ kubectl apply -f mira-deployment.yml
 !!! Note
     Mira and the `kubectl` proxy are bundled into the same pod.
 
-Since Kubernetes needs to pull Docker images, Kubernetes must be configured with Docker Hub credentials.
-In the deployment file, these credentials are held in an object of type `secret` that is called `dockerhub`.
-
 #### Expose Mira REST API
 
 The Mira REST API should also be exposed as a service.
