@@ -1,4 +1,4 @@
-0,# Access Control
+# Access Control
 
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution since this feature may change in the future.
@@ -32,23 +32,8 @@ This rule states that if the user is `ada-lovelace` and the accessed resource ty
 The first two comparisons in the expression are optional. They could be omitted and the expression would still be a
 valid rule. In this example they must evaluate to `true` in order for the actions to be granted.
 
-The expression involving `_actions`
-
-```py
-resource._actions = {"create", "update", "read"}
-```
-
-must be present in order to determine which actions that are granted access. There is special semantics behind
-expressions with `_actions`:
-
-* They always evaluates to `true`
-* They have the "side effect" of accumulating the granted actions for the user
-
-Hence, omitting it would not accumulate any granted actions at all, and it would not matter how the other expressions in
-the rule evaluate. No action would be granted.
-
-It is a good practice to write all rules so that the final expression in the rule involves `resource._actions` to
-define for which actions the access is granted if all other preceeding parts of the rule evaluate to `true`.
+The expression involving `_actions` must be present in order to determine which actions that are granted access. See
+section [Actions](#actions) for more details.
 
 ## Rule Files
 
@@ -120,8 +105,8 @@ The comparison operators are:
 | [`==`](#==_(strict_equal)) | Strict equality |
 | [`!=`](#!=_(not_equal)) | Inequality |
 | [`!==`](#!==_(strict_not_equal)) | Strict inequality |
-| [`like`](#like) | todo |
-| [`matches`](#matches) | todo |
+| [`like`](#like) | Wildcard string matching |
+| [`matches`](#matches) | Regular expression string matching |
 
 ### The `user` Object
 
@@ -224,42 +209,57 @@ An _Action_ is what operation a user wants to perform on a resource in the Qlik 
 | `export` | Export a document. |
 | `export data` | Export data from an object. |
 
-####
+#### The `_actions` Attribute
 
-In the a rule expression the attribute `resource._actions` is given a special meaning
+In rule expressions the `resource` attribute `_actions` has special semantics:
+
+* `resource._actions` shall always be used as left operand with the `=` operator. Other usage is undefined behavior.
+* The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
+* The expression `resource._actions = (EXPRESSION)` has the "side effect" of accumulating the actions given by the
+  right operand which shall be a single action or a list of actions to be granted.
+
+Hence, omitting `resource._actions = (EXPRESSION)` from a rule would not accumulate any granted actions at all.
+
+It is a good practice to write all rules so that the final expression in the rule involves `resource._actions` to
+define for which actions the access is granted if all other preceeding parts of the rule evaluate to `true`.
 
 **Examples**
 
-The following expression evaluates to `true` if the action is `read` or `update`:
+Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
+are `read` and `update`:
 
 ```py
-resource._actions = {"read", "update"}
+user.country = "uk" and resource._actions = {"read", "update"}
+```
+
+Note that granted actions accumulate in order of rules evaluated. Thus
+
+```py
+user.country = "uk" and resource._actions = {"read", "update"}
+user.roles = {"developer"} and resource._actions = {"create"}
+```
+
+first grants users from UK `read` and `update` access. If the user role is `developer`, `create` access is granted.
+Since actions are accumulated, developers from UK are granted access for actions `read`, `update`, and `create`.
+
+!!! Note
+    This is what we might want, but care must be taken here. If the role is `developer` but the user is _not_ from UK,
+    only `create` access will be granted, which may not be what we want. Possibly, a developer from any country should
+    also have `read` and `update` access. It may be dangerous to rely on accumulating actions so the rules we would
+    want in this case, should be explicit on all actions to be granted.
+
+The rules to handle this would be:
+
+```py
+user.country = "uk" and resource._actions = {"read", "update"}
+user.roles = {"developer"} and resource._actions = {"read", "update", "create"}
 ```
 
 ## Rule Expressions
 
-**Syntax**
+### Syntax
 
-**TODO: Rewrite this section if we can use a better EBNF spec**
-
-```c
-[resource.resourcetype = "resourcetypevalue"] [OPERATOR] [(((<resource.property = propertyvalue) [OPERATOR (resource.property = propertyvalue)))]
-```
-
-Argument          | Description
------------------ | -----------
-resource          | Implies that the conditions will be applied to a resource.
-resourcetype      | Implies that the conditions will be applied to a resource of the type defined by the `resourcetypevalue`. You can also use predefined functions for conditions to return property values.
-resourcetypevalue | You must provide at least one resource type value.
-property          | The property name for the resource condition. See Properties for available names.
-propertyvalue     | The value of the selected property name.
-user              | Implies that the conditions will be applied to a user.
-
-The order that you define conditions does not matter. This means that you can define the
-resources first and then the user and/or resource conditions or the other way round.
-However, it is recommended that you are consistent in the order in which you define
-resources and conditions as this simplifies troubleshooting. When using multiple conditions,
-you can group two conditions by wrapping them in parentheses.
+**TODO: Write this section based on proper EBNF spec**
 
 ### Logical Operators
 
@@ -276,7 +276,7 @@ This operator returns the logical negation of its operand. It returns `true` if 
 
 **Examples**
 
-Assuming `user.country` is `"uk"`:
+Given that `user.country` is `"uk"`:
 
 ```py
 # Evaluates to false
@@ -299,7 +299,7 @@ This operator returns the logical conjuction of its operands. It returns `true` 
 
 **Examples**
 
-Assuming `user.country` is `"uk"` and `user.id` is `"john-doe"`:
+Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
 ```py
 # Evaluate to true
@@ -324,7 +324,7 @@ This operator returns the logical disjunction of its operands. It returns `true`
 
 **Examples**
 
-Assuming `user.country` is `"uk"` and `user.id` is `"john-doe"`:
+Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
 ```py
 # Evaluate to true
@@ -341,8 +341,8 @@ Assuming `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
 #### `=` (equal)
 
-This operator returns `true` only if its operands are equal. String comparison is case insensitive (see `==`
-for case sensitive comparison). If a comparing a value with a list, only one value needs to be equal.
+This operator returns `true` only if its operands are equal. String comparison is _case insensitive_ (see `==` for case
+sensitive comparison). If one of the operands is a list, only one value in the list needs to be equal.
 
 **Syntax**
 
@@ -352,7 +352,7 @@ for case sensitive comparison). If a comparing a value with a list, only one val
 
 **Examples**
 
-Assuming that `user.country` is `"uk"`:
+Given that `user.country` is `"uk"`:
 
 ```py
 # Evaluate to true
@@ -365,35 +365,36 @@ user.org = "United Kingdom"
 user.org = {"se", "dk", "ca"}
 ```
 
-#### `==` (strict equal)
+#### `==` (strictly equal)
 
-This operator is case sensitive and returns `true` only if its operands are strictly equal. If comparing a value with a
-list, only one value needs to be strictly equal.
+This operator returns `true` only if its operands are _strictly_ equal. String comparison is _case sensitive_ (see `=`
+for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
+equal.
 
 **Syntax**
 
-```c
+```py
 (EXPRESSION) == (EXPRESSION)
 ```
 
 **Examples**
 
-Given that `user.country` is `"united states"`:
+Given that `user.country` is `"uk"`:
 
 ```py
 # Evaluate to true
-user.country == "united states"
-user.country == {"sweden", "united states", "canada"}
+user.country == "uk"
+user.country == {"se", "uk", "ca"}
 
 # Evaluate to false
-user.country == "United States"
-user.country == {"Sweden", "United States", "Canada"}
+user.country == "UK"
+user.country == {"SE", "UK", "CA"}
 ```
 
 #### `!=` (not equal)
 
-This operator is case insensitive and returns `true` only if its operands are not equal. If comparing a value with a
-list, only one value needs not to match.
+This operator returns `true` only if its operands are not equal. String comparison is _case insensitive_ (see `!==` for
+case sensitive comparison). If one of the operands is a list, only one value in the list needs to be unequal.
 
 **Syntax**
 
@@ -415,10 +416,11 @@ resource.org != "UK"
 resource.org != {"uk", "UK"}
 ```
 
-#### `!==` (strict not equal)
+#### `!==` (strictly not equal)
 
-This operator is case sensitive and returns `true` if the compared expressions are exactly not equal. The full list
-does not have to match when a value used in an expression exists in a list.
+This operator returns `true` only if its operands are _strictly_ not equal. String comparison is _case sensitive_ (see
+`!=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
+unequal.
 
 **Syntax**
 
@@ -428,19 +430,31 @@ does not have to match when a value used in an expression exists in a list.
 
 **Examples**
 
-Given that `org` is `"united states"` in the access request.
+Given that `user.country` is `"uk"`:
 
-```c
-// Evaluates to `true` because the operator is case sensitive:
-resource.org !== "United States"
+```py
+# Evaluate to true
+user.country !== "UK"
+user.country !== {"uk", "UK", "se"}
 
-// Evaluates to `false`:
-resource.org !== "united states"
+# Evaluate to false
+resource.org !== "uk"
+resource.org !== {"uk"}
 ```
 
 #### `like`
 
-The security rules support the regular expression operator "like". This operator is case insensitive.
+This operator provides wildcard string matching.
+
+The operator returns `true` only if the left operand matches the wildcard pattern given by the right operand.
+The comparison is _case insensitive_.
+
+| Wildcard | Description |
+| -------- | ----------- |
+| `?`      | Matches any single character. |
+| `*`      | Matches zero or more characters. |
+
+The escape character `\` can be used to match `?`, `*`, and `\` using the escaped sequences - `\?`, `\*`, and `\\`.
 
 **Syntax**
 
@@ -450,28 +464,35 @@ The security rules support the regular expression operator "like". This operator
 
 **Examples**
 
-Evaluates all resources with names beginning with "mya" to `true`, regardless of case:
+Given that `user.region` is `"us-east"` or `"us-west"`
 
 ```py
-resource.name like "mya*"
+# Evaluate to true
+user.region like "us-*"
+user.region like "US-*"
+user.region like "??-*"
+
+# Evaluate to false
+user.region like "us-?"
+user.region like "uk-*"
 ```
 
 #### `matches`
 
-This operator is case insensitive and returns results that match your expression, regardless of case. Regular expression
-start and end anchors are implicitly added.
+This operator provides regular expression string matching.
+
+The operator returns `true` only if the left operand matches the regular expression given by the right operand.
 
 **Syntax**
 
-```c
+```py
 (EXPRESSION) matches (EXPRESSION)
 ```
 
 **Examples**
 
-```c
+```py
 // Evaluates all resources with names containing "yap" to `true`,
 // regardless of case:
-resource.name matches ".*yAp.*"
-
+resource.app.name matches ".*yAp.*"
 ```
