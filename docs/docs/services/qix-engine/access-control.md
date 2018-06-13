@@ -71,6 +71,11 @@ docker run -v <host folder path>:<container folder path> qlikcore/engine:<versio
     -S SystemDenyRulePath=/<container folder path>/deny.txt
 ```
 
+### More Code Examples
+
+The [core-authorization](https://github.com/qlik-oss/core-authorization) repository contains running code examples on
+how to enable ABAC and how to provide rules to Qlik Associative Engine.
+
 ## Qlik Associative Engine Rules Language
 
 The following sections provide a more in-depth documentation of the rules language in Qlik Associative Engine - its
@@ -167,20 +172,24 @@ Depending on what type of resource that is being accessed, `resource` may carry 
 type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, `resource` has the
 following additional attributes:
 
-Attribute | Description | Example condition
---------- | ----------- | -----------------
-`resource.description` | The object description. | `resource.description = "My custom description"`
-`resource._objecttype` | The object type. | `resource._objecttype = "field" or resource.objecttype_ = "my-generic-object"`
-`resource.app.name` | Name of the document that the object is part of. | `resource.app.name = "Q3_Report"`
+| Attribute | Description | Example condition |
+| --------- | ----------- | ----------------- |
+| `resource.description` | The object description. | `resource.description = "My custom description"` |
+| `resource._objecttype` | The object type. | `resource._objecttype = "field" or resource.objecttype_ = "my-generic-object"` |
+| `resource.app` | Reference to the app resource that the object is part of. | `resource.app.owner = "john-doe"` |
+
+##### The `app` Attribute
+
+As stated above, if `resource._resourcetype = "App.Object"`, `resource.app` contains the reference to the `"App"`
+resource that the object exits in, and all attributes and [built-in functions](#built-in_function) that apply
+to `"App"` objects are available on `resource.app`.
 
 #### Built-in Functions
 
 ##### `HasPrivilege(<action>)`
 
-Boolean function for resource conditions that returns `true` if the user making the request has the specified access
-right for the targeted resource or resources. Otherwise returns `false`.
-
-**TODO: Provide a better description of the mechanics of this function.**
+Boolean function that returns `true` if the user making the request has already been granted access for the provided
+action. Otherwise returns `false`.
 
 **Syntax**
 
@@ -192,7 +201,13 @@ The required parameter `ACTION` shall have a value of any of the supported actio
 
 **Examples**
 
-_None at the moment._
+```py
+user.country = "uk" and resource._resourcetype = "App.Object" and resource._actions = "create"
+resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and resource._actions = {"read", "update"}
+```
+
+Here, the second rule uses `HasPrivilege` to check if the `create` action has already been granted to the user, which
+could be result from the preceeding rule. If that is the case, it also grants access to the `read` and `update` actions.
 
 ### Actions
 
@@ -491,8 +506,12 @@ The operator returns `true` only if the left operand matches the regular express
 
 **Examples**
 
+Suppose we want to match users that are in any of the US regions, and we want to match users that are in any of the
+number `1` or number `2` instances. A rule expressions for matching this could be:
+
 ```py
-// Evaluates all resources with names containing "yap" to `true`,
-// regardless of case:
-resource.app.name matches ".*yAp.*"
+user.region matches "us-[^-]+-(1|2)"
 ```
+
+This regular expression matches regions starting with `us-`, followed by one ore more characters that are anything but
+`-`, followed by `-1` or `-2`.
