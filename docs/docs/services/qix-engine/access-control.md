@@ -40,10 +40,10 @@ section [Actions](#actions) for more details.
 Rules are defined in text files with one rule on each row. Qlik Associative Engine applies rules in the order they
 appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
 
-The _Deny_ rule file denies access and is always evaluated first. If any rule in the _Deny_ file evaluates to `true`,
+The Deny rule file denies access and is always evaluated first. If any rule in the Deny file evaluates to `true`,
 access is immediately denied for the actions proviced and no further evaluation of rules take place. 
 
-The _Allow_ rule file allows access. If a rule in the _Allow_ file evaluates to `true`, access is granted for the
+The Allow rule file allows access. If a rule in the Allow file evaluates to `true`, access is granted for the
 actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
 rules.
 
@@ -61,7 +61,7 @@ rules.
 ### Example
 
 The following command shows how to start a Qlik Associative Engine instance as a Docker container, enabling ABAC, and
-with the _Allow_ and _Deny_ rules in the `allow.txt` and `deny.txt` files.
+with the Allow and Deny rules in the `allow.txt` and `deny.txt` files.
 
 ```bash
 docker run -v <host folder path>:<container folder path> qlikcore/engine:<version> \
@@ -181,7 +181,7 @@ following additional attributes:
 ##### The `app` Attribute
 
 As stated above, if `resource._resourcetype = "App.Object"`, `resource.app` contains the reference to the `"App"`
-resource that the object exits in, and all attributes and [built-in functions](#built-in_function) that apply
+resource that the object exists in, and all attributes and [built-in functions](#built-in_function) that apply
 to `"App"` objects are available on `resource.app`.
 
 #### Built-in Functions
@@ -243,13 +243,13 @@ define for which actions the access is granted if all other preceeding parts of 
 Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
 are `read` and `update`:
 
-```py
+```pas
 user.country = "uk" and resource._actions = {"read", "update"}
 ```
 
 Note that granted actions accumulate in order of rules evaluated. Thus
 
-```py
+```pas
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"create"}
 ```
