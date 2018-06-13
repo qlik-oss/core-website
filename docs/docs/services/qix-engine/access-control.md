@@ -243,13 +243,13 @@ define for which actions the access is granted if all other preceeding parts of 
 Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
 are `read` and `update`:
 
-```pas
+```py
 user.country = "uk" and resource._actions = {"read", "update"}
 ```
 
 Note that granted actions accumulate in order of rules evaluated. Thus
 
-```pas
+```py
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"create"}
 ```
