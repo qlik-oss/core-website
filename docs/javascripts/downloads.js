@@ -156,7 +156,7 @@
         cell.innerText = '';
         cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
         serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
-        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 6, 7]));
+        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 7, 6]));
       })
     })
   )
