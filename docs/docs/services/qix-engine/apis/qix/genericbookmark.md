@@ -53,7 +53,7 @@ Retrieves the values of a field.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldValues` | array&lt;[`FieldValue`](./definitions.md#fieldvalue)> | The field values from a defined range. |
+| `qFieldValues` | array<[`FieldValue`](./definitions.md#fieldvalue)> | The field values from a defined range. |
 
 ## `GetInfo`
 
