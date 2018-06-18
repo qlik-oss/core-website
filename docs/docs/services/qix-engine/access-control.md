@@ -100,18 +100,18 @@ The logical operators are:
 
 | Operator | Meaning |
 | -------- | ------- |
-| [`!`](#!_not) | Logical negation (not) |
-| [`and`, `&&`](#and) | Logical conjunction |
-| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction |
+| [`!`](#-not) | Logical negation (not) |
+| [`and`, `&&`](#and-) | Logical conjunction |
+| [`or`, <code>&#124;&#124;</code>](#or-) | Logical disjunction |
 
 The comparison operators are:
 
 | Operator | Meaning |
 | -------- | ------- |
-| [`=`](#=_(equal)) | Equality |
-| [`==`](#==_(strict_equal)) | Strict equality |
-| [`!=`](#!=_(not_equal)) | Inequality |
-| [`!==`](#!==_(strict_not_equal)) | Strict inequality |
+| [`=`](#-equal) | Equality |
+| [`==`](#-strictly-equal) | Strict equality |
+| [`!=`](#-not-equal) | Inequality |
+| [`!==`](#-strictly-not-equal) | Strict inequality |
 | [`like`](#like) | Wildcard string matching |
 | [`matches`](#matches) | Regular expression string matching |
 
