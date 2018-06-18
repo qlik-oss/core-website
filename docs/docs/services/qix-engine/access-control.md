@@ -22,20 +22,18 @@ contains a mandatory part that determines which actions the rule grants, or deni
 Upcoming sections more formally describe how rules are formed, but to get an initial understanding, consider the
 following rule:
 
-```py
+```c
 user.id = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
 ```
 
-This rule states that if the user is `ada-lovelace` and the accessed resource type is an `App`, grant the actions
-`create`, `update`, and `read`.
-
-The first two comparisons in the expression are optional. They could be omitted and the expression would still be a
-valid rule. In this example they must evaluate to `true` in order for the actions to be granted.
+This rule states that if the user is `ada-lovelace` and the accessed resource type is `"App"`, grant the actions
+`create`, `update`, and `read`. The `user.id` and `resource._resourcetype` expressions could be omitted and the rule
+would still be valid.
 
 The expression involving `_actions` must be present in order to determine which actions that are granted access. See
 section [Actions](#actions) for more details.
 
-## Rule Files
+### Rule Files
 
 Rules are defined in text files with one rule on each row. Qlik Associative Engine applies rules in the order they
 appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
@@ -47,16 +45,20 @@ The Allow rule file allows access. If a rule in the Allow file evaluates to `tru
 actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
 rules.
 
+!!! Note 
+    The rule files are read by Qlik Associative Engine at start. Modifying the rule files requires a restart in order
+    for new rules to take effect.
+
 ## Engine Configuration for ABAC
 
 ### ABAC-related Command Line Switches
 
-| Switch | Values | Description |
-| ------ | ------ | ----------- |
-| `EnableABAC` | `0` or `1` | Enabling/disabling of ABAC rule evalutation. |
-| `Gen3` | `0` or `1` | Enablig/disabling of server mode. Must be set to `1` if enabling ABAC. |
-| `SystemDenyRulePath` | File path | File path to the _Deny_ rules file. |
-| `SystemAllowRulePath` | File path | File path to the _Allow_ rules file. |
+| Switch | Values | Default | Description |
+| ------ | ------ | ------- | ----------- |
+| `EnableABAC` | `0` or `1` | `0` | Enabling/disabling of ABAC rule evalutation. |
+| `Gen3` | `0` or `1` | `0` | Enablig/disabling of server mode. Must be set to `1` if enabling ABAC. |
+| `SystemDenyRulePath` | File path | N/A | File path to the _Deny_ rules file. |
+| `SystemAllowRulePath` | File path | N/A | File path to the _Allow_ rules file. |
 
 ### Example
 
@@ -76,23 +78,23 @@ docker run -v <host folder path>:<container folder path> qlikcore/engine:<versio
 The [core-authorization](https://github.com/qlik-oss/core-authorization) repository contains running code examples on
 how to enable ABAC and how to provide rules to Qlik Associative Engine.
 
-## Qlik Associative Engine Rules Language
+## Rules Language
 
 The following sections provide a more in-depth documentation of the rules language in Qlik Associative Engine - its
 syntax and semantics.
 
-Rules are built upon three central entities:
+Rules are built upon three concepts:
 
 * **User** - The _subject_ that shall be granted or denied access.
-* **Resource** - The _object_ in the engine to which actions are granted or denied.
-* **Action** - The operation a user wants to perform resources in the engine.
+* **Resource** - The _object_ to which actions are granted or denied.
+* **Action** - The operation a user wants to perform on a resource.
 
-All these entities can be expressed and used in the rules language.
+All of these can be expressed and used in the rules language.
 
 ### Expressions
 
 Rules, in which the entities above are used, are written as Boolean expressions, evaluating to `true` or `false`.
-Expressions are based _logical_ operators and _comparison_ operators.
+Expressions are based _logical_ and _comparison_ operators.
 
 The logical operators are:
 
@@ -100,7 +102,7 @@ The logical operators are:
 | -------- | ------- |
 | [`!`](#!_not) | Logical negation (not) |
 | [`and`, `&&`](#and) | Logical conjunction |
-| [`or`, `||`](#or) | Logical disjunction |
+| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction |
 
 The comparison operators are:
 
@@ -140,10 +142,10 @@ In addition to this `user` will contain all other attributes defined in the
 }
 ```
 
-Here, Also, `user.id` will be set to `john-doe` based on the `sub` attribute. `employeeType`, and `custom.country`
+Here, `user.id` will be set to `john-doe` based on the `sub` attribute. `employeeType`, and `custom.country`
 become attributes on `user`. The attributes could be used in a (fictitous) rule like this:
 
-```py
+```c
 user.id = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
 ```
 
@@ -151,7 +153,7 @@ With the example JWT above, this user is granted access for all actions to all r
 
 ### The `resource` Object
 
-A _Resource_ is a generic concept can represent documents, or objects within documents. A Resource carries attributes
+A _Resource_ is a generic concept that can represent documents, or objects within documents. A Resource carries attributes
 which may be used in rule expressions. In rule expressions the resource being accessed is represented by the `resource`
 object.
 
@@ -161,6 +163,7 @@ There are different resource types but all share some common attributes:
 
 | Attribute | Description |
 | --------- | ----------- |
+| `resource.description` | The resource description. Can be empty. | `resource.description = "My custom description"` |
 | `resource.id` | The unique identifier for the resource. |
 | `resource.owner` | The owner of the resource. |
 | `resource._resourcetype` | The type of the resource being accessed. Equal to `"App"` or `"App.Object"`. |
@@ -174,8 +177,7 @@ following additional attributes:
 
 | Attribute | Description | Example condition |
 | --------- | ----------- | ----------------- |
-| `resource.description` | The object description. | `resource.description = "My custom description"` |
-| `resource._objecttype` | The object type. | `resource._objecttype = "field" or resource.objecttype_ = "my-generic-object"` |
+| `resource._objecttype` | The object type. | `resource._objecttype = "field" or resource._objecttype = "my-generic-object"` |
 | `resource.app` | Reference to the app resource that the object is part of. | `resource.app.owner = "john-doe"` |
 
 ##### The `app` Attribute
@@ -193,7 +195,7 @@ action. Otherwise returns `false`.
 
 **Syntax**
 
-```py
+```c
 resource.HasPrivilege(ACTION)
 ```
 
@@ -201,7 +203,7 @@ The required parameter `ACTION` shall have a value of any of the supported actio
 
 **Examples**
 
-```py
+```c
 user.country = "uk" and resource._resourcetype = "App.Object" and resource._actions = "create"
 resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and resource._actions = {"read", "update"}
 ```
@@ -235,7 +237,7 @@ In rule expressions the `resource` attribute `_actions` has special semantics:
 
 Hence, omitting `resource._actions = (EXPRESSION)` from a rule would not accumulate any granted actions at all.
 
-It is a good practice to write all rules so that the final expression in the rule involves `resource._actions` to
+It is good practice to write all rules so that the final expression in the rule involves `resource._actions` to
 define for which actions the access is granted if all other preceeding parts of the rule evaluate to `true`.
 
 **Examples**
@@ -243,38 +245,36 @@ define for which actions the access is granted if all other preceeding parts of 
 Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
 are `read` and `update`:
 
-```py
+```c
 user.country = "uk" and resource._actions = {"read", "update"}
 ```
 
-Note that granted actions accumulate in order of rules evaluated. Thus
+Note that granted actions accumulate in order of rules evaluated. Consider:
 
-```py
+```c
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"create"}
 ```
 
-first grants users from UK `read` and `update` access. If the user role is `developer`, `create` access is granted.
-Since actions are accumulated, developers from UK are granted access for actions `read`, `update`, and `create`.
+First, users from from UK are granted `read` and `update` access. Then, if the user role is `developer`, `create`
+access is granted. Since actions are accumulated, developers from UK are granted access for actions `read`, `update`,
+and `create`.
 
 !!! Note
-    This is what we might want, but care must be taken here. If the role is `developer` but the user is _not_ from UK,
-    only `create` access will be granted, which may not be what we want. Possibly, a developer from any country should
-    also have `read` and `update` access. It may be dangerous to rely on accumulating actions so the rules we would
-    want in this case, should be explicit on all actions to be granted.
+    It may be dangerous to rely on accumulating actions. Often, it is better to be explicit about which actions to
+    grant.
 
-The rules to handle this would be:
+A better way to formulate the rules above would be:
 
-```py
+```c
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"read", "update", "create"}
 ```
 
 ## Rule Expressions
 
-### Syntax
-
-**TODO: Write this section based on proper EBNF spec**
+Rule expressions are built on combining logical and comparison operators. Comparison operators have precedence over
+logical operators. Parantheses are supported to override precedence.
 
 ### Logical Operators
 
@@ -285,7 +285,7 @@ This operator returns the logical negation of its operand. It returns `true` if 
 
 **Syntax**
 
-```py
+```c
 !(EXPRESSION)
 ```
 
@@ -293,7 +293,7 @@ This operator returns the logical negation of its operand. It returns `true` if 
 
 Given that `user.country` is `"uk"`:
 
-```py
+```c
 # Evaluates to false
 !(resource.country = "UK")
 
@@ -308,7 +308,7 @@ This operator returns the logical conjuction of its operands. It returns `true` 
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) (and | &&) (EXPRESSION)
 ```
 
@@ -316,7 +316,7 @@ This operator returns the logical conjuction of its operands. It returns `true` 
 
 Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
-```py
+```c
 # Evaluate to true
 (user.country = "UK") && (user.id = "john-doe")
 (user.country = "UK") and (user.id = "john-doe")
@@ -333,7 +333,7 @@ This operator returns the logical disjunction of its operands. It returns `true`
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) (|| | or) (EXPRESSION)
 ```
 
@@ -341,7 +341,7 @@ This operator returns the logical disjunction of its operands. It returns `true`
 
 Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
-```py
+```c
 # Evaluate to true
 (user.country = "UK") || (user.id = "john-doe")
 (user.country = "UK") || (user.id = "bill-smith")
@@ -361,7 +361,7 @@ sensitive comparison). If one of the operands is a list, only one value in the l
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) = (EXPRESSION)
 ```
 
@@ -369,7 +369,7 @@ sensitive comparison). If one of the operands is a list, only one value in the l
 
 Given that `user.country` is `"uk"`:
 
-```py
+```c
 # Evaluate to true
 user.country = "UK"
 user.country = "uk"
@@ -388,7 +388,7 @@ equal.
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) == (EXPRESSION)
 ```
 
@@ -396,7 +396,7 @@ equal.
 
 Given that `user.country` is `"uk"`:
 
-```py
+```c
 # Evaluate to true
 user.country == "uk"
 user.country == {"se", "uk", "ca"}
@@ -413,7 +413,7 @@ case sensitive comparison). If one of the operands is a list, only one value in 
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) != (EXPRESSION)
 ```
 
@@ -421,7 +421,7 @@ case sensitive comparison). If one of the operands is a list, only one value in 
 
 Given that `user.country` is `"uk"`:
 
-```py
+```c
 # Evaluate to true
 resource.org != "SE"
 resource.org != {"SE", "UK", "uk"}
@@ -447,7 +447,7 @@ unequal.
 
 Given that `user.country` is `"uk"`:
 
-```py
+```c
 # Evaluate to true
 user.country !== "UK"
 user.country !== {"uk", "UK", "se"}
@@ -473,7 +473,7 @@ The escape character `\` can be used to match `?`, `*`, and `\` using the escape
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) like (EXPRESSION)
 ```
 
@@ -481,7 +481,7 @@ The escape character `\` can be used to match `?`, `*`, and `\` using the escape
 
 Given that `user.region` is `"us-east"` or `"us-west"`
 
-```py
+```c
 # Evaluate to true
 user.region like "us-*"
 user.region like "US-*"
@@ -500,7 +500,7 @@ The operator returns `true` only if the left operand matches the regular express
 
 **Syntax**
 
-```py
+```c
 (EXPRESSION) matches (EXPRESSION)
 ```
 
@@ -509,7 +509,7 @@ The operator returns `true` only if the left operand matches the regular express
 Suppose we want to match users that are in any of the US regions, and we want to match users that are in any of the
 number `1` or number `2` instances. A rule expressions for matching this could be:
 
-```py
+```c
 user.region matches "us-[^-]+-(1|2)"
 ```
 
