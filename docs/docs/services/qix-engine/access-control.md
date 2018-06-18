@@ -39,13 +39,13 @@ Rules are defined in text files with one rule on each row. Qlik Associative Engi
 appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
 
 The Deny rule file denies access and is always evaluated first. If any rule in the Deny file evaluates to `true`,
-access is immediately denied for the actions proviced and no further evaluation of rules take place. 
+access is immediately denied for the actions proviced and no further evaluation of rules take place.
 
 The Allow rule file allows access. If a rule in the Allow file evaluates to `true`, access is granted for the
 actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
 rules.
 
-!!! Note 
+!!! Note
     The rule files are read by Qlik Associative Engine at start. Modifying the rule files requires a restart in order
     for new rules to take effect.
 
