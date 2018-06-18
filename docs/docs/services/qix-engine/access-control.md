@@ -3,10 +3,11 @@
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution since this feature may change in the future.
 
-Being able to control which users can do what in the context of a document is often necessary. In Qlik Associative
-Engine we support [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
-which lets you control the document resources based on users' attributes rather than using roles or other more static
-means.
+It is often necessary to be able to control what different users are allowed to do in the context of a document. In Qlik
+Associative Engine
+[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) is supported which
+makes it possible to control the document resources based on users' attributes rather than using roles or other more
+static means.
 
 ## Rules
 
@@ -14,8 +15,8 @@ Each rule is a conditional expression that evaluates to either `true` or `false`
 contains a mandatory part that determines which actions the rule grants, or denies.
 
 !!! Note
-    If the ABAC feature is enabled, all users will by default have no access, so it is important that you also include
-    rules when enabling it or you will cause access problems for your users.
+    If the ABAC feature is enabled, all users will by default have no access, so it is important to also include
+    rules when enabling it. Otherwise, access problems for users can easily be caused.
 
 ### Rules Overview
 
@@ -39,7 +40,7 @@ Rules are defined in text files with one rule on each row. Qlik Associative Engi
 appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
 
 The Deny rule file denies access and is always evaluated first. If any rule in the Deny file evaluates to `true`,
-access is immediately denied for the actions proviced and no further evaluation of rules take place.
+access is immediately denied for the actions provided and no further evaluation of rules take place.
 
 The Allow rule file allows access. If a rule in the Allow file evaluates to `true`, access is granted for the
 actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
@@ -94,24 +95,24 @@ All of these can be expressed and used in the rules language.
 ### Expressions
 
 Rules, in which the entities above are used, are written as Boolean expressions, evaluating to `true` or `false`.
-Expressions are based _logical_ and _comparison_ operators.
+Expressions are written using _logical_ and _comparison_ operators.
 
 The logical operators are:
 
 | Operator | Meaning |
 | -------- | ------- |
-| [`!`](#-not) | Logical negation (not) |
-| [`and`, `&&`](#and-) | Logical conjunction |
-| [`or`, <code>&#124;&#124;</code>](#or-) | Logical disjunction |
+| [`!`](#not) | Logical negation (not) |
+| [`and`, `&&`](#and) | Logical conjunction |
+| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction |
 
 The comparison operators are:
 
 | Operator | Meaning |
 | -------- | ------- |
-| [`=`](#-equal) | Equality |
-| [`==`](#-strictly-equal) | Strict equality |
-| [`!=`](#-not-equal) | Inequality |
-| [`!==`](#-strictly-not-equal) | Strict inequality |
+| [`=`](#equal) | Equality |
+| [`==`](#strictly-equal) | Strict equality |
+| [`!=`](#not-equal) | Inequality |
+| [`!==`](#strictly-not-equal) | Strict inequality |
 | [`like`](#like) | Wildcard string matching |
 | [`matches`](#matches) | Regular expression string matching |
 
@@ -234,6 +235,7 @@ In rule expressions the `resource` attribute `_actions` has special semantics:
 * The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
 * The expression `resource._actions = (EXPRESSION)` has the "side effect" of accumulating the actions given by the
   right operand which shall be a single action or a list of actions to be granted.
+* `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for "all actions".
 
 Hence, omitting `resource._actions = (EXPRESSION)` from a rule would not accumulate any granted actions at all.
 
@@ -506,8 +508,8 @@ The operator returns `true` only if the left operand matches the regular express
 
 **Examples**
 
-Suppose we want to match users that are in any of the US regions, and we want to match users that are in any of the
-number `1` or number `2` instances. A rule expressions for matching this could be:
+Suppose users shall be matched that are in any US region (`east`, `west` etc.) and only those users that are in the
+number `1` or `2` deployments. A rule expressions for matching this could be:
 
 ```c
 user.region matches "us-[^-]+-(1|2)"
