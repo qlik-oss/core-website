@@ -104,8 +104,9 @@
   padding: 0;
 }
 
-/* Hide Beta/Third Party Licenses nav items in full size menu */
+/* Hide Beta/License-form/Third Party Licenses nav items in full size menu */
 .md-nav__item a[title="Beta"],
+.md-nav__item a[title="Licensing-Form"],
 .md-nav__item a[title="Third Party Licenses"] {
   display: none;
 }

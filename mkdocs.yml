@@ -87,3 +87,4 @@ pages:
       - Logging: docs/conventions/logging.md
       - Metrics: docs/conventions/metrics.md
     - Third Party Licenses: docs/third-party-licenses.md
+    - Licensing-Form: docs/licensing-form.md

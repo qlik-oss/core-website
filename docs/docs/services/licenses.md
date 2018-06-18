@@ -5,6 +5,7 @@
     configuration, metrics, and logging.
 
 To run Qlik Associative Engine with a paid license, you are required to run this service.
+Make sure that you have read and understood how [licensing](../licensing.md) in Qlik Core works.
 
 ## Distribution
 
