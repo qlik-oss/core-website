@@ -19,13 +19,13 @@ The current limitations are applied to the community version:
 
 ## Licensed
 
-The exact model for buying Qlik Core will be announced during summer, and will require
+The exact model for buying Qlik Core will be announced later this year, and will require
 a side-car license service to unlock the Qlik Associative Engine service. See the
 [Licenses service documentation](./services/licenses.md) for additional information and how you can
 prepare your solution for Qlik Core licensing.
 
 !!! Note "Getting a beta license"
-    During the beta you can get a license by filling in the form [here](./licensing-form.md).
+    During the beta you can get a license by [filling out this form](./license-registration.md).
 
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [Licenses configuration](./services/licenses.md#configuration) page.
