@@ -28,6 +28,10 @@ see a full working connector.
     managed/interpreted languages like JavaScript.
     Go seems to be fast enough to saturate a gigabit line, which covers most requirements.
 
+### JDBC connector built with Java
+
+[github.com/qlik-oss/core-grpc-jdbc-connector](https://github.com/qlik-oss/core-grpc-jdbc-connector)
+
 ### PostgreSQL connector built with Go
 
 [github.com/qlik-oss/core-grpc-postgres-connector](https://github.com/qlik-oss/core-grpc-postgres-connector)
