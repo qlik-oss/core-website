@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.171.0._
+_QIX methods for version 12.181.0._
 
 ## `AbortListObjectSearch`
 
@@ -260,7 +260,7 @@ Exports the data of any generic object to an Excel file or a open XML file. If t
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qUrl` | string | &lt;url of the exported file&gt; |
-| `qWarnings` | array&lt;string> | `[1000]` |
+| `qWarnings` | array&lt;integer> | [1000] Maximum number of cells in exported file exceeded. Data has been truncated. |
 
 ## `GetChild`
 

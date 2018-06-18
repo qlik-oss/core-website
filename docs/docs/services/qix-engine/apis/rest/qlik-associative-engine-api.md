@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.171.0._
+_Qlik Associative Engine API for version 12.181.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -12,7 +12,7 @@ _Qlik Associative Engine API for version 12.171.0._
 
 ### `GET /health`
 
-_No description._
+Checks if the Engine service is healthy.<br/>&bull; If response code 200 is returned; engine is healthy and ready to serve requests.<br/>&bull; If the setting `EnableLameDuckHealthCheck` is set to 1, response code 429 is returned if the engine is alive but too busy to serve new requests.<br/>&bull; Other response code means that Engine is not healthy.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -32,7 +32,7 @@ _No parameters_
 
 ### `GET /healthcheck`
 
-_No description._
+Checks if the Engine service is healthy and returns basic status information about the running instance.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -61,17 +61,38 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 
 **Parameters**
 
-| Parameter | In | Type | Required | Description | Schema |
-| --------- | -- | ---- | -------- | ----------- | ------ |
-| `filedata` | body | undefined | true | Path of the source app. | [FileData](#filedata) |
-| `name` | path | string | true | The name of the target app. | _No schema_ |
-| `mode` | query | string | undefined | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE | _No schema_ |
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
+| `name` | query | string | false | The name of the target app. |
+| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 
 **Responses**
 
 | Status | Description | Schema |
 | ------ | ----------- | ------ |
 | `200` | OK | [NxApp](#nxapp) |
+
+### `DELETE /v1/apps/{appId}`
+
+Delete an app in the system.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app to delete. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
 
 ### `GET /v1/apps/{appId}/data/metadata`
 
@@ -84,15 +105,84 @@ Retrieves the data model and reload statistics meta data of an app.
 
 **Parameters**
 
-| Parameter | In | Type | Required | Description | Schema |
-| --------- | -- | ---- | -------- | ----------- | ------ |
-| `appId` | path | string | true | Identifier of the app. | _No schema_ |
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
 
 **Responses**
 
 | Status | Description | Schema |
 | ------ | ----------- | ------ |
 | `200` | OK | [DataModelMetadata](#datamodelmetadata) |
+
+### `GET /v1/apps/{appId}/media/files/{path}`
+
+Get media content from file. Returns a stream of bytes containing the media file content on success, or error if file is not found.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/octet-stream |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Unique application identifier. |
+| `path` | path | string | true | Path to file content. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
+| `404` | Not Found | _No schema_ |
+
+### `GET /v1/apps/{appId}/media/list/{path}`
+
+List media content. Returns a JSON formatted array of strings describing the available media content or error if the optional path supplied is not found.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Unique application identifier. |
+| `path` | path | string | true | The path to sub folder with static content, path is relative to the root folder. Use empty path to access the root folder. |
+| `show` | query | string | false | Optional. List output can include files and folders in different ways:<br/>&bull; Not recursive, default if show option is not supplied or incorrectly specified, results in output with files and empty directories for the path specified only.<br/>&bull; Recursive(r), use ?show=r or ?show=recursive, results in a recursive output with files, all empty folders are excluded.<br/>&bull; All(a), use ?show=a or ?show=all, results in a recursive output with files and empty directories. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
+| `404` | Not Found | _No schema_ |
+
+### `GET /v1/apps/{appId}/media/thumbnail`
+
+Get media content from file currently used as application thumbnail. Returns a stream of bytes containing the media file content on success, or error if file is not found. <div class=note>The image selected as thumbnail is only updated when application is saved.</div>
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/octet-stream |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Unique application identifier. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
+| `404` | Not Found | _No schema_ |
 
 ## Definitions
 
@@ -220,9 +310,9 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `appId` | string | ID of the app. |
 | `attributes` | [NxAttributes](#NxAttributes) | App attributes. |
-| `meta` | [NxMeta](#NxMeta) | App meta-data. |
+| `privileges` | array&lt;string> | App privileges. Hints to the client on what actions the user are allowed. |
+| `create` | array&lt;[NxAppCreatePrivileges](#NxAppCreatePrivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
 
 ### `NxAttributes`
 
@@ -234,14 +324,27 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
+| `id` | string | The App ID. |
 | `name` | string | App name. |
 | `description` | string | App description. |
 | `thumbnail` | string | App thumbnail. |
-| `tags` | array&lt;string> | App tags. |
-| `lastReloadTime` | string | Date and time of the last reload of the app in ISO format. |
-| `createdDate` | string | The date when the app was created. |
+| `lastReloadTime` | string | Date and time of the last reload of the app. |
+| `createdDate` | string | The date and time when the app was created. |
+| `modifiedDate` | string | The date and time when the app was modified. |
+| `owner` | string | The owner of the app. |
+| `dynamicColor` | string | The dynamic color of the app. |
+| `published` | boolean | True if the app is published, false if not. |
+| `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
+| `custom` | [JsonObject](#JsonObject) | Custom attributes. |
 
-### `NxMeta`
+### `JsonObject`
+
+
+_Type: object_
+
+
+
+### `NxAppCreatePrivileges`
 
 
 _Type: object_
@@ -251,7 +354,8 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `Name` | string | Name. This property is optional. |
+| `resource` | string | Type of resources. |
+| `canCreate` | boolean | true if resource is allowed to create. |
 
 ### `DataModelMetadata`
 

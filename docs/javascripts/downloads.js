@@ -73,7 +73,7 @@
       `;
       const apiLink = api => api[8].qText === 'public'
         ? `<div class="api-link">
-          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[1].qText}/${api[2].qText}">
+          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[2].qText}/${api[1].qText}">
             ${api[0].qText}
           </a>
         </div>`
@@ -139,7 +139,7 @@
         }, {
           service: 'Licenses',
           apis: [
-            'LicenseServiceAPI',
+            'LicensesAPI',
           ],
         }, {
           service: 'Mira',
@@ -156,7 +156,7 @@
         cell.innerText = '';
         cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
         serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
-        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 6, 7]));
+        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 7, 6]));
       })
     })
   )
