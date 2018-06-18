@@ -1,5 +1,106 @@
 {% import "partials/language.html" as lang with context %}
 
+<section class="footer-nav">
+    <div class="wrapper">
+      <div class="footer-nav-wrapper">
+
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="{{ base_url }}/images/QlikCore-Horizontal_RGB.png" width="300px" alt="Qlik Logo">
+          </div>
+        </div>
+
+      <div class="footer-nav-menu">
+        <!-- begin repeated element -->
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            Technologies &amp; Platforms
+          </div>
+          <ul>
+            <li>
+              <a href="#">Qlik Core</a>
+            </li>
+            <li>
+              <a href="#">API Hub</a>
+            </li>
+            <li>
+              <a href="#">QAP</a>
+            </li>
+            <li>
+              <a href="#">Qlik Sense</a>
+            </li>
+            <li>
+              <a href="#">Open Source Libraries</a>
+            </li>
+            <li>
+              <a href="#">QlikView</a>
+            </li>
+          </ul>
+        </div>
+        <!-- end repeated element -->
+        <!-- begin repeated element -->
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            <a href="#">Developer Resources</a>
+          </div>
+          <ul>
+            <li>
+              <a href="#">Playground</a>
+            </li>
+            <li>
+              <a href="#">Garden</a>
+            </li>
+            <li>
+              <a href="#">Knowledge</a>
+            </li>
+          </ul>
+        </div>
+        <!-- end repeated element -->
+        <!-- begin repeated element -->
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            Squad
+          </div>
+          <ul>
+            <li>
+              <a href="#">Events</a>
+            </li>
+            <li>
+              <a href="#">Social</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+            <li>
+              <a href="#">Stack Overflow</a>
+            </li>
+            <li>
+              <a href="#">Slack</a>
+            </li>
+          </ul>
+        </div>
+        <!-- end repeated element -->
+        <!-- begin repeated element -->
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            Legal
+          </div>
+            <ul>
+              <li><a href="http://www.qlik.com/legal/cookies-and-privacy-policy">Cookies and Privacy policy</a></li>
+              <li><a href="http://www.qlik.com/legal/trademarks">Trademarks</a></li>
+              <li><a href="http://www.qlik.com/legal/terms-of-use">Terms of Use</a></li>
+              <li><a href="{{ base_url }}/beta">License Terms</a></li>
+              <li><a href="{{ base_url }}/docs/third-party-licenses">Third-Party Licenses</a></li>
+            </ul>
+        </div>
+        <!-- end repeated element -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--
 <footer class="md-footer">
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -34,8 +135,15 @@
               <li><a href="{{ base_url }}/docs/third-party-licenses">Third-Party Licenses</a></li>
             </ul>
           </div>
-        </div>
-        <div class="md-footer-legal">
+        </div>        
+      </div>
+    </div>
+  </div>
+</footer>
+-->
+<footer class="md-footer-last">
+  <div class="md-footer-meta2 md-typeset">
+      <div class="md-footer-legal">
           <div class="md-footer-legal-text">
             <div>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</div>
             Powered by
@@ -48,7 +156,5 @@
             {% include "partials/social.html" %}
           {% endblock %}
         </div>
-      </div>
-    </div>
   </div>
 </footer>

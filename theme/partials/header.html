@@ -9,12 +9,32 @@
           <a href="{{ config.site_url | default(nav.homepage.url, true) }}"
               title="{{ config.site_name }}"
               class="md-header-nav__button md-logo">
-              <img src="{{ base_url }}/{{ config.theme.logo }}" width="24" height="24" />
+              <img src="{{ base_url }}/{{ config.theme.logo }}"
+                  width="24" height="24" />
           </a>
         </div>
-        <div class="md-flex__cell md-flex__cell--stretch">
-          
+  
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <label class="md-icon md-icon--menu md-header-nav__button"
+              for="drawer"></label>
         </div>
+  
+        <div class="md-flex__cell md-flex__cell--stretch">
+          <div class="md-flex__ellipsis md-header-nav__title"
+              data-md-component="title">
+            {% block site_name %}
+              {% if config.site_name == page.title %}
+                {{ config.site_name }}
+              {% else %}
+                <span class="md-header-nav__topic">
+                </span>
+                <span class="md-header-nav__topic">
+                    {{ page.title }}
+                </span>
+              {% endif %}
+            {% endblock %}
+          </div>
+        </div>       
         <div class="md-flex__cell md-flex__cell--shrink">
           {% block search_box %}
             {% if "search" in config["plugins"] %}

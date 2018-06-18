@@ -23,6 +23,10 @@ body {
   font-family: 'BasicCommercialLTPro-Roman','Helvetica Neue','helvetica',arial,sans-serif;
 }
 
+.md-container {
+  padding-top: 0.4rem;
+}
+
 .md-header-info {
   text-align: center; 
   padding-top:100px;
@@ -61,6 +65,9 @@ body {
   .md-logo img {
     height: auto;
     width: 200px;
+  }
+  .footer-nav {
+    display: none !important;
   }
 }
 
@@ -122,6 +129,16 @@ to   { opacity: 1; }
   right: 30px;
 }
 
+.md-footer-meta {
+  background-color: #e1e1e1;
+  color: #626669;
+}
+
+.md-footer-meta2 {
+  background-color: #424346;
+  color: #e1e1e1;
+}
+
 .md-footer-nav {
   display: none;
 }
@@ -129,6 +146,20 @@ to   { opacity: 1; }
 .md-typeset a {
   color: #0066cc;
   text-decoration: underline;
+}
+
+h1 span {
+  color: #F6921D;
+  font-family: 'BasicCommercialLTPro-Bold','Helvetica Neue','helvetica',arial,sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2.2rem !important;
+}
+
+.md-nav {
+  font-size: 1.6rem;
 }
 
 .md-nav__link:focus, .md-nav__link:hover, .md-nav__link--active,
@@ -144,22 +175,11 @@ to   { opacity: 1; }
   display: inline-block;
   margin: 0px 5px;
   color: white;
-  font-size: 16px;
+  font-size: 1.4rem;
   font-family: 'BasicCommercialLTPro-Bold','Helvetica Neue','helvetica',arial,sans-serif;
   text-transform: uppercase;
   letter-spacing: .05em;
-}
-
-.beta-link {
-  display: table-cell;
-  height: auto;
-  vertical-align: middle;
-  margin: 0px 5px;
-  color: #f7921d;
-  font-size: 24px;
-  font-family: 'BasicCommercialLTPro-Bold','Helvetica Neue','helvetica',arial,sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .05em;
+  opacity: 1;
 }
 
 .md-tabs__link:focus {
@@ -217,6 +237,7 @@ to   { opacity: 1; }
 .md-sidebar--secondary .md-nav__title {
   margin-bottom: 10px;
   border-bottom: 1px solid RGBA(0, 0, 0, 0.08);
+  text-transform: uppercase;
 }
 
 .md-sidebar--secondary .md-nav__item {
@@ -240,6 +261,7 @@ to   { opacity: 1; }
 .md-sidebar--secondary .md-nav__link {
   margin: 0;
   padding: 4px 14px 4px 20px;
+  font-size: 1.6rem;
 }
 
 .md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link {
@@ -350,6 +372,7 @@ to   { opacity: 1; }
 
 .md-footer-social a, .md-footer-social a:hover {
   font-size: 24px;
+  color: #c2c2c2;
   text-decoration: none;
 }
 
@@ -361,6 +384,17 @@ to   { opacity: 1; }
 
 .md-footer-legal-text {
   float: left;
+  padding: 30px;
+  font-size: 14px;
+  color: #c2c2c2;
+  line-height: 24px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.md-footer-legal-text a {
+  color: #f7921d;
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 45em) {
@@ -395,6 +429,83 @@ to   { opacity: 1; }
     margin-left: 0.8rem;
   }
 } 
+
+.footer-nav {
+  background-color: #e1e1e1;
+  padding: 45px 0;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  list-style: none;
+}
+
+.wrapper {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 0px;
+  padding: 0px 30px;
+  font-family: 'BasicCommercialLTPro-Roman','Helvetica Neue','helvetica',arial,sans-serif;
+  font-size: 18px;
+}
+
+.footer-nav-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.footer-left {
+  width: 25%;
+  padding-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-nav-menu {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 34px;
+}
+
+.footer-nav-menu .footer-menu-item {
+  padding: 0px 10px;
+}
+
+.footer-nav-menu ul {
+  padding-top: 20px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.footer-nav-menu ul li {
+  font-size: 18px;
+  font-family: 'BasicCommercialLTPro-Roman','Helvetica Neue','helvetica',arial,sans-serif;
+  line-height: 45px;
+  color: #63666a;
+}
+
+.footer-nav-menu .footer-menu-item .footer-menu-title {
+  font-family: 'BasicCommercialLTPro-Bold','Helvetica Neue','helvetica',arial,sans-serif;
+  font-size: 18px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #63666a;
+}
+
 
 @media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title--site {
@@ -431,7 +542,6 @@ to   { opacity: 1; }
   color: white;
   font-size: 14px;
   text-transform: uppercase;
-  color: white;
   letter-spacing: .2em;
   overflow: visible;
 }
@@ -459,8 +569,9 @@ to   { opacity: 1; }
 .marketing-text-button {
   color: white;
   font-family: BasicCommercialLTPro-Roman;
-  border-color: #000;
   font-size:18px;
+  background-color: #f7921d;
+  opacity: 0.8;
   border-style: solid;
   border-width: 2px 2px 2px 2px;
   padding: 10px 20px 10px 20px;
@@ -468,6 +579,7 @@ to   { opacity: 1; }
 }
 
 .marketing-text-button:hover {
+  opacity: 1;
   background-color: #f7921d;
 }
 
