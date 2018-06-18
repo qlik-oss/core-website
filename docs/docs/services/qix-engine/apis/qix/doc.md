@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.171.0._
+_QIX methods for version 12.181.0._
 
 ## `AbortModal`
 
@@ -98,8 +98,8 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qErrorMsg` | string | Message displayed when there is a syntax error. |
-| `qBadFieldNames` | array<[`NxRange`](./definitions.md#nxrange)> | A list of bad field names. |
-| `qDangerousFieldNames` | array<[`NxRange`](./definitions.md#nxrange)> | A list of dangerous field names. |
+| `qBadFieldNames` | array&lt;[`NxRange`](./definitions.md#nxrange)> | A list of bad field names. |
+| `qDangerousFieldNames` | array&lt;[`NxRange`](./definitions.md#nxrange)> | A list of dangerous field names. |
 
 ## `CheckNumberOrExpression`
 
@@ -116,7 +116,7 @@ Checks if:<br>* A given expression is valid.<br>* A number is correct according 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qErrorMsg` | string | Message displayed when there is a syntax error. |
-| `qBadFieldNames` | array<[`NxRange`](./definitions.md#nxrange)> | A list of bad field names. |
+| `qBadFieldNames` | array&lt;[`NxRange`](./definitions.md#nxrange)> | A list of bad field names. |
 
 ## `CheckScriptSyntax`
 
@@ -128,7 +128,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qErrors` | array<[`ScriptSyntaxError`](./definitions.md#scriptsyntaxerror)> | `[]` |
+| `qErrors` | array&lt;[`ScriptSyntaxError`](./definitions.md#scriptsyntaxerror)> | `[]` |
 
 ## `ClearAll`
 
@@ -645,7 +645,7 @@ Retrieves any fields that belong to the same archipelago as the specified field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldNames` | array<[`NxMatchingFieldInfo`](./definitions.md#nxmatchingfieldinfo)> | List of matching fields. |
+| `qFieldNames` | array&lt;[`NxMatchingFieldInfo`](./definitions.md#nxmatchingfieldinfo)> | List of matching fields. |
 
 ## `Forward`
 
@@ -677,7 +677,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfos` | array<[`NxInfo`](./definitions.md#nxinfo)> | Information about all generic objects in the app. |
+| `qInfos` | array&lt;[`NxInfo`](./definitions.md#nxinfo)> | Information about all generic objects in the app. |
 
 ## `GetAppLayout`
 
@@ -718,7 +718,7 @@ Computes a set of association scores for each pair of fields between two given t
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qScore` | array<[`AssociationScore`](./definitions.md#associationscore)> | Array of computed scores. |
+| `qScore` | array&lt;[`AssociationScore`](./definitions.md#associationscore)> | Array of computed scores. |
 
 ## `GetBookmark`
 
@@ -750,7 +750,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array<[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
+| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
 
 ## `GetConnection`
 
@@ -778,7 +778,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnections` | array<[`Connection`](./definitions.md#connection)> | List of connections. |
+| `qConnections` | array&lt;[`Connection`](./definitions.md#connection)> | List of connections. |
 
 ## `GetContentLibraries`
 
@@ -823,7 +823,7 @@ Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOwners` | array<[`DatabaseOwner`](./definitions.md#databaseowner)> | List of owner names. |
+| `qOwners` | array&lt;[`DatabaseOwner`](./definitions.md#databaseowner)> | List of owner names. |
 
 ## `GetDatabaseTableFields`
 
@@ -842,7 +842,7 @@ Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM conne
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array<[`DataField`](./definitions.md#datafield)> | List of the fields. |
+| `qFields` | array&lt;[`DataField`](./definitions.md#datafield)> | List of the fields. |
 
 ## `GetDatabaseTablePreview`
 
@@ -862,7 +862,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array<[`DataRecord`](./definitions.md#datarecord)> | List the values in the table. |
+| `qPreview` | array&lt;[`DataRecord`](./definitions.md#datarecord)> | List the values in the table. |
 | `qRowCount` | integer | _No description._ |
 
 ## `GetDatabaseTables`
@@ -881,7 +881,7 @@ Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array<[`DataTable`](./definitions.md#datatable)> | List of the tables. |
+| `qTables` | array&lt;[`DataTable`](./definitions.md#datatable)> | List of the tables. |
 
 ## `GetDatabases`
 
@@ -897,7 +897,7 @@ Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDatabases` | array<[`Database`](./definitions.md#database)> | List of databases. |
+| `qDatabases` | array&lt;[`Database`](./definitions.md#database)> | List of databases. |
 
 ## `GetDimension`
 
@@ -941,7 +941,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qNames` | array | Favorite variables to retrieve. |
+| `qNames` | array&lt;string> | Favorite variables to retrieve. |
 
 ## `GetField`
 
@@ -1009,7 +1009,7 @@ Lists the fields of a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFields` | array<[`DataField`](./definitions.md#datafield)> | List of the tables. |
+| `qFields` | array&lt;[`DataField`](./definitions.md#datafield)> | List of the tables. |
 | `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTablePreview`
@@ -1029,7 +1029,7 @@ Lists the values in a table for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qPreview` | array<[`DataRecord`](./definitions.md#datarecord)> | List of the tables. |
+| `qPreview` | array&lt;[`DataRecord`](./definitions.md#datarecord)> | List of the tables. |
 | `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
 
 ## `GetFileTables`
@@ -1048,7 +1048,7 @@ Lists the tables for a folder connection.<br><br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array<[`DataTable`](./definitions.md#datatable)> | List of the tables. |
+| `qTables` | array&lt;[`DataTable`](./definitions.md#datatable)> | List of the tables. |
 
 ## `GetFileTablesEx`
 
@@ -1066,7 +1066,7 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qTables` | array<[`DataTableEx`](./definitions.md#datatableex)> | List of the tables. |
+| `qTables` | array&lt;[`DataTableEx`](./definitions.md#datatableex)> | List of the tables. |
 
 ## `GetFolderItemsForConnection`
 
@@ -1083,7 +1083,7 @@ Lists the items for a folder connection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolderItems` | array<[`FolderItem`](./definitions.md#folderitem)> | List of the folder items. |
+| `qFolderItems` | array&lt;[`FolderItem`](./definitions.md#folderitem)> | List of the folder items. |
 
 ## `GetIncludeFileContent`
 
@@ -1127,7 +1127,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qLineage` | array<[`LineageInfo`](./definitions.md#lineageinfo)> | Information about the lineage of the data in the app. |
+| `qLineage` | array&lt;[`LineageInfo`](./definitions.md#lineageinfo)> | Information about the lineage of the data in the app. |
 
 ## `GetLocaleInfo`
 
@@ -1151,7 +1151,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qv` | array | The list of table states |
+| `qv` | array&lt;string> | The list of table states |
 
 ## `GetMatchingFields`
 
@@ -1168,7 +1168,7 @@ Retrieves any fields that match all of the specified tags or just one of them in
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldNames` | array<[`NxMatchingFieldInfo`](./definitions.md#nxmatchingfieldinfo)> | List of matching fields. |
+| `qFieldNames` | array&lt;[`NxMatchingFieldInfo`](./definitions.md#nxmatchingfieldinfo)> | List of matching fields. |
 
 ## `GetMeasure`
 
@@ -1232,7 +1232,7 @@ _No details._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array<[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
+| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
 
 ## `GetScript`
 
@@ -1256,7 +1256,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBreakpoints` | array<[`EditorBreakpoint`](./definitions.md#editorbreakpoint)> | Information about the breakpoints. |
+| `qBreakpoints` | array&lt;[`EditorBreakpoint`](./definitions.md#editorbreakpoint)> | Information about the breakpoints. |
 
 ## `GetScriptEx`
 
@@ -1287,7 +1287,7 @@ Retrieves the data of a specific table.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qData` | array<[`TableRow`](./definitions.md#tablerow)> | Array of data. |
+| `qData` | array&lt;[`TableRow`](./definitions.md#tablerow)> | Array of data. |
 
 ## `GetTablesAndKeys`
 
@@ -1307,8 +1307,8 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qtr` | array<[`TableRecord`](./definitions.md#tablerecord)> | List of tables. |
-| `qk` | array<[`SourceKeyRecord`](./definitions.md#sourcekeyrecord)> | List of keys. |
+| `qtr` | array&lt;[`TableRecord`](./definitions.md#tablerecord)> | List of tables. |
+| `qk` | array&lt;[`SourceKeyRecord`](./definitions.md#sourcekeyrecord)> | List of keys. |
 
 ## `GetTextMacros`
 
@@ -1320,7 +1320,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qMacros` | array<[`TextMacro`](./definitions.md#textmacro)> | List of variables. |
+| `qMacros` | array&lt;[`TextMacro`](./definitions.md#textmacro)> | List of variables. |
 
 ## `GetVariable`
 

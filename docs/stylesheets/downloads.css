@@ -93,9 +93,9 @@
 }
 
 .changes__circle--removed {
-  background-color: red;
+  background-color: var(--custom-grey);
 }
 
 .changes__circle--deprecated {
-  background-color: var(--custom-grey);
+  background-color: red;
 }
