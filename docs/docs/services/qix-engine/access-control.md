@@ -57,7 +57,6 @@ rules.
 | Switch | Values | Default | Description |
 | ------ | ------ | ------- | ----------- |
 | `EnableABAC` | `0` or `1` | `0` | Enabling/disabling of ABAC rule evaluation. |
-| `Gen3` | `0` or `1` | `0` | Enabling/disabling of server mode. Must be set to `1` if enabling ABAC. |
 | `SystemDenyRulePath` | File path | N/A | File path to the _Deny_ rules file. |
 | `SystemAllowRulePath` | File path | N/A | File path to the _Allow_ rules file. |
 
@@ -69,7 +68,6 @@ with the Allow and Deny rules in the `allow.txt` and `deny.txt` files.
 ```bash
 docker run -v <host folder path>:<container folder path> qlikcore/engine:<version> \
     -S EnableABAC=1 \
-    -S Gen3=1 \
     -S SystemAllowRulePath=/<container folder path>/allow.txt \
     -S SystemDenyRulePath=/<container folder path>/deny.txt
 ```
