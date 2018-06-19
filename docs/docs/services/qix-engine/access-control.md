@@ -223,8 +223,8 @@ An _Action_ is what operation a user wants to perform on a resource in the Qlik 
 | `update` | Update a resource. |
 | `reload`| Reload an application. |
 | `delete` | Delete a resource. |
-| `import` | Import a application. |
-| `export` | Export a application. |
+| `import` | Import an application. |
+| `export` | Export an application. |
 | `export data` | Export data from an object. |
 
 #### The `_actions` Attribute
