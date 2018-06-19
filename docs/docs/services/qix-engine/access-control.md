@@ -3,10 +3,10 @@
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution since this feature may change in the future.
 
-It is often necessary to be able to control what different users are allowed to do in the context of a document. In Qlik
-Associative Engine
+It is often necessary to be able to control what different users are allowed to do in the context of an application.
+In Qlik Associative Engine
 [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) is supported which
-makes it possible to control the document resources based on users' attributes rather than using roles or other more
+makes it possible to control the application resources based on user attributes rather than using roles or other more
 static means.
 
 ## Rules
@@ -47,8 +47,8 @@ actions specified and rule evaluation continues, possibly accumulating access to
 rules.
 
 !!! Note
-    The rule files are read by Qlik Associative Engine at start. Modifying the rule files requires a restart in order
-    for new rules to take effect.
+    The rule files are read by Qlik Associative Engine at each session start. Modifying the rule files requires a
+    a new WebSocket connection or REST call for updated rules to take effect.
 
 ## Engine Configuration for ABAC
 
@@ -56,8 +56,8 @@ rules.
 
 | Switch | Values | Default | Description |
 | ------ | ------ | ------- | ----------- |
-| `EnableABAC` | `0` or `1` | `0` | Enabling/disabling of ABAC rule evalutation. |
-| `Gen3` | `0` or `1` | `0` | Enablig/disabling of server mode. Must be set to `1` if enabling ABAC. |
+| `EnableABAC` | `0` or `1` | `0` | Enabling/disabling of ABAC rule evaluation. |
+| `Gen3` | `0` or `1` | `0` | Enabling/disabling of server mode. Must be set to `1` if enabling ABAC. |
 | `SystemDenyRulePath` | File path | N/A | File path to the _Deny_ rules file. |
 | `SystemAllowRulePath` | File path | N/A | File path to the _Allow_ rules file. |
 
@@ -154,9 +154,9 @@ With the example JWT above, this user is granted access for all actions to all r
 
 ### The `resource` Object
 
-A _Resource_ is a generic concept that can represent documents, or objects within documents. A Resource carries attributes
-which may be used in rule expressions. In rule expressions the resource being accessed is represented by the `resource`
-object.
+A _Resource_ is a generic concept that can represent applications, or objects within applications. A Resource carries
+attributes which may be used in rule expressions. In rule expressions the resource being accessed is represented by the
+`resource` object.
 
 #### Common Attributes
 
@@ -221,10 +221,10 @@ An _Action_ is what operation a user wants to perform on a resource in the Qlik 
 | `create` | Create a resource. |
 | `read` | Read a resource. |
 | `update` | Update a resource. |
-| `reload`| Reload a document. |
+| `reload`| Reload an application. |
 | `delete` | Delete a resource. |
-| `import` | Import a document. |
-| `export` | Export a document. |
+| `import` | Import a application. |
+| `export` | Export a application. |
 | `export data` | Export data from an object. |
 
 #### The `_actions` Attribute
