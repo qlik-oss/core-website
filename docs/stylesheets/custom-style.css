@@ -35,13 +35,6 @@ body {
   font-family: BasicCommercialLTPro-Roman;
 }
 
-.md-header {
-  position: relative;
-  background-color: #000;
-  background-image:URL('../images/bg-1.jpg');
-  height: 120px;
-}
-
 .md-icon--menu {
   font-size: 5rem;
 }
@@ -89,6 +82,7 @@ body {
     background-image:URL('../images/bg-1.jpg');
     height: 120px;
   }
+
   .md-logo img {
     height: auto;
     width: 250px;
