@@ -48,7 +48,7 @@ rules.
 
 !!! Note
     The rule files are read by Qlik Associative Engine at each session start. Modifying the rule files requires a
-    a new WebSocket connection or REST call for updated rules to take effect.
+    a new session start or REST call for updated rules to take effect.
 
 ## Engine Configuration for ABAC
 
