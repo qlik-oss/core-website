@@ -55,6 +55,14 @@
     <!-- Content -->
     {{ page.content }}
   </div>
+{% elif page.title == "License Registration" %}
+  {{ page.content }}
+  <div id="license-registration">
+    <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_21249"></form>
+    <script>MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249);</script>
+    <script src="//munchkin.marketo.net/munchkin.js"></script>
+  </div>
 {% else %}
   <!-- Content -->
   {{ page.content }}
