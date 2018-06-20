@@ -42,12 +42,12 @@ and the hashing algorithm that is used to sign the token. For example:
 The payload contains the claims of the JWT.
 The relevant claims that are evaluated by the Qlik Associative Engine are the subject and the expiration date.
 
-| Field | Description |
-| -----|------------|
-| `sub` | The subject is a unique identifier for a user. |
-| `exp` | The numerical expiration date. It never expires if it is omitted. |
-| `groups` | Optional array of user groups. If present the GROUP column can be used in section access |
-| `kid` | Reserved field for JWKS in the future. |
+| Field    | Mandatory | Description |
+| -------- | --------- | ----------- |
+| `sub`    | Yes       | The subject is a unique identifier for a user. |
+| `exp`    | No        | The numerical expiration date. If omitted it never expires. |
+| `groups` | No        | Array of user groups. If present the GROUP column can be used in section access |
+| `kid`    | No        | Reserved field for JWKS in the future. |
 
 For example:
 
