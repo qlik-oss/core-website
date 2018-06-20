@@ -1,12 +1,12 @@
 
 @font-face {
   font-family: BasicCommercialLTPro-Bold;
-  src: url(../fonts/BasicCommercialLTPro-Bold.otf);
+  src: url(../fonts/BasicCommercialLTPro-Bold.otf) format("opentype");;
 }
 
 @font-face {
   font-family: BasicCommercialLTPro-Roman;
-  src: url(../fonts/BasicCommercialLTPro-Roman.otf);
+  src: url(../fonts/BasicCommercialLTPro-Roman.otf) format("opentype");;
 }
 
 
@@ -39,8 +39,12 @@ body {
   font-size: 5rem;
 }
 
+.md-header {
+  position: relative;
+}
+
 @media (max-width: 76.1875em) {
-  .md-header-home {
+  .md-header-home, .md-header-sub {
     position: relative;
     background-color: #000;
     background-image:URL('../images/bg-1.jpg');
@@ -48,12 +52,6 @@ body {
   }
   .md-flex-homepage {
     display: none !important;
-  }
-  .md-header {
-    position: relative;
-    background-color: #000;
-    background-image:URL('../images/bg-1.jpg');
-    height: 75px;
   }
   .md-logo img {
     height: auto;
@@ -70,15 +68,15 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-image:URL('../images/bg-1.jpg');
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 1s; /* Firefox < 16 */
     -ms-animation: fadein 1s; /* Internet Explorer */
     -o-animation: fadein 1s; /* Opera < 12.1 */
     animation: fadein 1s;
   }
-  .md-header {
-    position: relative;
-    background-color: #000;
+  
+  .md-header-sub {
     background-image:URL('../images/bg-1.jpg');
     height: 120px;
   }
@@ -118,9 +116,21 @@ from { opacity: 0; }
 to   { opacity: 1; }
 }
 
-.md-tabs, .md-footer-nav {
+.md-tabs  {
   background-color:rgba(0, 0, 0, 0.0);
   right: 30px;
+}
+
+.md-sidebar[data-md-state=lock] {
+  top: 0.5rem;
+}
+
+.md-sidebar[data-md-state=lock] {
+  bottom: 4.8rem; 
+}
+
+.md-tabs {
+  background-color:rgba(0, 0, 0, 0.0) !important;
 }
 
 .md-footer-meta {
@@ -128,7 +138,7 @@ to   { opacity: 1; }
   color: #626669;
 }
 
-.md-footer-meta2 {
+.md-footer-last {
   background-color: #424346;
   color: #e1e1e1;
 }
@@ -147,7 +157,7 @@ h1 span {
   font-family: 'BasicCommercialLTPro-Bold','Helvetica Neue','helvetica',arial,sans-serif;
 }
 
-h1 {
+.md-content h1 {
   text-transform: uppercase;
   font-size: 2.2rem !important;
 }
@@ -239,7 +249,7 @@ h1 {
 }
 
 /* Hide Beta/Third Party Licenses nav items in full size menu */
-.md-nav__item a[title="Beta"],
+.md-nav__item a[title="Beta agreement"],
 .md-nav__item a[title="Third Party Licenses"]
  {
   display: none;
@@ -247,7 +257,7 @@ h1 {
 
 /* Show the Beta nav item in hamburger menu */
 @media only screen and (max-width: 76.1875em) {
-  .md-nav__item a[title="Beta"] {
+  .md-nav__item a[title="Beta agreement"] {
     display: block;
   }
 }
@@ -365,9 +375,15 @@ h1 {
 }
 
 .md-footer-social a, .md-footer-social a:hover {
-  font-size: 24px;
-  color: #c2c2c2;
+  font-size: 60px;
+  color: #626669;
+  margin-right: 30px;
   text-decoration: none;
+}
+
+.footer-left .footer-social {
+  display: flex;
+  align-self: flex-end;
 }
 
 .md-footer-legal {
@@ -378,7 +394,8 @@ h1 {
 
 .md-footer-legal-text {
   float: left;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 14px;
   color: #c2c2c2;
   line-height: 24px;
@@ -563,13 +580,12 @@ li {
 .marketing-text-button {
   color: white;
   font-family: BasicCommercialLTPro-Roman;
-  font-size:18px;
+  font-size:16px;
   background-color: #f7921d;
-  opacity: 0.8;
-  border-style: solid;
-  border-width: 2px 2px 2px 2px;
+  opacity: 1;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .marketing-text-button:hover {

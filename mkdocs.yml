@@ -4,6 +4,8 @@ theme:
   name: 'material'
   logo: 'images/QlikCore-Horizontal-Print-white.svg'
   custom_dir: 'theme'
+  palette:
+    primary: 'orange'
   favicon: 'images/favicon.ico'
 
 extra_css:
@@ -38,10 +40,10 @@ google_analytics: ['UA-110266862-2', 'auto']
 
 pages:
   - Home: index.md
-  - Beta: beta.md
-  - Licensing: docs/licensing.md
   - Get Started: docs/getting-started.md
   - Downloads: docs/downloads.md
+  - Licensing: docs/licensing.md
+  - Beta agreement: beta.md
   - Tutorials:
     - Hello Engine: docs/tutorials/hello-engine.md
     - Hello Data: docs/tutorials/hello-data.md
@@ -54,6 +56,7 @@ pages:
       - Overview: docs/tutorials/scalability/overview.md
       - Newspaper website: docs/tutorials/scalability/newspaper.md
   - Services:
+    - Mira: docs/services/mira.md
     - Qlik Associative Engine:
       - Introduction: docs/services/qix-engine/introduction.md
       #- Access Control: docs/services/qix-engine/access-control.md
@@ -78,7 +81,6 @@ pages:
       - Analytical Connector API: docs/services/qix-engine/apis/server-side-extension/analytical-connector-api.md
       - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
     - Licenses: docs/services/licenses.md
-    - Mira: docs/services/mira.md
   - Conventions:
     - Introduction: docs/conventions/introduction.md
     - API Strategy: docs/conventions/api-strategy.md
