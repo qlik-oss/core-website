@@ -32,16 +32,16 @@ Header | Description
 ### Session Sharing
 
 Qlik Associative Engine uses the concept of _sessions_ to identify the state of connections to the QIX API. When making
-a new connection either a new unique session is created, or an exsting session is shared. This makes it possible to
-share state, like selections, between several connections.
+a new connection either a new unique session is created, or the connection gets attached to an existing session. This
+makes it possible to share state, like selections, between several connections.
 
 Session sharing can be achieved in two ways depending on whether the
 [JWT feature](../../../../tutorials/authorization.md) is enabled or not:
 
 1. If enabled, a second connection will share session if the same user connects by setting the `X-Qlik-Session` header
-   to the identifier of the existing session.
+   to the same value as an existing session.
 1. If disabled, a second connection will share session if connecting to the same document omitting the `X-Qlik-Session`
-   header or setting it to the identifier of the existing session.
+   header or setting it to the same value as an existing session.
 
 Note that `X-Qlik-Session` can be set to a new unique identifier to delibarately force creation of a new session.
 
