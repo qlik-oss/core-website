@@ -36,7 +36,7 @@ if [ ! -z "$CERT_PATH" ]; then
   ssh_opts="-i $CERT_PATH"
 fi
 
-# check if the branch already exists on machine
+# check if the branch already exists on remote machine
 ssh $ssh_opts $target_machine "ls -l docs/$BRANCH_NAME"
 sym_link_exists=$?
 
