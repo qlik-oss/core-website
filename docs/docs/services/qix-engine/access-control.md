@@ -226,10 +226,10 @@ An _Action_ is what operation a user wants to perform on a resource in the Qlik 
 | `export data` | Export data from an object. |
 
 !!! Note
-    When granting access to the `reload` action, the `create` action also must also be granted to objects of type
-    `"variable"` as in the rule expression
+    When granting access to the `reload` action other action might also need to be granted, depending on what the reload
+    script does. For example, if the reload script creates variables in the application, the `create` action must also
+    be granted to objects of type `"variable"` as in the rule expression
     `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
-    This is needed since a reload requires that variable objects are created in the application.
 
 #### The `_actions` Attribute
 
