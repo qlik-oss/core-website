@@ -29,7 +29,7 @@ The Hello Qlik Core examples are divided into three separate parts:
     [halyard.js](https://github.com/qlik-oss/halyard.js).
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building visualizations using [picasso.js](https://picassojs.com/).
 
-### Screenshot
+Once you have completed these tutorials, you should be presented with a result similar to the screenshot below.
 
 ![screenshot](../images/hello-viz.png)
 
