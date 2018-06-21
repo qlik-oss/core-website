@@ -14,7 +14,7 @@ Qlik Core consists of a core set of services, including the Qlik Associative Eng
 
 Qlik Core comes with a community version that may be used to evaluate,
 develop, or test solutions. Note that it cannot be used for commercial purposes.
-For more information about the license of Qlik Core visit 
+For more information about the license of Qlik Core visit
 [Licensing](licensing.md)
 
 ## JavaScript Libraries

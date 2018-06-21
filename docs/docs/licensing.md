@@ -30,7 +30,7 @@ prepare your solution for Qlik Core licensing.
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [Licenses configuration](./services/licenses.md#configuration) page.
 
-    With a beta license the Qlik Associative Engine will no longer be limited to 5 concurrent 
+    With a beta license the Qlik Associative Engine will no longer be limited to 5 concurrent
     sessions. The 30 days expiration will however still be applied during the Beta phase.
 
 ## Third Party Licenses
