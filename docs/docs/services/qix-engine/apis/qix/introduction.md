@@ -1,8 +1,7 @@
 # QIX API
 
-The QIX API is the primary API used for consuming QIX documents. It is
-based on the WebSocket protocol and requires some specific parameters
-to work correctly.
+The QIX API is the primary API used for consuming QIX documents. It is based on the WebSocket protocol and requires some
+specific parameters to work correctly.
 
 ## WebSockets
 
@@ -13,8 +12,7 @@ should be supported. The URL format is:
 ws://hostname:port/app/<unique identifier>
 ```
 
-`<unique identifier>` can be anything that would identify the document session for the user
-making the request.
+`<unique identifier>` can be anything that would identify the document for the user making the request.
 
 JavaScript example:
 
@@ -30,6 +28,23 @@ Header | Description
 ------ | -----------
 `X-Qlik-Session: <guid>` | Defines the session id, regardless of the user. If you use this header, the websocket URL could simply be `ws://hostname:9076/app/`.
 `Authorization: Bearer <token>` | If the [JWT feature](../../../../tutorials/authorization.md) is enabled, this header will identify the user and its attributes.
+
+### Session Sharing
+
+Qlik Associative Engine uses the concept of _sessions_ to identify the state of connections to the QIX API. When making
+a new connection either a new unique session is created, or an exsting session is shared. This makes it possible to
+share state, like selections, between several connections.
+
+Session sharing can be achieved in two ways depending on whether the
+[JWT feature](../../../../tutorials/authorization.md) enabled or not:
+
+1. If enabled, a second connection will share session if the same user connects by setting the `X-Qlik-Session` header
+   to the identifier of the existing session.
+1. If disabled, a second connection will share session if connecting to the same document omitting the `X-Qlik-Session`
+   header or setting it to the identifier of the existing session.
+
+Note, that in the second case `X-Qlik-Session` can deliberately be set to a new unique identifier to force creation of a
+new session.
 
 ## JSONRPC Protocol
 
