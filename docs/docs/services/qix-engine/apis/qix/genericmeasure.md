@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericMeasure
 
-_QIX methods for version 12.181.0._
+_QIX methods for version 12.190.0._
 
 ## `ApplyPatches`
 
@@ -59,7 +59,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItems` | array&lt;[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
+| `qItems` | array<[`NxLinkedObjectInfo`](./definitions.md#nxlinkedobjectinfo)> | List of the linked objects. |
 
 ## `GetMeasure`
 

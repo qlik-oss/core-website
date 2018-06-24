@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.181.0._
+_QIX methods for version 12.190.0._
 
 ## `AbortAll`
 
@@ -262,7 +262,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | array&lt;[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
+| `qBnfDefs` | array<[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
 
 ## `GetBaseBNF`
 
@@ -278,7 +278,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qBnfDefs` | array&lt;[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
+| `qBnfDefs` | array<[`BNFDef`](./definitions.md#bnfdef)> | Description of the scripting language grammar. |
 | `qBnfHash` | string | A string hash of the BNF definition. |
 
 ## `GetBaseBNFHash`
@@ -328,7 +328,7 @@ List the custom connectors available in the system.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qConnectors` | array&lt;[`CustomConnector`](./definitions.md#customconnector)> | List of the custom connectors. |
+| `qConnectors` | array<[`CustomConnector`](./definitions.md#customconnector)> | List of the custom connectors. |
 
 ## `GetDatabasesFromConnectionString`
 
@@ -344,7 +344,7 @@ Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDatabases` | array&lt;[`Database`](./definitions.md#database)> | List of the databases in the connection. |
+| `qDatabases` | array<[`Database`](./definitions.md#database)> | List of the databases in the connection. |
 
 ## `GetDefaultAppFolder`
 
@@ -368,7 +368,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDocList` | array&lt;[`DocListEntry`](./definitions.md#doclistentry)> | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
+| `qDocList` | array<[`DocListEntry`](./definitions.md#doclistentry)> | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
 
 ## `GetFolderItemsForPath`
 
@@ -384,7 +384,7 @@ Returns the files and folders located at a specified path.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFolderItems` | array&lt;[`FolderItem`](./definitions.md#folderitem)> | Path of the folder where the apps are stored. |
+| `qFolderItems` | array<[`FolderItem`](./definitions.md#folderitem)> | Path of the folder where the apps are stored. |
 
 ## `GetFunctions`
 
@@ -394,13 +394,13 @@ Gets the list of all the script functions.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL |
+| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFunctions` | array&lt;[`Function`](./definitions.md#function)> | Name of the group<br>Default is all groups. |
+| `qFunctions` | array<[`Function`](./definitions.md#function)> | Name of the group<br>Default is all groups. |
 
 ## `GetInteract`
 
@@ -429,7 +429,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDrives` | array&lt;[`DriveInfo`](./definitions.md#driveinfo)> | List of drives. |
+| `qDrives` | array<[`DriveInfo`](./definitions.md#driveinfo)> | List of drives. |
 
 ## `GetOdbcDsns`
 
@@ -441,7 +441,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOdbcDsns` | array&lt;[`OdbcDsn`](./definitions.md#odbcdsn)> | List of the ODBC connectors. |
+| `qOdbcDsns` | array<[`OdbcDsn`](./definitions.md#odbcdsn)> | List of the ODBC connectors. |
 
 ## `GetOleDbProviders`
 
@@ -453,7 +453,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOleDbProviders` | array&lt;[`OleDbProvider`](./definitions.md#oledbprovider)> | List of the OLEDB providers. |
+| `qOleDbProviders` | array<[`OleDbProvider`](./definitions.md#oledbprovider)> | List of the OLEDB providers. |
 
 ## `GetProgress`
 
@@ -484,7 +484,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStreamList` | array&lt;[`NxStreamListEntry`](./definitions.md#nxstreamlistentry)> | List of the streams. |
+| `qStreamList` | array<[`NxStreamListEntry`](./definitions.md#nxstreamlistentry)> | List of the streams. |
 
 ## `GetSupportedCodePages`
 
@@ -496,7 +496,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qCodePages` | array&lt;[`CodePage`](./definitions.md#codepage)> | List of the code pages |
+| `qCodePages` | array<[`CodePage`](./definitions.md#codepage)> | List of the code pages |
 
 ## `GetUniqueID`
 
