@@ -48,7 +48,7 @@ Note that `X-Qlik-Session` can be set to a new unique identifier to delibarately
 ### Session Time-to-Live
 
 It can be useful to be able to reconnect to an existing session even after the last connection to the session has been
-closed. Qlik Associative Container supports setting TTL on sessions which keeps them alive for the duration specified.
+closed. Qlik Associative Engine supports setting TTL on sessions which keeps them alive for the duration specified.
 
 These command line switches can be used to control TTL:
 
