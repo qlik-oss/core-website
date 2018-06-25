@@ -9,7 +9,7 @@ Any websocket client implementation that follows the [RFC specification](https:/
 should be supported. The URL format is:
 
 ```raw
-ws://hostname:port/app/<unique identifier>
+ws://<hostname>:<port>/app/<unique identifier>
 ```
 
 `<unique identifier>` can be anything that would identify the document for the user making the request.
@@ -44,6 +44,27 @@ Session sharing can be achieved in two ways depending on whether the
    header or setting it to the same value as an existing session.
 
 Note that `X-Qlik-Session` can be set to a new unique identifier to delibarately force creation of a new session.
+
+### Session Time-to-Live
+
+It can be useful to be able to reconnect to an existing session even after the last connection to the session has been
+closed. Qlik Associative Engine supports setting TTL on sessions which keeps them alive for the duration specified.
+
+These command line switches can be used to control TTL:
+
+Switch | Default | Description
+------ | ------- | ------------
+`SessionTTL` | `0` | Global TTL in seconds for all sessions. Set to `-1` for infinite TTL (requires `MaxSessionTTL=-1`). |
+`MaxSessionTTL` | `1800` | Maximum TTL in seconds. TTL is always capped to this value. Set to `-1` to allow infinite TTL. |
+
+The TTL can also be provided per connection by passing the TTL value in the URL, as in
+
+```raw
+ws://<hostname>:<port>/.../ttl/<TTL in seconds>
+```
+
+This overrides the global TTL set with `SessionTTL` and is still capped by `MaxSessionTTL`. Since different TTL values
+for the same session could potentially be set, it is the latest TTL provided that is effective.
 
 ## JSONRPC Protocol
 
