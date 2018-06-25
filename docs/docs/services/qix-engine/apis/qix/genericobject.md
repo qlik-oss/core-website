@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.181.0._
+_QIX methods for version 12.190.0._
 
 ## `AbortListObjectSearch`
 
@@ -498,6 +498,18 @@ Retrieves the values of a list object.<br>A data set is returned.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | A data set. |
+
+## `GetParent`
+
+Returns the type of the object and the corresponding handle to the parent object in the hiearchy.
+
+_No parameters._
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericObject", "qHandle": &lt;handle of the object&gt; } |
 
 ## `GetProperties`
 
