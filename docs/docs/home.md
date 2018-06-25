@@ -29,16 +29,16 @@ Developers building their solutions on Qlik Core are provided with a large range
 [Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple Qlik
 Associative Engine instances in distributed environments.
 
-## Live Demo
+## Use Cases
 
-To see an example of what can be built using Qlik Core, a live demo is available at
-[ap.qlikcore.com](https://ap.qlikcore.com).
+Use Cases show solutions and examples of what business scenarios that can be implemented with Qlik Core. The Use Cases
+show both how data analytics problems can be addressed, and how to use Qlik Core together with different technological
+platforms.
 
-The demo is built on the requirements from a fictive company, which provides an interactive application to
-assist doctors with drug prescriptions.
+If you are looking for more complete solutions to get inspiration from, or to start building your own solutions with,
+the Use Cases together with our tutorials provide a good starting point.
 
-The source code for the demo, including more detailed documentation, is available as open source on GitHub
-in the [qlik-oss/core-assisted-prescription](https://github.com/qlik-oss/core-assisted-prescription) repository.
+More information can be found in the [Use Cases](./use-cases.md) section.
 
 ## New to Qlik Core?
 

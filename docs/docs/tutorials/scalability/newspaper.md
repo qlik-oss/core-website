@@ -1,5 +1,7 @@
 # Newspaper website
 
+**TODO**: Do we want this use case here? Feels a bit misplaced.
+
 Qlik Core can be used in many different ways and each implementation will be unique,
 but the concepts and solutions in this use case
 can provide useful information for you as you build your solution.

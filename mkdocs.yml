@@ -88,3 +88,4 @@ pages:
       - Metrics: docs/conventions/metrics.md
     - Third Party Licenses: docs/third-party-licenses.md
     - License Registration: docs/license-registration.md
+    - Use Cases: docs/use-cases.md
