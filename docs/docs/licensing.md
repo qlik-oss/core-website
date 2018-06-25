@@ -30,6 +30,8 @@ prepare your solution for Qlik Core licensing.
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [Licenses configuration](./services/licenses.md#configuration) page.
 
+    With a beta license the community limitations will no longer apply.
+
 ## Third Party Licenses
 
 Click [here](./third-party-licenses) for information about our third-party licenses.
