@@ -1,7 +1,5 @@
 # Use Cases
 
-Currently, we provide the following use cases:
-
 ## Assisted Prescriptions
 
 This use case shows how to build a custom analytics application with Qlik Core.
@@ -12,7 +10,7 @@ This use case shows how to build a custom analytics application with Qlik Core.
 * The application is deployed on [Amzon Web Services](https://aws.amazon.com/).
 * Docker Swarm is used as container orchestrator.
 
-More info on the Assisted Prescriptions use case can be found [here](./use-cases/assisted-prescriptions.md).
+More info on the Assisted Prescriptions use case can be found [here](./assisted-prescriptions.md).
 
 ## African Urbanization
 
@@ -23,4 +21,4 @@ This use case shows ... **TODO**
 * Kubernetes is used as container orchestrator and the application is deployed on
   [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
-More info on the African Urbanization use case can be found [here](./use-cases/african-urbanization.md).
+More info on the African Urbanization use case can be found [here](./african-urbanization.md).

@@ -2,6 +2,8 @@
 
 _DRAFT: More info needed in sections below. This is just an outline for discussion._
 
+A live deployment of Assisted Prescriptions is available at **TODO**.
+
 ## Business Scenario
 
 **TODO**.
@@ -24,7 +26,3 @@ in the repositories:
 
 * [core-scaling-ui](https://github.com/qlik-oss/core-scaling-ui) - **TODO**.
 * [core-scaling](https://github.com/qlik-oss/core-scaling) - **TODO**.
-
-## Live Deployment
-
-A live deployment of Assisted Prescriptions is available at **TODO**.
