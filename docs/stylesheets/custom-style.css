@@ -63,7 +63,6 @@ body {
 .md-typeset table:not([class]) th {
   background-color: #e1e1e1;
   color: rgba(0,0,0,.87);
-  font-size: 1.6rem;
   vertical-align: bottom;
 }
 
@@ -180,10 +179,6 @@ h1 span {
   font-size: 2.2rem !important;
 }
 
-.md-nav {
-  font-size: 1.6rem;
-}
-
 .md-nav__link:focus, .md-nav__link:hover, .md-nav__link--active,
 .md-typeset h2[id] .headerlink:focus, .md-typeset h2[id]:hover .headerlink:hover, .md-typeset h2[id]:target .headerlink,
 .md-typeset h3[id] .headerlink:focus, .md-typeset h3[id]:hover .headerlink:hover, .md-typeset h3[id]:target .headerlink,
@@ -197,7 +192,6 @@ h1 span {
   display: inline-block;
   margin: 0px 5px;
   color: white;
-  font-size: 1.6rem;
   font-family: 'ProximaNova-Semibold','Helvetica Neue','helvetica',arial,sans-serif;
   text-transform: uppercase;
   letter-spacing: .05em;
@@ -256,6 +250,10 @@ h1 span {
   background: var(--custom-orange);
 }
 
+.md-nav__title {
+  margin-top: .625em;
+}
+
 .md-sidebar--secondary .md-nav__title {
   margin-bottom: 10px;
   border-bottom: 1px solid RGBA(0, 0, 0, 0.08);
@@ -283,7 +281,6 @@ h1 span {
 .md-sidebar--secondary .md-nav__link {
   margin: 0;
   padding: 4px 14px 4px 20px;
-  font-size: 1.6rem;
 }
 
 .md-sidebar--secondary .md-nav__item .md-nav__item .md-nav__link {
@@ -554,7 +551,6 @@ li {
 
 .md-tabs__item {
   padding-right: 0;
-  padding-left: 1.6rem;
 }
 
 .md-tabs__list {
@@ -630,10 +626,6 @@ li {
   .md-header-nav__title[data-md-state=active] .md-header-nav__topic+.md-header-nav__topic {
     margin-left: 0;
   }
-}
-
-.md-typeset .admonition {
-  font-size: 1.6rem;
 }
 
 .md-typeset .admonition.tip>.admonition-title:before, .md-typeset .admonition.tip>summary:before, 
