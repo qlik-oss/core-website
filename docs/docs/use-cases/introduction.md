@@ -6,7 +6,7 @@ This use case shows how to build a custom analytics application with Qlik Core.
 
 * It has a custom-built web UI.
 * The backend uses Qlik Core and serves multiple users with a single document used by Qlik Associative Engine.
-* Load from multiple users is managed by scheduling sessions to different engine instances using a round-robin strategy.
+* Load from multiple users is managed by scheduling sessions to different engine instances using a least-load strategy.
 * The application is deployed on [Amzon Web Services](https://aws.amazon.com/).
 * Docker Swarm is used as container orchestrator.
 
