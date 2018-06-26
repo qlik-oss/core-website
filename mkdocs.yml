@@ -89,6 +89,6 @@ pages:
     - Third Party Licenses: docs/third-party-licenses.md
     - License Registration: docs/license-registration.md
     - Use Cases:
-      - Introduction: docs/use-cases/overview.md
+      - Overview: docs/use-cases/overview.md
     #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
     #  - African Urbanization: docs/use-cases/african-urbanization.md
