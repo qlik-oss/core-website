@@ -37,6 +37,7 @@ edit_uri: edit/master/docs
 google_analytics: ['UA-110266862-2', 'auto']
 
 pages:
+<<<<<<< HEAD
   - Home: index.md
   - Get Started: docs/getting-started.md
   - Downloads: docs/downloads.md
@@ -89,3 +90,60 @@ pages:
   #  - Introduction: docs/use-cases/introduction.md
   #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
   #  - African Urbanization: docs/use-cases/african-urbanization.md
+=======
+  - startpage: index.md
+  - Beta: beta.md
+  - Documentation:
+    - Home: docs/home.md
+    - Licensing: docs/licensing.md
+    - Getting Started: docs/getting-started.md
+    - Downloads: docs/downloads.md
+    - Tutorials:
+      - Hello Engine: docs/tutorials/hello-engine.md
+      - Hello Data: docs/tutorials/hello-data.md
+      - Hello Visualization: docs/tutorials/hello-visualization.md
+      - Orchestration: docs/tutorials/orchestration.md
+      - Authorization: docs/tutorials/authorization.md
+      - Data Loading: docs/tutorials/data-loading.md
+      #- Document Distribution: docs/tutorials/document-distribution.md
+      #- Scalability:
+      #  - Overview: docs/tutorials/scalability/overview.md
+      #  - Newspaper website: docs/tutorials/scalability/newspaper.md
+    - Services:
+      - Qlik Associative Engine:
+        - Introduction: docs/services/qix-engine/introduction.md
+        - Access Control: docs/services/qix-engine/access-control.md
+        - Document Synchronization: docs/services/qix-engine/doc-synchronization.md
+        - Logging: docs/services/qix-engine/logging.md
+        - Resource Management: docs/services/qix-engine/resource-management.md
+        - QIX API:
+          - Introduction: docs/services/qix-engine/apis/qix/introduction.md
+          - Definitions: docs/services/qix-engine/apis/qix/definitions.md
+          - Global: docs/services/qix-engine/apis/qix/global.md
+          - Doc: docs/services/qix-engine/apis/qix/doc.md
+          - Generic Object: docs/services/qix-engine/apis/qix/genericobject.md
+          - Generic Bookmark: docs/services/qix-engine/apis/qix/genericbookmark.md
+          - Generic Dimension: docs/services/qix-engine/apis/qix/genericdimension.md
+          - Generic Measure: docs/services/qix-engine/apis/qix/genericmeasure.md
+          - Generic Variable: docs/services/qix-engine/apis/qix/genericvariable.md
+          - Field: docs/services/qix-engine/apis/qix/field.md
+          - Variable: docs/services/qix-engine/apis/qix/variable.md
+        - Data Connector API:
+          - Introduction: docs/services/qix-engine/apis/data-loading/introduction.md
+          - API Specification: docs/services/qix-engine/apis/data-loading/data-connector-api.md
+        - Analytical Connector API: docs/services/qix-engine/apis/server-side-extension/analytical-connector-api.md
+        - Rest API: docs/services/qix-engine/apis/rest/qlik-associative-engine-api.md
+      - Licenses: docs/services/licenses.md
+      - Mira: docs/services/mira.md
+    - Conventions:
+      - Introduction: docs/conventions/introduction.md
+      - API Strategy: docs/conventions/api-strategy.md
+      - Logging: docs/conventions/logging.md
+      - Metrics: docs/conventions/metrics.md
+    - Third Party Licenses: docs/third-party-licenses.md
+    - License Registration: docs/license-registration.md
+    #- Use Cases:
+    #  - Introduction: docs/use-cases/introduction.md
+    #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
+    #  - African Urbanization: docs/use-cases/african-urbanization.md
+>>>>>>> origin/master
