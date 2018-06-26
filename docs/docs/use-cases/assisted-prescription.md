@@ -1,4 +1,4 @@
-# Assisted Prescriptions
+# Assisted Prescription
 
 _DRAFT: More info needed in sections below. This is just an outline for discussion._
 

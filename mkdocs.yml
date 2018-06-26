@@ -88,7 +88,7 @@ pages:
       - Metrics: docs/conventions/metrics.md
     - Third Party Licenses: docs/third-party-licenses.md
     - License Registration: docs/license-registration.md
-    #- Use Cases:
-    #  - Introduction: docs/use-cases/introduction.md
+    - Use Cases:
+      - Introduction: docs/use-cases/overview.md
     #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
     #  - African Urbanization: docs/use-cases/african-urbanization.md
