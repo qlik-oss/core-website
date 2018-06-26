@@ -29,6 +29,7 @@ Developers building their solutions on Qlik Core are provided with a large range
 [Kubernetes](https://kubernetes.io), which enables container orchestration and elastic scaling of multiple Qlik
 Associative Engine instances in distributed environments.
 
+<!--
 ## Use Cases
 
 Use Cases show solutions and examples of what business scenarios that can be implemented with Qlik Core. The Use Cases
@@ -39,6 +40,7 @@ If you are looking for complete solutions to get inspiration from, or to start b
 Cases together with our tutorials provide a good starting point.
 
 More information can be found in the [Use Cases](./use-cases/overview.md) section.
+-->
 
 ## New to Qlik Core?
 
