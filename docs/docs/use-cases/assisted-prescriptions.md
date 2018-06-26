@@ -20,7 +20,7 @@ Assisted Prescriptions highlights usage of the followoing technologies and platf
 
 ## Architecture
 
-**TODO**: Architecture diagram with some additional explainations go here.
+_Architecture diagram with some additional explainations goes here._
 
 ## Source Code
 

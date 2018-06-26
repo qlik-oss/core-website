@@ -1,6 +1,6 @@
 # Newspaper website
 
-**TODO**: Do we want this use case here? Feels a bit misplaced.
+_Remove this use case. Move applicable information to some QAE service section._
 
 Qlik Core can be used in many different ways and each implementation will be unique,
 but the concepts and solutions in this use case

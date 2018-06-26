@@ -51,10 +51,10 @@ pages:
       - Orchestration: docs/tutorials/orchestration.md
       - Authorization: docs/tutorials/authorization.md
       - Data Loading: docs/tutorials/data-loading.md
-      # - Document Distribution: docs/tutorials/document-distribution.md
-      - Scalability:
-        - Overview: docs/tutorials/scalability/overview.md
-        - Newspaper website: docs/tutorials/scalability/newspaper.md
+      #- Document Distribution: docs/tutorials/document-distribution.md
+      #- Scalability:
+      #  - Overview: docs/tutorials/scalability/overview.md
+      #  - Newspaper website: docs/tutorials/scalability/newspaper.md
     - Services:
       - Qlik Associative Engine:
         - Introduction: docs/services/qix-engine/introduction.md
@@ -88,7 +88,7 @@ pages:
       - Metrics: docs/conventions/metrics.md
     - Third Party Licenses: docs/third-party-licenses.md
     - License Registration: docs/license-registration.md
-    - Use Cases:
-      - Introduction: docs/use-cases/introduction.md
-      - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
-      - African Urbanization: docs/use-cases/african-urbanization.md
+    #- Use Cases:
+    #  - Introduction: docs/use-cases/introduction.md
+    #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
+    #  - African Urbanization: docs/use-cases/african-urbanization.md
