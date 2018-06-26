@@ -17,8 +17,8 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
 
 ## Building a visualization
 
-This example contains a small Node.js application that creates two visualizations
-from the data loaded into your dockerized Qlik Associative Engine.
+To build a visualization, you will run a small Node.js application
+that creates a visualization from the data loaded into your dockerized Qlik Associative Engine.
 
 1. Install dependencies.
 
@@ -37,10 +37,15 @@ from the data loaded into your dockerized Qlik Associative Engine.
 
     Run the following command from a command shell:
 
-    ```bash
-    npm run hello-visualization
-    ```
+    For line chart
 
+    ```bash
+    npm run line-chart
+    ```
+    For Scatter plot
+    ```bash
+    npm run scatter-plot
+    ```
     This command runs the application, which contains information on where to fetch the data and which data to load.
     This information is then used to create and populate a session app.
 

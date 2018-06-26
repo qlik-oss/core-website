@@ -1,54 +1,27 @@
-<!--
-  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Application header -->
-<header class="md-header" data-md-component="header">
-  
-    <!-- Top-level navigation -->
+{% if not page.is_homepage %} 
+<header class="md-header md-header-sub" data-md-component="header">
+{% else %}
+<header class="md-header md-header-home" data-md-component="header">
+{% endif %}
     <nav class="md-header-nav md-grid">
+      <div id="beta-banner">
+        <a href="{{ base_url }}/beta"><img src="{{ base_url }}/images/beta.png" width="150px"></a>
+      </div>
       <div class="md-flex">
-  
-        <!-- Link to home -->
         <div class="md-flex__cell md-flex__cell--shrink">
           <a href="{{ config.site_url | default(nav.homepage.url, true) }}"
               title="{{ config.site_name }}"
               class="md-header-nav__button md-logo">
-            {% if config.theme.logo.icon %}
-              <i class="md-icon">{{ config.theme.logo.icon }}</i>
-            {% else %}
               <img src="{{ base_url }}/{{ config.theme.logo }}"
                   width="24" height="24" />
-            {% endif %}
           </a>
         </div>
   
-        <!-- Button to toggle drawer -->
         <div class="md-flex__cell md-flex__cell--shrink">
           <label class="md-icon md-icon--menu md-header-nav__button"
               for="drawer"></label>
         </div>
   
-        <!-- Header title -->
-        <!-- Qlik Core customization: Removing the header title. Keeping div to avoid element not found exception -->
         <div class="md-flex__cell md-flex__cell--stretch">
           <div class="md-flex__ellipsis md-header-nav__title"
               data-md-component="title">
@@ -59,30 +32,42 @@
                 <span class="md-header-nav__topic">
                 </span>
                 <span class="md-header-nav__topic">
-                  {% if not page.is_homepage %}
                     {{ page.title }}
-                  {% endif %}
                 </span>
               {% endif %}
             {% endblock %}
           </div>
-        </div>
-        <!-- Qlik Core customization: Adding tabs to header -->
-        {% include "partials/tabs.html" %}
-  
-        <!-- Button to open search dialogue -->
+        </div>       
         <div class="md-flex__cell md-flex__cell--shrink">
           {% block search_box %}
             {% if "search" in config["plugins"] %}
               <label class="md-icon md-icon--search md-header-nav__button"
                   for="search"></label>
-  
-              <!-- Search interface -->
               {% include "partials/search.html" %}
             {% endif %}
           {% endblock %}
         </div>
       </div>
+      <div class="md-flex">
+        <!-- Start Beta label -->
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="beta-header">- Beta -</div>
+        </div>
+         <!-- End Beta label -->
+        <div class="md-flex__cell md-flex__cell--stretch">
+            {% include "partials/tabs.html" %}
+        </div>
+      </div>
+      {% if page.is_homepage %} 
+      <div class="md-flex md-flex-homepage">
+          <div class="md-flex__cell md-flex__cell--stretch">
+            <div class="md-header-info">
+                Build custom, reactive data-driven applications and visualizations with this development platform built on the Qlik Associative Engine. 
+               <p><a href="./docs/downloads/" class="marketing-text-button">Download</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./docs/getting-started/" class="marketing-text-button">Get Started</a></p>
+            </div>              
+          </div>    
+      </div>
+      {% endif %}
     </nav>
   </header>
   

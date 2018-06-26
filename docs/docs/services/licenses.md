@@ -5,7 +5,6 @@
     configuration, metrics, and logging.
 
 To run Qlik Associative Engine with a paid license, you are required to run this service.
-Make sure that you have read and understood how [licensing](../licensing.md) in Qlik Core works.
 
 ## Distribution
 
@@ -15,10 +14,8 @@ It is developed by Qlik as closed source.
 
 ## Configuration
 
-You need to configure the Licenses service with two environment variables `LICENSES_SERIAL_NBR`
-with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
-
-You also need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
+You do not need to configure this service right now but this will be required in the future.
+In addition, you do need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
 where to find it. You can do this by passing the following command line argument to the Qlik
 Associative Engine.
 
@@ -28,8 +25,7 @@ Associative Engine.
 
 ## Examples
 
-To see an example of a license configuration, see the
-[core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
+To see an example of a basic license configuration, see the [Orchestration](../tutorials/orchestration.md) tutorial.
 
 ## Deployment
 
@@ -39,33 +35,28 @@ support multiple instances if needed.
 
 ### Health check
 
-For health checking, the service exposes `/health` on port 9200, and it always responds with http status code `200 OK`.
+For health checking, the service exposes `/v1/health` on port 9200, and it always responds with `200 OK`.
 
 ### Metrics
 
-For Prometheus metrics scraping, the service exposes `/metrics` on port 9200. It provides the following
-metrics associated with your license:
+For Prometheus metrics scraping, the service exposes `/v1/metrics` on port 9200. It provides the following
+metrics:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| license_time_consumption | GAUGE | Number of license minutes consumed this month. This metrics is only showed if any minutes have been consumed. |
-| license_time_total | GAUGE | The total amount of license minutes per month your license gives you. |
-
-To see an example of how you can use these metrics to create dashboards of your license consumption,
-see the [core-using-licenses](https://github.com/qlik-oss/core-using-licenses) repository.
+| http_requests_total | COUNTER | Total number of HTTP requests since service start.<br>It includes both successful and unsuccessful requests.<br>The HTTP method and endpoint path are provided as labels. |
+| http_request_failures_total | COUNTER | Total number of HTTP request failures since service start.<br>The HTTP method and endpoint path are provided as labels |
+| http_request_duration_seconds | HISTOGRAM | Durations of HTTP request since service start.<br>The HTTP method and endpoint path are provided as labels. |
+| active_instances | GAUGE | Number of active instances (engines with an active license). |
+| license_expiry_seconds | GAUGE | Number of seconds until the license expires. |
 
 ### Logging
 
 This service complies with the [Logging](../conventions/logging.md) conventions.
 By default, the minimum log level is `info`.
+However, for Microsoft libraries, the default minimum logging level is set to `warning` to avoid too verbose logging.
 
-You can override the minimum logging level by providing the `LICENSES_LOG_LEVEL` environment variable.
-
-### License Events
-
-If no valid license exists or all license minutes are already consumed and the Qlik Associative Engine
-is configured to run in licensed mode it will send a `SESSION_ERROR_NO_LICENSE`
-push event on the websocket and then close it.
-
-If during a license renewal there are no more license minutes a `SESSION_ERROR_LICENSE_RENEW`
-push event will be sent from the Qlik Associative Engine and afterwards the websocket will be closed.
+You can override the minimum logging level by providing the `LOG_LEVEL` environment variable.
+Note that if you provide this variable it will affect the logging level for all components in the License Service,
+including Microsoft libraries. We recommend that you use the default minimum level in a production environment,
+and only override the level for debugging purposes.

@@ -1,133 +1,76 @@
 # Access Control
 
 !!! warning "Experimental feature"
-    This feature is in an experimental state. Use with caution since this feature may change in the future.
+    This feature is in an experimental state. Use with caution
+    since this feature may change in the future.
 
-It is often necessary to be able to control what different users are allowed to do in the context of an application.
-In Qlik Associative Engine
-[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) is supported which
-makes it possible to control the application resources based on user attributes rather than using roles or other more
-static means.
+Being able to control which users can do what in the context
+of a document is often necessary. In Qlik Associative Engine we support
+[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control)
+which lets you control the document resources based on a users'
+attributes rather than using roles or other, more static, means.
 
-## Rules
+## Configuration
 
-Each rule is a conditional expression that evaluates to either `true` or `false`. In addition to this, each rule
-contains a mandatory part that determines which actions the rule grants, or denies.
+Rules are defined, one on each row, in text files. Qlik Associative Engine will
+apply rules in order (except for deny rules which are always applied first,
+regardless of where they are defined).
 
-!!! Note
-    If the ABAC feature is enabled, all users will by default have no access, so it is important to also include
-    rules when enabling it. Otherwise, access problems for users can easily be caused.
-
-### Rules Overview
-
-Upcoming sections more formally describe how rules are formed, but to get an initial understanding, consider the
-following rule:
-
-```c
-user.id = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
-```
-
-This rule states that if the user is `ada-lovelace` and the accessed resource type is `"App"`, grant the actions
-`create`, `update`, and `read`. The `user.id` and `resource._resourcetype` expressions could be omitted and the rule
-would still be valid.
-
-The expression involving `_actions` must be present in order to determine which actions that are granted access. See
-section [Actions](#actions) for more details.
-
-### Rule Files
-
-Rules are defined in text files with one rule on each row. Qlik Associative Engine applies rules in the order they
-appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
-
-The Deny rule file denies access and is always evaluated first. If any rule in the Deny file evaluates to `true`,
-access is immediately denied for the actions provided and no further evaluation of rules take place.
-
-The Allow rule file allows access. If a rule in the Allow file evaluates to `true`, access is granted for the
-actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
-rules.
-
-!!! Note
-    The rule files are read by Qlik Associative Engine at each session start. Modifying the rule files requires a
-    a new session start or REST call for updated rules to take effect.
-
-## Engine Configuration for ABAC
-
-### ABAC-related Command Line Switches
-
-| Switch | Values | Default | Description |
-| ------ | ------ | ------- | ----------- |
-| `EnableABAC` | `0` or `1` | `0` | Enabling/disabling of ABAC rule evaluation. |
-| `SystemDenyRulePath` | File path | N/A | File path to the _Deny_ rules file. |
-| `SystemAllowRulePath` | File path | N/A | File path to the _Allow_ rules file. |
-
-### Example
-
-The following command shows how to start a Qlik Associative Engine instance as a Docker container, enabling ABAC, and
-with the Allow and Deny rules in the `allow.txt` and `deny.txt` files.
+If the ABAC feature is enabled, all users will by default have no
+access, so it is important that you also include rules when enabling it
+or you will cause access problems for your users.
 
 ```bash
-docker run -v <host folder path>:<container folder path> qlikcore/engine:<version> \
+docker run
+    -v <host folder>:<container folder>
+    qlikcore/engine:<version> \
+    -S Gen3=1 \
+    -S PersistenceMode=3 \
     -S EnableABAC=1 \
-    -S SystemAllowRulePath=/<container folder path>/allow.txt \
-    -S SystemDenyRulePath=/<container folder path>/deny.txt
+    -S SystemAllowRulePath=/<container folder>/allow.txt \
+    -S SystemDenyRulePath=/<container folder>/deny.txt
 ```
 
-### More Code Examples
+## Allow versus Deny
 
-The [core-authorization](https://github.com/qlik-oss/core-authorization) repository contains running code examples on
-how to enable ABAC and how to provide rules to Qlik Associative Engine.
+In addition to using _Allow_ rules to grant access, the Qlik Associative Engine
+also supports _Deny_ rules to deny access.
 
-## Rules Language
+!!! Note
+    _Deny_ rules are always applied first, if none matched
+    it will continue with _Allow_ rules.
 
-The following sections provide a more in-depth documentation of the rules language in Qlik Associative Engine - its
-syntax and semantics.
+## Actions
 
-Rules are built upon three concepts:
+Action       | Description
+------------ | -----------
+Create       | Create resource.
+Read         | Read resource.
+Update       | Update resource.
+Delete       | Delete resource.
+Export       | Export a document.
+Publish      | Publish a resource.
+Change owner | Change the owner of a resource.
+Change role  | Change user role.
+Export data  | Export data from an object.
 
-* **User** - The _subject_ that shall be granted or denied access.
-* **Resource** - The _object_ to which actions are granted or denied.
-* **Action** - The operation a user wants to perform on a resource.
+## Resources
 
-All of these can be expressed and used in the rules language.
+There are a number of resources which you may use in your rule conditions.
+All supported resources are listed below.
 
-### Expressions
+### Shared attributes
 
-Rules, in which the entities above are used, are written as Boolean expressions, evaluating to `true` or `false`.
-Expressions are written using _logical_ and _comparison_ operators.
+Attribute         | Description
+----------------- | -----------
+resource.id       | The unique identifier for the resource.
+resource.name     | The name of the resource, if any.
 
-The logical operators are:
+### User
 
-| Operator | Meaning |
-| -------- | ------- |
-| [`!`](#not) | Logical negation (not) |
-| [`and`, `&&`](#and) | Logical conjunction |
-| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction |
+The user resource contains all attributes defined in the [JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
 
-The comparison operators are:
-
-| Operator | Meaning |
-| -------- | ------- |
-| [`=`](#equal) | Equality |
-| [`==`](#strictly-equal) | Strict equality |
-| [`!=`](#not-equal) | Inequality |
-| [`!==`](#strictly-not-equal) | Strict inequality |
-| [`like`](#like) | Wildcard string matching |
-| [`matches`](#matches) | Regular expression string matching |
-
-### The `user` Object
-
-All rules are evaluated in the context of a _User_. In rule expressions the user is represented by the `user` object.
-
-#### Attributes
-
-| Attribute | Description |
-| --------- | ----------- |
-| `user.id` | The identifier of the user. This gets the value of the mandatory `sub` attribute in the JWT. |
-
-In addition to this `user` will contain all other attributes defined in the
-[JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
-
-**Examples**
+Example JWT:
 
 ```json
 {
@@ -141,229 +84,93 @@ In addition to this `user` will contain all other attributes defined in the
 }
 ```
 
-Here, `user.id` will be set to `john-doe` based on the `sub` attribute. `employeeType`, and `custom.country`
-become attributes on `user`. The attributes could be used in a (fictitous) rule like this:
+Example usage in condition:
 
 ```c
-user.id = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
+// Evaluates to `true` if the JWT looks like the example above:
+user.employeeType = "developer" and user.custom.country = "sweden"
 ```
 
-With the example JWT above, this user is granted access for all actions to all resources.
+### App
 
-### The `resource` Object
+The document (called App in the rules syntax) context.
 
-A _Resource_ is a generic concept that can represent applications, or objects within applications. A Resource carries
-attributes which may be used in rule expressions. In rule expressions the resource being accessed is represented by the
-`resource` object.
+It has no additional attributes.
 
-#### Common Attributes
+### App.Object
 
-There are different resource types but all share some common attributes:
+An object inside a document context.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `resource.description` | The resource description. Can be empty. | `resource.description = "My custom description"` |
-| `resource.id` | The unique identifier for the resource. |
-| `resource.owner` | The owner of the resource. |
-| `resource._resourcetype` | The type of the resource being accessed. Equal to `"App"` or `"App.Object"`. |
-| `resource._actions` | The actions to be granted on the resource. See [Actions](#actions) for more details.|
+Attribute | Description | Example condition
+--------- | ----------- | -----------------
+approved | Indicator of whether the object was part of the original document when the document was published. Values: `true` or `false`. | `resource.approved="true"`
+description | The object description. | `resource.description="My custom description"`
+objectType | The object type. | `resource.objectType="field" or resource.objectType="my-generic-object"`
+published | Indicator of whether the object is published. Values: `true` or `false`. | `resource.published="false"`
+app.name | Name of the document that the object is part of. | `app.name="Q3_Report"`
 
-#### Type-specific Attributes
-
-Depending on what type of resource that is being accessed, `resource` may carry additional attributes. If the resource
-type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, `resource` has the
-following additional attributes:
-
-| Attribute | Description | Example condition |
-| --------- | ----------- | ----------------- |
-| `resource._objecttype` | The object type. | `resource._objecttype = "field" or resource._objecttype = "my-generic-object"` |
-| `resource.app` | Reference to the app resource that the object is part of. | `resource.app.owner = "john-doe"` |
-
-##### The `app` Attribute
-
-As stated above, if `resource._resourcetype = "App.Object"`, `resource.app` contains the reference to the `"App"`
-resource that the object exists in, and all attributes and [built-in functions](#built-in_function) that apply
-to `"App"` objects are available on `resource.app`.
-
-#### Built-in Functions
-
-##### `HasPrivilege(<action>)`
-
-Boolean function that returns `true` if the user making the request has already been granted access for the provided
-action. Otherwise returns `false`.
+## Conditions
 
 **Syntax**
 
 ```c
-resource.HasPrivilege(ACTION)
+[resource.resourcetype = "resourcetypevalue"] [OPERATOR] [(((<resource.property = propertyvalue) [OPERATOR (resource.property = propertyvalue)))]
 ```
 
-The required parameter `ACTION` shall have a value of any of the supported actions described in [Actions](#Actions).
+Argument          | Description
+----------------- | -----------
+resource          | Implies that the conditions will be applied to a resource.
+resourcetype      | Implies that the conditions will be applied to a resource of the type defined by the `resourcetypevalue`. You can also use predefined functions for conditions to return property values.
+resourcetypevalue | You must provide at least one resource type value.
+property          | The property name for the resource condition. See Properties for available names.
+propertyvalue     | The value of the selected property name.
+user              | Implies that the conditions will be applied to a user.
 
-**Examples**
+The order that you define conditions does not matter. This means that you can define the
+resources first and then the user and/or resource conditions or the other way round.
+However, it is recommended that you are consistent in the order in which you define
+resources and conditions as this simplifies troubleshooting. When using multiple conditions,
+you can group two conditions by wrapping them in parentheses.
+
+**Example**
 
 ```c
-user.country = "uk" and resource._resourcetype = "App.Object" and resource._actions = "create"
-resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and resource._actions = {"read", "update"}
+// If the resource is of any type,
+// and the user is a developer,
+// then allow all actions:
+resource.resourcetype = "*" and user.employeeType = "developer" and resource.actions = "*"
 ```
 
-Here, the second rule uses `HasPrivilege` to check if the `create` action has already been granted to the user, which
-could be result from the preceeding rule. If that is the case, it also grants access to the `read` and `update` actions.
+## Operators
 
-### Actions
+### AND
 
-An _Action_ is what operation a user wants to perform on a resource in the Qlik Associative Engine. The actions are:
-
-| Action | Description |
-| -------| ----------- |
-| `create` | Create a resource. |
-| `read` | Read a resource. |
-| `update` | Update a resource. |
-| `reload`| Reload an application. |
-| `delete` | Delete a resource. |
-| `import` | Import an application. |
-| `export` | Export an application. |
-| `export data` | Export data from an object. |
-
-!!! Note
-    When granting access to the `reload` action other action might also need to be granted, depending on what the reload
-    script does. For example, if the reload script creates variables in the application, the `create` action must also
-    be granted to objects of type `"variable"` as in the rule expression
-    `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
-
-#### The `_actions` Attribute
-
-In rule expressions the `resource` attribute `_actions` has special semantics:
-
-* `resource._actions` shall always be used as left operand with the `=` operator. Other usage is undefined behavior.
-* The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
-* The expression `resource._actions = (EXPRESSION)` has the "side effect" of accumulating the actions given by the
-  right operand which shall be a single action or a list of actions to be granted.
-* `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for "all actions".
-
-Hence, omitting `resource._actions = (EXPRESSION)` from a rule would not accumulate any granted actions at all.
-
-It is good practice to write all rules so that the final expression in the rule involves `resource._actions` to
-define for which actions the access is granted if all other preceeding parts of the rule evaluate to `true`.
-
-**Examples**
-
-Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
-are `read` and `update`:
-
-```c
-user.country = "uk" and resource._actions = {"read", "update"}
-```
-
-Note that granted actions accumulate in order of rules evaluated. Consider:
-
-```c
-user.country = "uk" and resource._actions = {"read", "update"}
-user.roles = {"developer"} and resource._actions = {"create"}
-```
-
-First, users from from UK are granted `read` and `update` access. Then, if the user role is `developer`, `create`
-access is granted. Since actions are accumulated, developers from UK are granted access for actions `read`, `update`,
-and `create`.
-
-!!! Note
-    It may be dangerous to rely on accumulating actions. Often, it is better to be explicit about which actions to
-    grant.
-
-A better way to formulate the rules above would be:
-
-```c
-user.country = "uk" and resource._actions = {"read", "update"}
-user.roles = {"developer"} and resource._actions = {"read", "update", "create"}
-```
-
-## Rule Expressions
-
-Rule expressions are built on combining logical and comparison operators. Comparison operators have precedence over
-logical operators. Parantheses are supported to override precedence.
-
-### Logical Operators
-
-#### `!` (not)
-
-This operator returns the logical negation of its operand. It returns `true` if the operand is `false`, and returns
-`false` if the operand is `true`.
+This operator compares two expressions and returns `true` only if both evaluate
+to `true`.
 
 **Syntax**
 
 ```c
-!(EXPRESSION)
+(EXPRESSION) && (EXPRESSION)
+
+// Same as previous, but using "and" notation instead of "&&":
+(EXPRESSION) and (EXPRESSION)
 ```
 
 **Examples**
 
-Given that `user.country` is `"uk"`:
-
 ```c
-# Evaluates to false
-!(resource.country = "UK")
+(resource.org = "UK") && (user.name = "John Doe")
 
-# Evaluates to true
-!(resource.country = "SE")
+// Same as previous, but using "and" notation instead of "&&":
+(resource.org = "UK") and (user.name = "John Doe")
 ```
 
-#### `and`, `&&`
+### EQUAL
 
-This operator returns the logical conjuction of its operands. It returns `true` only if both operands evaluate to
-`true`.
-
-**Syntax**
-
-```c
-(EXPRESSION) (and | &&) (EXPRESSION)
-```
-
-**Examples**
-
-Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
-
-```c
-# Evaluate to true
-(user.country = "UK") && (user.id = "john-doe")
-(user.country = "UK") and (user.id = "john-doe")
-
-# Evaluate to false
-(user.country = "SE") && (user.id = "john-doe")
-(user.country = "UK") and (user.id = "bill-smith")
-```
-
-#### `or`, `||`
-
-This operator returns the logical disjunction of its operands. It returns `true` only if one or both operands evaluate to
-`true`.
-
-**Syntax**
-
-```c
-(EXPRESSION) (|| | or) (EXPRESSION)
-```
-
-**Examples**
-
-Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
-
-```c
-# Evaluate to true
-(user.country = "UK") || (user.id = "john-doe")
-(user.country = "UK") || (user.id = "bill-smith")
-(user.country = "SE") or (user.id = "john-doe")
-
-# Evaluate to false
-(user.country = "SE") or (user.id = "bill-smith")
-(user.country = "SE") || (user.id = "bill-smith")
-```
-
-### Comparison Operators
-
-#### `=` (equal)
-
-This operator returns `true` only if its operands are equal. String comparison is _case insensitive_ (see `==` for case
-sensitive comparison). If one of the operands is a list, only one value in the list needs to be equal.
+This operator is case insensitive and returns `true` if the
+compared expressions are equal. If a list is used, only one
+value needs to match.
 
 **Syntax**
 
@@ -373,109 +180,23 @@ sensitive comparison). If one of the operands is a list, only one value in the l
 
 **Examples**
 
-Given that `user.country` is `"uk"`:
+Given that `org` is `"uk"` in the access request.
 
 ```c
-# Evaluate to true
-user.country = "UK"
-user.country = "uk"
-user.country = {"se", "us", "uk"}
+// Evaluates to `true` because the operator is case insensitive:
+resource.org = "UK"
 
-# Evaluate to false
-user.org = "United Kingdom"
-user.org = {"se", "dk", "ca"}
+// Evaluates to `true`:
+resource.org = "uk"
+
+// Evaluates to `false` because the values are different:
+resource.org = "United Kingdom"
 ```
 
-#### `==` (strictly equal)
+### LIKE
 
-This operator returns `true` only if its operands are _strictly_ equal. String comparison is _case sensitive_ (see `=`
-for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
-equal.
-
-**Syntax**
-
-```c
-(EXPRESSION) == (EXPRESSION)
-```
-
-**Examples**
-
-Given that `user.country` is `"uk"`:
-
-```c
-# Evaluate to true
-user.country == "uk"
-user.country == {"se", "uk", "ca"}
-
-# Evaluate to false
-user.country == "UK"
-user.country == {"SE", "UK", "CA"}
-```
-
-#### `!=` (not equal)
-
-This operator returns `true` only if its operands are not equal. String comparison is _case insensitive_ (see `!==` for
-case sensitive comparison). If one of the operands is a list, only one value in the list needs to be unequal.
-
-**Syntax**
-
-```c
-(EXPRESSION) != (EXPRESSION)
-```
-
-**Examples**
-
-Given that `user.country` is `"uk"`:
-
-```c
-# Evaluate to true
-resource.org != "SE"
-resource.org != {"SE", "UK", "uk"}
-
-# Evaluate to false
-resource.org != "UK"
-resource.org != {"uk", "UK"}
-```
-
-#### `!==` (strictly not equal)
-
-This operator returns `true` only if its operands are _strictly_ not equal. String comparison is _case sensitive_ (see
-`!=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
-unequal.
-
-**Syntax**
-
-```c
-(EXPRESSION) !== (EXPRESSION)
-```
-
-**Examples**
-
-Given that `user.country` is `"uk"`:
-
-```c
-# Evaluate to true
-user.country !== "UK"
-user.country !== {"uk", "UK", "se"}
-
-# Evaluate to false
-resource.org !== "uk"
-resource.org !== {"uk"}
-```
-
-#### `like`
-
-This operator provides wildcard string matching.
-
-The operator returns `true` only if the left operand matches the wildcard pattern given by the right operand.
-The comparison is _case insensitive_.
-
-| Wildcard | Description |
-| -------- | ----------- |
-| `?`      | Matches any single character. |
-| `*`      | Matches zero or more characters. |
-
-The escape character `\` can be used to match `?`, `*`, and `\` using the escaped sequences - `\?`, `\*`, and `\\`.
+The security rules support the regular expression operator "like".
+This operator is case insensitive.
 
 **Syntax**
 
@@ -485,24 +206,41 @@ The escape character `\` can be used to match `?`, `*`, and `\` using the escape
 
 **Examples**
 
-Given that `user.region` is `"us-east"` or `"us-west"`
-
 ```c
-# Evaluate to true
-user.region like "us-*"
-user.region like "US-*"
-user.region like "??-*"
-
-# Evaluate to false
-user.region like "us-?"
-user.region like "uk-*"
+// Evaluates all resources with names beginning with
+// "mya" to `true`, regardless of case:
+resource.name like "mya*"
 ```
 
-#### `matches`
+### NOT
 
-This operator provides regular expression string matching.
+This operator inverts the Boolean value of an expression and
+returns `true` if the expression is `false` and returns `false`
+if the expression is `true`.
 
-The operator returns `true` only if the left operand matches the regular expression given by the right operand.
+**Syntax**
+
+```c
+!(EXPRESSION)
+```
+
+**Examples**
+
+Given that `org` is `"UK"` in the access request.
+
+```c
+// Evaluates to `false` since the values are equal:
+!(resource.org = "UK")
+
+// Evalutes to `true`:
+!(resource.org = "SE")
+```
+
+### MATCHES
+
+This operator is case insensitive and returns results that match your
+expression, regardless of case. Regular expression start and end anchors
+are implicitly added.
 
 **Syntax**
 
@@ -512,12 +250,181 @@ The operator returns `true` only if the left operand matches the regular express
 
 **Examples**
 
-Suppose users shall be matched that are in any US region (`east`, `west` etc.) and only those users that are in the
-number `1` or `2` deployments. A rule expressions for matching this could be:
-
 ```c
-user.region matches "us-[^-]+-(1|2)"
+// Evaluates all resources with names containing "yap" to `true`,
+// regardless of case:
+resource.name matches ".*yAp.*"
+
+// Evaluates to `true` if the access request resource filter starts with
+// "myresource_" and ends with "<four digits>":
+resource.resourcefilter matches "myresource_\\d{4}"
 ```
 
-This regular expression matches regions starting with `us-`, followed by one ore more characters that are anything but
-`-`, followed by `-1` or `-2`.
+### NOT EQUAL
+
+This operator is case insensitive and returns `true` if the compared expressions
+are not equal. If a list is used, only one value needs not to match.
+
+**Syntax**
+
+```c
+(EXPRESSION) != (EXPRESSION)
+```
+
+**Examples**
+
+Given that `org` is `"uk"` in the access request.
+
+```c
+// Evaluates to `false` because the operator is case insensitive:
+resource.org != "UK"
+
+// Evalues to `true`:
+resource.org != "SE"
+```
+
+### OR
+
+This operator compares two expressions and returns `true` if one
+or both evaluate to `true`.
+
+**Syntax**
+
+```c
+(EXPRESSION) || (EXPRESSION)
+
+// Same as previous, but using "or" notation instead of "||":
+(EXPRESSION) or (EXPRESSION)
+```
+
+**Examples**
+
+```c
+// Evaluates to `true` only if any of the
+// expressions are `true`:
+(resource.org = "UK") || (resource.org = "US")
+
+// Same as previous, but using "or" notation instead of "||":
+(resource.org = "UK") or (resource.org = "US")
+```
+
+### STRICT EQUAL
+
+This operator is case sensitive and returns `true` if the compared
+expressions are exactly equal. The full list does not have to match
+when a value used in an expression exists in a list.
+
+**Syntax**
+
+```c
+(EXPRESSION) == (EXPRESSION)
+```
+
+**Examples**
+
+Given that `org` is `"united states"` in the access request.
+
+```c
+// Evaluates to `false` because the operator is case sensitive:
+resource.org == "United States"
+
+// Evaluates to `true`:
+resource.org == "united states"
+```
+
+### STRICT NOT EQUAL
+
+This operator is case sensitive and returns `true` if the compared
+expressions are exactly not equal. The full list does not have to
+match when a value used in an expression exists in a list.
+
+**Syntax**
+
+```c
+(EXPRESSION) !== (EXPRESSION)
+```
+
+**Examples**
+
+Given that `org` is `"united states"` in the access request.
+
+```c
+// Evaluates to `true` because the operator is case sensitive:
+resource.org !== "United States"
+
+// Evaluates to `false`:
+resource.org !== "united states"
+```
+
+## Functions
+
+### `HasPrivilege(<action>)`
+
+Boolean function for resource conditions that returns `true` if
+the user making the request has the specified access right for
+the targeted resource or resources. Otherwise returns `false`.
+
+**Syntax**
+
+```c
+resource.HasPrivilege("action")
+```
+
+The required parameter `action` needs to be one of the actions listed under [Actions](#actions).
+
+**Examples**
+
+_None at the moment._
+
+### `IsAnonymous()`
+
+Boolean function for user conditions that returns `true` only if
+the user requesting access is logged in as anonymous.
+
+**Syntax**
+
+```c
+user.IsAnonymous()
+```
+
+**Examples**
+
+```c
+// Evaluates to `true` if the user is part of the "Developers"
+// organization, and is not anonymous:
+user.org == "Developers" and !user.IsAnonymous()
+```
+
+### `Empty()`
+
+Boolean function for resource conditions that returns `true` only if the
+specified resource has no connections (that is, has no value).
+
+**Syntax**
+
+```c
+resource.resourcetype.Empty()
+```
+
+**Examples**
+
+_None at the moment._
+
+### `IsOwned()`
+
+Boolean function for resource conditions that returns `true` only if the
+specified resource has an owner.
+
+**Syntax**
+
+```c
+resource.IsOwned()
+```
+
+**Examples**
+
+```c
+// Evaluates to `true` if the resource is owned by the user
+// being evaluated:
+resource.IsOwned() and resource.owner = user
+```

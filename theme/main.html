@@ -2,23 +2,10 @@
 
 {% block content %}
 
-{% if page.is_homepage %}
-<style>.md-sidebar--primary { z-index: 1000; } @media screen and (min-width: 76.1875em) {.md-sidebar--primary { z-index: -1; }}</style>
-{% endif %}
-<!-- Edit button, if URL was defined -->
-{% if page.edit_url and not page.is_homepage %}
+{% if page.edit_url %}
 <a href="{{ page.edit_url }}"
     title="{{ lang.t('edit.link.title') }}"
     class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
-{% endif %}
-
-<!--
-  Hack: check whether the content contains a h1 headline. If it
-  doesn't, the page title (or respectively site name) is used
-  as the main headline.
--->
-{% if not "\x3ch1" in page.content %}
-  <h1>{{ page.title | default(config.site_name, true)}}</h1>
 {% endif %}
 
 <!-- Cookie consent popup using https://github.com/insites/cookieconsent -->
@@ -43,29 +30,15 @@
     })
   });
 </script>
-
-<!-- Setting id of start page to modify content (in extra.js) -->
-{% if page.is_homepage %}
-  <div id="marketing-page">
-    <!-- Content -->
-    {{ page.content }}
-  </div>
-{% elif page.title == "Beta" %}
-  <div id="beta">
-    <!-- Content -->
-    {{ page.content }}
-  </div>
-{% elif page.title == "License Registration" %}
-  {{ page.content }}
-  <div id="license-registration">
-    <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
-    <form id="mktoForm_21249"></form>
-    <script>MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249);</script>
-    <script src="//munchkin.marketo.net/munchkin.js"></script>
-  </div>
+{% if page.title == "License Registration" %}
+{{ page.content }}
+<div id="license-registration">
+  <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
+  <form id="mktoForm_21249"></form>
+  <script>MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249);</script>
+  <script src="//munchkin.marketo.net/munchkin.js"></script>
+</div>
 {% else %}
-  <!-- Content -->
   {{ page.content }}
 {% endif %}
-
 {% endblock %}

@@ -37,7 +37,7 @@ The Visibility Index defines who is the intended user of the API. We currently h
 APIs: private and public.
 
 Public APIs are officially supported, and they are documented in the
-[Qlik Core documentation](/docs/home.md).
+[Qlik Core documentation](/index.md).
 To avoid the risk that your solution might break with any new version of our products,
 you should always use public APIs for custom solutions built on top of our APIs.
 
@@ -80,7 +80,7 @@ architectural changes and with the introduction of new functionality.
 
 The deprecation period starts when the deprecation has been communicated, which means that it has
 been officially documented in the
-[Qlik Core documentation](/docs/home.md).
+[Qlik Core documentation](/index.md).
 A replacement must be announced at the same time as the deprecation period starts. This gives
 you a period in which you can start adapting your custom solution to the API replacement
 and prepare for the API change.
@@ -106,7 +106,7 @@ This policy ensures that we meet the high standards of our API strategy.
 We have started to introduce the Stability Index in our Qlik Core
 documentation.
 This is an ongoing effort and we will continue with future
-[Qlik Core documentation](/docs/home.md)
+[Qlik Core documentation](/index.md)
 updates.
 
 ### Qlik API Insights

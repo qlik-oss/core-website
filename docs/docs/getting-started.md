@@ -1,4 +1,4 @@
-# Getting Started
+# Get Started
 
 To get started with Qlik Core and Qlik Associative Engine, and to learn the basic concepts,
 we provide a number of examples and tutorials.
@@ -27,11 +27,7 @@ The Hello Qlik Core examples are divided into three separate parts:
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it.
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into Qlik Associative Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js).
-- [Hello Visualization](./tutorials/hello-visualization.md) - Building visualizations using [picasso.js](https://picassojs.com/).
-
-Once you have completed these tutorials, you should be presented with a result similar to the screenshot below.
-
-![screenshot](../images/hello-viz.png)
+- [Hello Visualization](./tutorials/hello-visualization.md) - Building a visualization using picasso.js.
 
 ## Orchestration
 
