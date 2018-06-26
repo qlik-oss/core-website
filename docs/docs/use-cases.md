@@ -23,5 +23,4 @@ This use case shows ... **TODO**
 * Kubernetes is used as container orchestrator and the application is deployed on
   [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
-
 More info on the African Urbanization use case can be found [here](./use-cases/african-urbanization.md).

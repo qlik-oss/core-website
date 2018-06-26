@@ -4,14 +4,14 @@ _DRAFT: More info needed in sections below. This is just an outline for discussi
 
 ## Business Scenario
 
-**TODO**
+**TODO**.
 
 ## Technologies
 
 African Urbanization highlights usage of the followoing technologies and platforms:
 
 * **TODO**
-* ...
+* **TODO**
 
 ## Architecture
 
@@ -20,12 +20,11 @@ African Urbanization highlights usage of the followoing technologies and platfor
 ## Source Code
 
 The source code for the use case, including more detailed documentation, is available as open source on GitHub
-in the 
+in the repositories:
 
-* [core-scaling-ui](https://github.com/qlik-oss/core-scaling-ui) - **TODO**
-* [core-scaling]https://github.com/qlik-oss/core-scaling) - **TODO**
+* [core-scaling-ui](https://github.com/qlik-oss/core-scaling-ui) - **TODO**.
+* [core-scaling](https://github.com/qlik-oss/core-scaling) - **TODO**.
 
 ## Live Deployment
 
 A live deployment of Assisted Prescriptions is available at **TODO**.
-

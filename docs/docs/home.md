@@ -35,8 +35,8 @@ Use Cases show solutions and examples of what business scenarios that can be imp
 show both how data analytics problems can be addressed, and how to use Qlik Core together with different technological
 platforms.
 
-If you are looking for more complete solutions to get inspiration from, or to start building your own solutions with,
-the Use Cases together with our tutorials provide a good starting point.
+If you are looking for complete solutions to get inspiration from, or to start building your own solutions with, the Use
+Cases together with our tutorials provide a good starting point.
 
 More information can be found in the [Use Cases](./use-cases.md) section.
 
