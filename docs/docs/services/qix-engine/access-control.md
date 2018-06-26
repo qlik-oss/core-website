@@ -3,56 +3,47 @@
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution since this feature may change in the future.
 
-It is often necessary to be able to control what different users are allowed to do in the context of an application.
-In Qlik Associative Engine
-[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) is supported which
-makes it possible to control the application resources based on user attributes rather than using roles or other more
-static means.
+Administrators often want to control application access based different policies and attributes. To handle this type of access control, Qlik Associative Engine supports [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control). This lets you control access to application resources based on a set of attributes rather than static user roles or other static attributes.
 
 ## Rules
 
-Each rule is a conditional expression that evaluates to either `true` or `false`. In addition to this, each rule
-contains a mandatory part that determines which actions the rule grants, or denies.
+When ABAC is enable, users are granted access based on rules. Each rule is a conditional expression that evaluates to either `true` or `false`, and each rule contains a property that determines which actions the rule grants, or denies.
 
 !!! Note
-    If the ABAC feature is enabled, all users will by default have no access, so it is important to also include
-    rules when enabling it. Otherwise, access problems for users can easily be caused.
+    When the ABAC feature is enabled, all user access is disabled by default. You must include rules when enabling ABAC to provide user access.
 
-### Rules Overview
+### Rules overview
 
-Upcoming sections more formally describe how rules are formed, but to get an initial understanding, consider the
-following rule:
+Rules are constructed using attributes that defines user access. Consider the following rule:
 
 ```c
 user.id = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
 ```
 
-This rule states that if the user is `ada-lovelace` and the accessed resource type is `"App"`, grant the actions
-`create`, `update`, and `read`. The `user.id` and `resource._resourcetype` expressions could be omitted and the rule
-would still be valid.
+Notice that the rule consists of key-value pairs linked by logical operators, in this case, `and`.
 
-The expression involving `_actions` must be present in order to determine which actions that are granted access. See
-section [Actions](#actions) for more details.
-
-### Rule Files
-
-Rules are defined in text files with one rule on each row. Qlik Associative Engine applies rules in the order they
-appear in the file. Two types of rule files are supported. The _Deny_ rule file and the _Allow_ rule file.
-
-The Deny rule file denies access and is always evaluated first. If any rule in the Deny file evaluates to `true`,
-access is immediately denied for the actions provided and no further evaluation of rules take place.
-
-The Allow rule file allows access. If a rule in the Allow file evaluates to `true`, access is granted for the
-actions specified and rule evaluation continues, possibly accumulating access to more actions based on succeeding
-rules.
+This rule states that if the user is `ada-lovelace` and the accessed resource type is `App`, grant the actions
+`create`, `update`, and `read`.
 
 !!! Note
-    The rule files are read by Qlik Associative Engine at each session start. Modifying the rule files requires a
-    a new session start or REST call for updated rules to take effect.
+    Only the `_actions` attribute is mandatory. The `user.id` and `resource._resourcetype` expressions could be omitted and the rule would still be valid. See [Actions](#actions) for more details.
 
-## Engine Configuration for ABAC
+### Rule files
 
-### ABAC-related Command Line Switches
+Rules are defined in two text files: a _Deny_ rules file and an _Allow_ rules file. The _Deny_ rules file is evaluated first, and rules are evaluated in the order that they appear. A rule is written on a single row.
+
+The _Deny_ rules file denies access to performing actions (create, read, update, etc.). If any rule in the _Deny_ rules file evaluates to `true`, access is immediately denied for the actions listed and evaluation stops.
+
+The _Allow_ rule file allows access to performing actions. If a rule in the _Allow_ rule file evaluates to `true`, access is granted for the actions listed. Rule evaluation continues for the entire file, possibly accumulating access to more actions based on other rules.
+
+!!! Note
+    When you start a session, the Qlik Associative Engine reads the rules files immediately. If you modify the rules files, you need to restart the session or trigger the engine to read to rules again with a REST call.
+
+## Engine configuration for ABAC
+
+The following section provides examples on how to enable ABAC.
+
+### ABAC-related command-line switches
 
 | Switch | Values | Default | Description |
 | ------ | ------ | ------- | ----------- |
