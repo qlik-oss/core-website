@@ -1,5 +1,18 @@
 # Home
 
+## Beta
+
+Welcome to Qlik Core Beta! This beta program gives you early access to Qlik Core, our brand-new plug-and-play
+developer platform for custom analytics that lets you drop the Qlik Associative Engine into your systems today
+– and act on your insight tomorrow.
+
+As you’re aware, beta versions are subject to being less stable than the final version officially released
+to the general public. Therefore, should you decide to participate in this beta program, we do not recommend
+you run your existing production workloads using Qlik Core.
+
+If you have questions about Qlik Core Beta use our [Slack channels](http://branch.qlik.com/slack).
+We would love to get your feedback, how you are using Qlik Core Beta and what we can to do make it better.
+
 ## What is Qlik Core?
 
 Qlik Core is a development platform built on top of the Qlik Associative Engine.

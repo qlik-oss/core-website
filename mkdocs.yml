@@ -4,8 +4,6 @@ theme:
   name: 'material'
   logo: 'images/QlikCore-Horizontal-Print-white.svg'
   custom_dir: 'theme'
-  palette:
-    primary: 'orange'
   favicon: 'images/favicon.ico'
 
 extra_css:
