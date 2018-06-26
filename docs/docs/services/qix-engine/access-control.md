@@ -41,7 +41,7 @@ The _Allow_ rule file allows access to performing actions. If a rule in the _All
 
 ## Engine configuration for ABAC
 
-The following section provides examples on how to enable ABAC.
+The following section provides an example on how to enable ABAC, and how to set the path to the _Allow_ and _Deny_ rules lists.
 
 ### ABAC-related command-line switches
 
@@ -53,8 +53,7 @@ The following section provides examples on how to enable ABAC.
 
 ### Example
 
-The following command shows how to start a Qlik Associative Engine instance as a Docker container, enabling ABAC, and
-with the Allow and Deny rules in the `allow.txt` and `deny.txt` files.
+To start a Qlik Associative Engine instance as a Docker container, enable ABAC, and set the _Allow_ and _Deny_ rules file paths, run the following command:
 
 ```bash
 docker run -v <host folder path>:<container folder path> qlikcore/engine:<version> \
@@ -63,36 +62,36 @@ docker run -v <host folder path>:<container folder path> qlikcore/engine:<versio
     -S SystemDenyRulePath=/<container folder path>/deny.txt
 ```
 
-### More Code Examples
+### More code examples
 
 The [core-authorization](https://github.com/qlik-oss/core-authorization) repository contains running code examples on
 how to enable ABAC and how to provide rules to Qlik Associative Engine.
 
-## Rules Language
+## Rules language
 
-The following sections provide a more in-depth documentation of the rules language in Qlik Associative Engine - its
-syntax and semantics.
+The following section describes the syntax and semantics of the Qlik Associative Engine rules language.
+
+### Concepts
 
 Rules are built upon three concepts:
 
-* **User** - The _subject_ that shall be granted or denied access.
+* **User** - The _subject_ that is granted or denied access.
 * **Resource** - The _object_ to which actions are granted or denied.
-* **Action** - The operation a user wants to perform on a resource.
+* **Action** - The operation performed on a resource.
 
-All of these can be expressed and used in the rules language.
+These concepts are used to build the expressions in the rules language.
 
 ### Expressions
 
-Rules, in which the entities above are used, are written as Boolean expressions, evaluating to `true` or `false`.
-Expressions are written using _logical_ and _comparison_ operators.
+Rules are made of one or more expressions, which are written with _logical_ and _comparison_ operators. Rules evaluate to `true` or `false`.
 
 The logical operators are:
 
 | Operator | Meaning |
 | -------- | ------- |
 | [`!`](#not) | Logical negation (not) |
-| [`and`, `&&`](#and) | Logical conjunction |
-| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction |
+| [`and`, `&&`](#and) | Logical conjunction (and) |
+| [`or`, <code>&#124;&#124;</code>](#or) | Logical disjunction (or) |
 
 The comparison operators are:
 
@@ -105,20 +104,22 @@ The comparison operators are:
 | [`like`](#like) | Wildcard string matching |
 | [`matches`](#matches) | Regular expression string matching |
 
-### The `user` Object
+### The `user` object
 
-All rules are evaluated in the context of a _User_. In rule expressions the user is represented by the `user` object.
+All rules are evaluated in the context of a _User_. In rule expressions, the user is represented by the `user` object.
 
-#### Attributes
+#### User object attributes
 
 | Attribute | Description |
 | --------- | ----------- |
 | `user.id` | The identifier of the user. This gets the value of the mandatory `sub` attribute in the JWT. |
 
-In addition to this `user` will contain all other attributes defined in the
-[JWT header used to authenticate the user](../../tutorials/authorization.md#json-web-token).
+Also, `user` will contain all other attributes defined in the
+JWT header that are used to authenticate the user.
 
-**Examples**
+See [JSON web token](../../tutorials/authorization.md#json-web-token).
+
+##### Example of user object
 
 ```json
 {
@@ -132,24 +133,23 @@ In addition to this `user` will contain all other attributes defined in the
 }
 ```
 
-Here, `user.id` will be set to `john-doe` based on the `sub` attribute. `employeeType`, and `custom.country`
-become attributes on `user`. The attributes could be used in a (fictitous) rule like this:
+The `user.id` is `john-doe`, based on the `sub` attribute.
+All of the attributes are attributes of `user`.
+An example of a rule using some of the user attributes looks like the following:
 
 ```c
 user.id = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
 ```
 
-With the example JWT above, this user is granted access for all actions to all resources.
+In example JWT above, the user is granted access for all actions to all resources.
 
-### The `resource` Object
+### The `resource` object
 
-A _Resource_ is a generic concept that can represent applications, or objects within applications. A Resource carries
-attributes which may be used in rule expressions. In rule expressions the resource being accessed is represented by the
-`resource` object.
+A _Resource_ object is a generic concept that can represent applications,or objects within applications. A resource is made of attributes which can be used in rule expressions. In rule expressions, the resource being accessed is represented by the `resource` object.
 
-#### Common Attributes
+#### Common attributes
 
-There are different resource types but all share some common attributes:
+There are different resource types but all share some common attributes.
 
 | Attribute | Description |
 | --------- | ----------- |
@@ -157,20 +157,18 @@ There are different resource types but all share some common attributes:
 | `resource.id` | The unique identifier for the resource. |
 | `resource.owner` | The owner of the resource. |
 | `resource._resourcetype` | The type of the resource being accessed. Equal to `"App"` or `"App.Object"`. |
-| `resource._actions` | The actions to be granted on the resource. See [Actions](#actions) for more details.|
+| `resource._actions` | The actions granted on the resource. See [Actions](#actions) for more details.|
 
-#### Type-specific Attributes
+#### Type-specific attributes
 
-Depending on what type of resource that is being accessed, `resource` may carry additional attributes. If the resource
-type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, `resource` has the
-following additional attributes:
+Depending on the type of resource that is being accessed, `resource` may carry additional attributes. If the resource type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, `resource` has the following additional attributes:
 
 | Attribute | Description | Example condition |
 | --------- | ----------- | ----------------- |
 | `resource._objecttype` | The object type. | `resource._objecttype = "field" or resource._objecttype = "my-generic-object"` |
 | `resource.app` | Reference to the app resource that the object is part of. | `resource.app.owner = "john-doe"` |
 
-##### The `app` Attribute
+##### The `app` attribute
 
 As stated above, if `resource._resourcetype = "App.Object"`, `resource.app` contains the reference to the `"App"`
 resource that the object exists in, and all attributes and [built-in functions](#built-in_function) that apply
