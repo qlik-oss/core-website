@@ -211,31 +211,25 @@ An _action_ is an operation that a user can perform on a  Qlik Associative Engin
     If a reload script requires other actions, for example to create variables in the application, then the user granted `reload` action also needs to be granted the other actions that are called in the reload. For example:
     `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
 
-#### The `_actions` Attribute
+#### The `_actions` attribute
 
-In rule expressions the `resource` attribute `_actions` has special semantics:
+In rule expressions, the resource attribute `_actions` has special semantics:
 
-* `resource._actions` shall always be used as left operand with the `=` operator. Other usage is undefined behavior.
+* `resource._actions` is always used as left operand with the `=` operator. Other usage is undefined behavior.
 * The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
-* The expression `resource._actions = (EXPRESSION)` has the "side effect" of accumulating the actions given by the
-  right operand which shall be a single action or a list of actions to be granted.
-* `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for "all actions".
+* The expression `resource._actions = (EXPRESSION)` has the side effect of accumulating the actions given by the
+    right operand which is a single action or a list of actions.
+* `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for all actions.
 
-Hence, omitting `resource._actions = (EXPRESSION)` from a rule would not accumulate any granted actions at all.
+If `resource._actions = (EXPRESSION)` is ommitted from a rule, granted actions would not be accumulated. It is good practice to write all rules so that the final expression in the rule involves `resource._actions`.
 
-It is good practice to write all rules so that the final expression in the rule involves `resource._actions` to
-define for which actions the access is granted if all other preceeding parts of the rule evaluate to `true`.
-
-**Examples**
-
-Given that `user.country` is `"uk"`, the following rule evaluates to `true` and actions granted to users from UK
-are `read` and `update`:
+For example, the following rule evaluates to `true` and the `read` and `update`  actions granted to users from the UK.
 
 ```c
 user.country = "uk" and resource._actions = {"read", "update"}
 ```
 
-Note that granted actions accumulate in order of rules evaluated. Consider:
+Note that granted actions accumulate in the order in which the rules are evaluated. Consider the following:
 
 ```c
 user.country = "uk" and resource._actions = {"read", "update"}
