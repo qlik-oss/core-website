@@ -60,7 +60,7 @@ aspects of Qlik Core. We recommend that you explore these tutorials in order:
 
 ## Use Cases
 
-Complemetary to our tutorials, are the use case examples. These provide complete solutions using Qlik Core that cover
+Complementary to our tutorials are the use case examples. These provide complete solutions using Qlik Core that cover
 typical problems of production deployments, such as monitoring, logging, scaling, and scheduling strategies.
 
 More information can be found in the [Use Cases](./use-cases.md) section.
