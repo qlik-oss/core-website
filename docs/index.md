@@ -1,7 +1,5 @@
 # Home
 
-## Beta
-
 Welcome to Qlik Core Beta! This beta program gives you early access to Qlik Core, our brand-new plug-and-play
 developer platform for custom analytics that lets you drop the Qlik Associative Engine into your systems today
 – and act on your insight tomorrow.
@@ -55,4 +53,4 @@ in the [qlik-oss/core-assisted-prescription](https://github.com/qlik-oss/core-as
 
 ## New to Qlik Core?
 
-If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./docs/getting-started.md) section.
+If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./docs/get-started.md) section.

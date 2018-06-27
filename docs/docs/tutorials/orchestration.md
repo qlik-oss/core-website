@@ -42,7 +42,8 @@ To start Qlik Associative Engine in Qlik Core correctly, you need to
 ## Container orchestration
 
 !!! Note
-    You need to accept the EULA before these examples can be run, see
+    You need to accept the EULA and provide your licensing information
+    before these examples can be run, see
     the `README.md` file in each orchestration example for instructions
     how to do this.
 

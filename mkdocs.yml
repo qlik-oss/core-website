@@ -38,7 +38,7 @@ google_analytics: ['UA-110266862-2', 'auto']
 
 pages:
   - Home: index.md
-  - Get Started: docs/getting-started.md
+  - Get Started: docs/get-started.md
   - Downloads: docs/downloads.md
   - Licensing: docs/licensing.md
   - Beta agreement: beta.md
@@ -49,10 +49,10 @@ pages:
     - Orchestration: docs/tutorials/orchestration.md
     - Authorization: docs/tutorials/authorization.md
     - Data Loading: docs/tutorials/data-loading.md
-    # - Document Distribution: docs/tutorials/document-distribution.md
-    # - Scalability:
-    #  - Overview: docs/tutorials/scalability/overview.md
-    #  - Newspaper website: docs/tutorials/scalability/newspaper.md
+      # - Document Distribution: docs/tutorials/document-distribution.md
+      #- Scalability:
+      #  - Overview: docs/tutorials/scalability/overview.md
+      #  - Newspaper website: docs/tutorials/scalability/newspaper.md
   - Services:
     - Mira: docs/services/mira.md
     - Qlik Associative Engine:
@@ -85,7 +85,8 @@ pages:
     - Logging: docs/conventions/logging.md
     - Metrics: docs/conventions/metrics.md
   - Third Party Licenses: docs/third-party-licenses.md
-  #- Use Cases:
-  #  - Introduction: docs/use-cases/introduction.md
-  #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
-  #  - African Urbanization: docs/use-cases/african-urbanization.md
+  - License Registration: docs/license-registration.md
+    #- Use Cases:
+    #  - Introduction: docs/use-cases/introduction.md
+    #  - Assisted Prescriptions: docs/use-cases/assisted-prescriptions.md
+    #  - African Urbanization: docs/use-cases/african-urbanization.md

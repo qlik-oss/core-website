@@ -9,7 +9,7 @@
       {% for nav_item in nav %}
         {% if nav_item.title != "Home" and nav_item.title != "Third Party Licenses"  
         and nav_item.title != "Services" and nav_item.title != "Tutorials" 
-        and nav_item.title != "Conventions"%}
+        and nav_item.title != "Conventions" and nav_item.title != "License Registration"%}
           {% include "partials/tabs-item.html" %}
         {% endif %}
       {% endfor %}

@@ -39,10 +39,6 @@ body {
     height: auto;
     width: 200px;
   }
-
-  .beta-header {
-    display: none;
-  }
   
   .footer-nav {
     display: none !important;
@@ -91,15 +87,6 @@ body {
   .md-logo img {
     height: auto;
     width: 250px;
-  }
-
-  .beta-header {
-    text-align: center; 
-    font-size: 2rem; 
-    font-weight: bold; 
-    color:#e17b03;
-    width: 250px;
-    margin-top: -30px;
   }
 }
 
@@ -162,7 +149,7 @@ to   { opacity: 1; }
 .md-footer-nav {
   display: none;
 }
-  
+
 .md-typeset a {
   color: var(--custom-orange);
   text-decoration: underline;
@@ -263,7 +250,7 @@ h1 span {
   padding: 0;
 }
 
-/* Hide Beta/Third Party Licenses nav items in full size menu */
+/* Hide Beta/License Registration/Third Party Licenses nav items in full size menu */
 .md-nav__item a[title="Beta agreement"],
 .md-nav__item a[title="License Registration"],
 .md-nav__item a[title="Third Party Licenses"]
@@ -502,11 +489,11 @@ ul {
   display: flex;
   justify-content: space-between;
   padding-top: 34px;
-}
+  }
 
 .footer-nav-menu .footer-menu-item {
   padding: 0px 10px;
-}
+  }
 
 .footer-nav-menu ul {
   padding-top: 20px;
@@ -515,7 +502,7 @@ ul {
 li {
   display: list-item;
   text-align: -webkit-match-parent;
-}
+  }
 
 .footer-nav-menu ul li {
   font-family: 'BasicCommercialLTPro-Roman','Helvetica Neue','helvetica',arial,sans-serif;
@@ -533,8 +520,8 @@ li {
 
 @media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title--site {
-    background-color: var(--custom-grey);
-  }
+  background-color: var(--custom-grey);
+}
 
   html .md-nav--primary .md-nav__title--site .md-nav__button {
     width: 13.4rem;
@@ -575,7 +562,7 @@ li {
 .md-search__icon {
   font-size: 20px;  
   top: 1rem !important;
-}
+  }
 
 .md-search__input:hover {
   outline: 1px solid #f7921d;

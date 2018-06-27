@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.181.0._
+_QIX definitions for version 12.190.0._
 
 ## `AlfaNumString`
 
@@ -94,10 +94,11 @@ _No description._
 | `qBnfLiteral` | boolean | If set to true, the definition specifies a literal token.<br>This parameter is optional. The default value is false. |
 | `qQvFunc` | boolean | If set to true, the definition is related to a Qlik Sense function. It cannot be an aggregation function.<br>This parameter is optional. The default value is false. |
 | `qAggrFunc` | boolean | If set to true, the definition is related to an aggregation function.<br>This parameter is optional. The default value is false. |
-| `qFG` | string | Group of the function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL |
+| `qFG` | string | Group of the function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
 | `qFieldFlag` | boolean | If set to true, the definition is related to a field.<br>This parameter is optional. The default value is false. |
 | `qMT` | string | Type of the data.<br><br>One of:<br>* N or NOT_META<br>* D or META_DOC_NAME<br>* R or META_RET_TYPE<br>* V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
+| `qFGList` | array&lt;string> | List of groups the function belongs to. |
 
 ## `BookmarkFieldItem`
 
@@ -592,7 +593,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the script function. |
-| `qGroup` | string | Group of the script function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL |
+| `qGroup` | string | Group of the script function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
 | `qSignature` | string | Signature of the script function.<br>Gives general information about the function. |
 
 ## `GenericBookmarkEntry`
@@ -699,6 +700,7 @@ Is the layout for [`GenericObjectProperties`](#genericobjectproperties).
 | `qHasSoftPatches` | boolean | Is set to true if the generic object contains some properties that are not persistent (a soft patch was applied). |
 | `qError` | [`NxLayoutErrors`](#nxlayouterrors) | Gives information on the error.<br>This parameter is optional. |
 | `qSelectionInfo` | [`NxSelectionInfo`](#nxselectioninfo) | Information about the selections. |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
 ## `GenericObjectProperties`
 
@@ -709,6 +711,7 @@ _No description._
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
 | `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>This parameter is mandatory.<br>If you do not want to link your object, set this parameter to an empty string. |
 | `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
 ## `GenericVariableLayout`
 
@@ -2253,6 +2256,7 @@ Indicates which selections are currently applied. It gives the current selection
 | `qBackCount` | integer | Number of steps back. |
 | `qForwardCount` | integer | Number of steps forward. |
 | `qSelections` | array&lt;[`NxCurrentSelectionItem`](#nxcurrentselectionitem)> | Lists the fields that are selected. |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
 ## `SelectionObjectDef`
 
@@ -2260,7 +2264,7 @@ To display the current selections.<br>Can be added to any generic object but is 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qStateName` | string | _No description._ |
+| `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
 ## `Size`
 
