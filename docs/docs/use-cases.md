@@ -2,7 +2,7 @@
 
 ## Assisted Prescription
 
-Assisted Prescriptions provides an interactive application to assist doctors with drug prescriptions. Data is served
+Assisted Prescription provides an interactive application to assist doctors with drug prescriptions. Data is served
 from the Qlik Core backend using a single document. Variance in user load is limited and any scaling of the application
 can be manually managed.
 
@@ -28,7 +28,7 @@ More info and source code of the Assisted Prescription can be found in the
 
 African Urbanization provides a captivating experience in a infographic inspired UI which tells the story about the
 urbanization in Africa from 1960 til today. Data is served from the Qlik Core backend using a single document. Large
-variance in user load is anticipated which is handled by horizontal pod auto-scaling and infrastucture auto-scaling.
+variance in user load is anticipated which is handled by horizontal pod auto-scaling and infrastructure auto-scaling.
 
 A live demo is available at [urbanization.qlikcore.com](http://urbanization.qlikcore.com/).
 
