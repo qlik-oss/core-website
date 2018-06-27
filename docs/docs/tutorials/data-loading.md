@@ -31,7 +31,8 @@ Do the following:
     ACCEPT_EULA=<yes/no> docker-compose up --build -d
     ```
 
-    The [`docker-compose.yml`](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml) file starts the following services in containers:
+    The [`docker-compose.yml`](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml)
+    file starts the following services in containers:
 
     - A mySQL database
     - A postgreSQL database
@@ -62,7 +63,7 @@ Do the following:
     docker ps
     ```
 
-    The postgres-database containers share port `5432` and the mysql-database containers share port `3306`, 
+    The postgres-database containers share port `5432` and the mysql-database containers share port `3306`,
     they are both exposed on the network.
     The `jdbc-connector` can therefore access the database container on this port.
 
@@ -90,7 +91,8 @@ Do the following:
     npm start
     ```
 
-    You should see the 100 rows of airport data fetched from MySQL and an additional 100 rows of data fetched from PostgreSQL in your terminal.
+    You should see the 100 rows of airport data fetched from MySQL and an additional 100 rows of data
+    fetched from PostgreSQL in your terminal.
 
 ## What is happening
 
@@ -113,10 +115,12 @@ app.createConnection({
 
 **qName** is the name of this connection instance.
 
-**qConnectionString** is the parameter that is sent to the connector. The parts of the connection string that is specific to the JDBC connector is the driver setting. It will be the JDBC driver that the connector will use to connect to the database with. The provider needs to be the same as the qType. Host, port and database are related to locating the database.
+**qConnectionString** is the parameter that is sent to the connector.
+The parts of the connection string that is specific to the JDBC connector is the driver setting.
+It will be the JDBC driver that the connector will use to connect to the database with.
+The provider needs to be the same as the qType. Host, port and database are related to locating the database.
 
 **qUserName** and **qPassword** are the credentials used to access the database with (will be removed from the logs).
-
 
 Then, we set a script to use the connection that we just created.
 
@@ -129,29 +133,32 @@ const script = `
 app.setScript(script);
 ```
 
-The "lib connect to 'jdbc';" refers to the name of the connection to use. 
+The "lib connect to 'jdbc';" refers to the name of the connection to use.
 "airports:" will be the internal name of the table loaded.
-The actual load statement that is sent to the connector is everything after sql. In this case the load statement will be "SELECT * FROM airports".
+The actual load statement that is sent to the connector is everything after sql.
+In this case the load statement will be "SELECT * FROM airports".
 
-Next, we reload the data to load the new data into the Qlik Associative Engine. The first 100 results of the `airports` table loaded from PostgreSQL are print to the console.
+Next, we reload the data to load the new data into the Qlik Associative Engine.
+The first 100 results of the `airports` table loaded from PostgreSQL are print to the console.
 
-The workflow is then repeated a second time with only change being that we use a new connection to the MySQL database container.
+The workflow is then repeated a second time with only change being that we use a new connection
+to the MySQL database container.
 
 ```js
 app.createConnection({
-  qType: 'jdbc', // the name we defined as a parameter to engine in our docker-compose.yml
+  qType: 'jdbc', // the name we defined as a parameter to Qlik Associative Engine in our docker-compose.yml
   qName: 'jdbc',
   qConnectionString:
-  'CUSTOM CONNECT TO "provider=jdbc;driver=mysql;host=mysql-database;port=3306;database=airport"', // the connection string includes both the provide to use and parameters to it.
+  'CUSTOM CONNECT TO "provider=jdbc;driver=mysql;host=mysql-database;port=3306;database=airport"', // the connection string includes both the provider to use and parameters to it.
   qUserName: 'root', // username and password for the postgres database, provided to the GRPC-Connector
   qPassword: 'mysecretpassword',
 });
 ```
 
-The biggest difference between the connection strings are the driver setting that is using the JDBC driver for mysql instead of postgresql;
+The biggest difference between the connection strings are the driver setting that is using
+the JDBC driver for mysql instead of postgresql.
 
 The first 100 results of the `airports` table loaded from MySQL are print to the console.
-
 
 !!! Tip
     We recommend that you take a look inside the `index.js` file
