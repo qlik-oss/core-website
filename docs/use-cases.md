@@ -8,6 +8,8 @@ can be manually managed.
 
 A live demo is available at [ap.qlikcore.com](https://ap.qlikcore.com/). You need a GitHub account to log in.
 
+![screenshot](../images/assisted-prescription-screenshot.png)
+
 This use case is good to check out if you want to explore the following aspects of Qlik Core:
 
 * Building a custom UI on top of Qlik Core, using [picasso.js](https://github.com/qlik-oss/picasso.js) and
@@ -31,6 +33,8 @@ urbanization in Africa from 1960 til today. Data is served from the Qlik Core ba
 variance in user load is anticipated which is handled by horizontal pod auto-scaling and infrastructure auto-scaling.
 
 A live demo is available at [urbanization.qlikcore.com](http://urbanization.qlikcore.com/).
+
+![screenshot](../images/african-urbanization-screenshot.png)
 
 Look at this solution using Qlik Core if you are interested in:
 

@@ -47,17 +47,20 @@ This tutorial covers aspects such as:
 - Using Mira - the Qlik Associative Engine discovery service - when running multiple
     instances of Qlik Associative Engine in a cluster
 
-## In-depth tutorials
+## In-Depth Tutorials
 
-Start here if you want to cover in-depth tutorials that provide detailed
-examples of how to work with more specific aspects of Qlik Core.
-We recommend that you explore these tutorials in order:
+Start here if you want to cover in-depth tutorials that provide detailed examples of how to work with more specific
+aspects of Qlik Core. We recommend that you explore these tutorials in order:
 
 1. [Data loading](./tutorials/data-loading.md)
     - Loading user data into Qlik Associative Engine
-1. [Monitoring and scaling](./tutorials/scalability/overview.md)
-    - Taking decisions on when to scale up or down the number of Qlik Associative Engine instances
-    - Placing and scheduling of Qlik Associative Engine sessions
 1. [Authorization](./tutorials/authorization.md)
     - Using JWTs and JWT validation in Qlik Associative Engine
     - Making sure users only see the data they are supposed to see
+
+## Use Cases
+
+Complementary to our tutorials are the use case examples. These provide complete solutions using Qlik Core that cover
+typical problems of production deployments, such as monitoring, logging, scaling, and scheduling strategies.
+
+More information can be found in the [Use Cases](./use-cases.md) section.
