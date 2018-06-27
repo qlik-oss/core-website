@@ -188,9 +188,9 @@ h1 span {
   text-decoration: underline;
   opacity: 1;
 }
-
-.md-tabs__link:hover {
-  text-decoration: none; border-bottom: 3px solid #f7921d;
+.md-tabs__link:hover, .md-tabs__link:focus, .md-tabs__link--active {
+  text-decoration: none; 
+  border-bottom: 3px solid #f7921d;
 }
 
 .md-header-nav__topic {
