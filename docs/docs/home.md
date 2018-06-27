@@ -42,4 +42,4 @@ More information can be found in the [Use Cases](./use-cases.md) section.
 
 ## New to Qlik Core?
 
-If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./getting-started.md) section.
+If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./get-started.md) section.

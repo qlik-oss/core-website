@@ -1,4 +1,4 @@
-# Getting Started
+# Get Started
 
 To get started with Qlik Core and Qlik Associative Engine, and to learn the basic concepts,
 we provide a number of examples and tutorials.

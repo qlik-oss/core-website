@@ -1,58 +1,55 @@
-<!--
-  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
 {% import "partials/language.html" as lang with context %}
 
-<!-- Application footer -->
-<footer class="md-footer">
+<section class="footer-nav">
+    <div class="wrapper">
+      <div class="footer-nav-wrapper">
 
-  <!-- Further information -->
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="{{ base_url }}/images/QlikCore-Horizontal_RGB.png" width="300px" alt="Qlik Logo">
+          </div>
+          <div class="footer-social">
+            {% block social %}
+              {% include "partials/social.html" %}
+            {% endblock %}
+            </div>
+        </div>
 
-      <!-- Copyright and theme information -->
-      <div class="md-footer-copyright">
-        {% if config.copyright %}
-          <div class="md-footer-copyright__highlight">
-            {{ config.copyright }}
+      <div class="footer-nav-menu">
+        <div class="footer-menu-item">
+             <div class="footer-menu-title">
+             </div>
+         </div>
+           <div class="footer-menu-item">
+             <div class="footer-menu-title">
+             </div>
+         </div>
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            Company
           </div>
-        {% endif %}
-        <div class="md-footer-link-container">
-          <div class="md-footer-inner-container md-footer-logo">
-              <img src="{{ base_url }}/{{ config.theme.logo }}"
-                width="24" height="24" />
+          <ul>
+            <li>
+              <a href="http://www.qlik.com/company/about-the-company">About Qlik</a>
+            </li>
+            <li>
+              <a href="http://www.qlik.com/company/press-room">Press Room</a>
+            </li>
+            <li>
+              <a href="http://www.qlik.com/company/careers">Careers</a>
+            </li>
+            <li>
+              <a href="http://www.qlik.com/contact">Find a Sales Office</a>
+            </li>
+            <li>
+              <a href="http://www.qlik.com/try-or-buy/buy-now">Contact Qlik</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-menu-item">
+          <div class="footer-menu-title">
+            Legal
           </div>
-          <div class="md-footer-inner-container md-footer-link-list">
-            <label class="md-footer-link-header">COMPANY</label>
-            <ul>
-              <li><a href="http://www.qlik.com/company/about-the-company">About Qlik</a></li>
-              <li><a href="http://www.qlik.com/company/press-room">Press Room</a></li>
-              <li><a href="http://www.qlik.com/company/careers">Careers</a></li>
-              <li><a href="http://www.qlik.com/contact">Find a Sales Office</a></li>
-              <li><a href="http://www.qlik.com/try-or-buy/buy-now">Contact Qlik</a></li>
-            </ul>
-          </div>
-          <div class="md-footer-inner-container md-footer-link-list">
-            <label class="md-footer-link-header">LEGAL</label>
             <ul>
               <li><a href="http://www.qlik.com/legal/cookies-and-privacy-policy">Cookies and Privacy policy</a></li>
               <li><a href="http://www.qlik.com/legal/trademarks">Trademarks</a></li>
@@ -60,23 +57,26 @@
               <li><a href="{{ base_url }}/beta">License Terms</a></li>
               <li><a href="{{ base_url }}/docs/third-party-licenses">Third-Party Licenses</a></li>
             </ul>
-          </div>
-        </div>
+        </div>    
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="md-footer-last">
+  <div class="wrapper">
+    <div class="md-typeset">
         <div class="md-footer-legal">
           <div class="md-footer-legal-text">
             <div>Copyright © 1993-2018 QlikTech International AB. All rights reserved.</div>
-            Powered by
+              Powered by
               <a href="http://www.mkdocs.org">MkDocs</a>
               and
               <a href="https://squidfunk.github.io/mkdocs-material/">
               Material for MkDocs</a>
+            </div>          
           </div>
-          <!-- Social links -->
-          {% block social %}
-            {% include "partials/social.html" %}
-          {% endblock %}
         </div>
       </div>
-    </div>
-  </div>
 </footer>
