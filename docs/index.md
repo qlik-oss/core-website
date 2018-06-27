@@ -49,7 +49,7 @@ platforms.
 If you are looking for complete solutions to get inspiration from, or to start building your own solutions with, the use
 cases together with our tutorials provide a good starting point.
 
-More information can be found in the [Use Cases](./use-cases.md) section.
+More information can be found in the [Use Cases](./docs/use-cases.md) section.
 
 ## New to Qlik Core?
 
