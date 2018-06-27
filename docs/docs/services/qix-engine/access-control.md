@@ -51,7 +51,7 @@ The following section provides an example on how to enable ABAC, and how to set 
 | `SystemDenyRulePath` | File path | N/A | File path to the _Deny_ rules file. |
 | `SystemAllowRulePath` | File path | N/A | File path to the _Allow_ rules file. |
 
-### Example
+### ABAC examples
 
 To start Qlik Associative Engine instance as a Docker container, enable ABAC, and set the _Allow_ and _Deny_ rules file paths, run the following command:
 
@@ -61,8 +61,6 @@ docker run -v <host folder path>:<container folder path> qlikcore/engine:<versio
     -S SystemAllowRulePath=/<container folder path>/allow.txt \
     -S SystemDenyRulePath=/<container folder path>/deny.txt
 ```
-
-### More code examples
 
 For more examples using ABAC, see the [core-authorization](https://github.com/qlik-oss/core-authorization) repository, which contains running code examples on how to enable ABAC and how to provide rules to Qlik Associative Engine.
 
@@ -82,7 +80,7 @@ These concepts are used to build the expressions in the rules language.
 
 ### Rules language expressions
 
-Rules contain expressions, and the expression that make up the rules are written with _logical_ and _comparison_ operators. A rule evaluates to `true` when all of the expressions are true. A rule evaluates to `false` when any expression is not true.
+Rules contain expressions, and the expression that make up the rules are written with logical and comparison operators. A rule evaluates to `true` when all of the expressions are true. A rule evaluates to `false` when any expression is not true.
 
 The logical operators are:
 
@@ -105,18 +103,17 @@ The comparison operators are:
 
 ### The `user` object
 
-All rules are evaluated in the context of a _User_. In rule expressions, the user is represented by the `user` object.
+All rules are evaluated in the context of a user. In rule expressions, the user is represented by the `user` object.
 
-#### User object attributes
+#### User attribute
 
 | Attribute | Description |
 | --------- | ----------- |
-| `user.id` | The identifier of the user. This gets the value of the mandatory `sub` attribute in the JWT. |
+| `user.id` | The identifier of the user. This `user.id` gets the value of the mandatory `sub` attribute in the JWT. |
 
-Also, `user` will contain all other attributes defined in the
-JWT header that are used to authenticate the user.
+Also, `user` contains all attributes defined in the JWT header that are used to authenticate the user.
 
-See [JSON web token](../../tutorials/authorization.md#json-web-token).
+For more information about attributes in the JWT header, see [JSON web token](../../tutorials/authorization.md#json-web-token).
 
 ##### Example of user object
 
@@ -140,15 +137,15 @@ An example of a rule using some of the user attributes looks like the following:
 user.id = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
 ```
 
-In example JWT above, the user is granted access for all actions to all resources.
+In example rule above, the user `john-doe` is granted access for all actions to all resources.
 
 ### The `resource` object
 
-A _Resource_ object is a generic concept that can represent applications,or objects within applications. A resource is made of attributes which can be used in rule expressions. In rule expressions, the resource being accessed is represented by the `resource` object.
+A resource object is a generic concept that can represent applications, or objects within applications. A resource object consists of attributes that can be used in rule expressions. In rule expressions, the resource being accessed is represented by the `resource` object.
 
-#### Common attributes
+#### Common resource attributes
 
-There are different resource types but all share some common attributes.
+There are different resource types, but all resources share some common attributes.
 
 | Attribute | Description |
 | --------- | ----------- |
@@ -158,9 +155,9 @@ There are different resource types but all share some common attributes.
 | `resource._resourcetype` | The type of the resource being accessed. Equal to `"App"` or `"App.Object"`. |
 | `resource._actions` | The actions granted on the resource. See [Actions](#actions) for more details.|
 
-#### Type-specific attributes
+#### Type-specific resource attributes
 
-Depending on the type of resource that is being accessed, `resource` may carry additional attributes. If the resource type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, `resource` has the following additional attributes:
+Depending on the type of resource that is being accessed, `resource` may carry additional attributes. If the resource type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, then `resource` has the following additional attributes:
 
 | Attribute | Description | Example condition |
 | --------- | ----------- | ----------------- |
@@ -169,40 +166,35 @@ Depending on the type of resource that is being accessed, `resource` may carry a
 
 ##### The `app` attribute
 
-If `resource._resourcetype = "App.Object"`, then `resource.app` contains the reference to the `app` resource. This mean that all attributes and [built-in functions](#built-in_function) are available on `resource.app`.
+When the common resource attribute is `resource._resourcetype = "App.Object"`, then the type-specific resource attribute `resource.app` contains a reference to the `app` resource. This means that all attributes and built-in functions are available on `resource.app`.
 
-As stated above, if `resource._resourcetype = "App.Object"`, `resource.app` contains the reference to the `"App"`
-resource that the object exists in, and all attributes and [built-in functions](#built-in_function) that apply
-to `"App"` objects are available on `resource.app`.
+#### Built-in functions
 
-#### Built-in Functions
+If the user making the request has already been granted access for the provided action, then the built-in `HasPrivilege(<action>)` function returns `true`, otherwise it returns `false`.
 
-##### `HasPrivilege(<action>)`
-
-Boolean function that returns `true` if the user making the request has already been granted access for the provided
-action. Otherwise returns `false`.
-
-**Syntax**
+The syntax of the build-in function is the following:
 
 ```c
 resource.HasPrivilege(ACTION)
 ```
 
-The required parameter `ACTION` shall have a value of any of the supported actions described in [Actions](#Actions).
+The `ACTION` parameter is required. Its value can be any of the supported actions described in [Actions](#actions).
 
-**Examples**
+Consider the following rules:
 
 ```c
 user.country = "uk" and resource._resourcetype = "App.Object" and resource._actions = "create"
 resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and resource._actions = {"read", "update"}
 ```
 
-Here, the second rule uses `HasPrivilege` to check if the `create` action has already been granted to the user, which
-could be result from the preceeding rule. If that is the case, it also grants access to the `read` and `update` actions.
+The first rule grants the `create` action to a user.
+
+The second rules has a built-in function that will evaluate to `true` if the `create` action has already been granted to the user. Because of the first rule, it is evaluated as `true`. As a result, the second rule adds the `read` and `update` actions to the user.
+The user is granted `create`,`read`,and `update` actions from two rules.
 
 ### Actions
 
-An _Action_ is what operation a user wants to perform on a resource in Qlik Associative Engine. The actions are:
+An _action_ is an operation that a user can perform on a  Qlik Associative Engine resource. The actions are:
 
 | Action | Description |
 | -------| ----------- |
@@ -216,9 +208,7 @@ An _Action_ is what operation a user wants to perform on a resource in Qlik Asso
 | `export data` | Export data from an object. |
 
 !!! Note
-    When granting access to the `reload` action other action might also need to be granted, depending on what the reload
-    script does. For example, if the reload script creates variables in the application, the `create` action must also
-    be granted to objects of type `"variable"` as in the rule expression
+    If a reload script requires other actions, for example to create variables in the application, then the user granted `reload` action also needs to be granted the other actions that are called in the reload. For example:
     `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
 
 #### The `_actions` Attribute
