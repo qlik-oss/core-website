@@ -3,11 +3,17 @@
 !!! warning "Experimental feature"
     This feature is in an experimental state. Use with caution since this feature may change in the future.
 
-Administrators often want to control access to their applications based different policies and attributes rather than static user roles. To handle this type of access control, Qlik Associative Engine supports [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control), which lets you control application access through attribute-based rules.
+Administrators often want to control access to their applications
+based different policies and attributes rather than static user roles.
+To handle this type of access control, Qlik Associative Engine supports
+[Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control),
+which lets you control application access through attribute-based rules.
 
 ## Rules
 
-When ABAC is enable, users are granted access based on rules. Each rule is a conditional expression that evaluates to either `true` or `false`, and each rule contains a property that determines which actions the rule grants, or denies.
+When ABAC is enable, users are granted access based on rules.
+Each rule is a conditional expression that evaluates to either `true` or `false`,
+and each rule contains a property that determines which actions the rule grants, or denies.
 
 !!! Note
     When the ABAC feature is enabled, all user access is disabled by default. You must include rules when enabling ABAC to provide user access.
@@ -20,28 +26,41 @@ Rules are constructed using attributes that defines user access. Consider the fo
 user.id = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
 ```
 
-Notice that the rule consists of key-value pairs linked by logical operators, in this case, `and`.
+Notice that the rule consists of key-value pairs linked by logical operators,
+in this case, `and`.
 
-This rule states that if the user is `ada-lovelace` and the accessed resource type is `App`, grant the actions
+This rule states that if the user is `ada-lovelace`
+and the accessed resource type is `App`, grant the actions
 `create`, `update`, and `read`.
 
 !!! Note
-    Only the `_actions` attribute is mandatory. The `user.id` and `resource._resourcetype` expressions could be omitted and the rule would still be valid. See [Actions](#actions) for more details.
+    Only the `_actions` attribute is mandatory.
+    The `user.id` and `resource._resourcetype` expressions
+    could be omitted and the rule would still be valid.
+    See [Actions](#actions) for more details.
 
 ### Rule files
 
-Rules are defined in two text files: a _Deny_ rules file and an _Allow_ rules file. The _Deny_ rules file is evaluated first, and rules are evaluated in the order that they appear. A rule is written on a single row.
+Rules are defined in two text files: a _Deny_ rules file and an _Allow_ rules file.
+The _Deny_ rules file is evaluated first, and rules are evaluated in the order that they appear.
+A rule is written on a single row.
 
-The _Deny_ rules file denies access to perform actions (create, read, update, etc.). If any rule in the _Deny_ rules file evaluates to `true`, access is immediately denied for the actions listed and rules evaluation stops.
+The _Deny_ rules file denies access to perform actions (create, read, update, etc.).
+If any rule in the _Deny_ rules file evaluates to `true`,
+access is immediately denied for the actions listed and rules evaluation stops.
 
-The _Allow_ rule file grants access to perform actions (create, read, update, etc.). If a rule in the _Allow_ rule file evaluates to `true`, access is granted for the actions listed. Rule evaluation continues for the entire file, possibly accumulating access to more actions based on other rules.
+The _Allow_ rule file grants access to perform actions (create, read, update, etc.).
+If a rule in the _Allow_ rule file evaluates to `true`, access is granted for the actions listed.
+Rule evaluation continues for the entire file, possibly accumulating access to more actions based on other rules.
 
 !!! Note
-    When you start a session, Qlik Associative Engine reads the rules files immediately. If you modify the rules files, you need to restart the session or make a REST call to trigger the engine to reread the rules files.
+    When you start a session, Qlik Associative Engine reads the rules files immediately.
+    If you modify the rules files, you need to restart the session or make a REST call to trigger the engine to reread the rules files.
 
 ## Engine configuration for ABAC
 
-The following section provides an example on how to enable ABAC, and how to set the path to the _Allow_ and _Deny_ rules files.
+The following section provides an example on how to enable ABAC,
+and how to set the path to the _Allow_ and _Deny_ rules files.
 
 ### ABAC-related command-line switches
 
@@ -53,7 +72,8 @@ The following section provides an example on how to enable ABAC, and how to set 
 
 ### ABAC examples
 
-To start Qlik Associative Engine instance as a Docker container, enable ABAC, and set the _Allow_ and _Deny_ rules file paths, run the following command:
+To start Qlik Associative Engine instance as a Docker container,
+enable ABAC, and set the _Allow_ and _Deny_ rules file paths, run the following command:
 
 ```bash
 docker run -v <host folder path>:<container folder path> qlikcore/engine:<version> \
@@ -80,7 +100,8 @@ These concepts are used to build the expressions in the rules language.
 
 ### Rules language expressions
 
-Rules contain expressions, and the expression that make up the rules are written with logical and comparison operators. A rule evaluates to `true` when all of the expressions are true. A rule evaluates to `false` when any expression is not true.
+Rules contain expressions, and the expression that make up the rules are written with logical and comparison operators. A rule evaluates to `true` when all of the expressions are true.
+A rule evaluates to `false` when any expression is not true.
 
 The logical operators are:
 
@@ -103,7 +124,8 @@ The comparison operators are:
 
 ### The `user` object
 
-All rules are evaluated in the context of a user. In rule expressions, the user is represented by the `user` object.
+All rules are evaluated in the context of a user.
+In rule expressions, the user is represented by the `user` object.
 
 #### User attribute
 
@@ -141,7 +163,9 @@ In example rule above, the user `john-doe` is granted access for all actions to 
 
 ### The `resource` object
 
-A resource object is a generic concept that can represent applications, or objects within applications. A resource object consists of attributes that can be used in rule expressions. In rule expressions, the resource being accessed is represented by the `resource` object.
+A resource object is a generic concept that can represent applications, or objects within applications.
+A resource object consists of attributes that can be used in rule expressions.
+In rule expressions, the resource being accessed is represented by the `resource` object.
 
 #### Common resource attributes
 
@@ -157,7 +181,9 @@ There are different resource types, but all resources share some common attribut
 
 #### Type-specific resource attributes
 
-Depending on the type of resource that is being accessed, `resource` may carry additional attributes. If the resource type is `"App"`, there are no additional attributes. If the resource type is `"App.Object"`, then `resource` has the following additional attributes:
+Depending on the type of resource that is being accessed, `resource` may carry additional attributes.
+If the resource type is `"App"`, there are no additional attributes.
+If the resource type is `"App.Object"`, then `resource` has the following additional attributes:
 
 | Attribute | Description | Example condition |
 | --------- | ----------- | ----------------- |
@@ -189,12 +215,16 @@ resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and re
 
 The first rule grants the `create` action to a user.
 
-The second rules has a built-in function that will evaluate to `true` if the `create` action has already been granted to the user. Because of the first rule, it is evaluated as `true`. As a result, the second rule adds the `read` and `update` actions to the user.
+The second rules has a built-in function that will evaluate to `true` if
+the `create` action has already been granted to the user. Because of the first rule,
+it is evaluated as `true`.
+As a result, the second rule adds the `read` and `update` actions to the user.
 The user is granted `create`,`read`,and `update` actions from two rules.
 
 ### Actions
 
-An _action_ is an operation that a user can perform on a  Qlik Associative Engine resource. The actions are:
+An _action_ is an operation that a user can perform on a Qlik Associative Engine resource.
+The actions are:
 
 | Action | Description |
 | -------| ----------- |
@@ -291,7 +321,7 @@ Given that `user.country` is `"uk"`:
 
 #### **`and`, `&&`**
 
-This operator returns the logical conjuction of its operands. 
+This operator returns the logical conjuction of its operands.
 
 |Returns|When   |
 |---    |---    |
