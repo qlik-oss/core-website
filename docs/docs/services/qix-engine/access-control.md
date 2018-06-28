@@ -208,7 +208,7 @@ An _action_ is an operation that a user can perform on a  Qlik Associative Engin
 | `export data` | Export data from an object. |
 
 !!! Note
-    If a reload script requires other actions, for example to create variables in the application, then the user granted `reload` action also needs to be granted the other actions that are called in the reload. For example:
+    If a reload script requires other actions, for example to create variables in the application, then the user must be granted the required actions that are called in the script. For example:
     `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
 
 #### The `_actions` attribute
@@ -217,51 +217,59 @@ In rule expressions, the resource attribute `_actions` has special semantics:
 
 * `resource._actions` is always used as left operand with the `=` operator. Other usage is undefined behavior.
 * The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
-* The expression `resource._actions = (EXPRESSION)` has the side effect of accumulating the actions given by the
-    right operand which is a single action or a list of actions.
+* The expression `resource._actions = (EXPRESSION)` has the side effect of accumulating the actions given by the right operand which is a single action or a list of actions.
 * `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for all actions.
 
-If `resource._actions = (EXPRESSION)` is ommitted from a rule, granted actions would not be accumulated. It is good practice to write all rules so that the final expression in the rule involves `resource._actions`.
+If `resource._actions = (EXPRESSION)` is ommitted from a rule, any actions that are granted are not accumulated. It is good practice to write all rules so that the final expression in the rule involves `resource._actions`.
 
-For example, the following rule evaluates to `true` and the `read` and `update`  actions granted to users from the UK.
+Consider the following rule:
 
 ```c
 user.country = "uk" and resource._actions = {"read", "update"}
 ```
 
-Note that granted actions accumulate in the order in which the rules are evaluated. Consider the following:
+When the rule evaluates to `true`, the user from the UK is granted `read` and `update` actions.
+
+Note that granted actions accumulate in the order in which the rules are evaluated.
+
+Consider the following rule:
 
 ```c
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"create"}
 ```
 
-First, users from from UK are granted `read` and `update` access. Then, if the user role is `developer`, `create`
-access is granted. Since actions are accumulated, developers from UK are granted access for actions `read`, `update`,
-and `create`.
+When the first rule evaluates to `true`, the user from the UK is granted `read` and `update` actions.
+
+If the user from UK has a user role of `developer`, then the second rule will evaluate to `true`, and the user from the UK is granted the `create` action. The actions accumulate, so the user from UK has `read`, `update`, and `create` actions.
 
 !!! Note
-    It may be dangerous to rely on accumulating actions. Often, it is better to be explicit about which actions to
-    grant.
+    Do not rely on accumulating actions. It is better to be explicit about which actions to grant.
 
-A better way to formulate the rules above would be:
+To avoid relying on the accumulation of actions, the example rules above can be written as the following:
 
 ```c
 user.country = "uk" and resource._actions = {"read", "update"}
 user.roles = {"developer"} and resource._actions = {"read", "update", "create"}
 ```
 
-## Rule Expressions
+## Rule operators
 
-Rule expressions are built on combining logical and comparison operators. Comparison operators have precedence over
+Rules contain expressions that are joined together with logical and comparison operators. Comparison operators have precedence over
 logical operators. Parantheses are supported to override precedence.
 
 ### Logical Operators
 
-#### `!` (not)
+There are three logical operators for rule expressions: _not_, _and_, and _or_.
 
-This operator returns the logical negation of its operand. It returns `true` if the operand is `false`, and returns
-`false` if the operand is `true`.
+#### **`!` (not)**
+
+The _not_ operator returns the logical negation of its operand.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operand is `false`|
+|`false`| Operand is `true`|
 
 **Syntax**
 
@@ -269,7 +277,7 @@ This operator returns the logical negation of its operand. It returns `true` if 
 !(EXPRESSION)
 ```
 
-**Examples**
+**Example**
 
 Given that `user.country` is `"uk"`:
 
@@ -281,10 +289,14 @@ Given that `user.country` is `"uk"`:
 !(resource.country = "SE")
 ```
 
-#### `and`, `&&`
+#### **`and`, `&&`**
 
-This operator returns the logical conjuction of its operands. It returns `true` only if both operands evaluate to
-`true`.
+This operator returns the logical conjuction of its operands. 
+
+|Returns|When   |
+|---    |---    |
+|`true` | All operands are `true`|
+|`false`| Any operand is `false`|
 
 **Syntax**
 
@@ -306,10 +318,15 @@ Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 (user.country = "UK") and (user.id = "bill-smith")
 ```
 
-#### `or`, `||`
+#### **`or`, `||`**
 
-This operator returns the logical disjunction of its operands. It returns `true` only if one or both operands evaluate to
-`true`.
+This operator returns the logical disjunction of its operands.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operands are `true`|
+|`true` | Any operand is `true`|
+|`false`| All operands are `false`|
 
 **Syntax**
 
@@ -334,10 +351,20 @@ Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
 ### Comparison Operators
 
-#### `=` (equal)
+There are six comparison operators for rule expressions: _equal_, _strictly equal_, _not equal_, _strictly not equal_, _like_, and _matches_.
 
-This operator returns `true` only if its operands are equal. String comparison is _case insensitive_ (see `==` for case
-sensitive comparison). If one of the operands is a list, only one value in the list needs to be equal.
+#### **`=` (equal)**
+
+This _equal_ operator returns `true` only if its operands are equal.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operands are equal|
+|`false`| Operands are not equal|
+
+!!! Note
+    _equal_ string comparison is _case insensitive_ (see `==` for case
+    sensitive comparison). If one of the operands is a list, only one value in the list needs to be equal.
 
 **Syntax**
 
@@ -360,11 +387,17 @@ user.org = "United Kingdom"
 user.org = {"se", "dk", "ca"}
 ```
 
-#### `==` (strictly equal)
+#### **`==` (strictly equal)**
 
-This operator returns `true` only if its operands are _strictly_ equal. String comparison is _case sensitive_ (see `=`
-for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
-equal.
+The _strictly equal_ operator returns `true` only if its operands are _strictly_ equal.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operands are _strictly_ equal|
+|`false`| Operands are not equal|
+
+!!! Note
+    _strictly equal_ string comparison is _case sensitive_ (see `=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly equal.
 
 **Syntax**
 
@@ -386,10 +419,18 @@ user.country == "UK"
 user.country == {"SE", "UK", "CA"}
 ```
 
-#### `!=` (not equal)
+#### **`!=` (not equal)**
 
-This operator returns `true` only if its operands are not equal. String comparison is _case insensitive_ (see `!==` for
-case sensitive comparison). If one of the operands is a list, only one value in the list needs to be unequal.
+The _not equal_ operator returns `true` only if its operands are not equal.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operands are not equal|
+|`false`| Operands are equal|
+
+!!! Note
+    _not equal_ string comparison is _case insensitive_ (see `!==` for
+    case sensitive comparison). If one of the operands is a list, only one value in the list needs to be unequal.
 
 **Syntax**
 
@@ -411,11 +452,17 @@ resource.org != "UK"
 resource.org != {"uk", "UK"}
 ```
 
-#### `!==` (strictly not equal)
+#### **`!==` (strictly not equal)**
 
-This operator returns `true` only if its operands are _strictly_ not equal. String comparison is _case sensitive_ (see
-`!=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly
-unequal.
+The _strictly not equal_ operator returns `true` only if its operands are _strictly_ not equal.
+
+|Returns|When   |
+|---    |---    |
+|`true` | Operands are _strictly_ not equal|
+|`false`| Operands are equal|
+
+!!! Note
+    String comparison is _case sensitive_ (see `!=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly unequal.
 
 **Syntax**
 
@@ -437,12 +484,17 @@ resource.org !== "uk"
 resource.org !== {"uk"}
 ```
 
-#### `like`
+#### **`like`**
 
-This operator provides wildcard string matching.
+The _like_ operator returns `true` only if the left operand matches the **wildcard** pattern given by the right operand.
 
-The operator returns `true` only if the left operand matches the wildcard pattern given by the right operand.
-The comparison is _case insensitive_.
+|Returns|When   |
+|---    |---    |
+|`true` | Left operand matches the wildcard in the right operand.|
+|`false`| Left operand does not match the wildcard in right operand.|
+
+!!! Note
+    The comparison is _case insensitive_.
 
 | Wildcard | Description |
 | -------- | ----------- |
@@ -459,7 +511,7 @@ The escape character `\` can be used to match `?`, `*`, and `\` using the escape
 
 **Examples**
 
-Given that `user.region` is `"us-east"` or `"us-west"`
+Given that `user.region` is `"us-east"` or `"us-west"`:
 
 ```c
 # Evaluate to true
@@ -472,11 +524,14 @@ user.region like "us-?"
 user.region like "uk-*"
 ```
 
-#### `matches`
+#### **`matches`**
 
-This operator provides regular expression string matching.
+The _matches_ operator returns `true` only if the left operand matches the **regular expression** given by the right operand.
 
-The operator returns `true` only if the left operand matches the regular expression given by the right operand.
+|Returns|When   |
+|---    |---    |
+|`true` | Left operand matches the regular expression in the right operand.|
+|`false`| Left operand does not match the regular expression in the  right operand.|
 
 **Syntax**
 
@@ -486,8 +541,7 @@ The operator returns `true` only if the left operand matches the regular express
 
 **Examples**
 
-Suppose users shall be matched that are in any US region (`east`, `west` etc.) and only those users that are in the
-number `1` or `2` deployments. A rule expressions for matching this could be:
+To match users from deployments `1` or `2` from any US region (`east`, `west` etc.):
 
 ```c
 user.region matches "us-[^-]+-(1|2)"
