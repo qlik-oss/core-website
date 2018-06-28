@@ -285,8 +285,9 @@ user.roles = {"developer"} and resource._actions = {"read", "update", "create"}
 
 ## Rule operators
 
-Rules contain expressions that are joined together with logical and comparison operators. Comparison operators have precedence over
-logical operators. Parantheses are supported to override precedence.
+Rules contain expressions that are joined together with logical and comparison operators.
+Comparison operators have precedence over logical operators.
+Parantheses are supported to override precedence.
 
 ### Logical Operators
 
@@ -381,7 +382,8 @@ Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
 
 ### Comparison Operators
 
-There are six comparison operators for rule expressions: _equal_, _strictly equal_, _not equal_, _strictly not equal_, _like_, and _matches_.
+There are six comparison operators for rule expressions:
+_equal_, _strictly equal_, _not equal_, _strictly not equal_, _like_, and _matches_.
 
 #### **`=` (equal)**
 
@@ -427,7 +429,8 @@ The _strictly equal_ operator returns `true` only if its operands are _strictly_
 |`false`| Operands are not equal|
 
 !!! Note
-    _strictly equal_ string comparison is _case sensitive_ (see `=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly equal.
+    _strictly equal_ string comparison is _case sensitive_ (see `=` for case insensitive comparison).
+    If one of the operands is a list, only one value in the list needs to be strictly equal.
 
 **Syntax**
 
@@ -492,7 +495,8 @@ The _strictly not equal_ operator returns `true` only if its operands are _stric
 |`false`| Operands are equal|
 
 !!! Note
-    String comparison is _case sensitive_ (see `!=` for case insensitive comparison). If one of the operands is a list, only one value in the list needs to be strictly unequal.
+    String comparison is _case sensitive_ (see `!=` for case insensitive comparison).
+    If one of the operands is a list, only one value in the list needs to be strictly unequal.
 
 **Syntax**
 
