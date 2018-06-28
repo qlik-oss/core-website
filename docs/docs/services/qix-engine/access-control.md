@@ -16,7 +16,8 @@ Each rule is a conditional expression that evaluates to either `true` or `false`
 and each rule contains a property that determines which actions the rule grants, or denies.
 
 !!! Note
-    When the ABAC feature is enabled, all user access is disabled by default. You must include rules when enabling ABAC to provide user access.
+    When the ABAC feature is enabled, all user access is disabled by default.
+    You must include rules when enabling ABAC to provide user access.
 
 ### Rules overview
 
@@ -55,7 +56,8 @@ Rule evaluation continues for the entire file, possibly accumulating access to m
 
 !!! Note
     When you start a session, Qlik Associative Engine reads the rules files immediately.
-    If you modify the rules files, you need to restart the session or make a REST call to trigger the engine to reread the rules files.
+    If you modify the rules files,
+    you need to restart the session or make a REST call to trigger the engine to reread the rules files.
 
 ## Engine configuration for ABAC
 
@@ -82,7 +84,9 @@ docker run -v <host folder path>:<container folder path> qlikcore/engine:<versio
     -S SystemDenyRulePath=/<container folder path>/deny.txt
 ```
 
-For more examples using ABAC, see the [core-authorization](https://github.com/qlik-oss/core-authorization) repository, which contains running code examples on how to enable ABAC and how to provide rules to Qlik Associative Engine.
+For more examples using ABAC, see the
+[core-authorization](https://github.com/qlik-oss/core-authorization) repository,
+which contains running code examples on how to enable ABAC and how to provide rules to Qlik Associative Engine.
 
 ## Rules language
 
@@ -100,7 +104,9 @@ These concepts are used to build the expressions in the rules language.
 
 ### Rules language expressions
 
-Rules contain expressions, and the expression that make up the rules are written with logical and comparison operators. A rule evaluates to `true` when all of the expressions are true.
+Rules contain expressions, and the expression that make up the rules
+are written with logical and comparison operators.
+A rule evaluates to `true` when all of the expressions are true.
 A rule evaluates to `false` when any expression is not true.
 
 The logical operators are:
@@ -192,11 +198,14 @@ If the resource type is `"App.Object"`, then `resource` has the following additi
 
 ##### The `app` attribute
 
-When the common resource attribute is `resource._resourcetype = "App.Object"`, then the type-specific resource attribute `resource.app` contains a reference to the `app` resource. This means that all attributes and built-in functions are available on `resource.app`.
+When the common resource attribute is `resource._resourcetype = "App.Object"`,
+then the type-specific resource attribute `resource.app` contains a reference to the `app` resource.
+This means that all attributes and built-in functions are available on `resource.app`.
 
 #### Built-in functions
 
-If the user making the request has already been granted access for the provided action, then the built-in `HasPrivilege(<action>)` function returns `true`, otherwise it returns `false`.
+If the user making the request has already been granted access for the provided action,
+then the built-in `HasPrivilege(<action>)` function returns `true`, otherwise it returns `false`.
 
 The syntax of the build-in function is the following:
 
@@ -238,7 +247,9 @@ The actions are:
 | `export data` | Export data from an object. |
 
 !!! Note
-    If a reload script requires other actions, for example to create variables in the application, then the user must be granted the required actions that are called in the script. For example:
+    If a reload script requires other actions, for example to create variables in the application,
+    then the user must be granted the required actions that are called in the script.
+    For example:
     `resource._resourcetype = "App.Object" && resource._objecttype = "variable" && resource._action = "create"`.
 
 #### The `_actions` attribute
@@ -247,10 +258,14 @@ In rule expressions, the resource attribute `_actions` has special semantics:
 
 * `resource._actions` is always used as left operand with the `=` operator. Other usage is undefined behavior.
 * The expression `resource._actions = (EXPRESSION)` always evaluates to `true`.
-* The expression `resource._actions = (EXPRESSION)` has the side effect of accumulating the actions given by the right operand which is a single action or a list of actions.
+* The expression `resource._actions = (EXPRESSION)` has the side effect
+    of accumulating the actions given by the right operand which is a single action or a list of actions.
 * `resource._actions = "*"` can be used to grant all actions, where `"*"` is wildcard for all actions.
 
-If `resource._actions = (EXPRESSION)` is ommitted from a rule, any actions that are granted are not accumulated. It is good practice to write all rules so that the final expression in the rule involves `resource._actions`.
+If `resource._actions = (EXPRESSION)` is ommitted from a rule,
+any actions that are granted are not accumulated.
+It is good practice to write all rules so that the final expression in
+the rule involves `resource._actions`.
 
 Consider the following rule:
 
@@ -271,7 +286,10 @@ user.roles = {"developer"} and resource._actions = {"create"}
 
 When the first rule evaluates to `true`, the user from the UK is granted `read` and `update` actions.
 
-If the user from UK has a user role of `developer`, then the second rule will evaluate to `true`, and the user from the UK is granted the `create` action. The actions accumulate, so the user from UK has `read`, `update`, and `create` actions.
+If the user from UK has a user role of `developer`,
+then the second rule will evaluate to `true`,
+and the user from the UK is granted the `create` action.
+The actions accumulate, so the user from UK has `read`, `update`, and `create` actions.
 
 !!! Note
     Do not rely on accumulating actions. It is better to be explicit about which actions to grant.
