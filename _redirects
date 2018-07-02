@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+http://qlikcore.netlify.com/* http://preview.qlikcore.com/:splat 301!
