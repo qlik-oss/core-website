@@ -31,6 +31,7 @@ markdown_extensions:
   - toc:
       permalink: true
 
+strict: true
 repo_name: 'qlik-oss/core-website'
 repo_url: 'https://github.com/qlik-oss/core-website'
 edit_uri: edit/master/docs
