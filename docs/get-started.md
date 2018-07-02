@@ -23,7 +23,7 @@ The Hello Qlik Core examples are divided into three separate parts:
     ACCEPT_EULA=yes docker-compose up -d
     ```
 
-- [Hello Engine](./tutorials/hello-engine1.md) - Running Qlik Associative Engine as a Docker container and using
+- [Hello Engine](./tutorials/hello-engine.md) - Running Qlik Associative Engine as a Docker container and using
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it.
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into Qlik Associative Engine using
     [halyard.js](https://github.com/qlik-oss/halyard.js).
