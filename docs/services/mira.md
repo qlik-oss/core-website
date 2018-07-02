@@ -210,7 +210,7 @@ before starting the Mira pod.
 
 ### Example of Kubernetes mode
 
-The [mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-deployment.yml) file
+The [mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/plain/mira-deployment.yml) file
 is an example of how to deploy Mira and Qlik Associative Engine instances to Kubernetes.
 
 A Kubernetes cluster should be set up and configured correctly.
@@ -222,7 +222,7 @@ This example respresents the minimal _Kubernetes_ mode setup.
 #### Start Mira in _Kubernetes_ mode
 
 You can start Mira in _Kubernetes_ mode from the example
-[mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-deployment.yml)
+[mira-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/plain/mira-deployment.yml)
 file. With the `kubectl` command line tool, run the following command:
 
 ```sh
@@ -236,7 +236,7 @@ kubectl apply -f mira-deployment.yml
 
 The Mira REST API should also be exposed as a service.
 You can apply the service configuration with the example
-[mira-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/mira-service.yml) file.
+[mira-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/plain/mira-service.yml) file.
 
 ```sh
 kubectl apply -f mira-service.yml
@@ -257,7 +257,7 @@ curl http://$(minikube ip):31000/health
 
 For Mira to discover Qlik Associative Engine instances in the cluster, you can use a Kubernetes deployment file.
 Apply the example
-[engine-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/engine-deployment.yml) file.
+[engine-deployment.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/plain/engine-deployment.yml) file.
 
 ```sh
 kubectl apply -f engine-deployment.yml
@@ -271,7 +271,7 @@ For Mira to be able to discover the engine instances,
 the engines must be exposed as services with named ports.
 
 You can apply the services with the example.
-[engine-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/engine-service.yml) file.
+[engine-service.yml](https://github.com/qlik-oss/mira/blob/master/examples/kubernetes/plain/engine-service.yml) file.
 
 ```sh
 kubectl apply -f engine-service.yml
