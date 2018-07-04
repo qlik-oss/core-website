@@ -4,14 +4,14 @@
     This feature is in an experimental state. Use with caution since this feature may change in the future.
 
 Administrators often want to control access to their applications
-based different policies and attributes rather than static user roles.
-To handle this type of access control, Qlik Associative Engine supports
+based on different policies and attributes rather than static user roles.
+To handle this, Qlik Associative Engine supports
 [Attribute-Based Access Control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control),
 which lets you control application access through attribute-based rules.
 
 ## Rules
 
-When ABAC is enable, users are granted access based on rules.
+When ABAC is enabled, users are granted access based on rules.
 Each rule is a conditional expression that evaluates to either `true` or `false`,
 and each rule contains a property that determines which actions the rule grants, or denies.
 
@@ -61,8 +61,7 @@ Rule evaluation continues for the entire file, possibly accumulating access to m
 
 ## Engine configuration for ABAC
 
-The following section provides an example on how to enable ABAC,
-and how to set the path to the _Allow_ and _Deny_ rules files.
+Before you start the Qlik Associative Engine, you must enable ABAC and set the rules files paths with command-line switches.
 
 ### ABAC-related command-line switches
 
@@ -90,7 +89,7 @@ which contains running code examples on how to enable ABAC and how to provide ru
 
 ## Rules language
 
-The following section describes the syntax and semantics of the Qlik Associative Engine rules language.
+Before you write any ABAC rules, it is imporatant to understand the syntax ans semantics of the rules language, and how they interact with each other.
 
 ### Rules language concepts
 
@@ -104,7 +103,7 @@ These concepts are used to build the expressions in the rules language.
 
 ### Rules language expressions
 
-Rules contain expressions, and the expression that make up the rules
+Rules are made of expressions, and these expressions
 are written with logical and comparison operators.
 A rule evaluates to `true` when all of the expressions are true.
 A rule evaluates to `false` when any expression is not true.
@@ -143,7 +142,7 @@ Also, `user` contains all attributes defined in the JWT header that are used to 
 
 For more information about attributes in the JWT header, see [JSON web token](../../tutorials/authorization.md#json-web-token).
 
-##### Example of user object
+**Example**
 
 ```json
 {
@@ -202,7 +201,7 @@ When the common resource attribute is `resource._resourcetype = "App.Object"`,
 then the type-specific resource attribute `resource.app` contains a reference to the `app` resource.
 This means that all attributes and built-in functions are available on `resource.app`.
 
-#### Built-in functions
+#### `HasPrivilege` built-in function
 
 If the user making the request has already been granted access for the provided action,
 then the built-in `HasPrivilege(<action>)` function returns `true`, otherwise it returns `false`.
