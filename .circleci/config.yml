@@ -17,6 +17,9 @@ jobs:
       - store_artifacts:
           path: ./site
       - run:
+          name: Check if added external links are broken
+          command: .circleci/check-external-links.sh
+      - run:
           name: Deploy the site for review
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ] && [ "${TARGET_USER}" != "" ]; then
