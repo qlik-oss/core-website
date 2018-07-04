@@ -89,7 +89,10 @@ which contains running code examples on how to enable ABAC and how to provide ru
 
 ## Rules language
 
-Before you write any ABAC rules, it is imporatant to understand the syntax ans semantics of the rules language, and how they interact with each other.
+Before you write any ABAC rules,
+it is imporatant to understand the syntax
+and semantics of the rules language,
+and how they interact with each other.
 
 ### Rules language concepts
 
