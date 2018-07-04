@@ -20,15 +20,6 @@ jobs:
           name: Check if added external links are broken
           command: .circleci/check-external-links.sh
       - run:
-          name: Deploy the site for review
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ] && [ "${TARGET_USER}" != "" ]; then
-              export BUILD_NUMBER=$CIRCLE_BUILD_NUM
-              export BRANCH_NAME=$CIRCLE_BRANCH	
-              export SHA=$CIRCLE_SHA1
-              .circleci/deploy.sh
-            fi
-      - run:
           name: Sync documentation to S3 bucket
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${TARGET_USER}" != "" ]; then
