@@ -1,4 +1,4 @@
-# Loading Data
+# Data Loading
 
 Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.
 
