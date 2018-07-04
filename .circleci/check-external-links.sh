@@ -17,5 +17,5 @@ do
 done
 
 if [ "$STATUS" -eq "1" ]; then
-   exit;
+   exit $STATUS;
 fi
