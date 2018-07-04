@@ -17,6 +17,9 @@ jobs:
       - store_artifacts:
           path: ./site
       - run:
+          name: Check if added external links are broken
+          command: .circleci/check-external-links.sh
+      - run:
           name: Sync documentation to S3 bucket
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${TARGET_USER}" != "" ]; then
