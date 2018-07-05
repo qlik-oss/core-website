@@ -108,7 +108,9 @@ These concepts are used to build the expressions in the rules language.
 
 Rules are made of expressions, and these expressions
 are written with logical and comparison operators.
-Consequently, a rule evaluates to either `true` or `false` depending on the expressions and the types of operators contained within the rule.
+Consequently, a rule evaluates to either `true` or `false`
+depending on the expressions and the types of operators
+contained within the rule.
 
 The logical operators are:
 
@@ -225,7 +227,10 @@ resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and re
 
 The first rule grants the `create` action to a user.
 
-The second rules contains the `HasPrivilege` function that will evaluate to `true` if the `create` action has already been granted to the user. Because of the first rule, it is evaluated as `true`.
+The second rules contains the `HasPrivilege` function
+that will evaluate to `true` if the `create` action
+has already been granted to the user.
+Because of the first rule, it is evaluated as `true`.
 As a result, the second rule adds the `read` and `update` actions to the user.
 The user is granted `create`,`read`,and `update` actions from two rules.
 
