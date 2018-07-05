@@ -90,7 +90,7 @@ which contains running code examples on how to enable ABAC and how to provide ru
 ## Rules language
 
 Before you write any ABAC rules,
-it is imporatant to understand the syntax
+it is important to understand the syntax
 and semantics of the rules language,
 and how they interact with each other.
 
@@ -108,8 +108,7 @@ These concepts are used to build the expressions in the rules language.
 
 Rules are made of expressions, and these expressions
 are written with logical and comparison operators.
-A rule evaluates to `true` when all of the expressions are true.
-A rule evaluates to `false` when any expression is not true.
+Consequently, a rule evaluates to either `true` or `false` depending on the expressions and the types of operators contained within the rule.
 
 The logical operators are:
 
@@ -204,12 +203,12 @@ When the common resource attribute is `resource._resourcetype = "App.Object"`,
 then the type-specific resource attribute `resource.app` contains a reference to the `app` resource.
 This means that all attributes and built-in functions are available on `resource.app`.
 
-#### `HasPrivilege` built-in function
+#### The `HasPrivilege` built-in function
 
 If the user making the request has already been granted access for the provided action,
 then the built-in `HasPrivilege(<action>)` function returns `true`, otherwise it returns `false`.
 
-The syntax of the build-in function is the following:
+The syntax of the `HasPrivilege` function is the following:
 
 ```c
 resource.HasPrivilege(ACTION)
