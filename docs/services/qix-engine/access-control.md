@@ -225,9 +225,7 @@ resource._resourcetype = "App.Object" and resource.HasPrivilege("create") and re
 
 The first rule grants the `create` action to a user.
 
-The second rules has a built-in function that will evaluate to `true` if
-the `create` action has already been granted to the user. Because of the first rule,
-it is evaluated as `true`.
+The second rules contains the `HasPrivilege` function that will evaluate to `true` if the `create` action has already been granted to the user. Because of the first rule, it is evaluated as `true`.
 As a result, the second rule adds the `read` and `update` actions to the user.
 The user is granted `create`,`read`,and `update` actions from two rules.
 
