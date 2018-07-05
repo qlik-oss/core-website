@@ -9,7 +9,7 @@ echo "Following URLS found: $URLS"
 for url in $URLS
 do 
   if curl -s -L -f -I -o /dev/null "$url"; then
-    echo "Working links $url"
+    echo "Working link: $url"
   else
     echo "The following link is broken: $url"
     STATUS=1
