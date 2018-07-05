@@ -8,8 +8,8 @@ echo "Following URLS found: $URLS"
 
 for url in $URLS
 do 
-  if curl --output /dev/null --silent --head --fail "$url"; then
-    echo "Working links $url"
+  if curl -s -L -f -I -o /dev/null "$url"; then
+    echo "Working link: $url"
   else
     echo "The following link is broken: $url"
     STATUS=1
