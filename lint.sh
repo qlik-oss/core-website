@@ -9,7 +9,6 @@ if [[ "$OS" == "Windows_NT" ]]; then
   docker_cmd="winpty docker"
   if [[ "$MSYSTEM" == MINGW* ]]; then
     pwd=`echo $pwd | sed 's/\//\/\//g'`
-    echo $pwd
   fi
 fi
 
