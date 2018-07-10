@@ -6,6 +6,10 @@ theme:
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
 
+  # 404 page
+  static_templates:
+    - 404.html
+    
 extra_css:
   - 'stylesheets/custom-style.css'
   - 'stylesheets/downloads.css'
