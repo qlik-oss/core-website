@@ -582,7 +582,8 @@ user.region like "uk-*"
 
 #### **`matches`**
 
-The _matches_ operator returns `true` only if the left operand matches the **regular expression** given by the right operand.
+The _matches_ operator returns `true` only if the left operand matches the **regular expression**
+given by the right operand.
 
 |Returns|When   |
 |---    |---    |
@@ -606,41 +607,44 @@ user.region matches "us-[^-]+-(1|2)"
 This regular expression matches regions starting with `us-`, followed by one ore more characters that are anything but
 `-`, followed by `-1` or `-2`.
 
-## Adding existing apps
+## Adding an existing app
 
-If you want to add an existing app (qvf) to an engine running access control, you will have to import the app.
-This is done using engines REST API.
-The access control feature expects the app to follow a specific file structure, which is created when an app is being imported.
+To add an existing app (qvf) to an engine that is running access control, you must import the app.
+You can do this with the engine REST API.
+The access control feature requires the app to follow a specific file structure,
+which is created when an app is imported.
 
 ### Example
 
-I will describe what we did when we imported and enabled access control for our use case [African Urbanization](https://github.com/qlik-oss/core-scaling).
+In this example, we describe how to import and enable access control for an app.
+For this example, we will import the
+[African Urbanization](https://github.com/qlik-oss/core-scaling) use case.
 
-We had our app `Shared-Africa-Urbanization.qvf` that we enabled for access control.
-
-First we started engine with the following parameters:
+First, we start the Qlik Associative Engine with the following parameters:
 
 ```sh
-          "-S", "AcceptEULA=no", # change to 'yes' if you accept the Qlik Core EULA
-          "-S", "LicenseServiceUrl=<LicenseService adress>",
-          "-S", "DocumentDirectory=<directory for doc>",
-          "-S", "EnableABAC=1",
-          "-S", "SystemAllowRulePath=<directory for rules>"
+"-S", "AcceptEULA=no", # change to 'yes' if you accept the Qlik Core EULA
+"-S", "LicenseServiceUrl=<LicenseService adress>",
+"-S", "DocumentDirectory=<directory for doc>",
+"-S", "EnableABAC=1",
+"-S", "SystemAllowRulePath=<directory for rules>"
 ```
 
-Then we call engines [REST api to import our app:](https://qlikcore.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
+Next, we call the engine REST API to import the `Shared-Africa-Urbanization.qvf`:
+
+[POST /v1/apps/import](https://qlikcore.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
 
 ```sh
 curl -s --data-binary @Shared-Africa-Urbanization.qvf http://<adress to engine>/v1/apps/import
 ```
 
-In response you will get information about the import. It can look something like this:
+The engine returns information about the import. It looks similar to this:
 
 ```json
 {"attributes":{"id":"09aa1749-52a0-43ad-a525-3699d6e9f866","name":"","description":"","thumbnail":"","lastReloadTime":"2018-06-13T13:34:41.436Z","createdDate":"","modifiedDate":"","owner":"Personal\\Me","dynamicColor":"","published":false,"publishTime":"","custom":{},"_resourcetype":"app"},"privileges":["read","create","update","delete","reload","import","export","exportdata","publish","duplicate","approve"],"create":[{"resource":"\"sheet\"","canCreate":true},{"resource":"\"bookmark\"","canCreate":true},{"resource":"\"story\"","canCreate":true},{"resource":"\"dimension\"","canCreate":true},{"resource":"\"measure\"","canCreate":true},{"resource":"\"masterobject\"","canCreate":true},{"resource":"\"folderconnection\"","canCreate":true},{"resource":"\"internetconnection\"","canCreate":true}]}
 ```
 
-As you can see in the respons we now got an id back, this is our new name of the app we imported.
-You can now use the imported app that will follow the rules defined for access control.
+Notice that the engine returns an `id` in the response body. This `id` is the name of the imported app.
+The `Shared-Africa-Urbanization.qvf` app now follows the same rules that are defined for access control.
 
-For more information have a look at our [commit](https://github.com/qlik-oss/core-scaling/commit/76689e7911a2c83312a43e32600d67f9c957bae7).
+For more information, see this [commit](https://github.com/qlik-oss/core-scaling/commit/76689e7911a2c83312a43e32600d67f9c957bae7).
