@@ -605,3 +605,37 @@ user.region matches "us-[^-]+-(1|2)"
 
 This regular expression matches regions starting with `us-`, followed by one ore more characters that are anything but
 `-`, followed by `-1` or `-2`.
+
+## Adding existing apps
+
+If you would like to add an existing app (qvf) to the engine running access control you will first have to import that app using engines api. 
+This has to be done because the access control feature expects the app to follow a specific file structure, that is created when importing an app. 
+
+### Example
+
+I will describe what we did when we imported and enabled access control for our use case [African Urbanization](https://github.com/qlik-oss/core-scaling).
+
+We had our app `Shared-Africa-Urbanization.qvf` that we enabled for access control. 
+
+First we started engine with the following parameters: 
+```sh
+          "-S", "AcceptEULA=no", # change to 'yes' if you accept the Qlik Core EULA
+          "-S", "LicenseServiceUrl=<LicenseService adress>",
+          "-S", "DocumentDirectory=<directory for doc>",
+          "-S", "EnableABAC=1",
+          "-S", "SystemAllowRulePath=<directory for rules>"
+```
+Then we call engines [REST api to import our app:](https://qlikcore.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
+```sh
+curl -s --data-binary @Shared-Africa-Urbanization.qvf http://<adress to engine>/v1/apps/import 
+```
+
+In respons you will get information about the import. It can look something like this:
+```json
+{"attributes":{"id":"09aa1749-52a0-43ad-a525-3699d6e9f866","name":"","description":"","thumbnail":"","lastReloadTime":"2018-06-13T13:34:41.436Z","createdDate":"","modifiedDate":"","owner":"Personal\\Me","dynamicColor":"","published":false,"publishTime":"","custom":{},"_resourcetype":"app"},"privileges":["read","create","update","delete","reload","import","export","exportdata","publish","duplicate","approve"],"create":[{"resource":"\"sheet\"","canCreate":true},{"resource":"\"bookmark\"","canCreate":true},{"resource":"\"story\"","canCreate":true},{"resource":"\"dimension\"","canCreate":true},{"resource":"\"measure\"","canCreate":true},{"resource":"\"masterobject\"","canCreate":true},{"resource":"\"folderconnection\"","canCreate":true},{"resource":"\"internetconnection\"","canCreate":true}]}
+```
+
+As you can see in the respons we now got an id back, this is our new name of the app we imported. 
+You can now use the imported app that will follow the rules defined for access controll. 
+
+For more information have a look at [the pull request](https://github.com/qlik-oss/core-scaling/pull/53/files) where we did our changes in our African Urbanization use case. 
