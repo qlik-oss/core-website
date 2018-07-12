@@ -1,34 +1,22 @@
-
-
-## RangeFunctions
+# Range functions
 
 # RangeIRR - script function
 
-RangeIRR()
-returns the internal rate of return for a series of cash flows
+RangeIRR() returns the internal rate of return for a series of cash flows
 represented by the input values.
 
 The internal rate of return is the interest rate received for an
 investment consisting of payments (negative values) and income (positive
-values) that occur at regular
-periods.
+values) that occur at regular periods.
 
- 
-
-RangeIRR(value[,
-value][,
-Expression])
+`RangeIRR( value[, value][, Expression] )`
 
 numeric
-
- 
 
 | Argument   | Description                                                                                                                                                                                    |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | value      | A single value or a range of values as returned by an inter record function with a third optional parameter. The function needs at least one positive and one negative value to be calculated. |
 | Expression | Optional expressions or fields containing the range of data to be measured.                                                                                                                    |
-
- 
 
 Text values, NULL values and missing values are disregarded.
 
@@ -108,12 +96,7 @@ RangeIRR(above(sum(value), 0, 10))
 
 RangeIRR(above(total value, 0, rowno(total)))
 
- 
-
-*Inter-record
-functions*
-
-# RangeNPV - script function
+## RangeNPV - script function
 
 RangeNPV()
 returns the net present value of an investment based on a discount rate
@@ -221,10 +204,6 @@ RangeNPV(0.05, above(sum(value), 0, 10))
 
 RangeNPV(0.05, above(total value, 0, rowno(total)))
 
- 
-
-*Inter-record
-functions*
 
 # RangeXIRR - script function
 

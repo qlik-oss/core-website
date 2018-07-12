@@ -1,16 +1,9 @@
+# Formatting functions
 
+## ApplyCodepage - script and chart function
 
-## FormattingFunctions
-
-# ApplyCodepage - script and chart function
-
- **ApplyCodepage()** 
-applies a different code page character set to the field or text stated
-in the expression. The
- **codepage** 
-argument must be in number format.
-
-
+ **ApplyCodepage()** applies a different code page character set to the field or text stated
+in the expression. The **codepage** argument must be in number format.
 
 Although ApplyCodepage can be used in chart expressions, it is more
 commonly used as a script function in the data load editor. For example,
@@ -19,15 +12,9 @@ out of your control, you can apply the code page that represents the
 character set you
 require.
 
+`ApplyCodepage( text, codepage )`
 
-
- 
-
-, codepage)
-
-string
-
- 
+**Return data type:** string
 
 | Argument | Description                                                                                                                                                                                         |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,32 +46,16 @@ Examples and results:
 </tbody>
 </table>
 
-<div class="see_also" data-autonumposition="none">
-
-*Character
-set*
-
-
-
-# Date - script and chart function
+## Date - script and chart function
 
 Date() formats an expression as a date using the format set in the
 system variables in the data load script, or the operating system, or a
 format string, if
 supplied.
 
- 
+`Date( number[, format] )`
 
-[, format])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
- 
+**Return data type:** dual
 
 | Argument | Description                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,8 +66,8 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - Date setting 1: YY-MM-DD
-  - Date setting 2: M/D/YY
+- Date setting 1: YY-MM-DD
+- Date setting 2: M/D/YY
 
 Example
 
@@ -171,21 +142,16 @@ NULL
 
 35648
 
-# Dual - script and chart function
+### Dual - script and chart function
 
- **Dual()** 
-combines a number and a string into a single record, such that the
+ **Dual()** combines a number and a string into a single record, such that the
 number representation of the record can be used for sorting and
 calculation purposes, while the string value can be used for display
 purposes.
 
- 
+`Dual( text, number )`
 
-text, number)
-
-dual
-
- 
+**Return data type:** dual
 
 | Argument | Description                                                                  |
 | -------- | ---------------------------------------------------------------------------- |
@@ -201,15 +167,9 @@ When several data items read into one field have different string
 representations but the same valid number representation, they will all
 share the first string representation encountered.
 
-
-
-The
- **dual** 
-function is typically used early in the script, before other data is
+The **dual** function is typically used early in the script, before other data is
 read into the field concerned, in order to create that first string
 representation, which will be shown in filter panes.
-
-
 
 Examples and results:
 
@@ -248,140 +208,9 @@ Examples and results:
 </tbody>
 </table>
 
-# Formatting functions
+## Interval - script and chart function
 
-The formatting functions impose the display format on the input numeric
-fields or expressions, Depending on data type, you can specify the
-characters for the decimal separator, thousands separator, and so on.
-
-The functions all return a dual value with both the string and the
-number value, but can be thought of as performing a number-to-string
-conversion.
-Dual() is a
-special case, but the other formatting functions take the numeric value
-of the input expression and generate a string representing the number.
-
-In contrast, the interpretation functions do the opposite: they take
-string expressions and evaluate them as numbers, specifying the format
-of the resulting number.
-
-The functions can be used both in data load scripts and chart
-expressions.
-
-
-
-For reasons of clarity, all number representations are given with a
-decimal point as the decimal
-separator.
-
-
-
-## Formatting functions overview
-
-Each function is described further after the overview. You can also
-click the function name in the syntax to immediately access the details
-for that specific function.
-
-Use the drop-down on each function to see a brief description and the
-syntax of each function. Click the function name in the syntax
-description for further details. Please refer to the Qlik Sense online
-help for further details about the
-functions.
-
-ApplyCodepage
-
- **ApplyCodepage()** 
-applies a different code page character set to the field or text stated
-in the expression. The
- **codepage** 
-argument must be in number
-format.
-
-**ApplyCodePage2333012249** (text, codepage)
-
-Date
-
-Date() formats an expression as a date using the format set in the
-system variables in the data load script, or the operating system, or a
-format string, if
-supplied.
-
-number[, format])
-
-Dual
-
- **Dual()** 
-combines a number and a string into a single record, such that the
-number representation of the record can be used for sorting and
-calculation purposes, while the string value can be used for display
-purposes.
-
-text, number)
-
-Interval
-
-Interval()
-formats a number as a time interval using the format in the system
-variables in the data load script, or the operating system, or a format
-string, if
-supplied.
-
-number[, format])
-
-Money
-
- **Money()** 
-formats an expression numerically as a money value, in the format set in
-the system variables set in the data load script, or in the operating
-system, unless a format string is supplied, and optional decimal and
-thousands
-separators.
-
-**Money2207513545**(number[,
-format[, dec_sep [,
-thou_sep]]])
-
-Num
-
-Num() formats
-an expression numerically in the number format set in the system
-variables in the data load script, or in the operating system, unless a
-format string is supplied, and optional decimal and thousands
-separators.
-
-**Num2477684916**(number[,
-format[, dec_sep [,
-thou_sep]]])
-
-Time
-
-Time()
-formats an expression as a time value, in the time format set in the
-system variables in the data load script, or in the operating system,
-unless a format string is
-supplied.
-
-number[, format])
-
-Timestamp
-
-TimeStamp()
-formats an expression as a date and time value, in the timestamp format
-set in the system variables in the data load script, or in the operating
-system, unless a format string is
-supplied.
-
-number[, format])
-
- 
-
-*Interpretation
-functions*
-
-# Interval - script and chart function
-
-Interval()
-formats a number as a time interval using the format in the system
+Interval() formats a number as a time interval using the format in the system
 variables in the data load script, or the operating system, or a format
 string, if supplied.
 
@@ -389,18 +218,9 @@ Intervals may be formatted as a time, as days or as a combination of
 days, hours, minutes, seconds and fractions of
 seconds.
 
- 
+´Interval( number[, format] )``
 
-number[, format])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
- 
+**Return data type:** dual
 
 | Argument | Description                                                                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -411,9 +231,9 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - Date format setting 1: YY-MM-DD
-  - Date format setting 2: hh:mm:ss
-  - Number decimal separator: .
+- Date format setting 1: YY-MM-DD
+- Date format setting 2: hh:mm:ss
+- Number decimal separator: .
 
 <table>
 <thead>
@@ -451,29 +271,17 @@ where A=97-08-06 09:00:00 and B=96-08-06 00:00:00</td>
 </tbody>
 </table>
 
-# Money - script and chart function
+## Money - script and chart function
 
- **Money()** 
-formats an expression numerically as a money value, in the format set in
+ **Money()** formats an expression numerically as a money value, in the format set in
 the system variables set in the data load script, or in the operating
 system, unless a format string is supplied, and optional decimal and
 thousands
 separators.
 
- 
+`Money( number[, format[, dec_sep[, thou_sep]]] )`
 
-Money(number[,
-format[, dec_sep[,
-thou_sep]]])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
-  
+**Return data type:** dual
 
 | Argument  | Description                                                          |
 | --------- | -------------------------------------------------------------------- |
@@ -489,8 +297,8 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - MoneyFormat setting 1: kr \#\#0,00, MoneyThousandSep' '
-  - MoneyFormat setting 2: $ \#,\#\#0.00, MoneyThousandSep','
+- MoneyFormat setting 1: kr ##0,00, MoneyThousandSep' '
+- MoneyFormat setting 2: $ #,##0.00, MoneyThousandSep','
 
 Example
 
@@ -517,7 +325,7 @@ Number:
 
 35648.00
 
-Money( A, '\#,\#\#0 ¥', '.' , ',' )  
+Money( A, '#,##0 ¥', '.' , ',' )  
 where A=3564800
 
 String:
@@ -533,7 +341,7 @@ Number:
 
 3564800
 
-# Num - script and chart function
+## Num - script and chart function
 
 Num() formats
 an expression numerically in the number format set in the system
@@ -541,20 +349,9 @@ variables in the data load script, or in the operating system, unless a
 format string is supplied, and optional decimal and thousands
 separators.
 
- 
+`Num( number[, format[, dec_sep [, thou_sep]]] )``
 
-Num(number[,
-format[, dec_sep [,
-thou_sep]]])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
-  
+**Return data type:** dual
 
 | Argument  | Description                                                                                                                          |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -567,8 +364,8 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - Number format setting 1: \# \#\#0
-  - Number format setting 2: \#,\#\#0
+- Number format setting 1: # ##0
+- Number format setting 2: #,##0
 
 Example
 
@@ -595,7 +392,7 @@ Number:
 
 35648.375
 
-Num( A, '\#,\#\#0.\#\#', '.' , ',' )  
+Num( A, '#,##0.##', '.' , ',' )  
 where
 A=35648
 
@@ -650,7 +447,7 @@ Number:
 </tbody>
 </table>
 
-# Time - script and chart function
+## Time - script and chart function
 
 Time()
 formats an expression as a time value, in the time format set in the
@@ -658,18 +455,8 @@ system variables in the data load script, or in the operating system,
 unless a format string is
 supplied.
 
- 
-
-number[, format])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
- 
+`Time( number[, format] )`
+**Return data type:** dual
 
 | Argument | Description                                                                                                                                                                    |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -680,8 +467,8 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - Time format setting 1: hh:mm:ss
-  - Time format setting 2: hh.mm.ss
+- Time format setting 1: hh:mm:ss
+- Time format setting 2: hh.mm.ss
 
 Example
 
@@ -740,26 +527,16 @@ Number:
 
 0.99999
 
-# Timestamp - script and chart function
+## Timestamp - script and chart function
 
-TimeStamp()
-formats an expression as a date and time value, in the timestamp format
+TimeStamp() formats an expression as a date and time value, in the timestamp format
 set in the system variables in the data load script, or in the operating
 system, unless a format string is
 supplied.
 
- 
+`Timestamp( number[, format] )`
 
-number[, format])
-
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a
-string.
-
- 
+**Return data type:** dual
 
 | Argument | Description                                                                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -770,8 +547,8 @@ Examples and results:
 
 The examples below assume the following default settings:
 
-  - TimeStampFormat setting 1: YY-MM-DD hh:mm:ss
-  - TimeStampFormat setting 2: M/D/YY hh:mm:ss
+- TimeStampFormat setting 1: YY-MM-DD hh:mm:ss
+- TimeStampFormat setting 2: M/D/YY hh:mm:ss
 
 Example
 

@@ -1,25 +1,18 @@
+# Geospatial functions
 
+## GeoAggrGeometry - script and chart function
 
-## GeospatialFunctions
-
-# GeoAggrGeometry - script and chart function
-
- **GeoAggrGeometry()** 
-is used to aggregate a number of areas into a larger area, for example
+ **GeoAggrGeometry()** is used to aggregate a number of areas into a larger area, for example
 aggregating a number of sub-regions to a
 region.
 
- 
+`GeoAggrGeometry( field_name )``
 
-GeoAggrGeometry(field_name)
-
-string
-
- 
+**Return data type:** string
 
 | Argument    | Description                                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area. |
+| field_name  | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area. |
 
 Typically, GeoAggrGeometry() can be used to combine geospatial boundary
 data. For example, you might have postcode areas for suburbs in a city
@@ -40,62 +33,33 @@ statement with a
 Group by
 clause is required.
 
-
-
 The boundary lines of maps created using GeoAggrGeometry() are those of
 the merged areas. If you want to display the individual boundary lines
 of the pre-aggregated areas, use GeoReduceGeometry().
-
-
 
 Examples:
 
 This example loads a KML file with area data, and then loads a table
 with the aggregated area data.
 
-
-
 [MapSource]: LOAD [world.Name], [world.Point], [world.Area] FROM
 [lib://Downloads/world.kml] (kml, Table is [World.shp/Features]);
 Map: LOAD world.Name, GeoAggrGeometry(world.Area) as [AggrArea]
 resident MapSource Group By world.Name;
 
-
-
-
-
- 
-
-
-
-
-
 Drop Table MapSource;
 
+## GeoBoundingBox - script and chart function
 
-
-*GeoReduceGeometry - script and chart function*
-
-*Loading map
-data*
-
-# GeoBoundingBox - script and chart function
-
-GeoBoundingBox()
-is used to aggregate a geometry into an area and calculate the smallest
+GeoBoundingBox() is used to aggregate a geometry into an area and calculate the smallest
 bounding box that contains all coordinates.
 
 A GeoBoundingBox is represented as a list of four values: left, right,
-top,
-bottom.
+top, bottom.
 
- 
+`GeoBoundingBox( field_name )`
 
-GeoBoundingBox(field_name)
-
-string
-
- 
+**Return data type:** string
 
 | Argument    | Description                                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,22 +96,14 @@ where A=35648</td>
 </tbody>
 </table>
 
-*Loading map
-data*
+## GeoCountVertex - script and chart function
 
-# GeoCountVertex - script and chart function
-
-GeoCountVertex()
-is used to find the number of vertices a polygon geometry
+GeoCountVertex() is used to find the number of vertices a polygon geometry
 contains.
 
- 
+`GeoCountVertex( field_name )`
 
-GeoCountVertex(field_name)
-
-integer
-
- 
+**Return data type:** integer
 
 | Argument    | Description                                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -175,39 +131,26 @@ where A=35648</td>
 </tbody>
 </table>
 
-*Loading map
-data*
+## GeoGetBoundingBox - script and chart function
 
-# GeoGetBoundingBox - script and chart function
-
-GeoGetBoundingBox()
-is used in scripts and chart expressions to calculate the smallest
+GeoGetBoundingBox() is used in scripts and chart expressions to calculate the smallest
 geospatial bounding box that contains all coordinates of a geometry.
 
 A geospatial bounding box, created by the function GeoBoundingBox() is
-represented as a list of four values: left, right, top,
-bottom.
+represented as a list of four values: left, right, top, bottom.
 
- 
+`GeoGetBoundingBox(f ield_name )`
 
-GeoGetBoundingBox(field_name)
-
-string
-
- 
+**Return data type:** string
 
 | Argument    | Description                                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area. |
-
-
 
 Do not use the Group by clause in the data load editor with this and other
 non-aggregating geospatial functions, because this will cause an error
 on load.
 
-
-
 Examples:
 
 <table>
@@ -230,43 +173,28 @@ where A=35648</td>
 </tbody>
 </table>
 
-*GeoBoundingBox - script and chart function*
+## GeoGetPolygonCenter - script and chart function
 
-*Loading map
-data*
-
-# GeoGetPolygonCenter - script and chart function
-
-GeoGetPolygonCenter()
-is used in scripts and chart expressions to calculate and return the
+GeoGetPolygonCenter() is used in scripts and chart expressions to calculate and return the
 center point of a geometry.
 
 In some cases, the requirement is to plot a dot instead of color fill on
 a map. If the existing geospatial data is only available in the form of
 area geometry (for example, a boundary), use
 GeoGetPolygonCenter()
-to retrieve a pair of longitude and latitude for the center of
-area.
+to retrieve a pair of longitude and latitude for the center of area.
 
- 
+`GeoGetPolygonCenter( field_name )`
 
-GeoGetPolygonCenter(field_name)
-
-string
-
- 
+**Return data type:** string
 
 | Argument    | Description                                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area. |
 
-
-
 Do not use the Group by clause in the data load editor with this and other
 non-aggregating geospatial functions, because this will cause an error
 on load.
-
-
 
 Examples:
 
@@ -290,27 +218,19 @@ where A=35648</td>
 </tbody>
 </table>
 
-*Loading map
-data*
+## GeoInvProjectGeometry - script and chart function
 
-# GeoInvProjectGeometry - script and chart function
-
-GeoInvProjectGeometry()
-is used to aggregate a geometry into an area and apply the inverse of a
+GeoInvProjectGeometry() is used to aggregate a geometry into an area and apply the inverse of a
 projection.
 
- 
+`GeoInvProjectGeometry( type, field_name )`
 
-type, field_name)
+**Return data type:** string
 
-string
-
- 
-
-| Argument    | Description                                                                                                                                                                                                      |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument    | Description|
+| ----------- | --------------------------------------------------------------------------- |
 | type        | Projection type used in transforming the geometry of the map. This can take one of two values: 'unit', (default), which results in a 1:1 projection, or 'mercator', which uses the standard Mercator projection. |
-| field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area.                                 |
+| field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area.|
 
 Example:
 
@@ -330,10 +250,7 @@ Example:
 </tbody>
 </table>
 
-*Loading map
-data*
-
-# GeoMakePoint - script and chart function
+## GeoMakePoint - script and chart function
 
 GeoMakePoint()
 is used in scripts and chart expressions to create and tag a point with
@@ -341,27 +258,18 @@ latitude and longitude. GeoMakePoint returns points in the order of
 longitude and
 latitude.
 
- 
+`GeoMakePoint( lat_field_name, lon_field_name )`
 
-lat_field_name, lon_field_name)
-
-string, formatted [longitude,
-latitude]
-
- 
+**Return data type:** string, formatted [longitude, latitude]
 
 | Argument         | Description                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------- |
 | lat_field_name | A field or expression referring to a field representing the latitude of the point.  |
 | lon_field_name | A field or expression referring to a field representing the longitude of the point. |
 
-
-
 Do not use the Group by clause in the data load editor with this and other
 non-aggregating geospatial functions, because this will cause an error
 on load.
-
-
 
 Examples:
 
@@ -385,35 +293,22 @@ where A=35648</td>
 </tbody>
 </table>
 
-*Loading map
-data*
+## GeoProject - script and chart function
 
-# GeoProject - script and chart function
-
-GeoProject()
-is used in scripts and chart expressions to apply a projection to a
+GeoProject() is used in scripts and chart expressions to apply a projection to a
 geometry.
 
- 
+`GeoProject( type, field_name )`
+**Return data type:** string
 
-type, field_name)
-
-string
-
- 
-
-| Argument    | Description                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument    | Description|
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
 | type        | Projection type used in transforming the geometry of the map. This can take one of two values: 'unit', (default), which results in a 1:1 projection, or 'mercator', which uses the web Mercator projection. |
 | field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area.                            |
-
-
 
 Do not use the Group by clause in the data load editor with this and other
 non-aggregating geospatial functions, because this will cause an error
 on load.
-
-
 
 Example:
 
@@ -436,22 +331,17 @@ Example:
 *Loading map
 data*
 
-# GeoProjectGeometry - script and chart function
+## GeoProjectGeometry - script and chart function
 
-GeoProjectGeometry()
-is used to aggregate a geometry into an area and apply a
+GeoProjectGeometry() is used to aggregate a geometry into an area and apply a
 projection.
 
- 
+`GeoProjectGeometry( type, field_name )``
 
-type, field_name)
+**Return data type:** string
 
-string
-
- 
-
-| Argument    | Description                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument    | Description|
+| ----------- | -------------------------------------------------------------------------------------- |
 | type        | Projection type used in transforming the geometry of the map. This can take one of two values: 'unit', (default), which results in a 1:1 projection, or 'mercator', which uses the web Mercator projection. |
 | field_name | A field or expression referring to a field containing the geometry to be represented. This could be either a point (or set of points) giving longitude and latitude, or an area.                            |
 
@@ -473,24 +363,16 @@ Example:
 </tbody>
 </table>
 
-*Loading map
-data*
+## GeoReduceGeometry - script and chart function
 
-# GeoReduceGeometry - script and chart function
-
-GeoReduceGeometry()
-is used to reduce the number of vertices of a geometry, and to aggregate
+GeoReduceGeometry() is used to reduce the number of vertices of a geometry, and to aggregate
 a number of areas into one area, but still displaying the boundary lines
 from the individual
 areas.
 
- 
+`GeoReduceGeometry( field_name[, value] )``
 
-field_name[, value])
-
-string
-
- 
+**Return data type:** string
 
 <table>
 <thead>
@@ -531,193 +413,9 @@ Examples:
 This example loads a KML file with area data, and then loads a table
 with the reduced and aggregated area data.
 
-
-
 [MapSource]: LOAD [world.Name], [world.Point], [world.Area] FROM
 [lib://Downloads/world.kml] (kml, Table is [World.shp/Features]);
 Map: LOAD world.Name, GeoReduceGeometry(world.Area,0.5) as
 [ReducedArea] resident MapSource Group By world.Name;
 
-
-
-
-
- 
-
-
-
-
-
 Drop Table MapSource;
-
-
-
-*GeoAggrGeometry - script and chart function*
-
-*Loading map
-data*
-
-# Geospatial functions
-
-These functions are used to handle geospatial data in map
-visualizations. Qlik Sense follows GeoJSON specifications for geospatial
-data and supports the following:
-
-  - Point
-  - Linestring
-  - Polygon
-  - Multipolygon
-
-For more information on GeoJSON specifications, see:
-
-[GeoJSON.org](http://geojson.org/)
-
-*Map
-(Beta)*
-
-## Geospatial functions overview
-
-Each function is described further after the overview. You can also
-click the function name in the syntax to immediately access the details
-for that specific function.
-
-Use the drop-down on each function to see a brief description and the
-syntax of each function. Click the function name in the syntax
-description for further details. Please refer to the Qlik Sense online
-help for further details about the
-functions.
-
-### Parameters used in geospatial functions
-
-<table>
-<tbody>
-<tr class="odd">
-<td>Geometry</td>
-<td><p>This can be any of the following:</p>
-<ul>
-<li>a point (latitude, longitude)</li>
-<li>an area</li>
-</ul>
-<p>The reference should be to a field containing the geometry representation.</p></td>
-</tr>
-<tr class="even">
-<td>Projection</td>
-<td><p>With Mercator projection you can represent maps in square format, correcting for the distortion created by stretching.</p>
-<p>This can be any of the following:</p>
-<ul>
-<li>'unit' (default) - projection is 1:1</li>
-<li>'mercator'</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-
-There are two categories of geospatial functions: aggregation and
-non-aggregation.
-
-Aggregation functions take a geometry set (points or areas) as input,
-and return a single geometry. For example, multiple areas can be merged
-together, and a single boundary for the aggregation can be drawn on the
-map.
-
-Non-aggregation function take a sinlge geometry and return one geometry.
-For example, for the function GeoGetPolygonCenter(), if the boundary
-geometry of one area is set as input, the point geometry (longitude and
-latitude) for the center of that area is returned.
-
-The following are aggregation
-functions:
-
-GeoAggrGeometry
-
- **GeoAggrGeometry()** 
-is used to aggregate a number of areas into a larger area, for example
-aggregating a number of sub-regions to a
-region.
-
-**GeoAggrGeometry2714650039**(field_name)
-
-GeoBoundingBox
-
-GeoBoundingBox()
-is used to aggregate a geometry into an area and calculate the smallest
-bounding box that contains all
-coordinates.
-
-**GeoBoundingBox3371306162**(field_name)
-
-GeoCountVertex
-
-GeoCountVertex()
-is used to find the number of vertices a polygon geometry
-contains.
-
-**GeoCountVertex3437560741**(field_name)
-
-GeoInvProjectGeometry
-
-GeoInvProjectGeometry()
-is used to aggregate a geometry into an area and apply the inverse of a
-projection.
-
-type, field_name)
-
-GeoProjectGeometry
-
-GeoProjectGeometry()
-is used to aggregate a geometry into an area and apply a
-projection.
-
-type, field_name)
-
-GeoReduceGeometry
-
-GeoReduceGeometry()
-is used to reduce the number of vertices of a geometry, and to aggregate
-a number of areas into one area, but still displaying the boundary lines
-from the individual
-areas.
-
-**GeoReduceGeometry241307270**(geometry)
-
-  
-The following are non-aggregation
-functions:
-
-GeoGetBoundingBox
-
-GeoGetBoundingBox()
-is used in scripts and chart expressions to calculate the smallest
-geospatial bounding box that contains all coordinates of a geometry.
-
-A GeoBoundingBox is represented as a list of four values, left, right,
-top,
-bottom.
-
-**GeoGetBoundingBox3259272695**(geometry)
-
-GeoGetPolygonCenter
-
-GeoGetPolygonCenter()
-is used in scripts and chart expressions to calculate and return the
-center point of a
-geometry.
-
-**GeoGetPolygonCenter986526459**(geometry)
-
-GeoMakePoint
-
-GeoMakePoint()
-is used in scripts and chart expressions to create and tag a point with
-latitude and
-longitude.
-
-lat_field_name, lon_field_name)
-
-GeoProject
-
-GeoProject()
-is used in scripts and chart expressions to apply a projection to a
-geometry.
-
-type, field_name)

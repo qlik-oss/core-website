@@ -1,129 +1,42 @@
-
-
-## FinancialFunctions
-
 # Financial functions
 
-Financial functions can be used in the data load script and in chart
-expressions to calculate payments and interest rates.
+## BlackAndSchole - script and chart function
 
-For all the arguments, cash that is paid out is represented by negative
-numbers. Cash received is represented by positive numbers.
+The Black and Scholes model is a mathematical model for financial market derivative instruments. The formula calculates the theoretical value of an option. In Qlik Sense, the BlackAndSchole function returns the value according to the Black and Scholes unmodified formula (European style options).
 
-Listed here are the arguments that are used in the financial functions
-(excepting the ones beginning with
- **range** -).
+`BlackAndSchole( strike , time_left , underlying_price , vol , risk_free_rate , type )`
 
+**Return data type:** numeric
 
+| Argument | Description|
+| -------- | ---------------------------------------- |
+| strike | The future purchase price of the stock. |
+|time_left | The number of time periods remaining. |
+| underlying_price| The current value of the stock. |
+| vol | Volatility (of the stock price) expressed as a percentage in decimal form, per time period. |
+| risk_free_rate | The risk-free rate expressed as a percentage in decimal form, per time period.
+| call_or_put |  'c', 'call' or any non-zero numeric value for call options. p', 'put' or 0 for put options.|
 
-For all financial functions it is vital that you are consistent when
-specifying units for
- **rate** 
-and
- **nper** .
-If monthly payments are made on a five-year loan at 6% annual interest,
-use 0.005 (6%/12) for
- **rate** 
-and 60 (5\*12) for
- **nper** .
-If annual payments are made on the same loan, use 6% for
- **rate** 
-and 5 for
- **nper** .
+Limitations:
+The value of strike, time_left, and underlying_price must be >0.
+The value of vol and risk_free_rate must be: <0 or >0.
 
-
-
-## Financial functions overview
-
-Each function is described further after the overview. You can also
-click the function name in the syntax to immediately access the details
-for that specific function.
-
-Use the drop-down on each function to see a brief description and the
-syntax of each function. Click the function name in the syntax
-description for further details. Please refer to the Qlik Sense online
-help for further details about the functions.
-
-FV
-
-This function returns the future value of an investment based on
-periodic, constant payments and a simple annual
-interest.
-
-**FV2111990020**(rate,
-nper, pmt [ ,pv [ , type ]
-])
-
-nPer
-
-This function returns the number of periods for an investment based on
-periodic, constant payments and a constant interest
-rate.
-
-**nPer1535805135**(rate,
-pmt, pv [ ,fv [ , type ]
-])
-
-Pmt
-
-This function returns the payment for a loan based on periodic, constant
-payments and a constant interest
-rate.
-
-**Pmt932306164**(rate,
-nper, pv [ ,fv [ , type ] ]
-)
-
-PV
-
-This function returns the present value of an
-investment.
-
-**PV2058119428**(rate,
-nper, pmt [ ,fv [ , type ]
-])
-
-Rate
-
-This function returns the interest rate per period on annuity. The
-result has a default number format of
- **Fix** 
-two decimals and
-%.
-
-**Rate4038716167**(nper,
-pmt , pv [ ,fv [ , type ]
-])
-
- 
-
-*BlackAndSchole - script and chart function*
-
-*Money - script and chart
-function*
-
-# FV - script and chart function
+## FV - script and chart function
 
 This function returns the future value of an investment based on
 periodic, constant payments and a simple annual interest.
 
- 
+`FV( rate, nper, pmt [ ,pv [ , type ]] )`
 
-FV(rate,
-nper, pmt [ ,pv [ , type ]
-])
+**Return data type:** numeric. The result has a default number format of money.
 
-numeric. The result has a default number format of money.
-.
-
- 
-
-| Argument | Description                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rate     | The interest rate per period.                                                                                                                                                                                                                                     |
-| nper     | The total number of payment periods in an annuity.                                                                                                                                                                                                                |
-| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.                                                                                                                          |
-| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).                   | | type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If **type is omitted, it is assumed to be 0. |
+| Argument | Description|
+| -------- | --------------------------- |
+| rate     | The interest rate per period.|
+| nper     | The total number of payment periods in an annuity.|
+| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.|
+| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).|
+| type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If **type is omitted, it is assumed to be 0. |
 
 Examples and results:
 
@@ -143,27 +56,22 @@ Examples and results:
 </tbody>
 </table>
 
-# nPer - script and chart function
+## nPer - script and chart function
 
 This function returns the number of periods for an investment based on
 periodic, constant payments and a constant interest rate.
 
- 
+`nPer( rate, pmt, pv [ ,fv [ , type ]] )`
 
-nPer(rate,
-pmt, pv [ ,fv [ , type ]
-])
+**Return data type:** numeric
 
-numeric
-
- 
-
-| Argument | Description                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rate     | The interest rate per period.                                                                                                                                                                                                                                     |
-| nper     | The total number of payment periods in an annuity.                                                                                                                                                                                                                |
-| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.                                                                                                                          |
-| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).                   | | fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.                                |
+| Argument | Description|
+| -------- | ----------------------------------------------------------------------------- |
+| rate     | The interest rate per period.|
+| nper     | The total number of payment periods in an annuity.|
+| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.|
+| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).|
+| fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.|
 | type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If  **type**  is omitted, it is assumed to be 0. |
 
 Examples and results:
@@ -184,31 +92,25 @@ Examples and results:
 </tbody>
 </table>
 
-# Pmt - script and chart function
+## Pmt - script and chart function
 
 This function returns the payment for a loan based on periodic, constant
 payments and a constant interest rate.
 
-Pmt(rate,
-nper, pv [ ,fv [ , type ] ]
-)
+`Pmt( rate, nper, pv [ ,fv [ , type ] ] )`
 
-numeric. The result has a default number format of money. .
+**Return data type:** numeric. The result has a default number format of money. .
 
 To find the total amount paid over the duration of the loan, multiply
-the returned
- **pmt** 
-value by
- **nper** .
+the returned **pmt** value by **nper** .
 
- 
-
-| Argument | Description                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rate     | The interest rate per period.                                                                                                                                                                                                                                     |
-| nper     | The total number of payment periods in an annuity.                                                                                                                                                                                                                |
-| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.                                                                                                                          |
-| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).                   | | fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.                                |
+| Argument | Description|
+| -------- | ------------------------------ |
+| rate     | The interest rate per period.|
+| nper     | The total number of payment periods in an annuity.|
+| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.|
+| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).|
+| fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.|
 | type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If  **type**  is omitted, it is assumed to be 0. |
 
 Examples and results:
@@ -234,29 +136,25 @@ Examples and results:
 </tbody>
 </table>
 
-# PV - script and chart function
+## PV - script and chart function
 
 This function returns the present value of an investment.
 
-PV(rate,
-nper, pmt [ ,fv [ , type ]
-])
+`PV( rate, nper, pmt [ ,fv [ , type ]] )`
 
-numeric. The result has a default number format of money. .  
+**Return data type:** numeric. The result has a default number format of money. .  
 
 The present value is the total amount that a series of future payments
 is worth right now. For example, when borrowing money, the loan amount
-is the present value to the
-lender.
+is the present value to the lender.
 
- 
-
-| Argument | Description                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rate     | The interest rate per period.                                                                                                                                                                                                                                     |
-| nper     | The total number of payment periods in an annuity.                                                                                                                                                                                                                |
-| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.                                                                                                                          |
-| fv       | The future value, or cash balance, you want to attain after the last payment is made. If  is omitted, it is assumed to be 0.                                | | type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If **type is omitted, it is assumed to be 0. |
+| Argument | Description|
+| -------- | --------------------------------------------------- |
+| rate     | The interest rate per period.|
+| nper     | The total number of payment periods in an annuity.|
+| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.|
+| fv       | The future value, or cash balance, you want to attain after the last payment is made. If  is omitted, it is assumed to be 0.                                |
+| type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If **type is omitted, it is assumed to be 0. |
 
 Examples and results:
 
@@ -276,36 +174,25 @@ Examples and results:
 </tbody>
 </table>
 
-# Rate - script and chart function
+## Rate - script and chart function
 
 This function returns the interest rate per period on annuity. The
 result has a default number format of
- **Fix** 
-two decimals and %.
+ **Fix** two decimals and %.
 
- 
+`Rate( nper, pmt , pv [ ,fv [ , type ]] )`
 
-Rate(nper,
-pmt , pv [ ,fv [ , type ]
-])
+**Return data type:** numeric
 
-numeric.
+The **rate** is calculated by iteration and can have zero or more solutions. If the
+successive results of **rate** do not converge, a NULL value will be returned.
 
-The
- **rate** 
-is calculated by iteration and can have zero or more solutions. If the
-successive results of
- **rate** 
-do not converge, a NULL value will be
-returned.
-
- 
-
-| Argument | Description                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| nper     | The total number of payment periods in an annuity.                                                                                                                                                                                                                |
-| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.                                                                                                                          |
-| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).                   | | fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.                                |
+| Argument | Description|
+| -------- | -------------------------------------------------------------- |
+| nper     | The total number of payment periods in an annuity.|
+| pmt      | The payment made each period. It cannot change over the life of the annuity. A payment is stated as a negative number, for example, -20.|
+| pv       | The present value, or lump-sum amount, that a series of future payments is worth right now. If  is omitted, it is assumed to be 0 (zero).|
+| fv       | The future value, or cash balance, you want to attain after the last payment is made. If **fv is omitted, it is assumed to be 0.|
 | type     | Should be 0 if payments are due at the end of the period and 1 if payments are due at the beginning of the period. If  **type**  is omitted, it is assumed to be 0. |
 
 Examples and results:

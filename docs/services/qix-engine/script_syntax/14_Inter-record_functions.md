@@ -819,8 +819,3 @@ result.
 LOAD \*, Sales / Previous(Sales) as Increase from ...;
 
 LOAD A, Previous(Previous( A )) as B from ...;
-
- 
-
-*Peek - script
-function*

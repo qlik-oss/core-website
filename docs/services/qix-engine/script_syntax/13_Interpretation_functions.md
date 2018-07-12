@@ -1,23 +1,13 @@
+# InterpretationFunctions
 
+## Date\#
 
-## InterpretationFunctions
+Date#() evaluates an expression as a date in the format specified in the second
+argument, if supplied.
 
-# Date#
+`Date#( text[, format] )`
 
-##  - script and chart function
-
-Date#
-evaluates an expression as a date in the format specified in the second
-argument, if
-supplied.
-
- 
-
-text[, format])
-
-dual
-
-  
+**Return data type:** dual
 
 <table>
 <thead>
@@ -83,145 +73,16 @@ SET DateFormat statement at the top of the data load script.
 </tbody>
 </table>
 
-# Interpretation functions
+## Interval\#
 
-The interpretation functions evaluate the contents of input text fields
-or expressions, and impose a specified data format on the resulting
-numeric value. With these functions, you can specify the format of the
-number, in accordance with its data type, including attributes such as:
-decimal separator, thousands separator,and date format.
-
-The interpretation functions all return a dual value with both the
-string and the number value, but can be thought of as performing a
-string-to-number conversion. The functions take the text value of the
-input expression and generate a number representing the string.
-
-In contrast, the formatting functions do the opposite: they take numeric
-expressions and evaluate them as strings, specifying the display format
-of the resulting text.
-
-If no interpretation functions are used, Qlik Sense interprets the data
-as a mix of numbers, dates, times, time stamps and strings, using the
-default settings for number format, date format, and time format,
-defined by script variables and by the operating system.
-
-All interpretation functions can be used in both data load scripts and
-chart expressions.
-
-
-
-For reasons of clarity, all number representations are given with a
-decimal point as the decimal
-separator.
-
-
-
-## Interpretation functions overview
-
-Each function is described further after the overview. You can also
-click the function name in the syntax to immediately access the details
-for that specific function.
-
-Use the drop-down on each function to see a brief description and the
-syntax of each function. Click the function name in the syntax
-description for further details. Please refer to the Qlik Sense online
-help for further details about the functions.
-
-Date\#
-
-Date\#
-evaluates an expression as a date in the format specified in the second
-argument, if supplied. If the format code is omitted, the default date
-format set in the operating system is
-used.
-
-*Date\#*text[, format])
-
-Interval\#
-
-Interval\#()
+Interval#()
 evaluates a text expression as a time interval in the format set in the
 operating system, by default, or in the format specified in the second
-argument, if
-supplied.
+argument, if supplied.
 
-*Interval\#*text[, format])
+`Interval#( text[, format] )`
 
-Money\#
-
-Money\#()
-converts a text string to a money value, in the format set in the load
-script or the operating system, unless a format string is supplied.
-Custom decimal and thousand separator symbols are optional parameters.
-
-*Money\#*
-(text[,
-format[, dec_sep[, thou_sep ] ]
-]<span class="ui_item" data-autonumposition="none">)
-
-Num\#
-
-Num\#()
-converts a text string to a numerical value, in the number format set in
-the data load script or the operating system. Custom decimal and
-thousand separator symbols are optional
-parameters.
-
-*Num\#*(text[
-, format[, dec_sep[ ,
-thou_sep]]]<span class="ui_item" data-autonumposition="none">)
-
-Text
-
- **Text()** 
-forces the expression to be treated as text, even if a numeric
-interpretation is
-possible.
-
-**Text1876829529**(expr)
-
-Time\#
-
- **Time\#()** 
-evaluates an expression as a time value, in the time format set in the
-data load script or the operating system, unless a format string is
-supplied..
-
-*Time\#*
-text[, format])
-
-Timestamp\#
-
- **Timestamp\#()** 
-evaluates an expression as a date and time value, in the timestamp
-format set in the data load script or the operating system, unless a
-format string is supplied.
-
-*Timestamp\#*
-text[, format])
-
- 
-
-*Formatting
-functions*
-
-# Interval\#
-
-##  - script and chart function
-
-Interval\#()
-evaluates a text expression as a time interval in the format set in the
-operating system, by default, or in the format specified in the second
-argument, if
-supplied.
-
- 
-
-text[, format])
-
-dual
-
-  
+**Return data type:** dual
 
 <table>
 <thead>
@@ -243,17 +104,15 @@ dual
 </tbody>
 </table>
 
-The
- **interval\#** 
-function converts a text time interval to a numeric equivalent.
+The **interval#** function converts a text time interval to a numeric equivalent.
 
 Examples and results:
 
 The examples below assume the following operating system settings:
 
-  - Short date format: YY-MM-DD
-  - Time format: M/D/YY
-  - Number decimal separator: .
+- Short date format: YY-MM-DD
+- Time format: M/D/YY
+- Number decimal separator: .
 
 <table style="width:85%;">
 <colgroup>
@@ -275,29 +134,16 @@ where A='1 09:00'</td>
 </tbody>
 </table>
 
- 
+## Money\#
 
-*Time\#*
-
-# Money\#
-
-##  - script and chart function
-
-Money\#()
-converts a text string to a money value, in the format set in the load
+Money#() converts a text string to a money value, in the format set in the load
 script or the operating system, unless a format string is supplied.
 Custom decimal and thousand separator symbols are optional
 parameters.
 
- 
+`Money#( text[, format[, dec_sep [, thou_sep ] ]] )`
 
-Money\#(text[,
-format[, dec_sep [, thou_sep ] ]
-]<span class="ui_item" data-autonumposition="none">)
-
-dual
-
-  
+**Return data type:** dual
 
 <table>
 <thead>
@@ -327,11 +173,8 @@ dual
 </tbody>
 </table>
 
-The
- **money\#** 
-function generally behaves just like the
- **num\#** 
-function but takes its default values for decimal and thousand separator
+The **money#** function generally behaves just like the
+ **num\#** function but takes its default values for decimal and thousand separator
 from the script variables for money format or the system settings for
 currency.
 
@@ -339,8 +182,8 @@ Examples and results:
 
 The examples below assume the two following operating system settings:
 
-  - Money format default setting 1: kr \# \#\#0,00
-  - Money format default setting 2: $ \#,\#\#0.00
+- Money format default setting 1: kr \# \#\#0,00
+- Money format default setting 2: $ \#,\#\#0.00
 
 Example
 
@@ -383,38 +226,29 @@ Number:
 
 35648.37
 
-# Num\#
+## Num\#
 
-##  - script and chart function
-
-Num\#()
-converts a text string to a numerical value, in the number format set in
+Num#() converts a text string to a numerical value, in the number format set in
 the data load script or the operating system. Custom decimal and
 thousand separator symbols are optional parameters.
 
- 
+`Num#(text[, format[, dec_sep [, thou_sep ]]] )`
 
-Num\#(text[,
-format[, dec_sep [, thou_sep ] ]
-]<span class="ui_item" data-autonumposition="none">)
+**Return data type:** dual
 
-dual
-
-  
-
-| Argument  | Description                                                                                                                            |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| text      | The text string to be evaluated.                                                                                                       |
+| Argument  | Description|
+| --------- | ------------------------------------------------------------------------------ |
+| text      | The text string to be evaluated.|
 | format    | String describing how the resulting date string is to be formatted. If omitted, the number format set in the operating system is used. |
-| dec_sep  | String specifying the decimal number separator. If omitted, the DecimalSep value set in the data load script is used.                  |
-| thou_sep | String specifying the thousands number separator. If omitted, the ThousandSep value set in the data load script is used.               |
+| dec_sep  | String specifying the decimal number separator. If omitted, the DecimalSep value set in the data load script is used.|
+| thou_sep | String specifying the thousands number separator. If omitted, the ThousandSep value set in the data load script is used.|
 
 Examples and results:
 
 The examples below assume the two following operating system settings:
 
-  - Number format default setting 1: \# \#\#0
-  - Number format default setting 2: \#,\#\#0
+- Number format default setting 1: \# \#\#0
+- Number format default setting 2: \#,\#\#0
 
 Example
 
@@ -441,30 +275,20 @@ Number:
 
 35648.375
 
-# Text - script and chart function
+## Text
 
- **Text()** 
-forces the expression to be treated as text, even if a numeric
+ **Text()** forces the expression to be treated as text, even if a numeric
 interpretation is possible.
 
- 
+`Text (expr)`
 
-Text (expr)
+**Return data type:** dual
 
-dual
-
-string
-
-QLIK-41197 The result in the example should returned only a string.
-
-Examples and
-results:
+Examples and results:
 
 Example
 
 Result
-
- 
 
 Text( A )  
 where
@@ -490,23 +314,16 @@ Number:
 
 \-
 
-# Timestamp\#
+## Timestamp\#
 
-##  - script and chart function
-
- **Timestamp\#()** 
-evaluates an expression as a date and time value, in the timestamp
+ **Timestamp#()** evaluates an expression as a date and time value, in the timestamp
 format set in the data load script or the operating system, unless a
 format string is
 supplied.
 
- 
+`Timestamp#( text[, format] )`
 
-text[, format])
-
-dual
-
- 
+**Return data type:** dual
 
 <table>
 <thead>
@@ -579,22 +396,14 @@ SET DateFormat statement at the top of the data load script.
 </tbody>
 </table>
 
-# Time\#
+## Time\#
 
-##  - script and chart function
-
- **Time\#()** 
-evaluates an expression as a time value, in the time format set in the
+ **Time#()** evaluates an expression as a time value, in the time format set in the
 data load script or the operating system, unless a format string is
 supplied..
 
- 
-
-text[, format])
-
-dual
-
- 
+`Time#( text[, format] )`
+**Return data type:** dual
 
 <table>
 <thead>
@@ -620,8 +429,8 @@ Examples and results:
 
 The examples below assume the two following operating system settings:
 
-  - Time format default setting 1: hh:mm:ss
-  - Time format default setting 2: hh.mm.ss
+- Time format default setting 1: hh:mm:ss
+- Time format default setting 2: hh.mm.ss
 
 Example
 

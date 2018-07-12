@@ -54,13 +54,10 @@ is only supported in legacy mode, you need to replace the references to
 GetFolderPath
 with a lib:// data connection path.
 
-*File system access restriction*
-
 **Example 1:** MP3 files
 
 This script reads all possible MP3 meta tags in folder
 MyMusic.
-
 
 ```
 // Script to read MP3 meta tags
@@ -144,10 +141,6 @@ radio station name Attribute(FileLongName, 'TRSO') as TRSO, // Internet
 radio station
 owner
 
-
-
-
-
 Attribute(FileLongName, 'TSIZ') as TSIZ, // Size Attribute(FileLongName,
 'TSRC') as TSRC, // ISRC (international standard recording code)
 Attribute(FileLongName, 'TSSE') as TSSE, // Software/Hardware and
@@ -160,10 +153,6 @@ transcription Attribute(FileLongName, 'WCOM') as WCOM, // Commercial
 information Attribute(FileLongName, 'WCOP') as WCOP, // Copyright/Legal
 information
 
-
-
-
-
 Attribute(FileLongName, 'WOAF') as WOAF, // Official audio file webpage
 Attribute(FileLongName, 'WOAR') as WOAR, // Official artist/performer
 webpage Attribute(FileLongName, 'WOAS') as WOAS, // Official audio
@@ -173,24 +162,18 @@ internet radio station homepage Attribute(FileLongName, 'WPAY') as WPAY,
 official webpage Attribute(FileLongName, 'WXXX') as WXXX; // User
 defined URL link frame LOAD @1:n as FileLongName Inline "$(vFoundFile)"
 (fix, no labels); Next vFoundFile Next vExt
-
-
+```
 
 JPEG
 
 This script reads all possible EXIF meta tags from JPG files in folder
 MyPictures.
 
-
-
+```
 // Script to read Jpeg Exif meta tags for each vExt in 'jpg', 'jpeg',
 'jpe', 'jfif', 'jif', 'jfi' for each vFoundFile in filelist(
 GetFolderPath('MyPictures') & '\\\*.'& vExt
 )
-
-
-
-
 
 FileList: LOAD FileLongName, subfield(FileLongName,'\\',-1) as
 FileShortName, num(FileSize(FileLongName),'\# \#\#\# \#\#\#
@@ -202,24 +185,12 @@ Attribute(FileLongName, 'BitsPerSample') as BitsPerSample,
 Attribute(FileLongName, 'Compression') as
 Compression,
 
-
-
-
-
 // examples: 1=uncompressed, 2=CCITT, 3=CCITT 3, 4=CCITT
 4,
-
-
-
-
 
 //5=LZW, 6=JPEG (old style), 7=JPEG, 8=Deflate, 32773=PackBits RLE,
 Attribute(FileLongName, 'PhotometricInterpretation') as
 PhotometricInterpretation,
-
-
-
-
 
 // examples: 0=WhiteIsZero, 1=BlackIsZero, 2=RGB, 3=Palette, 5=CMYK,
 6=YCbCr, Attribute(FileLongName, 'ImageDescription') as
@@ -229,16 +200,8 @@ Attribute(FileLongName, 'Model') as Model, Attribute(FileLongName,
 as
 Orientation,
 
-
-
-
-
 // examples: 1=TopLeft, 2=TopRight, 3=BottomRight,
 4=BottomLeft,
-
-
-
-
 
 // 5=LeftTop, 6=RightTop, 7=RightBottom, 8=LeftBottom,
 Attribute(FileLongName, 'SamplesPerPixel') as SamplesPerPixel,
@@ -249,17 +212,9 @@ Attribute(FileLongName, 'YResolution') as YResolution,
 Attribute(FileLongName, 'PlanarConfiguration') as
 PlanarConfiguration,
 
-
-
-
-
 // examples: 1=chunky format, 2=planar format, Attribute(FileLongName,
 'ResolutionUnit') as
 ResolutionUnit,
-
-
-
-
 
 // examples: 1=none, 2=inches, 3=centimeters, Attribute(FileLongName,
 'TransferFunction') as TransferFunction, Attribute(FileLongName,
@@ -273,19 +228,11 @@ YCbCrCoefficients, Attribute(FileLongName, 'YCbCrSubSampling') as
 YCbCrSubSampling, Attribute(FileLongName, 'YCbCrPositioning') as
 YCbCrPositioning,
 
-
-
-
-
 // examples: 1=centered, 2=co-sited, Attribute(FileLongName,
 'ReferenceBlackWhite') as ReferenceBlackWhite, Attribute(FileLongName,
 'Rating') as Rating, Attribute(FileLongName, 'RatingPercent') as
 RatingPercent, Attribute(FileLongName, 'ThumbnailFormat') as
 ThumbnailFormat,
-
-
-
-
 
 // examples: 0=Raw Rgb, 1=Jpeg, Attribute(FileLongName, 'Copyright') as
 Copyright, Attribute(FileLongName, 'ExposureTime') as ExposureTime,
@@ -293,17 +240,9 @@ Attribute(FileLongName, 'FNumber') as FNumber, Attribute(FileLongName,
 'ExposureProgram') as
 ExposureProgram,
 
-
-
-
-
 // examples: 0=Not defined, 1=Manual, 2=Normal program, 3=Aperture
 priority, 4=Shutter
 priority,
-
-
-
-
 
 // 5=Creative program, 6=Action program, 7=Portrait mode, 8=Landscape
 mode, 9=Bulb, Attribute(FileLongName, 'ISOSpeedRatings') as
@@ -311,33 +250,17 @@ ISOSpeedRatings, Attribute(FileLongName, 'TimeZoneOffset') as
 TimeZoneOffset, Attribute(FileLongName, 'SensitivityType') as
 SensitivityType,
 
-
-
-
-
 // examples: 0=Unknown, 1=Standard output sensitivity (SOS),
 2=Recommended exposure index
 (REI),
-
-
-
-
 
 // 3=ISO speed, 4=Standard output sensitivity (SOS) and Recommended
 exposure index
 (REI),
 
-
-
-
-
 //5=Standard output sensitivity (SOS) and ISO Speed, 6=Recommended
 exposure index (REI) and ISO
 Speed,
-
-
-
-
 
 // 7=Standard output sensitivity (SOS) and Recommended exposure index
 (REI) and ISO speed, Attribute(FileLongName, 'ExifVersion') as
@@ -345,10 +268,6 @@ ExifVersion, Attribute(FileLongName, 'DateTimeOriginal') as
 DateTimeOriginal, Attribute(FileLongName, 'DateTimeDigitized') as
 DateTimeDigitized, Attribute(FileLongName, 'ComponentsConfiguration') as
 ComponentsConfiguration,
-
-
-
-
 
 // examples: 1=Y, 2=Cb, 3=Cr, 4=R, 5=G, 6=B, Attribute(FileLongName,
 'CompressedBitsPerPixel') as CompressedBitsPerPixel,
@@ -360,62 +279,30 @@ ExposureBiasValue, Attribute(FileLongName, 'MaxApertureValue') as
 MaxApertureValue, Attribute(FileLongName, 'SubjectDistance') as
 SubjectDistance,
 
-
-
-
-
 // examples: 0=Unknown, -1=Infinity, Attribute(FileLongName,
 'MeteringMode') as
 MeteringMode,
 
-
-
-
-
 // examples: 0=Unknown, 1=Average, 2=CenterWeightedAverage,
 3=Spot,
-
-
-
-
 
 // 4=MultiSpot, 5=Pattern, 6=Partial, 255=Other, Attribute(FileLongName,
 'LightSource') as
 LightSource,
 
-
-
-
-
 // examples: 0=Unknown, 1=Daylight, 2=Fluorescent, 3=Tungsten, 4=Flash,
 9=Fine
 weather,
 
-
-
-
-
 // 10=Cloudy weather, 11=Shade, 12=Daylight
 fluorescent,
-
-
-
-
 
 // 13=Day white fluorescent, 14=Cool white
 fluorescent,
 
-
-
-
-
 // 15=White fluorescent, 17=Standard light A, 18=Standard light B,
 19=Standard light
 C,
-
-
-
-
 
 // 20=D55, 21=D65, 22=D75, 23=D50, 24=ISO studio tungsten, 255=other
 light source, Attribute(FileLongName, 'Flash') as Flash,
@@ -426,19 +313,11 @@ Attribute(FileLongName, 'UserComment') as UserComment,
 Attribute(FileLongName, 'SubSecTime') as
 SubSecTime,
 
-
-
-
-
 Attribute(FileLongName, 'SubsecTimeOriginal') as SubsecTimeOriginal,
 Attribute(FileLongName, 'SubsecTimeDigitized') as SubsecTimeDigitized,
 Attribute(FileLongName, 'XPTitle') as XPTitle, Attribute(FileLongName,
 'XPComment') as
 XPComment,
-
-
-
-
 
 Attribute(FileLongName, 'XPAuthor') as XPAuthor, Attribute(FileLongName,
 'XPKeywords') as XPKeywords, Attribute(FileLongName, 'XPSubject') as
@@ -450,91 +329,47 @@ examples: 1=sRGB, 65535=Uncalibrated, Attribute(FileLongName,
 'RelatedSoundFile') as
 RelatedSoundFile,
 
-
-
-
-
 Attribute(FileLongName, 'FocalPlaneXResolution') as
 FocalPlaneXResolution, Attribute(FileLongName, 'FocalPlaneYResolution')
 as FocalPlaneYResolution, Attribute(FileLongName,
 'FocalPlaneResolutionUnit') as
 FocalPlaneResolutionUnit,
 
-
-
-
-
 // examples: 1=None, 2=Inch, 3=Centimeter, Attribute(FileLongName,
 'ExposureIndex') as ExposureIndex, Attribute(FileLongName,
 'SensingMethod') as
 SensingMethod,
 
-
-
-
-
 // examples: 1=Not defined, 2=One-chip color area sensor, 3=Two-chip
 color area
 sensor,
 
-
-
-
-
 // 4=Three-chip color area sensor, 5=Color sequential area
 sensor,
-
-
-
-
 
 // 7=Trilinear sensor, 8=Color sequential linear sensor,
 Attribute(FileLongName, 'FileSource') as
 FileSource,
 
-
-
-
-
 // examples: 0=Other, 1=Scanner of transparent
 type,
-
-
-
-
 
 // 2=Scanner of reflex type, 3=Digital still camera,
 Attribute(FileLongName, 'SceneType') as
 SceneType,
-
-
-
-
 
 // examples: 1=A directly photographed image, Attribute(FileLongName,
 'CFAPattern') as CFAPattern, Attribute(FileLongName, 'CustomRendered')
 as
 CustomRendered,
 
-
-
-
-
 // examples: 0=Normal process, 1=Custom process, Attribute(FileLongName,
 'ExposureMode') as
 ExposureMode,
 
-
-
-
-
 // examples: 0=Auto exposure, 1=Manual exposure, 2=Auto bracket,
 Attribute(FileLongName, 'WhiteBalance') as
 WhiteBalance,
-
-
-
-
 
 // examples: 0=Auto white balance, 1=Manual white balance,
 Attribute(FileLongName, 'DigitalZoomRatio') as DigitalZoomRatio,
@@ -542,49 +377,25 @@ Attribute(FileLongName, 'FocalLengthIn35mmFilm') as
 FocalLengthIn35mmFilm, Attribute(FileLongName, 'SceneCaptureType') as
 SceneCaptureType,
 
-
-
-
-
 // examples: 0=Standard, 1=Landscape, 2=Portrait, 3=Night scene,
 Attribute(FileLongName, 'GainControl') as
 GainControl,
-
-
-
-
 
 // examples: 0=None, 1=Low gain up, 2=High gain up, 3=Low gain down,
 4=High gain down, Attribute(FileLongName, 'Contrast') as
 Contrast,
 
-
-
-
-
 // examples: 0=Normal, 1=Soft, 2=Hard, Attribute(FileLongName,
 'Saturation') as
 Saturation,
-
-
-
-
 
 // examples: 0=Normal, 1=Low saturation, 2=High saturation,
 Attribute(FileLongName, 'Sharpness') as
 Sharpness,
 
-
-
-
-
 // examples: 0=Normal, 1=Soft, 2=Hard, Attribute(FileLongName,
 'SubjectDistanceRange') as
 SubjectDistanceRange,
-
-
-
-
 
 // examples: 0=Unknown, 1=Macro, 2=Close view, 3=Distant view,
 Attribute(FileLongName, 'ImageUniqueID') as ImageUniqueID,
@@ -593,10 +404,6 @@ Attribute(FileLongName, 'CMNT_GAMMA') as CMNT_GAMMA,
 Attribute(FileLongName, 'PrintImageMatching') as PrintImageMatching,
 Attribute(FileLongName, 'OffsetSchema') as
 OffsetSchema,
-
-
-
-
 
 // \*\*\*\*\*\*\*\*\*\*\*\* Interoperability Attributes
 \*\*\*\*\*\*\*\*\*\*\*\* Attribute(FileLongName,
@@ -612,10 +419,6 @@ InteroperabilityRelatedImageLength, Attribute(FileLongName,
 'InteroperabilityColorSpace') as
 InteroperabilityColorSpace,
 
-
-
-
-
 // examples: 1=sRGB, 65535=Uncalibrated, Attribute(FileLongName,
 'InteroperabilityPrintImageMatching') as
 InteroperabilityPrintImageMatching, // \*\*\*\*\*\*\*\*\*\*\*\* GPS
@@ -628,10 +431,6 @@ Attributes \*\*\*\*\*\*\*\*\*\*\*\* Attribute(FileLongName,
 'GPSAltitudeRef') as
 GPSAltitudeRef,
 
-
-
-
-
 // examples: 0=Above sea level, 1=Below sea level,
 Attribute(FileLongName, 'GPSAltitude') as GPSAltitude,
 Attribute(FileLongName, 'GPSTimeStamp') as GPSTimeStamp,
@@ -642,10 +441,6 @@ Attribute(FileLongName, 'GPSDOP') as GPSDOP, Attribute(FileLongName,
 'GPSSpeedRef') as
 GPSSpeedRef,
 
-
-
-
-
 Attribute(FileLongName, 'GPSSpeed') as GPSSpeed, Attribute(FileLongName,
 'GPSTrackRef') as GPSTrackRef, Attribute(FileLongName, 'GPSTrack') as
 GPSTrack, Attribute(FileLongName, 'GPSImgDirectionRef') as
@@ -653,10 +448,6 @@ GPSImgDirectionRef, Attribute(FileLongName, 'GPSImgDirection') as
 GPSImgDirection, Attribute(FileLongName, 'GPSMapDatum') as GPSMapDatum,
 Attribute(FileLongName, 'GPSDestLatitudeRef') as
 GPSDestLatitudeRef,
-
-
-
-
 
 Attribute(FileLongName, 'GPSDestLatitude') as GPSDestLatitude,
 Attribute(FileLongName, 'GPSDestLongitudeRef') as GPSDestLongitudeRef,
@@ -666,10 +457,6 @@ Attribute(FileLongName, 'GPSDestBearing') as GPSDestBearing,
 Attribute(FileLongName, 'GPSDestDistanceRef') as
 GPSDestDistanceRef,
 
-
-
-
-
 Attribute(FileLongName, 'GPSDestDistance') as GPSDestDistance,
 Attribute(FileLongName, 'GPSProcessingMethod') as GPSProcessingMethod,
 Attribute(FileLongName, 'GPSAreaInformation') as GPSAreaInformation,
@@ -677,14 +464,9 @@ Attribute(FileLongName, 'GPSDateStamp') as GPSDateStamp,
 Attribute(FileLongName, 'GPSDifferential') as
 GPSDifferential;
 
-
-
-
-
 // examples: 0=No correction, 1=Differential correction, LOAD @1:n as
 FileLongName Inline "$(vFoundFile)" (fix, no labels); Next vFoundFile
 Next vExt
-
 ```
 
 Windows media files
@@ -692,16 +474,11 @@ Windows media files
 This script reads all possible WMA/WMV ASF meta tags in folder
 MyMusic.
 
-
 ```
 / Script to read WMA/WMV ASF meta tags for each vExt in 'asf', 'wma',
 'wmv' for each vFoundFile in filelist( GetFolderPath('MyMusic') &
 '\\\*.'& vExt
 )
-
-
-
-
 
 FileList: LOAD FileLongName, subfield(FileLongName,'\\',-1) as
 FileShortName, num(FileSize(FileLongName),'\# \#\#\# \#\#\#
@@ -711,10 +488,6 @@ Attribute(FileLongName, 'Title') as Title, Attribute(FileLongName,
 Attribute(FileLongName, 'Description') as
 Description,
 
-
-
-
-
 Attribute(FileLongName, 'Rating') as Rating, Attribute(FileLongName,
 'PlayDuration') as PlayDuration, Attribute(FileLongName,
 'MaximumBitrate') as MaximumBitrate, Attribute(FileLongName,
@@ -722,10 +495,6 @@ Attribute(FileLongName, 'Rating') as Rating, Attribute(FileLongName,
 'WMFSDKNeeded') as WMFSDKNeeded, Attribute(FileLongName, 'IsVBR') as
 IsVBR, Attribute(FileLongName, 'ASFLeakyBucketPairs') as
 ASFLeakyBucketPairs,
-
-
-
-
 
 Attribute(FileLongName, 'PeakValue') as PeakValue,
 Attribute(FileLongName, 'AverageLevel') as AverageLevel; LOAD @1:n as
@@ -739,25 +508,15 @@ PNG
 This script reads all possible PNG meta tags in folder
 <span class="path" data-conditions="Targets.NotToTranslate" style="font-weight: normal;" data-autonumposition="none">MyPictures.
 
-
-
 // Script to read PNG meta tags for each vExt in 'png' for each
 vFoundFile in filelist( GetFolderPath('MyPictures') & '\\\*.'& vExt
 )
-
-
-
-
 
 FileList: LOAD FileLongName, subfield(FileLongName,'\\',-1) as
 FileShortName, num(FileSize(FileLongName),'\# \#\#\# \#\#\#
 \#\#\#',',',' ') as FileSize, FileTime(FileLongName) as FileTime,
 Attribute(FileLongName, 'Comment') as
 Comment,
-
-
-
-
 
 Attribute(FileLongName, 'Creation Time') as Creation_Time,
 Attribute(FileLongName, 'Source') as Source, Attribute(FileLongName,
@@ -776,8 +535,6 @@ Next
 vExt
 ```
 
- 
-
 ## ConnectString - script function
 
 The ConnectString() function returns the name of the active data connection for ODBC or
@@ -785,7 +542,6 @@ OLE DB connections. The function returns an empty string if no **connect**
 statement has been executed, or after a **disconnect** statement.
 
 `ConnectString( )`
-
 
 Examples and results:
 
@@ -1068,13 +824,12 @@ Windows are added to the data model. Each field contains the path to the
 folder defined in input. For
     example:
 
-  - C:\\Users\\smu\\Music
+- C:\\Users\\smu\\Music
     for the folder
-       - C:\\Users\\smu\\Pictures
+- C:\\Users\\smu\\Pictures
     for the folder
-       - C:\\Windows
-    for the folder
-    Windows
+- C:\\Windows
+    for the folder Windows
 
 ## QvdCreateTime - script function
 
@@ -1148,8 +903,6 @@ NULL).
 </tbody>
 </table>
 
- 
-
 QvdFieldName ('MyFile.qvd', 3)
 QvdFieldName ('C:\\MyDir\\MyFile.qvd', 5)
 QvdFieldName ('lib://data\\MyFile.qvd',5)
@@ -1189,7 +942,7 @@ QvdNoOfFields ('MyFile.qvd')
 QvdNoOfFields ('C:\\MyDir\\MyFile.qvd')
 QvdNoOfFields ('lib://data\\MyFile.qvd')
 
-# QvdNoOfRecords - script function
+## QvdNoOfRecords - script function
 
 This script function returns the number of records currently in a QVD file.
 

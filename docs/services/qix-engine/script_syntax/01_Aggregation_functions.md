@@ -418,7 +418,7 @@ group by clause.
 | Argument        | Description                                                |
 | --------------- | ---------------------------------------------------------- |
 | expr Expression | The expression or field containing the data to be measured.|
-| distinct        | If the word  **distinct**  occurs before the expression, all duplicates are disregarded. | 
+| distinct        | If the word  **distinct**  occurs before the expression, all duplicates are disregarded. |
 
 Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in our app to see the

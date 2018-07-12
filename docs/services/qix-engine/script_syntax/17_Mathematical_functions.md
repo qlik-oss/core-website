@@ -1,67 +1,46 @@
-
-
-## MathConstantsAndParamFreeFunctions
-
 # Mathematical functions
 
-This section describes functions for mathematical constants and Boolean
-values. These functions do not have any parameters, but the parentheses
-are still required.
-
-All functions can be used in both the data load script and in chart
-expressions.
-
-e
+## e
 
 The function returns the base of the natural logarithms,
- **e** 
-(
-2.71828...).
+ **e** (2.71828...).
 
-e( )
+`e( )`
 
-false
+## false
 
 The function returns a dual value with text value 'False' and numeric
-value 0, which can be used as logical false in
-expressions.
+value 0, which can be used as logical false in expressions.
 
-false( )
+`false( )`
 
-pi
+## pi
 
-The function returns the value of
-<span style="font-family: &#39;Lucida Console&#39;;" data-conditions="Targets.NotToTranslate" data-autonumposition="none">π
-(3.14159...).
+The function returns the value of π (3.14159...).
 
-pi( )
+`pi( )`
 
-rand
+## rand
 
 The function returns a random number between 0 and 1. This can be used
-to create sample
-data.
+to create sample data.
 
-rand( )
-
- 
+`rand( )`
 
 This example script creates a table of 1000 records with randomly
 selected upper case characters, that is, characters in the range 65 to
 91
 (65+26).
 
-
-
+```
 Load Chr( Floor(rand() \* 26) + 65) as UCaseChar, RecNo() as ID
 Autogenerate 1000;
+```
 
-
-
-true
+## true
 
 The function returns a dual value with text value 'True' and numeric
 value -1, which can be used as logical true in
 expressions.
 
-true( )
+`true( )`
