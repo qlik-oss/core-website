@@ -582,7 +582,8 @@ user.region like "uk-*"
 
 #### **`matches`**
 
-The _matches_ operator returns `true` only if the left operand matches the **regular expression** given by the right operand.
+The _matches_ operator returns `true` only if the left operand matches the **regular expression**
+given by the right operand.
 
 |Returns|When   |
 |---    |---    |
@@ -605,3 +606,45 @@ user.region matches "us-[^-]+-(1|2)"
 
 This regular expression matches regions starting with `us-`, followed by one ore more characters that are anything but
 `-`, followed by `-1` or `-2`.
+
+## Adding an existing app
+
+To add an existing app (qvf) to an engine that is running access control, you must import the app.
+You can do this with the engine REST API.
+The access control feature requires the app to follow a specific file structure,
+which is created when an app is imported.
+
+### Example
+
+In this example, we describe how to import and enable access control for an app.
+For this example, we will import the
+[African Urbanization](https://github.com/qlik-oss/core-scaling) use case.
+
+First, we start the Qlik Associative Engine with the following parameters:
+
+```sh
+"-S", "AcceptEULA=no", # change to 'yes' if you accept the Qlik Core EULA
+"-S", "LicenseServiceUrl=<LicenseService adress>",
+"-S", "DocumentDirectory=<directory for doc>",
+"-S", "EnableABAC=1",
+"-S", "SystemAllowRulePath=<directory for rules>"
+```
+
+Next, we call the engine REST API to import the `Shared-Africa-Urbanization.qvf`:
+
+[POST /v1/apps/import](https://qlikcore.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
+
+```sh
+curl -s --data-binary @Shared-Africa-Urbanization.qvf http://<adress to engine>/v1/apps/import
+```
+
+The engine returns information about the import. It looks similar to this:
+
+```json
+{"attributes":{"id":"09aa1749-52a0-43ad-a525-3699d6e9f866","name":"","description":"","thumbnail":"","lastReloadTime":"2018-06-13T13:34:41.436Z","createdDate":"","modifiedDate":"","owner":"Personal\\Me","dynamicColor":"","published":false,"publishTime":"","custom":{},"_resourcetype":"app"},"privileges":["read","create","update","delete","reload","import","export","exportdata","publish","duplicate","approve"],"create":[{"resource":"\"sheet\"","canCreate":true},{"resource":"\"bookmark\"","canCreate":true},{"resource":"\"story\"","canCreate":true},{"resource":"\"dimension\"","canCreate":true},{"resource":"\"measure\"","canCreate":true},{"resource":"\"masterobject\"","canCreate":true},{"resource":"\"folderconnection\"","canCreate":true},{"resource":"\"internetconnection\"","canCreate":true}]}
+```
+
+Notice that the engine returns an `id` in the response body. This `id` is the name of the imported app.
+The `Shared-Africa-Urbanization.qvf` app now follows the same rules that are defined for access control.
+
+For more information, see this [commit](https://github.com/qlik-oss/core-scaling/commit/76689e7911a2c83312a43e32600d67f9c957bae7).
