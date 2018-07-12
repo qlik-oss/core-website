@@ -1,50 +1,31 @@
-
-## TrigonometricAndHyperbolicFunctions
-
 # Trigonometric and hyperbolic functions
 
-This section describes functions for performing trigonometric and
-hyperbolic operations. In all of the functions, the arguments are
-expressions resolving to angles measured in radians, where
- **x** 
-should be interpreted as a real number.
+## cos
 
-All angles are measured in radians.
-
-All functions can be used in both the data load script and in chart
-expressions.
-
-cos
-
-Cosine of
- **x** .
+Cosine of **x** .
 The result is a number between -1 and 1.
 
-cos( x )
+`cos( x )`
 
-acos
+## acos
 
-Inverse cosine of
- **x** .
-The function is only defined if
--1≤ **x** ≤1.
+Inverse cosine of **x** .
+The function is only defined if -1≤ **x** ≤1.
 The result is a number between 0 and
 <span style="font-family: Symbol;" data-autonumposition="none">p.
 
 acos( x )
 
-sin
+## sin
 
-Sine of
- **x** .
+Sine of **x** .
 The result is a number between -1 and 1.
 
-sin( x )
+`sin( x )`
 
-asin
+## asin
 
-Inverse sine of
- **x** .
+Inverse sine of **x** .
 The function is only defined if
 -1≤ **x** ≤1.
 The result is a number between -
@@ -52,77 +33,79 @@ The result is a number between -
 and
 <span style="font-family: Symbol;" data-autonumposition="none">p/2.
 
-asin( x )
+`asin( x )`
 
-tan
+## tan
 
-Tangent of
- **x** .
+Tangent of **x** .
 The result is a real number.
 
-tan( x )
+`tan( x )`
 
-atan
+## atan
 
-Inverse tangent of
- **x** .
+Inverse tangent of **x** .
 The result is a number between -
 <span style="font-family: Symbol;" data-autonumposition="none">p/2
 and
 <span style="font-family: Symbol;" data-autonumposition="none">p/2.
 
-atan( x )
+`atan( x )`
 
-atan2
+## atan2
 
 Two-dimensional generalization of the inverse tangent function. Returns
 the angle between the origin and the point represented by the
-coordinates
- **x** 
-and
- **y** .
+coordinates **x** and **y** .
 The result is a number between -
 <span style="font-family: Symbol;" data-autonumposition="none">p
 and +
 <span style="font-family: Symbol;" data-autonumposition="none">p.
 
-atan2( y,x )
+`atan2( y,x )`
 
-cosh
+## cosh
 
-Hyperbolic cosine of
- **x** .
+Hyperbolic cosine of **x** .
 The result is a positive real number.
 
-cosh( x )
+`cosh( x )`
 
-sinh
+## sinh
 
-Hyperbolic sine of
- **x** .
+Hyperbolic sine of **x**.
 The result is a real number.
 
-sinh( x )
+`sinh( x )`
 
-tanh
+## tanh
 
-Hyperbolic tangent of
- **x** .
+Hyperbolic tangent of **x** .
 The result is a real number.
 
-tanh( x )
-
- 
+`tanh( x )`
 
 The following script code loads a sample table, and then loads a table
 containing the calculated trigonometric and hyperbolic operations on the
 values.
 
+```
+SampleData:
+LOAD * Inline [Value -1 0 1];
 
+Results:
+Load *,
+cos(Value),
+acos(Value),
+sin(Value),
+asin(Value),
+tan(Value),
+atan(Value),
+atan2(Value, Value),
+cosh(Value),
+sinh(Value),
+tanh(Value)
+RESIDENT SampleData;
 
-SampleData: LOAD \* Inline [Value -1 0 1]; Results: Load \*,
-cos(Value), acos(Value), sin(Value), asin(Value), tan(Value),
-atan(Value), atan2(Value, Value), cosh(Value), sinh(Value), tanh(Value)
-RESIDENT SampleData; Drop Table
-SampleData;
-
+Drop Table SampleData;
+```
