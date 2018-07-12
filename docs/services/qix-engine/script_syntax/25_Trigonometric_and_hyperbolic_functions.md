@@ -2,53 +2,53 @@
 
 ## cos
 
-Cosine of **x** .
+Cosine of **x**.
 The result is a number between -1 and 1.
 
 `cos( x )`
 
 ## acos
 
-Inverse cosine of **x** .
+Inverse cosine of **x**.
 The function is only defined if -1≤ **x** ≤1.
 The result is a number between 0 and
-<span style="font-family: Symbol;" data-autonumposition="none">p.
+<span style='font-family: Symbol;' data-autonumposition='none'>p.</span>
 
-acos( x )
+`acos( x )`
 
 ## sin
 
-Sine of **x** .
+Sine of **x**.
 The result is a number between -1 and 1.
 
 `sin( x )`
 
 ## asin
 
-Inverse sine of **x** .
+Inverse sine of **x**.
 The function is only defined if
 -1≤ **x** ≤1.
 The result is a number between -
-<span style="font-family: Symbol;" data-autonumposition="none">p/2
+<span style='font-family: Symbol;' data-autonumposition='none'>p/2</span>
 and
-<span style="font-family: Symbol;" data-autonumposition="none">p/2.
+<span style='font-family: Symbol;' data-autonumposition='none'>p/2</span>.
 
 `asin( x )`
 
 ## tan
 
-Tangent of **x** .
+Tangent of **x**.
 The result is a real number.
 
 `tan( x )`
 
 ## atan
 
-Inverse tangent of **x** .
+Inverse tangent of **x**.
 The result is a number between -
-<span style="font-family: Symbol;" data-autonumposition="none">p/2
+<span style='font-family: Symbol;' data-autonumposition='none'>p/2</span>
 and
-<span style="font-family: Symbol;" data-autonumposition="none">p/2.
+<span style='font-family: Symbol;' data-autonumposition='none'>p/2</span>.
 
 `atan( x )`
 
@@ -56,17 +56,17 @@ and
 
 Two-dimensional generalization of the inverse tangent function. Returns
 the angle between the origin and the point represented by the
-coordinates **x** and **y** .
+coordinates **x** and **y**.
 The result is a number between -
-<span style="font-family: Symbol;" data-autonumposition="none">p
+<span style='font-family: Symbol;' data-autonumposition='none'>p</span>
 and +
-<span style="font-family: Symbol;" data-autonumposition="none">p.
+<span style='font-family: Symbol;' data-autonumposition='none'>p</span>.
 
 `atan2( y,x )`
 
 ## cosh
 
-Hyperbolic cosine of **x** .
+Hyperbolic cosine of **x**.
 The result is a positive real number.
 
 `cosh( x )`
