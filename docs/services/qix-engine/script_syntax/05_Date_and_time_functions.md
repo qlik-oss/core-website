@@ -1,6 +1,6 @@
 # Date and Time functions
 
-## addmonths - script and chart function
+## addmonths
 
 This function returns the date occurring **n** months after **startdate** 
 or, if **n** is negative, the date occurring **n** months before
@@ -28,7 +28,7 @@ Examples and results:
 | addmonths ('2003-02-28',1,0) | returns '2003-03-28' |
 | addmonths ('2003-02-28',1,1) | returns '2003-03-31' |
 
-## addyears - script and chart function
+## addyears
 
 This function returns the date occurring **n** years after **startdate** 
 or, if **n** is negative, the date occurring **n** 
@@ -50,7 +50,7 @@ Examples and results:
 | addyears ('2010-01-29',3)  | returns '2013-01-29' |
 | addyears ('2010-01-29',-1) | returns '2009-01-29' |
 
-## age - script and chart function
+## age
 
 The **age** function returns the age at the time of
  **timestamp** (in completed years) of somebody born on
@@ -194,7 +194,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## converttolocaltime - script and chart function
+## converttolocaltime
 
 Converts a UTC or GMT timestamp to local time as a dual value. The place
 can be any of a number of cities, places and time zones around the
@@ -387,7 +387,7 @@ Examples and results:
 | ConvertToLocalTime(UTC(), 'GMT-05:00', True)      | Returns the time for the North American east coast, for example, New York, without daylight-saving time adjustment. |
 
 
-## day - script and chart function
+## day
 
 This function returns an integer representing the day when the fraction of the **expression** 
 is interpreted as a date according to the standard number interpretation.
@@ -403,7 +403,7 @@ Examples and results:
 | day( '1971-10-12' ) | returns 12                            |
 | day( '35648' )      | returns 6, because 35648 = 1997-08-06 |
 
-## dayend - script and chart function
+## dayend
 
 This function returns a value corresponding to a timestamp of the final millisecond of the day contained in **time** .
 The default output format will be the **TimestampFormat** set in the script.
@@ -538,7 +538,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## daylightsaving - script and chart function
+## daylightsaving
 
 Returns the current adjustment for daylight saving time, as defined in Windows.
 
@@ -546,7 +546,7 @@ Returns the current adjustment for daylight saving time, as defined in Windows.
 
 **Return data type:** dual
 
-## dayname - script and chart function
+## dayname
 
 This function returns a value showing the date with an underlying
 numeric value corresponding to a timestamp of the first millisecond of
@@ -683,7 +683,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## daynumberofquarter - script and chart function
+## daynumberofquarter
 
 This function calculates the day number of the quarter in which a timestamp falls.
 
@@ -793,7 +793,7 @@ In this case, the first quarter starts with March (because start_month is specif
 </tbody>
 </table>
 
-## daynumberofyear - script and chart function
+## daynumberofyear
 
 This function calculates the day number of the year in which a timestamp
 falls. The calculation is made from the first millisecond of the first
@@ -906,7 +906,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## daystart - script and chart function
+## daystart
 
 This function returns a value corresponding to a timestamp with the
 first millisecond of the day contained in the **time** 
@@ -1045,7 +1045,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## firstworkdate - script and chart function
+## firstworkdate
 
 The **firstworkdate** function returns the latest starting date to achieve **no_of_workdays** 
 (Monday-Friday) ending no later than **end_date** taking into account any optionally listed holidays.
@@ -1177,7 +1177,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## GMT - script and chart function
+## GMT
 
 This function returns the current Greenwich Mean Time, as derived from
 the system clock and Windows time settings.
@@ -1187,7 +1187,7 @@ the system clock and Windows time settings.
 **Return data type:** dual
 
 
-## hour - script and chart function
+## hour
 
 This function returns an integer representing the hour when the fraction
 of the **expression** 
@@ -1205,7 +1205,7 @@ Examples and results:
 | hour( '09:14:36' ) | returns 9                                |
 | hour( '0.5555' )   | returns 13 ( Because 0.5555 = 13:19:55 ) |
 
-## inday - script and chart function
+## inday
 
 This function returns True if **timestamp** lies inside the day containing **base_timestamp**.
 
@@ -1348,7 +1348,7 @@ Examples and results:
 </tbody>
 </table>
 
-### indaytotime - script and chart function
+### indaytotime
 
 This function returns True if **timestamp** lies inside the part of day containing **base_timestamp** 
 up until and including the exact millisecond of **base_timestamp** .
@@ -1482,7 +1482,7 @@ Examples and results:
 </tbody>
 </table>
 
-### inlunarweek - script and chart function
+### inlunarweek
 
 This function finds if **timestamp** lies inside the lunar week containing **base_date**.
 Lunar weeks in Qlik Sense are defined by counting 1 January as the first day of the week.
@@ -1625,7 +1625,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inlunarweektodate - script and chart function
+## inlunarweektodate
 
 This function finds if **timestamp** lies inside the part of the lunar week up to and including the last
 millisecond of **base_date**.
@@ -1761,7 +1761,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inmonth - script and chart function
+## inmonth
 
 This function returns True if **timestamp** lies inside the month containing **base_date** .
 
@@ -1896,7 +1896,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inmonths - script and chart function
+## inmonths
 
 This function finds if a timestamp falls within the same month,
 bi-month, quarter, tertial, or half-year as a base date.It is also
@@ -2042,7 +2042,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## inmonthstodate - script and chart function
+## inmonthstodate
 
 This function finds if a timestamp falls within the part a period of the
 month, bi-month, quarter, tertial, or half-year up to and including the
@@ -2191,7 +2191,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## inmonthtodate - script and chart function
+## inmonthtodate
 
 Returns True if **date** lies inside the part of month containing **basedate** 
 up until and including the last millisecond of **basedate**.
@@ -2322,7 +2322,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inquarter - script and chart function
+## inquarter
 
 This function returns True if **timestamp** 
 lies inside the quarter containing **base_date** .
@@ -2466,7 +2466,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inquartertodate - script and chart function
+## inquartertodate
 
 This function returns True if **timestamp** lies inside the part of the quarter containing
  **base_date** up until and including the last millisecond of **base_date** .
@@ -2598,7 +2598,7 @@ Examples and results:
 </tbody>
 </table>
 
-## inweek - script and chart function
+## inweek
 
 This function returns True if **timestamp** 
 lies inside the week containing **base_date**.
@@ -2740,7 +2740,7 @@ Because first_week_day is specified as 3 (Thursday), which makes 12/01/2006 the 
 </tbody>
 </table>
 
-## inweektodate - script and chart function
+## inweektodate
 
 This function returns True if **timestamp** 
 lies inside the part of week containing **base_date** up until and including the last millisecond of **base_date**.
@@ -2878,7 +2878,7 @@ Because first_week_day is specified as 3 (Thursday), which makes 12/01/2006 the 
 </tbody>
 </table>
 
-## inyear - script and chart function
+## inyear
 
 This function returns True if **timestamp** lies inside the year containing **base_date** .
 
@@ -3030,7 +3030,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## inyeartodate - script and chart function
+## inyeartodate
 
 This function returns True if **timestamp** lies inside the part of year containing **base_date** 
 up until and including the last millisecond of **base_date**.
@@ -3172,7 +3172,7 @@ Compared with the previous example, the value of timestamp is still inside the f
 </tbody>
 </table>
 
-## lastworkdate - script and chart function
+## lastworkdate
 
 The **lastworkdate** function returns the earliest ending date to achieve **no_of_workdays** 
 (Monday-Friday) if starting at **start_date** taking into account any optionally listed. **start_date**
@@ -3302,7 +3302,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## localtime - script and chart function
+## localtime
 
 This function returns a timestamp of the current time from the system
 clock for a specified time zone.
@@ -3344,7 +3344,7 @@ GMT+01:00.
 | localtime ('GMT+02:00')  | Returns the local time in the timezone of GMT+02:00, 2014-10-22 13:54:47.                |
 | localtime ('Paris','-1') | Returns the local time in Paris with daylight savings time ignored, 2014-10-22 11:54:47. |
 
-## lunarweekend - script and chart function
+## lunarweekend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the lunar week containing **date**.
@@ -3482,7 +3482,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## lunarweekname - script and chart function
+## lunarweekname
 
 This function returns a display value showing the year and lunar week
 number corresponding to a timestamp of the first millisecond of the
@@ -3620,7 +3620,7 @@ Examples and results:
 </tbody>
 </table>
 
-## lunarweekstart - script and chart function
+## lunarweekstart
 
 This function returns a value corresponding to a timestamp of the first
 millisecond of the lunar week containing **date** .
@@ -3764,7 +3764,7 @@ Because the offset specified by setting first_week_day to 1 means the beginning 
 </tbody>
 </table>
 
-## makedate - script and chart function
+## makedate
 
 This function returns a date calculated from the year **YYYY** ,
 the month **MM** and the day **DD** .
@@ -3806,7 +3806,7 @@ Examples and results:
 | makedate(2012,12)   | returns 2012-12-01 |
 | makedate(2012,2,14) | returns 2012-02-14 |
 
-## maketime - script and chart function
+## maketime
 
 This function returns a time calculated from the hour **hh**, the minute **mm**,
 and the second **ss**.
@@ -3849,7 +3849,7 @@ results:
 | maketime( 22, 17 )     | returns 22:17:00 |
 | maketime( 22, 17, 52 ) | returns 22:17:52 |
 
-## makeweekdate - script and chart function
+## makeweekdate
 
 This function returns a date calculated from the year **YYYY** ,the week **WW** 
 and the day-of-week **D**.
@@ -3891,7 +3891,7 @@ results:
 | makeweekdate(2014,6,1) | returns 2014-02-04                        |
 | makeweekdate(2014,6)   | returns 2014-02-03 (weekday 0 is assumed) |
 
-### minute - script and chart function
+### minute
 
 This function returns an integer representing the minute when the
 fraction of the **expression** 
@@ -3908,7 +3908,7 @@ Examples and results:
 | minute ( '09:14:36' ) | returns 14                               |
 | minute ( '0.5555' )   | returns 19 ( Because 0.5555 = 13:19:55 ) |
 
-## month - script and chart function
+## month
 
 This function returns a dual value: a month name as defined in the
 environment variable **MonthNames**  and an integer between 1-12. The month is calculated from the date
@@ -3926,7 +3926,7 @@ Examples and results:
 | month( '2012-10-12' ) | returns Oct                             |
 | month( '35648' )      | returns Aug, because 35648 = 1997-08-06 |
 
-## monthend - script and chart function
+## monthend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the last day of the month containing **date**.
@@ -4059,7 +4059,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## monthname - script and chart function
+## monthname
 
 This function returns a display value showing the month (formatted
 according to the **MonthNames** script variable) and year with an underlying numeric value corresponding
@@ -4193,7 +4193,7 @@ Because in this and the other examples, the ** SET Monthnames**  statement is s
 </tbody>
 </table>
 
-## monthsend - script and chart function
+## monthsend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the month, bi-month, quarter, tertial, or half-year
@@ -4335,7 +4335,7 @@ Because the start of the year becomes month 2.</td>
 </tbody>
 </table>
 
-## monthsname - script and chart function
+## monthsname
 
 This function returns a display value representing the range of the
 months of the period (formatted according to the **MonthNames** 
@@ -4481,7 +4481,7 @@ Because the year is specified to begin in month 2, therefore the four-month peri
 </tbody>
 </table>
 
-## monthsstart - script and chart function
+## monthsstart
 
 This function returns a value corresponding to the timestamp of the
 first millisecond of the month, bi-month, quarter, tertial, or half-year
@@ -4622,7 +4622,7 @@ Because the start of the year becomes month 2.</td>
 </tbody>
 </table>
 
-## monthstart - script and chart function
+## monthstart
 
 This function returns a value corresponding to a timestamp of the first
 millisecond of the first day of the month containing **date** .
@@ -4754,7 +4754,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## networkdays - script and chart function
+## networkdays
 
 The **networkdays** function returns the number of working days (Monday-Friday) between and
 including **start_date** and **end_date** taking into account any optionally listed **holiday**.
@@ -4935,7 +4935,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## now - script and chart function
+## now
 
 This function returns a timestamp of the current time from the system
 clock. The default value is 1.
@@ -4993,7 +4993,7 @@ If you use the function in a data load script,  **timer_mode=0 will result in th
 </tbody>
 </table>
 
-## quarterend - script and chart function
+## quarterend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the quarter containing **date** .
@@ -5130,7 +5130,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## quartername - script and chart function
+## quartername
 
 This function returns a display value showing the months of the quarter
 (formatted according to the **MonthNames** script variable) and year with an underlying numeric value corresponding
@@ -5270,7 +5270,7 @@ Examples and results:
 </tbody>
 </table>
 
-## quarterstart - script and chart function
+## quarterstart
 
 This function returns a value corresponding to a timestamp of the first
 millisecond of the quarter containing **date**.
@@ -5410,7 +5410,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## second - script and chart function
+## second
 
 This function returns an integer representing the second when the
 fraction of the **expression** is interpreted as a time according to the standard number interpretation.
@@ -5426,7 +5426,7 @@ Examples and results:
 | second( '09:14:36' ) | returns 36                               |
 | second( '0.5555' )   | returns 55 ( Because 0.5555 = 13:19:55 ) |
 
-## setdateyear - script and chart function
+## setdateyear
 
 This function takes as input a timestamp and a year and updates the
 timestamp with the year specified in input.
@@ -5556,7 +5556,7 @@ To see the time part of the timestamp in a visualization, you must set the numbe
 </tbody>
 </table>
 
-## setdateyearmonth - script and chart function
+## setdateyearmonth
 
 This function takes as input a **timestamp**,
 a month and a year and updates the timestamp with the **year** 
@@ -5679,7 +5679,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## timezone - script and chart function
+## timezone
 
 This function returns the name of the current time zone, as defined in Windows.
 
@@ -5687,7 +5687,7 @@ This function returns the name of the current time zone, as defined in Windows.
 
 **Return data type:** string
 
-## today - script and chart function
+## today
 
 This function returns the current date from the system clock.
 
@@ -5742,7 +5742,7 @@ If you use the function in a data load script,  **timer_mode=0 will result in th
 </tbody>
 </table>
 
-## UTC - script and chart function
+## UTC
 
 Returns the current Coordinated Universal Time.
 
@@ -5750,7 +5750,7 @@ Returns the current Coordinated Universal Time.
 
 **Return data type:** dual
 
-# week - script and chart function
+# week
 
 This function returns an integer representing the week number according
 to ISO 8601. The week number is calculated from the date interpretation
@@ -5832,7 +5832,7 @@ Examples and results:
 | week( '35648' )          | returns 32, because 35648 = 1997-08-06 |
 | week('2012-10-12', 0, 1) | returns 42                             |
 
-## weekday - script and chart function
+## weekday
 
 This function returns a dual value with:
 
@@ -5903,7 +5903,7 @@ weekday( '1971-10-12')</td>
 </tbody>
 </table>
 
-## weekend - script and chart function
+## weekend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the last day (Sunday) of the calendar week containing **date** 
@@ -6071,7 +6071,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## weekname - script and chart function
+## weekname
 
 This function returns a value showing the year and week number with an
 underlying numeric value corresponding to a timestamp of the first
@@ -6229,7 +6229,7 @@ Examples and results:
 </tbody>
 </table>
 
-## weekstart - script and chart function
+## weekstart
 
 This function returns a value corresponding to a timestamp of the first
 millisecond of the first day (Monday) of the calendar week containing
@@ -6398,7 +6398,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## weekyear - script and chart function
+## weekyear
 
 This function returns the year to which the week number belongs
 according to ISO 8601. The week number ranges between 1 and
@@ -6425,7 +6425,7 @@ start with week #53 of previous year, e.g. January 1999. For those few
 days when the week number belongs to another year, the functions
  **year** and **weekyear** will return different values.
 
-## year - script and chart function
+## year
 
 This function returns an integer representing the year when the
  **expression** is interpreted as a date according to the standard number
@@ -6442,7 +6442,7 @@ Examples and results:
 | year( '2012-10-12' ) | returns 2012                             |
 | year( '35648' )      | returns 1997, because 35648 = 1997-08-06 |
 
-## yearend - script and chart function
+## yearend
 
 This function returns a value corresponding to a timestamp of the last
 millisecond of the last day of the year containing **date**.
@@ -6580,7 +6580,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## yearname - script and chart function
+## yearname
 
 This function returns a four-digit year as display value with an
 underlying numeric value corresponding to a timestamp of the first
@@ -6720,7 +6720,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## yearstart - script and chart function
+## yearstart
 
 This function returns a timestamp corresponding to the start of the
 first day of the year containing **date**.
@@ -6858,7 +6858,7 @@ the format in the examples to suit your requirements.
 </tbody>
 </table>
 
-## yeartodate - script and chart function
+## yeartodate
 
 This function finds if the input timestamp falls within the year of the
 date the script was last loaded, and returns True if it does, False if

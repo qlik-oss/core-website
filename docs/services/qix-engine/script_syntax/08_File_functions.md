@@ -535,7 +535,7 @@ Next
 vExt
 ```
 
-## ConnectString - script function
+## ConnectString
 
 The ConnectString() function returns the name of the active data connection for ODBC or
 OLE DB connections. The function returns an empty string if no **connect** 
@@ -563,7 +563,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FileBaseName - script function
+## FileBaseName
 
 The FileBaseName function returns a string containing the name of the table file
 currently being read, without path or extension.
@@ -588,7 +588,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FileDir - script function
+## FileDir
 
 The FileDir function returns a string containing the path to the directory of the
 table file currently being read.
@@ -616,7 +616,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FileExtension - script function
+## FileExtension
 
 The FileExtension function returns a string containing the extension of the table file
 currently being read.
@@ -641,7 +641,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FileName - script function
+## FileName
 
 The FileName function returns a string containing the name of the table file
 currently being read, without path but including the extension.
@@ -666,7 +666,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FilePath - script function
+## FilePath
 
 The FilePath function returns a string containing the full path to the table file
 currently being read.
@@ -695,7 +695,7 @@ Examples and results:
 </tbody>
 </table>
 
-## FileSize - script function
+## FileSize
 
 The FileSize function returns an integer containing the size in bytes of the file
 filename or, if no filename is specified, of the table file currently
@@ -735,7 +735,7 @@ Examples and results:
 | LOAD *, FileSize( ) as X from abc.txt; | Will return the size of the specified file (abc.txt) as an integer in field X in each record read. |
 | FileSize( 'lib://MyData/xyz.xls' )      | Will return the size of the file xyz.xls.|
 
-## FileTime - script function
+## FileTime
 
 The FileTime function returns a timestamp for the date and time of the last
 modification of the file filename. If no filename is specified, the
@@ -776,7 +776,7 @@ results:
 | LOAD *, FileTime( ) as X from abc.txt;  | Will return the date and time of the last modification of the file (abc.txt) as a timestamp in field X in each record read. |
 | FileTime( 'xyz.xls' )                   | Will return the timestamp of the last modification of the file xyz.xls.|
 
-# GetFolderPath - script function
+# GetFolderPath
 
 The GetFolderPath function returns the value of the Microsoft Windows SHGetFolderPath
 function. This function takes as input the name of a Microsoft Windows
@@ -831,7 +831,7 @@ folder defined in input. For
 - C:\\Windows
     for the folder Windows
 
-## QvdCreateTime - script function
+## QvdCreateTime
 
 This script function returns the XML-header time stamp from a QVD file,
 if any is present, otherwise it returns NULL.
@@ -867,7 +867,7 @@ QvdCreateTime('MyFile.qvd')
 QvdCreateTime('C:\\MyDir\\MyFile.qvd')
 QvdCreateTime('lib://data\\MyFile.qvd')
 
-## QvdFieldName - script function
+## QvdFieldName
 
 This script function returns the name of field number **fieldno**, if it exists in a QVD file (otherwise
 NULL).
@@ -907,7 +907,7 @@ QvdFieldName ('MyFile.qvd', 3)
 QvdFieldName ('C:\\MyDir\\MyFile.qvd', 5)
 QvdFieldName ('lib://data\\MyFile.qvd',5)
 
-## QvdNoOfFields - script function
+## QvdNoOfFields
 
 This script function returns the number of fields in a QVD file.
 
@@ -942,7 +942,7 @@ QvdNoOfFields ('MyFile.qvd')
 QvdNoOfFields ('C:\\MyDir\\MyFile.qvd')
 QvdNoOfFields ('lib://data\\MyFile.qvd')
 
-## QvdNoOfRecords - script function
+## QvdNoOfRecords
 
 This script function returns the number of records currently in a QVD file.
 
@@ -979,7 +979,7 @@ QvdNoOfRecords ('MyFile.qvd')
 QvdNoOfRecords ('C:\\MyDir\\MyFile.qvd')
 QvdNoOfRecords ('lib://data\\MyFile.qvd')
 
-## QvdTableName - script function
+## QvdTableName
 
 This script function returns the name of the table stored in a QVD file.
 

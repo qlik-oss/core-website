@@ -1,6 +1,6 @@
 # NULL functions
 
-## IsNull - script and chart function
+## IsNull
 
 The IsNull function tests if the value of an expression is NULL and if
 so, returns -1 (True), otherwise 0 (False).
@@ -39,7 +39,7 @@ values are represented by -.
 | 2  | \-    | \-            | T        |
 | 3  | Value | Value         | F        |
 
-## NULL - script and chart function
+## NULL
 
 The **Null** function returns a NULL value.
 

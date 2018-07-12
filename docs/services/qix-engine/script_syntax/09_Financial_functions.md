@@ -1,6 +1,6 @@
 # Financial functions
 
-## BlackAndSchole - script and chart function
+## BlackAndSchole
 
 The Black and Scholes model is a mathematical model for financial market derivative instruments. The formula calculates the theoretical value of an option. In Qlik Sense, the BlackAndSchole function returns the value according to the Black and Scholes unmodified formula (European style options).
 
@@ -21,7 +21,7 @@ Limitations:
 The value of strike, time_left, and underlying_price must be >0.
 The value of vol and risk_free_rate must be: <0 or >0.
 
-## FV - script and chart function
+## FV
 
 This function returns the future value of an investment based on
 periodic, constant payments and a simple annual interest.
@@ -56,7 +56,7 @@ Examples and results:
 </tbody>
 </table>
 
-## nPer - script and chart function
+## nPer
 
 This function returns the number of periods for an investment based on
 periodic, constant payments and a constant interest rate.
@@ -92,7 +92,7 @@ Examples and results:
 </tbody>
 </table>
 
-## Pmt - script and chart function
+## Pmt
 
 This function returns the payment for a loan based on periodic, constant
 payments and a constant interest rate.
@@ -136,7 +136,7 @@ Examples and results:
 </tbody>
 </table>
 
-## PV - script and chart function
+## PV
 
 This function returns the present value of an investment.
 
@@ -174,7 +174,7 @@ Examples and results:
 </tbody>
 </table>
 
-## Rate - script and chart function
+## Rate
 
 This function returns the interest rate per period on annuity. The
 result has a default number format of

@@ -1,7 +1,7 @@
 
 # Mapping Functions
 
-### ApplyMap - script function
+### ApplyMap
 
 The ApplyMap script function is used for mapping the output of an expression to a
 previously loaded mapping table.
@@ -65,7 +65,7 @@ The resulting table looks like this:
 | Ole         | Norway            |
 | Risttu      | Rest of the world |
 
-## MapSubstring - script function
+## MapSubstring
 
 The MapSubstring script function is used to map parts of any expression to a previously
 loaded mapping table. The mapping is case sensitive and non-iterative,

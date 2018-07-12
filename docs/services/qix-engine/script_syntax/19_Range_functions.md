@@ -1,6 +1,6 @@
 # Range functions
 
-# RangeIRR - script function
+# RangeIRR
 
 RangeIRR() returns the internal rate of return for a series of cash flows
 represented by the input values.
@@ -96,7 +96,7 @@ RangeIRR(above(sum(value), 0, 10))
 
 RangeIRR(above(total value, 0, rowno(total)))
 
-## RangeNPV - script function
+## RangeNPV
 
 RangeNPV()
 returns the net present value of an investment based on a discount rate
@@ -205,7 +205,7 @@ RangeNPV(0.05, above(sum(value), 0, 10))
 RangeNPV(0.05, above(total value, 0, rowno(total)))
 
 
-# RangeXIRR - script function
+# RangeXIRR
 
 RangeXIRR()
 returns the internal rate of return for a schedule of cash flows that is
@@ -245,7 +245,7 @@ year.
 *RangeIRR - script
 function*
 
-# RangeXNPV - script function
+# RangeXNPV
 
 RangeXNPV()
 returns the net present value for a schedule of cash flows that is not

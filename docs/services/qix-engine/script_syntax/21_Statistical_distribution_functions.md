@@ -1,6 +1,6 @@
 # Statistical distribution functions
 
-## CHIDIST - script and chart function
+## CHIDIST
 
 CHIDIST() returns the one-tailed probability of the chi<sup>2</sup> distribution.
 The chi<sup>2</sup> distribution is associated with a ch<sup>i2</sup>
@@ -26,7 +26,7 @@ Examples and results:
 | --------------- | -------------- |
 | CHIDIST( 8, 15) | Returns 0.9238 |
 
-## CHIINV - script and chart function
+## CHIINV
 
 CHIINV() returns the inverse of the one-tailed probability of the chi<sup>2</sup>
 distribution.
@@ -51,7 +51,7 @@ Examples and results:
 | ---------------------- | -------------- |
 | CHIINV(0.9237827, 15 ) | Returns 8.0000 |
 
-## FDIST - script and chart function
+## FDIST
 
 FDIST() returns the F-probability distribution.
 
@@ -76,7 +76,7 @@ Examples and results:
 | --------------- | -------------- |
 | FDIST(15, 8, 6) | Returns 0.0019 |
 
-## FINV - script and chart function
+## FINV
 
 FINV() returns the inverse of the F-probability distribution.
 
@@ -100,7 +100,7 @@ Examples and results:
 | ---------------------- | --------------- |
 | FINV( 0.0019369, 8, 6) | Returns 15.0000 |
 
-## NORMDIST - script and chart function
+## NORMDIST
 
 NORMDIST() returns the cumulative normal distribution for the specified mean and
 standard deviation. If mean = 0 and standard_dev = 1, the function
@@ -127,7 +127,7 @@ Examples and results:
 | -------------------- | -------------- |
 | NORMDIST( 0.5, 0, 1) | Returns 0.6915 |
 
-## NORMINV - script and chart function
+## NORMINV
 
 NORMINV() returns the inverse of the normal cumulative distribution for the
 specified mean and standard deviation.
@@ -153,7 +153,7 @@ Examples and results:
 | -------------------------- | -------------- |
 | NORMINV( 0.6914625, 0, 1 ) | Returns 0.5000 |
 
-## TDIST - script and chart function
+## TDIST
 
 TDIST() returns the probability for the Student's t-distribution where a numeric
 value is a calculated value of t for which the probability is to be
@@ -179,7 +179,7 @@ Examples and results:
 | --------------- | -------------- |
 | TDIST(1, 30, 2) | Returns 0.3253 |
 
-## TINV - script and chart function
+## TINV
 
 TINV() returns the t-value of the Student's t-distribution as a function of the
 probability and the degrees of freedom.

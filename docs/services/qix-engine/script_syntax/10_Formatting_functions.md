@@ -1,6 +1,6 @@
 # Formatting functions
 
-## ApplyCodepage - script and chart function
+## ApplyCodepage
 
  **ApplyCodepage()** applies a different code page character set to the field or text stated
 in the expression. The **codepage** argument must be in number format.
@@ -46,7 +46,7 @@ Examples and results:
 </tbody>
 </table>
 
-## Date - script and chart function
+## Date
 
 Date() formats an expression as a date using the format set in the
 system variables in the data load script, or the operating system, or a
@@ -142,7 +142,7 @@ NULL
 
 35648
 
-### Dual - script and chart function
+### Dual
 
  **Dual()** combines a number and a string into a single record, such that the
 number representation of the record can be used for sorting and
@@ -208,7 +208,7 @@ Examples and results:
 </tbody>
 </table>
 
-## Interval - script and chart function
+## Interval
 
 Interval() formats a number as a time interval using the format in the system
 variables in the data load script, or the operating system, or a format
@@ -271,7 +271,7 @@ where A=97-08-06 09:00:00 and B=96-08-06 00:00:00</td>
 </tbody>
 </table>
 
-## Money - script and chart function
+## Money
 
  **Money()** formats an expression numerically as a money value, in the format set in
 the system variables set in the data load script, or in the operating
@@ -341,7 +341,7 @@ Number:
 
 3564800
 
-## Num - script and chart function
+## Num
 
 Num() formats
 an expression numerically in the number format set in the system
@@ -447,7 +447,7 @@ Number:
 </tbody>
 </table>
 
-## Time - script and chart function
+## Time
 
 Time()
 formats an expression as a time value, in the time format set in the
@@ -527,7 +527,7 @@ Number:
 
 0.99999
 
-## Timestamp - script and chart function
+## Timestamp
 
 TimeStamp() formats an expression as a date and time value, in the timestamp format
 set in the system variables in the data load script, or in the operating

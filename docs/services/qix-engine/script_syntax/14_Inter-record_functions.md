@@ -2,7 +2,7 @@
 
 ## InterRecordFunctions
 
-# Exists - script function
+# Exists
 
  **Exists()** 
 determines whether a specific field value has already been loaded into
@@ -203,7 +203,7 @@ Name);
 Drop Tables Employees,
 Citizens;
 
-# LookUp - script function
+# LookUp
 
  **Lookup()** 
 looks into a table that is already loaded and returns the value of
@@ -383,7 +383,7 @@ table. However, it is slow compared with the Applymap() function.
 *ApplyMap - script
 function*
 
-# Peek - script function
+# Peek
 
  **Peek()** 
 finds the value of a field in a table for a row that has already been
@@ -679,7 +679,7 @@ Creates an accumulation of B in Bsum.
 *Previous - script
 function*
 
-# Previous - script function
+# Previous
 
  **Previous()** 
 finds the value of the

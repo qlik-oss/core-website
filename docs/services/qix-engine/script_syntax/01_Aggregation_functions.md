@@ -1,6 +1,6 @@
 # Basic aggregation functions
 
-## FirstSortedValue - script function
+## FirstSortedValue
 
  **FirstSortedValue()** returns the value from the expression specified in value that corresponds to the result of sorting the **sort_weight** argument, for example, the name of the product with the lowest unit price. The nth value in the sort order, can be specified in **rank**.
 If more than one resulting value shares the same **sort_weight** for the specified **rank** , the function returns NULL. The sorted values are iterated over a number
@@ -85,7 +85,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## Max - script function
+## Max
 
  **Max()** finds the highest numeric value of the aggregated data in the
 expression, as defined by a group by clause. By specifying a
@@ -158,7 +158,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## Min - script function
+## Min
 
  **Min()** returns the lowest numeric value of the aggregated data in the
 expression, as defined by a group by clause. By specifying a
@@ -231,7 +231,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-### Mode - script function
+### Mode
 
  **Mode()** returns the most commonly-occurring value, the mode value, of the
 aggregated data in the expression, as defined by a
@@ -287,7 +287,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## Only - script function
+## Only
 
  **Only()** returns a value if there is one and only one possible result from the
 aggregated data. If records contain only one value then that value is
@@ -347,7 +347,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## Sum - script function
+## Sum
 
  **Sum()**  calculates the total of the values aggregated in the expression, as defined by a group by clause.
 
@@ -406,7 +406,7 @@ numerical and alphabetical sorting.
 
 # Counter Aggregation functions
 
-## Count - script function
+## Count
 
  **Count()** returns the number of values aggregated in expression, as defined by a
 group by clause.
@@ -476,7 +476,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-### MissingCount - script function
+### MissingCount
 
  **MissingCount()** returns the number of missing values aggregated in the expression, as
 defined by a group by clause.
@@ -546,7 +546,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## NullCount - script function
+## NullCount
 
  **NullCount()** returns the number of NULL values aggregated in the expression, as
 defined by a group by clause.
@@ -609,7 +609,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-# NumericCount - script function
+# NumericCount
 
 NumericCount() returns the number of numeric values found in the
 expression, as defined by a group by clause.
@@ -691,7 +691,7 @@ Because there is one OrderNumber that duplicates another, so the result is 6 tha
 </tbody>
 </table>
 
-## TextCount - script function
+## TextCount
 
 TextCount() returns the number of field values that are non-numeric aggregated in
 the expression, as defined by a group by clause.
@@ -780,7 +780,7 @@ Divadip</p></td>
 
 # Financial aggregation functions
 
-## IRR - script function
+## IRR
 
  **IRR()** 
 returns the aggregated internal rate of return for a series of cash
@@ -838,7 +838,7 @@ result.
 </tbody>
 </table>
 
-## NPV - script function
+## NPV
 
 NPV() returns the aggregated net present value of an investment based on a
  **discount_rate** per period and a series of future payments (negative values) and incomes
@@ -911,7 +911,7 @@ $5666.67</p></td>
 </tbody>
 </table>
 
-## XIRR - script function
+## XIRR
 
  **XIRR()** returns the aggregated internal rate of return for a schedule of cash
 flows (that is not necessarily periodic) represented by paired numbers
@@ -963,7 +963,7 @@ result.
 </tbody>
 </table>
 
-### XNPV - script function
+### XNPV
 
  **XNPV()** returns the aggregated net present value for a schedule of cashflows
 (not necessarily periodic) represented by paired numbers in **pmt** and
@@ -1038,7 +1038,7 @@ $6800.00</p></td>
 
 # StatisticalAggregationFunctions
 
-### Avg - script function
+### Avg
 
  **Avg()** finds the average value of the aggregated data in the expression over a
 number of records as defined by a group by clause.
@@ -1098,7 +1098,7 @@ Only the distinct values are counted. Divide the total by the number of non-dupl
 </tbody>
 </table>
 
-## Correl - script function
+## Correl
 
  **Correl()** returns the aggregated correlation coefficient for a series of
 coordinates represented by paired numbers in x-expression and
@@ -1154,7 +1154,7 @@ result.
 </tbody>
 </table>
 
-## Fractile - script function
+## Fractile
 
 **Fractile()** finds the value that corresponds to the fractile (quantile) of the
 aggregated data in the expression over a number of records as defined by a
@@ -1218,7 +1218,7 @@ result.
 </tbody>
 </table>
 
-## Kurtosis - script function
+## Kurtosis
 
  **Kurtosis()** returns the kurtosis of the data in the expression over a number of
 records as defined by a group by clause.
@@ -1283,7 +1283,7 @@ result.
 </tbody>
 </table>
 
-## LINEST_B - script function
+## LINEST_B
 
  **LINEST_B()** 
 returns the aggregated b value (y-intercept) of a linear regression
@@ -1322,7 +1322,7 @@ number of records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-## LINEST_DF - script function
+## LINEST_DF
 
  **LINEST_DF()** 
 returns the aggregated degrees of freedom of a linear regression defined
@@ -1360,7 +1360,7 @@ records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_F - script function
+# LINEST_F
 
 This script function returns the aggregated F statistic
 (r<sup>2</sup>/(1-r<sup>2</sup>))
@@ -1400,7 +1400,7 @@ group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-## LINEST_M - script function
+## LINEST_M
 
  **LINEST_M()** 
 returns the aggregated m value (slope) of a linear regression defined by
@@ -1439,7 +1439,7 @@ records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-## LINEST_R2 - script function
+## LINEST_R2
 
 LINEST_R2() returns the aggregated
 r<sup>2</sup> value (coefficient of determination) of a linear regression defined by
@@ -1479,7 +1479,7 @@ group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_SEB - script function
+# LINEST_SEB
 
  **LINEST_SEB()** 
 returns the aggregated standard error of the b value of a linear
@@ -1519,7 +1519,7 @@ group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_SEM - script function
+# LINEST_SEM
 
  **LINEST_SEM()** 
 returns the aggregated standard error of the m value of a linear
@@ -1558,7 +1558,7 @@ over a number of records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_SEY - script function
+# LINEST_SEY
 
  **LINEST_SEY()** 
 returns the aggregated standard error of the y estimate of a linear
@@ -1597,7 +1597,7 @@ over a number of records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_SSREG - script function
+# LINEST_SSREG
 
 LINEST_SSREG()
 returns the aggregated regression sum of squares of a linear regression
@@ -1637,7 +1637,7 @@ group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# LINEST_SSRESID - script function
+# LINEST_SSRESID
 
  **LINEST_SSRESID()** 
 returns the aggregated residual sum of squares of a linear regression
@@ -1676,7 +1676,7 @@ number of records as defined by a group by clause.
 Text values, NULL values and missing values in any or both pieces of a
 data-pair result in the entire data-pair being disregarded.
 
-# Median - script function
+# Median
 
  **Median()** 
 returns the aggregated median of the values in the expression over a
@@ -1741,7 +1741,7 @@ Type and MyMedian as dimensions.
 </tbody>
 </table>
 
-## Skew - script function
+## Skew
 
  **Skew()** 
 returns the skewness of expression over a number of records as defined
@@ -1807,7 +1807,7 @@ table with Type and MySkew as dimensions.
 </tbody>
 </table>
 
-### Stdev - script function
+### Stdev
 
  **Stdev()** 
 returns the standard deviation of the values given by the expression
@@ -1872,7 +1872,7 @@ table with Type and MyStdev as dimensions.
 </tbody>
 </table>
 
-## Sterr - script function
+## Sterr
 
  **Sterr()** 
 returns the aggregated standard error (stdev/sqrt(n)) for a series of
@@ -1938,7 +1938,7 @@ result.
 </tbody>
 </table>
 
-## STEYX - script function
+## STEYX
 
  **STEYX()** 
 returns the aggregated standard error of the predicted y-value for each
@@ -2065,7 +2065,7 @@ Text values, NULL values and missing values in the expression value will result 
 
 # String aggregation functions
 
-## Concat - script function
+## Concat
 
  **Concat()** 
 is used to combine string values. The script function returns the
@@ -2179,7 +2179,7 @@ Delta-Beta-Gamma-Alpha
 
 Eta-Epsilon-Zeta-Theta
 
-## FirstValue - script function
+## FirstValue
 
  **FirstValue()** 
 returns the value that was loaded first from the records defined by the
@@ -2238,7 +2238,7 @@ result.
 </tbody>
 </table>
 
-## LastValue - script function
+## LastValue
 
  **LastValue()** 
 returns the value that was loaded last from the records defined by the
@@ -2300,7 +2300,7 @@ numerical and alphabetical sorting.
 </tbody>
 </table>
 
-## MaxString - script function
+## MaxString
 
  **MaxString()** 
 finds string values in the expression and returns the last text value
@@ -2367,7 +2367,7 @@ result.
 </tbody>
 </table>
 
-## MinString - script function
+## MinString
 
  **MaxString()** 
 finds string values in the expression and returns the first text value

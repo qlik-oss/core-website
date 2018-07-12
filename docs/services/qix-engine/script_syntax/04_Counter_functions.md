@@ -1,6 +1,6 @@
 # Counter functions
 
-## autonumber - script function
+## autonumber
 
 This script function returns a unique integer value for each distinct evaluated value of expression
 encountered during the script execution. This function can be used e.g. for creating a compact memory representation of a complex key.
@@ -97,7 +97,7 @@ costs. the table will look like this:
 | South  | 2014 | June  | 645            | 64             |
 | South  | 2013 | May   | 588            | 465            |
 
-## autonumberhash128 - script function
+## autonumberhash128
 
 This script function calculates a 128-bit hash of the combined input
 expression values and the returns a unique integer value for each
@@ -195,7 +195,7 @@ costs. the table will look like this:
 | South  | 2014 | June  | 645            | 64             |
 | South  | 2013 | May   | 588            | 465            |
 
-## autonumberhash256 - script function
+## autonumberhash256
 
 This script function calculates a 256-bit hash of the combined input
 expression values and returns a unique integer value for each distinct
@@ -293,7 +293,7 @@ costs. the table will look like this:
 | South  | 2014 | June  | 645            | 64             |
 | South  | 2013 | May   | 588            | 465            |
 
-## IterNo - script function
+## IterNo
 
 This script function returns an integer indicating for which time one
 single record is evaluated in a **LOAD** statement with a **while** 
@@ -358,7 +358,7 @@ Examples and results:
 </tbody>
 </table>
 
-## RecNo - script function
+## RecNo
 
 This script functions returns an integer for the number of the currently
 read row of the current table. The first record is number 1.
@@ -420,7 +420,7 @@ The resulting Qlik internal table:
 | 4 | yy | 2        | 3        |
 | 6 | zz | 3        | 4        |
 
-## RowNo - script function
+## RowNo
 
 This function returns an integer for the position of the current row in
 the resulting Qlik Sense internal table. The first row is number 1.

@@ -1,6 +1,6 @@
 # Geospatial functions
 
-## GeoAggrGeometry - script and chart function
+## GeoAggrGeometry
 
  **GeoAggrGeometry()** is used to aggregate a number of areas into a larger area, for example
 aggregating a number of sub-regions to a
@@ -49,7 +49,7 @@ resident MapSource Group By world.Name;
 
 Drop Table MapSource;
 
-## GeoBoundingBox - script and chart function
+## GeoBoundingBox
 
 GeoBoundingBox() is used to aggregate a geometry into an area and calculate the smallest
 bounding box that contains all coordinates.
@@ -96,7 +96,7 @@ where A=35648</td>
 </tbody>
 </table>
 
-## GeoCountVertex - script and chart function
+## GeoCountVertex
 
 GeoCountVertex() is used to find the number of vertices a polygon geometry
 contains.
@@ -131,7 +131,7 @@ where A=35648</td>
 </tbody>
 </table>
 
-## GeoGetBoundingBox - script and chart function
+## GeoGetBoundingBox
 
 GeoGetBoundingBox() is used in scripts and chart expressions to calculate the smallest
 geospatial bounding box that contains all coordinates of a geometry.
@@ -173,7 +173,7 @@ where A=35648</td>
 </tbody>
 </table>
 
-## GeoGetPolygonCenter - script and chart function
+## GeoGetPolygonCenter
 
 GeoGetPolygonCenter() is used in scripts and chart expressions to calculate and return the
 center point of a geometry.
@@ -218,7 +218,7 @@ where A=35648</td>
 </tbody>
 </table>
 
-## GeoInvProjectGeometry - script and chart function
+## GeoInvProjectGeometry
 
 GeoInvProjectGeometry() is used to aggregate a geometry into an area and apply the inverse of a
 projection.
@@ -250,7 +250,7 @@ Example:
 </tbody>
 </table>
 
-## GeoMakePoint - script and chart function
+## GeoMakePoint
 
 GeoMakePoint()
 is used in scripts and chart expressions to create and tag a point with
@@ -293,7 +293,7 @@ where A=35648</td>
 </tbody>
 </table>
 
-## GeoProject - script and chart function
+## GeoProject
 
 GeoProject() is used in scripts and chart expressions to apply a projection to a
 geometry.
@@ -331,7 +331,7 @@ Example:
 *Loading map
 data*
 
-## GeoProjectGeometry - script and chart function
+## GeoProjectGeometry
 
 GeoProjectGeometry() is used to aggregate a geometry into an area and apply a
 projection.
@@ -363,7 +363,7 @@ Example:
 </tbody>
 </table>
 
-## GeoReduceGeometry - script and chart function
+## GeoReduceGeometry
 
 GeoReduceGeometry() is used to reduce the number of vertices of a geometry, and to aggregate
 a number of areas into one area, but still displaying the boundary lines

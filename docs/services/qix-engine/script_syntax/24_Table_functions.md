@@ -46,7 +46,7 @@ table. If the function is used within a **LOAD** statement, it must not referenc
 
 LET a = NoOfFields('tab1');
 
-## NoOfRows - script and chart function
+## NoOfRows
 
 The **NoOfRows** function returns the number of rows (records) in a previously loaded
 table. If the function is used within a

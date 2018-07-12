@@ -1,6 +1,6 @@
 # Conditional functions
 
-## alt - script and chart function
+## alt
 
 The **alt** function returns the first of the parameters that has a valid number representation. If no such match is found, the last parameter will be returned. Any number of parameters can be used.
 
@@ -40,7 +40,7 @@ Examples and results:
 </tbody>
 </table>
 
-## class - script and chart function
+## class
 
 The class function assigns the first parameter to a class interval. The result is a dual value with `a\<=x\<b` as the textual value, where a and b are the upper and lower limits of the bin, and the lower bound as numeric value.
 
@@ -92,7 +92,7 @@ The resulting data that is loaded looks like this:
 | Karen | 42  | 40 \<= age \< 50 |
 | Yoshi | 53  | 50 \<= age \< 60 |
 
-## if - script and chart function
+## if
 
 The if function returns a value depending on whether the condition provided with the function evaluates as True or False.
 
@@ -112,7 +112,7 @@ Examples and results:
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | if( Amount>= 0, 'OK', 'Alarm' ) | This expression will test if the amount is a positive number (0 or larger) and return 'OK' if it is. If the amount is less than 0, 'Alarm' is returned. |
 
-## match - script and chart function
+## match
 
 The **match** function compares the first parameter with all the following ones and returns the number of expression that matches. The comparison is case sensitive.
 
@@ -139,7 +139,7 @@ Examples and results:
 </tbody>
 </table>
 
-## mixmatch - script and chart function
+## mixmatch
 
 The **mixmatch** function compares the first parameter with all the following ones and
 returns the number of expressions that match. The comparison is case insensitive.
@@ -155,7 +155,7 @@ Examples and results:
 | ------------------------------- | -------------------- |
 | mixmatch( M, 'Jan','Feb','Mar') | returns 1 if M = jan |
 
-## pick - script and chart function
+## pick
 
 The pick function returns the n:th expression in the list.
 
@@ -183,7 +183,7 @@ Examples and results:
 </tbody>
 </table>
 
-## wildmatch - script and chart function
+## wildmatch
 
 The **wildmatch** function compares the first parameter with all the following ones and returns the number of expression that matches. It permits the use of
 wildcard characters( * and ?  ) in the comparison strings. The comparison is case insensitive.

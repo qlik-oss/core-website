@@ -65,7 +65,7 @@ Examples and results:
 <p>SQL SELECT Name, Number FROM Persons.csv;</p>
 <p>Add LOAD Name, Number FROM NewPersons.csv where not exists(Name);</p></td>
 <td><p>A check for duplicates is made by means of looking if Name exists in the previously loaded table data.</p>
-<p><em>Exists - script function</em></p>
+<p><em>Exists</em></p>
 <p>During normal reload, data is loaded from Persons.csv and stored in the Qlik Sense table Tab1. Data from NewPersons.csv is then concatenated to the same Qlik Sense table.</p>
 <p>During partial reload, data is loaded from NewPersons.csv which is appended to the Qlik Sense table Tab1. A check for duplicates is made by means of seeing if Name exists in the previously loaded table data.</p></td>
 </tr>
@@ -75,7 +75,7 @@ Examples and results:
 <p>Add Only LOAD Name, Number FROM NewPersons.csv where not exists(Name);</p></td>
 <td><p>During normal reload, data is loaded from Persons.csv and stored in the Qlik Sense table Tab1. The statement loading NewPersons.csv is disregarded.</p>
 <p>During partial reload, data is loaded from NewPersons.csv which is appended to the Qlik Sense table Tab1. A check for duplicates is made by means of seeing if Name exists in the previously loaded table data.</p>
-<p><em>Exists - script function</em></p></td>
+<p><em>Exists</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1537,9 +1537,9 @@ The resulting table looks like this:
 
 *Unmap*
 
-*ApplyMap - script function*
+*ApplyMap*
 
-*MapSubstring - script function*
+*MapSubstring*
 
 *Mapping
 functions*
