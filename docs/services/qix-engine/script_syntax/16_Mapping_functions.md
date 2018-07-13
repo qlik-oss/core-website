@@ -1,39 +1,24 @@
 
 # Mapping Functions
 
-### ApplyMap
+ Functions for handling mapping tables. A mapping table can be used to replace field values or field names during script execution.
+
+## ApplyMap
 
 The ApplyMap script function is used for mapping the output of an expression to a
 previously loaded mapping table.
 
-`ApplyMap( 'map_name', expression [ , default_mapping ] )`
+`ApplyMap('map_name', expression [, default_mapping])`
 
 **Return data type:** dual
 
-<table>
-<thead>
-<tr class="header">
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>map_name</td>
-<td><p>The name of a mapping table that has previously been created through the  **mapping load or the **mapping select**  statement. Its name must be enclosed by single, straight quotation marks.</p>
-If you use this function in a macro expanded variable and refer to a mapping table that does not exist, the function call fails and a field is not created.
-</td>
-</tr>
-<tr class="even">
-<td>expression</td>
-<td>The expression, the result of which should be mapped.</td>
-</tr>
-<tr class="odd">
-<td>default_mapping</td>
-<td><p>If stated, this value will be used as a default value if the mapping table does not contain a matching value for expression. If not stated, the value of expression will be returned as is.</p></td>
-</tr>
-</tbody>
-</table>
+
+| Argument | Description |
+| - | - |
+| map_name | The name of a mapping table that has previously been created through the **mapping load** or the **mapping select**  statement. Its name must be enclosed by single, straight quotation marks. Note that if you use this function in a macro expanded variable and refer to a mapping table that does not exist, the function call fails and a field is not created.|
+| expression | The expression, the result of which should be mapped. |
+| default_mapping | If stated, this value will be used as a default value if the mapping table does not contain a matching value for expression. If not stated, the value of expression will be returned as is. |
+
 
 In this example we load a list of salespersons with a country code
 representing their country of residence. We use a table mapping a
@@ -42,16 +27,34 @@ name. Only three countries are defined in the mapping table, other
 country codes are mapped to 'Rest of the
 world'.
 
-// Load mapping table of country codes: map1: mapping LOAD \* Inline [
-CCode, Country Sw, Sweden Dk, Denmark No, Norway ] ; // Load list of
-salesmen, mapping country code to country // If the country code is not
-in the mapping table, put Rest of the world Salespersons: LOAD \*,
-ApplyMap('map1', CCode,'Rest of the world') As Country Inline [ CCode,
-Salesperson Sw, John Sw,
-Mary
-
-Sw, Per Dk, Preben Dk, Olle No, Ole Sf, Risttu] ; // We don't need the
-CCode anymore Drop Field 'CCode';
+```
+// Load mapping table of country codes: 
+map1: mapping LOAD *
+Inline [
+CCode, Country 
+Sw, Sweden
+Dk, Denmark
+No, Norway
+]; 
+// Load list of salesmen, mapping country code to country 
+// If the country code is not in the mapping table, put Rest of the world 
+Salespersons: LOAD *,
+ApplyMap('map1', CCode,'Rest of the world') As Country
+Inline [ 
+CCode, Salesperson
+Sw, John
+Sw, Mary
+```
+```
+Sw, Per
+Dk, Preben
+Dk, Olle
+No, Ole
+Sf, Risttu
+];
+// We don't need the CCode anymore
+Drop Field 'CCode';
+```
 
 The resulting table looks like this:
 
@@ -75,40 +78,47 @@ and substrings are mapped from left to right.
 
 **Return data type:** string
 
-<table>
-<thead>
-<tr class="header">
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>map_name</td>
-<td><p>The name of a mapping table previously read by a  **mapping load or a **mapping select**  statement. The name must be enclosed by single straight quotation marks.</p>
-<div class="warning" data-autonumposition="none">
-If you use this function in a macro expanded variable and refer to a mapping table that does not exist, the function call fails and a field is not created.
-</td>
-</tr>
-<tr class="even">
-<td>expression</td>
-<td>The expression whose result is to be mapped by substrings.</td>
-</tr>
-</tbody>
-</table>
+| Argument | Description |
+| - | - |
+| map_name | The name of a mapping table previously read by a  **mapping load** or a **mapping select**  statement. The name must be enclosed by single straight quotation marks. Note that if you use this function in a macro expanded variable and refer to a mapping table that does not exist, the function call fails and a field is not created. |
+| expression | The expression whose result is to be mapped by substrings. |
 
 In this example we load a list of product models. Each model has a set
 of attributes that are described by a composite code. Using the mapping
 table with MapSubstring, we can expand the attribute codes to a
 description.
 
-map2: mapping LOAD \* Inline [ AttCode, Attribute R, Red Y, Yellow B,
-Blue C, Cotton P, Polyester S, Small M, Medium L, Large ] ;
-Productmodels: LOAD \*, MapSubString('map2', AttCode) as Description
-Inline [ Model, AttCode Twixie, R C S Boomer, B P L Raven, Y P M
-Seedling, R C L SeedlingPlus, R C L with hood Younger, B C with patch
-MultiStripe, R Y B C S/M/L ] ; // We don't need the AttCode anymore
+```
+map2: 
+mapping LOAD * 
+Inline [ 
+AttCode, Attribute 
+R, Red
+Y, Yellow 
+B, Blue 
+C, Cotton 
+P, Polyester 
+S, Small 
+M, Medium 
+L, Large 
+];
+
+Productmodels: 
+LOAD *, 
+MapSubString('map2', AttCode) as Description
+Inline [ 
+Model, AttCode 
+Twixie, R C S 
+Boomer, B P L 
+Raven, Y P M
+Seedling, R C L 
+SeedlingPlus, R C L with hood 
+Younger, B C with patch
+MultiStripe, R Y B C S/M/L 
+]; 
+// We don't need the AttCode anymore
 Drop Field 'AttCode';
+````
 
 The resulting table looks like this:
 
