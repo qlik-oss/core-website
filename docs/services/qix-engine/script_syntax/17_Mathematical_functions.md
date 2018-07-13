@@ -32,8 +32,8 @@ selected upper case characters, that is, characters in the range 65 to
 91
 (65+26).
 
-```
-Load Chr( Floor(rand() \* 26) + 65) as UCaseChar, RecNo() as ID
+```qlik
+Load Chr(Floor(rand() \* 26) + 65) as UCaseChar, RecNo() as ID
 Autogenerate 1000;
 ```
 

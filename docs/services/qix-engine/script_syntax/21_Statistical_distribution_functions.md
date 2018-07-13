@@ -15,7 +15,7 @@ test.
 | value           | The value at which you want to evaluate the distribution. The value must not be negative. |
 | degrees_freedom | A positive integer stating the number of degrees of freedom.                              |
 
-This function is related to the **CHIINV** function in the following way:  
+This function is related to the **CHIINV** function in the following way:
 If prob = CHIDIST(value,df), then CHIINV(prob, df) = value
 
 **Limitations:**
@@ -39,7 +39,7 @@ distribution.
 | prob            | A probability associated with the chi<sup>2</sup> distribution. It must be a number between 0 and 1. |
 | degrees_freedom | An integer stating the number of degrees of freedom.                                                 |
 
-This function is related to the **CHIDIST** function in the following way:  
+This function is related to the **CHIDIST** function in the following way:
 If prob = CHIDIST(value,df), then CHIINV(prob, df) = value
 
 **Limitations:**
@@ -63,7 +63,7 @@ FDIST() returns the F-probability distribution.
 | degrees_freedom1 | A positive integer stating the number of numerator degrees of freedom.                    |
 | degrees_freedom2 | A positive integer stating the number of denominator degrees of freedom.                  |
 
-This function is related to the **FINV** function in the following way:  
+This function is related to the **FINV** function in the following way:
 If prob = FDIST(value, df1, df2), then FINV(prob, df1, df2) = value
 
 **Limitations:**
@@ -86,7 +86,7 @@ FINV() returns the inverse of the F-probability distribution.
 | prob            | A probability associated with the F-probability distribution and must be a number between 0 and 1. |
 | degrees_freedom | An integer stating the number of degrees of freedom.                                               |
 
-This function is related to the **FDIST** function in the following way:  
+This function is related to the **FDIST** function in the following way:
 If prob = FDIST(value, df1, df2), then FINV(prob, df1, df2) = value
 
 **Limitations:**
@@ -112,7 +112,7 @@ returns the standard normal distribution.
 | mean         | A value stating the arithmetic mean for the distribution.            |
 | standard_dev | A positive value stating the standard deviation of the distribution. |
 
-This function is related to the **NORMINV** function in the following way:  
+This function is related to the **NORMINV** function in the following way:
 If prob = NORMDIST(value, m, sd), then NORMINV(prob, m, sd) = value
 
 **Limitations:**
@@ -137,7 +137,7 @@ specified mean and standard deviation.
 | mean         | A value stating the arithmetic mean for the distribution.                                   |
 | standard_dev | A positive value stating the standard deviation of the distribution.                        |
 
-This function is related to the **NORMDIST** function in the following way:  
+This function is related to the **NORMDIST** function in the following way:
 If prob = NORMDIST(value, m, sd), then NORMINV(prob, m, sd) = value
 
 **Limitations:**
@@ -162,7 +162,7 @@ computed.
 | degrees_freedom | A positive integer stating the number of degrees of freedom.                       |
 | tails           | Must be either 1 (one-tailed distribution) or 2 (two-tailed distribution).         |
 
-This function is related to the **TINV** function in the following way:  
+This function is related to the **TINV** function in the following way:
 If prob = TDIST(value, df ,2), then TINV(prob, df) = value
 
 **Limitations:**
@@ -188,7 +188,7 @@ probability and the degrees of freedom.
 
 All arguments must be numeric, else NULL will be returned.
 
-This function is related to the **TDIST** function in the following way:  
+This function is related to the **TDIST** function in the following way:
 If prob = TDIST(value, df ,2), then TINV(prob, df) = value.
 
 | Example             | Result         |

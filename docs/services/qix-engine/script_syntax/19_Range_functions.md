@@ -100,7 +100,10 @@ Example with expression:
 
 `RangeAvg(Above(MyField),0,3))`
 
-Returns a sliding average of the result of the range of three values of MyField calculated on the current row and two rows above the current row. By specifying the third argument as 3, the Above() function returns three values, where there are sufficient rows above, which are taken as input to the RangeAvg() function.
+Returns a sliding average of the result of the range of three values of MyField calculated on the current
+row and two rows above the current row.
+By specifying the third argument as 3, the Above() function returns three values, where there are sufficient
+rows above,which are taken as input to the RangeAvg() function.
 
 Data used in examples:
 | MyField | RangeAvg(Above(MyField,0,3)) | Explanation |
@@ -115,13 +118,16 @@ Data used in examples:
 
 ## RangeCorrel
 
-RangeCorrel() returns the correlation coefficient for two sets of data. The correlation coefficient is a measure of the relationship between the data sets.
+RangeCorrel() returns the correlation coefficient for two sets of data. The correlation coefficient is a measure
+of the relationship between the data sets.
 
 `RangeCorrel(x_value, y_value[, Expression])`
 
 **Return data type:** numeric
 
-Data series should be entered as (x,y) pairs. For example, to evaluate two series of data, array 1 and array 2, where the array 1 = 2,6,9 and array 2 = 3,8,4 you would write RangeCorrel (2,3,6,8,9,4) which returns 0.269.
+Data series should be entered as (x,y) pairs. For example, to evaluate two series of data,
+array 1 and array 2, where the array 1 = 2,6,9 and array 2 = 3,8,4 you would write
+RangeCorrel (2,3,6,8,9,4) which returns 0.269.
 
 | Argument | Description |
 | - | - |
@@ -167,7 +173,9 @@ X|Y<br/>
 <td><table>
 <tbody>
 <tr class="odd">
-<td>In a table with ID1 as a dimension and the measure: RangeCorrel(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)), the RangeCorrel() function finds the value of Correl over the range of six x,y pairs, for each of the ID1 values.</td>
+<td>In a table with ID1 as a dimension and the measure: RangeCorrel(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)),
+the RangeCorrel() function finds the value of Correl over the range of six x,y pairs, for each of the
+ID1 values.</td>
 </tr>
 <tr class="even">
 <td><table>
@@ -205,7 +213,9 @@ LOAD recno() as RangeID, * Inline [<br/>
 X|Y<br/>2|3<br/>6|8<br/>9|4<br/>8|5<br/>
 ](delimiter is '|');
 </td>
-<td>In a table with RangeID as a dimension and the measure: RangeCorrel(Below(X,0,4,BelowY,0,4)), the RangeCorrel() function uses the results of the Below() functions, which because of the third argument (count) set to 4, produce a range of four x-y values from the loaded table XY.
+<td>In a table with RangeID as a dimension and the measure: RangeCorrel(Below(X,0,4,BelowY,0,4)), the
+RangeCorrel() function uses the results of the Below() functions, which because of the third
+argument (count) set to 4, produce a range of four x-y values from the loaded table XY.
 <table>
 <tbody>
 <tr class="odd">
@@ -230,7 +240,9 @@ X|Y<br/>2|3<br/>6|8<br/>9|4<br/>8|5<br/>
 </tr>
 </tbody>
 </table>
-The value for RangeID 01 is the same as manually entering RangeCorrel(2,3,6,8,9,4,8,5). For the other values of RangeID, the series produced by the Below() function are: (6,8,9,4,8,5), (9,4,8,5), and (8,5), the last of which produces a null result.
+The value for RangeID 01 is the same as manually entering RangeCorrel(2,3,6,8,9,4,8,5). For the other
+values of RangeID, the series produced by the Below() function are: (6,8,9,4,8,5), (9,4,8,5), and (8,5),
+the last of which produces a null result.
 </td>
 </tr>
 </tbody>
@@ -335,7 +347,9 @@ Example with expression:
 
 `RangeCount(Above(MyField,1,3))`
 
-Returns the number of values contained in the three results of MyField. By specifying the second and third arguments of the Above() function as 3, it returns the values from the three fields above the current row, where there are sufficient rows, which are taken as input to the RangeSum() function.
+Returns the number of values contained in the three results of MyField. By specifying the second
+and third arguments of the Above() function as 3, it returns the values from the three fields above
+the current row, where there are sufficient rows, which are taken as input to the RangeSum() function.
 
 Data used in examples:
 | MyField | RangeCount(Above(MyField,1,3)) |
@@ -384,7 +398,9 @@ The arguments of this function may contain inter-record functions which in thems
 <td>Optional expressions or fields containing the range of data to be counted.</td>
 </tr>
 <tr>
-<td><p>Add the example script to your app and run it.</p> RangeTab:<br/>LOAD recno() as RangeID, <br/>RangeFractile(0.5,Field1,Field2,Field3)<br/> as MyRangeFrac INLINE [<br/>Field1, Field2, Field3<br/>10,5,6<br/>2,3,7<br/>8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];
+<td><p>Add the example script to your app and run it.</p> RangeTab:<br/>LOAD recno() as RangeID,
+<br/>RangeFractile(0.5,Field1,Field2,Field3)<br/> as MyRangeFrac INLINE [<br/>Field1, Field2, Field3<br/>
+10,5,6<br/>2,3,7<br/>8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];
 </td>
 <td>The resulting table shows the returned values of MyRangeFrac for each of the records in the table.
 <table>
@@ -411,9 +427,16 @@ Examples:
 
 Example with expression:
 
-`RangeFractile (0.5, Above(Sum(MyField),0,3))`
+`RangeFractile(0.5, Above(Sum(MyField),0,3))`
 
-In this example, the inter-record function Above() contains the optional offset and count arguments. This produces a range of results that can be used as input to the any of the range functions. In this case, Above(Sum(MyField),0,3) returns the values of MyField for the current row and the two rows above. These values provide the input to the RangeFractile() function. So, for the bottom row in the table below, this is the equivalent of RangeFractile(0.5, 3,4,6), that is, calculating the 0.5 fractile for the series 3, 4, and 6. The first two rows in the table below, the number of values in the range is reduced accordingly, where there no rows above the current row. Similar results are produced for other inter-record functions.
+In this example, the inter-record function Above() contains the optional offset and count arguments.
+This produces a range of results that can be used as input to the any of the range functions.
+In this case, Above(Sum(MyField),0,3) returns the values of MyField for the current row and the two
+rows above. These values provide the input to the RangeFractile() function. So, for the bottom row in
+the table below, this is the equivalent of RangeFractile(0.5, 3,4,6), that is, calculating the 0.5
+fractile for the series 3, 4, and 6. The first two rows in the table below, the number of values in the
+range is reduced accordingly, where there no rows above the current row. Similar results are produced
+for other inter-record functions.
 
 | MyField | RangeFractile(0.5, Above(Sum(MyField),0,3)) |
 | - | - |
@@ -622,7 +645,10 @@ Example with expression:
 
 `RangeMax(Above(MyField,0,3))`
 
-Returns the maximum value in the range of three values of MyField calculated on the current row and two rows above the current row. By specifying the third argument as 3, the Above() function returns three values, where there are sufficient rows above, which are taken as input to the RangeMax() function.
+Returns the maximum value in the range of three values of MyField calculated on the current row
+and two rows above the current row. By specifying the third argument as 3, the Above() function
+returns three values, where there are sufficient rows above, which are taken as input to the
+RangeMax() function.
 
 Data used in examples:
 | MyField | RangeMax(Above(Sum(MyField),1,3)) |
@@ -663,7 +689,8 @@ Example with expression:
 
 `RangeMaxString(Above(MaxString(MyField),0,3))`
 
-Returns the last (in text sort order) of the three results of the MaxString(MyField) function evaluated on the current row and two rows above the current row.
+Returns the last (in text sort order) of the three results of the MaxString(MyField) function evaluated
+on the current row and two rows above the current row.
 
 Data used in examples:
 | MyField | RangeMaxString(Above(MaxString(MyField),0,3)) |
@@ -766,7 +793,9 @@ Example with expression:
 
 `RangeMin (Above(MyField,0,3)`
 
-Returns the minimum value in the range of three values of MyField calculated on the current row and two rows above the current row. By specifying the third argument as 3, the Above() function returns three values, where there are sufficient rows above, which are taken as input to the RangeMin() function.
+Returns the minimum value in the range of three values of MyField calculated on the current row and
+two rows above the current row. By specifying the third argument as 3, the Above() function returns
+three values, where there are sufficient rows above, which are taken as input to the RangeMin() function.
 
 Data used in examples:
 | MyField | RangeMin(Above(MyField,0,3)) |
@@ -807,7 +836,8 @@ Example with expression:
 
 `RangeMinString(Above(MinString(MyField),0,3))`
 
-Returns the first (in text sort order) of the three results of the MinString(MyField) function evaluated on the current row and two rows above the current row.
+Returns the first (in text sort order) of the three results of the MinString(MyField) function
+evaluated on the current row and two rows above the current row.
 
 Data used in examples:
 | MyField | RangeMinString(Above(MinString(MyField),0,3)) |
@@ -847,7 +877,8 @@ Example with expression:
 
 `RangeMissingCount(Above(MinString(MyField),0,3))`
 
-Returns the number of non-numeric values in the three results of the MinString(MyField) function evaluated on the current row and two rows above the current row.
+Returns the number of non-numeric values in the three results of the MinString(MyField)
+function evaluated on the current row and two rows above the current row.
 
 | MyField | RangeMissingCount(Above(MinString(MyField),0,3)) | Explanation |
 | - | - | - |
@@ -954,7 +985,9 @@ Example with expression:
 
 `RangeMode(Above(MyField,0,3))`
 
-Returns the most commonly occurring value in the three results of MyField evaluated on the current row and two rows above the current row. By specifying the third argument as 3, the Above() function returns three values, where there are sufficient rows above, which are taken as input to the RangeMode() function.
+Returns the most commonly occurring value in the three results of MyField evaluated on the current row and
+two rows above the current row. By specifying the third argument as 3, the Above() function returns three
+values, where there are sufficient rows above, which are taken as input to the RangeMode() function.
 
 Data used in examples:
 | MyField | RangeMode(Above(MyField,0,3)) |
@@ -1062,7 +1095,6 @@ Field1|Field2|Field3<br/>
 </tbody>
 </table>
 
-
 ## RangeNullCount
 
 RangeNullCount() finds the number of NULL values in the expression or field.
@@ -1090,13 +1122,14 @@ Example with expression:
 
 `RangeNullCount (Above(Sum(MyField),0,3))`
 
-Returns the number of NULL values in the three results of the Sum(MyField) function evaluated on the current row and two rows above the current row.
+Returns the number of NULL values in the three results of the Sum(MyField) function evaluated on the
+current row and two rows above the current row.
 
-| MyField | 	RangeNullCount(Above(Sum(MyField),0,3))|
+| MyField | RangeNullCount(Above(Sum(MyField),0,3))|
 | - | - |
 | 10 | Returns 2 because there are no rows above this row so 2 of the 3 values are missing (=NULL).|
 | 'abc' | Returns 1 because there is only one row above the current row, so one of the three values is missing (=NULL).|
-| 8 | 	Returns 0 because none of the three rows is a NULL value.| 
+| 8 | Returns 0 because none of the three rows is a NULL value.|
 
 Data used in examples:
 
@@ -1129,10 +1162,11 @@ Example with expression:
 
 `RangeNumericCount(Above(MaxString(MyField),0,3))`
 
-Returns the number of numeric values in the three results of the MaxString(MyField) function evaluated on the current row and two rows above the current row.
+Returns the number of numeric values in the three results of the MaxString(MyField) function evaluated on
+the current row and two rows above the current row.
 
 | MyField | RangeNumericCount(Above(MaxString(MyField),0,3)) |
-| ------- | ------------------------------------------------ | 
+| ------- | ------------------------------------------------ |
 | 10      | 1 |
 | abc     | 1 |
 | 8       | 2 |
@@ -1145,7 +1179,9 @@ Data used in examples:
 <p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>'def'<br/>'xyz'<br/>9<br/>];
 
 ## RangeOnly
-RangeOnly() is a dual function that returns a value if the expression evaluates to one unique value. If this is not the case then NULL is returned.
+
+RangeOnly() is a dual function that returns a value if the expression evaluates to one unique value.
+If this is not the case then NULL is returned.
 
 `RangeOnly(first_expr[, Expression])`
 
@@ -1166,7 +1202,6 @@ Examples:
 | RangeOnly(5,'abc') | Returns NULL |
 | RangeOnly(null(), 'abc')  | Returns 'abc' |
 | RangeOnly(10,10,10) | Returns 10 |
-
 
 ## RangeSkew
 
@@ -1197,7 +1232,6 @@ Data used in example:
 | 1-20 | -, -, 0.5676, 0.8455, 1.0127, -0.8741, 1.7243, -1.7186, 1.5518, 1.4332, 0, 1.1066, 1.3458, 1.5636, 1.5439, 0.6952, -0.3766 |
 | SalesTable:<br/>LOAD recno() as CustID, * inline [<br/>SalesValue<br/>101<br/>163<br/>126<br/>139<br/>167<br/>86<br/>83<br/>22<br/>32<br/>70<br/>108<br/>124<br/>176<br/>113<br/>95<br/>32<br/>42<br/>92<br/>61<br/>21<br/>];| |
 
-
 ## RangeStDev
 
 RangeStdev() finds the standard deviation of a range of numbers.
@@ -1227,7 +1261,6 @@ Data used in example:
 | - | - |
 | 1-20 | -,43.841, 34.192, 18.771, 20.953, 41.138, 47.655, 36.116, 32.716, 25.325,38,000, 27.737, 35.553, 33.650, 42.532, 33.858, 32.146, 25.239, 35.595 |
 | SalesTable:<br/>LOAD recno() as CustID, * inline [<br/>SalesValue<br/>101<br/>163<br/>126<br/>139<br/>167<br/>86<br/>83<br/>22<br/>32<br/>70<br/>108<br/>124<br/>176<br/>113<br/>95<br/>32<br/>42<br/>92<br/>61<br/>21<br/>];| |
-
 
 ## RangeSum
 
@@ -1321,7 +1354,9 @@ Example with expression:
 
 `RangeSum(Above(MyField,0,3))`
 
-Returns the sum of the three values of MyField): from the current row and two rows above the current row. By specifying the third argument as 3, the Above() function returns three values, where there are sufficient rows above, which are taken as input to the RangeSum() function.
+Returns the sum of the three values of MyField): from the current row and two rows above the current row.
+By specifying the third argument as 3, the Above() function returns three values, where there are sufficient
+rows above, which are taken as input to the RangeSum() function.
 
 Data used in examples:
 | MyField | RangeSum(Above(MyField,0,3)) |
@@ -1333,7 +1368,6 @@ Data used in examples:
 | 5 | 31 |
 | 9 | 32 |
 | RangeTab:<br/>LOAD * INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>];|
-
 
 ## RangeTextCount
 
@@ -1361,11 +1395,12 @@ Example with expression:
 
 `RangeTextCount(Above(MaxString(MyField),0,3))`
 
-Returns the number of text values within the three results of the MaxString(MyField) function evaluated over the current row and two rows above the current row.
+Returns the number of text values within the three results of the MaxString(MyField) function evaluated
+over the current row and two rows above the current row.
 
 Data used in examples:
 
-| MyField | MaxString(MyField)|	RangeTextCount(Above(Sum(MyField),0,3)) |
+| MyField | MaxString(MyField) | RangeTextCount(Above(Sum(MyField),0,3)) |
 | - | - | - |
 | 10 | 10 | 0 |
 | abc | abc| 1 |
@@ -1377,7 +1412,6 @@ Data used in examples:
 Data used in examples:
 
 <p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>null()<br/>'xyz'<br/>9<br/>];
-
 
 ## RangeXIRR
 
