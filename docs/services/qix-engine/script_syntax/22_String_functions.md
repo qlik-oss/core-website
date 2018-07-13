@@ -36,9 +36,6 @@ returned.
 
 **Return data type:** dual
 
-!!! Note
-This string function can not be used in chart expressions.
-
 | Example          | Result       |
 | ---------------- | ------------ |
 | Evaluate(5 \* 8) | Returns '40' |
@@ -55,19 +52,19 @@ found, 0 is returned.
 
 **Return data type:** integer
 
-| Argument | Description                                                                                                                   |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| text     | The original string.                                                                                                          |
-| char_set | A set of characters to search for in text.                                                                                    |
-| count    | Defines which occurrence of any of the character to search for. For example, a value of 2 searches for the second occurrence. |
+| Argument | Description |
+| - | - |
+| text | The original string. |
+| char_set | A set of characters to search for in text. |
+| count | Defines which occurrence of any of the character to search for. For example, a value of 2 searches for the second occurrence. |
 
 <br/>
 
-| Example                                        | Result                                                                                                                               |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| FindOneOf('my example text string', 'et%s')    | Returns '4'.                                                                                                                         |
+| Example | Result |
+| - | - |
+| FindOneOf('my example text string', 'et%s')    | Returns '4'. |
 | FindOneOf('my example text string', 'et%s', 3) | Returns '12'. Because the search is for any of the characters: e, t, % or s, and "t" is the third occurrence, and is in position 12. |
-| FindOneOf('my example text string', '¤%&')     | Returns '0'.                                                                                                                         |
+| FindOneOf('my example text string', '¤%&')     | Returns '0'.|
 
 ## Hash128
 
@@ -124,21 +121,21 @@ string. The positions in the string are numbered from
 
 **Return data type:** integer
 
-| Argument  | Description                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------ |
-| text      | The original string.                                                                                               |
-| substring | A string of characters to search for in text.                                                                      |
-| count     | Defines which occurrence of substring to search for. For example, a value of 2 searches for the second occurrence. |
+| Argument | Description |
+| - | - |
+| text | The original string.|
+| substring | A string of characters to search for in text.|
+| count | Defines which occurrence of substring to search for. For example, a value of 2 searches for the second occurrence. |
 
 <br/>
 
-| Example                                                       | Result                                                         |
-| ------------------------------------------------------------- | -------------------------------------------------------------- |
-| Index('abcdefg', 'cd')                                        | Returns 3                                                      |
-| Index('abcdabcd', 'b', 2)                                     | Returns 6 (the second occurrence of 'b')                       |
-| Index('abcdabcd', 'b',-2)                                     | Returns 2 (the second occurrence of 'b' starting from the end) |
-| Left(Date, Index( Date,'-') -1) where Date = 1997-07-14       | Returns 1997                                                   |
-| Mid(Date, Index(Date, '-', 2 ) -2, 2) where Date = 1997-07-14 | Returns 07                                                     |
+| Example | Result |
+| - | - |
+| Index('abcdefg', 'cd') | Returns 3 |
+| Index('abcdabcd', 'b', 2) | Returns 6 (the second occurrence of 'b') |
+| Index('abcdabcd', 'b',-2) | Returns 2 (the second occurrence of 'b' starting from the end) |
+| Left(Date, Index( Date,'-') -1) where Date = 1997-07-14 | Returns 1997 |
+| Mid(Date, Index(Date, '-', 2 ) -2, 2) where Date = 1997-07-14 | Returns 07 |
 
 ## KeepChar
 
@@ -150,9 +147,9 @@ characters NOT contained in the second string, "keep_chars".
 
 **Return data type:** string
 
-| Argument   | Description                                            |
-| ---------- | ------------------------------------------------------ |
-| text       | The original string.                                   |
+| Argument | Description |
+| - | - |
+| text | The original string. |
 | keep_chars | A string containing the characters in text to be kept. |
 
 <br/>
@@ -175,10 +172,10 @@ Left(text, count)`
 
 **Return data type:** string
 
-| Argument | Description                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------- |
-| text     | The original string.                                                                          |
-| count    | Defines the number of characters to included from the left-hand part of the string **text** . |
+| Argument | Description |
+| - | - |
+| text | The original string. |
+| count | Defines the number of characters to included from the left-hand part of the string **text** . |
 
 <br/>
 
@@ -236,11 +233,11 @@ in the input string is numbered 1.
 
 **Return data type:** string
 
-| Argument | Description                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| text     | The original string.                                                                                                            |
-| start    | Integer defining the position of the first character in text to include.                                                        |
-| count    | Defines the string length of the output string. If omitted, all characters from the position defined by **start** are included. |
+| Argument | Description |
+| - | - |
+| text | The original string. |
+| start | Integer defining the position of the first character in text to include. |
+| count | Defines the string length of the output string. If omitted, all characters from the position defined by **start** are included. |
 
 <br/>
 
@@ -275,15 +272,15 @@ string ('text'), excluding any that appear in the second argument
 
 **Return data type:** string
 
-| Argument     | Description                                               |
-| ------------ | --------------------------------------------------------- |
-| text         | The original string.                                      |
+| Argument | Description |
+| - | - |
+| text | The original string. |
 | remove_chars | A string containing the characters in text to be removed. |
 
 <br/>
 
-| Example                   | Result        |
-| ------------------------- | ------------- |
+| Example | Result |
+| - | - |
 | PurgeChar('a1b2c3','123') | Returns 'abc' |
 | PurgeChar('a1b2c3','312') | Returns 'abc' |
 
@@ -297,9 +294,9 @@ argument.
 
 **Return data type:** string
 
-| Argument     | Description                                                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------- |
-| text         | The original string.                                                                                       |
+| Argument | Description |
+| - | - |
+| text | The original string. |
 | repeat_count | Defines the number of times the characters in the string **text** are to be repeated in the output string. |
 
 <br/>
@@ -319,11 +316,11 @@ non-recursive and works from left to right.
 
 **Return data type:** string
 
-| Argument | Description                                                                              |
-| -------- | ---------------------------------------------------------------------------------------- |
-| text     | The original string.                                                                     |
-| from_str | A string which may occur one or more times within the input string **text**.             |
-| to_str   | The string that will replace all occurrences of **from_str** within the string **text**. |
+| Argument | Description |
+| - | - |
+| text | The original string. |
+| from_str | A string which may occur one or more times within the input string **text**. |
+| to_str | The string that will replace all occurrences of **from_str** within the string **text**. |
 
 <br/>
 
@@ -344,7 +341,7 @@ argument.
 
 | Argument | Description                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------------- |
-| text     | The original string.                                                                              |
+| text     | The original string. |
 | count    | Defines the number of characters to be included from the right-hand part of the string **text** . |
 
 <br/>
@@ -396,14 +393,14 @@ created.
 
 **Return data type:** string
 
-| Argument  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| text      | The original string. This can be a hard-coded text, a variable, a dollar-sign expansion, or another expression.                                                                                                                                                                                                                                                                                                                              |
-| delimiter | A character within the input **text** that divides the string into component parts.                                                                                                                                                                                                                                                                                                                                                          |
+| Argument  | Description |
+| - | - |
+| text | The original string. This can be a hard-coded text, a variable, a dollar-sign expansion, or another expression.|
+| delimiter | A character within the input **text** that divides the string into component parts. |
 | field_no  | The optional third argument is an integer that specifies which of the substrings of the parent string **text** is to be returned. Use the value 1 to return the first substring, 2 to return the second substring, and so on. A negative value causes the substring to be extracted from the right-hand side of the string. That is, the string search is from right to left, instead of left to right, if **field_no** is a positive value. |
 
 !!! Tip
-SubField() can be used instead of using complex combinations of functions such as Len(), Right(), Left(), Mid(), and other string functions.
+    SubField() can be used instead of using complex combinations of functions such as Len(), Right(), Left(), Mid(), and other string functions.
 
 <table>
 <thead>
@@ -588,11 +585,11 @@ specified as delimiters.
 
 **Return data type:** string
 
-| Argument   | Description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| text       | The original string.                                                                                                                                                                                    |
-| delimiter1 | Specifies the first delimiting character (or string) to search for in **text**.                                                                                                                         |
-| delimiter2 | Specifies the second delimiting character (or string) to search for in **text**.                                                                                                                        |
+| Argument   | Description|
+| ---------- | - |
+| text       | The original string.|
+| delimiter1 | Specifies the first delimiting character (or string) to search for in **text**.|
+| delimiter2 | Specifies the second delimiting character (or string) to search for in **text**.|
 | n          | Defines which occurrence of the delimiter pair to search between. For example, a value of 2 returns the characters between the second occurrence of delimiter1 and the second occurrence of delimiter2. |
 
 <br/>
