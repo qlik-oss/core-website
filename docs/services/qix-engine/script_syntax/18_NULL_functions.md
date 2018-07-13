@@ -7,10 +7,11 @@ so, returns -1 (True), otherwise 0 (False).
 
 `IsNull( expr )`
 
-A string with length zero is not considered as a NULL and will cause
-IsNull to return False.
+!!! Tip
+    A string with length zero is not considered as a NULL and will cause
+    IsNull to return False.
 
-Data load script
+### Data load script
 
 In this example, an inline table with four rows is loaded, where the
 first three lines contain either nothing, - or 'NULL' in the Value
@@ -22,12 +23,20 @@ The first preceding **LOAD** adds a field checking if the value is NULL,using th
  **IsNull** function.
 
 ```
-NullsDetectedAndConverted: LOAD \*, If(IsNull(ValueNullConv), 'T', 'F')
-as IsItNull; LOAD \*, If(len(trim(Value))= 0 or Value='NULL' or
-Value='-', Null(), Value ) as ValueNullConv; LOAD \* Inline [ID, Value
-0, 1,NULL 2,- 3,Value];
-```
+NullsDetectedAndConverted:
+LOAD *,
+If(IsNull(ValueNullConv), 'T', 'F') as IsItNull;
 
+LOAD *,
+If(len(trim(Value))= 0 or Value='NULL' or Value='-', Null(), Value ) as ValueNullConv;
+
+LOAD * Inline
+[ID, Value
+0,
+1,NULL
+2,-
+3,Value];
+```
 
 This is the resulting table. In the ValueNullConv column, the NULL
 values are represented by -.
@@ -45,7 +54,7 @@ The **Null** function returns a NULL value.
 
 `Null( )`
 
-Data load script
+### Data load script
 
 In this example, an inline table with four rows is loaded, where the
 first three lines contain either nothing, - or 'NULL' in the Value
@@ -60,10 +69,18 @@ purposes in this
 example.
 
 ```
-NullsDetectedAndConverted: LOAD \*, If(IsNull(ValueNullConv), 'T', 'F')
-as IsItNull; LOAD \*, If(len(trim(Value))= 0 or Value='NULL' or
-Value='-', Null(), Value ) as ValueNullConv; LOAD \* Inline [ID, Value
-0, 1,NULL 2,- 3,Value];
+NullsDetectedAndConverted:
+LOAD *,
+If(IsNull(ValueNullConv), 'T', 'F') as IsItNull;
+
+LOAD *, If(len(trim(Value))= 0 or Value='NULL' or Value='-', Null(), Value ) as ValueNullConv;
+
+LOAD * Inline
+[ID, Value
+0,
+1,NULL
+2,-
+3,Value];
 ```
 
 This is the resulting table. In the ValueNullConv column, the NULL

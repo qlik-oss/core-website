@@ -9,7 +9,7 @@ The  **FieldName** script function returns the name of the field with the specif
 within a previously loaded table. If the function is used within a
  **LOAD** statement, it must not reference the table currently being loaded.
 
-`FieldName( field_number, table_name )`
+`FieldName(field_number, table_name)`
 
 | Argument      | Description                                           |
 | ------------- | ----------------------------------------------------- |
@@ -26,7 +26,7 @@ The **FieldNumber** script function returns the number of a specified field with
 previously loaded table. If the function is used within a
  **LOAD** statement, it must not reference the table currently being loaded.
 
-`FieldNumber( field_name, table_name )`
+`FieldNumber(field_name, table_name)`
 
 | Argument    | Description                                 |
 | ----------- | ------------------------------------------- |
@@ -44,7 +44,7 @@ does not exist, the function returns 0.
 The **NoOfFields**  script function returns the number of fields in a previously loaded
 table. If the function is used within a **LOAD** statement, it must not reference the table currently being loaded.
 
-`NoOfFields( table_name )`
+`NoOfFields(table_name)`
 
 | Argument    | Description            |
 | ----------- | ---------------------- |
@@ -60,7 +60,7 @@ The **NoOfRows** function returns the number of rows (records) in a previously l
 table. If the function is used within a
  **LOAD** statement, it must not reference the table currently being loaded.
 
-`NoOfRows( table_name )`
+`NoOfRows(table_name)`
 
 | Argument    | Description            |
 | ----------- | ---------------------- |
@@ -81,7 +81,7 @@ This script function returns the number of tables previously loaded.
 This script function returns the name of the table with the specified
 number.
 
-`TableName( table_number )`
+`TableName(table_number)`
 
 ## TableNumber
 
@@ -90,7 +90,7 @@ first table has number 0.
 
 If table_name does not exist, NULL is returned.
 
-`TableNumber( table_name )`
+`TableNumber(table_name)`
 
 In this example, we want to create a table with information about the
 tables and fields that have been loaded.

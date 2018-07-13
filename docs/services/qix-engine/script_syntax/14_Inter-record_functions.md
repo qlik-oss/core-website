@@ -2,206 +2,151 @@
 
 ## InterRecordFunctions
 
+Inter-record functions are used when a value from previously loaded records of data is needed for the evaluation of the current record.
+
 # Exists
 
- **Exists()** 
-determines whether a specific field value has already been loaded into
+ **Exists()** determines whether a specific field value has already been loaded into
 the field in the data load script. The function returns TRUE or FALSE,
-so can be used in the
- **where** 
-clause of a
- **LOAD**  statement
-or an
- **IF** 
-statement.
+so can be used in the **where** clause of a **LOAD**  statement
+or an **IF** statement.
 
- 
+Exists(field_name[,expr])
 
-Exists(field_name
-[,
-expr])
+**Return data type:** Boolean
 
-Boolean
-
- 
-
-| Argument    | Description                                                                                                                                                                                                                                                                 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| field_name | A name or a string expression evaluating to a field name to be searched for. The field must exist in the data loaded so far by the script.                                                                                                                                  |
+| Argument    | Description  |
+| ----------- | ------------ |
+| field_name  | A name or a string expression evaluating to a field name to be searched for. The field must exist in the data loaded so far by the script. |
 | expr        | An expression evaluating to the field value to look for in the field specified in  **field-name** . If omitted, the current record’s value in the specified field is assumed. |
 
-Examples and
-results:
-
-Example
-
-Result
-
-Exists (Employee)
-
-Returns -1 (True) if the value of the field
- **Employee** 
-in the current record already exists in any previously read record
-containing that
-field.
-
-Exists(Employee, 'Bill')
-
-Returns -1 (True) if the field value
- **'Bill'** 
-is found in the current content of the field
- **Employee** .
-
-The statements
-Exists (Employee, Employee) and
-Exists (Employee) are equivalent.
-
-Employees:
-
-LOAD \* inline [
-
-Employee|ID|Salary
-
-Bill|001|20000
-
-John|002|30000
-
-Steve|003|35000
-
-] (delimiter is '|');
-
- 
-
-Citizens:
-
-Load \* inline [
-
-Name|Address
-
-Bill|New York
-
-Mary|London
-
-Steve|Chicago
-
-Lucy|Paris
-
-John|Miami
-
-] (delimiter is '|');
-
- 
-
-EmployeeAddresses:
-
-Load Name as Employee, Address Resident Citizens where Exists (Employee,
-Name);
-
- 
-
-Drop Tables Employees, Citizens;
-
 <table>
+<thead>
+<tr class="header">
+<th>Example</th><th>Result</th>
+</thead>
 <tbody>
-<tr class="odd">
-<td><p>This results in a table called EmployeeAddresses in the data model, which can be viewed as a table visualization using the dimensions Employee and Address.</p>
-<p>The where clause: where Exists (Employee, Name), means only the names from the tableCitizens that are also in Employees are loaded into the new table. The Drop statement removes the temporary tables Employees and Citizens to avoid confusion.</p></td>
+<tr><td>Exists (Employee)</td>
+    <td> Returns -1 (True) if the value of the field Employee in the current record already exists in any previously read record containing that field. 
+    </td>
 </tr>
-<tr class="even">
-<td><table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Employee</td>
-<td>Address</td>
+<tr>
+    <td>Exists(Employee, 'Bill')</td> 
+    <td>Returns -1 (True) if the field value 'Bill' is found in the current content of the field Employee. The statements `Exists (Employee, Employee)` and `Exists (Employee)` are equivalent. 
+    </td>
 </tr>
-<tr class="even">
-<td>Bill</td>
-<td>New York</td>
-</tr>
-<tr class="odd">
-<td>John</td>
-<td>Miami</td>
-</tr>
-<tr class="even">
-<td>Steve</td>
-<td>Chicago</td>
-</tr>
-</tbody>
-</table></td>
+<tr>
+    <td>
+        <p>Employees:<br>
+        LOAD * inline [<br>
+        Employee|ID|Salary<br>
+        Bill|001|20000<br>
+        John|002|30000<br>
+        Steve|003|35000<br>
+        ] (delimiter is '|');<br>
+        <br>
+        Citizens:<br>
+        Load * inline [<br>
+        Name|Address<br>
+        Bill|New York<br>
+        Mary|London<br>
+        Steve|Chicago<br>
+        Lucy|Paris<br>
+        John|Miami<br>
+        ] (delimiter is '|');<br>
+        EmployeeAddresses:<br>
+        <br>
+        Load Name as Employee, Address Resident Citizens where Exists (Employee, Name);<br>
+        <br>
+        Drop Tables Employees, Citizens;<br>
+        Exists (Employee)</p>       
+    </td>
+    <td>    
+        <table>
+        <tbody>
+        <tr class="odd">
+        <td><p>This results in a table called EmployeeAddresses in the data model, which can be viewed as a table visualization using the dimensions Employee and Address.</p>
+        <p>The where clause: where Exists (Employee, Name), means only the names from the tableCitizens that are also in Employees are loaded into the new table. The Drop statement removes the temporary tables Employees and Citizens to avoid confusion.</p></td>
+        </tr>
+        <tr class="even">
+        <td><table>
+        <colgroup>
+        <col style="width: 50%" />
+        <col style="width: 50%" />
+        </colgroup>
+        <tbody>
+        <tr class="odd">
+        <td>Employee</td>
+        <td>Address</td>
+        </tr>
+        <tr class="even">
+        <td>Bill</td>
+        <td>New York</td>
+        </tr>
+        <tr class="odd">
+        <td>John</td>
+        <td>Miami</td>
+        </tr>
+        <tr class="even">
+        <td>Steve</td>
+        <td>Chicago</td>
+        </tr>
+        </tbody>
+        </table></td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
+<tr>
+    <td>
+        Replacing the statement in the sample data in the previous example that
+        builds the table EmployeeAddresses with the following, using
+        where not Exists.
+        NonEmployee:
+        Load Name as Employee, Address Resident Citizens where not Exists
+        (Employee, Name);
+    </td>
+    <td>
+        The where clause includes not:
+        where not Exists (Employee, Name), means only the names from the table
+        Citizens that are not in Employees are loaded into the new table.
+        <table>
+        <tr><th>Employee</th><th>Address</th></tr>
+        <tr><td>Mary</td><td>London</td></tr>
+        <tr><td>Lucy</td><td>Paris</td></tr>
+        </table>
+    </td>
 </tr>
 </tbody>
 </table>
 
-Replacing the statement in the sample data in the previous example that
-builds the table EmployeeAddresses with the following, using
-where not Exists.
-
-NonEmployee:
-
-Load Name as Employee, Address Resident Citizens where not Exists
-(Employee, Name);
-
-The where clause includes not:
-where not Exists (Employee, Name), means only the names from the table
-Citizens that are not in Employees are loaded into the new table.
-
-|          |         |
-| -------- | ------- |
-| Employee | Address |
-| Mary     | London  |
-| Lucy     | Paris   |
-
 Data used in example:
 
+```
 Employees:
-
 LOAD \* inline [
-
 Employee|ID|Salary
-
 Bill|001|20000
-
 John|002|30000
-
 Steve|003|35000
-
 ] (delimiter is '|');
-
- 
 
 Citizens:
-
 Load \* inline [
-
 Name|Address
-
 Bill|New York
-
 Mary|London
-
 Steve|Chicago
-
 Lucy|Paris
-
 John|Miami
-
 ] (delimiter is '|');
 
- 
-
 EmployeeAddresses:
-
 Load Name as Employee, Address Resident Citizens where Exists (Employee,
 Name);
 
- 
-
-Drop Tables Employees,
-Citizens;
+Drop Tables Employees, Citizens;
+```
 
 # LookUp
 
