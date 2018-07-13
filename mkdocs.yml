@@ -104,7 +104,7 @@ pages:
         - String Functions: services/qix-engine/script_syntax/22_String_functions.md
         - System Functions: services/qix-engine/script_syntax/23_System_functions.md
         - Table Functions: services/qix-engine/script_syntax/24_Table_functions.md
-        - Trigonometric And Hyperbolic Functions: services/qix-engine/script_syntax/25_trigonometric_and_hyperbolic_functions.md
+        - Trigonometric And Hyperbolic Functions: services/qix-engine/script_syntax/25_Trigonometric_and_hyperbolic_functions.md
       - Data Connector API:
         - Introduction: services/qix-engine/apis/data-loading/introduction.md
         - API Specification: services/qix-engine/apis/data-loading/data-connector-api.md
