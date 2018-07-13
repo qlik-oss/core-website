@@ -22,7 +22,7 @@ the middle preceding
 The first preceding **LOAD** adds a field checking if the value is NULL,using the
  **IsNull** function.
 
-```
+```qlik
 NullsDetectedAndConverted:
 LOAD *,
 If(IsNull(ValueNullConv), 'T', 'F') as IsItNull;
@@ -68,7 +68,7 @@ The first preceding **LOAD** adds a field checking if the value is NULL, just fo
 purposes in this
 example.
 
-```
+```qlik
 NullsDetectedAndConverted:
 LOAD *,
 If(IsNull(ValueNullConv), 'T', 'F') as IsItNull;

@@ -183,7 +183,7 @@ Left(text, count)`
 | ----------------- | ------------- |
 | Left('abcdef', 3) | Returns 'abc' |
 
-# Len
+## Len
 
 Len() returns the length of the input string.
 
@@ -400,7 +400,8 @@ created.
 | field_no  | The optional third argument is an integer that specifies which of the substrings of the parent string **text** is to be returned. Use the value 1 to return the first substring, 2 to return the second substring, and so on. A negative value causes the substring to be extracted from the right-hand side of the string. That is, the string search is from right to left, instead of left to right, if **field_no** is a positive value. |
 
 !!! Tip
-    SubField() can be used instead of using complex combinations of functions such as Len(), Right(), Left(), Mid(), and other string functions.
+    SubField() can be used instead of using complex combinations of functions such as Len(), Right(), Left(),
+    Mid(), and other string functions.
 
 <table>
 <thead>
@@ -420,7 +421,7 @@ created.
 <td>SubField(S, ';' ,1)<td>Returns an empty string if <b>S</b> is ';'.</td>
 </tr>
 <tr class="even">
-<td><p>Add the example script to your app and run it. Then add, at least, the fields listed in the results column to a sheet in your app to see the result.</p>
+<td><p>Add the example script to your app and run it.</p>
 FullName:<br/>
 LOAD * inline [<br/>
 Name<br/>
@@ -457,8 +458,10 @@ Drop Table FullName;<br/>
 </table></td>
 </tr>
 <tr class="odd">
-<td><p>This example shows how using multiple instances of the Subfield() function, each with the field_no parameter left out, from within the same LOAD statement creates Cartesian products of all combinations. The DISTINCT option is used to avoid creating duplicate record.</p>
-<p>Add the example script to your app and run it. Then add, at least, the fields listed in the results column to a sheet in your app to see the result.</p>
+<td><p>This example shows how using multiple instances of the Subfield() function, each with the
+field_no parameter left out, from within the same LOAD statement creates Cartesian products of
+all combinations. The DISTINCT option is used to avoid creating duplicate record.</p>
+<p>Add the example script to your app and run it.</p>
 <p>LOAD DISTINCT<br/>
 Instrument,<br/>
 SubField(Player,',') as Player,<br/>

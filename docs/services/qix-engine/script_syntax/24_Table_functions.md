@@ -1,8 +1,9 @@
 # Table functions
 
-The table functions return information about the data table which is currently being read. If no table name is specified and the function is used within a LOAD statement, the current table is assumed.
+The table functions return information about the data table which is currently being read.
+If no table name is specified and the function is used within a LOAD statement, the current table
+is assumed.
 
-All functions can be used in the data load script, while only NoOfRows can be used in a chart expression.
 ## FieldName
 
 The  **FieldName** script function returns the name of the field with the specified number
@@ -99,18 +100,18 @@ First we load some sample data. This creates the two tables that will be
 used to illustrate the table functions described in this
 section.
 
-```
+```qlik
 Characters:
 Load Chr(RecNo()+Ord('A')-1) as Alpha, RecNo() as Num
 autogenerate 26;
 
 ASCII:
 Load if(RecNo()\>=65 and
-  RecNo()\<=90,RecNo()-64) as Num, 
-  Chr(RecNo()) as AsciiAlpha, 
-  RecNo() as AsciiNum 
-autogenerate 255 
-  Where (RecNo()\>=32 and RecNo()\<=126) or RecNo()\>=160 ;
+  RecNo()\<=90,RecNo()-64) as Num,
+  Chr(RecNo()) as AsciiAlpha,
+  RecNo() as AsciiNum
+autogenerate 255
+  Where (RecNo()\>=32 and RecNo()\<=126) or RecNo()\>=160;
 ```
 
 Next, we iterate through the tables that have been loaded, using the
@@ -118,21 +119,21 @@ Next, we iterate through the tables that have been loaded, using the
  **NoOfFields** function, and load information using the table
 functions.
 
-```
-// Iterate through the loaded tables 
+```qlik
+// Iterate through the loaded tables
 For t = 0 to NoOfTables() - 1
 
-// Iterate through the fields of table 
-For f = 1 to NoOfFields(TableName($(t))) 
-  Tables: 
-  Load 
+// Iterate through the fields of table
+For f = 1 to NoOfFields(TableName($(t)))
+  Tables:
+  Load
     TableName($(t)) as Table,
-    TableNumber(TableName($(t))) as TableNo, 
-    NoOfRows(TableName($(t))) as TableRows, 
+    TableNumber(TableName($(t))) as TableNo,
+    NoOfRows(TableName($(t))) as TableRows,
     FieldName($(f),TableName($(t))) as Field,
     FieldNumber(FieldName($(f), TableName($(t))), TableName($(t))) as FieldNo
-    Autogenerate 1; 
-  Next f 
+    Autogenerate 1;
+  Next f
 Next t;
 ```
 

@@ -4,7 +4,8 @@
     Both IsNum and IsText return 0 if the expression is NULL.
 
 Example:
-```
+
+```qlik
 Load *, IsNum(Value), IsText(Value)
 Inline [
 Value
@@ -24,7 +25,6 @@ The resulting table looks like this:
 | Blue  | 0            | \-1           |
 | 12    | \-1          | 0             |
 | 33Red | 0            | \-1           |
-
 
 ## IsNum
 
