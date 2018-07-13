@@ -113,6 +113,6 @@ updates.
 
 Our intention is to be fully transparent to our partners and customers.
 Therefore, we have launched
-[Qlik API Insights](https://api-insights.qlik.com/?_ga=2.240450371.1316921484.1517254575-1425872494.1511967817#/start-page).
+[Qlik API Insights](https://api-insights.qlik.com/#/start-page).
 This is a tool that lets you see API changes over time.
 With this tool, you can see when something has been added, updated, deprecated, or removed, from an API.
