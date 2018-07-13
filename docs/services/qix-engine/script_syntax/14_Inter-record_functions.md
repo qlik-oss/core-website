@@ -1,6 +1,5 @@
 
-
-## InterRecordFunctions
+# InterRecordFunctions
 
 Inter-record functions are used when a value from previously loaded records of data is needed for the evaluation of the current record.
 
@@ -27,12 +26,12 @@ Exists(field_name[,expr])
 </thead>
 <tbody>
 <tr><td>Exists (Employee)</td>
-    <td> Returns -1 (True) if the value of the field Employee in the current record already exists in any previously read record containing that field. 
+    <td> Returns -1 (True) if the value of the field Employee in the current record already exists in any previously read record containing that field.
     </td>
 </tr>
 <tr>
-    <td>Exists(Employee, 'Bill')</td> 
-    <td>Returns -1 (True) if the field value 'Bill' is found in the current content of the field Employee. The statements `Exists (Employee, Employee)` and `Exists (Employee)` are equivalent. 
+    <td>Exists(Employee, 'Bill')</td>
+    <td>Returns -1 (True) if the field value 'Bill' is found in the current content of the field Employee. The statements `Exists (Employee, Employee)` and `Exists (Employee)` are equivalent.
     </td>
 </tr>
 <tr>
@@ -59,10 +58,10 @@ Exists(field_name[,expr])
         Load Name as Employee, Address Resident Citizens where Exists (Employee, Name);<br>
         <br>
         Drop Tables Employees, Citizens;<br>
-        Exists (Employee)</p>       
+        Exists (Employee)</p>
         </code>
     </td>
-    <td>    
+    <td>
         <table>
         <tbody>
         <tr>
@@ -149,7 +148,7 @@ Drop Tables Employees, Citizens;
 
  **Lookup()** looks into a table that is already loaded and returns the value of
  **field_name** corresponding to the first occurrence of the value
- **match_field_value** in the field **match_field_name** . The table can be the 
+ **match_field_value** in the field **match_field_name** . The table can be the
  current table or another table previously loaded.
 
 `lookup(field_name, match_field_name, match_field_value [,table_name])`
@@ -171,7 +170,7 @@ Drop Tables Employees, Citizens;
 
 The order in which the search is made is the load order, unless the
 table is the result of complex operations such as joins, in which case,
-the order is not well defined. Both  **field_name** and **match_field_name** 
+the order is not well defined. Both  **field_name** and **match_field_name**
 must be fields in the same table, specified by  **table_name**.
 
 If no match is found, NULL is returned.
@@ -273,7 +272,7 @@ Drop Table ProductList</code></p></td>
 !!! Note
     The Lookup() function is flexible and can access any previously loaded
     table. However, it is slow compared with the Applymap() function.
- 
+
 # Peek
 
  **Peek()** finds the value of a field in a table for a row that has already been
@@ -287,10 +286,11 @@ specified, as can the table.
 | Argument   | Description |
 | ---------- | ----------- |
 | field_name | Name of the field for which the return value is required.Input value must be given as a string (for example, quoted literals).}
-| row_no	 | The row in the table that specifies the field required. Can be an expression, but must resolve to an integer. 0 denotes the first record, 1 the second, and so on. Negative numbers indicate order from the end of the table. -1 denotes the last record read. <br>If no row is stated, -1 is assumed.|
+| row_no     | The row in the table that specifies the field required. Can be an expression, but must resolve to an integer. 0 denotes the first record, 1 the second, and so on. Negative numbers indicate order from the end of the table. -1 denotes the last record read. <br>If no row is stated, -1 is assumed.|
 | table_name | A table label without the ending colon. If no table_name is stated, the current table is assumed. If used outside the LOAD statement or referring to another table, the table_name must be included.|
 
 ## Limitations
+
 In the first record of an internal table, the function returns NULL.
 
 **Examples and results:**
@@ -321,7 +321,7 @@ In the first record of an internal table, the function returns NULL.
             EmpCode = 101, because Peek(EmployeeCode,0) returns the first value of EmployeeCode in the table EmployeeDates.<br>
             Substituting the value of the argument row_no returns the values of other rows in the table, as follows:
             Peek(EmployeeCode,2) returns the third value in the table: 102.<br>
-            However, note that without specifying the table as the third argument table_no, the function references the current (in this case, internal) table. The result of Peek(EmployeeCode,-2) is multiple values:   
+            However, note that without specifying the table as the third argument table_no, the function references the current (in this case, internal) table. The result of Peek(EmployeeCode,-2) is multiple values:
                 <table>
                 <thead>
                     <th>EmployeeCode</th><th>EmpCode</th>
@@ -347,7 +347,7 @@ In the first record of an internal table, the function returns NULL.
             </td>
             <td>
                 By specifying the argument table_no as 'EmployeeDates', the function returns the second-to-last value of EmployeeCode in the table EmployeeDates: 105.
-            </td>                
+            </td>
         </tr>
         <tr>
             <td>
@@ -410,12 +410,10 @@ In the first record of an internal table, the function returns NULL.
     </tbody>
 </table>
 
-
-
 # Previous
 
  **Previous()** finds the value of the  **expr** expression using data from
-the previous input record that has not been discarded because of a  **where** 
+the previous input record that has not been discarded because of a  **where**
 clause. In the first record of an internal table, the function will return NULL.
 
 `Previous(expr)`
@@ -518,5 +516,3 @@ Month|Sales<br>
 </tr>
 </tbody>
 </table>
-
- 
