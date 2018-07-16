@@ -112,10 +112,8 @@ creating a compact memory representation of a complex key.
 
 Example: Creating a composite key
 
-In this example we create a composite key using the **autonumberhash128** 
-function to conserve memory. The example is brief for demonstration
-purpose, but would be meaningful with a table containing a large number
-of rows.
+In this example we create a composite key using the **autonumberhash128** function to conserve memory. The example is
+brief for demonstration purpose, but would be meaningful with a table containing a large number of rows.
 
 | Region | Year | Month | Sales |
 | ------ | ---- | ----- | ----- |
