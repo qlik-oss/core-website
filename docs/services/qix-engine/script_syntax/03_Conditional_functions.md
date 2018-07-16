@@ -16,7 +16,7 @@ found, the last parameter will be returned. Any number of parameters can be used
 | expr3    | The third expression to check for a valid number representation.                      |
 | else     | Value to return if none of the previous parameters has a valid number representation. |
 
-The alt function is often used with number or date interpretation functions. This way, Qlik Sense can test different
+The alt function is often used with number or date interpretation functions. This way, Qlik associative engine can test different
 date formats in a prioritized order. It can also be used to handle NULL values in numerical expressions.
 
 Examples and results:
