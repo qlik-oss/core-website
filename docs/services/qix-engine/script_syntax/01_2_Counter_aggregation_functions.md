@@ -5,7 +5,7 @@
  **Count()** returns the number of values aggregated in expression, as defined by a
 group by clause.
 
-`Count( [distinct] expr)`
+`Count([distinct] expr)`
 
 **Return data type:** integer
 
@@ -53,7 +53,8 @@ numerical and alphabetical sorting.
 <p>Betacab 3</p>
 <p>Canutility 2</p>
 <p>Divadip 2</p>
-<p>As long as the dimension Customer is included in the table on the sheet, otherwise the result for OrdersByCustomer is 3, 2.</p></td>
+<p>As long as the dimension Customer is included in the table on the sheet,
+otherwise the result for OrdersByCustomer is 3, 2.</p></td>
 </tr>
 <tr class="even">
 <td><p>Given that the Temp table is loaded as in the previous example:</p></td>
@@ -75,7 +76,7 @@ numerical and alphabetical sorting.
  **MissingCount()** returns the number of missing values aggregated in the expression, as
 defined by a group by clause.
 
-`MissingCount ( [distinct] expr )`
+`MissingCount ([distinct] expr )`
 
 **Return data type:** integer
 
@@ -145,7 +146,7 @@ numerical and alphabetical sorting.
  **NullCount()** returns the number of NULL values aggregated in the expression, as
 defined by a group by clause.
 
-`NullCount( [distinct] expr )`
+`NullCount([distinct] expr )`
 
 **Return data type:** integer
 
@@ -208,7 +209,7 @@ numerical and alphabetical sorting.
 NumericCount() returns the number of numeric values found in the
 expression, as defined by a group by clause.
 
-`NumericCount( [distinct] expr )`
+`NumericCount([distinct] expr )`
 
 **Return data type:** integer
 
@@ -290,7 +291,7 @@ Because there is one OrderNumber that duplicates another, so the result is 6 tha
 TextCount() returns the number of field values that are non-numeric aggregated in
 the expression, as defined by a group by clause.
 
-`TextCount ( [distinct] expr )`
+`TextCount ([distinct] expr )`
 
 **Return data type:** integer
 
@@ -332,7 +333,7 @@ numerical and alphabetical sorting.
 <p>] (delimiter is '|');</p>
 <p>TextCount1:</p>
 <p>LOAD Customer,TextCount(Product) as ProductTextCount Resident Temp Group By Customer;</p>
-<p> </p></td>
+<p></p></td>
 <td><table>
 <tbody>
 <tr class="odd">
