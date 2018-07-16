@@ -1,13 +1,14 @@
 
 # InterRecordFunctions
 
-Inter-record functions are used when a value from previously loaded records of data is needed for the evaluation of the current record.
+Inter-record functions are used when a value from previously loaded
+records of data is needed for the evaluation of the current record.
 
 # Exists
 
- **Exists()** determines whether a specific field value has already been loaded into
-the field in the data load script. The function returns TRUE or FALSE,
-so can be used in the **where** clause of a **LOAD**  statement
+ **Exists()** determines whether a specific field value has already been
+ loaded into the field in the data load script. The function returns TRUE
+ or FALSE, so can be used in the **where** clause of a **LOAD**  statement
 or an **IF** statement.
 
 Exists(field_name[,expr])
@@ -26,12 +27,14 @@ Exists(field_name[,expr])
 </thead>
 <tbody>
 <tr><td>Exists (Employee)</td>
-    <td> Returns -1 (True) if the value of the field Employee in the current record already exists in any previously read record containing that field.
+    <td> Returns -1 (True) if the value of the field Employee in the current record already exists in any previously
+    read record containing that field.
     </td>
 </tr>
 <tr>
     <td>Exists(Employee, 'Bill')</td>
-    <td>Returns -1 (True) if the field value 'Bill' is found in the current content of the field Employee. The statements `Exists (Employee, Employee)` and `Exists (Employee)` are equivalent.
+    <td>Returns -1 (True) if the field value 'Bill' is found in the current content of the field Employee.
+    The statements `Exists (Employee, Employee)` and `Exists (Employee)` are equivalent.
     </td>
 </tr>
 <tr>
@@ -65,8 +68,11 @@ Exists(field_name[,expr])
         <table>
         <tbody>
         <tr>
-        <td><p>This results in a table called EmployeeAddresses in the data model, which can be viewed as a table visualization using the dimensions Employee and Address.</p>
-        <p>The where clause: where Exists (Employee, Name), means only the names from the tableCitizens that are also in Employees are loaded into the new table. The Drop statement removes the temporary tables Employees and Citizens to avoid confusion.</p></td>
+        <td><p>This results in a table called EmployeeAddresses in the data model, which can be viewed as a table
+        visualization using the dimensions Employee and Address.</p>
+        <p>The where clause: where Exists (Employee, Name), means only the names from the tableCitizens that are also in
+        Employees are loaded into the new table. The Drop statement removes the temporary tables Employees and Citizens
+        to avoid confusion.</p></td>
         </tr>
         <tr>
         <td><table>
@@ -118,7 +124,7 @@ Exists(field_name[,expr])
 
 Data used in example:
 
-```
+```qlik
 Employees:
 LOAD \* inline [
 Employee|ID|Salary
@@ -187,7 +193,8 @@ Examples and results:
 <tbody>
 <tr>
 <td><p>The sample data uses the  <p>Lookup('Category', 'ProductID', ProductID, 'ProductList')</p>
-<p>Add the example script to your app and run it. Then add, at least, the fields listed in the results column to a sheet in your app to see the result.</p>
+<p>Add the example script to your app and run it. Then add, at least, the fields listed in the results column to a
+sheet in your app to see the result.</p>
 <p><code>ProductList:<br>
 Load * Inline [<br>
 ProductID|Product|Category|Price<br>
@@ -212,8 +219,12 @@ Drop Table ProductList</code></p></td>
 <td><table>
 <tbody>
 <tr>
-<td><p>The  <p>The ** Lookup() function is used to build the **OrderData table. It specifies the third argument as **ProductID. This is the field for which the value is to be looked up in the second argument **'ProductID'**  in the **ProductList, as denoted by the enclosing single quotes.</p>
-<p>The function returns the value for ' <p>The  **drop statement deletes the **ProductList**  table from the data model, because it is not required, which leaves the **OrderData table with the following result:</p></td>
+<td><p>The  <p>The <b>Lookup()</b> function is used to build the <b>OrderData</b> table. It specifies the third argument
+as <b>ProductID</b>. This is the field for which the value is to be looked up in the second argument <b>'ProductID'</b>
+in the <b>ProductList</b>, as denoted by the enclosing single quotes.</p>
+<p>The function returns the value for <b>'CategoryID</b> (in the <b>ProductList</b> table), loaded as <b>CategoryID</b>.
+The <b>drop</b> statement deletes the <b>ProductList</b> table from the data model, because it is not required, which
+leaves the <b>OrderData</b> table with the following result:</p></td>
 </tr>
 <tr>
 <td><table>
@@ -301,7 +312,8 @@ In the first record of an internal table, the function returns NULL.
     </thead>
     <tbody>
         <tr>
-            <td>Add the example script to your app and run it. Then add, at least, the fields listed in the column to a sheet in your app to see the result.<code><p>
+            <td>Add the example script to your app and run it. Then add, at least, the fields listed in the column to a
+            sheet in your app to see the result.<code><p>
             EmployeeDates:<br>
             Load * Inline [<br>
             EmployeeCode|StartDate|EndDate<br>
@@ -321,7 +333,8 @@ In the first record of an internal table, the function returns NULL.
             EmpCode = 101, because Peek(EmployeeCode,0) returns the first value of EmployeeCode in the table EmployeeDates.<br>
             Substituting the value of the argument row_no returns the values of other rows in the table, as follows:
             Peek(EmployeeCode,2) returns the third value in the table: 102.<br>
-            However, note that without specifying the table as the third argument table_no, the function references the current (in this case, internal) table. The result of Peek(EmployeeCode,-2) is multiple values:
+            However, note that without specifying the table as the third argument table_no, the function references the
+            current (in this case, internal) table. The result of Peek(EmployeeCode,-2) is multiple values:
                 <table>
                 <thead>
                     <th>EmployeeCode</th><th>EmpCode</th>
@@ -346,13 +359,15 @@ In the first record of an internal table, the function returns NULL.
             </code>
             </td>
             <td>
-                By specifying the argument table_no as 'EmployeeDates', the function returns the second-to-last value of EmployeeCode in the table EmployeeDates: 105.
+                By specifying the argument table_no as 'EmployeeDates', the function returns the second-to-last value of
+                EmployeeCode in the table EmployeeDates: 105.
             </td>
         </tr>
         <tr>
             <td>
                 The Peek() function can be used to reference data that is not yet loaded.<br>
-                Add the example script to your app and run it. Then add, at least, the fields listed in the results column to a sheet in your app to see the result.
+                Add the example script to your app and run it. Then add, at least, the fields listed in the results
+                column to a sheet in your app to see the result.
                 <code>
                 T1:<br>
                 LOAD * inline [<br>
@@ -397,14 +412,19 @@ In the first record of an internal table, the function returns NULL.
                 <tr><td>5</td><td>13,2,78</td><td>78</td>
                 </tbody>
                 </table>
-                The IF() statement is built from the temporary table T1. 
+                The IF() statement is built from the temporary table T1.
                 Peek(ID) references the field ID in the previous row in the current table T2.
-                Peek(List) references the field List in the previous row in the table T2, currently being built as the expression is evaluated.<br>
+                Peek(List) references the field List in the previous row in the table T2, currently being built as the
+                expression is evaluated.<br>
                 The statement is evaluated as follows:<br>
-                If the current value of ID is the same as the previous value of ID, then write the value of Peek(List) concatenated with the current value of Value. Otherwise, write the current value of Value only.
-                If Peek(List) already contains a concatenated result, the new result of Peek(List) will be concatenated to it.
+                If the current value of ID is the same as the previous value of ID, then write the value of Peek(List)
+                concatenated with the current value of Value. Otherwise, write the current value of Value only.
+                If Peek(List) already contains a concatenated result, the new result of Peek(List) will be concatenated
+                to it.
                 <p>
-                Note the Order by clause. This specifies how the table is ordered (by ID in ascending order). Without this, the Peek() function will use whatever arbitrary ordering the internal table has, which can lead to unpredictable results.
+                Note the Order by clause. This specifies how the table is ordered (by ID in ascending order). Without
+                this, the Peek() function will use whatever arbitrary ordering the internal table has, which can lead to
+                npredictable results.
                 </p>
             </td>
     </tbody>
@@ -422,7 +442,10 @@ clause. In the first record of an internal table, the function will return NULL.
 
 | Argument | Description |
 | -------- | ----------- |
-| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested  **previous()**  functions in order to access records further back. Data are fetched directly from the input source, making it possible to refer also to fields that have not been loaded into Qlik Sense, that is,even if they have not been stored in its associative database.|
+| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
+**previous()** functions in order to access records further back. Data are fetched directly from the input source,
+making it possible to refer also to fields that have not been loaded into Qlik Sense, that is,even if they have not been
+stored in its associative database.|
 
 In the first record of an internal table, the function returns NULL.
 
@@ -461,7 +484,8 @@ Month|Sales<br>
 <td><table>
 <tbody>
 <tr>
-<td><p>By using the  **Previous() function in the **Load**  statement, we can compare the current value of Sales with the preceding value, and use it in a third field, Increase.</p></td>
+<td><p>By using the  **Previous() function in the **Load**  statement, we can compare the current value of Sales with
+the preceding value, and use it in a third field, Increase.</p></td>
 </tr>
 <tr>
 <td><table>
