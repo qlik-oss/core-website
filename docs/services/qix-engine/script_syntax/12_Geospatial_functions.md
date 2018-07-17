@@ -1,7 +1,7 @@
 # Geospatial functions
 
 These functions are used to handle geospatial data in map visualizations.
-Qlik Sense follows GeoJSON specifications for geospatial data and supports
+Qlik associative engine follows GeoJSON specifications for geospatial data and supports
 the following:
 
 * Point
