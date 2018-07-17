@@ -68,7 +68,7 @@ while the string value can be used for display purposes.
 | text     | The string value to be used in combination with the number argument.         |
 | number   | The number to be used in combination with the string in the string argument. |
 
-In Qlik Sense, all field values are potentially dual values. This means
+All field values are potentially dual values. This means
 that the field values can have both a numeric value and a textual value.
 An example is a date that could have a numeric value of 40908 and the
 textual representation ‘2011-12-31’.
