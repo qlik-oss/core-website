@@ -14,8 +14,9 @@ interpretation function.
 
 In the examples for each function, the default time and date formats hh:mm:ss and YYYY-MM-DD (ISO 8601) are assumed.
 
-!!! Note When processing a timestamp with a date or time function, the engine ignores any daylight savings time
-    parameters unless the date or time function includes a geographical position.
+!!! Note
+    When processing a timestamp with a date or time function, the engine ignores any daylight savings time
+    parameters unless the date or time function includes a geographic position.
     For example, `ConvertToLocalTime(filetime('Time.qvd'), 'Paris')` would use daylight savings time parameters while
     `ConvertToLocalTime(filetime('Time.qvd'), 'GMT-01:00')` would not use daylight savings time parameters.
 
@@ -77,10 +78,8 @@ The **age** function returns the age at the time of **timestamp** (in completed 
 | timestamp     | The timestamp,or expression resolving to a timestamp, up to which to calculate the completed number of years. |
 | date_of_birth | Date of birth of the person whose age is being calculated. Can be an expression. |
 
-### Examples and results
-
-These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at the top
-of your data load script. Change the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -403,8 +402,6 @@ according to the standard number interpretation.
 
 **Return data type:** integer
 
-Examples and results:
-
 | Example             | Result                                |
 | ------------------- | ------------------------------------- |
 | day( '1971-10-12' ) | returns 12                            |
@@ -422,11 +419,11 @@ The default output format will be the **TimestampFormat** set in the script.
 | Argument   | Description|
 | ---------- | --------- |
 | time       | The timestamp to evaluate.|
-| **period_no**  | **period_no** is an integer, or expression that resolves to an integer, where the value 0 indicates the day that contains **time**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
-| day_start  | To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 AM.|
+| period_no  | **period_no** is an integer, or expression that resolves to an integer, where the value 0 indicates the day that contains **time**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
+| day_start  | To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 a.m.|
 
-These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at the top
-of your data load script. Change the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -561,9 +558,7 @@ first millisecond of the day containing **time**.
 | -------- | --------------- |
 | time     | The timestamp to evaluate.|
 | period_no| **period_no** is an integer, or expression that resolves to an integer, where the value 0 indicates the day that contains **time**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
-| day_start| To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 AM.|
-
-Examples and results:
+| day_start| To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 a.m.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -698,10 +693,8 @@ The function always uses years based on 366 days.
 | timestamp   | The date to evaluate.|
 | start_month | By specifying a **start_month**  between 2 and 12 (1, if omitted), the beginning of the year may be moved forward to the first day of any month. For example, if you want to work with a fiscal year starting March 1, specify **start_month** = 3. |
 
-Examples and results:
-
-These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at the
-top of your data load script. Change the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -808,8 +801,6 @@ The function always uses years based on 366 days.
 | timestamp   | The date to evaluate.|
 | start_month | By specifying a **start_month** between 2 and 12 (1, if omitted), the beginning of the year may be moved forward to the first day of any month. For example, if you want to work with a fiscal year starting March 1, specify **start_month** = 3. |
 
-Examples and results:
-
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
 
@@ -910,16 +901,11 @@ This function returns a value corresponding to a timestamp with the first millis
 | Argument   | Description |
 | ---------- | ----------- |
 | time       | The timestamp to evaluate.|
-| **period_no**  | **period_no** is an integer, or expression that resolves to an integer, where the value 0 indicates the day that contains **time**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
-|  day_start | To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 AM.|
+| period_no  | **period_no** is an integer, or expression that resolves to an integer, where the value 0 indicates the day that contains **time**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
+|  day_start | To specify days not starting at midnight, indicate an offset as a fraction of a day in **day_start**. For example, 0.125 to denote 3 a.m.|
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -1051,8 +1037,6 @@ valid dates ortimestamps.
 | no_of_workdays | The number of working days to achieve. |
 | holiday  | Holiday periods to exclude from working days. A holiday period is stated as a start date and an end date, separated by commas.<br>'25/12/2013', '26/12/2013'<br>You can specify more than one holiday period, separated by commas.<br>'25/12/2013', '26/12/2013', '31/12/2013', '01/01/2014'
 
-Examples and results:
-
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement
 at the top of your data load script. Change the format in the examples to suit your requirements.
 
@@ -1175,10 +1159,8 @@ This function returns True if **timestamp** lies inside the day containing **bas
 | -------------- | --------------------------------------------------------------------------------------------------- |
 | timestamp      | The date and time that you want to compare with base_timestamp. |
 | base_timestamp | Date and time that is used to evaluate the timestamp.|
-| **period_no**  | The day can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the day which contains **base_timestamp**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
-| day_start     | If you want to work with days not starting midnight, indicate an offset as a fraction of a day in **day_start**, For example, 0.125 to denote 3 AM.|
-
-Examples and results:
+| period_no  | The day can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the day which contains **base_timestamp**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
+| day_start     | If you want to work with days not starting midnight, indicate an offset as a fraction of a day in **day_start**, For example, 0.125 to denote 3 a.m.|
 
 <table>
 <thead>
@@ -1306,7 +1288,7 @@ Drop table TempTable;</code></td>
 </tbody>
 </table>
 
-### indaytotime
+## indaytotime
 
 This function returns True if **timestamp** lies inside the part of day containing **base_timestamp** up until and
 including the exact millisecond of **base_timestamp**.
@@ -1319,10 +1301,8 @@ including the exact millisecond of **base_timestamp**.
 | -------------- | --------------------------------------------------------------------------------- |
 | timestamp      | The date and time that you want to compare with base_timestamp. |
 | base_timestamp | Date and time that is used to evaluate the timestamp.|
-| **period_no**  | The day can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the day which contains **base_timestamp**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
-| day_start      | (optional) If you want to work with days not starting midnight, indicate an offset as a fraction of a day in **day_start**, For example, 0.125 to denote 3 AM.|
-
-Examples and results:
+| period_no  | The day can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the day which contains **base_timestamp**. Negative values in **period_no** indicate preceding days and positive values indicate succeeding days. |
+| day_start  | (optional) If you want to work with days not starting midnight, indicate an offset as a fraction of a day in **day_start**, For example, 0.125 to denote 3 a.m.|
 
 <table>
 <thead>
@@ -1438,7 +1418,7 @@ Drop table TempTable;</code></td>
 </tbody>
 </table>
 
-### inlunarweek
+## inlunarweek
 
 This function finds if **timestamp** lies inside the lunar week containing **base_date**. Lunar weeks are
 defined by counting 1 January as the first day of the week.
@@ -1449,12 +1429,10 @@ defined by counting 1 January as the first day of the week.
 
 | Argument       | Description |
 | -------------- | --------------------------------------------------------------------- |
-| timestamp      | The date that you want to compare with **base_date**.|
-| base_date      | Date that is used to evaluate the lunar week. |
-| **period_no**  | The lunar week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the lunar week which contains **base_date**.Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks.|
-| **first_week_day** | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
-
-Examples and results:
+| timestamp  | The date that you want to compare with **base_date**.|
+| base_date  | Date that is used to evaluate the lunar week. |
+| period_no  | The lunar week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the lunar week which contains **base_date**.Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks.|
+| first_week_day | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
 
 <table>
 <thead>
@@ -1478,11 +1456,14 @@ Examples and results:
 </tr>
 <tr>
 <td>inlunarweek('07/01/2013', '14/01/2013', -1)</td>
-<td>Returns True. In comparison with the previous example, the timestamp is in the week after taking into account the shift backwards.</td>
+<td>Returns True. In comparison with the previous example, the timestamp is in the week after taking into account the
+shift backwards.</td>
 </tr>
 <tr>
 <td>inlunarweek('11/01/2006', '08/01/2006', 0, 3)</td>
-<td>Returns False. Because specifying a value for first_week_day as 3 means the start of the year is calculated from 04/01/2013, and so the value of base_date falls in the first week, and the value of timestamp falls in the week 11/01/2013 to 17/01/2013.</td>
+<td>Returns False. Because specifying a value for first_week_day as 3 means the start of the year is calculated from
+04/01/2013, and so the value of base_date falls in the first week, and the value of timestamp falls in the week
+11/01/2013 to 17/01/2013.</td>
 </tr>
 <tr>
 <td>
@@ -1591,12 +1572,10 @@ Return data type: Boolean
 
 | Argument       | Description |
 | -------------- | ------------------------------------ |
-| timestamp      | The date that you want to compare with **base_date**.|
-| base_date      | Date that is used to evaluate the lunar week.|
-| **period_no**  | The lunar week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the lunar week which contains **base_date**.Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
-| **first_week_day** | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
-
-Examples and results:
+| timestamp  | The date that you want to compare with **base_date**.|
+| base_date    | Date that is used to evaluate the lunar week.|
+| period_no  | The lunar week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the lunar week which contains **base_date**.Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
+| first_week_day | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
 
 <table>
 <thead>
@@ -1612,42 +1591,45 @@ Examples and results:
 </tr>
 <tr>
 <td>inlunarweektodate('12/01/2013', '11/01/2013', 0)</td>
-<td>Returns False. Because the value of timestamp is later than the value base_date even though the two dates are in the same lunar week before 12/01/2012.</td>
+<td>Returns False. Because the value of timestamp is later than the value base_date even though the two dates are in
+the same lunar week before 12/01/2012.</td>
 </tr>
 <tr>
 <td>inlunarweektodate('12/01/2006', '05/01/2006', 1)</td>
-<td>Returns True. Specifying a value of 1 for **period_no** shifts the base_date forward one week, so the value of timestamp falls in the part of the lunar week.</td>
+<td>Returns True. Specifying a value of 1 for period_no shifts the base_date forward one week, so the value of
+timestamp falls in the part of the lunar week.</td>
 </tr>
 <tr>
 <td>
 <p>This example checks if an invoice date falls in the part of the week shifted from the value of base_date by four weeks.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>InLunarWeekToDate(InvDate, '07/01/2013', 4) AS InLWeek2DPlus4</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+InLunarWeekToDate(InvDate, '07/01/2013', 4) AS InLWeek2DPlus4<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
 <td><p>The resulting table contains the original dates and a column with the return value of the inlunarweek() function.</p>
-<p>The function returns True for the value of InvDate5/2/2013 because the value of base_date, 11/01/2013, is shifted by four weeks, and so falls in the part of the week 5/02/2013 to 07/02/2013.</p></td>
+<p>The function returns True for the value of InvDate5/2/2013 because the value of base_date, 11/01/2013, is shifted by
+four weeks, and so falls in the part of the week 5/02/2013 to 07/02/2013.</p></td>
 </tr>
 <tr>
 <td><table>
@@ -1717,18 +1699,16 @@ Examples and results:
 
 This function returns True if **timestamp** lies inside the month containing **base_date** .
 
-`InMonth(timestamp, base_date, **period_no**[, first_month_of_year])`
+`InMonth(timestamp, base_date, period_no [, first_month_of_year])`
 
 **Return data type:** Boolean
 
 | Argument            | Description |
 | ------------------- | ----------- |
-| timestamp           | The date that you want to compare with **base_date**.|
-| base_date           | Date that is used to evaluate the month. |
-| **period_no**      | The month can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the month which contains **base_date**.Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
-| first_month_of_year | The first_month_of_year parameter is disabled and reserved for future use. |
-
-Examples and results:
+| timestamp       | The date that you want to compare with **base_date**.|
+| base_date         | Date that is used to evaluate the month. |
+| period_no      | The month can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the month which contains **base_date**.Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
+| first_month_of_year | The **first_month_of_year** parameter is disabled and reserved for future use. |
 
 <table>
 <thead>
@@ -1863,13 +1843,11 @@ date.It is also possible to find if the timestamp falls within a previous or fol
 | n_months            | The number of months that defines the period. An integer or expression that resolves to an integer that must be one of: 1 (equivalent to the inmonth() function), 2 (bi-month), 3 (equivalent to the inquarter() function), 4 (tertial), or 6 (half year). |
 | timestamp           | The date that you want to compare with **base_date**.|
 | base_date           | Date that is used to evaluate the period.|
-| **period_no**      | The period can be offset by **period_no**, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**. Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
+| period_no      | The period can be offset by **period_no**, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**. Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
-Examples and results:
-
-These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at the
-top of your data load script. Change the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -1928,7 +1906,7 @@ Drop table TempTable;</code></td>
 <tbody>
 <tr>
 <td><p>The resulting table contains the original dates and a column with the return value of the InMonths() function.</p>
-<p>The search period is 01/03/2013 to 30/04/2013, because the value of base_date is shifted forwards two months from 
+<p>The search period is 01/03/2013 to 30/04/2013, because the value of base_date is shifted forwards two months from
 he value in the function (11/02/2013).</p></td>
 </tr>
 <tr>
@@ -2010,18 +1988,13 @@ following time period.
 | Argument            | Description |
 | ------------------- | ------------------------------------------- |
 | n_months            | The number of months that defines the period. An integer or expression that resolves to an integer that must be one of: 1 (equivalent to the inmonth() function), 2 (bi-month), 3 (equivalent to the inquarter() function), 4 (tertial), or 6 (half year).|
-| timestamp           | The date that you want to compare with **base_date.|
+| timestamp           | The date that you want to compare with **base_date**.|
 | base_date           | Date that is used to evaluate the period.|
-| **period_no**      | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
-| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in first_month_of_year.|
+| period_no      | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
+| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -2160,7 +2133,7 @@ millisecond of **basedate**.
 | ----------| ----------- |
 | timestamp | The date that you want to compare with base_date.|
 | base_date | Date that is used to evaluate the month.|
-| **period_no**  | The month can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the month which contains **base_date**. Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
+| period_no  | The month can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the month which contains **base_date**. Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
 
 <table>
 <thead>
@@ -2289,7 +2262,7 @@ This function returns True if **timestamp** lies inside the quarter containing *
 | ------------------- | ----------- |
 | timestamp           | The date that you want to compare with **base_date**.|
 | base_date           | Date that is used to evaluate the quarter.        |
-| **period_no**      | The quarter can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the quarter which contains **base_date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
+| period_no      | The quarter can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the quarter which contains **base_date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 <table>
@@ -2326,7 +2299,8 @@ This function returns True if **timestamp** lies inside the quarter containing *
 </tr>
 <tr>
 <td>
-<p>This example checks if an invoice date falls in the fourth quarter of the fiscal year specified by setting the value of first_month_of_year to 4, and having the base_date 31/01/2013.</p>
+<p>This example checks if an invoice date falls in the fourth quarter of the fiscal year specified by setting the value
+of first_month_of_year to 4, and having the base_date 31/01/2013.</p>
 <code>TempTable:<br>
 LOAD RecNo() as InvID, * Inline [<br>
 InvDate<br>
@@ -2431,7 +2405,7 @@ including the last millisecond of **base_date**.
 | ------------------- | -------------------------------------------- |
 | timestamp           | The date that you want to compare with **base_date**.|
 | base_date           | Date that is used to evaluate the quarter.|
-| **period_no**      | The quarter can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the quarter which contains **base_date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
+| period_no      | The quarter can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the quarter which contains **base_date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 <table>
@@ -2561,8 +2535,8 @@ This function returns True if **timestamp** lies inside the week containing **ba
 | -------------- | ----------------------------------------- |
 | timestamp      | The date that you want to compare with **base_date**.|
 | base_date      | Date that is used to evaluate the week.|
-| **period_no**  | The week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the week which contains **base_date**. Negative values in **period_no** indicate preceding weeks and positive values indicate succeeding weeks. |
-| **first_week_day** | By default, the first day of the week is Monday, starting at midnight between Sunday and Monday. To indicate the week starting on another day, specify an offset in **first_week_day**. This may be given as a whole number of days and/or fractions of a day. |
+| period_no  | The week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the week which contains **base_date**. Negative values in **period_no** indicate preceding weeks and positive values indicate succeeding weeks. |
+| first_week_day | By default, the first day of the week is Monday, starting at midnight between Sunday and Monday. To indicate the week starting on another day, specify an offset in **first_week_day**. This may be given as a whole number of days and/or fractions of a day. |
 
 <table>
 <thead>
@@ -2702,8 +2676,8 @@ including the last millisecond of **base_date**.
 | ---------------| ----------- |
 | timestamp      | The date that you want to compare with base_date.|
 | base_date      | Date that is used to evaluate the week.|
-| **period_no**  | The week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the week which contains **base_date**. Negative values in **period_no** indicate preceding weeks and positive values indicate succeeding weeks. |
-| **first_week_day** | By default, the first day of the week is Monday, starting at midnight between Sunday and Monday. To indicate the week starting on another day, specify an offset in **first_week_day**. This may be given as a whole number of days and/or fractions of a day.|
+| period_no  | The week can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the week which contains **base_date**. Negative values in **period_no** indicate preceding weeks and positive values indicate succeeding weeks. |
+| first_week_day | By default, the first day of the week is Monday, starting at midnight between Sunday and Monday. To indicate the week starting on another day, specify an offset in **first_week_day**. This may be given as a whole number of days and/or fractions of a day.|
 
 <table>
 <thead>
@@ -2729,11 +2703,13 @@ Because period_no is specified as -1, the effective data that timestamp is measu
 <tr>
 <td>inweektodate ( '11/01/2006', '12/01/2006', 0, 3 )</td>
 <td>Returns False<br />
-Because first_week_day is specified as 3 (Thursday), which makes 12/01/2006 the first day of the week following the week containing 12/01/2006.</td>
+Because first_week_day is specified as 3 (Thursday), which makes 12/01/2006 the first day of the week following the
+week containing 12/01/2006.</td>
 </tr>
 <tr>
 <td>
-<p>This example checks if an invoice date falls during the fourth week after the week in base_date, by specifying period_no as 4, but before the value of base_date.</p>
+<p>This example checks if an invoice date falls during the fourth week after the week in base_date, by specifying
+period_no as 4, but before the value of base_date.</p>
 <code>TempTable:<br>
 LOAD RecNo() as InvID, * Inline [<br>
 InvDate<br>
@@ -2829,7 +2805,7 @@ Drop table TempTable;</code></td>
 
 This function returns True if **timestamp** lies inside the year containing **base_date** .
 
-`InYear(timestamp, base_date, **period_no** [, first_month_of_year])`
+`InYear(timestamp, base_date, period_no [, first_month_of_year])`
 
 **Return data type:** Boolean
 
@@ -2837,7 +2813,7 @@ This function returns True if **timestamp** lies inside the year containing **ba
 | ------------------- | ------------------------ |
 | timestamp           | The date that you want to compare with **base_date**. |
 | base_date           | Date that is used to evaluate the year. |
-| **period_no**      | The year can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the year that contains **base_date**. Negative values in **period_no** indicate preceding years, and positive values indicate succeeding years. |
+| period_no      | The year can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the year that contains **base_date**. Negative values in **period_no** indicate preceding years, and positive values indicate succeeding years. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in first_month_of_year.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement
@@ -2870,7 +2846,7 @@ at the top of your data load script. Change the format in the examples to suit y
 <tr>
 <td>inyear ('25/01/2013', '01/01/2013', 0, 3)</td>
 <td><p>Returns True</p>
-<p>The value of base_date and first_month_of_year specify that timestamp must fall within 01/03/2012 and 28/02/2013</p></td>
+<p>The value of base_date and <b>first_month_of_year</b> specify that timestamp must fall within 01/03/2012 and 28/02/2013</p></td>
 </tr>
 <tr>
 <td>inyear ('25/03/2013', '01/07/2013', 0, 3 )</td>
@@ -2879,7 +2855,7 @@ at the top of your data load script. Change the format in the examples to suit y
 <tr>
 <td>
 <p>This example checks if an invoice date falls in the fiscal year specified by setting the value of
-**first_month_of_year** to 4, and having the base_date between 1/4/2012 and 31/03/2013.</p>
+<b>first_month_of_year</b> to 4, and having the base_date between 1/4/2012 and 31/03/2013.</p>
 <code>TempTable:<br>
 LOAD RecNo() as InvID, * Inline [<br>
 InvDate<br>
@@ -2973,8 +2949,8 @@ Drop table TempTable;</code></td>
 
 ## inyeartodate
 
-This function returns True if **timestamp** lies inside the part of year containing **base_date** 
-up until and including the last millisecond of **base_date**.
+This function returns True if **timestamp** lies inside the part of year containing **base_date** up until and
+including the last millisecond of **base_date**.
 
 `InYearToDate(timestamp, base_date, period_no[, first_month_of_year])`
 
@@ -2984,10 +2960,8 @@ up until and including the last millisecond of **base_date**.
 | ------------------- | ----------- |
 | timestamp           | The date that you want to compare with **base_date**.|
 | base_date           | Date that is used to evaluate the year.|
-| **period_no**      | The year can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the year that contains **base_date**.Negative values in **period_no** indicate preceding years, and positive values indicate succeeding years. |
+| period_no      | The year can be offset by **period_no**. **period_no** is an integer, where the value 0 indicates the year that contains **base_date**.Negative values in **period_no** indicate preceding years, and positive values indicate succeeding years. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
-
-Examples and results:
 
 <table>
 <thead>
@@ -3017,11 +2991,13 @@ The value of timestamp falls inside the fiscal year beginning in the fourth mont
 <tr>
 <td>inyeartodate ( '2013/3/31', '2013/01/31', 0, 4 )</td>
 <td>Returns False<br />
-Compared with the previous example, the value of timestamp is still inside the fiscal year, but it is after the value of base_date, so it falls outside the part of the year.</td>
+Compared with the previous example, the value of timestamp is still inside the fiscal year, but it is after the value
+of base_date, so it falls outside the part of the year.</td>
 </tr>
 <tr>
 <td>
-<p>This example checks if an invoice date falls in a fiscal year specified by setting the value of first_month_of_year to 4, and in the part of the year before the end of 31/01/2013.</p>
+<p>This example checks if an invoice date falls in a fiscal year specified by setting the value of
+<b>first_month_of_year</b> to 4, and in the part of the year before the end of 31/01/2013.</p>
 <code>TempTable:<br>
 LOAD RecNo() as InvID, * Inline [<br>
 InvDate<br>
@@ -3408,8 +3384,8 @@ the first day of the week.
 | Argument        | Description |
 | --------------- | ------------|
 |  date           | The date to evaluate.|
-|  **period_no**  | **period_no** is an integer or expression resolving to an integer, where the value 0 indicates the lunar week which contains **date** . Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
-| **first_week_day** | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
+|  period_no      | **period_no** is an integer or expression resolving to an integer, where the value 0 indicates the lunar week which contains **date** . Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
+| first_week_day  | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
 
 <table>
 <thead>
@@ -3539,8 +3515,8 @@ This function returns a value corresponding to a timestamp of the first millisec
 | Argument | Description |
 | -------- | ------------|
 | date     | The date to evaluate.|
-| **period_no**  | **period_no** is an integer or expression resolving to an integer, where the value 0 indicates the lunar week which contains **date** . Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
-| **first_week_day** | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
+| period_no  | **period_no** is an integer or expression resolving to an integer, where the value 0 indicates the lunar week which contains **date** . Negative values in **period_no** indicate preceding lunar weeks and positive values indicate succeeding lunar weeks. |
+| first_week_day | An offset that may be greater than or less than zero. This changes the beginning of the year by the specified number of days and/or fractions of a day.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -3568,7 +3544,8 @@ Because the offset specified by setting first_week_day to 1 means the beginning 
 </tr>
 <tr>
 <td>
-<p>This example finds the first day of the lunar week of each invoice date in the table, where the date is shifted by one week by specifying period_no as 1.</p>
+<p>This example finds the first day of the lunar week of each invoice date in the table, where the date is shifted by
+one week by specifying period_no as 1.</p>
 <code>TempTable:<br>
 LOAD RecNo() as InvID, * Inline [<br>
 InvDate<br>
@@ -3777,7 +3754,7 @@ This function returns a date calculated from the year **YYYY** ,the week **WW** 
 | makeweekdate(2014,6,1) | returns 2014-02-04                        |
 | makeweekdate(2014,6)   | returns 2014-02-03 (weekday 0 is assumed) |
 
-### minute
+## minute
 
 This function returns an integer representing the minute when the fraction of the **expression** is interpreted as a
 time according to the standard number interpretation.
@@ -3785,8 +3762,6 @@ time according to the standard number interpretation.
 `Minute(expression)`
 
 **Return data type:** integer
-
-Examples and results:
 
 | Example               | Result                                   |
 | --------------------- | ---------------------------------------- |
@@ -3802,8 +3777,6 @@ interpretation.
 `Month(expression)`
 
 **Return data type:** dual
-
-Examples and results:
 
 | Example               | Result                                  |
 | --------------------- | --------------------------------------- |
@@ -3822,9 +3795,7 @@ containing **date**. The default output format will be the **DateFormat** set in
 | Argument  | Description|
 | --------- | ---------- |
 | date      | The date to evaluate.|
-| **period_no**  | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date** . Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
-
-Examples and results:
+| period_no | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date** . Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -3952,7 +3923,7 @@ year with an underlying numeric value corresponding to a timestamp of the first 
 | Argument  | Description |
 | --------- | ----------- |
 | date      | The date to evaluate.|
-| **period_no**  | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date** . Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
+| period_no | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date** . Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -3968,7 +3939,7 @@ the top of your data load script. Change the format in the examples to suit your
 <tr>
 <td>monthname('19/10/2013')</td>
 <td>Returns Oct 2013.<br />
-Because in this and the other examples, the ** SET Monthnames**  statement is set to Jan;Feb;Mar, and so on.</td>
+Because in this and the other examples, the <b>SET Monthnames</b> statement is set to Jan;Feb;Mar, and so on.</td>
 </tr>
 <tr>
 <td>monthname('19/10/2013', -1)</td>
@@ -4083,8 +4054,8 @@ time period.
 | ------------------- | ----------- |
 | n_months            | The number of months that defines the period. An integer or expression that resolves to an integer that must be one of: 1 (equivalent to the inmonth() function), 2 (bi-month), 3 (equivalent to the inquarter() function), 4 (tertial), or 6 (half year). |
 | date                | The date to evaluate. |
-| **period_no**       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
-| **first_month_of_year** | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
+| period_no       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
+| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -4208,7 +4179,8 @@ Drop table TempTable;</code></td>
 ## monthsname
 
 This function returns a display value representing the range of the months of the period (formatted according to the
-**MonthNames** script variable) as well as the year. The underlying numeric value corresponds to a timestamp of the first millisecond of the month, bi-month, quarter, tertial, or half-year containing a base date.
+**MonthNames** script variable) as well as the year. The underlying numeric value corresponds to a timestamp of the
+first millisecond of the month, bi-month, quarter, tertial, or half-year containing a base date.
 
 `MonthsName(n_months, date[, period_no[, first_month_of_year]])`
 
@@ -4218,10 +4190,8 @@ This function returns a display value representing the range of the months of th
 | ------------------- | ----------- |
 | n_months            | The number of months that defines the period. An integer or expression that resolves to an integer that must be one of: 1 (equivalent to the inmonth() function), 2 (bi-month), 3 (equivalent to the inquarter() function), 4 (tertial), or 6 (half year).|
 | date                | The date to evaluate. |
-| **period_no**       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods.|
-| **first_month_of_year** | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
-
-Examples and results:
+| period_no       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods.|
+| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -4237,7 +4207,7 @@ the top of your data load script. Change the format in the examples to suit your
 <tr>
 <td>monthsname(4, '19/10/2013')</td>
 <td>Returns 'Sep-Dec 2013.<br />
-Because in this and the other examples, the ** SET Monthnames**  statement is set to Jan;Feb;Mar, and so on.<br />
+Because in this and the other examples, the <b>SET Monthnames</b> statement is set to Jan;Feb;Mar, and so on.<br />
 </td>
 </tr>
 <tr>
@@ -4359,7 +4329,7 @@ time period.
 | ------------------- | ----------- |
 | n_months            | The number of months that defines the period. An integer or expression that resolves to an integer that must be one of: 1 (equivalent to the inmonth() function), 2 (bi-month), 3 (equivalent to the inquarter() function), 4 (tertial), or 6 (half year).|
 | date                | The date to evaluate.|
-| **period_no**       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
+| period_no       | The period can be offset by period_no, an integer, or expression resolving to an integer, where the value 0 indicates the period that contains **base_date**.Negative values in **period_no** indicate preceding periods and positive values indicate succeeding periods. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
@@ -4492,7 +4462,7 @@ containing **date**. The default output format will be the **DateFormat** set in
 | Argument  | Description |
 | --------- | ----------  |
 | date      | The date to evaluate.|
-| **period_no**  | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date**. Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
+| period_no | **period_no** is an integer, which, if 0 or omitted, indicates the month that contains **date**. Negative values in **period_no** indicate preceding months and positive values indicate succeeding months. |
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -4620,9 +4590,9 @@ and **end_date** taking into account any optionally listed **holiday**.
 
 | Argument | Description |
 | -------- | ----------- |
-| **start_date** | The start date to evaluate. |
-| **end_date** | The end date to evaluate. |
-| **holiday** | Holiday periods to exclude from working days. A holiday period is stated as a start date and an end date, separated by commas. <br> '25/12/2013', '26/12/2013'<br>You can specify more than one holiday period, separated by commas.<br> '25/12/2013', '26/12/2013', '31/12/2013', '01/01/2014'
+| start_date | The start date to evaluate. |
+| end_date | The end date to evaluate. |
+| holiday  | Holiday periods to exclude from working days. A holiday period is stated as a start date and an end date, separated by commas. <br> '25/12/2013', '26/12/2013'<br>You can specify more than one holiday period, separated by commas.<br> '25/12/2013', '26/12/2013', '31/12/2013', '01/01/2014'
 
 These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
 the top of your data load script. Change the format in the examples to suit your requirements.
@@ -4790,26 +4760,21 @@ This function returns a timestamp of the current time from the system clock. The
 
 ## quarterend
 
-This function returns a value corresponding to a timestamp of the last
-millisecond of the quarter containing **date** .
+This function returns a value corresponding to a timestamp of the last millisecond of the quarter containing **date**.
 The default output format will be the **DateFormat** set in the script.
 
-`QuarterEnd( date[, period_no[, first_month_of_year]] )`
+`QuarterEnd(date[, period_no[, first_month_of_year]])`
 
 **Return data type:** dual
 
 | Argument            | Description|
-| ------------------- | ---------------------------- |
+| ------------------- | ---------- |
 | date                | The date to evaluate.|
-| **period_no**       | **period_no** is an integer, where the value 0 indicates the quarter which contains **date** . Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
+| period_no       | **period_no** is an integer, where the value 0 indicates the quarter which contains **date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
-Examples and results:
-
-These examples use the date format **DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -4833,29 +4798,30 @@ the format in the examples to suit your requirements.
 </tr>
 <tr>
 <td>
-<p>This example finds the last day in the quarter of each invoice date in the table, where the first month in the year is specified as month 3.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>QuarterEnd(InvDate, 0, 3) AS QtrEnd</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>This example finds the last day in the quarter of each invoice date in the table, where the first month in the year
+is specified as month 3.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+QuarterEnd(InvDate, 0, 3) AS QtrEnd<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -4927,21 +4893,19 @@ the format in the examples to suit your requirements.
 
 ## quartername
 
-This function returns a display value showing the months of the quarter
-(formatted according to the **MonthNames** script variable) and year with an underlying numeric value corresponding
-to a timestamp of the first millisecond of the first day of the quarter.
+This function returns a display value showing the months of the quarter (formatted according to the **MonthNames**
+script variable) and year with an underlying numeric value corresponding to a timestamp of the first millisecond of the
+first day of the quarter.
 
-`QuarterName( date[, period_no[, first_month_of_year]] )`
+`QuarterName(date[, period_no[, first_month_of_year]])`
 
 **Return data type:** dual
 
 | Argument            | Description|
 | ------------------- | ------------------------------------ |
 | date                | The date to evaluate.|
-| **period_no**      | **period_no** is an integer, where the value 0 indicates the quarter which contains **date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
-| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year** .|
-
-Examples and results:
+| period_no       | **period_no** is an integer, where the value 0 indicates the quarter which contains **date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
+| first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
 <table>
 <thead>
@@ -4965,29 +4929,30 @@ Examples and results:
 </tr>
 <tr>
 <td>
-<p>In this example, for each invoice date in the table, the quarter name is created based on the quarter containing InvID. The first month of the year is specified as month 4.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>QuarterName(InvDate, 0, 4) AS QtrName</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>In this example, for each invoice date in the table, the quarter name is created based on the quarter containing
+InvID. The first month of the year is specified as month 4.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+QuarterName(InvDate, 0, 4) AS QtrName<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -5059,29 +5024,21 @@ Examples and results:
 
 ## quarterstart
 
-This function returns a value corresponding to a timestamp of the first
-millisecond of the quarter containing **date**.
+This function returns a value corresponding to a timestamp of the first millisecond of the quarter containing **date**.
 The default output format will be the **DateFormat** set in the script.
 
-`QuarterStart( date[, period_no[, first_month_of_year]] )`
+`QuarterStart(date[, period_no[, first_month_of_year]])`
 
 **Return data type:** dual
-
- 
 
 | Argument            | Description |
 | ------------------- | -------------------------------------- |
 | date                | The date to evaluate.|
-| **period_no**      | **period_no** is an integer, where the value 0 indicates the quarter which contains **date** . Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
+| period_no       | **period_no** is an integer, where the value 0 indicates the quarter which contains **date**. Negative values in **period_no** indicate preceding quarters and positive values indicate succeeding quarters. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year** .|
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -5105,29 +5062,30 @@ the format in the examples to suit your requirements.
 </tr>
 <tr>
 <td>
-<p>This example finds the first day in the quarter of each invoice date in the table, where the first month in the year is specified as month 3.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>QuarterStart(InvDate, 0, 3) AS QtrStart</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>This example finds the first day in the quarter of each invoice date in the table, where the first month in the year
+is specified as month 3.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+QuarterStart(InvDate, 0, 3) AS QtrStart<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -5199,14 +5157,12 @@ the format in the examples to suit your requirements.
 
 ## second
 
-This function returns an integer representing the second when the
-fraction of the **expression** is interpreted as a time according to the standard number interpretation.
+This function returns an integer representing the second when the fraction of the **expression** is interpreted as a
+time according to the standard number interpretation.
 
-`second( expression )`
+`second(expression)`
 
 **Return data type:** integer
-
-Examples and results:
 
 | Example              | Result                                   |
 | -------------------- | ---------------------------------------- |
@@ -5215,27 +5171,19 @@ Examples and results:
 
 ## setdateyear
 
-This function takes as input a timestamp and a year and updates the
-timestamp with the year specified in input.
+This function takes as input a timestamp and a year and updates the timestamp with the year specified in input.
 
-`setdateyear( timestamp, year )`
+`setdateyear(timestamp, year)`
 
 **Return data type:** dual
-
- 
 
 | Argument  | Description                                          |
 | --------- | ---------------------------------------------------- |
 | timestamp | A standard Qlik timestamp (often just a date).       |
 | year      | A four-digit year.                                   |
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -5252,28 +5200,29 @@ the format in the examples to suit your requirements.
 <tr>
 <td>setdateyear ('29/10/2005 04:26:14', 2013)</td>
 <td><p>Returns '29/10/2013 04:26:14'<br />
-To see the time part of the timestamp in a visualization, you must set the number formatting to Date and choose a value for Formatting that displays time values.</p></td>
+To see the time part of the timestamp in a visualization, you must set the number formatting to Date and choose a value
+for Formatting that displays time values.</p></td>
 </tr>
 <tr>
 <td>
-<p>SetYear:</p>
-<p>Load *,</p>
-<p>SetDateYear(testdates, 2013) as NewYear</p>
-<p>Inline [</p>
-<p>testdates</p>
-<p>1/11/2012</p>
-<p>10/12/2012</p>
-<p>1/5/2013</p>
-<p>2/1/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p></td>
+<code>SetYear:<br>
+Load *,<br>
+SetDateYear(testdates, 2013) as NewYear<br>
+Inline [<br>
+testdates<br>
+1/11/2012<br>
+10/12/2012<br>
+1/5/2013<br>
+2/1/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+</code>
 <td><table>
 <tbody>
 <tr>
@@ -5345,15 +5294,12 @@ To see the time part of the timestamp in a visualization, you must set the numbe
 
 ## setdateyearmonth
 
-This function takes as input a **timestamp**,
-a month and a year and updates the timestamp with the **year** 
-and the month specified in input.
+This function takes as input a **timestamp**, a month and a year and updates the timestamp with the **year** and the
+month specified in input.
 
-`SetDateYearMonth( timestamp, year, month )`
+`SetDateYearMonth(timestamp, year, month)`
 
 **Return data type:** dual
-
- 
 
 | Argument  | Description                                          |
 | --------- | ---------------------------------------------------- |
@@ -5361,13 +5307,8 @@ and the month specified in input.
 | year      | A four-digit year.                                   |
 | month     | A one or two-digit month.                            |
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -5385,26 +5326,27 @@ the format in the examples to suit your requirements.
 <td>setdateyearmonth ('29/10/2005 04:26:14', 2013, 3)</td>
 <td>Returns '29/03/2013 04:26:14'<br />
 
-<p>To see the time part of the timestamp in a visualization, you must set the number formatting to Date and choose a value for Formatting that displays time values.</p></td>
+<p>To see the time part of the timestamp in a visualization, you must set the number formatting to Date and choose a
+value for Formatting that displays time values.</p></td>
 </tr>
 <tr>
 <td>
-<p>SetYearMonth:</p>
-<p>Load *,</p>
-<p>SetDateYearMonth(testdates, 2013,3) as NewYearMonth</p>
-<p>Inline [</p>
-<p>testdates</p>
-<p>1/11/2012</p>
-<p>10/12/2012</p>
-<p>2/1/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p></td>
+<code>SetYearMonth:<br>
+Load *,<br>
+SetDateYearMonth(testdates, 2013,3) as NewYearMonth<br>
+Inline [<br>
+testdates<br>
+1/11/2012<br>
+10/12/2012<br>
+2/1/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+</code>
 <td><table>
 <tbody>
 <tr>
@@ -5468,7 +5410,7 @@ the format in the examples to suit your requirements.
 
 ## timezone
 
-This function returns the name of the current time zone, as defined in Windows.
+This function returns the name of the current time zone, as defined in the operating system.
 
 `TimeZone()`
 
@@ -5478,7 +5420,7 @@ This function returns the name of the current time zone, as defined in Windows.
 
 This function returns the current date from the system clock.
 
-`Today( [timer_mode] )`
+`Today([timer_mode])`
 
 **Return data type:** dual
 
@@ -5497,13 +5439,12 @@ This function returns the current date from the system clock.
 1 (day of function call)<br />
 2 (day when the app was opened)</p>
 
-If you use the function in a data load script,  **timer_mode=0 will result in the day of the last finished data load, while **timer_mode=1**  will give the day of the current data load.
+If you use the function in a data load script,  <b>timer_mode=0</b> will result in the day of the last finished data
+load, while <b>timer_mode=1</b>  will give the day of the current data load.
 </td>
 </tr>
 </tbody>
 </table>
-
- 
 
 <table>
 <thead>
@@ -5514,16 +5455,15 @@ If you use the function in a data load script,  **timer_mode=0 will result in th
 </thead>
 <tbody>
 <tr>
-<td><p>Today( 0)</p></td>
-<td><p>Returns the day of the last finished data load.</p></td>
+<td><p>Today(0)</p></td>
+<td>Returns the day of the last finished data load.</td>
 </tr>
 <tr>
-<td><p>Today( 1)</p></td>
-<td><p>When used in a visualization expression, this returns the day of the function call.</p>
-<p>When used in a data load script, this returns the day when the current data load started.</p></td>
+<td><p>Today(1)</p></td>
+<td>Returns the day when the current data load started</td>
 </tr>
 <tr>
-<td><p>Today( 2)</p></td>
+<td><p>Today(2)</p></td>
 <td><p>Returns the day when the app was opened.</p></td>
 </tr>
 </tbody>
@@ -5537,14 +5477,12 @@ Returns the current Coordinated Universal Time.
 
 **Return data type:** dual
 
-# week
+## week
 
-This function returns an integer representing the week number according
-to ISO 8601. The week number is calculated from the date interpretation
-of the expression, according to the standard number
-interpretation.
+This function returns an integer representing the week number according to ISO 8601. The week number is calculated from
+the date interpretation of the expression, according to the standard number interpretation.
 
-`week( timestamp [, first_week_day [, broken_weeks [, reference_day]]] )`
+`week(timestamp [, first_week_day [, broken_weeks [, reference_day]]])`
 
 **Return data type:** integer
 
@@ -5557,12 +5495,13 @@ interpretation.
 </thead>
 <tbody>
 <tr>
-<td> **timestamp** </td>
+<td><b>timestamp</b></td>
 <td>The date to evaluate as a timestamp or expression resolving to a timestamp, to convert, for example '2012-10-12'.</td>
 </tr>
 <tr>
-<td> <td><p>If you don't specify  **first_week_day** , the value of variable **FirstWeekDay will be used as the first day of the week.</p>
-<p>If you want to use another day as the first day of the week, set  **first_week_day**  to:</p>
+<td><b>first_week_day</b><td><p>If you don't specify <b>first_week_day</b>, the value of variable <b>FirstWeekDay</b>
+will be used as the first day of the week.</p>
+<p>If you want to use another day as the first day of the week, set <b>first_week_day</b> to:</p>
 <ul>
 <li>0 for Monday</li>
 <li>1 for Tuesday</li>
@@ -5572,12 +5511,13 @@ interpretation.
 <li>5 for Saturday</li>
 <li>6 for Sunday</li>
 </ul>
-<p>The integer returned by the function will now use the first day of the week that you set with  **first_week_day** .</p>
-<p><em>FirstWeekDay</em></p></td>
+<p>The integer returned by the function will now use the first day of the week that you set with  <b>first_week_day</b>.</p>
+</td>
 </tr>
 <tr>
-<td> <td><p>If you don't specify broken_weeks, the value of variable **BrokenWeeks will be used to define if weeks are broken or not.</p>
-<p>By default Qlik Sense functions use unbroken weeks. This means that:</p>
+<td><b>broken_weeks</b><td><p>If you don't specify broken_weeks, the value of variable <b>BrokenWeeks</b> will be used
+to define if weeks are broken or not.</p>
+<p>By default functions use unbroken weeks. This means that:</p>
 <ul>
 <li>In some years, week 1 starts in December, and in other years, week 52 or 53 continues into January.</li>
 <li>Week 1 always has at least 4 days in January.</li>
@@ -5592,10 +5532,13 @@ interpretation.
 <li>0 (=use unbroken weeks)</li>
 <li>1 (= use broken weeks)</li>
 </ul>
-<p><em>BrokenWeeks</em></p></td>
+</td>
 </tr>
 <tr>
-<td> <td><p>If you don't specify reference_day, the value of variable **ReferenceDay will be used to define which day in January to set as reference day to define week 1. By default, Qlik Sense functions use 4 as the reference day. This means that week 1 must contain January 4, or put differently, that week 1 must always have at least 4 days in January.</p>
+<td><b>reference_day</b><td><p>If you don't specify reference_day, the value of variable <b>ReferenceDay</b> will be
+used to define which day in January to set as reference day to define week 1. By default, Qlik Sense functions use 4 as
+the reference day. This means that week 1 must contain January 4, or put differently, that week 1 must always have at
+least 4 days in January.</p>
 <p>The following values can be used to set a different reference day:</p>
 <ul>
 <li>1 (= January 1)</li>
@@ -5606,12 +5549,10 @@ interpretation.
 <li>6 (= January 6)</li>
 <li>7 (= January 7)</li>
 </ul>
-<p><em>ReferenceDay</em></p></td>
+</td>
 </tr>
 </tbody>
 </table>
-
-Examples and results:
 
 | Example                  | Result                                 |
 | ------------------------ | -------------------------------------- |
@@ -5623,10 +5564,10 @@ Examples and results:
 
 This function returns a dual value with:
 
-  - A day name as defined in the environment variable **DayNames**.
-  - An integer between 0-6 corresponding to the nominal day of the week (0-6).
+- A day name as defined in the environment variable **DayNames**.
+- An integer between 0-6 corresponding to the nominal day of the week (0-6).
 
-`weekday( date [,first_week_day=0] )`
+`weekday(date [,first_week_day=0])`
 
 **Return data type:** dual
 
@@ -5639,12 +5580,13 @@ This function returns a dual value with:
 </thead>
 <tbody>
 <tr>
-<td> date </td>
+<td><b>date</b></td>
 <td>The date to evaluate.</td>
 </tr>
 <tr>
-<td> <td><p>If you don't specify  **first_week_day** , the value of variable **FirstWeekDay will be used as the first day of the week.</p>
-<p>If you want to use another day as the first day of the week, set  **first_week_day**  to:</p>
+<td><b>first_week_day</b><td><p>If you don't specify <b>first_week_day</b>, the value of variable <b>FirstWeekDay</b>
+will be used as the first day of the week.</p>
+<p>If you want to use another day as the first day of the week, set <b>first_week_day</b> to:</p>
 <ul>
 <li>0 for Monday</li>
 <li>1 for Tuesday</li>
@@ -5654,13 +5596,12 @@ This function returns a dual value with:
 <li>5 for Saturday</li>
 <li>6 for Sunday</li>
 </ul>
-<p>The integer returned by the function will now use the first day of the week that you set with  **first_week_day**  as base (0).</p>
-<p><em>FirstWeekDay</em></p></td>
+<p>The integer returned by the function will now use the first day of the week that you set with <b>first_week_day</b>
+as base (0).</p>
+</td>
 </tr>
 </tbody>
 </table>
-
-Examples and results:
 
 Unless it is stated specifically, **FirstWeekDay** is set to 0 in these examples.
 
@@ -5678,13 +5619,11 @@ Unless it is stated specifically, **FirstWeekDay** is set to 0 in these examples
 </tr>
 <tr>
 <td>weekday( '1971-10-12' , 6)</td>
-<td><p>returns 'Tue' and 2.</p>
-<p>In this example we use Sunday (6) as the first day of the week.</p></td>
+<td>returns 'Tue' and 2.<br>
+In this example we use Sunday (6) as the first day of the week.</td>
 </tr>
 <tr>
-<td><p>SET FirstWeekDay = 6;</p>
-<p>...</p>
-weekday( '1971-10-12')</td>
+<td>SET FirstWeekDay = 6;<br>...<br>weekday( '1971-10-12')</td>
 <td>returns 'Tue' and 2.</td>
 </tr>
 </tbody>
@@ -5692,11 +5631,10 @@ weekday( '1971-10-12')</td>
 
 ## weekend
 
-This function returns a value corresponding to a timestamp of the last
-millisecond of the last day (Sunday) of the calendar week containing **date** 
-The default output format will be the **DateFormat** set in the script.
+This function returns a value corresponding to a timestamp of the last millisecond of the last day (Sunday) of the
+calendar week containing **date** The default output format will be the **DateFormat** set in the script.
 
-`WeekEnd( date [, period_no[, first_week_day]] )`
+`WeekEnd(date [, period_no[, first_week_day]])`
 
 **Return data type:** dual
 
@@ -5709,15 +5647,17 @@ The default output format will be the **DateFormat** set in the script.
 </thead>
 <tbody>
 <tr>
-<td> date </td>
+<td><b>date</b></td>
 <td>The date to evaluate.</td>
 </tr>
 <tr>
-<td> <td> shift  is an integer, where the value 0 indicates the week which contains **date. Negative values in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
+<td><b>period_no</b><td> shift  is an integer, where the value 0 indicates the week which contains <b>date</b>. Negative
+values in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
 </tr>
 <tr>
-<td> <td><p>Specifies the day on which the week starts. If omitted, the value of variable **FirstWeekDay is used.</p>
-<p>The possible values  **first_week_day**  are:</p>
+<td><b>first_week_day</b><td><p>Specifies the day on which the week starts. If omitted, the value of variable
+<b>FirstWeekDay</b> is used.</p>
+<p>The possible values <b>first_week_day</b> are:</p>
 <ul>
 <li>0 for Monday</li>
 <li>1 for Tuesday</li>
@@ -5727,18 +5667,13 @@ The default output format will be the **DateFormat** set in the script.
 <li>5 for Saturday</li>
 <li>6 for Sunday</li>
 </ul>
-<p><em>FirstWeekDay</em></p></td>
+</td>
 </tr>
 </tbody>
 </table>
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -5763,28 +5698,28 @@ the format in the examples to suit your requirements.
 <tr>
 <td>
 <p>This example finds the final day in the week following the week of each invoice date in the table.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>WeekEnd(InvDate, 1) AS WkEnd</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+WeekEnd(InvDate, 1) AS WkEnd<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -5856,11 +5791,10 @@ the format in the examples to suit your requirements.
 
 ## weekname
 
-This function returns a value showing the year and week number with an
-underlying numeric value corresponding to a timestamp of the first
-millisecond of the first day of the week containing **date**.
+This function returns a value showing the year and week number with an underlying numeric value corresponding to a
+timestamp of the first millisecond of the first day of the week containing **date**.
 
-`WeekName( date[, period_no[,first_week_day]] )`
+`WeekName(date[, period_no[,first_week_day]])`
 
 **Return data type:** dual
 
@@ -5873,15 +5807,17 @@ millisecond of the first day of the week containing **date**.
 </thead>
 <tbody>
 <tr>
-<td> date </td>
+<td><b>date</b></td>
 <td>The date to evaluate.</td>
 </tr>
 <tr>
-<td> <td> shift  is an integer, where the value 0 indicates the week which contains date. Negative values in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
+<td><b>perio_no</b><td>shift is an integer, where the value 0 indicates the week which contains date. Negative values
+in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
 </tr>
 <tr>
-<td> <td><p>Specifies the day on which the week starts. If omitted, the value of variable **FirstWeekDay is used.</p>
-<p>The possible values  **first_week_day**  are:</p>
+<td><b>first_week_day</b><td><p>Specifies the day on which the week starts. If omitted, the value of variable
+<b>FirstWeekDay</b> is used.</p>
+<p>The possible values <b>first_week_day</b> are:</p>
 <ul>
 <li>0 for Monday</li>
 <li>1 for Tuesday</li>
@@ -5891,12 +5827,10 @@ millisecond of the first day of the week containing **date**.
 <li>5 for Saturday</li>
 <li>6 for Sunday</li>
 </ul>
-<p><em>FirstWeekDay</em></p></td>
+</td>
 </tr>
 </tbody>
 </table>
-
-Examples and results:
 
 <table>
 <thead>
@@ -5920,29 +5854,30 @@ Examples and results:
 </tr>
 <tr>
 <td>
-<p>In this example, for each invoice date in the table, the week name is created from the year in which the week lies and its associated week number, shifted one week by specifying period_no as 1.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>WeekName(InvDate, 1) AS WkName</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>In this example, for each invoice date in the table, the week name is created from the year in which the week lies
+and its associated week number, shifted one week by specifying <b>period_no</b> as 1.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+WeekName(InvDate, 1) AS WkName<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -6014,12 +5949,10 @@ Examples and results:
 
 ## weekstart
 
-This function returns a value corresponding to a timestamp of the first
-millisecond of the first day (Monday) of the calendar week containing
- **date** .
-The default output format is the **DateFormat** set in the script.
+This function returns a value corresponding to a timestamp of the first millisecond of the first day (Monday) of the
+calendar week containing  **date**. The default output format is the **DateFormat** set in the script.
 
-`WeekStart( date [, period_no[, first_week_day]] )`
+`WeekStart(date [, period_no[, first_week_day]])`
 
 **Return data type:** dual
 
@@ -6032,15 +5965,17 @@ The default output format is the **DateFormat** set in the script.
 </thead>
 <tbody>
 <tr>
-<td> date </td>
+<td><b>date</b></td>
 <td>The date to evaluate.</td>
 </tr>
 <tr>
-<td> <td> shift  is an integer, where the value 0 indicates the week which contains **date. Negative values in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
+<td><b>period_no</b><td> shift  is an integer, where the value 0 indicates the week which contains <b>date</b>. Negative
+values in shift indicate preceding weeks and positive values indicate succeeding weeks.</td>
 </tr>
 <tr>
-<td> <td><p>Specifies the day on which the week starts. If omitted, the value of variable **FirstWeekDay is used.</p>
-<p>The possible values  **first_week_day**  are:</p>
+<td><b>first_week_day</b><td><p>Specifies the day on which the week starts. If omitted, the value of variable
+<b>FirstWeekDay</b> is used.</p>
+<p>The possible values <b>first_week_day</b> are:</p>
 <ul>
 <li>0 for Monday</li>
 <li>1 for Tuesday</li>
@@ -6050,18 +5985,13 @@ The default output format is the **DateFormat** set in the script.
 <li>5 for Saturday</li>
 <li>6 for Sunday</li>
 </ul>
-<p><em>FirstWeekDay</em></p></td>
+</td>
 </tr>
 </tbody>
 </table>
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -6086,28 +6016,28 @@ the format in the examples to suit your requirements.
 <tr>
 <td>
 <p>This example finds the first day of the week following the week of each invoice date in the table.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>WeekStart(InvDate, 1) AS WkStart</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+WeekStart(InvDate, 1) AS WkStart<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -6179,15 +6109,12 @@ the format in the examples to suit your requirements.
 
 ## weekyear
 
-This function returns the year to which the week number belongs
-according to ISO 8601. The week number ranges between 1 and
-approximately 52.
+This function returns the year to which the week number belongs according to ISO 8601. The week number ranges between 1
+and approximately 52.
 
-`weekyear( expression )`
+`weekyear(expression)`
 
 Return data type: integer
-
-Examples and results:
 
 | Example                  | Result                                                    |
 | ------------------------ | --------------------------------------------------------- |
@@ -6197,12 +6124,9 @@ Examples and results:
 | weekyear( '1997-12-30' ) | returns 1998, because week 1 of 1998 starts on 1997-12-29 |
 | weekyear( '1999-01-02' ) | returns 1998, because week 53 of 1998 ends on 1999-01-03  |
 
- 
-
-Some years, week #1 starts in December, e.g. December 1997. Other years
-start with week #53 of previous year, e.g. January 1999. For those few
-days when the week number belongs to another year, the functions
- **year** and **weekyear** will return different values.
+Some years, week #1 starts in December, e.g. December 1997. Other years start with week #53 of previous year, e.g.
+January 1999. For those few days when the week number belongs to another year, the functions **year** and **weekyear**
+will return different values.
 
 ## year
 
@@ -6210,11 +6134,9 @@ This function returns an integer representing the year when the
  **expression** is interpreted as a date according to the standard number
 interpretation.
 
-`year( expression )`
+`year(expression)`
 
 **Return data type:** integer
-
-Examples and results:
 
 | Example              | Result                                   |
 | -------------------- | ---------------------------------------- |
@@ -6223,27 +6145,21 @@ Examples and results:
 
 ## yearend
 
-This function returns a value corresponding to a timestamp of the last
-millisecond of the last day of the year containing **date**.
-The default output format will be the **DateFormat** set in the script.
+This function returns a value corresponding to a timestamp of the last millisecond of the last day of the year
+containing **date**. The default output format will be the **DateFormat** set in the script.
 
-`YearEnd( date[, period_no[, first_month_of_year = 1]] )`
+`YearEnd(date[, period_no[, first_month_of_year = 1]])`
 
-**Return data type:** dual 
+**Return data type:** dual
 
 | Argument            | Description          |
 | ------------------- | -------------------- |
 | date                | The date to evaluate.|
-| **period_no**      | **period_no** is an integer, where the value 0 indicates the year which contains **date** . Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
+| period_no           | **period_no** is an integer, where the value 0 indicates the year which contains **date**. Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -6267,29 +6183,30 @@ the format in the examples to suit your requirements.
 </tr>
 <tr>
 <td>
-<p>This example finds the final day in the year of each invoice date in the table, where the first month in the year is specified as month 4.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>YearEnd(InvDate, 0, 4) AS YrEnd</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>This example finds the final day in the year of each invoice date in the table, where the first month in the year is
+specified as month 4.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+YearEnd(InvDate, 0, 4) AS YrEnd<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -6361,29 +6278,21 @@ the format in the examples to suit your requirements.
 
 ## yearname
 
-This function returns a four-digit year as display value with an
-underlying numeric value corresponding to a timestamp of the first
-millisecond of the first day of the year containing **date**.
+This function returns a four-digit year as display value with an underlying numeric value corresponding to a timestamp
+of the first millisecond of the first day of the year containing **date**.
 
-`YearName( date[, period_no[, first_month_of_year]] )`
+`YearName(date[, period_no[, first_month_of_year]])`
 
 **Return data type:** dual
 
- 
+| Argument                | Description          |
+| ----------------------- | -------------------- |
+| date                    | The date to evaluate.|
+| period_no               | **period_no** is an integer, where the value 0 indicates the year which contains **date**. Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
+| first_month_of_year     | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**. The display value will then be a string showing two years.|
 
-| Argument             | Description          |
-| -------------------- | -------------------- |
-| date                 | The date to evaluate.|
-| **period_no**       | **period_no** is an integer, where the value 0 indicates the year which contains **date** . Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
-|  first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year** . The display value will then be a string showing two years.|
-
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -6407,29 +6316,30 @@ the format in the examples to suit your requirements.
 </tr>
 <tr>
 <td>
-<p>This example creates a four-plus-four digit name for the years in which each invoice date in the table is found. This is because the first month in the year is specified as month 4.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>YearName(InvDate, 0, 4) AS YrName</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>This example creates a four-plus-four digit name for the years in which each invoice date in the table is found.
+This is because the first month in the year is specified as month 4.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+YearName(InvDate, 0, 4) AS YrName<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -6501,27 +6411,21 @@ the format in the examples to suit your requirements.
 
 ## yearstart
 
-This function returns a timestamp corresponding to the start of the
-first day of the year containing **date**.
-The default output format will be the **DateFormat** set in the script.
+This function returns a timestamp corresponding to the start of the first day of the year containing **date**. The
+default output format will be the **DateFormat** set in the script.
 
-`YearStart( date[, period_no[, first_month_of_year]] )`
+`YearStart(date[, period_no[, first_month_of_year]])`
 
 **Return data type:** dual
 
-| Argument            | Description          |
-| ------------------- | -------------------- |
-| date                | The date to evaluate.|
-| **period_no**      | **period_no** is an integer, where the value 0 indicates the year which contains **date** . Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
+| Argument             | Description          |
+| -------------------- | -------------------- |
+| date                 | The date to evaluate.|
+| period_no            | **period_no** is an integer, where the value 0 indicates the year which contains **date**. Negative values in **period_no** indicate preceding years and positive values indicate succeeding years. |
 | first_month_of_year | If you want to work with (fiscal) years not starting in January, indicate a value between 2 and 12 in **first_month_of_year**.|
 
-Examples and results:
-
-These examples use the date format
-**DD/MM/YYYY**.
-The date format is specified in the
-**SET DateFormat** statement at the top of your data load script. Change
-the format in the examples to suit your requirements.
+These examples use the date format **DD/MM/YYYY**. The date format is specified in the **SET DateFormat** statement at
+the top of your data load script. Change the format in the examples to suit your requirements.
 
 <table>
 <thead>
@@ -6545,29 +6449,30 @@ the format in the examples to suit your requirements.
 </tr>
 <tr>
 <td>
-<p>This example finds the first day in the year of each invoice date in the table, where the first month in the year is specified as month 4.</p>
-<p>TempTable:</p>
-<p>LOAD RecNo() as InvID, * Inline [</p>
-<p>InvDate</p>
-<p>28/03/2012</p>
-<p>10/12/2012</p>
-<p>5/2/2013</p>
-<p>31/3/2013</p>
-<p>19/5/2013</p>
-<p>15/9/2013</p>
-<p>11/12/2013</p>
-<p>2/3/2014</p>
-<p>14/5/2014</p>
-<p>13/6/2014</p>
-<p>7/7/2014</p>
-<p>4/8/2014</p>
-<p>];</p>
-<p> </p>
-<p>InvoiceData:</p>
-<p>LOAD *,</p>
-<p>YearStart(InvDate, 0, 4) AS YrStart</p>
-<p>Resident TempTable;</p>
-<p>Drop table TempTable;</p></td>
+<p>This example finds the first day in the year of each invoice date in the table, where the first month in the year is
+specified as month 4.</p>
+<code>TempTable:<br>
+LOAD RecNo() as InvID, * Inline [<br>
+InvDate<br>
+28/03/2012<br>
+10/12/2012<br>
+5/2/2013<br>
+31/3/2013<br>
+19/5/2013<br>
+15/9/2013<br>
+11/12/2013<br>
+2/3/2014<br>
+14/5/2014<br>
+13/6/2014<br>
+7/7/2014<br>
+4/8/2014<br>
+];<br>
+ <br>
+InvoiceData:<br>
+LOAD *,<br>
+YearStart(InvDate, 0, 4) AS YrStart<br>
+Resident TempTable;<br>
+Drop table TempTable;</code></td>
 <td><table>
 <tbody>
 <tr>
@@ -6639,32 +6544,24 @@ the format in the examples to suit your requirements.
 
 ## yeartodate
 
-This function finds if the input timestamp falls within the year of the
-date the script was last loaded, and returns True if it does, False if
-it does not.
+This function finds if the input timestamp falls within the year of the date the script was last loaded, and returns
+True if it does, False if it does not.
 
-`YearToDate( timestamp[ , yearoffset [ , firstmonth [ , todaydate]]] )`
- 
+`YearToDate(timestamp[ , yearoffset [ , firstmonth [ , todaydate]]])`
+
 **Return data type:** Boolean
 
-If none of the optional parameters are used, the year to date means any
-date within one calendar year from January 1 up to and including the
-date of the last script
-execution.
-
- 
+If none of the optional parameters are used, the year to date means any date within one calendar year from January 1 up
+to and including the date of the last script execution.
 
 | Argument   | Description                                          |
 | ---------- |----------------------------------------------------- |
 | timestamp  | The timestamp to evaluate, for example '2012-10-12'. |
 | yearoffset | By specifying a  indicates a previous year, a positive offset a future year. The most recent year-to-date is achieved by specifying yearoffset = -1. If omitted, 0 is assumed. |
-| firstmonth | By specifying a  **firstmonth**  between 1 and 12 (1 if omitted) the beginning of the year may be moved forward to the first day of any month. For example, if you want to work with a fiscal year beginning on May 1, specify **firstmonth = 5.|
-| todaydate  | By specifying a  **todaydate**  (timestamp of the last script execution if omitted) it is possible to move the day used as the upper boundary of the period. 
+| firstmonth | By specifying a **firstmonth** between 1 and 12 (1 if omitted) the beginning of the year may be moved forward to the first day of any month. For example, if you want to work with a fiscal year beginning on May 1, specify **firstmonth** = 5.|
+| todaydate  | By specifying a **todaydate** (timestamp of the last script execution if omitted) it is possible to move the day used as the upper boundary of the period.
 
-Examples and results:
-
-The following examples assume last reload time =
-2011-11-18
+The following examples assume last reload time = 2011-11-18
 
 | Example                                       | Result        |
 | --------------------------------------------- | ------------- |
