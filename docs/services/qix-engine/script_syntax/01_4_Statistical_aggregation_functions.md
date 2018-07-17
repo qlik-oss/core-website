@@ -20,41 +20,41 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Temp:</p>
-<p>crosstable (Month, Sales) load * inline [</p>
-<p>Customer|Jan|Feb|Mar||Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec</p>
-<p>Astrida|46|60|70|13|78|20|45|65|78|12|78|22</p>
-<p>Betacab|65|56|22|79|12|56|45|24|32|78|55|15</p>
-<p>Canutility|77|68|34|91|24|68|57|36|44|90|67|27</p>
-<p>Divadip|36|44|90|67|27|57|68|47|90|80|94</p>
-<p>] (delimiter is '|');</p>
-<p> </p>
-<p>Avg1:</p>
-<p>LOAD Customer, Avg(Sales) as MyAverageSalesByCustomer Resident Temp Group By Customer;</p>
-<p> </p></td>
-<td><p>Customer MyAverageSalesByCustomer</p>
-<p>Astrida 48.916667</p>
-<p>Betacab 44.916667</p>
-<p>Canutility 56.916667</p>
-<p>Divadip 63.083333</p>
+<tr>
+<td><code>Temp:<br>
+crosstable (Month, Sales) load * inline [
+Customer|Jan|Feb|Mar||Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
+Astrida|46|60|70|13|78|20|45|65|78|12|78|22
+Betacab|65|56|22|79|12|56|45|24|32|78|55|15
+Canutility|77|68|34|91|24|68|57|36|44|90|67|27
+Divadip|36|44|90|67|27|57|68|47|90|80|94<br>
+] (delimiter is '|');
+</p>
+<p>Avg1:<br>
+LOAD Customer, Avg(Sales) as MyAverageSalesByCustomer<br> Resident Temp Group By Customer;
+</code></td>
+<td>Customer MyAverageSalesByCustomer<br>
+Astrida 48.916667<br>
+Betacab 44.916667<br>
+Canutility 56.916667<br>
+Divadip 63.083333<br>
 This can be checked in the sheet by creating a table including the measure:<br />
 Sum(Sales)/12</td>
 </tr>
-<tr class="even">
-<td><p>Given that the Temp table is loaded as in the previous example:</p>
-<p>LOAD Customer,Avg(DISTINCT Sales) as MyAvgSalesDistinct Resident Temp Group By Customer;</p></td>
-<td><p>Customer MyAverageSalesByCustomer</p>
-<p>Astrida 43.1</p>
-<p>Betacab 43.909091</p>
-<p>Canutility 55.909091</p>
-<p>Divadip 61</p>
+<tr>
+<td>Given that the Temp table is loaded as in the previous example:<br>
+<code>LOAD Customer,Avg(DISTINCT Sales) as MyAvgSalesDistinct<br> Resident Temp Group By Customer;</code></td>
+<td><p>Customer MyAverageSalesByCustomer<br>
+Astrida 43.1<br>
+Betacab 43.909091<br>
+Canutility 55.909091<br>
+Divadip 61<br>
 Only the distinct values are counted. Divide the total by the number of non-duplicate values.</td>
 </tr>
 </tbody>
@@ -84,34 +84,35 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Salary:</p>
-<p>Load *, 1 as Grp;</p>
-<p>LOAD * inline [</p>
-<p>&quot;Employee name&quot;|Gender|Age|Salary</p>
-<p>Aiden Charles|Male|20|25000</p>
-<p>Brenda Davies|Male|25|32000</p>
-<p>Charlotte Edberg|Female|45|56000</p>
-<p>Daroush Ferrara|Male|31|29000</p>
-<p>Eunice Goldblum|Female|31|32000</p>
-<p>Freddy Halvorsen|Male|25|26000</p>
-<p>Gauri Indu|Female|36|46000</p>
-<p>Harry Jones|Male|38|40000</p>
-<p>Ian Underwood|Male|40|45000</p>
-<p>Jackie Kingsley|Female|23|28000</p>
-<p>] (delimiter is '|');</p>
- 
-<p>Correl1:</p>
-<p>LOAD Grp,</p>
-<p>Correl(Age,Salary) as Correl_Salary Resident Salary Group By Grp;</p>
-<p> </p></td>
-<td>In a table with the dimension Correl_Salary, the result of the Correl() calculation in the data load script will be shown: 0.9270611</td>
+<tr>
+<td><code>Salary:<br>
+Load *, 1 as Grp;<br>
+LOAD * inline [<br>
+&quot;Employee name&quot;|Gender|Age|Salary<br>
+Aiden Charles|Male|20|25000<br>
+Brenda Davies|Male|25|32000<br>
+Charlotte Edberg|Female|45|56000<br>
+Daroush Ferrara|Male|31|29000<br>
+Eunice Goldblum|Female|31|32000<br>
+Freddy Halvorsen|Male|25|26000<br>
+Gauri Indu|Female|36|46000<br>
+Harry Jones|Male|38|40000<br>
+Ian Underwood|Male|40|45000<br>
+Jackie Kingsley|Female|23|28000<br>
+] (delimiter is '|');<br>
+<br>
+Correl1:<br>
+LOAD Grp,<br>
+Correl(Age,Salary) as Correl_Salary Resident Salary Group By Grp;<br>
+<p> </p></code></td>
+<td>In a table with the dimension Correl_Salary, the result of the Correl()
+calculation in the data load script will be shown: 0.9270611</td>
 </tr>
 </tbody>
 </table>
@@ -124,7 +125,7 @@ group by clause.
 
 `Fractile( expr, fraction )``
 
-**Return data type:** numeric 
+**Return data type:** numeric
 
 | Argument | Description                                                                                                 |
 | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -137,45 +138,47 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Fractile1:</p>
-<p>LOAD Type,</p>
-<p>Fractile(Value,0.75) as MyFractile Resident Table1 Group By Type;</p>
-<p> </p></td>
-<td><p>In a table with the dimensions Type and MyFractile, the results of the Fractile() calculations in the data load script are:</p>
-<p>Type MyFractile</p>
-<p>Comparison 27.5</p>
-<p>Observation 36</p></td>
+<tr>
+<td><code>Table1:
+crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+<br>
+Fractile1:<br>
+LOAD Type,<br>
+Fractile(Value,0.75) as MyFractile Resident Table1 Group By Type;<br>
+</code></td>
+<td>In a table with the dimensions Type and MyFractile, the results of the Fractile()
+calculations in the data load script are:<br>
+<code>
+Type MyFractile<br>
+Comparison 27.5<br>
+Observation 36<br></code></td>
 </tr>
 </tbody>
 </table>
@@ -200,54 +203,56 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Kurtosis1:</p>
-<p>LOAD Type,</p>
-<p>Kurtosis(Value) as MyKurtosis1,</p>
-<p>Kurtosis(DISTINCT Value) as MyKurtosis2</p>
-<p>Resident Table1 Group By Type;</p>
-<p> </p></td>
-<td><p>In a table with the dimensions Type, MyKurtosis1,and MyKurtosis2, the results of the Kurtosis() calculations in the data load script are:</p>
-<p>Type MyKurtosis1 MyKurtosis2</p>
-<p>Comparison -1.1612957 -1.4982366</p>
-<p>Observation -1.1148768 -0.93540144</p></td>
+<tr>
+<td><code>Table1:<br>
+crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+<br>
+Kurtosis1:<br>
+LOAD Type,<br>
+Kurtosis(Value) as MyKurtosis1,<br>
+Kurtosis(DISTINCT Value) as MyKurtosis2<br>
+Resident Table1 Group By Type;<br>
+</code></td>
+<td>In a table with the dimensions Type, MyKurtosis1,and MyKurtosis2, the results of the Kurtosis()
+calculations in the data load script are:<br>
+<code>
+Type MyKurtosis1 MyKurtosis2<br>
+Comparison -1.1612957 -1.4982366<br>
+Observation -1.1148768 -0.93540144</code></td>
 </tr>
 </tbody>
 </table>
 
 ## LINEST_B
 
- **LINEST_B()** 
+ **LINEST_B()**
 returns the aggregated b value (y-intercept) of a linear regression
 defined by the equation y=mx+b for a series of coordinates represented
 by paired numbers in x-expression and y-expression iterated over a
@@ -255,28 +260,30 @@ number of records as defined by a group by clause.
 
 `LINEST_B( y_value, x_value[, y0 [, x0 ]] )`
 
-**Return data type:** numeric 
+**Return data type:** numeric
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -286,35 +293,38 @@ data-pair result in the entire data-pair being disregarded.
 
 ## LINEST_DF
 
- **LINEST_DF()** 
+ **LINEST_DF()**
 returns the aggregated degrees of freedom of a linear regression defined
 by the equation y=mx+b for a series of coordinates represented by paired
 numbers in x-expression and y-expression iterated over a number of
 records as defined by a group by clause.
 
 `LINEST_DF( y_value, x_value[, y0 [, x0 ]] )`
-**Return data type:** numeric 
+
+**Return data type:** numeric
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -337,24 +347,26 @@ group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -376,24 +388,26 @@ records as defined by a group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -416,24 +430,26 @@ group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -456,24 +472,26 @@ group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -495,24 +513,26 @@ over a number of records as defined by a group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -533,24 +553,26 @@ over a number of records as defined by a group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -573,24 +595,26 @@ group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -611,24 +635,26 @@ number of records as defined by a group by clause.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Argument</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>y_value</td>
 <td>The expression or field containing the range of y-values to be measured.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>x_value</td>
 <td>The expression or field containing the range of x-values to be measured.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>y(0), x(0)</td>
-<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
-<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0 and x0 are stated, a single data pair will do. </p></td>
+<td><p>An optional value y0 may be stated forcing the regression line to pass through the y-axis at a given point.
+By stating both y0 and x0 it is possible to force the regression line to pass through a single fixed coordinate.</p>
+<p>Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate.
+If y0 and x0 are stated, a single data pair will do. </p></td>
 </tr>
 </tbody>
 </table>
@@ -654,42 +680,42 @@ Type and MyMedian as dimensions.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Median1:</p>
-<p>LOAD Type,</p>
-<p>Median(Value) as MyMedian</p>
-<p>Resident Table1 Group By Type;</p>
-<p> </p></td>
+<tr>
+<td><code>Table1:<br>
+crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+<br>
+<p>Median1:<br>
+<p>LOAD Type,<br>
+<p>Median(Value) as MyMedian<br>
+<p>Resident Table1 Group By Type;<br>
+</code></td>
 <td><p>The results of the Median() calculation are:</p>
 <ul>
 <li>Type is MyMedian</li>
@@ -719,42 +745,42 @@ table with Type and MySkew as dimensions.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Skew1:</p>
-<p>LOAD Type,</p>
-<p>Skew(Value) as MySkew</p>
-<p>Resident Table1 Group By Type;</p>
-<p> </p></td>
+<tr>
+<td><code>Table1:<br>
+crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+<br>
+Skew1:<br>
+LOAD Type,<br>
+Skew(Value) as MySkew<br>
+Resident Table1 Group By Type;<br>
+</code></td>
 <td><p>The results of the Skew() calculation are:</p>
 <ul>
 <li>Type is MySkew</li>
@@ -784,41 +810,41 @@ table with Type and MyStdev as dimensions.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Stdev1:</p>
-<p>LOAD Type,</p>
-<p>Stdev(Value) as MyStdev</p>
-<p>Resident Table1 Group By Type;</p></td>
+<tr>
+<td><code>Table1:<br>
+crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+<br>
+Stdev1:<br>
+LOAD Type,<br>
+Stdev(Value) as MyStdev<br>
+Resident Table1 Group By Type;</code></td>
 <td><p>The results of the Stdev() calculation are:</p>
 <ul>
 <li>Type is MyStdev</li>
@@ -851,41 +877,41 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Table1:</p>
-<p>crosstable LOAD recno() as ID, * inline [</p>
-<p>Observation|Comparison</p>
-<p>35|2</p>
-<p>40|27</p>
-<p>12|38</p>
-<p>15|31</p>
-<p>21|1</p>
-<p>14|19</p>
-<p>46|1</p>
-<p>10|34</p>
-<p>28|3</p>
-<p>48|1</p>
-<p>16|2</p>
-<p>30|3</p>
-<p>32|2</p>
-<p>48|1</p>
-<p>31|2</p>
-<p>22|1</p>
-<p>12|3</p>
-<p>39|29</p>
-<p>19|37</p>
-<p>25|2 ] (delimiter is '|');</p>
- 
-<p>Sterr1:</p>
-<p>LOAD Type,</p>
-<p>Sterr(Value) as MySterr</p>
-<p>Resident Table1 Group By Type;</p></td>
+<tr>
+<td><code>Table1:<br>
+<p>crosstable LOAD recno() as ID, * inline [<br>
+Observation|Comparison<br>
+35|2<br>
+40|27<br>
+12|38<br>
+15|31<br>
+21|1<br>
+14|19<br>
+46|1<br>
+10|34<br>
+28|3<br>
+48|1<br>
+16|2<br>
+30|3<br>
+32|2<br>
+48|1<br>
+31|2<br>
+22|1<br>
+12|3<br>
+39|29<br>
+19|37<br>
+25|2 ] (delimiter is '|');<br>
+ <br>
+Sterr1:<br>
+LOAD Type,<br>
+Sterr(Value) as MySterr<br>
+Resident Table1 Group By Type;<code></td>
 <td><p>In a table with the dimensions Type and MySterr, the results of the Sterr() calculation in the data load script are:</p>
 <p>Type MySterr</p>
 <p>Comparison 3.2674431</p>
@@ -919,35 +945,35 @@ result.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p>Trend:</p>
-<p>Load *, 1 as Grp;</p>
-<p>LOAD * inline [</p>
-<p>Month|KnownY|KnownX</p>
-<p>Jan|2|6</p>
-<p>Feb|3|5</p>
-<p>Mar|9|11</p>
-<p>Apr|6|7</p>
-<p>May|8|5</p>
-<p>Jun|7|4</p>
-<p>Jul|5|5</p>
-<p>Aug|10|8</p>
-<p>Sep|9|10</p>
-<p>Oct|12|14</p>
-<p>Nov|15|17</p>
-<p>Dec|14|16</p>
-<p>] (delimiter is '|');</p>
- 
-<p>STEYX1:</p>
-<p>LOAD Grp,</p>
-<p>STEYX(KnownY, KnownX) as MySTEYX</p>
-<p>Resident Trend Group By Grp;</p></td>
+<tr>
+<td><code>Trend:<br>
+Load *, 1 as Grp;<br>
+LOAD * inline [<br>
+Month|KnownY|KnownX<br>
+Jan|2|6
+Feb|3|5<br>
+Mar|9|11<br>
+Apr|6|7<br>
+May|8|5<br>
+Jun|7|4<br>
+Jul|5|5<br>
+Aug|10|8<br>
+Sep|9|10<br>
+Oct|12|14<br>
+Nov|15|17<br>
+Dec|14|16<br>
+] (delimiter is '|');<br>
+<br>
+STEYX1:<br>
+LOAD Grp,<br>
+STEYX(KnownY, KnownX) as MySTEYX<br>
+Resident Trend Group By Grp;</code></td>
 <td><p>In a table with the dimension MySTEYX, the result of the STEYX() calculation in the data load script is 2.0714764.</p></td>
 </tr>
 </tbody>
