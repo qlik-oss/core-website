@@ -1,10 +1,9 @@
-
 # InterRecordFunctions
 
 Inter-record functions are used when a value from previously loaded
 records of data is needed for the evaluation of the current record.
 
-# Exists
+## Exists
 
  **Exists()** determines whether a specific field value has already been
  loaded into the field in the data load script. The function returns TRUE
@@ -150,7 +149,7 @@ Name);
 Drop Tables Employees, Citizens;
 ```
 
-# LookUp
+## LookUp
 
  **Lookup()** looks into a table that is already loaded and returns the value of
  **field_name** corresponding to the first occurrence of the value
@@ -284,7 +283,7 @@ leaves the <b>OrderData</b> table with the following result:</p></td>
     The Lookup() function is flexible and can access any previously loaded
     table. However, it is slow compared with the Applymap() function.
 
-# Peek
+## Peek
 
  **Peek()** finds the value of a field in a table for a row that has already been
 loaded or that exists in internal memory. The row number can be
@@ -430,7 +429,7 @@ In the first record of an internal table, the function returns NULL.
     </tbody>
 </table>
 
-# Previous
+## Previous
 
  **Previous()** finds the value of the  **expr** expression using data from
 the previous input record that has not been discarded because of a  **where**
