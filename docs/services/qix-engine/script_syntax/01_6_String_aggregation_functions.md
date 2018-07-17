@@ -17,7 +17,7 @@ The expression or field containing the string to be processed.
 | string      | The expression or field containing the string to be processed.|
 | delimiter   | Each value may be separated by the string found in delimiter.|
 | sort-weight | The order of concatenation may be determined by the value of the dimension , if present, with the string corresponding to the lowest value appearing first in the concatenation. |
-| distinct    | If the word **distinct occurs before the expression, all duplicates are disregarded.                                            
+| distinct    | If the word **distinct occurs before the expression, all duplicates are disregarded.
 
 Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
@@ -25,7 +25,7 @@ result.
 
 Example
 
-```
+```qlik
 TeamData:
 LOAD \* inline [
 
@@ -51,7 +51,7 @@ West|Theta|01/12/2013|23000
 
 ] (delimiter is '|');
 
- 
+
 
 Concat1:
 
@@ -125,7 +125,6 @@ This function is only available as a script function.
 | expr     | The expression or field containing the data to be measured. |
 
 If no text value is found, NULL is returned.
-
 
 Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
@@ -281,7 +280,8 @@ result.
 <p>Zeta</p></td>
 </tr>
 <tr class="even">
-<td><p>Given that the TeamData table is loaded as in the previous example, and your data load script has the SET statement:<br />
+<td><p>Given that the TeamData table is loaded as in the previous example, and your data load script
+has the SET statement:<br />
 <code data-conditions="Targets.NotToTranslate" data-autonumposition="none">SET DateFormat='DD/MM/YYYY';</code>':</p>
 <p>LOAD SalesGroup,MaxString(Date) as MaxString2 Resident TeamData Group By SalesGroup;</p></td>
 <td><p>SalesGroup</p>
@@ -347,7 +347,8 @@ result.
 <p>Epsilon</p></td>
 </tr>
 <tr class="even">
-<td><p>Given that the TeamData table is loaded as in the previous example, and your data load script has the SET statement:<br />
+<td><p>Given that the TeamData table is loaded as in the previous example, and your data load script has
+the SET statement:<br />
 <code data-conditions="Targets.NotToTranslate" data-autonumposition="none">SET DateFormat='DD/MM/YYYY';</code>':</p>
 <p>LOAD SalesGroup,MinString(Date) as MinString2 Resident TeamData Group By SalesGroup;</p></td>
 <td><p>SalesGroup</p>
