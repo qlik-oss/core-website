@@ -27,7 +27,7 @@ and chart expressions.
 !!! Note
     For reasons of clarity, all number representations are given with a decimal point as the decimal separator.
 
-## Date# #
+## Date
 
 Date#() evaluates an expression as a date in the format specified in the second
 argument, if supplied.
@@ -64,7 +64,7 @@ If you create a table with StringDate and Date as dimensions, the results are as
 | 8/7/97     | 35649 |
 | 8/6/1997   | 35648 |
 
-## Interval# #
+## Interval
 
 Interval#() evaluates a text expression as a time interval in the format set in the
 operating system, by default, or in the format specified in the second
@@ -93,7 +93,7 @@ The examples below assume the following operating system settings:
 | ------- | ------ |
 | Interval#( A, 'D hh:mm' ) <br> where A='1 09:00' | 1.375 |
 
-## Money# #
+## Money
 
 Money#() converts a text string to a money value, in the format set in the load
 script or the operating system, unless a format string is supplied.
@@ -130,7 +130,7 @@ The examples below assume the two following operating system settings:
 | Money#( A, ' $#', '.', ',' ) <br> where A= $35,648.37 | String | $35,648.37 | $35,648.37 |
 | | Number: | 35648.37 | 35648.37 |
 
-## Num# #
+## Num
 
 Num#() converts a text string to a numerical value, in the number format set in
 the data load script or the operating system. Custom decimal and
@@ -177,7 +177,7 @@ interpretation is possible.
 | Text( pi( ) ) | String  |3.1415926535898 |
 | | Number | - |
 
-## Timestamp# #
+## Timestamp
 
  **Timestamp#()** evaluates an expression as a date and time value, in the timestamp
 format set in the data load script or the operating system, unless a
@@ -218,7 +218,7 @@ If you create a table with String and TS as dimensions, the results are as follo
 | 1952-10-16T13:14:00+0200 | 10/16/1952 11:14:00 AM|
 | 1109-03-01T14:15 | 3/1/1109 2:15:00 PM |
 
-## Time# #
+## Time
 
 **Time#()** evaluates an expression as a time value, in the time format set in the
 data load script or the operating system, unless a format string is
