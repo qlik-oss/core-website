@@ -77,6 +77,7 @@ pages:
         - Variable: services/qix-engine/apis/qix/variable.md
       - Load Script Syntax:
         - Introduction: services/qix-engine/script_syntax/introduction.md
+        - Error variables: services/qix-engine/script_syntax/error.md
         - Aggregation Functions:
           - Basic Aggregation Functions: services/qix-engine/script_syntax/01_1_Basic_aggregation_functions.md
           - Counter Aggregation Functions: services/qix-engine/script_syntax/01_2_Counter_aggregation_functions.md
