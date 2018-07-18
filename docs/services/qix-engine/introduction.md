@@ -35,10 +35,25 @@ API | Description
 ## Command Line Parameters
 
 The Qlik Associative Engine has a number of command line parameters that can be used to toggle functionality.
-
 These parameters are passed when starting a Qlik Associative Engine docker container:
 
+Using `docker run`:
+
 `docker run qlikcore/engine:<version> -S <setting1>=<value> -S <setting2>=<value> ...`
+
+or using a `docker-compose` file:
+
+```yaml
+version: "3.1"
+
+services:
+  engine:
+    image: qlikcore/engine:<version>
+    command: -S ValidateJsonWebTokens=2 -S JsonWebTokenSecret=passw0rd
+  ...
+```
+
+Below is a list of Qlik Associative Engine command line parameters used in Qlik Core:
 
 | Parameter | Values | Description | Default |
 | --------- | ------ | ----------- | ------- |
@@ -54,7 +69,7 @@ These parameters are passed when starting a Qlik Associative Engine docker conta
 | JsonWebTokenPath | File path | Path to pem file. For more details see the [Authorization chapter](../../tutorials/authorization.md). | n/a |
 | EnableGrpcCustomConnectors | `0` (disabled) or `1` (enabled) | Enables gRPC connectors in the Qlik Associative Engine. For more details see the [Data Loading chapter](../../tutorials/data-loading.md). | `0` (disabled) |
 | GrpcConnectorPlugins | `<connector identifier>,<connector host>:<connector port>` e.g. `jdbc,jdbc-connector:50051` | Registers a connector with identifier **connector identifier**, which we tell the Qlik Associative Engine exists on **connector host** and listening on **connector port**. Requires `EnableGrpcConnectorPlugins` to be enabled. For more details see the [Data Loading chapter](../../tutorials/data-loading.md). | n/a |
-| SSEPlugin | `<sse identifier>,<sse host>:<sse port>` e.g. `SSEPlugin=SSEGo,sse-go:50055` | Registers an analytical connector with identifier **sse identifier**, which we tell the Qlik Associative Engine exists on **sse host** and listening on **sse port**. For more details on using an Analytical Connectors or how to configure multiple analytical connectors see the [Analytical Connector chapter](./apis/server-side-extension/introduction.md). | n/a |
+| SSEPlugin | `<PluginConfig>[;<PluginConfig>]` | A **PluginConfig** is a comma-separated list of configuration elements in the format `<EngineName>,<Address>[,<PathToCertFile>,<RequestTimeout>,<ReconnectTimeout>]`.<p>For further details on each element see [How to configure an Analytical Connector in Qlik Core](./apis/server-side-extension/introduction.md#how-to-configure-an-analytical-connector-in-qlik-core).</p> | n/a |
 
 In addition to the command line parameters above
 it is also possible to increase or decrease log level on different Qlik Associative Engine logging types.
