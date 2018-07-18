@@ -1673,7 +1673,7 @@ tag field Alpha with 'MyTag2';
 
 ## Trace
 
-The trace statement writes a string to the script log file, when used. It is very useful for debugging purposes.
+The trace statement writes a string to the script log file, when used. It is useful for debugging purposes.
 Using $-expansions of variables that are calculated prior to the trace statement, you can customize the message.
 
 **Syntax**:
