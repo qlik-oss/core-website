@@ -24,10 +24,10 @@ An Analytical Connector is configured by providing command line parameters to th
 using the `SSEPlugin` parameter.
 How to provide a command line parameter to Qlik Associative Engine is described [here](../../introduction.md#command-line-parameters).
 
-The `SSEPlugin` parameter takes a comma-separated list of configuration elements in the format `<EngineName>,<Address>[,<PathToCertFile>,<RequestTimeout>,<ReconnectTimeout>]`.
+The `SSEPlugin` parameter takes a comma-separated list of configuration elements in the format `<PluginName>,<Address>[,<PathToCertFile>,<RequestTimeout>,<ReconnectTimeout>]`.
 The elements within the brackets are optional.
 
-- **EngineName** Mapping/alias to the plugin that will be used from within the expressions in the app using the plugin functions,
+- **PluginName** Mapping/alias to the plugin that will be used from within the expressions in the app using the plugin functions,
     for example, SSEPython for a Python plugin.
 - **Address** colon-separated list with two elements `<Host>:<Port>`.
     - **Host** DNS name (or IP-adress) of the plugin.
