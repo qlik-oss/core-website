@@ -30,7 +30,50 @@ API | Description
 [QIX](./apis/qix/introduction.md) | Document consumption using JSONRPC and WebSocket protocols.
 [REST](./apis/rest/qlik-associative-engine-api.md) | REST API.
 [Data Connector](./apis/data-loading/introduction.md) | High-performance data loading using the gRPC protocol.
-[Analytical Connector](./apis/server-side-extension/analytical-connector-api.md) | Server side extensions using the gRPC protocol.
+[Analytical Connector](./apis/server-side-extension/introduction.md) | Server side extensions using the gRPC protocol.
+
+## Command Line Parameters
+
+The Qlik Associative Engine has a number of command line parameters that can be used to toggle functionality.
+These parameters are passed when starting a Qlik Associative Engine docker container:
+
+Using `docker run`:
+
+`docker run qlikcore/engine:<version> -S <setting1>=<value> -S <setting2>=<value> ...`
+
+or using a `docker-compose` file:
+
+```yaml
+version: "3.1"
+
+services:
+  engine:
+    image: qlikcore/engine:<version>
+    command: -S ValidateJsonWebTokens=2 -S JsonWebTokenSecret=passw0rd
+  ...
+```
+
+Below is a list of Qlik Associative Engine command line parameters used in Qlik Core:
+
+| Parameter | Values | Description | Default |
+| --------- | ------ | ----------- | ------- |
+| AcceptEULA | `yes` or `no` | Whether the EULA for running the container is accepted or not. For more information please see the [Licensing chapter](../../licensing.md). | `no` |
+| LicenseServiceUrl | URL string | URL to the `licenses` service. If not configured the **Community** version will be used. For more information please see the [Licensing chapter](../../licensing.md). | n/a |
+| DocumentDirectory | File path | Directory that Qlik Associative Engine should use for documents inside the docker container. | `/home/nobody/Qlik/Sense/Apps` |
+| EnableFilePolling | `0` (disabled) or `1` (enabled) | Feature for sharing and synchronizing documents between Qlik Associative Engine instances sharing the same filesystem. For more details see [Document Synchronization](./doc-synchronization.md). | `0` (disabled) |
+| EnableABAC | `0` (disabled) or `1` (enabled) | Attribute-Based Access Control feature that can be used for controlling application access through rules. For more details see [Access Control](./access-control.md). | `0` (disabled) |
+| SystemAllowRulePath | File path | File path to the Allow rules file. Requires the `EnableABAC` parameter to be enabled. | n/a |
+| SystemDenyRulePath | File path | File path to the Deny rules file. Requires the `EnableABAC` parameter to be enabled. | n/a |
+| ValidateJsonWebTokens | <p>`0` (Not enforced)</p>`1` (Enforce unsigned or signed JWTs)<p>or</p>`2` (Enforce signed JWTs) | Parameter for enforcing validation of JWT. For more details see the [Authorization chapter](../../tutorials/authorization.md). | `0` (Not enforced) |
+| JsonWebTokenSecret | string | Requires the `ValidateJsonWebTokens` parameter to be set. For more details see the [Authorization chapter](../../tutorials/authorization.md). | n/a |
+| JsonWebTokenPath | File path | Path to pem file. For more details see the [Authorization chapter](../../tutorials/authorization.md). | n/a |
+| EnableGrpcCustomConnectors | `0` (disabled) or `1` (enabled) | Enables gRPC connectors in the Qlik Associative Engine. For more details see the [Data Loading chapter](../../tutorials/data-loading.md). | `0` (disabled) |
+| GrpcConnectorPlugins | `<connector identifier>,<connector host>:<connector port>` e.g. `jdbc,jdbc-connector:50051` | Registers a connector with identifier **connector identifier**, which we tell the Qlik Associative Engine exists on **connector host** and listening on **connector port**. Requires `EnableGrpcConnectorPlugins` to be enabled. For more details see the [Data Loading chapter](../../tutorials/data-loading.md). | n/a |
+| SSEPlugin | `<PluginConfig>[;<PluginConfig>]` | A **PluginConfig** is a comma-separated list of configuration elements in the format `<PluginName>,<Address>[,<PathToCertFile>,<RequestTimeout>,<ReconnectTimeout>]`.<p>For further details on each element see [How to configure an Analytical Connector in Qlik Core](./apis/server-side-extension/introduction.md#how-to-configure-an-analytical-connector-in-qlik-core).</p> | n/a |
+
+In addition to the command line parameters above
+it is also possible to increase or decrease log level on different Qlik Associative Engine logging types.
+The logging types and levels is in more detail described in the [Logging section](./logging.md).
 
 ## Metrics
 

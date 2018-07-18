@@ -78,7 +78,9 @@ pages:
       - Data Connector API:
         - Introduction: services/qix-engine/apis/data-loading/introduction.md
         - API Specification: services/qix-engine/apis/data-loading/data-connector-api.md
-      - Analytical Connector API: services/qix-engine/apis/server-side-extension/analytical-connector-api.md
+      - Analytical Connector API:
+        - Introduction: services/qix-engine/apis/server-side-extension/introduction.md
+        - API Specification: services/qix-engine/apis/server-side-extension/analytical-connector-api.md
       - Rest API: services/qix-engine/apis/rest/qlik-associative-engine-api.md
     - Licenses: services/licenses.md
   - Conventions:
@@ -88,4 +90,3 @@ pages:
     - Metrics: conventions/metrics.md
   - Third Party Licenses: third-party-licenses.md
   - License Registration: license-registration.md
-  
