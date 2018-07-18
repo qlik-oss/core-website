@@ -114,7 +114,21 @@ Data used in examples:
 | 18 | 9.333333333 | |
 | 5 | 10.333333333 | |
 | 9 | 10.6666666667 | |
-| <p>RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>] ;|| |
+
+``` qlik
+
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+
+```
 
 ## RangeCorrel
 
@@ -361,10 +375,18 @@ Data used in examples:
 | 5 | 3 |
 | 9 | 3 |
 
-RangeTab:<br/>
-LOAD \* INLINE [<br/>
-MyField<br/>
-10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>];
+``` qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+```
 
 ## RangeFractile
 
@@ -448,8 +470,21 @@ for other inter-record functions.
 | 6 | 5 |
 
 Data used in examples:
-<br/>RangeTab:<br/>
-LOAD \* INLINE [<br/>MyField<br/>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>];
+
+``` qlik
+
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+
+```
 
 ## RangeIRR
 
@@ -806,7 +841,20 @@ Data used in examples:
 | 18 | 2 |
 | 5 | 5 |
 | 9 | 5 |
-| <p>RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>] ;||
+|
+
+``` qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+```
 
 ## RangeMinString
 
@@ -1133,7 +1181,15 @@ current row and two rows above the current row.
 
 Data used in examples:
 
-<p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>];
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+];
+```
 
 ## RangeNumericCount
 
@@ -1176,7 +1232,18 @@ the current row and two rows above the current row.
 
 Data used in examples:
 
-<p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>'def'<br/>'xyz'<br/>9<br/>];
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+'def'
+'xyz'
+9
+];
+```
 
 ## RangeOnly
 
@@ -1411,7 +1478,18 @@ Data used in examples:
 
 Data used in examples:
 
-<p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>null()<br/>'xyz'<br/>9<br/>];
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+null()
+'xyz'
+9
+];
+```
 
 ## RangeXIRR
 
