@@ -19,7 +19,7 @@ This error variable returns the error code of the last executed script statement
 `ScriptError`
 
 This variable will be reset to 0 after each successfully executed script statement. If an error occurs it will be set to
-an internal error code. Error codes are dual values with a numeric and a text component. The following error codes 
+an internal error code. Error codes are dual values with a numeric and a text component. The following error codes
 exist:
 
 | Error code | Description                    |
