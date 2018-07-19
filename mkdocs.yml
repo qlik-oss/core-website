@@ -75,12 +75,13 @@ pages:
         - Generic Variable: services/qix-engine/apis/qix/genericvariable.md
         - Field: services/qix-engine/apis/qix/field.md
         - Variable: services/qix-engine/apis/qix/variable.md
-      - Load Script Syntax:
+      - Load Script Reference:
         - Introduction: services/qix-engine/script_syntax/introduction.md
         - Script syntax:
           - Error variables: services/qix-engine/script_syntax/error.md
           - Operators: services/qix-engine/script_syntax/operators.md
-          - Script Regular Statements: services/qix-engine/script_syntax/Script_regular_statements.md
+          - Script regular statements: services/qix-engine/script_syntax/Script_regular_statements.md
+          - Script prefixes: services/qix-engine/script_syntax/script_prefix.md
         - Script functions: 
           - Aggregation Functions:
             - Basic Aggregation Functions: services/qix-engine/script_syntax/01_1_Basic_aggregation_functions.md
