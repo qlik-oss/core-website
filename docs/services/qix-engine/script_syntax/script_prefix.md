@@ -35,9 +35,9 @@ during partial script execution.
 <td><code>Tab1:<br>
 LOAD Name, Number FROM Persons.csv;<br>
 Add LOAD Name, Number FROM newPersons.csv;<br></td>
-<td>During normal reload, data is loaded from Persons.csv and stored in the Qlik Sense table Tab1. Data from
-NewPersons.csv is then concatenated to the same Qlik Sense table.<br>
-During partial reload, data is loaded from NewPersons.csv and appended to the Qlik Sense table Tab1. No check for
+<td>During normal reload, data is loaded from Persons.csv and stored in the table Tab1. Data from
+NewPersons.csv is then concatenated to the same table.<br>
+During partial reload, data is loaded from NewPersons.csv and appended to the table Tab1. No check for
 duplicates is made.</code></td>
 </tr>
 <tr>
@@ -45,18 +45,18 @@ duplicates is made.</code></td>
 SQL SELECT Name, Number FROM Persons.csv;<br>
 Add LOAD Name, Number FROM NewPersons.csv where not exists(Name);<br></td>
 <td>A check for duplicates is made by means of looking if Name exists in the previously loaded table data.<br>
-During normal reload, data is loaded from Persons.csv and stored in the Qlik Sense table Tab1. Data from NewPersons.csv
-is then concatenated to the same Qlik Sense table.<br>
-During partial reload, data is loaded from NewPersons.csv which is appended to the Qlik Sense table Tab1. A check for
+During normal reload, data is loaded from Persons.csv and stored in the table Tab1. Data from NewPersons.csv
+is then concatenated to the same table.<br>
+During partial reload, data is loaded from NewPersons.csv which is appended to the table Tab1. A check for
 duplicates is made by means of seeing if Name exists in the previously loaded table data.</code></td>
 </tr>
 <tr>
 <td><code>Tab1:<br>
 LOAD Name, Number FROM Persons.csv;<br>
 Add Only LOAD Name, Number FROM NewPersons.csv where not exists(Name);<br></td>
-<td>During normal reload, data is loaded from Persons.csv and stored in the Qlik Sense table Tab1. The statement loading
+<td>During normal reload, data is loaded from Persons.csv and stored in the table Tab1. The statement loading
 NewPersons.csv is disregarded.<br>
-During partial reload, data is loaded from NewPersons.csv which is appended to the Qlik Sense table Tab1. A check for
+During partial reload, data is loaded from NewPersons.csv which is appended to the table Tab1. A check for
 duplicates is made by means of seeing if Name exists in the previously loaded table data.<br>
 </code></td>
 </tr>
@@ -579,7 +579,7 @@ The **Join** and **Keep** prefixes can be preceded by the prefix **left**.
 If used before **join** it specifies that a left join should be used. The resulting table will only contain combinations
 of field values from the raw data tables where the linking field values are represented in the first table. If used
 before **keep**, it specifies that the second raw data table should be reduced to its common intersection with the first
-table, before being stored in Qlik Sense.
+table, before being stored.
 
 `Left ( Join | Keep ) [ (tablename) ]( loadstatement | selectstatement)`
 
@@ -773,7 +773,7 @@ outer join SQL SELECT * from table2;
 
 ## Replace
 
-The **replace** prefix is used to drop the entire Qlik Sense table and replace it with a new table that is loaded or
+The **replace** prefix is used to drop the entire table and replace it with a new table that is loaded or
 selected.
 
 `Replace (loadstatement |selectstatement |map...usingstatement)`
@@ -799,32 +799,32 @@ the **replace LOAD/replace SELECT** statement, and replacing it with a new table
 <tr>
 <td><code>Tab1:<br>
 Replace LOAD * from File1.csv;</code></td>
-<td>During both normal and partial reload, the Qlik Sense table Tab1 is initially dropped. Thereafter new data is loaded
+<td>During both normal and partial reload, the table Tab1 is initially dropped. Thereafter new data is loaded
 from File1.csv and stored in Tab1.</td>
 </tr>
 <tr>
 <td><code>Tab1:<br>
 Replace only LOAD * from File1.csv;</code></td>
 <td>During normal reload, this statement is disregarded.<br>
-During partial reload, any Qlik Sense table previously named Tab1 is initially dropped. Thereafter new data is loaded
+During partial reload, any table previously named Tab1 is initially dropped. Thereafter new data is loaded
 from File1.csv and stored in Tab1.<br></td>
 </tr>
 <tr>
 <td><code>Tab1:<br>
 LOAD a,b,c from File1.csv;<br>
 Replace LOAD a,b,c from File2.csv;</code></td>
-<td>During normal reload, the file File1.csv is first read into the Qlik Sense table Tab1, but then immediately dropped
+<td>During normal reload, the file File1.csv is first read into the table Tab1, but then immediately dropped
 and replaced by new data loaded from File2.csv. All data from File1.csv is lost.<br>
-During partial reload, the entire Qlik Sense table Tab1 is initially dropped. Thereafter it is replaced by new data
+During partial reload, the entire table Tab1 is initially dropped. Thereafter it is replaced by new data
 loaded from File2.csv.</td>
 </tr>
 <tr>
 <td><code>Tab1:<br>
 LOAD a,b,c from File1.csv;<br>
 Replace only LOAD a,b,c from File2.csv;</code></td>
-<td>During normal reload, data is loaded from File1.csv and stored in the Qlik Sense table Tab1. File2.csv is
+<td>During normal reload, data is loaded from File1.csv and stored in the table Tab1. File2.csv is
 disregarded.<br>
-During partial reload, the entire Qlik Sense table Tab1 is initially dropped. Thereafter it is replaced by new data
+During partial reload, the entire table Tab1 is initially dropped. Thereafter it is replaced by new data
 loaded from File2.csv. All data from File1.csv is lost.</td>
 </tr>
 </tbody>
@@ -909,7 +909,7 @@ source.
 
 | Argument  | Description                     |
 | --------- | ------------------------------- |
-| p         | An arbitrary expression which valuates to a number larger than 0 and lower or equal to 1. The number indicates the probability for a given record to be read.<br>All records will be read but only some of them will be loaded into Qlik Sense.|
+| p         | An arbitrary expression which valuates to a number larger than 0 and lower or equal to 1. The number indicates the probability for a given record to be read.<br>All records will be read but only some of them will be loaded.|
 
 **Example:**
 
@@ -955,7 +955,7 @@ when or unless prefixes.
 | Argument      | Description |
 | ------------- | ----------- |
 | condition     | A logical expression evaluating to True or False. |
-| statement     | Any Qlik Sense script statement except control statements.|
+| statement     | Any script statement except control statements.|
 | exitstatement | An exit for, exit do or exit sub clause or an exit script statement.
 
 **Examples:**
@@ -981,7 +981,7 @@ The **when** prefix may be used on statements which already have one or several 
 | Argument      | Description |
 | ------------- | ----------- |
 | condition     | A logical expression evaluating to True or False. |
-| statement     | Any Qlik Sense script statement except control statements. |
+| statement     | Any script statement except control statements. |
 | exitstatement | An exit for, exit do or exit sub clause or an exit script statement. |
 
 **Example 1:**

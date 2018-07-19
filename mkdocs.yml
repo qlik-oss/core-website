@@ -88,34 +88,34 @@ pages:
             - Value handling: services/qix-engine/script_syntax/value_handling_variables.md
         - Script functions: 
           - Aggregation Functions:
-            - Basic Aggregation Functions: services/qix-engine/script_syntax/01_1_Basic_aggregation_functions.md
-            - Counter Aggregation Functions: services/qix-engine/script_syntax/01_2_Counter_aggregation_functions.md
-            - Financial Aggregation Functions: services/qix-engine/script_syntax/01_3_Financial_aggregation_functions.md
-            - Statistical Aggregation Functions: services/qix-engine/script_syntax/01_4_Statistical_aggregation_functions.md
-            - Statistical Test Functions: services/qix-engine/script_syntax/01_5_Statistical_test_functions.md
-            - String Aggregation Functions: services/qix-engine/script_syntax/01_6_String_aggregation_functions.md
-          - Color Functions: services/qix-engine/script_syntax/02_Color_functions.md
-          - Conditional Functions: services/qix-engine/script_syntax/03_Conditional_functions.md
-          - Counter Functions: services/qix-engine/script_syntax/04_Counter_functions.md
-          - Date And Time Functions: services/qix-engine/script_syntax/05_Date_and_time_functions.md
-          - Exponential And Logarithmic Functions: services/qix-engine/script_syntax/06_Exponential_and_logarithmic_functions.md
-          - File Functions: services/qix-engine/script_syntax/08_File_functions.md
-          - Financial Functions: services/qix-engine/script_syntax/09_Financial_functions.md
-          - Formatting Functions: services/qix-engine/script_syntax/10_Formatting_functions.md
-          - General Numeric Functions: services/qix-engine/script_syntax/11_General_numeric_functions.md
-          - Geospatial Functions: services/qix-engine/script_syntax/12_Geospatial_functions.md
-          - Interpretation Functions: services/qix-engine/script_syntax/13_Interpretation_functions.md
-          - Inter-Record Functions: services/qix-engine/script_syntax/14_Inter-record_functions.md
-          - Logical Functions: services/qix-engine/script_syntax/15_Logical_functions.md
-          - Mapping Functions: services/qix-engine/script_syntax/16_Mapping_functions.md
-          - Mathematical Functions: services/qix-engine/script_syntax/17_Mathematical_functions.md
-          - NULL Functions: services/qix-engine/script_syntax/18_NULL_functions.md
-          - Range Functions: services/qix-engine/script_syntax/19_Range_functions.md
-          - Statistical Distribution Functions: services/qix-engine/script_syntax/21_Statistical_distribution_functions.md
-          - String Functions: services/qix-engine/script_syntax/22_String_functions.md
-          - System Functions: services/qix-engine/script_syntax/23_System_functions.md
-          - Table Functions: services/qix-engine/script_syntax/24_Table_functions.md
-          - Trigonometric And Hyperbolic Functions: services/qix-engine/script_syntax/25_Trigonometric_and_hyperbolic_functions.md
+            - Basic Aggregation Functions: services/qix-engine/script_syntax/basic_aggregation_functions.md
+            - Counter Aggregation Functions: services/qix-engine/script_syntax/counter_aggregation_functions.md
+            - Financial Aggregation Functions: services/qix-engine/script_syntax/financial_aggregation_functions.md
+            - Statistical Aggregation Functions: services/qix-engine/script_syntax/statistical_aggregation_functions.md
+            - Statistical Test Functions: services/qix-engine/script_syntax/statistical_test_functions.md
+            - String Aggregation Functions: services/qix-engine/script_syntax/string_aggregation_functions.md
+          - Color Functions: services/qix-engine/script_syntax/color_functions.md
+          - Conditional Functions: services/qix-engine/script_syntax/conditional_functions.md
+          - Counter Functions: services/qix-engine/script_syntax/counter_functions.md
+          - Date And Time Functions: services/qix-engine/script_syntax/date_and_time_functions.md
+          - Exponential And Logarithmic Functions: services/qix-engine/script_syntax/exponential_and_logarithmic_functions.md
+          - File Functions: services/qix-engine/script_syntax/file_functions.md
+          - Financial Functions: services/qix-engine/script_syntax/financial_functions.md
+          - Formatting Functions: services/qix-engine/script_syntax/formatting_functions.md
+          - General Numeric Functions: services/qix-engine/script_syntax/general_numeric_functions.md
+          - Geospatial Functions: services/qix-engine/script_syntax/geospatial_functions.md
+          - Interpretation Functions: services/qix-engine/script_syntax/interpretation_functions.md
+          - Inter-Record Functions: services/qix-engine/script_syntax/inter-record_functions.md
+          - Logical Functions: services/qix-engine/script_syntax/logical_functions.md
+          - Mapping Functions: services/qix-engine/script_syntax/mapping_functions.md
+          - Mathematical Functions: services/qix-engine/script_syntax/mathematical_functions.md
+          - NULL Functions: services/qix-engine/script_syntax/NULL_functions.md
+          - Range Functions: services/qix-engine/script_syntax/range_functions.md
+          - Statistical Distribution Functions: services/qix-engine/script_syntax/statistical_distribution_functions.md
+          - String Functions: services/qix-engine/script_syntax/string_functions.md
+          - System Functions: services/qix-engine/script_syntax/system_functions.md
+          - Table Functions: services/qix-engine/script_syntax/table_functions.md
+          - Trigonometric And Hyperbolic Functions: services/qix-engine/script_syntax/trigonometric_and_hyperbolic_functions.md
 
       - Data Connector API:
         - Introduction: services/qix-engine/apis/data-loading/introduction.md

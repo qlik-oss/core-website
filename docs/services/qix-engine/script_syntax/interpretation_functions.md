@@ -27,7 +27,7 @@ and chart expressions.
 !!! Note
     For reasons of clarity, all number representations are given with a decimal point as the decimal separator.
 
-<h2> Date# </h2>
+## `Date#`
 
 Date#() evaluates an expression as a date in the format specified in the second
 argument, if supplied.
@@ -41,12 +41,8 @@ argument, if supplied.
 | text     | The text string to be evaluated. |
 | format   | String describing the format of the text string to be evaluated. If omitted, the date format set in the system variables in the data load script, or the operating system is used.
 
-**Examples and results:**
-
 The following example uses the date format M/D/YYYY. The date format is specified in the
 SET DateFormat statement at the top of the data load script.
-
-Add this example script to your app and run it.
 
 ```qlik
 Load *,
@@ -64,7 +60,7 @@ If you create a table with StringDate and Date as dimensions, the results are as
 | 8/7/97     | 35649 |
 | 8/6/1997   | 35648 |
 
-<h2> Interval# </h2>
+## `Interval#`
 
 Interval#() evaluates a text expression as a time interval in the format set in the
 operating system, by default, or in the format specified in the second
@@ -93,7 +89,7 @@ The examples below assume the following operating system settings:
 | ------- | ------ |
 | Interval#( A, 'D hh:mm' ) <br> where A='1 09:00' | 1.375 |
 
-<h2> Money# </h2>
+## `Money#`
 
 Money#() converts a text string to a money value, in the format set in the load
 script or the operating system, unless a format string is supplied.
@@ -130,7 +126,7 @@ The examples below assume the two following operating system settings:
 | Money#( A, ' $#', '.', ',' ) <br> where A= $35,648.37 | String | $35,648.37 | $35,648.37 |
 | | Number: | 35648.37 | 35648.37 |
 
-<h2> Num# </h2>
+## `Num#`
 
 Num#() converts a text string to a numerical value, in the number format set in
 the data load script or the operating system. Custom decimal and
@@ -177,7 +173,7 @@ interpretation is possible.
 | Text( pi( ) ) | String  |3.1415926535898 |
 | | Number | - |
 
-<h2>Timestamp#</h2>
+## `Timestamp#`
 
  **Timestamp#()** evaluates an expression as a date and time value, in the timestamp
 format set in the data load script or the operating system, unless a
@@ -218,7 +214,7 @@ If you create a table with String and TS as dimensions, the results are as follo
 | 1952-10-16T13:14:00+0200 | 10/16/1952 11:14:00 AM|
 | 1109-03-01T14:15 | 3/1/1109 2:15:00 PM |
 
-<h2> Time# </h2>
+## `Time#`
 
 **Time#()** evaluates an expression as a time value, in the time format set in the
 data load script or the operating system, unless a format string is

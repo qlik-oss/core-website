@@ -11,13 +11,10 @@ so, returns -1 (True), otherwise 0 (False).
     A string with length zero is not considered as a NULL and will cause
     IsNull to return False.
 
-### Data load script
-
 In this example, an inline table with four rows is loaded, where the
 first three lines contain either nothing, - or 'NULL' in the Value
 column. We convert these values to true NULL value representations with
-the middle preceding
- **LOAD** using the **Null** function.
+the middle preceding **LOAD** using the **Null** function.
 
 The first preceding **LOAD** adds a field checking if the value is NULL,using the
  **IsNull** function.
@@ -53,8 +50,6 @@ values are represented by -.
 The **Null** function returns a NULL value.
 
 `Null( )`
-
-### Data load script
 
 In this example, an inline table with four rows is loaded, where the
 first three lines contain either nothing, - or 'NULL' in the Value

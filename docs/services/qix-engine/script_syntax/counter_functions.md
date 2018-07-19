@@ -345,7 +345,7 @@ record is number 1.
 
 `RecNo( )`
 
-In contrast to RowNo( ), which counts rows in the resulting Qlik Sense table, RecNo( ), counts the records in the raw
+In contrast to RowNo( ), which counts rows in the resulting table, RecNo( ), counts the records in the raw
 data table and is reset when a raw data table is concatenated to another.
 
 Example: Data load script
@@ -401,7 +401,7 @@ The resulting Qlik internal table:
 
 ## RowNo
 
-This function returns an integer for the position of the current row in the resulting Qlik Sense internal table. The
+This function returns an integer for the position of the current row in the resulting internal table. The
 first row is number 1.
 
 `RowNo([TOTAL])`

@@ -53,7 +53,7 @@ The examples below assume the following default settings:
 | Date( A, 'DD.MM.YYYY' )<BR>where A=35648.375 | String:<BR>Number: | 06.08.1997<BR>35648.375 | 06.08.1997<BR>35648.375 |
 | Date( A, 'YY.MM.DD' )<BR>where A=8/6/97 | String:<BR>Number: | NULL (nothing)<BR>NULL | 97.08.06<BR>35648 |
 
-### Dual
+## Dual
 
 Dual() combines a number and a string into a single record, such that the number
 representation of the record can be used for sorting and calculation purposes,

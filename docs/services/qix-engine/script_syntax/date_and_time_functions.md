@@ -5536,7 +5536,7 @@ to define if weeks are broken or not.</p>
 </tr>
 <tr>
 <td><b>reference_day</b><td><p>If you don't specify reference_day, the value of variable <b>ReferenceDay</b> will be
-used to define which day in January to set as reference day to define week 1. By default, Qlik Sense functions use 4 as
+used to define which day in January to set as reference day to define week 1. By default, functions use 4 as
 the reference day. This means that week 1 must contain January 4, or put differently, that week 1 must always have at
 least 4 days in January.</p>
 <p>The following values can be used to set a different reference day:</p>
