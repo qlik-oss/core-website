@@ -89,7 +89,7 @@ The following script code loads a sample table, and then loads a table
 containing the calculated trigonometric and hyperbolic operations on the
 values.
 
-```
+```qlik
 SampleData:
 LOAD * Inline [Value -1 0 1];
 

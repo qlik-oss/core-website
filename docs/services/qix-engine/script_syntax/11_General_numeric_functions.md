@@ -121,7 +121,7 @@ Non-positive numbers will return NULL.
 | Examples | Results |
 | -------- | ------- |
 | Fact( 1 ) | Returns 1 |
-| Fact( 5 ) | Returns 120 ( 1 \* 2 \* 3 \* 4 \* 5 = 120 ) |
+| Fact( 5 ) | Returns 120 ( `1 * 2 * 3 * 4 * 5 = 120` ) |
 | Fact( -5 ) | Returns NULL |
 
 ## Floor
@@ -275,7 +275,7 @@ These rounding errors occur because floating point numbers are represented by a
 finite number of binary digits. Therefore, results are calculated using a number
 that is already rounded. If these rounding errors will affect your work, multiply
 the numbers to convert them to integers before rounding.
-  
+
 | Argument | Description                                        |
 | -------- | -------------------------------------------------- |
 | x        | Input number. |
