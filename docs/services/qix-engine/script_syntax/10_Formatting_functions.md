@@ -16,8 +16,8 @@ require.
 
 **Return data type:** string
 
-| Argument | Description                                                                                                                                                                                         |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument | Description |
+| -------- | ----------- |
 | text     | Field or text to which you want to apply a different code page, given by the argument . |
 | codepage | Number representing the code page to be applied to the field or expression given by text.|
 
@@ -34,9 +34,9 @@ in the data load script, or the operating system, or a format string, if supplie
 
 **Return data type:** dual
 
-| Argument | Description                                                                                                                                                                                  |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number   | The number to be formatted.                                                                                                                                                                  |
+| Argument | Description |
+| -------- | ----------- |
+| number   | The number to be formatted. |
 | format   | String describing the format of the resulting string. If no format string is supplied, the date format set in the system variables in the data load script, or the operating system is used. |
 
 **Examples and results:**
@@ -103,8 +103,8 @@ minutes, seconds and fractions of seconds.
 **Return data type:** dual
 
 | Argument | Description |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number   | The number to be formatted.                                                                                                                                                         |
+| -------- | ----------- |
+| number   | The number to be formatted. |
 | format   | String describing how the resulting interval string is to be formatted. If omitted, the short date format, time format, and decimal separator set in the operating system are used. |
 
 Examples and results:
@@ -165,9 +165,9 @@ format string is supplied, and optional decimal and thousands separators.
 
 **Return data type:** dual
 
-| Argument  | Description                                                                                                                          |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| number    | The number to be formatted.                                                                                                          |
+| Argument  | Description  |
+| --------- | ------------ |
+| number    | The number to be formatted.                   `         |
 | format    | String describing how the resulting date string is to be formatted. If omitted, the date format set in the operating system is used. |
 | dec_sep   | String specifying the decimal number separator. If omitted, the MoneyDecimalSep value set in the data load script is used.           |
 | thou_sep  | String specifying the thousands number separator. If omitted, the MoneyThousandSep value set in the data load script is used.        |
@@ -199,9 +199,9 @@ supplied.
 `Time(number[, format])`
 **Return data type:** dual
 
-| Argument | Description                                                                                                                                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| number   | The number to be formatted.                                                                                                                                                    |
+| Argument | Description  |
+| -------- | ------------ |
+| number   | The number to be formatted.`                                                                      |
 | format   | String describing how the resulting time string is to be formatted. If omitted, the short date format, time format, and decimal separator set in the operating system is used. |
 
 Examples and results:
@@ -227,9 +227,9 @@ system, unless a format string is supplied.
 
 **Return data type:** dual
 
-| Argument | Description                                                                                                                                                                         |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number   | The number to be formatted.                                                                                                                                                         |
+| Argument | Description |
+| -------- | ----------- |
+| number   | The number to be formatted.                                                                           |
 | format   | String describing how the resulting timestamp string is to be formatted. If omitted, the short date format, time format, and decimal separator set in the operating system is used. |
 
 Examples and results:

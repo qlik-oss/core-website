@@ -443,7 +443,7 @@ clause. In the first record of an internal table, the function will return NULL.
 | -------- | ----------- |
 | expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
 **previous()** functions in order to access records further back. Data are fetched directly from the input source,
-making it possible to refer also to fields that have not been loaded into Qlik Sense, that is,even if they have not been
+making it possible to refer also to fields that have not been loaded, that is,even if they have not been
 stored in its associative database.|
 
 In the first record of an internal table, the function returns NULL.

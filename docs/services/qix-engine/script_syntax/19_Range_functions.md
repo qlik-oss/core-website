@@ -20,25 +20,25 @@ If no numeric value is found, NULL is returned.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeAvg(1,2,4)</td>
 <td>Returns 2.33333333</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeAvg(1,'xyz)</td>
 <td>Returns 1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeAvg(null(), 'abc')</td>
 <td>Returns NULL</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>Add the example script to your app and run it.</p>
 RangeTab3:<br/>
 LOAD recno() as RangeID, RangeAvg(Field1,Field2,Field3) as MyRangeAvg INLINE [<br/>
@@ -53,37 +53,37 @@ Field1, Field2, Field3<br/>
 </td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of MyRangeAvg for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeAvg</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>7</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>6</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>12.666</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>6.333</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>5</td>
 </tr>
@@ -155,17 +155,17 @@ Text values, NULL values and missing values return NULL.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeCorrel (2,3,6,8,9,4,8,5)</td>
 <td>Returns 0.2492. This function can be loaded in the script or added into a visualization in the expression editor.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>Add the example script to your app and run it.</p>
 Load * Inline [<br/>
 ID1|x1|y1|x2|y2|x3|y3|x4|y4|x5|y5|x6|y6<br/>
@@ -186,31 +186,31 @@ X|Y<br/>
 
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>In a table with ID1 as a dimension and the measure: RangeCorrel(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)),
 the RangeCorrel() function finds the value of Correl over the range of six x,y pairs, for each of the
 ID1 values.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>ID1</td>
 <td>MyRangeCorrel</td>
 </tr>
-<tr class="even">
+<tr>
 <td>01</td>
 <td>-0.9517</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>02</td>
 <td>-0.5209</td>
 </tr>
-<tr class="even">
+<tr>
 <td>03</td>
 <td>-0.5209</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>04</td>
 <td>-0.1599</td>
 </tr>
@@ -232,23 +232,23 @@ RangeCorrel() function uses the results of the Below() functions, which because 
 argument (count) set to 4, produce a range of four x-y values from the loaded table XY.
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeCorrel2</td>
 </tr>
-<tr class="even">
+<tr>
 <td>01</td>
 <td>0.2492</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>02</td>
 <td>-0.9959</td>
 </tr>
-<tr class="even">
+<tr>
 <td>03</td>
 <td>-1.0000</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>04</td>
 <td>-</td>
 </tr>
@@ -275,7 +275,7 @@ RangeCount() returns the number of values, both text and numeric, in the express
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
 
 | Argument | Description |
-| - | - |
+| -------- | ----------- |
 | first_expr | The expression or field containing the data to be counted. |
 | Expression | Optional expressions or fields containing the range of data to be counted. |
 
@@ -284,30 +284,30 @@ NULL values are not counted.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeCount (1,2,4)</td>
 <td>Returns 3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeCount(2,'xyz')
 </td>
 <td>Returns 2</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeCount(null( ))</td>
 <td>Returns 0</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeCount(2,'xyz', null())</td>
 <td>Returns 2</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>Add the example script to your app and run it.</p>
 RangeTab3:<br/>
 LOAD recno() as RangeID, RangeCount(Field1,Field2,Field3) as MyRangeCount INLINE [<br/>
@@ -323,31 +323,31 @@ Field1, Field2, Field3<br/>
 <td>The resulting table shows the returned values of MyRangeCount for each of the records in the table.
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeCount</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>3</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>3</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>3</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>3</td>
 </tr>
@@ -367,13 +367,13 @@ the current row, where there are sufficient rows, which are taken as input to th
 
 Data used in examples:
 | MyField | RangeCount(Above(MyField,1,3)) |
-| - | - |
+| ------- | ------------------------------ |
 | 10 | 0 |
-| 2 | 1 |
-| 8 | 2 |
+| 2  | 1 |
+| 8  | 2 |
 | 18 | 3 |
-| 5 | 3 |
-| 9 | 3 |
+| 5  | 3 |
+| 9  | 3 |
 
 ``` qlik
 RangeTab:
@@ -441,11 +441,11 @@ The arguments of this function may contain inter-record functions which in thems
 
 Examples:
 
-| Examples | Results |
-| - | - |
-| RangeFractile(0.24,1,2,4,6) | Returns 1.72 |
-| RangeFractile(0.5,1,2,3,4,6) | Returns 3 |
-| RangeFractile (0.5,1,2,5,6) | Returns 3.5 |
+| Examples                     | Results      |
+| ---------------------------- | ------------ |
+| RangeFractile(0.24,1,2,4,6)  | Returns 1.72 |
+| RangeFractile(0.5,1,2,3,4,6) | Returns 3    |
+| RangeFractile (0.5,1,2,5,6)  | Returns 3.5  |
 
 Example with expression:
 
@@ -461,7 +461,7 @@ range is reduced accordingly, where there no rows above the current row. Similar
 for other inter-record functions.
 
 | MyField | RangeFractile(0.5, Above(Sum(MyField),0,3)) |
-| - | - |
+| ------- | ------------------------------------------- |
 | 1 | 1 |
 | 2 | 1.5 |
 | 3 | 2 |
@@ -472,7 +472,6 @@ for other inter-record functions.
 Data used in examples:
 
 ``` qlik
-
 RangeTab:
 LOAD * INLINE [
 MyField
@@ -483,7 +482,6 @@ MyField
 5
 9
 ] ;
-
 ```
 
 ## RangeIRR
@@ -500,64 +498,64 @@ values) that occur at regular periods.
 **Return data type:** numeric
 
 | Argument | Description |
-| - | - |
-| value | A single value or a range of values as returned by an inter record function with a third optional parameter. The function needs at least one positive and one negative value to be calculated. |
+| -------- | ----------- |
+| value    | A single value or a range of values as returned by an inter record function with a third optional parameter. The function needs at least one positive and one negative value to be calculated. |
 | Expression | Optional expressions or fields containing the range of data to be measured. |
 
 **Limitations:** Text values, NULL values and missing values are disregarded.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeIRR(-70000,12000,15000,18000,21000,26000)</td>
 <td>Returns 0.0866</td>
 </tr>
-<tr class="even">
-<td><p>Add the example script to your app and run it.</p>
+<tr>
+<td><code>
 RangeTab3:<br/>LOAD *, recno() as RangeID,<br/>
 RangeIRR(Field1,Field2,Field3) as RangeIRR;<br/>
 LOAD * INLINE [<br/>Field1|Field2|Field3<br/>-10000|5000|6000<br/>-2000|NULL|7000<br/>
 -8000|'abc'|8000<br/>-1800|11000|9000<br/>-5000|5000|9000<br/>-9000|4000|2000<br/>
-<span class="Code" data-autonumposition="none">] (delimiter is '|');</td>
+] (delimiter is '|');</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of RangeIRR for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>RangeIRR</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>0.0639</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>0.8708</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>5.8419</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>0.9318</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>-0.2566</td>
 </tr>
@@ -579,15 +577,15 @@ RangeKurtosis() returns the value that corresponds to the kurtosis of a range of
 **Return data type:** numeric
 
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
-| Argument | Description |
-| - | - |
+| Argument   | Description |
+| ---------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
 | Expression | Optional expressions or fields containing the range of data to be measured.|
 
 **Limitations:** If no numeric value is found, NULL is returned.
 
 | Examples | Results |
-| - | - |
+| -------- | ------- |
 | RangeKurtosis (1,2,4,7) | Returns -0.28571428571429 |
 
 ## RangeMax
@@ -599,7 +597,7 @@ RangeMax() returns the highest numeric values found within the expression or fie
 **Return data type:** numeric
 
 | Argument | Description |
-| - | - |
+| -------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
 | Expression | Optional expressions or fields containing the range of data to be measured. |
 
@@ -607,63 +605,63 @@ RangeMax() returns the highest numeric values found within the expression or fie
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeMax(1,2,4)</td>
 <td>Returns 4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeMax(1,'xyz')</td>
 <td>Returns 1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeMax(null(), 'abc')</td>
 <td>Returns NULL</td>
 </tr>
-<tr class="even">
-<td><p>Add the example script to your app and run it.
-<p>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
+<tr>
+<td>
+<code>>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
 RangeMax(Field1,Field2,Field3) as MyRangeMax;<br/>
 INLINE [<br/>Field1,Field2,Field3<br/>10,5,6<br/>2,3,7<br/>
-8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</p></td>
+8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of MyRangeMax for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeMax</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>10</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>7</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>8</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>18</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>9</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>9</td>
 </tr>
@@ -686,15 +684,28 @@ returns three values, where there are sufficient rows above, which are taken as 
 RangeMax() function.
 
 Data used in examples:
+
 | MyField | RangeMax(Above(Sum(MyField),1,3)) |
-| - | - |
+| ------- | - |
 | 10 | 10 |
-| 2 | 10 |
-| 8 | 10 |
+| 2  | 10 |
+| 8  | 10 |
 | 18 | 18 |
-| 5 | 18 |
-| 9 | 18 |
-| <p>RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>] ;||
+| 5  | 18 |
+| 9  | 18 |
+
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+```
 
 ## RangeMaxString
 
@@ -707,14 +718,12 @@ RangeMaxString() returns the last value in the text sort order that it finds in 
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
 
 | Argument | Description |
-| - | - |
+| -------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
 | Expression | Optional expressions or fields containing the range of data to be measured. |
 
-Examples:
-
 | Examples | Results |
-| - | - |
+| -------- | ------- |
 | RangeMaxString(1,2,4) | Returns 4 |
 | RangeMaxString('xyz','abc') | Returns 'xyz' |
 | RangeMaxString(5,'abc') | Returns 'abc' |
@@ -729,14 +738,26 @@ on the current row and two rows above the current row.
 
 Data used in examples:
 | MyField | RangeMaxString(Above(MaxString(MyField),0,3)) |
-| - | - |
-| 10 | 10 |
+| ------- | - |
+| 10  | 10 |
 | abc | abc |
-| 8 | abc |
+| 8   | abc |
 | def | def |
 | xyz | xyz |
-| 9 | xyz |
-| <p>RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>'def'<br/>'xyz'<br/>9<br/>] ;||
+| 9   | xyz |
+
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+'def'
+'xyz'
+9
+] ;
+```
 
 ## RangeMin
 
@@ -747,7 +768,7 @@ RangeMin() returns the lowest numeric values found within the expression or fiel
 **Return data type:** numeric
 
 | Argument | Description |
-| - | - |
+| -------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
 | Expression | Optional expressions or fields containing the range of data to be measured. |
 
@@ -755,63 +776,63 @@ RangeMin() returns the lowest numeric values found within the expression or fiel
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeMin(1,2,4)</td>
 <td>Returns 1</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeMin(1,'xyz')</td>
 <td>Returns 1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeMax(null(), 'abc')</td>
 <td>Returns NULL</td>
 </tr>
-<tr class="even">
-<td><p>Add the example script to your app and run it.
-<p>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
+<tr>
+<td>
+<code>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
 RangeMin(Field1,Field2,Field3) as MyRangeMin;<br/>
 INLINE [<br/>Field1,Field2,Field3<br/>10,5,6<br/>2,3,7<br/>
-8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</p></td>
+8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of MyRangeMin for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeMin</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>2</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>2</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>9</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>2</td>
 </tr>
@@ -834,14 +855,13 @@ three values, where there are sufficient rows above, which are taken as input to
 
 Data used in examples:
 | MyField | RangeMin(Above(MyField,0,3)) |
-| - | - |
+| ------- | - |
 | 10 | 10 |
-| 2 | 2 |
-| 8 | 2 |
+| 2  | 2 |
+| 8  | 2 |
 | 18 | 2 |
-| 5 | 5 |
-| 9 | 5 |
-|
+| 5  | 5 |
+| 9  | 5 |
 
 ``` qlik
 RangeTab:
@@ -867,14 +887,12 @@ RangeMinString() returns the first value in the text sort order that it finds in
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
 
 | Argument | Description |
-| - | - |
+| -------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
 | Expression | Optional expressions or fields containing the range of data to be measured. |
 
-Examples:
-
 | Examples | Results |
-| - | - |
+| -------- | - |
 | RangeMinString(1,2,4) | Returns 1 |
 | RangeMinString('xyz','abc') | Returns 'abc' |
 | RangeMinString(5,'abc') | Returns 5 |
@@ -889,14 +907,26 @@ evaluated on the current row and two rows above the current row.
 
 Data used in examples:
 | MyField | RangeMinString(Above(MinString(MyField),0,3)) |
-| - | - |
-| 10 | 10 |
+| ------- | - |
+| 10  | 10 |
 | abc | 10 |
-| 8 | 8 |
+| 8   | 8 |
 | def | 8 |
 | xyz | 8 |
-| 9 | 9 |
-| <p>RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>'def'<br/>'xyz'<br/>9<br/>] ;||
+| 9   | 9 |
+
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+'def'
+'xyz'
+9
+] ;
+```
 
 ## RangeMissingCount
 
@@ -909,14 +939,12 @@ RangeMissingCount() returns the number of non-numeric values (including NULL) in
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
 
 | Argument | Description |
-| - | - |
+| -------- | - |
 | first_expr | The expression or field containing the data to be counted. |
 | Expression | Optional expressions or fields containing the range of data to be counted. |
 
-Examples:
-
 | Examples | Results |
-| - | - |
+| -------- | - |
 | RangeMissingCount(1,2,4)   | Returns 0 |
 | RangeMissingCount(5,'abc') | Returns 1 |
 | RangeMissingCount(null())  | Returns 1 |
@@ -929,17 +957,28 @@ Returns the number of non-numeric values in the three results of the MinString(M
 function evaluated on the current row and two rows above the current row.
 
 | MyField | RangeMissingCount(Above(MinString(MyField),0,3)) | Explanation |
-| - | - | - |
-| 10 | 2 | Returns 2 because there are no rows above this row so 2 of the 3 values are missing. |
+| -   | - | - |
+| 10  | 2 | Returns 2 because there are no rows above this row so 2 of the 3 values are missing. |
 | abc | 2 | Returns 2 because there is only 1 row above the current row and the current row is non-numeric ('abc'). |
-| 8 | 1 | Returns 1 because 1 of the 3 rows includes a non-numeric ('abc'). |
+| 8   | 1 | Returns 1 because 1 of the 3 rows includes a non-numeric ('abc'). |
 | def | 2 | Returns 2 because 2 of the 3 rows include non-numeric values ('def' and 'abc'). |
 | xyz | 2 | Returns 2 because 2 of the 3 rows include non-numeric values (' xyz' and 'def'). |
-| 9 | 2 | Returns 2 because 2 of the 3 rows include non-numeric values (' xyz' and 'def'). |
+| 9   | 2 | Returns 2 because 2 of the 3 rows include non-numeric values (' xyz' and 'def'). |
 
 Data used in examples:
 
-<p>RangeTab: <br/>LOAD * INLINE [<br/>MyField<br/>10<br/>'abc'<br/>8<br/>'def'<br/>'xyz'<br/>9<br/>];
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+'def'
+'xyz'
+9
+] ;
+```
 
 ## RangeMode
 
@@ -960,63 +999,63 @@ The arguments of this function may contain inter-record functions which in thems
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeMode(1,2,9,2,4)</td>
 <td>Returns 2</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeMode('a',4,'a',4)</td>
 <td>Returns NULL</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeMode(null())</td>
 <td>Returns NULL</td>
 </tr>
-<tr class="even">
-<td><p>Add the example script to your app and run it.
-<p>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
+<tr>
+<td>
+<code>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
 RangeMode(Field1,Field2,Field3) as MyRangeMode;<br/>
 INLINE [<br/>Field1,Field2,Field3<br/>10,5,6<br/>2,3,7<br/>
-8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</p></td>
+8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of MyRangeMode for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeMode</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>8</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>-</td>
 </tr>
@@ -1038,15 +1077,28 @@ two rows above the current row. By specifying the third argument as 3, the Above
 values, where there are sufficient rows above, which are taken as input to the RangeMode() function.
 
 Data used in examples:
+
 | MyField | RangeMode(Above(MyField,0,3)) |
 | ------- | ----------------------------- |
 | 10 | Returns 10 because there are no rows above so the single value is the most commonly occurring. |
-| 2 | -|
-| 8 | - |
+| 2  | - |
+| 8  | - |
 | 18 | - |
-| 5 | - |
-| 9 | - |
-RangeTab: <br/>LOAD \* INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>];
+| 5  | - |
+| 9  | - |
+
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+'abc'
+8
+'def'
+'xyz'
+9
+] ;
+```
 
 ## RangeNPV
 
@@ -1073,18 +1125,19 @@ function.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeNPV(0.1,-10000,3000,4200,6800)</td>
 <td>Returns 1188.44</td>
 </tr>
-<tr class="even">
-<td>Add the example script to your app and run it.<br/>
+<tr>
+<td>
+<code>
 RangeTab3:<br/>
 LOAD *,<br/>
 recno() as RangeID,<br/>
@@ -1097,40 +1150,40 @@ Field1|Field2|Field3<br/>
 18|11|9000<br/>
 5|5|9000<br/>
 9|4|2000<br/>
-] (delimiter is '|');</td>
+] (delimiter is '|');</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of RangeNPV for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>RangeNPV</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>$-49.13</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>$777.78</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>$98.77</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>$25.51</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>$250.83</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>$20.40</td>
 </tr>
@@ -1162,8 +1215,8 @@ Examples:
 
 | Examples                   | Results   |
 | -------------------------- | --------- |
-| RangeNullCount(1,2,4)  | Returns 0 |
-| RangeNullCount(5,'abc') | Returns 0 |
+| RangeNullCount(1,2,4)      | Returns 0 |
+| RangeNullCount(5,'abc')    | Returns 0 |
 | RangeNullCount(null(), null())  | Returns 2 |
 
 Example with expression:
@@ -1174,10 +1227,10 @@ Returns the number of NULL values in the three results of the Sum(MyField) funct
 current row and two rows above the current row.
 
 | MyField | RangeNullCount(Above(Sum(MyField),0,3))|
-| - | - |
-| 10 | Returns 2 because there are no rows above this row so 2 of the 3 values are missing (=NULL).|
+| ----- | - |
+| 10    | Returns 2 because there are no rows above this row so 2 of the 3 values are missing (=NULL).|
 | 'abc' | Returns 1 because there is only one row above the current row, so one of the three values is missing (=NULL).|
-| 8 | Returns 0 because none of the three rows is a NULL value.|
+| 8     | Returns 0 because none of the three rows is a NULL value.|
 
 Data used in examples:
 
@@ -1264,8 +1317,8 @@ The arguments of this function may contain inter-record functions which in thems
 Examples:
 
 | Examples | Results |
-| - | - |
-| RangeOnly(1,2,4) | Returns NULL |
+| -------- | ------- |
+| RangeOnly(1,2,4)   | Returns NULL |
 | RangeOnly(5,'abc') | Returns NULL |
 | RangeOnly(null(), 'abc')  | Returns 'abc' |
 | RangeOnly(10,10,10) | Returns 10 |
@@ -1288,7 +1341,7 @@ The arguments of this function may contain inter-record functions which in thems
 **Limitations:** If no numeric value is found, NULL is returned.
 
 | Examples | Results |
-| - | - |
+| -------- | ------- |
 | RangeSkew(1,2,4) | Returns 0.93521952958283 |
 | RangeSkew(above(SalesValue,0,3)) | Returns a sliding skewness of the range of three values returned from the above() function calculated on the current row and the two rows above the current row. |
 
@@ -1297,7 +1350,7 @@ Data used in example:
 | CustID | RangeSkew(Above(SalesValue,0,3)) |
 | - | - |
 | 1-20 | -, -, 0.5676, 0.8455, 1.0127, -0.8741, 1.7243, -1.7186, 1.5518, 1.4332, 0, 1.1066, 1.3458, 1.5636, 1.5439, 0.6952, -0.3766 |
-| SalesTable:<br/>LOAD recno() as CustID, * inline [<br/>SalesValue<br/>101<br/>163<br/>126<br/>139<br/>167<br/>86<br/>83<br/>22<br/>32<br/>70<br/>108<br/>124<br/>176<br/>113<br/>95<br/>32<br/>42<br/>92<br/>61<br/>21<br/>];| |
+| <code> SalesTable:<br/>LOAD recno() as CustID, * inline [<br/>SalesValue<br/>101<br/>163<br/>126<br/>139<br/>167<br/>86<br/>83<br/>22<br/>32<br/>70<br/>108<br/>124<br/>176<br/>113<br/>95<br/>32<br/>42<br/>92<br/>61<br/>21<br/>];</code>| |
 
 ## RangeStDev
 
@@ -1317,7 +1370,7 @@ The arguments of this function may contain inter-record functions which in thems
 **Limitations:** If no numeric value is found, NULL is returned.
 
 | Examples | Results |
-| - | - |
+| -------- | ------- |
 | RangeStdev(1,2,4)| Returns 1.5275252316519 |
 | RangeStdev(null()) | Returns NULL |
 | RangeStdev (above(SalesValue),0,3)) | Returns a sliding standard of the range of three values returned from the above() function calculated on the current row and the two rows above the current row. |
@@ -1348,63 +1401,63 @@ The arguments of this function may contain inter-record functions which in thems
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeSum(1,2,4)</td>
 <td>Returns 7</td>
 </tr>
-<tr class="even">
+<tr>
 <td>RangeSum(5,'abc')</td>
 <td>Returns 5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RangeSum(null())</td>
 <td>Returns 0</td>
 </tr>
-<tr class="even">
-<td><p>Add the example script to your app and run it.
-<p>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
+<tr>
+<td>
+<code>RangeTab3:<br/>LOAD recno() as RangeID,<br/>
 RangeSum(Field1,Field2,Field3) as MyRangeSum;<br/>
 INLINE [<br/>Field1,Field2,Field3<br/>10,5,6<br/>2,3,7<br/>
-8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</p></td>
+8,2,8<br/>18,11,9<br/>5,5,9<br/>9,4,2<br/>];</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of MyRangeMode for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>MyRangeSum</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>21</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>12</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>18</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>38</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>19</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>15</td>
 </tr>
@@ -1427,14 +1480,26 @@ rows above, which are taken as input to the RangeSum() function.
 
 Data used in examples:
 | MyField | RangeSum(Above(MyField,0,3)) |
-| - | - |
+| -  | - |
 | 10 | 10 |
-| 2 | 12 |
-| 8 | 20 |
+| 2  | 12 |
+| 8  | 20 |
 | 18 | 28 |
-| 5 | 31 |
-| 9 | 32 |
-| RangeTab:<br/>LOAD * INLINE [<br/>MyField<br/>10<br/>2<br/>8<br/>18<br/>5<br/>9<br/>];|
+| 5  | 31 |
+| 9  | 32 |
+
+```qlik
+RangeTab:
+LOAD * INLINE [
+MyField
+10
+2
+8
+18
+5
+9
+] ;
+```
 
 ## RangeTextCount
 
@@ -1453,7 +1518,7 @@ The arguments of this function may contain inter-record functions which in thems
 
 Examples:
 | Examples | Results |
-| - | - |
+| -------- | ------- |
 | RangeTextCount(1,2,4) | Returns 0 |
 | RangeTextCount(5,'abc')| Returns 1 |
 | RangeTextCount(null()) | Returns 0 |
@@ -1468,13 +1533,13 @@ over the current row and two rows above the current row.
 Data used in examples:
 
 | MyField | MaxString(MyField) | RangeTextCount(Above(Sum(MyField),0,3)) |
-| - | - | - |
-| 10 | 10 | 0 |
-| abc | abc| 1 |
-| 8 | 8 | 1 |
+| --- | --- | - |
+| 10  | 10  | 0 |
+| abc | abc | 1 |
+| 8   | 8   | 1 |
 | def | def | 2 |
 | xyz | xyz | 2 |
-| 9 | 9 | 2 |
+| 9   | 9   | 2 |
 
 Data used in examples:
 
@@ -1504,8 +1569,8 @@ function.
 
 **Return data type:** numeric
 
-| Argument | Description                                                                                                                                                               |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Argument | Description |
+| -------- | ----------- |
 | value    | A cash flow or a series of cash flows that correspond to a schedule of payments in dates. The series of values must contain at least one positive and one negative value. |
 | date     | A payment date or a schedule of payment dates that corresponds to the cash flow payments.                                                                                 |
 **Limitations:**
@@ -1532,30 +1597,32 @@ function.
 
 **Return data type:** numeric
 
-| Argument      | Description                                                                                                                                                                                                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| discount_rate | The interest rate per period.                                                                                                                                                                                                                                                                             |
+| Argument      | Description |
+| ------------- | ----------- |
+| discount_rate | The interest rate per period. |
 | values        | A cash flow or a series of cash flows that corresponds to a schedule of payments in dates. Each value may be a single value or a range of values as returned by an inter-record function with a third optional parameter. The series of values must contain at least one positive and one negative value. |
-| dates         | A payment date or a schedule of payment dates that corresponds to the cash flow payments.                                                                                                                                                                                                                 |
+| dates         | A payment date or a schedule of payment dates that corresponds to the cash flow payments.|
+
 **Limitations:**
 
-Text values, NULL values and missing values are disregarded.<br/>
+Text values, NULL values and missing values are disregarded.
+
 All payments are discounted based on a 365-day year.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Examples</th>
 <th>Results</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeXNPV(0.1, -2500,'2008-01-01',2750,'2008-09-01')</td>
 <td>Returns 80.25</td>
 </tr>
-<tr class="even">
-<td>Add the example script to your app and run it.<br/>RangeTab3:
+<tr>
+<td><code>Add the example script to your app and run it.<br/>RangeTab3:
 LOAD *,<br/>
 recno() as RangeID,<br/>
 RangeXNPV(Field1,Field2,Field3) as RangeNPV;<br/>
@@ -1567,40 +1634,40 @@ Field1|Field2|Field3<br/>
 18|11|9000</br>
 5|5|9000</br>
 9|4|2000</br>
-] (delimiter is '|');</td>
+] (delimiter is '|');</code></td>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>The resulting table shows the returned values of RangeXNPV for each of the records in the table.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>RangeID</td>
 <td>RangeXNPV</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>$-49.13</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>2</td>
 <td>$777.78</td>
 </tr>
-<tr class="even">
+<tr>
 <td>3</td>
 <td>$98.77</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>4</td>
 <td>$25.51</td>
 </tr>
-<tr class="even">
+<tr>
 <td>5</td>
 <td>$250.83</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>6</td>
 <td>$20.40</td>
 </tr>

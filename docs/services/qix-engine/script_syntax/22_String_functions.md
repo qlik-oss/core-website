@@ -27,7 +27,7 @@ Chr() returns the Unicode character corresponding to the input integer.
 
 ## Evaluate
 
-Evaluate() finds if the input text string can be evaluated as a valid Qlik Sense
+Evaluate() finds if the input text string can be evaluated as a valid
 expression, and if so, returns the value of the expression as a string.
 If the input string is not a valid expression, NULL is
 returned.
@@ -405,22 +405,22 @@ created.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>SubField(S, ';' ,2)<td>Returns 'cde' if <b>S<b> is 'abc;cde;efg'.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>SubField(S, ';' ,1)<td>Returns NULL if <b>S</b> is an empty string.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>SubField(S, ';' ,1)<td>Returns an empty string if <b>S</b> is ';'.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>Add the example script to your app and run it.</p>
 FullName:<br/>
 LOAD * inline [<br/>
@@ -437,19 +437,19 @@ Drop Table FullName;<br/>
 </td>
 <td><table>
 <thead>
-<tr class="header">
+<tr>
 <th>Name</th>
 <th>FirstName</th>
 <th>Surname</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Dave Owen</td>
 <td>Dave</td>
 <td>Owen</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Joe Tem</td>
 <td>Joe</td>
 <td>Tem</td>
@@ -457,12 +457,12 @@ Drop Table FullName;<br/>
 </tbody>
 </table></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>This example shows how using multiple instances of the Subfield() function, each with the
 field_no parameter left out, from within the same LOAD statement creates Cartesian products of
 all combinations. The DISTINCT option is used to avoid creating duplicate record.</p>
 <p>Add the example script to your app and run it.</p>
-<p>LOAD DISTINCT<br/>
+<code>LOAD DISTINCT<br/>
 Instrument,<br/>
 SubField(Player,',') as Player,<br/>
 SubField(Project,',') as Project;</p>
@@ -473,78 +473,78 @@ Guitar|Neil|Music,OST<br/>
 Synth|Neil,Jen|Music,Video,OST<br/>
 Synth|Jo|Music<br/>
 Guitar|Neil,Mike|Music,OST
-] (delimiter is '|');</p>
+] (delimiter is '|');</code>
 </td>
 <td><table>
 <thead>
-<tr class="header">
+<tr>
 <th>Instrument</th>
 <th>Player</th>
 <th>Project</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Guitar</td>
 <td>Mike</td>
 <td>Music</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Guitar</td>
 <td>Mike</td>
 <td>Video</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Guitar</td>
 <td>Mike</td>
 <td>OST</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Guitar</td>
 <td>Neil</td>
 <td>Music</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Guitar</td>
 <td>Neil</td>
 <td>Video</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Guitar</td>
 <td>Neil</td>
 <td>OST</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Synth</td>
 <td>Jen</td>
 <td>Music</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Synth</td>
 <td>Jen</td>
 <td>Video</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Synth</td>
 <td>Jen</td>
 <td>OST</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Synth</td>
 <td>Jo</td>
 <td>Music</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Synth</td>
 <td>Neil</td>
 <td>Music</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Synth</td>
 <td>Neil</td>
 <td>Video</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Synth</td>
 <td>Neil</td>
 <td>OST</td>

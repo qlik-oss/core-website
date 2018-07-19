@@ -104,7 +104,7 @@ The resulting table would look like this:
 ## Binary
 
 The **binary**
-statement is used for loading the data from another Qlik Sense app or
+statement is used for loading the data from another app or
 QlikView 11.2 or earlier document, including section access data. Other
 elements of the app are not included, for example, sheets, stories,
 visualizations, master items or variables.
@@ -129,7 +129,7 @@ script.
 
 | Example | Result |
 | ------- | ------ |
-| Binary lib://MyData/customer.qvw; | In this example,  must be in located in the folder connected to the MyData data connection. | | Binary customer.qvf;              | In this example, customer.qvf must be in located in the Qlik Sense working directory.                   |
+| Binary lib://MyData/customer.qvw; | In this example,  must be in located in the folder connected to the MyData data connection. | | Binary customer.qvf;              | In this example, customer.qvf must be in located in the working directory.                   |
 | Binary c:\\qv\\customer.qvw;      | This example using an absolute file path will only work in legacy scripting mode.                                                                                                                      |
 
 ## Comment table
@@ -236,7 +236,7 @@ comment Gamma with 'Mickey Mouse field';
 
 The
  **CONNECT**
-statement is used to define Qlik Sense access to a general database
+statement is used to define access to a general database
 through the OLE DB/ODBC interface. For ODBC, the data source first needs
 to be specified using the ODBC administrator.
 
@@ -416,7 +416,7 @@ A field list is a comma-separated list of field specifications,
 fieldname {, fieldname}. A field specification can be a field name, in
 which case the same name is used for the database column name and the
 field name. Or a field specification can be a field alias, in which case
-a database expression or column name is given a Qlik Sense field name.
+a database expression or column name is given a field name.
 
 Field names can be either simple names or quoted names. A simple name
 begins with an alphabetic Unicode character and is followed by any
@@ -438,7 +438,7 @@ This differs from the result of an SQL Select statement with an alias.
 If the alias is not explicitly quoted, the result contains the default
 case of column returned by the target database. In the following
 example, the SQL Select statement to an Oracle database creates
-"MYSTATE," with all upper case letters, as the internal Qlik Sense alias
+"MYSTATE," with all upper case letters, as the internal alias
 even though the alias is specified as mixed case. The SQL Select
 statement uses the column name returned by the database, which in the
 case of Oracle is all upper
@@ -494,9 +494,6 @@ visualization:
 The DIRECT QUERY statement allows you to access tables through an ODBC or
 OLE DB connection using the Direct Discovery function.
 
-You cannot currently connect to OLE DB/ODBC databases in Qlik Sense
-Cloud.
-
 `DIRECT QUERY DIMENSION fieldlist [MEASURE fieldlist] [DETAIL fieldlist] FROM tablelist [WHERE where_clause]`
 
 The DIMENSION, MEASURE, and DETAIL keywords can be used in any order.
@@ -510,7 +507,7 @@ and can be used to create associations between in-memory and Direct Discovery da
 !!! NOTE
     The DIRECT QUERY statement cannot contain or GROUP BY clauses.
 
-Using the MEASURE keyword you can define fields that Qlik Sense is aware of on a “meta level”.
+Using the MEASURE keyword you can define fields that is aware of on a “meta level”.
 The actual data of a measure field resides only in the database during the data load process,
 and is retrieved on an ad hoc basis driven by the chart expressions that are used in a visualization.
 
@@ -633,7 +630,7 @@ or when the script execution is finished.
 
 ## Drop field
 
-One or several Qlik Sense fields can be dropped from the data model,
+One or several fields can be dropped from the data model,
 and thus from memory, at any time during script execution,
 by means of a drop field statement.
 
@@ -723,7 +720,7 @@ are case insensitive.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </tr>
@@ -731,40 +728,40 @@ are case insensitive.
 <tbody>
 <td><br>This example shows how to force capitalization.</br>
 <code>
-<br>FORCE Capitalization;</br>
-<br>Capitalization:</br>
-<br>LOAD * Inline [</br>
-<br>ab</br>
-<br>Cd</br>
-<br>eF</br>
-<br>GH</br>
-<br>];</br></td>
+FORCE Capitalization;</br>
+Capitalization:</br>
+LOAD * Inline [</br>
+ab</br>
+Cd</br>
+eF</br>
+GH</br>
+];</br></td>
 </code>
 <td><br>The  **Capitalization ** table contains the following values:</br>
 <code>
-<br>Ab</br>
-<br>Cd</br>
-<br>Ef</br>
-<br>Gh</br>
+Ab</br>
+Cd</br>
+Ef</br>
+Gh</br>
 </code>
 <br>All values are capitalized.</br></td>
 </tr>
 <td><br>This example shows how to force case upper.</br>
 <code>
-<br>FORCE Case Upper;</br>
-<br>CaseUpper:</br>
-<br>LOAD * Inline [</br>
-<br>ab</br>
-<br>Cd</br>
-<br>eF</br>
-<br>GH</br>
-<br>];</br></td>
+FORCE Case Upper;</br>
+CaseUpper:</br>
+LOAD * Inline [</br>
+ab</br>
+Cd</br>
+eF</br>
+GH</br>
+];</br></td>
 <td><br>The  **CaseUpper**  table contains the following values:</br>
 <code>
-<br>AB</br>
-<br>CD</br>
-<br>EF</br>
-<br>GH</br>
+AB</br>
+CD</br>
+EF</br>
+GH</br>
 </code>
 <br>All values are upper case.</br></td>
 </tr>
@@ -772,40 +769,40 @@ are case insensitive.
 <td><br>This example shows how to force case lower.</br>
 <code>
 <br>FORCE Case Lower;</br>
-<br>CaseLower:</br>
-<br>LOAD * Inline [</br>
-<br>ab</br>
-<br>Cd</br>
-<br>eF</br>
-<br>GH</br>
-<br>];</br></td>
+CaseLower:</br>
+LOAD * Inline [</br>
+ab</br>
+Cd</br>
+eF</br>
+GH</br>
+];</br></td>
 </code>
 <td><br>The  **CaseLower**  table contains the following values:</br>
 <code>
-<br>ab</br>
-<br>cd</br>
-<br>ef</br>
-<br>gh</br>
+ab</br>
+cd</br>
+ef</br>
+gh</br>
 </code>
 <br>All values are lower case.</br></td>
 </tr>
 <td><br>This example shows how to force case mixed.</br>
 <code>
 <br>FORCE Case Mixed;</br>
-<br>CaseMixed:</br>
-<br>LOAD * Inline [</br>
-<br>ab</br>
-<br>Cd</br>
-<br>eF</br>
-<br>GH</br>
-<br>];</br></td>
+CaseMixed:</br>
+LOAD * Inline [</br>
+ab</br>
+Cd</br>
+eF</br>
+GH</br>
+];</br></td>
 </code>
 <td><br>The  **CaseMixed**  table contains the following values:</br>
 <code>
-<br>ab</br>
-<br>Cd</br>
-<br>eF</br>
-<br>GH</br>
+ab</br>
+Cd</br>
+eF</br>
+GH</br>
 </code>
 <br>All values are as they appear in the script.</br></td>
 </tr>
@@ -840,7 +837,7 @@ either with a semicolon or end-of-line.
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Example</th>
 <th>Result</th>
 </thead>
@@ -897,7 +894,7 @@ The succeeding statement should not have a prefix.
 
 ## Loosen Table
 
-One or more Qlik Sense internal data tables can be explicitly declared
+One or more internal data tables can be explicitly declared
 loosely coupled during script execution by using a
 Loosen Table statement. When a table is loosely coupled, all
 associations between field values in the table are removed. A similar
@@ -906,7 +903,7 @@ table as independent, unconnected tables. Loosely coupled can be useful
 during testing to temporarily isolate different parts of the data
 structure. A loosely coupled table can be identified in the table viewer
 by the dotted lines. The use of one or more
-Loosen Table statements in the script will make Qlik Sense disregard any
+Loosen Table statements in the script will make disregard any
 setting of tables as loosely coupled made before the script execution.
 
 **Syntax**:
@@ -919,9 +916,7 @@ Either syntax: **Loosen Table** or **Loosen Tables** can be used.
 
 ```code
 Tab1:
-
 SELECT * from Trans;
-
 Loosen Table Tab1;
 ```
 
@@ -939,7 +934,7 @@ The automatic mapping is done for fields loaded after the **Map … Using** stat
 or until an **Unmap** statement is encountered.
 
 The mapping is done last in the chain of events leading up to the field
-being stored in the internal table in Qlik Sense. This means that
+being stored in the internal table. This means that
 mapping is not done every time a field name is encountered as part of an
 expression, but rather when the value is stored under the field name in
 the internal table. If mapping on the expression level is required, the
@@ -1013,9 +1008,7 @@ It can be switched off again by means of the **NullAsNull** statement.
 
 ```code
 NullAsValue A,B;
-
 Set NullValue = 'NULL';
-
 LOAD A,B from x.csv;
 ```
 
@@ -1054,9 +1047,7 @@ The **qualify** statement should not be used in conjunction with partial reload.
 
 ```code
 Qualify B;
-
 LOAD A,B from x.csv;
-
 LOAD A,B from y.csv;
 ```
 
@@ -1071,13 +1062,9 @@ this example:
 
 ```code
 qualify *;
-
 unqualify TransID;
-
 SQL SELECT * from tab1;
-
 SQL SELECT * from tab2;
-
 SQL SELECT * from tab3;
 ```
 
@@ -1181,9 +1168,7 @@ The script will generate an error if you try to rename a table to the same name 
 
 ```code
 Tab1:
-
 SELECT * from Trans;
-
 Rename Table Tab1 to Xyz;
 ```
 
@@ -1191,9 +1176,7 @@ Rename Table Tab1 to Xyz;
 
 ```code
 TabMap:
-
 Mapping LOAD oldnames, newnames from tabnames.csv;
-
 Rename Tables using TabMap;
 ```
 
@@ -1297,7 +1280,7 @@ for example:
 | group by | **group by** is a clause used for aggregating (group) several records into one. Within one group, for a certain field, all the records must either have the same value, or the field can only be used from within an expression, e.g. as a sum or an average. The expression based on one or several fields is defined in the expression of the field symbol. |
 | having | **having** is a clause used for qualifying groups in a similar manner to how the where clause is used for qualifying records. |
 | order by | **order by** is a clause used for stating the sort order of the resulting table of the **SELECT** statement. |
-| join | **join** is a qualifier stating if several tables are to be joined together into one. Field names and table names must be put within quotes if they contain blank spaces or letters from the national character sets. When the script is automatically generated by Qlik Sense, the quotation mark used is the one preferred by the ODBC driver or OLE DB provider specified in the data source definition of the data source in the **Connect** statement. |
+| join | **join** is a qualifier stating if several tables are to be joined together into one. Field names and table names must be put within quotes if they contain blank spaces or letters from the national character sets. When the script is automatically generated, the quotation mark used is the one preferred by the ODBC driver or OLE DB provider specified in the data source definition of the data source in the **Connect** statement. |
 
 **Example 1**:
 
@@ -1315,9 +1298,7 @@ SELECT `Category ID`, `Category Name` FROM `Categories`;
 
 ```code
 SELECT `Order ID`, `Product ID`,
-
 `Unit Price` * Quantity * (1-Discount) as NetSales
-
 FROM `Order Details`;
 ```
 
@@ -1325,13 +1306,9 @@ FROM `Order Details`;
 
 ```code
 SELECT `Order Details`.`Order ID`,
-
 Sum(`Order Details`.`Unit Price` * `Order Details`.Quantity) as `Result`
-
 FROM `Order Details`, Orders
-
 where Orders.`Order ID` = `Order Details`.`Order ID`
-
 group by `Order Details`.`Order ID`;
 ```
 
@@ -1540,37 +1517,22 @@ The example below is an extract of a data load script featuring section access.
 
 ```code
 Star is *;
-
 Section Access;
-
 LOAD * INLINE [
-
 ACCESS, USERID, OMIT
-
 ADMIN, ADMIN,
-
 USER, USER1, SALES
-
 USER, USER2, WAREHOUSE
-
 USER, USER3, EMPLOYEES
-
 USER, USER4, SALES
-
 USER, USER4, WAREHOUSE
-
 USER, USER5, *
-
 ];
 
 Section Application;
-
 LOAD * INLINE [
-
 SALES, WAREHOUSE, EMPLOYEES, ORDERS
-
 1, 2, 3, 4
-
 ];
 ```
 
@@ -1609,22 +1571,17 @@ The store statement to a CSV file does not support BIFF export.
 | -------- | ------------------ |
 | `fieldlist::= ( * | field ) { , field } )` | A list of the fields to be selected. Using * as field list indicates all fields.<p>`field::= fieldname [as aliasname ]`<br>_fieldname_ is a text that is identical to a field name in table. (Note that the field name must be enclosed b straight double quotation marks or square brackets if it contains spaces or other non-standard characters.)</br>_aliasname_ is an alternate name for the field to be used in the resulting QVD or CSV file.</p> |
 | table | A script label representing an already loaded table to be used as source for data. |
-| filename | The name of the target file including a valid path to an existing folder data connection.<br>**Example: 'lib://Table Files/target.qvd'**</br>In legacy scripting mode, the following path formats are also supported; **absolute** and **relative**. If the path is omitted, Qlik Sense stores the file in the directory specified by the Directory statement. If there is no Directory statement, the working directory of Qlik Associative Engine will be used. |
+| filename | The name of the target file including a valid path to an existing folder data connection.<br>**Example: 'lib://Table Files/target.qvd'**</br>In legacy scripting mode, the following path formats are also supported; **absolute** and **relative**. If the path is omitted, the engine stores the file in the directory specified by the Directory statement. If there is no Directory statement, the working directory of Qlik Associative Engine will be used. |
 | `format-spec ::=( ( txt | qvd ) )` | The format specification consists of the text txt for text files, or the text qvd for qvd files. If the format specification is omitted, qvd is assumed. |
 
 **Example**:
 
 ```code
 Store mytable into xyz.qvd (qvd);
-
 Store * from mytable into 'lib://FolderConnection/myfile.qvd';
-
 Store Name, RegNo from mytable into xyz.qvd;
-
 Store Name as a, RegNo as b from mytable into 'lib://FolderConnection/myfile.qvd';
-
 store mytable into myfile.txt (txt);
-
 store * from mytable into 'lib://FolderConnection/myfile.qvd';
 ```
 
@@ -1651,17 +1608,11 @@ If conflicting occurrences of a field or tag name are found, the last value is u
 
 ```code
 tagmap:
-
 mapping LOAD * inline [
-
 a,b
-
 Alpha,MyTag
-
 Num,MyTag
-
 ];
-
 tag fields using tagmap;
 ```
 
@@ -1771,15 +1722,10 @@ If conflicting occurrences of a field or tag name is found, the last value is us
 
 ```code
 tagmap:
-
 mapping LOAD * inline [
-
 a,b
-
 Alpha,MyTag
-
 Num,MyTag
-
 ];
 
 Untag fields using tagmap;
