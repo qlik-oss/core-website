@@ -1,0 +1,435 @@
+# System Variables
+
+## CreateSearchIndexOnReload
+
+This variable defines if search index files should be created during data reload.
+
+
+`CreateSearchIndexOnReload
+
+ 
+
+You can define if search index files should be created during data
+reload, or if they should be created after the first search request of
+the user. The benefit of creating search index files during data reload
+is that you avoid the waiting time experienced by the first user making
+a search. This needs to be weighed against the longer data reload time
+required by search index creation.
+
+If this variable is omitted, search index files will not be created
+during data reload.
+
+
+
+For session apps, search index files will not be created during data
+reload, regardless of the setting of this variable.
+
+
+
+Create search index fields during data reload
+
+set CreateSearchIndexOnReload=1;
+
+Create search index fields after first search request
+
+set
+CreateSearchIndexOnReload=0;
+
+# HidePrefix
+
+All field names beginning with this text string will be hidden in the
+same manner as the system fields. This is a user-defined
+variable.
+
+ 
+
+`HidePrefix
+
+ 
+
+set HidePrefix='_' ;
+
+ 
+
+If this statement is used, the field names beginning with an underscore
+will not be shown in the field name lists when the system fields are
+hidden.
+
+ 
+
+*System
+variables*
+
+# HideSuffix
+
+All field names ending with this text string will be hidden in the same
+manner as the system fields. This is a user-defined
+variable.
+
+ 
+
+`HideSuffix
+
+ 
+
+set HideSuffix='%';
+
+ 
+
+If this statement is used, the field names ending with a percentage sign
+will not be shown in the field name lists when the system fields are
+hidden.
+
+ 
+
+*System
+variables*
+
+# Include
+
+The
+ **Include/Must_Include** 
+variable specifies a file that contains text that should be included in
+the script and evaluated as script code. You can store parts of your
+script code in a separate text file and reuse it in several apps. This
+is a user-defined variable.
+
+
+
+This variable supports only folder data connections in standard mode.
+See *File system access
+restriction*
+
+
+
+ 
+
+`$(Include=filename)
+
+`$(Must_Include=filename)
+
+ 
+
+There are two versions of the variable:
+
+  - Include
+    does not generate an error if the file cannot be found, it will fail
+    silently.
+  - Must_Include
+    generates an error if the file cannot be found.
+
+If you don't specify a path, the filename will be relative to the Qlik
+Sense app working directory. You can also specify an absolute file path,
+or a path to a lib:// folder connection.
+
+
+
+The construction
+**set
+Include
+=filename
+is not applicable.
+
+
+
+ 
+
+$(Include=abc.txt);
+
+$(Must_Include=lib://MyDataFiles\\abc.txt);
+ 
+
+# OpenUrlTimeout
+
+This variable defines the timeout in seconds that Qlik Sense should
+respect when getting data from URL sources (e.g. HTML pages). If
+omitted, the timeout is about 20
+minutes.
+
+ 
+
+`OpenUrlTimeout
+
+ 
+
+set OpenUrlTimeout=10;
+
+ 
+
+*System
+variables*
+
+# StripComments
+
+If this variable is set to 0, stripping of /\*..\*/ and // comments in
+the script will be inhibited. If this variable is not defined, stripping
+of comments will always be
+performed.
+
+ 
+
+`StripComments
+
+ 
+
+Certain database drivers use /\*..\*/ as optimization hints in
+ **SELECT** 
+statements. If this is the case, the comments should not be stripped
+before sending the
+ **SELECT** 
+statement to the database driver.
+
+
+
+It is recommended that this variable be reset to 1 immediately after the
+statement(s) where it is needed.
+
+
+
+ 
+
+set StripComments=0;
+
+SQL SELECT \* /\* \<optimization directive\> \*/ FROM Table ;
+
+set StripComments=1;
+
+ 
+
+*System
+variables*
+
+# System variables
+
+System variables, some of which are system-defined, provide information
+about the system and the Qlik Sense app.
+
+## System variables overview
+
+Some of the functions are described further after the overview. For
+those functions, you can click the function name in the syntax to
+immediately access the details for that specific function.
+
+Use the drop-down on each function to see a brief description and the
+syntax of each function. For some of the functions, you can get further
+details about that specific function by clicking the function name in
+the syntax description.
+
+Floppy
+
+Returns the drive letter of the first floppy drive found, normally
+a:.
+This is a system-defined
+variable.
+
+`Floppy
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+CD
+
+Returns the drive letter of the first CD-ROM drive found. If no CD-ROM
+is found, then
+c:
+is returned. This is a system-defined
+variable.
+
+`CD
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+Include
+
+The
+ **Include/Must_Include** 
+variable specifies a file that contains text that should be included in
+the script and evaluated as script code. You can store parts of your
+script code in a separate text file and reuse it in several apps. This
+is a user-defined
+variable.
+
+`$(**Include3221728372**=filename)
+
+`$(Must_Include=filename)
+
+HidePrefix
+
+All field names beginning with this text string will be hidden in the
+same manner as the system fields. This is a user-defined
+variable.
+
+`**HidePrefix3193430904**
+
+HideSuffix
+
+All field names ending with this text string will be hidden in the same
+manner as the system fields. This is a user-defined
+variable.
+
+`**HideSuffix1888131164**
+
+QvPath
+
+Returns the browse string to the Qlik Sense executable. This is a
+system-defined
+variable.
+
+`QvPath
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+QvRoot
+
+Returns the root directory of the Qlik Sense executable. This is a
+system-defined
+variable.
+
+`QvRoot
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+QvWorkPath
+
+Returns the browse string to the current Qlik Sense app. This is a
+system-defined
+variable.
+
+`QvWorkPath
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+QvWorkRoot
+
+Returns the root directory of the current Qlik Sense app. This is a
+system-defined
+variable.
+
+`QvWorkRoot
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+StripComments
+
+If this variable is set to 0, stripping of /\*..\*/ and // comments in
+the script will be inhibited. If this variable is not defined, stripping
+of comments will always be
+performed.
+
+`**StripComments619147722**
+
+Verbatim
+
+Normally all field values are automatically stripped of leading and
+trailing blanks (ASCII 32) before being loaded into the Qlik Sense
+database. Setting this variable to 1 suspends the stripping of blanks.
+Tab (ASCII 9) and hard space (ANSI 160) characters are never
+stripped.
+
+`**Verbatim3432021727**
+
+OpenUrlTimeout
+
+This variable defines the timeout in seconds that Qlik Sense should
+respect when getting data from URL sources (e.g. HTML pages). If
+omitted, the timeout is about 20
+minutes.
+
+`**OpenUrlTimeout1207727845**
+
+WinPath
+
+Returns the browse string to Windows. This is a system-defined
+variable.
+
+`WinPath
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+WinRoot
+
+Returns the root directory of Windows. This is a system-defined
+variable.
+
+`WinRoot
+
+
+
+This variable is not supported in standard mode. See *File system access
+restriction*
+
+
+
+CollationLocale
+
+Specifies which locale to use for sort order and search matching. The
+value is the culture name of a locale, for example 'en-US'.This is a
+system-defined
+variable.
+
+`CollationLocale
+
+CreateSearchIndexOnReload
+
+This variable defines if search index files should be created during
+data
+reload.
+
+`**CreateSearchIndexOnReload3608075355**
+
+# Verbatim
+
+Normally all field values are automatically stripped of leading and
+trailing blanks (ASCII 32) before being loaded into the Qlik Sense
+database. Setting this variable to 1 suspends the stripping of blanks.
+Tab (ASCII 9) and hard space (ANSI 160) characters are never
+stripped.
+
+ 
+
+`Verbatim
+
+ 
+
+set Verbatim = 1;
+
+ 
+
+*System
+variables*
+
+

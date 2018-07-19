@@ -80,8 +80,12 @@ pages:
         - Script syntax:
           - Error variables: services/qix-engine/script_syntax/error.md
           - Operators: services/qix-engine/script_syntax/operators.md
-          - Script regular statements: services/qix-engine/script_syntax/Script_regular_statements.md
-          - Script prefixes: services/qix-engine/script_syntax/script_prefix.md
+          - Regular statements: services/qix-engine/script_syntax/Script_regular_statements.md
+          - Prefixes: services/qix-engine/script_syntax/script_prefix.md
+          - Variables: 
+            - Overview: services/qix-engine/script_syntax/variables.md
+            - Number: services/qix-engine/script_syntax/number_variables.md
+            - Value handling: services/qix-engine/script_syntax/value_handling_variables.md
         - Script functions: 
           - Aggregation Functions:
             - Basic Aggregation Functions: services/qix-engine/script_syntax/01_1_Basic_aggregation_functions.md
