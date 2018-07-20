@@ -1,4 +1,4 @@
-# ScriptControlStatements
+# Script Control Statements
 
 The script consists of a number of statements. A statement
 can be either a regular script statement or a script control statement.
@@ -97,7 +97,7 @@ Loop
 
 This control statement stops script execution. It may be inserted anywhere in the script.
 
-`Exit Script [ (when | unless) condition ]`
+`Exit Script [ (when | unless) condition ]`
 
 Since the *exit script* statement is a control statement and as such is ended with either a semicolon or end-of-line, it
 must not cross a line boundary.
@@ -105,7 +105,7 @@ must not cross a line boundary.
 | Argument      | Description   |
 | ------------- | --------------|
 | condition     | A logical expression evaluating to True or False. |
-| when / unless | An  **exit script**  statement can be made conditional by the optional use of when or unless clause.|
+| when / unless | An  **exit script**  statement can be made conditional by the optional use of when or unless clause.|
 
 **Examples**
 
@@ -128,7 +128,7 @@ and  **next** will be executed for each value of the list.
 Special syntax makes it possible to generate lists with file and
 directory names in the current directory.
 
-`for each var in list [statements] [ [ ( when| unless ) condition ][statements]next [var]`
+`for each var in list [statements] [ [ ( when| unless ) condition ][statements]next [var]`
 
 | Argument | Description    |
 | -------- | ---------------|
@@ -145,7 +145,7 @@ Since the for each..next statement is a control statement and as such is ended
 with either a semicolon or end-of-line, each of its three possible clauses
 (for each,exit for and **next** ) must not cross a line boundary.
 
-`list := item { , item } item := constant | (expression) | filelist mask | dirlist mask | fieldvaluelist mask`
+`list := item { , item } item := constant | (expression) | filelist mask | dirlist mask | fieldvaluelist mask`
 
 <table>
 <thead>
@@ -203,7 +203,7 @@ This argument supports only library connections in standard mode. See File syste
 Example 1: Loading a list of files
 
 ```qlik
-// LOAD the files 1.csv, 3.csv, 7.csv and xyz.csv
+// LOAD the files 1.csv, 3.csv, 7.csv and xyz.csv
 for each a in 1,3,7,'xyz'
 LOAD * from file$(a).csv;
 next
@@ -264,10 +264,10 @@ The **for..next** control statement is a script iteration construct with a count
 enclosed by **for** and  **next**
 will be executed for each value of the counter variable between specified low and high limits.
 
-`For counter = expr1 to expr2 [ step expr3 ][statements][exit for [ ( when
+`For counter = expr1 to expr2 [ step expr3 ][statements][exit for [ ( when
 | unless ) condition ][statements]`
 
-`Next [counter]`
+`Next [counter]`
 
 The expressions, expr2 and expr3 are only evaluated the first time the loop is entered. The value of the counter
 variable may be changed by statements inside the loop, but this is not good programming practice.
@@ -323,7 +323,7 @@ control statement is a script selection construct forcing the script
 execution to follow different paths depending on one or several logical
 conditions.
 
-`If condition then [ statements ] {elseif condition then [ statements ] }[ else [ statements ] ] end if`
+`If condition then [ statements ] {elseif condition then [ statements ] }[ else [ statements ] ] end if`
 
 Since the **if..then** statement is a control statement and as such is ended with either a semicolon or end-of-line,
 each of its four possible clauses
@@ -366,7 +366,7 @@ end if
 The sub..end sub control statement defines a subroutine which can be called
 upon from a **call** statement.
 
-`Sub name [ (paramlist ] statements end sub`
+`Sub name [ (paramlist ] statements end sub`
 
 Arguments are copied into the subroutine and, if the corresponding
 actual parameter in the **call** statement is a variable name, copied back out again upon exiting the subroutine.
@@ -423,7 +423,7 @@ The switch control statement is a script selection construct forcing the script
 execution to follow different paths, depending on the value of an
 expression.
 
-`Switch expression {case valuelist [ statements ]}[ statements] end switch`
+`Switch expression {case valuelist [ statements ]}[ statements] end switch`
 
 Since the **switch** statement is a control statement and as such is ended with either a semicolon or end-of-line, each
 of its four possible clauses

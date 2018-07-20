@@ -1,4 +1,4 @@
-# InterRecordFunctions
+# Inter Record Functions
 
 Inter-record functions are used when a value from previously loaded
 records of data is needed for the evaluation of the current record.
@@ -7,7 +7,7 @@ records of data is needed for the evaluation of the current record.
 
  **Exists()** determines whether a specific field value has already been
  loaded into the field in the data load script. The function returns TRUE
- or FALSE, so can be used in the **where** clause of a **LOAD**  statement
+ or FALSE, so can be used in the **where** clause of a **LOAD** statement
 or an **IF** statement.
 
 Exists(field_name[,expr])
@@ -441,7 +441,7 @@ clause. In the first record of an internal table, the function will return NULL.
 
 | Argument | Description |
 | -------- | ----------- |
-| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
+| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
 **previous()** functions in order to access records further back. Data are fetched directly from the input source,
 making it possible to refer also to fields that have not been loaded, that is,even if they have not been
 stored in its associative database.|
