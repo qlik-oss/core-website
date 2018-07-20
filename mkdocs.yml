@@ -80,6 +80,7 @@ pages:
         - Script syntax:
           - Error variables: services/qix-engine/script_reference/error.md
           - Operators: services/qix-engine/script_reference/operators.md
+          - Control statements: services/qix-engine/script_reference/script_control.md
           - Regular statements: services/qix-engine/script_reference/Script_regular_statements.md
           - Prefixes: services/qix-engine/script_reference/script_prefix.md
           - Variables:

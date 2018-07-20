@@ -1,4 +1,4 @@
-# InterRecordFunctions
+# Inter Record Functions
 
 Inter-record functions are used when a value from previously loaded
 records of data is needed for the evaluation of the current record.
@@ -7,7 +7,7 @@ records of data is needed for the evaluation of the current record.
 
  **Exists()** determines whether a specific field value has already been
  loaded into the field in the data load script. The function returns TRUE
- or FALSE, so can be used in the **where** clause of a **LOAD**  statement
+ or FALSE, so can be used in the **where** clause of a **LOAD** statement
 or an **IF** statement.
 
 Exists(field_name[,expr])
@@ -125,7 +125,7 @@ Data used in example:
 
 ```qlik
 Employees:
-LOAD \* inline [
+LOAD * inline [
 Employee|ID|Salary
 Bill|001|20000
 John|002|30000
@@ -133,7 +133,7 @@ Steve|003|35000
 ] (delimiter is '|');
 
 Citizens:
-Load \* inline [
+Load * inline [
 Name|Address
 Bill|New York
 Mary|London
@@ -441,7 +441,7 @@ clause. In the first record of an internal table, the function will return NULL.
 
 | Argument | Description |
 | -------- | ----------- |
-| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
+| expr     | The expression or field containing the data to be measured. <p>The expression can contain nested
 **previous()** functions in order to access records further back. Data are fetched directly from the input source,
 making it possible to refer also to fields that have not been loaded, that is,even if they have not been
 stored in its associative database.|
@@ -483,8 +483,8 @@ Month|Sales<br>
 <td><table>
 <tbody>
 <tr>
-<td><p>By using the  **Previous() function in the **Load**  statement, we can compare the current value of Sales with
-the preceding value, and use it in a third field, Increase.</p></td>
+<td><p>By using the  <b>Previous()</b> function in the <b>Load</b>  statement, we can compare the current
+value of Sales with the preceding value, and use it in a third field, Increase.</p></td>
 </tr>
 <tr>
 <td><table>
