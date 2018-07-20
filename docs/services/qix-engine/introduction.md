@@ -32,6 +32,10 @@ API | Description
 [Data Connector](./apis/data-loading/introduction.md) | High-performance data loading using the gRPC protocol.
 [Analytical Connector](./apis/server-side-extension/analytical-connector-api.md) | Server side extensions using the gRPC protocol.
 
+## Load Script Reference
+
+To load and model data the Qlik Associative Engine uses a load script syntax that is further described in the [Load Script Reference chapter](./script_reference/introduction.md).
+
 ## Metrics
 
 Following the [Metrics](../../conventions/metrics.md) conventions, Qlik Associative Engine exposes
