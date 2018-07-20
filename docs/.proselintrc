@@ -3,6 +3,7 @@
     "typography.symbols": false,
     "misc.but": false,
     "hyperbole.misc": false,
-    "typography.exclamation": false
+    "typography.exclamation": false,
+    "dates_times.dates": false
   }
 }

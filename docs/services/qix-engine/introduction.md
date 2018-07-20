@@ -75,6 +75,11 @@ In addition to the command line parameters above
 it is also possible to increase or decrease log level on different Qlik Associative Engine logging types.
 The logging types and levels is in more detail described in the [Logging section](./logging.md).
 
+## Load Script Reference
+
+To load and model data the Qlik Associative Engine uses a load script syntax
+that is further described in the [Load Script Reference chapter](./script_reference/introduction.md).
+
 ## Metrics
 
 Following the [Metrics](../../conventions/metrics.md) conventions, Qlik Associative Engine exposes
