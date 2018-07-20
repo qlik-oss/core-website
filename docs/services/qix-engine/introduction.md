@@ -34,7 +34,8 @@ API | Description
 
 ## Load Script Reference
 
-To load and model data the Qlik Associative Engine uses a load script syntax that is further described in the [Load Script Reference chapter](./script_reference/introduction.md).
+To load and model data the Qlik Associative Engine uses a load script syntax
+that is further described in the [Load Script Reference chapter](./script_reference/introduction.md).
 
 ## Metrics
 
