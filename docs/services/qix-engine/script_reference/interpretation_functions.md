@@ -1,4 +1,4 @@
-# InterpretationFunctions
+# Interpretation functions
 
 The interpretation functions evaluate the contents of input text
 fields or expressions, and impose a specified data format on the

@@ -1,4 +1,4 @@
-# Counter Aggregation functions
+# Counter aggregation functions
 
 ## Count
 

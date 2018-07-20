@@ -1,4 +1,4 @@
-# File Functions
+# File functions
 
 ## Attribute
 
