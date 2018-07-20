@@ -197,7 +197,7 @@ Script:
 
 ```code
 Cashflow:
-LOAD 2013 as Year, \* inline [
+LOAD 2013 as Year, * inline [
 Date|Discount|Payments
 2013-01-01|0.1|-10000
 2013-03-01|0.1|3000

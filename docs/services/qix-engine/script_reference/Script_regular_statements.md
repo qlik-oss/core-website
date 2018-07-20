@@ -471,7 +471,7 @@ statement such as the following should not be
 used:
 
 ```code
-DIRECT QUERY DIMENSION stateid, SUM(amount\*7) AS MultiFirst MEASURE amount FROM sales_table;
+DIRECT QUERY DIMENSION stateid, SUM(amount*7) AS MultiFirst MEASURE amount FROM sales_table;
 ```
 
 The
@@ -737,7 +737,7 @@ eF</br>
 GH</br>
 ];</br></td>
 </code>
-<td><br>The  **Capitalization ** table contains the following values:</br>
+<td><br>The  <b>Capitalization</b> table contains the following values:</br>
 <code>
 Ab</br>
 Cd</br>
@@ -756,7 +756,7 @@ Cd</br>
 eF</br>
 GH</br>
 ];</br></td>
-<td><br>The  **CaseUpper**  table contains the following values:</br>
+<td><br>The <b>CaseUpper</b> table contains the following values:</br>
 <code>
 AB</br>
 CD</br>
@@ -777,7 +777,7 @@ eF</br>
 GH</br>
 ];</br></td>
 </code>
-<td><br>The  **CaseLower**  table contains the following values:</br>
+<td><br>The <b>CaseLower</b> table contains the following values:</br>
 <code>
 ab</br>
 cd</br>
@@ -797,7 +797,7 @@ eF</br>
 GH</br>
 ];</br></td>
 </code>
-<td><br>The  **CaseMixed**  table contains the following values:</br>
+<td><br>The <b>CaseMixed</b> table contains the following values:</br>
 <code>
 ab</br>
 Cd</br>

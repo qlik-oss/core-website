@@ -27,7 +27,7 @@ The expression or field containing the string to be processed.
     <td>
     <code>
         TeamData:<br>
-        LOAD \* inline [<br>
+        LOAD * inline [<br>
         SalesGroup|Team|Date|Amount<br>
         East|Gamma|01/05/2013|20000<br>
         East|Gamma|02/05/2013|20000<br>
