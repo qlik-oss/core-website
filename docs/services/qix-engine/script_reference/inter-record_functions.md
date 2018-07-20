@@ -125,7 +125,7 @@ Data used in example:
 
 ```qlik
 Employees:
-LOAD \* inline [
+LOAD * inline [
 Employee|ID|Salary
 Bill|001|20000
 John|002|30000
@@ -133,7 +133,7 @@ Steve|003|35000
 ] (delimiter is '|');
 
 Citizens:
-Load \* inline [
+Load * inline [
 Name|Address
 Bill|New York
 Mary|London
@@ -483,8 +483,8 @@ Month|Sales<br>
 <td><table>
 <tbody>
 <tr>
-<td><p>By using the  **Previous() function in the **Load**  statement, we can compare the current value of Sales with
-the preceding value, and use it in a third field, Increase.</p></td>
+<td><p>By using the  <b>Previous()</b> function in the <b>Load</b>  statement, we can compare the current
+value of Sales with the preceding value, and use it in a third field, Increase.</p></td>
 </tr>
 <tr>
 <td><table>

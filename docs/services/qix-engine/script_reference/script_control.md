@@ -1,5 +1,18 @@
 # ScriptControlStatements
 
+The script consists of a number of statements. A statement
+can be either a regular script statement or a script control statement.
+
+Control statements are typically used for controlling the flow of the
+script execution. Each clause of a control statement must be kept inside
+one script line and may be terminated by semicolon or end-of-line.
+
+Prefixes are never applied to control statements, with the exceptions of
+the prefixes **when** and **unless** which may be used with a few specific control statements.
+
+All script keywords can be typed with any combination of lower case and
+upper case characters.
+
 ## Call
 
 The **call** control statement calls a subroutine which must be defined by a previous  **sub** statement.
@@ -31,7 +44,7 @@ subfolders.
 ```qlik
 sub DoDir (Root)
     For Each Ext in 'qvw', 'qvo', 'qvs', 'qvt', 'qvd', 'qvc', 'qvf'
-      For Each File in filelist (Root&'\\\*.' \&Ext)
+      For Each File in filelist (Root&'\*.' &Ext)
        LOAD
         '$(File)' as Name,
          FileSize( '$(File)' ) as Size,
@@ -39,7 +52,7 @@ sub DoDir (Root)
          autogenerate 1;
      Next File
     Next Ext
-    For Each Dir in dirlist (Root&'\\\*' )
+    For Each Dir in dirlist (Root&'\*' )
         Call DoDir (Dir)
     Next Dir
 End Sub
@@ -65,18 +78,15 @@ each of its three possible clauses ( **do** , exit do and  **loop** )must not cr
 | ------------- | ----------------|
 | condition     | A logical expression evaluating to True or False.|
 | statements    | Any group of one or more Qlik Sense script statements.|
-| while / until | The . Each condition is interpreted only the first time it is encountered but is evaluated for every
- time it encountered in the loop. |
-| exit do       | If an  **exit do** clause is encountered inside the loop, the execution of the script will be
-transferred to the first statement after the **loop** clause denoting the end of the loop. An **exit do** clause can be
-made conditional by the optional use of a **when**  or unless suffix. |
+| while / until | The . Each condition is interpreted only the first time it is encountered but is evaluated for every  time it encountered in the loop. |
+| exit do       | If an  **exit do** clause is encountered inside the loop, the execution of the script will be transferred to the first statement after the **loop** clause denoting the end of the loop. An **exit do** clause can be made conditional by the optional use of a **when**  or unless suffix. |
 
 ```qlik
 
 // LOAD files file1.csv..file9.csv
 
 Set a=1;
-Do while a\<10
+Do while a<10
 LOAD * from file$(a).csv;
 Let a=a+1;
 Loop
@@ -97,7 +107,7 @@ must not cross a line boundary.
 | condition     | A logical expression evaluating to True or False. |
 | when / unless | An  **exit script**  statement can be made conditional by the optional use of when or unless clause.|
 
-## Examples
+**Examples**
 
 //Exit script
 
@@ -122,8 +132,7 @@ directory names in the current directory.
 
 | Argument | Description    |
 | -------- | ---------------|
-| var      | A script variable name which will acquire a new value from list for each loop execution. If  **var** is
-specified after **next** it must be the same variable name as the one found after the corresponding **for each** . |
+| var      | A script variable name which will acquire a new value from list for each loop execution. If  **var** is specified after **next** it must be the same variable name as the one found after the corresponding **for each** . |
 
 The value of the **var** variable may be changed by statements inside the loop, but this is not good programming
 practice.
@@ -159,7 +168,7 @@ need to be enclosed by single quotes.</td>
 <tr >
 <td>mask</td>
 <td><p>A filename or folder name mask which may include any valid filename characters as well as the standard wildcard
-characters,  *** and **?** .</p>
+characters,  <b>*</b> and <b>?</b> .</p>
 <p>You can use absolute file paths or lib:// paths.</p></td>
 </tr>
 <tr >
@@ -206,14 +215,14 @@ This example loads a list of all Qlik Sense related files in a folder.
 
 ```qlik
 sub DoDir (Root)
- for each Ext in 'qvw', 'qva', 'qvo', 'qvs', 'qvc','qvf', 'qvd' for each File in filelist (Root&'\\\*.' \&Ext)
+ for each Ext in 'qvw', 'qva', 'qvo', 'qvs', 'qvc','qvf', 'qvd' for each File in filelist (Root&'\*.' &Ext)
  LOAD
   '$(File)' as Name,
    FileSize( '$(File)' ) as Size,
     FileTime( '$(File)' ) as FileTime
     autogenerate 1;
     next File
-    next Ext for each Dir in dirlist (Root&'\\\*' )
+    next Ext for each Dir in dirlist (Root&'\*' )
     call DoDir (Dir)
     next Dir
     end sub
@@ -226,7 +235,7 @@ This example iterates through the list of loaded values of FIELD and generates a
 of FIELD, two NEWFIELD records will be created.
 
 ```qlik
-load \* inline [
+load * inline [
 FIELD
 one
 two
@@ -234,7 +243,7 @@ three
 ];
 
 FOR Each a in FieldValueList('FIELD')
-LOAD '$(a)' &'-'\&RecNo() as NEWFIELD AutoGenerate 2;
+LOAD '$(a)' &'-'&RecNo() as NEWFIELD AutoGenerate 2;
 NEXT a
 ```
 
@@ -274,13 +283,10 @@ each of its three possible clauses
 
 | Argument   | Description |
 | ---------- | ------------|
-| counter    | A variable name. If counter is specified after next it must be the same variable name as the one found
-after the corresponding for. |
-| expr1      | An expression which determines the first value of the counter variable for which the loop should be
- executed.  |
+| counter    | A variable name. If counter is specified after next it must be the same variable name as the one found after the corresponding for. |
+| expr1      | An expression which determines the first value of the counter variable for which the loop should be executed.  |
 | expr2      | An expression which determines the last value of the  variable for which the loop should be executed.|
-| expr3      | An expression which determines the value indicating the increment of the counter variable each time the
-loop has been executed.|
+| expr3      | An expression which determines the value indicating the increment of the counter variable each time the loop has been executed.|
 | condition  | a logical expression evaluating to True or False.  |
 | statements | Any group of one or more Qlik Sense script statements.  |
 
@@ -290,7 +296,7 @@ Example 1: Loading a sequence of files
 // LOAD files file1.csv..file9.csv
 
 for a=1 to 9
- LOAD \* from file$(a).csv;
+ LOAD * from file$(a).csv;
 next
 ```
 
@@ -317,11 +323,7 @@ control statement is a script selection construct forcing the script
 execution to follow different paths depending on one or several logical
 conditions.
 
-*if - script and chart function* (script and chart
-function)
-
-`If condition then [ statements ] {elseif condition then [ statements ] }
-[ else [ statements ] ] end if`
+`If condition then [ statements ] {elseif condition then [ statements ] }[ else [ statements ] ] end if`
 
 Since the **if..then** statement is a control statement and as such is ended with either a semicolon or end-of-line,
 each of its four possible clauses
@@ -355,110 +357,9 @@ if x>0 then
 elseif x<0 then
     LOAD * from neg.csv;
 else
-    LOAD \* from zero.txt;
+    LOAD * from zero.txt;
 end if
 ```
-
-## Script control statements
-
-The script consists of a number of statements. A statement
-can be either a regular script statement or a script control statement.
-
-Control statements are typically used for controlling the flow of the
-script execution. Each clause of a control statement must be kept inside
-one script line and may be terminated by semicolon or end-of-line.
-
-Prefixes are never applied to control statements, with the exceptions of
-the prefixes **when** and **unless** which may be used with a few specific control statements.
-
-All script keywords can be typed with any combination of lower case and
-upper case characters.
-
-## Script control statements overview
-
-Each function is described further after the overview. You can also
-click the function name in the syntax to immediately access the details
-for that specific function.
-
-Use the drop-down on each function to see a brief description and the
-syntax of each function. Click the function name in the syntax
-description for further details.
-
-Call
-
-The **call** control statement calls a subroutine which must be defined by a previous **sub** statement.
-
-`call name ( [paramlist])`
-
-Do..loop
-
-The **do..loop** control statement is a script iteration construct which executes one or several statements until a
-logical condition is met.
-
-`do [ ( while
-| until )
-condition ] [statements]
-[exit do [ ( when |
-unless )
-condition ] [statements]
-loop [ ( while |
- ) condition ]`
-
-Exit script
-
-This control statement stops script execution. It may be inserted
-anywhere in the script.
-
-`exit script[ (when | unless) condition ]`
-
-For each ..next
-
-The for each..next control statement is a script iteration construct
-which executes one or several statements for each value in a comma
-separated list. The statements inside the loop enclosed by **for**
-and **next** will be executed for each value of the list.
-
-`For Each var in list[statements][exit for [ ( when
-| unless ) condition ][statements]next [var]`
-
-For..next
-
-The **for..next** control statement is a script iteration construct with a counter. The statements inside the loop
-enclosed by **for** and **next**
-will be executed for each value of the counter variable between specified low and high limits.
-
-`Forcounter = expr1 to expr2 [ step expr3 ][statements][ [exit for ( when
-| unless ) condition][statements]`
-
-`Next [counter]`
-
-If..then
-
-The **if..then** control statement is a script selection construct forcing the script execution to follow different
-paths depending on one or several logical
-conditions.
-
-Since the **if..then** statement is a control statement and as such is ended with either a semicolon or end-of-line,
-each of its four possible clauses
-(, **elseif..then**, **else** and end if) must not cross a line boundary.
-
-`If condition then [ statements ]{ elseif condition then  [ statements ] }[ else
-  [ statements ] ] end if`
-
-Sub
-
-The **sub..end sub** control statement defines a subroutine which can be called
-upon from a **call** statement.
-
-`Sub name [ ( paramlist ] statements end sub`
-
-Switch
-
-The **switch** control statement is a script selection construct forcing the script execution to follow different paths,
-depending on the value of an
-expression.
-
-`Switch expression {case valuelist [ statements ]} [default statements] end switch`
 
 ## Sub..end sub
 
@@ -481,8 +382,7 @@ its two clauses
 | Argument   | Description  |
 | ---------- | -------------|
 | name       | The name of the subroutine.  |
-| paramlist  | A comma separated list of variable names for the formal parameters of the subroutine. These can be used
-as any variable inside the subroutine. |
+| paramlist  | A comma separated list of variable names for the formal parameters of the subroutine. These can be used as any variable inside the subroutine. |
 | statements | Any group of one or more Qlik Sense script statements. |
 
 Example 1:
@@ -490,7 +390,7 @@ Example 1:
 ```qlik
 Sub INCR (I,J)
 I = I + 1
-Exit Sub when I \< 10
+Exit Sub when I < 10
 J = J + 1
 End Sub
 Call INCR (X,Y)
@@ -507,14 +407,14 @@ End Sub
 A=1
 X=1
 C=1
-Call ParTrans (A, (X+1)\*2)
+Call ParTrans (A, (X+1)*2)
 ```
 
 The result of the above will be that locally, inside the subroutine, A will be initialized to 1, B will be initialized
 to 4 and C will be initialized to NULL.
 
 When exiting the subroutine, the global variable A will get 2 as value (copied back from subroutine). The second actual
-parameter “(X+1)\*2” will not be copied back since it is not a variable. Finally, the global variable C will not be
+parameter “(X+1)*2” will not be copied back since it is not a variable. Finally, the global variable C will not be
 affected by the subroutine call.
 
 ## Switch..case..default..end switch  The  **switch**
@@ -532,13 +432,10 @@ of its four possible clauses
 | Argument   | Description   |
 | ---------- | --------------|
 | expression | An arbitrary expression.  |
-| valuelist  | A comma separated list of values with which the value of expression will be compared. Execution of the
-script will continue with the statements in the first group encountered with a value in valuelist equal to the value in
-expression. Each value in valuelist may be an arbitrary expression. If no match is found in any  **case** clause, the
-statements under the **default**  clause, if specified, will be executed. |
+| valuelist  | A comma separated list of values with which the value of expression will be compared. Execution of the script will continue with the statements in the first group encountered with a value in valuelist equal to the value in expression. Each value in valuelist may be an arbitrary expression. If no match is found in any  **case** clause, the statements under the **default**  clause, if specified, will be executed. |
 | statements | Any group of one or more Qlik Sense script statements.  |
 
-## Example:-
+**Example:**
 
 ```qlik
 Switch I
@@ -550,9 +447,3 @@ Default
 LOAD '$(I): DEFAULT' as case autogenerate 1;
 End Switch
 ```
-
-## To
-
-The
- **To**
-script keyword is used in several script statements.
