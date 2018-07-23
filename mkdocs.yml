@@ -75,6 +75,13 @@ pages:
         - Generic Variable: services/qix-engine/apis/qix/genericvariable.md
         - Field: services/qix-engine/apis/qix/field.md
         - Variable: services/qix-engine/apis/qix/variable.md
+      - Data Connector API:
+        - Introduction: services/qix-engine/apis/data-loading/introduction.md
+        - API Specification: services/qix-engine/apis/data-loading/data-connector-api.md
+      - Analytical Connector API:
+        - Introduction: services/qix-engine/apis/server-side-extension/introduction.md
+        - API Specification: services/qix-engine/apis/server-side-extension/analytical-connector-api.md
+      - Rest API: services/qix-engine/apis/rest/qlik-associative-engine-api.md
       - Load Script Reference:
         - Introduction: services/qix-engine/script_reference/introduction.md
         - Script syntax:
@@ -117,14 +124,6 @@ pages:
           - System Functions: services/qix-engine/script_reference/system_functions.md
           - Table Functions: services/qix-engine/script_reference/table_functions.md
           - Trigonometric And Hyperbolic Functions: services/qix-engine/script_reference/trigonometric_and_hyperbolic_functions.md
-
-      - Data Connector API:
-        - Introduction: services/qix-engine/apis/data-loading/introduction.md
-        - API Specification: services/qix-engine/apis/data-loading/data-connector-api.md
-      - Analytical Connector API:
-        - Introduction: services/qix-engine/apis/server-side-extension/introduction.md
-        - API Specification: services/qix-engine/apis/server-side-extension/analytical-connector-api.md
-      - Rest API: services/qix-engine/apis/rest/qlik-associative-engine-api.md
     - Licenses: services/licenses.md
   - Conventions:
     - Introduction: conventions/introduction.md
