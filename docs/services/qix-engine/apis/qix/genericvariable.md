@@ -3,11 +3,11 @@
 <!-- proselint-disable -->
 # GenericVariable
 
-_QIX methods for version 12.190.0._
+_QIX methods for version 12.207.0._
 
 ## `ApplyPatches`
 
-Applies a patch to the properties of a variable. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
+Applies a patch to the properties of a variable. Allows an update to some of the properties.<br>pplying a patch takes less time than resetting all the properties.
 
 **Parameters:**
 
@@ -31,7 +31,7 @@ _No parameters._
 
 ## `GetLayout`
 
-Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated.
+Evaluates an object and displays its properties including the dynamic properties.<br>f the member _delta_ is set to true in the request object, only the delta is evaluated.
 
 _No parameters._
 
@@ -43,7 +43,7 @@ _No parameters._
 
 ## `GetProperties`
 
-Shows the properties of an object.<br>If the member **delta** is set to true in the request, only the delta is retrieved. <br>The following is always returned in the output:
+Shows the properties of an object.<br>f the member **delta** is set to true in the request, only the delta is retrieved. <br>he following is always returned in the output:
 
 _No parameters._
 
@@ -55,7 +55,7 @@ _No parameters._
 
 ## `SetDualValue`
 
-Sets the value of a dual variable.<br>These changes are not persistent. They only last the duration of the engine session.
+Sets the value of a dual variable.<br>hese changes are not persistent. They only last the duration of the engine session.
 
 **Parameters:**
 
@@ -68,7 +68,7 @@ _No return values._
 
 ## `SetNumValue`
 
-Sets a numerical value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
+Sets a numerical value to a variable.<br>hese changes are not persistent. They only last the duration of the engine session.
 
 **Parameters:**
 
@@ -80,7 +80,7 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the [`SetProperties`](#setproperties) method. 
+Sets some properties for a variable.<br>he identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the [`SetProperties`](#setproperties) method. 
 
 **Parameters:**
 
@@ -92,7 +92,7 @@ _No return values._
 
 ## `SetStringValue`
 
-Sets a string value to a variable.<br>These changes are not persistent. They only last the duration of the engine session.
+Sets a string value to a variable.<br>hese changes are not persistent. They only last the duration of the engine session.
 
 **Parameters:**
 
