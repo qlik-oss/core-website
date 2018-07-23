@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.190.0._
+_QIX methods for version 12.207.0._
 
 ## `AbortModal`
 
@@ -1269,6 +1269,23 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qScript` | [`AppScript`](./definitions.md#appscript) | The script and meta data of the script. |
+
+## `GetSetAnalysis`
+
+Returns a set analysis expression from active selection or from a saved bookmark.<br>|                       | BookmarkId empty                     | BookmarkId set                                     |<br>|-----------------------|--------------------------------------|----------------------------------------------------|<br>|StateName empty (or $) | Default selections state is returned.| Default state ($) in bookmark with id is returned. |<br>|StateName set          | State selections is returned.        | State in bookmark with id is returned.             |
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qStateName` | string | No | Optional. The name of the state to get set analysis expression for. If left empty, the default state will be retrieved. |
+| `qBookmarkId` | string | No | Optional. The Id of the bookmark to get the set analysis expression for. If left empty, the current selection will be retrieved. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSetExpression` | string | _No description._ |
 
 ## `GetTableData`
 
