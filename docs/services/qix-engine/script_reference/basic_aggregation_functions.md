@@ -232,7 +232,7 @@ Canutility</p></td>
 </tbody>
 </table>
 
-### Mode
+## Mode
 
  **Mode()** returns the most commonly occurring value, the mode value, of the aggregated data in the expression, as
  defined by a group by clause. The **Mode()** function can return numeric values as well as text values.

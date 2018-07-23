@@ -29,7 +29,7 @@ Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
 result.
 
-### Example
+**Example**:
 
 Script:
 
@@ -76,7 +76,7 @@ Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
 result.
 
-### Example
+**Example**:
 
 Script:
 
@@ -142,7 +142,7 @@ Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
 result.
 
-### Example
+**Example**:
 
 Script:
 
@@ -191,7 +191,7 @@ Add the example script to your app and run it. Then add, at least, the
 fields listed in the results column to a sheet in your app to see the
 result.
 
-### Example
+**Example**:
 
 Script:
 

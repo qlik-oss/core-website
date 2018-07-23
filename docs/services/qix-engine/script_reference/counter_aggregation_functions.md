@@ -22,7 +22,7 @@ To get the same look as in the result column below, in the properties
 panel, under Sorting, switch from Auto to Custom, then deselect
 numerical and alphabetical sorting.
 
-### Example 1
+**Example 1**:
 
 Script:
 
@@ -58,7 +58,7 @@ Result:
 As long as the dimension Customer is included in the table on the sheet,
 otherwise the result for OrdersByCustomer is 3, 2.
 
-### Example 2
+**Example 2**:
 
 Given that the Temp table is loaded as in the previous example:
 
@@ -66,7 +66,7 @@ Given that the Temp table is loaded as in the previous example:
 | ---------------- |
 | 10 |
 
-### Example 3
+**Example 3**:
 
 Given that the Temp table is loaded as in the first example:
 
@@ -104,7 +104,7 @@ To get the same look as in the result column below, in the properties
 panel, under Sorting, switch from Auto to Custom, then deselect
 numerical and alphabetical sorting.
 
-### Example 1
+**Example 1**:
 
 Script:
 
@@ -146,7 +146,7 @@ The second statement gives:
 
 in a table with that dimension.
 
-### Example 2
+**Example 2**:
 
 Given that the Temp table is loaded as in the previous example:
 
@@ -184,7 +184,7 @@ To get the same look as in the result column below, in the properties
 panel, under Sorting, switch from Auto to Custom, then deselect
 numerical and alphabetical sorting.
 
-### Example
+**Example**:
 
 Script:
 
@@ -248,7 +248,7 @@ To get the same look as in the result column below, in the properties
 panel, under Sorting, switch from Auto to Custom, then deselect
 numerical and alphabetical sorting.
 
-### Example 1
+**Example 1**:
 
 ```code
 Temp:
@@ -277,7 +277,7 @@ LOAD Customer,NumericCount(OrderNumber) as NumericCountByCustomer Resident Temp 
 | Canutility | 0 |
 | Divadip | 2 |
 
-### Example 2
+**Example 2**:
 
 ```code
 LOAD NumericCount(OrderNumber) as TotalNumericCount Resident Temp;
@@ -291,7 +291,7 @@ The second statement gives:
 
 in a table with that dimension.
 
-### Example 3
+**Example 3**:
 
 Given that the Temp table is loaded as in the previous example:
 
@@ -329,7 +329,7 @@ To get the same look as in the result column below, in the properties
 panel, under Sorting, switch from Auto to Custom, then deselect
 numerical and alphabetical sorting.
 
-### Example
+**Example**:
 
 ```code
 Temp:
