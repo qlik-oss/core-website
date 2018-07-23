@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.190.0._
+_QIX methods for version 12.207.0._
 
 ## `ForceContent`
 
@@ -16,7 +16,7 @@ Sets the value of a dual variable overriding any input constraints.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qs` | string | Yes | String representation of a dual value.<br>Set this parameter to "", if the string representation is to be Null. |
+| `qs` | string | Yes | String representation of a dual value.<br>et this parameter to "", if the string representation is to be Null. |
 | `qd` | number | Yes | Numeric representation of a dual value. |
 
 _No return values._
@@ -84,7 +84,7 @@ Sets a value to a variable.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qReturn` | boolean | true/false<br>The operation is successful if qReturn is set to true. |
+| `qReturn` | boolean | true/false<br>he operation is successful if qReturn is set to true. |
 
 ## `SetNxProperties`
 

@@ -3,50 +3,50 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.190.0._
+_QIX methods for version 12.207.0._
 
 ## `AbortListObjectSearch`
 
-Aborts the results of a search in a list object.<br>This method applies to list objects (objects with one dimension). After an abort on a list object search, the [`GetLayout`](#getlayout) Method does not return any more search results but it does return the values in the field. 
+Aborts the results of a search in a list object.<br>his method applies to list objects (objects with one dimension). After an abort on a list object search, the [`GetLayout`](#getlayout) Method does not return any more search results but it does return the values in the field. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
+| `qPath` | string | Yes | Path to the definition of the list object.<br>or example, _/qListObjectDef_ . |
 
 _No return values._
 
 ## `AcceptListObjectSearch`
 
-Accept the results of a search in a list object. The search results become selected in the field.<br>This method applies to list objects (objects with one dimension). The search results are displayed using the [`GetLayout`](#getlayout) Method. 
+Accept the results of a search in a list object. The search results become selected in the field.<br>his method applies to list objects (objects with one dimension). The search results are displayed using the [`GetLayout`](#getlayout) Method. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
-| `qToggleMode` | boolean | Yes | Set to true to keep any selections present in the list object.<br>If this parameter is set to false, selections made before accepting the list object search become alternative. |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the list object.<br>or example, _/qListObjectDef_ . |
+| `qToggleMode` | boolean | Yes | Set to true to keep any selections present in the list object.<br>f this parameter is set to false, selections made before accepting the list object search become alternative. |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 _No return values._
 
 ## `ApplyPatches`
 
-Applies a patch to the properties of an object. Allows an update to some of the properties.<br>It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing [`GetProperties`](#getproperties) , and only a [`GetLayout`](#getlayout) call shows the result of the operation.<br>Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>Soft properties apply only to generic objects.
+Applies a patch to the properties of an object. Allows an update to some of the properties.<br>t is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.<br>n that case, the result of the operation on the properties (add, remove or delete) is not shown when doing [`GetProperties`](#getproperties) , and only a [`GetLayout`](#getlayout) call shows the result of the operation.<br>roperties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.<br>oft properties apply only to generic objects.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPatches` | [`NxPatch`](./definitions.md#nxpatch) | Yes | Array of patches. |
-| `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>The default value is false. |
+| `qSoftPatch` | boolean | No | If set to true, it means that the properties to be applied are not persistent. The patch is a soft patch.<br>he default value is false. |
 
 _No return values._
 
 ## `Approve`
 
-Adds the generic object to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+Adds the generic object to the list of approved objects<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
@@ -54,13 +54,13 @@ _No return values._
 
 ## `BeginSelections`
 
-Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>* The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br><br>
+Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>hen a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br> Ending the selection mode, see [`EndSelections`](#endselections) Method.<br> The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPaths` | array | Yes | List of the paths to the definition of the objects to enter selection mode.<br>For example, _/qListObjectDef_ . |
+| `qPaths` | array | Yes | List of the paths to the definition of the objects to enter selection mode.<br>or example, _/qListObjectDef_ . |
 
 _No return values._
 
@@ -72,14 +72,14 @@ Clears the selections in a dimension of a visualization.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the visualization.<br>For example, _/qListObjectDef_ . |
-| `qColIndices` | array | No | Array of dimension numbers or indexes. The selections are cleared in the specified dimensions.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, all dimensions are cleared. |
+| `qPath` | string | Yes | Path to the definition of the visualization.<br>or example, _/qListObjectDef_ . |
+| `qColIndices` | array | No | Array of dimension numbers or indexes. The selections are cleared in the specified dimensions.<br>imension numbers/indexes start from 0.<br>f this parameter is not set, all dimensions are cleared. |
 
 _No return values._
 
 ## `ClearSoftPatches`
 
-Clears the soft properties of a generic object.<br>For more information on how to add soft properties to a generic object, see [`ApplyPatches`](#applypatches) Method.
+Clears the soft properties of a generic object.<br>or more information on how to add soft properties to a generic object, see [`ApplyPatches`](#applypatches) Method.
 
 _No parameters._
 
@@ -87,37 +87,37 @@ _No return values._
 
 ## `CollapseLeft`
 
-Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>n the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be collapsed.<br>For example, _/qHyperCubeDef_ . |
-| `qRow` | integer | Yes | Row index in the data matrix.<br>Indexing starts from 0. |
-| `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>Indexing starts from 0. |
-| `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
+| `qPath` | string | Yes | Path to the definition of the object to be collapsed.<br>or example, _/qHyperCubeDef_ . |
+| `qRow` | integer | Yes | Row index in the data matrix.<br>ndexing starts from 0. |
+| `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>ndexing starts from 0. |
+| `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>arameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
 _No return values._
 
 ## `CollapseTop`
 
-Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>n the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be collapsed<br>For example, _/qHyperCubeDef_ . |
-| `qRow` | integer | Yes | Row index. The index is based on the top dimension indexes.<br>Indexing starts from 0. |
-| `qCol` | integer | Yes | Column index in the data matrix.<br>Indexing starts from 0. |
-| `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
+| `qPath` | string | Yes | Path to the definition of the object to be collapsed<br>or example, _/qHyperCubeDef_ . |
+| `qRow` | integer | Yes | Row index. The index is based on the top dimension indexes.<br>ndexing starts from 0. |
+| `qCol` | integer | Yes | Column index in the data matrix.<br>ndexing starts from 0. |
+| `qAll` | boolean | Yes | If set to true, it collapses all cells.<br>arameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
 _No return values._
 
 ## `CopyFrom`
 
-Copies the properties of a generic object and its children.<br>The source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.<br>The identifier of the destination object is the same as before the copy takes place.
+Copies the properties of a generic object and its children.<br>he source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.<br>he identifier of the destination object is the same as before the copy takes place.
 
 **Parameters:**
 
@@ -129,14 +129,14 @@ _No return values._
 
 ## `CreateChild`
 
-Creates a generic object that is a child of another generic object.<br>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call. It is possible to create a child that is linked to another generic object. The two objects have the same properties.
+Creates a generic object that is a child of another generic object.<br>t is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call. It is possible to create a child that is linked to another generic object. The two objects have the same properties.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Yes | Information about the child.<br>It is possible to create a child that is linked to another object. |
-| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qProp` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | Yes | Information about the child.<br>t is possible to create a child that is linked to another object. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object.<br>hould be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
@@ -153,20 +153,20 @@ Removes all children and all children to the children on an object.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>hould be set to update the properties of the parent's object at the same time the child is created. |
 
 _No return values._
 
 ## `DestroyChild`
 
-Removes a child object.<br>It is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call. Removing a linked object, invalidate the linking object. <br><br>The operation is successful if **qSuccess** is set to true. 
+Removes a child object.<br>t is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call. Removing a linked object, invalidate the linking object. <br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the child to remove. |
-| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>Should be set to update the properties of the parent's object at the same time the child is created. |
+| `qPropForThis` | [`GenericObjectProperties`](./definitions.md#genericobjectproperties) | No | Identifier of the parent's object and property to update.<br>hould be set to update the properties of the parent's object at the same time the child is created. |
 
 **Returns:**
 
@@ -176,21 +176,21 @@ Removes a child object.<br>It is possible to update the properties of the child'
 
 ## `DrillUp`
 
-You can use the drillUp method with any object that contains a drilldown group as a dimension.<br>This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.<br>If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
+You can use the drillUp method with any object that contains a drilldown group as a dimension.<br>his method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.<br>f you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qDimNo` | integer | Yes | Dimension number or index starting from 0.<br>The default value is 0. |
-| `qNbrSteps` | integer | Yes | Number of steps you want to drill up.<br>The default value is 0. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
+| `qDimNo` | integer | Yes | Dimension number or index starting from 0.<br>he default value is 0. |
+| `qNbrSteps` | integer | Yes | Number of steps you want to drill up.<br>he default value is 0. |
 
 _No return values._
 
 ## `EmbedSnapshotObject`
 
-Adds a snapshot to a generic object.<br>Only one snapshot can be embedded in a generic object. If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.
+Adds a snapshot to a generic object.<br>nly one snapshot can be embedded in a generic object. If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.
 
 **Parameters:**
 
@@ -214,46 +214,46 @@ _No return values._
 
 ## `ExpandLeft`
 
-Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>n the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be expanded.<br>For example, _/qHyperCubeDef_ . |
-| `qRow` | integer | Yes | Row index in the data matrix to expand.<br>Indexing starts from 0. |
-| `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>Indexing starts from 0. |
-| `qAll` | boolean | Yes | If set to true, it expands all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
+| `qPath` | string | Yes | Path to the definition of the object to be expanded.<br>or example, _/qHyperCubeDef_ . |
+| `qRow` | integer | Yes | Row index in the data matrix to expand.<br>ndexing starts from 0. |
+| `qCol` | integer | Yes | Column index. The index is based on the left dimension indexes.<br>ndexing starts from 0. |
+| `qAll` | boolean | Yes | If set to true, it expands all cells.<br>arameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
 _No return values._
 
 ## `ExpandTop`
 
-Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>In the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
+Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.<br>n the definition of the hypercube (in [`HyperCubeDef`](./definitions.md#hypercubedef) ), the parameter _qAlwaysFullyExpanded_ must be set to false.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be expanded.<br>For example, _/qHyperCubeDef_ . |
-| `qRow` | integer | Yes | Row index. The index is based on the top dimension indexes.<br>Indexing starts from 0. |
-| `qCol` | integer | Yes | Column index in the data matrix.<br>Indexing starts from 0. |
-| `qAll` | boolean | Yes | If set to true, it expands all cells.<br>Parameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
+| `qPath` | string | Yes | Path to the definition of the object to be expanded.<br>or example, _/qHyperCubeDef_ . |
+| `qRow` | integer | Yes | Row index. The index is based on the top dimension indexes.<br>ndexing starts from 0. |
+| `qCol` | integer | Yes | Column index in the data matrix.<br>ndexing starts from 0. |
+| `qAll` | boolean | Yes | If set to true, it expands all cells.<br>arameters _qRow_ and _qCol_ are not used if _qAll_ is set to true, but they need to be set (for example to 0). |
 
 _No return values._
 
 ## `ExportData`
 
-Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.<br>This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.<br><br>
+Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.<br>his API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.<br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFileType` | string | Yes | Type of the file to export.<br><br>One of:<br>* CSV_C or EXPORT_CSV_C<br>* CSV_T or EXPORT_CSV_T<br>* OOXML or EXPORT_OOXML |
-| `qPath` | string | No | Path to the definition of the object to be exported.<br>For example, _/qHyperCubeDef_ .<br>This parameter is mandatory if the file type is _CSV_C_ or _CSV_T_ . |
-| `qFileName` | string | No | Name of the exported file after download from browser.<br>This parameter is optional and only used in Qlik Sense Desktop. |
-| `qExportState` | string | No | Defines the values to be exported.<br>The default value is A.<br><br>One of:<br>* P or EXPORT_POSSIBLE<br>* A or EXPORT_ALL |
+| `qFileType` | string | Yes | Type of the file to export.<br>One of:<br> CSV_C or EXPORT_CSV_C<br> CSV_T or EXPORT_CSV_T<br> OOXML or EXPORT_OOXML |
+| `qPath` | string | No | Path to the definition of the object to be exported.<br>or example, _/qHyperCubeDef_ .<br>his parameter is mandatory if the file type is _CSV_C_ or _CSV_T_ . |
+| `qFileName` | string | No | Name of the exported file after download from browser.<br>his parameter is optional and only used in Qlik Sense Desktop. |
+| `qExportState` | string | No | Defines the values to be exported.<br>he default value is A.<br>One of:<br> P or EXPORT_POSSIBLE<br> A or EXPORT_ALL |
 
 **Returns:**
 
@@ -280,7 +280,7 @@ Returns the type of the object and the corresponding handle.
 
 ## `GetChildInfos`
 
-Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.<br><br>Full dynamic properties are optional and are returned if they exist in the definition of the object.
+Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.<br>Full dynamic properties are optional and are returned if they exist in the definition of the object.
 
 _No parameters._
 
@@ -288,11 +288,11 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qInfos` | array&lt;[`NxInfo`](./definitions.md#nxinfo)> | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>}, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>...<br>] |
+| `qInfos` | array&lt;[`NxInfo`](./definitions.md#nxinfo)> | [ { "qId": "&lt;identifier of the child 1&gt;", "qType": "&lt;type of the child 1&gt;"<br>, { "qId": "&lt;identifier of the child 2&gt;", "qType": "&lt;type of the child 2&gt;", "&lt;FullDynamicProperty&gt;": "&lt;value&gt;" }<br>..<br> |
 
 ## `GetEffectiveProperties`
 
-Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.<br>GetEffectiveProperties method<br>Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.
+Returns the identifier, the type and the properties of the object.<br>f the object contains some soft properties, the soft properties are returned.<br>f the object is linked to another object, the properties of the linking object are returned.<br>etEffectiveProperties method<br>eturns the identifier, the type and the properties of the object.<br>f the object contains some soft properties, the soft properties are returned.<br>f the object is linked to another object, the properties of the linking object are returned.
 
 _No parameters._
 
@@ -304,7 +304,7 @@ _No parameters._
 
 ## `GetFullPropertyTree`
 
-Gets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.
+Gets the properties of:<br> A generic object.<br> The children of the generic object.<br> The bookmarks/embedded snapshots of the generic object.
 
 _No parameters._
 
@@ -316,54 +316,54 @@ _No parameters._
 
 ## `GetHyperCubeBinnedData`
 
-This method supports data binning.<br>When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br>A zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>The grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>The [`GetHyperCubeBinnedData`](#gethypercubebinneddata) method gives information about the adaptive grid and the values of the generic object.<br>The number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>Dimension values and measure values are rendered at point level (highest detailed level).<br>The generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.<br><br>
+This method supports data binning.<br>hen a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br> zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>he grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>he [`GetHyperCubeBinnedData`](#gethypercubebinneddata) method gives information about the adaptive grid and the values of the generic object.<br>he number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>imension values and measure values are rendered at point level (highest detailed level).<br>he generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.<br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve.<br>Since the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>If the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
-| `qViewport` | [`NxViewPort`](./definitions.md#nxviewport) | Yes | Defines the canvas and the zoom level.<br>This parameter is not yet used and is optional. |
-| `qDataRanges` | [`NxDataAreaPage`](./definitions.md#nxdataareapage) | Yes | [`Range`](./definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qHyperCubeDef_ . |
+| `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve.<br>ince the generic object contains two measures and one dimension, _qWidth_ should be set to 3.<br>f the value of a measure is Null, the value cannot be rendered. Therefore, the number of elements rendered in a page can be less than the number defined in the property _qHeight_ . |
+| `qViewport` | [`NxViewPort`](./definitions.md#nxviewport) | Yes | Defines the canvas and the zoom level.<br>his parameter is not yet used and is optional. |
+| `qDataRanges` | [`NxDataAreaPage`](./definitions.md#nxdataareapage) | Yes | [`Range`](./definitions.md#range) of the data to render.<br>his range applies to the measure values.<br>he lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
-| `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
-| `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
+| `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>hen the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>he query level should be no greater than 20. |
+| `qBinningMethod` | integer | Yes | Selects the algorithm.<br>he default value is 0.<br>ne of:<br> 0: Adaptive grid<br> 1: Hexagonal grid<br> 2: Uniform grid |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
+| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>epending on the refinement level, the information is about:<br> The adaptive grid. Occurs when cells are rendered and not points.<br>r<br> The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
 
 ## `GetHyperCubeContinuousData`
 
-Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.<br>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.
+Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.<br>inning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qHyperCubeDef_ . |
 | `qOptions` | [`NxContinuousDataOptions`](./definitions.md#nxcontinuousdataoptions) | Yes | Defines the data to return. |
-| `qReverseSort` | boolean | No | If set to true the returned data pages are reverse sorted.<br>Optional. |
+| `qReverseSort` | boolean | No | If set to true the returned data pages are reverse sorted.<br>ptional. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Array of pages to retrieve.<br>The dimension values and the measure values. |
-| `qAxisData` | [`NxAxisData`](./definitions.md#nxaxisdata) | List of x-axis data including name, ticks and tags.<br>Only days are returned, not time. |
+| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Array of pages to retrieve.<br>he dimension values and the measure values. |
+| `qAxisData` | [`NxAxisData`](./definitions.md#nxaxisdata) | List of x-axis data including name, ticks and tags.<br>nly days are returned, not time. |
 
 ## `GetHyperCubeData`
 
-Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_STRAIGHT.<br>A data set is returned.
+Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.<br>his method works for a hypercube in DATA_MODE_STRAIGHT.<br> data set is returned.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
@@ -374,13 +374,13 @@ Retrieves the calculated data for a chart, a table, or a scatter plot. It is pos
 
 ## `GetHyperCubePivotData`
 
-Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT.
+Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.<br>his method works for a hypercube in DATA_MODE_PIVOT.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
 
 **Returns:**
@@ -391,16 +391,16 @@ Retrieves the values of a pivot table. It is possible to retrieve specific pages
 
 ## `GetHyperCubeReducedData`
 
-Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.<br>The reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.<br>This method can be used to create mini charts.<br><br>
+Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.<br>he reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.<br>his method can be used to create mini charts.<br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages. |
-| `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>* If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>* If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
-| `qReductionMode` | string | Yes | Defines the reduction mode.<br><br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
+| `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>f set to -1, the engine decides of the zoom factor.<br> If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br> If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
+| `qReductionMode` | string | Yes | Defines the reduction mode.<br>One of:<br> N or DATA_REDUCTION_NONE<br> D1 or DATA_REDUCTION_ONEDIM<br> S or DATA_REDUCTION_SCATTERED<br> C or DATA_REDUCTION_CLUSTERED<br> ST or DATA_REDUCTION_STACKED |
 
 **Returns:**
 
@@ -410,15 +410,15 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 
 ## `GetHyperCubeStackData`
 
-Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.<br>This method works for a hypercube in DATA_MODE_PIVOT_STACK.
+Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.<br>his method works for a hypercube in DATA_MODE_PIVOT_STACK.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages to retrieve. |
-| `qMaxNbrCells` | integer | No | Maximum number of cells at outer level.<br>The default value is 10 000. |
+| `qMaxNbrCells` | integer | No | Maximum number of cells at outer level.<br>he default value is 10 000. |
 
 **Returns:**
 
@@ -431,7 +431,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 
 **Stability Index: Experimental**
 
-Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>This method works for a treedata object or a hypercube in DATA_MODE_TREE.
+Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>his method works for a treedata object or a hypercube in DATA_MODE_TREE.
 
 **Parameters:**
 
@@ -460,7 +460,7 @@ _No parameters._
 
 ## `GetLayout`
 
-Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated. A [`GetLayout`](#getlayout) call on a generic object, returns up to one level down in the hierarchy.<br><br>
+Evaluates an object and displays its properties including the dynamic properties.<br>f the member _delta_ is set to true in the request object, only the delta is evaluated. A [`GetLayout`](#getlayout) call on a generic object, returns up to one level down in the hierarchy.<br>
 
 _No parameters._
 
@@ -484,13 +484,13 @@ _No parameters._
 
 ## `GetListObjectData`
 
-Retrieves the values of a list object.<br>A data set is returned.
+Retrieves the values of a list object.<br> data set is returned.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages you are interested in. |
 
 **Returns:**
@@ -513,7 +513,7 @@ _No parameters._
 
 ## `GetProperties`
 
-Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>The properties depends on the generic object type, see [properties](genericobject-layout.html).<br>If the member delta is set to true in the request object, only the delta is retrieved.
+Returns the identifier, the type and the properties of the object.<br>ecause it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>f the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>f the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>he properties depends on the generic object type, see [properties](genericobject-layout.html).<br>f the member delta is set to true in the request object, only the delta is retrieved.
 
 _No parameters._
 
@@ -543,8 +543,8 @@ Locks the selected values of a generic object.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qListObjectDef_ . |
-| `qColIndices` | array | No | Dimension numbers or dimension indexes where the lock should apply.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, the selected values in all dimensions are locked. |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qListObjectDef_ . |
+| `qColIndices` | array | No | Dimension numbers or dimension indexes where the lock should apply.<br>imension numbers/indexes start from 0.<br>f this parameter is not set, the selected values in all dimensions are locked. |
 
 _No return values._
 
@@ -591,7 +591,7 @@ _No details._
 
 ## `Publish`
 
-Publishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
+Publishes a generic object.<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
@@ -599,17 +599,17 @@ _No return values._
 
 ## `RangeSelectHyperCubeValues`
 
-Make range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Make range selections in measures.<br>This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
 | `qRanges` | [`NxRangeSelectInfo`](./definitions.md#nxrangeselectinfo) | Yes | Ranges of selection. |
-| `qColumnsToSelect` | array | No | Indicates which dimensions to select.<br>The dimensions numbering starts at 0 (first dimension is 0).<br>If the array is empty, all dimensions are selected. |
-| `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>If set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>If set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>The default value is false. |
-| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
+| `qColumnsToSelect` | array | No | Indicates which dimensions to select.<br>he dimensions numbering starts at 0 (first dimension is 0).<br>f the array is empty, all dimensions are selected. |
+| `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>f set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>f set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>he default value is false. |
+| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>he default value is false. |
 
 **Returns:**
 
@@ -627,14 +627,14 @@ _No return values._
 
 ## `SearchListObjectFor`
 
-Searches for a string in a list object.<br>This method applies to list objects (objects with one dimension). The search results can be displayed using the [`GetLayout`](#getlayout) Method. <br><br>The operation is successful if **qSuccess** is set to true. 
+Searches for a string in a list object.<br>his method applies to list objects (objects with one dimension). The search results can be displayed using the [`GetLayout`](#getlayout) Method. <br>The operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
-| `qMatch` | string | Yes | Search string.<br>Wild card characters are allowed. The search is not case sensitive.<br>Examples:<br>* P*U*: retrieves only values that start with P and contain U<br>* P U S: retrieves values that start with P, U or S |
+| `qPath` | string | Yes | Path to the definition of the list object.<br>or example, _/qListObjectDef_ . |
+| `qMatch` | string | Yes | Search string.<br>ild card characters are allowed. The search is not case sensitive.<br>xamples:<br> P*U*: retrieves only values that start with P and contain U<br> P U S: retrieves values that start with P, U or S |
 
 **Returns:**
 
@@ -644,17 +644,17 @@ Searches for a string in a list object.<br>This method applies to list objects (
 
 ## `SelectHyperCubeCells`
 
-Makes selections in multiple dimensions and measures.<br> This method applies to hypercubes, such as bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes selections in multiple dimensions and measures.<br>This method applies to hypercubes, such as bar charts, tables and scatter plots.<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qRowIndices` | array | Yes | Array of row indexes to select, starting from 0.<br>If the array is empty _[ ]_ , all rows are selected. |
-| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension in the order they are added to the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br><br>If the array is empty _[ ]_ , all columns are selected. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
+| `qRowIndices` | array | Yes | Array of row indexes to select, starting from 0.<br>f the array is empty _[ ]_ , all rows are selected. |
+| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br> column corresponds to a dimension in the order they are added to the hypercube.<br>f a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>xample:<br>f the hypercube has two dimensions:<br> [0] selects the first column (i.e the first dimension).<br> [1] selects the second column (i.e the second dimension).<br>If the array is empty _[ ]_ , all columns are selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
-| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
+| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>he default value is false. |
 
 **Returns:**
 
@@ -664,15 +664,15 @@ Makes selections in multiple dimensions and measures.<br> This method applies to
 
 ## `SelectHyperCubeContinuousRange`
 
-The following is returned in the output:<br>The operation is successful if **qSuccess** is set to true. 
+The following is returned in the output:<br>he operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`NxContinuousRangeSelectInfo`](./definitions.md#nxcontinuousrangeselectinfo) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qHyperCubeDef_ . |
+| `qRanges` | [`NxContinuousRangeSelectInfo`](./definitions.md#nxcontinuousrangeselectinfo) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>f either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -682,15 +682,15 @@ The following is returned in the output:<br>The operation is successful if **qSu
 
 ## `SelectHyperCubeValues`
 
-Selects some values in one dimension.<br>The values are identified by their element numbers.<br>This method applies to charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects some values in one dimension.<br>he values are identified by their element numbers.<br>his method applies to charts, tables and scatter plots.<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qDimNo` | integer | Yes | Dimension number or index to select.<br>Dimension numbers/index start from 0. |
-| `qValues` | array | Yes | Element numbers of the field to select.<br>You can select multiple elements; the separator is the comma. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qHyperCubeDef_ . |
+| `qDimNo` | integer | Yes | Dimension number or index to select.<br>imension numbers/index start from 0. |
+| `qValues` | array | Yes | Element numbers of the field to select.<br>ou can select multiple elements; the separator is the comma. |
 | `qToggleMode` | boolean | Yes | Set to true to toggle. |
 
 **Returns:**
@@ -701,14 +701,14 @@ Selects some values in one dimension.<br>The values are identified by their elem
 
 ## `SelectListObjectAll`
 
-Selects all values of a field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all values of a field.<br>his method applies to list objects (objects with one dimension).<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -718,14 +718,14 @@ Selects all values of a field.<br>This method applies to list objects (objects w
 
 ## `SelectListObjectAlternative`
 
-Selects all alternative values in a specific field.<br>This method applies to list objects (objects with one dimension). If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all alternative values in a specific field.<br>his method applies to list objects (objects with one dimension). If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -735,15 +735,15 @@ Selects all alternative values in a specific field.<br>This method applies to li
 
 ## `SelectListObjectContinuousRange`
 
-The following is returned in the output:<br>The operation is successful if **qSuccess** is set to true. 
+The following is returned in the output:<br>he operation is successful if **qSuccess** is set to true. 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`Range`](./definitions.md#range) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>If either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qHyperCubeDef_ . |
+| `qRanges` | [`Range`](./definitions.md#range) | Yes | Selects ranges in a hypercube in (Ranges[N].Min,Ranges[N].Max) intervals.<br>f either Ranges[N].MinInclEq or Ranges[N].MaxInclEq, or both flags are set to _true_ then _Min_ and _Max_ values will be selected. |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -753,14 +753,14 @@ The following is returned in the output:<br>The operation is successful if **qSu
 
 ## `SelectListObjectExcluded`
 
-Inverts the current selections in a specific field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Inverts the current selections in a specific field.<br>his method applies to list objects (objects with one dimension).<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -770,14 +770,14 @@ Inverts the current selections in a specific field.<br>This method applies to li
 
 ## `SelectListObjectPossible`
 
-Selects all possible values of a list object.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all possible values of a list object.<br>his method applies to list objects (objects with one dimension).<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -787,16 +787,16 @@ Selects all possible values of a list object.<br>This method applies to list obj
 
 ## `SelectListObjectValues`
 
-Makes single selections in dimensions.<br>This method applies to list objects only.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes single selections in dimensions.<br>his method applies to list objects only.<br>he member **Change** returns the handles of the objects that are updated following the selections.<br>qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br> The object contains some invalid fields (fields that are not in the data model).<br> The selection applies to a locked field.<br> A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qListObjectDef_ . |
-| `qValues` | array | Yes | Element numbers to select.<br>You can select multiple values; the separator is the comma. |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>or example, _/qListObjectDef_ . |
+| `qValues` | array | Yes | Element numbers to select.<br>ou can select multiple values; the separator is the comma. |
 | `qToggleMode` | boolean | Yes | Set to true to toggle. |
-| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
+| `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected.<br>he default value is false. |
 
 **Returns:**
 
@@ -806,16 +806,16 @@ Makes single selections in dimensions.<br>This method applies to list objects on
 
 ## `SelectPivotCells`
 
-This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br><br>
+This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br>
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qHyperCubeDef_ . |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qHyperCubeDef_ . |
 | `qSelections` | [`NxSelectionCell`](./definitions.md#nxselectioncell) | Yes | Information about the selections to perform. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
-| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
+| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>he default value is false. |
 
 **Returns:**
 
@@ -825,7 +825,7 @@ This method only applies to hypercubes that are not represented as straight tabl
 
 ## `SetChildArrayOrder`
 
-Sets the order of the children in a generic object.<br>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). 
+Sets the order of the children in a generic object.<br>o change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). 
 
 **Parameters:**
 
@@ -837,7 +837,7 @@ _No return values._
 
 ## `SetFullPropertyTree`
 
-Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
+Sets the properties of:<br> A generic object.<br> The children of the generic object.<br> The bookmarks/embedded snapshots of the generic object.<br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
 
 **Parameters:**
 
@@ -849,7 +849,7 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a generic object.<br>The properties depends on the generic object type, see [properties](genericobject-property.html).
+Sets some properties for a generic object.<br>he properties depends on the generic object type, see [properties](genericobject-property.html).
 
 **Parameters:**
 
@@ -861,7 +861,7 @@ _No return values._
 
 ## `UnApprove`
 
-Removes the generic object from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+Removes the generic object from the list of approved objects<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
@@ -869,7 +869,7 @@ _No return values._
 
 ## `UnPublish`
 
-Unpublishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
+Unpublishes a generic object.<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
@@ -883,7 +883,7 @@ Unlocks the selected values of a generic object if the target (or handle ) is a 
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | Path to the definition of the object.<br>For example, _/qListObjectDef_ . |
-| `qColIndices` | array | No | Dimension numbers/indexes where the unlock should apply.<br>Dimension numbers/indexes start from 0.<br>If this parameter is not set, the locked values in all dimensions are unlocked. |
+| `qPath` | string | Yes | Path to the definition of the object.<br>or example, _/qListObjectDef_ . |
+| `qColIndices` | array | No | Dimension numbers/indexes where the unlock should apply.<br>imension numbers/indexes start from 0.<br>f this parameter is not set, the locked values in all dimensions are unlocked. |
 
 _No return values._

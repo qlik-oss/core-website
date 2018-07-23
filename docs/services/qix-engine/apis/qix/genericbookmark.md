@@ -3,11 +3,11 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.190.0._
+_QIX methods for version 12.207.0._
 
 ## `Apply`
 
-Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
+Applies a bookmark.<br>The operation is successful if **qSuccess** is set to true. 
 
 _No parameters._
 
@@ -19,7 +19,7 @@ _No parameters._
 
 ## `ApplyPatches`
 
-Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
+Applies a patch to the properties of an object. Allows an update to some of the properties.<br>pplying a patch takes less time than resetting all the properties.
 
 **Parameters:**
 
@@ -31,7 +31,7 @@ _No return values._
 
 ## `Approve`
 
-Adds the generic bookmark to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+Adds the generic bookmark to the list of approved objects<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
@@ -39,7 +39,7 @@ _No return values._
 
 ## `GetFieldValues`
 
-Retrieves the values of a field.<br><br>
+Retrieves the values of a field.<br>
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Retrieves the values of a field.<br><br>
 
 ## `GetInfo`
 
-Returns:<br>* The type of the object.<br>* The identifier of the object.
+Returns:<br> The type of the object.<br> The identifier of the object.
 
 _No parameters._
 
@@ -69,7 +69,7 @@ _No parameters._
 
 ## `GetLayout`
 
-Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated.
+Evaluates an object and displays its properties including the dynamic properties.<br>f the member _delta_ is set to true in the request object, only the delta is evaluated.
 
 _No parameters._
 
@@ -81,7 +81,7 @@ _No parameters._
 
 ## `GetProperties`
 
-Shows the properties of an object.<br>If the member delta is set to true in the request object, only the delta is retrieved.<br>The following is always returned in the output:
+Shows the properties of an object.<br>f the member delta is set to true in the request object, only the delta is retrieved.<br>he following is always returned in the output:
 
 _No parameters._
 
@@ -113,7 +113,7 @@ _No return values._
 
 ## `UnApprove`
 
-Removes the generic bookmark from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
+Removes the generic bookmark from the list of approved objects<br>his operation is possible only in Qlik Sense Enterprise.
 
 _No parameters._
 
