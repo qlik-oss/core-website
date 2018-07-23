@@ -1,4 +1,4 @@
-# ScriptPrefixes
+# Script Prefixes
 
 Prefixes may be applied to applicable regular statements but never to control statements. The when and unless prefixes
 can however be used as suffixes to a few specific control statement clauses.

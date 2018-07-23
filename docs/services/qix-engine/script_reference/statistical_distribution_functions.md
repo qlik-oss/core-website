@@ -1,4 +1,4 @@
-# Statistical distribution functions
+# Statistical Distribution functions
 
 ## CHIDIST
 

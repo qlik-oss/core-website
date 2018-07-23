@@ -1,4 +1,4 @@
-# Mapping Functions
+# Mapping functions
 
  Functions for handling mapping tables. A mapping table can be used to replace field values or
  field names during script execution.

@@ -1,4 +1,4 @@
-# Statistical aggregation functions
+# Statistical Aggregation functions
 
 ## Avg
 

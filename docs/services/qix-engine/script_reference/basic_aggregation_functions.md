@@ -1,4 +1,4 @@
-# Basic aggregation functions
+# Basic Aggregation functions
 
 ## FirstSortedValue
 

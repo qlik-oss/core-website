@@ -1,4 +1,4 @@
-# Inter Record Functions
+# Inter-record functions
 
 Inter-record functions are used when a value from previously loaded
 records of data is needed for the evaluation of the current record.

@@ -1,4 +1,4 @@
-# Statistical test functions
+# Statistical Test functions
 
 ## Chi2Test_chi2
 

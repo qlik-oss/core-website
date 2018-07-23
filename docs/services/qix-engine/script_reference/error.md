@@ -1,4 +1,4 @@
-# ErrorVariables
+# Error variables
 
 ## ErrorMode
 
@@ -42,7 +42,7 @@ exist:
 | 15         | BIFF error unsupported version |
 | 16         | Semantic error                 |
 
-**Example**
+**Example**:
 
 ```qlik
 set ErrorMode=0;

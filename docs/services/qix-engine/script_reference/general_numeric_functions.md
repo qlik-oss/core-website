@@ -1,4 +1,4 @@
-# General numeric functions
+# General Numeric functions
 
 ## BitCount
 

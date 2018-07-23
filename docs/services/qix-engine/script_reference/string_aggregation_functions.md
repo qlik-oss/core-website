@@ -1,4 +1,4 @@
-# String aggregation functions
+# String Aggregation functions
 
 ## Concat
 

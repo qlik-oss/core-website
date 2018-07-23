@@ -1,4 +1,4 @@
-# ValueHandlingVariables
+# Value Handling Variables
 
 This section describes variables that are used for handling NULL and other values.
 
