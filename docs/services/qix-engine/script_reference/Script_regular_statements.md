@@ -1,4 +1,4 @@
-# Script regular statements
+# Script Regular Statements
 
 Regular statements are typically used for manipulating data in one way
 or another. These statements may be written over any number of lines in

@@ -1,4 +1,4 @@
-# Trigonometric and hyperbolic functions
+# Trigonometric and Hyperbolic functions
 
 ## cos
 

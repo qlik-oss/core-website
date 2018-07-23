@@ -1,4 +1,4 @@
-# Number interpretation variables
+# Number Interpretation Variables
 
 Number interpretation variables are system defined, that is, they are automatically generated according to the current
 regional settings of the operating system when a new app is created. The variables are included at the top of the script

@@ -1,4 +1,4 @@
-# Financial aggregation functions
+# Financial Aggregation functions
 
 ## IRR
 

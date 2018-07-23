@@ -1,4 +1,4 @@
-# Exponential and logarithmic functions
+# Exponential and Logarithmic functions
 
 ## exp
 

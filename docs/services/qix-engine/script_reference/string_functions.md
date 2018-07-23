@@ -1,4 +1,4 @@
-# String aggregation functions
+# String functions
 
 ## Capitalize
 

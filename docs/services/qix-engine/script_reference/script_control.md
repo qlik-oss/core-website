@@ -1,4 +1,4 @@
-# Script control statements
+# Script Control Statements
 
 The script consists of a number of statements. A statement
 can be either a regular script statement or a script control statement.
