@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.190.0._
+_QIX definitions for version 12.207.0._
 
 ## `AlfaNumString`
 
@@ -98,7 +98,7 @@ _No description._
 | `qFieldFlag` | boolean | If set to true, the definition is related to a field.<br>This parameter is optional. The default value is false. |
 | `qMT` | string | Type of the data.<br><br>One of:<br>* N or NOT_META<br>* D or META_DOC_NAME<br>* R or META_RET_TYPE<br>* V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
-| `qFGList` | array&lt;string> | List of groups the function belongs to. |
+| `qFGList` | undefined | List of groups the function belongs to. |
 
 ## `BookmarkFieldItem`
 
