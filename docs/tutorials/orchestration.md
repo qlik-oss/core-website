@@ -132,7 +132,7 @@ docker stack ps qlik-core
 You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
-curl http://<swarm manager node ip>:9100/v1/engines
+curl http://<swarm manager node ip>:<port>/v1/engines
 ```
 
 This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
@@ -259,7 +259,7 @@ kubectl get all
 You can query Mira to return the list of Qlik Associative Engines it has discovered by calling its `/engines` endpoint:
 
 ```sh
-curl http://<kubernetes node ip>:9100/v1/engines
+curl http://<kubernetes node ip>:<port>/v1/engines
 ```
 
 This endpoint returns one or more Qlik Associative Engine instances and information about these instances in JSON format.
