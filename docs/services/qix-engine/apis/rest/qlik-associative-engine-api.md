@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.190.0._
+_Qlik Associative Engine API for version 12.207.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -75,7 +75,7 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 
 ### `DELETE /v1/apps/{appId}`
 
-Delete an app in the system.
+Deletes a specific app.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -86,7 +86,7 @@ Delete an app in the system.
 
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
-| `appId` | path | string | true | Identifier of the app to delete. |
+| `appId` | path | string | true | Identifier of the app. |
 
 **Responses**
 
