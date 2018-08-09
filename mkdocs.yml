@@ -54,7 +54,10 @@ pages:
     - Hello Visualization: tutorials/hello-visualization.md
     - Orchestration: tutorials/orchestration.md
     - Authorization: tutorials/authorization.md
-    - Data Loading: tutorials/data-loading.md
+    - Data Loading:
+      - Simple Files: tutorials/data-loading/simple-files.md
+      - Databases: tutorials/data-loading/databases.md
+      - Web Services: tutorials/data-loading/web-services.md
   - Services:
     - Mira: services/mira.md
     - Qlik Associative Engine:

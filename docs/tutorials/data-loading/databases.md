@@ -1,4 +1,4 @@
-# Data Loading
+# Loading data from databases
 
 Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.
 
@@ -12,8 +12,7 @@ To follow along in this tutorial, you should have basic understanding of Docker.
 
 ## Loading data from PostgreSQL database with JDBC
 
-In this example workflow, load data from a PostgreSQL database
-using the gRPC protocol in the Qlik Associative Engine.
+In this example workflow, load data from a PostgreSQL database using the gRPC protocol in the Qlik Associative Engine.
 
 Before you start this example, you must clone the [core-grpc-jdbc-connector](https://github.com/qlik-oss/core-grpc-jdbc-connector)
 Git repository to your local machine.
@@ -94,11 +93,10 @@ Do the following:
     You should see the 100 rows of airport data fetched from MySQL and an additional 100 rows of data
     fetched from PostgreSQL in your terminal.
 
-## What is happening
+### What is happening?
 
-Once the containers are running and you trigger the reload,
-the program creates and opens an app called `reloadapp.qvf` on the Qlik Associative Engine.
-Then it creates a connection of the type we defined earlier.
+Once the containers are running and you trigger the reload, the program creates and opens an app called `reloadapp.qvf`
+on the Qlik Associative Engine. Then it creates a connection of the type we defined earlier.
 
 ```js
 app.createConnection({
@@ -115,10 +113,10 @@ app.createConnection({
 
 **qName** is the name of this connection instance.
 
-**qConnectionString** is the parameter that is sent to the connector.
-The parts of the connection string that is specific to the JDBC connector is the driver setting.
-It will be the JDBC driver that the connector will use to connect to the database with.
-The provider needs to be the same as the qType. Host, port and database are related to locating the database.
+**qConnectionString** is the parameter that is sent to the connector. The parts of the connection string that is
+specific to the JDBC connector is the driver setting. It will be the JDBC driver that the connector will use to connect
+to the database with. The provider needs to be the same as the qType. Host, port and database are related to locating
+the database.
 
 **qUserName** and **qPassword** are the credentials used to access the database with (will be removed from the logs).
 
@@ -164,69 +162,3 @@ The first 100 results of the `airports` table loaded from MySQL are print to the
     We recommend that you take a look inside the `index.js` file
     and that you read through the [enigma.js](https://github.com/qlik-oss/enigma.js) documentation
     to get a better understanding of the steps taken in this tutorial.
-
-## Accessing data through a connection service
-
-Learn how you can connect to an [OAuth 2.0](https://oauth.net/2/)-protected data source
-using the _example_ data-connection service to retrieve and load data.
-
-### File connectivity service
-
-The File Connectivity Service is an example of a service that can be used to load data from
-remote files in a Qlik Core stack.
-This service can be configured to provide built-in data connectivity to connect to
-[OAuth 2.0](https://oauth.net/2/)-protected data sources
-like Dropbox, OneDrive, and GoogleDrive.
-
-The data connection service that is used in this tutorial
-works by defining a unique HTTP endpoint for each registered connection provider.
-The Qlik Associative Engine can then access different data sources by making calls
-to the service-defined HTTP endpoints.
-
-Before you start this example, you must clone the
-[File Connectivity Service](https://github.com/qlik-oss/core-file-connectivity-service)
-Git repository to your local machine.
-
-``` bash
-git clone https://github.com/qlik-oss/core-file-connectivity-service.git
-```
-
-### Dropbox example
-
-Do the following:
-
-1. Install the dependencies.
-    ``` bash
-    cd core-file-connectivity-service
-    npm install
-    ```
-1. Copy the [`airports.csv`](https://github.com/qlik-oss/core-file-connectivity-service/blob/master/data/airports.csv)
-    file, which is located in the `/data` folder of the `core-file-connectivity-service` repository, and paste
-    it into your Dropbox.
-1. Create an OAuth2.0 application by following the
-    [OAuth guide instructions](https://www.dropbox.com/developers/reference/oauth-guide).
-
-    **Note:** When you create your application, the `Redirect URI`
-    should be the address of the callback that is running the service: `http://[host]:[port]/oauth2/callback`.
-    For example: `http://localhost:3000/v1/oauth2/callback`
-
-1. Start the Docker container, ensure that you set the proper
-    credentials in the environment variables prefixing the
-    multi-lined `docker-compose` command below.
-    ```bash
-    cd examples
-    ACCEPT_EULA=yes \
-    DROPBOX_CLIENT_ID="your App key" \
-    DROPBOX_CLIENT_SECRET="your App secret" \
-    docker-compose up -d --build
-    ```
-1. Run the `dropbox.js` application.
-    ```bash
-    node dropbox.js
-    ```
-    It should output the 10 lines of the [`airports.csv`](https://github.com/qlik-oss/core-file-connectivity-service/blob/master/data/airports.csv)
-        to the console window.
-
-The workflow for loading data from GoogleDrive and OneDrive is similar to the example above,
-and loading data from these data sources is supported by the
-[File Connectivity Service](https://github.com/qlik-oss/core-file-connectivity-service).
