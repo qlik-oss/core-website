@@ -1,6 +1,9 @@
 # Loading data from web services
 
-TODO: Short descr (like: Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.)
+_Remains to be updated._
+
+Short descr (like: Start loading data into your document by working through a data load workflow using OAuth2.0 or
+the gRPC protocol.)
 
 ## Prerequisites
 

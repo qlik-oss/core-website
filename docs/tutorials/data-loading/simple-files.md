@@ -41,8 +41,10 @@ npm install
 
 The examples use these files to load data from:
 
-* [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) - Headers on first row, comma-separated data
-* [airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) - Headers on first row, MS Excel Open XML
+* [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) -
+  Headers on first row, comma-separated data
+* [airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) -
+  Headers on first row, MS Excel Open XML
 
 ## Examples
 
@@ -128,4 +130,4 @@ The expected output is the list of airports with fields renamed to `ID` and `Nam
 
 ## Next steps
 
-TODO
+_Remains to be written._
