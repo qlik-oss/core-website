@@ -5,8 +5,8 @@ Qlik Associative Engine. It also shows some basic capabilities of load scripts.
 
 !!! Note
     [halyard.js](https://github.com/qlik-oss/halyard.js) provides functionality to load different kinds of data
-    into the engine without having to write load scripts. The tutorial however, focuses on direct use+ of load scripts
-    in order to explain and show their potential.
+    into Qlik Assocative Engine without having to write load scripts. The tutorial however, focuses on direct use of
+    load scripts in order to explain and show their potential.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Script characteristics:
 * Loads data from all headers (`*` notation)
 * Specifies that the file is in text format and `utf8` encoded
 * Sets the value delimiter to the `,` character
-* Uses embedded lables from the CSV file itself as field names
+* Uses embedded lables from the CSV file itself as field names, reading labels from the first line by default
 
 ```sh
 npm start load-csv-file
