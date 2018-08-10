@@ -1,8 +1,11 @@
 # Databases
 
-This tutorial 
+This tutorial gives an example of how to load data from a database into Qlik Associative Engine using the gRPC protocol
+and a JDBC connector. In this example data resides in PostgreSQL but the solution would be similar if using,
+for example, MongoDB.
 
-Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.
+Several different database connector examples are provided with Qlik Core. See the
+[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) section for more information.
 
 ## Prerequisites
 
@@ -16,7 +19,7 @@ You need the following software installed:
 * Node.js
 
 !!! Note
-    In the examples that follow, all shell commands should be run in a Bash shell.
+    Shell commands should be run in a Bash shell.
     If you are using Windows, we recommend using Git Bash.
 
 ## Setup

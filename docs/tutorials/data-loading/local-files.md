@@ -85,7 +85,7 @@ Script characteristics:
 * Names the resulting table `Airports`
 * Loads data from all headers (`*` notation)
 * Specifies that the file is in in Excel format (`ooxml`)
-* Uses embedded lables from the CSV file itself as field names
+* Uses embedded lables from the Excel file itself as field names
 * Specifies that the table data shall be retrieved from the `Airports` sheet of the Excel file
 
 ```sh
@@ -101,8 +101,8 @@ This example shows how the
 only loads a subset of the fields from the
 [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) file.
 
-Using the `*` notation in the `LOAD` statement is convenient when loading all data but sometimes you may want to only
-load a subset of the data, specifying which fields to load.
+Using the `*` notation in the `LOAD` statement is convenient when loading all fields but sometimes you may want to only
+load a subset, specifying which fields to load.
 
 The script achieves this buy _not_ using the `*` notation and instead explicitly lists the headers from the CSV file to
 load into the engine as fields of the same name. In this example, the fields loaded are `Airport`, `City`, `Country`,
@@ -112,14 +112,14 @@ and `TimeZone`.
 npm start load-subset-of-fields
 ```
 
-The expected output is the list of all airports but only the specified fields available, the other fields have not been
+The expected output is the list of all airports with only the specified fields available, the other fields have not been
 loaded into engine memory.
 
 ### Renaming fields
 
 This example shows how the
 [load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) renames
-some fields and does not use the header names in the data file.
+some fields by providing aliases to the header names.
 
 The script achieves this by using using the `AS` keyword in the `LOAD` statement. In this example, the `rowID` header is
 renamed to `ID`, `Airport` is renamed to `Name`, and `City` is left unchanged. Other headers are not loaded.
