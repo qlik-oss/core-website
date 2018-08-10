@@ -1,4 +1,6 @@
-# Loading data from databases
+# Databases
+
+This tutorial 
 
 Start loading data into your document by working through a data load workflow using OAuth2.0 or the gRPC protocol.
 
@@ -6,20 +8,26 @@ Start loading data into your document by working through a data load workflow us
 
 To follow along in this tutorial, you should have basic understanding of Docker.
 
+You need the following software installed:
+
+* Git
+* Docker
+* docker-compose
+* Node.js
+
 !!! Note
     In the examples that follow, all shell commands should be run in a Bash shell.
     If you are using Windows, we recommend using Git Bash.
+
+## Setup
 
 ## Loading data from PostgreSQL database with JDBC
 
 In this example workflow, load data from a PostgreSQL database using the gRPC protocol in the Qlik Associative Engine.
 
-Before you start this example, you must clone the [core-grpc-jdbc-connector](https://github.com/qlik-oss/core-grpc-jdbc-connector)
-Git repository to your local machine.
-
-``` bash
-git clone https://github.com/qlik-oss/core-grpc-jdbc-connector.git
-```
+To run the example code, clone the
+[qlik-oss/core-grpc-jdbc-connector](https://github.com/qlik-oss/core-grpc-jdbc-connector)
+Git repository. Check out the repo documentation to get familiar with the content and structure.
 
 Do the following:
 

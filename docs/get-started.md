@@ -52,7 +52,7 @@ This tutorial covers aspects such as:
 Start here if you want to cover in-depth tutorials that provide detailed examples of how to work with more specific
 aspects of Qlik Core. We recommend that you explore these tutorials in order:
 
-1. [Data loading](./tutorials/data-loading/simple-files.md)
+1. [Data loading](./tutorials/data-loading/local-files.md)
     - Loading user data from files into Qlik Associative Engine
 1. [Authorization](./tutorials/authorization.md)
     - Using JWTs and JWT validation in Qlik Associative Engine

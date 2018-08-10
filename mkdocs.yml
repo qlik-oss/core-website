@@ -55,9 +55,9 @@ pages:
     - Orchestration: tutorials/orchestration.md
     - Authorization: tutorials/authorization.md
     - Data Loading:
-      - Simple Files: tutorials/data-loading/simple-files.md
+      - Local Files: tutorials/data-loading/local-files.md
+      - Remote Files: tutorials/data-loading/remote-files.md
       - Databases: tutorials/data-loading/databases.md
-      - Web Services: tutorials/data-loading/web-services.md
   - Services:
     - Mira: services/mira.md
     - Qlik Associative Engine:

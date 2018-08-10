@@ -1,6 +1,6 @@
-# Simple files
+# Local files
 
-This tutorial gives examples of how to write scripts to load data from simple files such as CSV and Excel files into
+This tutorial gives examples of how to write scripts to load data from local files such as CSV and Excel files into
 Qlik Associative Engine. It also shows some basic capabilities of load scripts.
 
 !!! Note
@@ -14,14 +14,14 @@ To follow along in this tutorial, you should have basic understanding of Docker.
 
 You need the following software installed:
 
-* git
+* Git
 * Docker
 * docker-compose
 * Node.js
 
 ## Setup
 
-To run the example code, clone the [qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) git
+To run the example code, clone the [qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git
 repository. Check out the repo documentation to get familiar with the content and structure.
 
 Only one instance of Qlik Associative Engine is needed and it is started with all necessary data files mounted.
@@ -45,6 +45,8 @@ The examples use these files to load data from:
   Headers on first row, comma-separated data
 * [airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) -
   Headers on first row, MS Excel Open XML
+
+The files are mounted into the Qlik Associative Engine and made available on the file system visible from the container.
 
 ## Examples
 
@@ -127,7 +129,3 @@ npm start load-renamed-fields
 ```
 
 The expected output is the list of airports with fields renamed to `ID` and `Name`.
-
-## Next steps
-
-_Remains to be written._
