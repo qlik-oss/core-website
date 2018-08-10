@@ -39,7 +39,7 @@ npm install
 
 ## Sample data files
 
-The examples use these files to load data from:
+The following files are used in the examples to load data from:
 
 * [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) -
   Headers on first row, comma-separated data
@@ -69,7 +69,7 @@ Script characteristics:
 npm start load-csv-file
 ```
 
-The exepected output is a list of all airports loaded with field names as given by the headers in the CSV file. Also
+The expected output is a list of all airports loaded with field names as given by the headers in the CSV file. Also
 study the [code](https://github.com/qlik-oss/core-data-loading/blob/master/index.js) for invoking the load script using
 [enigma.js](https://github.com/qlik-oss/enigma.js/).
 
@@ -121,7 +121,7 @@ This example shows how the
 [load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) renames
 some fields by providing aliases to the header names.
 
-The script achieves this by using using the `AS` keyword in the `LOAD` statement. In this example, the `rowID` header is
+The script achieves this by using the `AS` keyword in the `LOAD` statement. In this example, the `rowID` header is
 renamed to `ID`, `Airport` is renamed to `Name`, and `City` is left unchanged. Other headers are not loaded.
 
 ```sh

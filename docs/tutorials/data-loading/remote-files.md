@@ -66,7 +66,8 @@ docker-compose up -d --build
 
 ## Loading data from Dropbox
 
-Once the previous setup steps have been completed, everything is prepared to actually load data from the file located on Dropbox.
+Once the previous setup steps have been completed, everything is prepared to actually load data from the file located on
+Dropbox.
 
 ```sh
 node dropbox.js
