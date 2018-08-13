@@ -63,7 +63,7 @@ Script characteristics:
 * Loads data from all headers (`*` notation)
 * Specifies that the file is in text format and `utf8` encoded
 * Sets the value delimiter to the `,` character
-* Uses embedded lables from the CSV file itself as field names, reading labels from the first line by default
+* Uses embedded labels from the CSV file itself as field names, reading labels from the first line by default
 
 ```sh
 npm start load-csv-file
@@ -85,7 +85,7 @@ Script characteristics:
 * Names the resulting table `Airports`
 * Loads data from all headers (`*` notation)
 * Specifies that the file is in in Excel format (`ooxml`)
-* Uses embedded lables from the Excel file itself as field names
+* Uses embedded labels from the Excel file itself as field names
 * Specifies that the table data shall be retrieved from the `Airports` sheet of the Excel file
 
 ```sh

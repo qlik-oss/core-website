@@ -70,7 +70,7 @@ environment variable.
 In all modes, except _DNS_ mode, Mira uses label values to determine
 which ports to use when connecting to the QIX API (websocket)
 and the `/metrics` endpoint on the Qlik Associative Engine instances.
-By default, Mira looks at the values on the `qix-engine-api-port` and `qix-engine-metrics-port` lables.
+By default, Mira looks at the values on the `qix-engine-api-port` and `qix-engine-metrics-port` labels.
 You can change these label values by using the environment variables
 `MIRA_ENGINE_API_PORT_LABEL` and `MIRA_ENGINE_METRICS_PORT_LABEL` respectively.
 
