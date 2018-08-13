@@ -1,8 +1,10 @@
 # Remote files
 
-This tutorial gives an example of how to load data from remote files into Qlik Associative Engine using the built-in
-web file connectivity. In this example files are located on Dropbox but the solution would be similar if using,
-for example, Google Drive or OneDrive.
+In this tutorial, learn how to load data from remote files into Qlik Associative Engine with the built-in
+web file connectivity service.
+
+In this tutorial, the data files are located on Dropbox, but the solution is similar for loading data from other remote
+sources, such as Google Drive or Microsoft OneDrive.
 
 ## Prerequisites
 

@@ -1,10 +1,12 @@
 # Databases
 
-This tutorial gives an example of how to load data from a database into Qlik Associative Engine using a JDBC connector
-and the gRPC protocol. In this example data resides in mySQL and PostgreSQL.
+In this tutorial, learn how to load data from a database into Qlik Associative Engine with a JDBC connector
+using the gRPC protocol.
 
-Several different database connector examples are provided with Qlik Core. See the
-[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) section for more information.
+In this tutorial, you load data from mySQL and PostgreSQL databases.
+
+Qlik Core includes several database connector examples. For more information, see the
+[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) section.
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 # Local files
 
-This tutorial gives examples of how to write scripts to load data from local files such as CSV and Excel files into
-Qlik Associative Engine. It also shows some basic capabilities of load scripts.
+In this tutorial, learn how to load data from local files, such as CSV files or Excel files, into
+Qlik Associative Engine with a data load script.
 
 !!! Note
     [halyard.js](https://github.com/qlik-oss/halyard.js) provides functionality to load different kinds of data

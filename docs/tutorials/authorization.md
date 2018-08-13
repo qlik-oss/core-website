@@ -1,6 +1,6 @@
 # Authorization
 
-Learn how to configure JSON Web Tokens (JWT) and how to use the Qlik Associative Engine
+In this tutorial, learn how to configure JSON Web Tokens (JWT) and how to use Qlik Associative Engine
 to manage and authenticate users.
 
 ## JSON Web Token
