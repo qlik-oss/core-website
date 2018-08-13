@@ -471,21 +471,6 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 | ---- | ---- | ----------- |
 | `qProgressData` | [`ProgressData`](./definitions.md#progressdata) | Information about the progress of the request. |
 
-## `GetStreamList`
-
-!!! warning "Deprecated"
-    Use general purpose endpoint in [QRS API: GET qrs/stream/](/Subsystems/RepositoryServiceAPI/Content/RepositoryServiceAPI/RepositoryServiceAPI-Get.htm) instead.
-
-Lists the streams.
-
-_No parameters._
-
-**Returns:**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `qStreamList` | array&lt;[`NxStreamListEntry`](./definitions.md#nxstreamlistentry)> | List of the streams. |
-
 ## `GetSupportedCodePages`
 
 Lists the supported code pages.
