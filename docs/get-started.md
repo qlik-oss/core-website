@@ -31,7 +31,7 @@ The Hello Qlik Core examples are divided into three separate parts:
 
 Once you have completed these tutorials, you should be presented with a result similar to the screenshot below.
 
-![screenshot](../images/hello-viz.png)
+![screenshot](./images/hello-viz.png)
 
 ## Orchestration
 

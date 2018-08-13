@@ -78,7 +78,7 @@ study the [code](https://github.com/qlik-oss/core-data-loading/blob/master/index
 This example is similar to the previous example, but now uses the
 [load-xlsx-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-xlsx-file) load script to load
 the same airport data from the
-[airports.xlsx]((https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx)) Excel file instead.
+[airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) Excel file instead.
 
 Script characteristics:
 

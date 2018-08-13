@@ -89,7 +89,7 @@ _Working set High / Max memory usage_ setting, paging will definitively occur.
 The following figure shows an example of the memory allocation over time, with the Qlik Associative Engine
 running on a clean server and users interacting with a document.
 
-![Single doc allocation](../../../images/qix-service/qix_allocation_single_doc.png)
+![Single doc allocation](./../../images/qix-service/qix_allocation_single_doc.png)
 
 When the document is first loaded into memory, it immediately takes up a block of memory.
 As users begin interacting with the document and making calculation requests,
@@ -114,7 +114,7 @@ WebSockets, and the session time to live (TTL) has lapsed (TTL is by default 0).
 The following figure shows how multiple documents can fit into RAM, even
 when the total amount of allocated memory touches the _Working set Low /Min memory usage_ limit.
 
-![Multiple doc allocation](../../../images/qix-service/qix_allocation_multiple_docs.png)
+![Multiple doc allocation](./../../images/qix-service/qix_allocation_multiple_docs.png)
 
 To release memory to load new documents, the Qlik Associative Engine purges cached result sets.
 The amount of RAM that is used to cache result sets is the floating amount between
@@ -126,7 +126,7 @@ the documents and session state information.
 It is good practice to minitor how the Qlik Associative Engine uses memory with your data
 models and documents.
 
-![Monitoring RAM](../../../images/qix-service/monitoring_ram.png)
+![Monitoring RAM](./../../images/qix-service/monitoring_ram.png)
 
 A memory curve that fluctuates a lot might indicate that the engine needs to allocate extra memory during a calculation.
 Memory is released when the result set is cached.
@@ -166,7 +166,7 @@ processor cores. All available cores are used almost linearly when calculating
 charts. During calculations, the engine makes a short burst of intense CPU
 usage in real time.
 
-![CPU Peaks](../../../images/qix-service/cpu_peak.png)
+![CPU Peaks](./../../images/qix-service/cpu_peak.png)
 
 It is good if the CPU utilization, over time, shows peaks reaching 100%.
 This indicates that the document is well designed for
@@ -185,7 +185,7 @@ are queued prior to being calculated as there is no processing capacity
 immediately available. This is an indication of poor
 performance.
 
-![CPU Average High](../../../images/qix-service/cpu_high_average.png)
+![CPU Average High](./../../images/qix-service/cpu_high_average.png)
 
 The are cases where the Qlik Associative Engine does not scale well over cores:
 
@@ -257,7 +257,7 @@ distribution of documents.
 The charts below show the number of memory-related warnings that occurred
 in an environment during a single day.
 
-![Frequency no worries](../../../images/qix-service/frequency_noworries.png)
+![Frequency no worries](./../../images/qix-service/frequency_noworries.png)
 
 Notice that there are a couple of "**...growing beyond parameters...**" warnings but no
 "**...CRITICALLY beyond parameters...**" warnings.
@@ -270,7 +270,7 @@ However, a longer timespan is needed to draw any conclusions.
 
 The following charts show the number of warnings that occurred in an environment over one month.
 
-![Frequency worries](../../../images/qix-service/frequency_worries.png)
+![Frequency worries](./../../images/qix-service/frequency_worries.png)
 
 The warnings are recurring, which is an indication that there is a shortage
 of RAM in the environment. In this case, we recommend that you take a proactive approach and continuously
@@ -280,7 +280,7 @@ The charts below show a long term trend across many weeks.
 The warnings in the environment became more frequent over time. With
 a trend like this, you should investigate why this is happening to avoid future peaks.
 
-![Frequency over time](../../../images/qix-service/frequency_over_time.png)
+![Frequency over time](./../../images/qix-service/frequency_over_time.png)
 
 ## Scaling up versus scaling out
 

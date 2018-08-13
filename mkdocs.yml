@@ -41,7 +41,7 @@ repo_url: 'https://github.com/qlik-oss/core-website'
 edit_uri: edit/master/docs
 google_analytics: ['UA-110266862-2', 'auto']
 
-pages:
+nav:
   - Home: index.md
   - Get Started: get-started.md
   - Downloads: downloads.md
