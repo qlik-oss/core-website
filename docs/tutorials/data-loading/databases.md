@@ -63,8 +63,8 @@ and notice the following options:
 
 * `-S EnableGrpcCustomConnectors=1` which enables gRPC connectors in the Qlik Associative Engine.
 * `-S GrpcConnectorPlugins="jdbc,jdbc-connector:50051"` which registers a connector of the type `jdbc`, which we tell
-  the Qlik Associative Engine exists on host `jdbc-connector` and listening on port 50051. (`jdbc` is here an arbitrary
-  string used to identify the connector, another name could be chosen.)
+  the Qlik Associative Engine exists on host `jdbc-connector` and listening on port 50051. The first occurrence of
+  `jdbc` (before the comma) is an arbitrary string used to identify the connector, another name could be chosen.
 
 ## Loading data from the databases
 
@@ -86,7 +86,7 @@ fetched from PostgreSQL are printed to the console.
 ## What is happening?
 
 Once the containers are running and you trigger the reload, the program creates and opens an app called `reloadapp.qvf`
-on the Qlik Associative Engine. Then it creates a two connections of the type we defined earlier to load data from both
+on the Qlik Associative Engine. Then it creates two connections of the type we defined earlier to load data from both
 the mySQL and PostgreSQL databases.
 
 In the PostgreSQL case, the connection is done in a way similar to:
@@ -112,7 +112,7 @@ In the `connectionSettings` object:
 * `qName` is the name of this connection instance.
 * `qConnectionString` is the parameter that is sent to the connector. The parts of the connection string that is
   specific to the JDBC connector is the driver setting. It will be the JDBC driver that the connector will use to
-  connec to the database with. The provider needs to be the same as the `qType`. Host, port and database are related to
+  connect to the database with. The provider needs to be the same as the `qType`. Host, port and database are related to
   locating the database.
 * `qUserName` and `qPassword` are the credentials used to access the database with (will be removed from the logs).
 
