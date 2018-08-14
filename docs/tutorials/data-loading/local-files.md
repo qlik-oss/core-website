@@ -19,6 +19,10 @@ You need the following software installed:
 * docker-compose
 * Node.js
 
+!!! Note
+    Shell commands should be run in a Bash shell.
+    If you are using Windows, we recommend using Git Bash.
+
 ## Setup
 
 To run the example code, clone the [qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git
