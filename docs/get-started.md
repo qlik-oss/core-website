@@ -26,7 +26,7 @@ The Hello Qlik Core examples are divided into three separate parts:
 - [Hello Engine](./tutorials/hello-engine.md) - Running Qlik Associative Engine as a Docker container and using
     [enigma.js](https://github.com/qlik-oss/enigma.js/) to communicate with it.
 - [Hello Data](./tutorials/hello-data.md) - Loading user data into Qlik Associative Engine using
-    [halyard.js](https://github.com/qlik-oss/halyard.js).
+    load script and [halyard.js](https://github.com/qlik-oss/halyard.js).
 - [Hello Visualization](./tutorials/hello-visualization.md) - Building visualizations using [picasso.js](https://picassojs.com/).
 
 Once you have completed these tutorials, you should be presented with a result similar to the screenshot below.
