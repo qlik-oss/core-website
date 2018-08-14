@@ -21,9 +21,9 @@ installed on your local machine.
 ## Loading and retrieving data
 
 To load and retrieve data, you will run a small Node.js application
- that loads data into, and then retrieves that data from the Qlik Associative Engine.
+that loads data into, and then retrieves that data from the Qlik Associative Engine.
 
-The application consists of the `hello-engine.js` file and the `package.json`
+The application consists of the `hello-data.js` file and the `package.json`
 file, which is also shared among the Hello Data and
 Hello Visualization tutorials.
 
@@ -54,7 +54,7 @@ Hello Visualization tutorials.
 
 ### What is happening
 
-When you start Qlik Associative Engine, the `docker-compose.yml` file makes the movies.csv file
+When you start Qlik Associative Engine, the `docker-compose.yml` file makes the `movies.csv` file
 available to Qlik Associative Engine, and the data location is specified in the volumes section.
 
 ```yml
@@ -66,12 +66,10 @@ volumes:
     To learn more about volumes, see
     [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/).
 
-To load the data, the `hello-data` application uses
-[halyard.js](https://github.com/qlik-oss/halyard.js) to create
-a representation of the data and loads it into the Qlik Associative Engine as part of opening a session.
-Then, it uses enigma.js _mixin_ support to create a session
-object that holds the first 10 movie titles from the `movies.csv` dataset.
-The application then retrieves the movie titles from the dataset, prints the results, and closes the session.
+To load data, the `hello-data` application executes a _load script_ in Qlik Associative Engine that loads data
+from a `movies.csv` file available to the enigne on the local file system. enigma.js is used to open a session and
+create a session object that holds the first 10 movie titles. The application then retrieves the movie titles from the
+dataset, prints the results, and closes the session.
 
 If the application runs successfully, you will see the list of 10 movies from the dataset.
 
@@ -97,17 +95,41 @@ Session closed.
 
 !!! Tip
     Open the [`hello-data.js`](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js)
-    file to see how enigma.js and halyard.js are used to load to and retrieve data from
-    the Qlik Associative Engine.
+    file to inspect how the load script and enigma.js are used to load and retrieve data from the
+    Qlik Associative Engine.
 
 !!! Note
-    You might see some unfamiliar details of
-    the Qlik Associative Engine in the source code.
-    For example, the `properties` object that is used to create the session object
-    contains a field called `qHyperCubeDef`. This relates to the
-    central concept of _hypercubes_ in the Qlik Associative Engine.
+    You might see some unfamiliar details of the Qlik Associative Engine in the source code.
+    For example, the `properties` object that is used to create the session object contains a field called
+    `qHyperCubeDef`. This relates to the central concept of _hypercubes_ in the Qlik Associative Engine.
     To learn more about hypercubes, see
     [Hypercubes](http://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm).
+
+## Using halyard.js
+
+The example above used a load script directly to specify how data from a CSV file shall be loaded into Qlik Associative
+Engine. The [halyard.js](https://github.com/qlik-oss/halyard.js) library provides convenient ways to do similar data
+loading tasks without the need to write load scripts. halyard.js generates them for you.
+
+An equivalent implementation of the previous example, but now using halyard.js instead, can be run with:
+
+```bash
+npm run hello-data-halyard
+```
+
+You should see output similar to the previous example, with the 10 first movie titles printed.
+
+### What is happening
+
+In this example the load script is now replaced by a halyard.js table representation of the data which is used to load
+data into the Qlik Associative Engine as part of opening a session. Then, it uses enigma.js _mixin_ support to create a
+session object that holds the first 10 movie titles from the `movies.csv` dataset. The application then retrieves the
+movie titles from the dataset, prints the results, and closes the session, just as in the previous example.
+
+!!! Tip
+    Open the
+    [`hello-data-halyard.js`](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data-halyard.js)
+    file to inspect how halyard.js and enigma.js are used to load and retrieve data from the Qlik Associative Engine.
 
 ## Next steps
 
