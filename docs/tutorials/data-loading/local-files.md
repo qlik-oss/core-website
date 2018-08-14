@@ -77,7 +77,7 @@ To load the data, run the following command:
 npm start load-csv-file
 ```
 
-The expected output is a list of airports and related info based on the headers in the CSV file.
+The expected output is a list of airport entries based on the headers in the CSV file.
 
 !!!Tip
     Take a look at the [code](https://github.com/qlik-oss/core-data-loading/blob/master/index.js)
@@ -104,7 +104,7 @@ To load the data, run the following command:
 npm start load-xlsx-file
 ```
 
-The expected output is a list of airports and related info based on the headers in the Microsoft Excel file.
+The expected output is a list of airport entries based on the headers in the Microsoft Excel file.
 
 ### Subset of fields
 
@@ -132,7 +132,7 @@ To load the data, run the following command:
 npm start load-subset-of-fields
 ```
 
-The expected output is a list of airports and related info for only the explicitly listed headers in the CSV file.
+The expected output is a list of airport entries consisting of only the explicitly listed headers in the CSV file.
 The other fields are not loaded into engine memory.
 
 ### Renaming fields
@@ -151,6 +151,6 @@ Run the following command:
 npm start load-renamed-fields
 ```
 
-The expected output is a list of airports and related info, with the renamed fields,
-for only the explicitly listed headers in the CSV file.
+The expected output is a list of airport entries, with the renamed fields,
+with only the explicitly listed headers in the CSV file.
 The other fields are not loaded into engine memory.
