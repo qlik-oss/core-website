@@ -1,7 +1,7 @@
 # Remote files
 
 In this tutorial, learn how to load data from remote files into Qlik Associative Engine with the built-in
-web file connectivity service.
+File Connectivity Service.
 
 This tutorial shows an example where data is loaded from data files that are located on Dropbox, but the solution is similar for loading data from other remote sources, such as Google Drive or Microsoft OneDrive.
 
@@ -48,7 +48,7 @@ npm install
 Next, copy the [data/airports.csv](https://github.com/qlik-oss/core-file-connectivity-service/blob/master/data/airports.csv)
 file into your Dropbox root folder.
 
-You will now need to create an OAuth2.0 application by following the Dropbox
+Now you need to create an OAuth2.0 application by following the Dropbox
 [OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide). Copy the _App key_ and _App secret_ as
 these are needed in the next steps.
 
@@ -56,7 +56,8 @@ these are needed in the next steps.
     When you create your application, the `Redirect URI` should be the address of the callback that is running the
     service: `http://[host]:[port]/oauth2/callback`. For example: `http://localhost:3000/v1/oauth2/callback`
 
-To setup and start the Docker container, you need to accept the EULA, specify the Dropbox client ID, and the Dropbox secret client.
+Before you start the Docker container, you need to accept the EULA, and you need to set the _App Key_ and _App Secret_
+as environment variables so the engine container can communicate with the OAuth2.0 app.
 
 Run the following commands:
 
