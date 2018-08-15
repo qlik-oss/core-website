@@ -3,7 +3,8 @@
 In this tutorial, learn how to load data from remote files into Qlik Associative Engine with the built-in
 File Connectivity Service.
 
-This tutorial shows an example where data is loaded from data files that are located on Dropbox, but the solution is similar for loading data from other remote sources, such as Google Drive or Microsoft OneDrive.
+This tutorial shows an example where data is loaded from data files that are located on Dropbox,
+but the solution is similar for loading data from other remote sources, such as Google Drive or Microsoft OneDrive.
 
 ## Prerequisites
 
@@ -22,7 +23,8 @@ You need the following software installed:
 
 ## The File Connectivity Service
 
-The File Connectivity Service is an example of a service that you can use to load data from remote files in a Qlik Core stack. You can configure this service to provide built-in data connectivity to connect to
+The File Connectivity Service is an example of a service that you can use to load data from remote files
+in a Qlik Core stack. You can configure this service to provide built-in data connectivity to connect to
 [OAuth 2.0](https://oauth.net/2/)-protected data sources like Dropbox, OneDrive, and Google Drive.
 
 The data connection service in this tutorial works by defining a unique HTTP endpoint for each registered
