@@ -143,11 +143,20 @@ The other fields are not loaded into engine memory.
 
 In this example, use the
 [load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) script
-to load a subset of fields and rename some of the fields by providing aliases to the header names.
+to load a subset of fields and rename some of the fields by providing aliases for the header names.
 
-To achieve this with the load script, use the `AS` keyword in the `LOAD` statement. In this example,
+To rename fields with a load script, use the `AS` keyword in the `LOAD` statement. In this example,
 the `rowID` header is renamed to `ID`, `Airport` is renamed to `Name`, and `City` is left unchanged.
 Other headers are not loaded.
+
+Script characteristics:
+
+* Names the resulting table `Airports`.
+* Loads data from explicitly listed headers: `rowID`, `Airport`, and `City`.
+* Renames the header `rowID` as `ID` and `Airport` as `Name`.
+* Specifies that the file is in in Excel format (ooxml).
+* Uses embedded labels from the Excel file itself as field names.
+* Specifies that the table data is retrieved from the Airports sheet of the Excel file.
 
 Run the following command:
 
