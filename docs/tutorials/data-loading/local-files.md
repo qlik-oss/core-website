@@ -32,7 +32,7 @@ the repository.
 For this example, you only need a single instance of Qlik Associative Engine. All necessary data files are mounted when
 you start Qlik Associative Engine.
 
-To begin, you must accept the `ACCEPT_EULA`.
+To begin, you must accept the EULA.
 
 Run the following command:
 

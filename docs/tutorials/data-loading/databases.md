@@ -28,10 +28,10 @@ To run the example code, clone the
 Git repository. Before you continue, look at the documentation to get familiar with the content and structure of
 the repository.
 
-!!!Tip
+!!!Note
     In your shell, make sure current directory is at the repository root.
 
-To begin, you must accept the `ACCEPT_EULA` and start the containers.
+To begin, you must accept the EULA and start the containers.
 
 Run the following command:
 
@@ -65,7 +65,7 @@ you must configure the engine container by enabling connectors,
 specifying the connector type, and specifying the connector location.
 
 Look at the [docker-compose.yml](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml)
-file and take note of  the following options:
+file and take note of the following options:
 
 * `-S EnableGrpcCustomConnectors=1` enables gRPC connectors in the Qlik Associative Engine.
 * `-S GrpcConnectorPlugins="jdbc,jdbc-connector:50051"` registers a connector of the type `jdbc` and tells

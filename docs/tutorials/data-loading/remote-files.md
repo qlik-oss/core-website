@@ -38,7 +38,7 @@ To run the example code, clone the
 Before you continue, look at the documentation to get familiar with the content and structure of
 the repository.
 
-!!!Tip
+!!!Note
     In your shell, make sure current directory is at the repository root.
 
 First, install the dependencies:
