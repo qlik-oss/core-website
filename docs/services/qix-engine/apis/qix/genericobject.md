@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.207.0._
+_QIX methods for version 12.215.0._
 
 ## `AbortListObjectSearch`
 
@@ -513,7 +513,7 @@ _No parameters._
 
 ## `GetProperties`
 
-Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>The properties depends on the generic object type, see [properties](./definitions.md#genericobjectlayout).<br>If the member delta is set to true in the request object, only the delta is retrieved.
+Returns the identifier, the type and the properties of the object.<br>Because it is not mandatory to set all properties when you define an object, the [`GetProperties`](#getproperties) method may show properties that were not set. In that case, default values are given.<br>If the object contains some soft properties, the soft properties are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>If the object is linked to another object, the properties of the linking object are not returned by the [`GetProperties`](#getproperties) method. Use the [`GetEffectiveProperties`](#geteffectiveproperties) method instead.<br>The properties depends on the generic object type, see [properties](genericobject-layout.html).<br>If the member delta is set to true in the request object, only the delta is retrieved.
 
 _No parameters._
 
@@ -849,7 +849,7 @@ _No return values._
 
 ## `SetProperties`
 
-Sets some properties for a generic object.<br>The properties depends on the generic object type, see [properties](./definitions.md#genericobjectproperties).
+Sets some properties for a generic object.<br>The properties depends on the generic object type, see [properties](genericobject-property.html).
 
 **Parameters:**
 
