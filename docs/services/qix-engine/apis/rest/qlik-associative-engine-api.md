@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.207.0._
+_Qlik Associative Engine API for version 12.215.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -198,12 +198,12 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `version` | string | _No description._ |
 | `started` | string | _No description._ |
-| `mem` | [MemoryUsage](#MemoryUsage) | _No description._ |
-| `cpu` | [CPUUsage](#CPUUsage) | _No description._ |
-| `session` | [SessionUsage](#SessionUsage) | _No description._ |
-| `apps` | [AppUsage](#AppUsage) | _No description._ |
-| `users` | [UserUsage](#UserUsage) | _No description._ |
-| `cache` | [CacheUsage](#CacheUsage) | _No description._ |
+| `mem` | [MemoryUsage](#memoryusage) | _No description._ |
+| `cpu` | [CPUUsage](#cpuusage) | _No description._ |
+| `session` | [SessionUsage](#sessionusage) | _No description._ |
+| `apps` | [AppUsage](#appusage) | _No description._ |
+| `users` | [UserUsage](#userusage) | _No description._ |
+| `cache` | [CacheUsage](#cacheusage) | _No description._ |
 | `saturated` | boolean | _No description._ |
 
 ### `MemoryUsage`
@@ -310,9 +310,9 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `attributes` | [NxAttributes](#NxAttributes) | App attributes. |
+| `attributes` | [NxAttributes](#nxattributes) | App attributes. |
 | `privileges` | array&lt;string> | App privileges. Hints to the client on what actions the user are allowed. |
-| `create` | array&lt;[NxAppCreatePrivileges](#NxAppCreatePrivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
+| `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
 
 ### `NxAttributes`
 
@@ -335,7 +335,7 @@ _Type: object_
 | `dynamicColor` | string | The dynamic color of the app. |
 | `published` | boolean | True if the app is published, false if not. |
 | `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
-| `custom` | [JsonObject](#JsonObject) | Custom attributes. |
+| `custom` | [JsonObject](#jsonobject) | Custom attributes. |
 
 ### `JsonObject`
 
@@ -367,10 +367,10 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `reload_meta` | [LastReloadMetadata](#LastReloadMetadata) | Meta data for the last app reload. |
+| `reload_meta` | [LastReloadMetadata](#lastreloadmetadata) | Meta data for the last app reload. |
 | `static_byte_size` | integer | Static memory usage for the app. |
-| `fields` | array&lt;[FieldMetadata](#FieldMetadata)> | List of field descriptions. |
-| `tables` | array&lt;[TableMetadata](#TableMetadata)> | List of table descriptions. |
+| `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
+| `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |
 
 ### `LastReloadMetadata`
 
@@ -383,7 +383,7 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `cpu_time_spent_ms` | integer | Number of CPU milliseconds it took to reload the app. |
-| `hardware` | [HardwareMeta](#HardwareMeta) | Hardware available for the engine doing the reload. |
+| `hardware` | [HardwareMeta](#hardwaremeta) | Hardware available for the engine doing the reload. |
 
 ### `HardwareMeta`
 
