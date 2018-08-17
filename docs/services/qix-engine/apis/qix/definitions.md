@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.207.0._
+_QIX definitions for version 12.215.0._
 
 ## `AlfaNumString`
 
@@ -709,7 +709,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
-| `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>This parameter is mandatory.<br>If you do not want to link your object, set this parameter to an empty string. |
+| `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>If you do not want to link your object, set this parameter to an empty string. |
 | `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
