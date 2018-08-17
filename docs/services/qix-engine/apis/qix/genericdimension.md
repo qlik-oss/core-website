@@ -3,11 +3,12 @@
 <!-- proselint-disable -->
 # GenericDimension
 
-_QIX methods for version 12.207.0._
+_QIX methods for version 12.215.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
+
 
 **Parameters:**
 
@@ -21,6 +22,7 @@ _No return values._
 
 Adds the generic dimension to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+
 _No parameters._
 
 _No return values._
@@ -28,6 +30,7 @@ _No return values._
 ## `GetDimension`
 
 Returns the definition of a dimension.<br><br>The definition of the dimension is returned.
+
 
 _No parameters._
 
@@ -41,6 +44,7 @@ _No parameters._
 
 Returns the type and identifier of the object.
 
+
 _No parameters._
 
 **Returns:**
@@ -52,6 +56,7 @@ _No parameters._
 ## `GetLayout`
 
 Evaluates a dimension and displays its properties, including the dynamic properties.
+
 
 _No parameters._
 
@@ -65,6 +70,7 @@ _No parameters._
 
 Lists the linked objects to a generic object, a dimension or a measure.
 
+
 _No parameters._
 
 **Returns:**
@@ -76,6 +82,7 @@ _No parameters._
 ## `GetProperties`
 
 Shows the properties of an object.<br>Returns the identifier and the definition of the dimension.<br>If the member delta is set to true in the request object, only the delta is retrieved.
+
 
 _No parameters._
 
@@ -89,6 +96,7 @@ _No parameters._
 
 Publishes a dimension.
 
+
 _No parameters._
 
 _No return values._
@@ -96,6 +104,7 @@ _No return values._
 ## `SetProperties`
 
 Sets some properties for a dimension.
+
 
 **Parameters:**
 
@@ -109,6 +118,7 @@ _No return values._
 
 Removes the generic dimension from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+
 _No parameters._
 
 _No return values._
@@ -116,6 +126,7 @@ _No return values._
 ## `UnPublish`
 
 Unpublishes a dimension.
+
 
 _No parameters._
 
