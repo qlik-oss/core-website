@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.207.0._
+_QIX definitions for version 12.215.0._
 
 ## `AlfaNumString`
 
@@ -709,7 +709,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
-| `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>This parameter is mandatory.<br>If you do not want to link your object, set this parameter to an empty string. |
+| `qExtendsId` | string | Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).<br>If you do not want to link your object, set this parameter to an empty string. |
 | `qMetaDef` | [`NxMetaDef`](#nxmetadef) | Definition of the dynamic properties. |
 | `qStateName` | string | Name of the alternate state.<br>Default is current selections _$_ . |
 
@@ -1245,7 +1245,7 @@ _No description._
 | `qLocked` | boolean | Is set to true if the field is locked. |
 | `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array&lt;string> | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
-| `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drilldown groups) or cycle groups. |
+| `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups. |
 | `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qTags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
@@ -1363,7 +1363,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGrouping` | string | Used to define a cyclic group or drilldown group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array&lt;string> | Array of field names.<br>When creating a grouped dimension, more than one field name is defined.<br>This parameter is optional. |
 | `qFieldLabels` | array&lt;string> | Array of field labels.<br>This parameter is optional. |
 | `qSortCriterias` | array&lt;[`SortCriteria`](#sortcriteria)> | Defines the sorting criteria in the field.<br>Default is to sort by alphabetical order, ascending.<br>This parameter is optional. |
@@ -1444,7 +1444,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qLabel` | string | Label of the measure. |
 | `qDef` | string | Definition of the measure. |
-| `qGrouping` | string | Used to define a cyclic group or drilldown group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
 | `qExpressions` | array&lt;string> | Array of expressions. |
 | `qActiveExpression` | integer | Index to the active expression in a measure. |
 | `qLabelExpression` | string | _No description._ |
@@ -1789,7 +1789,7 @@ _No description._
 | `qLocked` | boolean | Is set to true if the field is locked. |
 | `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array&lt;string> | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
-| `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drilldown groups) or cycle groups. |
+| `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups. |
 | `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qTags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
