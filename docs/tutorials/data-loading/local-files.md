@@ -1,11 +1,11 @@
 # Local files
 
-This tutorial gives examples of how to write scripts to load data from local files such as CSV and Excel files into
-Qlik Associative Engine. It also shows some basic capabilities of load scripts.
+In this tutorial, learn how to load data from local files, such as CSV files or Excel files, into
+Qlik Associative Engine with a data load script.
 
 !!! Note
     [halyard.js](https://github.com/qlik-oss/halyard.js) provides functionality to load different kinds of data
-    into Qlik Assocative Engine without having to write load scripts. The tutorial however, focuses on direct use of
+    into Qlik Associative Engine without having to write load scripts. This tutorial however focuses on direct use of
     load scripts in order to explain and show their potential.
 
 ## Prerequisites
@@ -19,13 +19,22 @@ You need the following software installed:
 * docker-compose
 * Node.js
 
+!!! Note
+    Shell commands should be run in a Bash shell.
+    If you are using Windows, we recommend using Git Bash.
+
 ## Setup
 
 To run the example code, clone the [qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git
-repository. Check out the repo documentation to get familiar with the content and structure.
+repository. Before you continue, look at the documentation to get familiar with the content and structure of
+the repository.
 
-Only one instance of Qlik Associative Engine is needed and it is started with all necessary data files mounted.
-Change `ACCEPT_EULA` as applicable and run:
+For this example, you only need a single instance of Qlik Associative Engine. All necessary data files are mounted when
+you start Qlik Associative Engine.
+
+To begin, you must accept the EULA.
+
+Run the following command:
 
 ```sh
 ACCEPT_EULA=<yes/no> docker-compose up -d
@@ -39,93 +48,122 @@ npm install
 
 ## Sample data files
 
-The following files are used in the examples to load data from:
+The data in this tutorial is loaded from the following files:
 
 * [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) -
   Headers on first row, comma-separated data
 * [airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) -
   Headers on first row, MS Excel Open XML
 
-The files are mounted into the Qlik Associative Engine and made available on the file system visible from the container.
+The files are mounted into Qlik Associative Engine, and they are made available on
+the file system that is visible from the container.
 
 ## Examples
 
 ### CSV file
 
-This example uses the [load-csv-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-csv-file)
+In this example, use the [load-csv-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-csv-file)
 load script to load data from the
 [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) file into Qlik Associative
 Engine.
 
 Script characteristics:
 
-* Names the resulting table `Airports`
-* Loads data from all headers (`*` notation)
-* Specifies that the file is in text format and `utf8` encoded
-* Sets the value delimiter to the `,` character
-* Uses embedded labels from the CSV file itself as field names, reading labels from the first line by default
+* Names the resulting table `Airports`.
+* Loads data from all headers (`*` notation).
+* Specifies that the file is in text format and `utf8` encoded.
+* Sets the value delimiter to the `,` character.
+* Uses embedded labels from the CSV file itself as field names, reading labels from the first line by default.
+
+To load the data, run the following command:
 
 ```sh
 npm start load-csv-file
 ```
 
-The expected output is a list of all airports loaded with field names as given by the headers in the CSV file. Also
-study the [code](https://github.com/qlik-oss/core-data-loading/blob/master/index.js) for invoking the load script using
-[enigma.js](https://github.com/qlik-oss/enigma.js/).
+The expected output is a list of airport entries based on the headers in the CSV file.
+
+!!!Tip
+    Take a look at the [code](https://github.com/qlik-oss/core-data-loading/blob/master/index.js)
+    to see how you would invoke the load script using [enigma.js](https://github.com/qlik-oss/enigma.js/).
 
 ### Excel file
 
-This example is similar to the previous example, but now uses the
-[load-xlsx-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-xlsx-file) load script to load
-the same airport data from the
-[airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) Excel file instead.
+In this example, use the [load-xlsx-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-xlsx-file)
+load script to load data from the
+[airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) file into Qlik
+Associative Engine. The file contains the same data as in the previous CSV example, but in `ooxml` format.
 
 Script characteristics:
 
-* Names the resulting table `Airports`
-* Loads data from all headers (`*` notation)
-* Specifies that the file is in in Excel format (`ooxml`)
-* Uses embedded labels from the Excel file itself as field names
-* Specifies that the table data shall be retrieved from the `Airports` sheet of the Excel file
+* Names the resulting table `Airports`.
+* Loads data from all headers (`*` notation).
+* Specifies that the file is in in Excel format (`ooxml`).
+* Uses embedded labels from the Excel file itself as field names.
+* Specifies that the table data is retrieved from the `Airports` sheet of the Excel file.
+
+To load the data, run the following command:
 
 ```sh
 npm start load-xlsx-file
 ```
 
-The expected output is the list of all airports just as in the previous example.
+The expected output is a list of airport entries based on the headers in the Microsoft Excel file.
 
 ### Subset of fields
 
-This example shows how the
+In this example, use the
 [load-subset-of-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-subset-of-fields) script
-only loads a subset of the fields from the
+to load a subset of the fields from the
 [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) file.
 
-Using the `*` notation in the `LOAD` statement is convenient when loading all fields but sometimes you may want to only
-load a subset, specifying which fields to load.
+Before you run the script in this example, compare the _load-subset-of-fields_ script to the _load-csv-file_ script.
+Notice that the `LOAD` statements are different. To load all fields, you can use the `*` notation. To load a subset
+of fields, you explicitly list the headers from the data file. In this example,
+the script explicitly lists `Airport`, `City`, `Country`, and `TimeZone`.
 
-The script achieves this buy _not_ using the `*` notation and instead explicitly lists the headers from the CSV file to
-load into the engine as fields of the same name. In this example, the fields loaded are `Airport`, `City`, `Country`,
-and `TimeZone`.
+Script characteristics:
+
+* Names the resulting table `Airports`.
+* Loads data from explicitly listed headers: `Airport`, `City`, `Country`, and `TimeZone`.
+* Specifies that the file is in text format and `utf8` encoded.
+* Sets the value delimiter to the `,` character.
+* Uses embedded labels from the CSV file itself as field names, reading labels from the first line by default.
+
+To load the data, run the following command:
 
 ```sh
 npm start load-subset-of-fields
 ```
 
-The expected output is the list of all airports with only the specified fields available, the other fields have not been
-loaded into engine memory.
+The expected output is a list of airport entries consisting of only the explicitly listed headers in the CSV file.
+The other fields are not loaded into engine memory.
 
 ### Renaming fields
 
-This example shows how the
-[load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) renames
-some fields by providing aliases to the header names.
+In this example, use the
+[load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) script
+to load a subset of fields and rename some of the fields by providing aliases for the header names.
 
-The script achieves this by using the `AS` keyword in the `LOAD` statement. In this example, the `rowID` header is
-renamed to `ID`, `Airport` is renamed to `Name`, and `City` is left unchanged. Other headers are not loaded.
+To rename fields with a load script, use the `AS` keyword in the `LOAD` statement. In this example,
+the `rowID` header is renamed to `ID`, `Airport` is renamed to `Name`, and `City` is left unchanged.
+Other headers are not loaded.
+
+Script characteristics:
+
+* Names the resulting table `Airports`.
+* Loads data from explicitly listed headers: `rowID`, `Airport`, and `City`.
+* Renames the header `rowID` as `ID` and `Airport` as `Name`.
+* Specifies that the file is in in Excel format (ooxml).
+* Uses embedded labels from the Excel file itself as field names.
+* Specifies that the table data is retrieved from the Airports sheet of the Excel file.
+
+Run the following command:
 
 ```sh
 npm start load-renamed-fields
 ```
 
-The expected output is the list of airports with fields renamed to `ID` and `Name`.
+The expected output is a list of airport entries, with the renamed fields,
+with only the explicitly listed headers in the CSV file.
+The other fields are not loaded into engine memory.

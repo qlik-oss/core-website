@@ -1,10 +1,10 @@
 # Databases
 
-This tutorial gives an example of how to load data from a database into Qlik Associative Engine using a JDBC connector
-and the gRPC protocol. In this example data resides in mySQL and PostgreSQL.
+In this tutorial, learn how to load data from a databases, such as mySQL and PostgreSQL,
+into Qlik Associative Engine with a JDBC connector using the gRPC protocol.
 
-Several different database connector examples are provided with Qlik Core. See the
-[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) section for more information.
+Qlik Core includes several database connector examples. For more information, see the
+[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) section.
 
 ## Prerequisites
 
@@ -25,11 +25,15 @@ You need the following software installed:
 
 To run the example code, clone the
 [qlik-oss/core-grpc-jdbc-connector](https://github.com/qlik-oss/core-grpc-jdbc-connector)
-Git repository. Check out the repo documentation to get familiar with the content and structure.
+Git repository. Before you continue, look at the documentation to get familiar with the content and structure of
+the repository.
 
-In your shell, make sure current directory is at the repo root.
+!!!Note
+    In your shell, make sure current directory is at the repository root.
 
-Set the `ACCEPT_EULA` environment variable as applicable and start the containers by running:
+To begin, you must accept the EULA and start the containers.
+
+Run the following command:
 
 ```sh
 ACCEPT_EULA=<yes/no> docker-compose up --build -d
@@ -40,9 +44,9 @@ This starts the following services in containers:
 * A mySQL database
 * A postgreSQL database
 * A core-grpc-jdbc-connector
-* The Qlik Associative Engine
+* Qlik Associative Engine
 
-Verify that all four containers are properly running with:
+To verify that all four containers are running properly, run the following command:
 
 ```sh
 docker ps
@@ -50,29 +54,36 @@ docker ps
 
 ## The gRPC JDBC connector
 
-The gRPC JDBC connector runs in its own Docker container and sits between Qlik Associative Engine and the databases
-supporting JDBC connections. It implements the
-[Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md) which makes it possible for the
-engine to communicate over gRPC with it. At the other end it communicates with the PostgreSQL and mySQL containers
-with JDBC connections, in this way working as a data bridge between the engine and the data sources.
+The gRPC JDBC connector runs in its own Docker container and sits between the Qlik Associative Engine and the databases.
+The connector implements the [Data Connector API](../../services/qix-engine/apis/data-loading/introduction.md),
+which makes it possible for the engine to communicate with the connector over gRPC.
+On the database side, it communicates with the PostgreSQL and mySQL containers
+with JDBC connections. In this way, it functions as a data bridge between the engine and the data sources.
 
-The Qlik Associative Engine container must be configured to use the custom JDBC connector by providing some command-line
-options to it. Study the
-[docker-compose.yml](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml) file
-and notice the following options:
+For the Qlik Associative Engine to use the custom JDBC connector,
+you must configure the engine container by enabling connectors,
+specifying the connector type, and specifying the connector location.
 
-* `-S EnableGrpcCustomConnectors=1` which enables gRPC connectors in the Qlik Associative Engine.
-* `-S GrpcConnectorPlugins="jdbc,jdbc-connector:50051"` which registers a connector of the type `jdbc`, which we tell
-  the Qlik Associative Engine exists on host `jdbc-connector` and listening on port 50051. The first occurrence of
-  `jdbc` (before the comma) is an arbitrary string used to identify the connector, another name could be chosen.
+Look at the [docker-compose.yml](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml)
+file and take note of the following options:
+
+* `-S EnableGrpcCustomConnectors=1` enables gRPC connectors in the Qlik Associative Engine.
+* `-S GrpcConnectorPlugins="jdbc,jdbc-connector:50051"` registers a connector of the type `jdbc` and tells
+  the Qlik Associative Engine that the connector exists on host `jdbc-connector` and on port 50051.
+
+    !!! Note
+        The first occurrence of `jdbc` (before the comma) is an arbitrary string used to identify the connector.
+        You an use another name.
 
 ## Loading data from the databases
 
-Now that we have populated databases, a gRPC connector container, and the Qlik Associative Engine running, all we need
-is to trigger a load of the data.
+Now that you have your databases, the connector, and the engine running in containers,
+you need to trigger a load of the data.
 
 In this example, the `reload-runner` Node.js program uses [enigma.js](https://github.com/qlik-oss/enigma.js) to trigger
-a load of the airport data using the gRPC connector.
+a load for some of the airport data using the gRPC connector.
+
+Run the following command:
 
 ```sh
 cd reload-runner
@@ -80,16 +91,17 @@ npm install
 npm start
 ```
 
-The expected output is that 100 rows of airport data fetched from MySQL and an additional 100 rows of data
-fetched from PostgreSQL are printed to the console.
+The expected output is 100 rows of airport data fetched from MySQL, and an additional 100 rows of data
+fetched from PostgreSQL. The data is printed to the console.
 
-## What is happening?
+## What is happening
 
 Once the containers are running and you trigger the reload, the program creates and opens an app called `reloadapp.qvf`
-on the Qlik Associative Engine. Then it creates two connections of the type we defined earlier to load data from both
-the mySQL and PostgreSQL databases.
+on the Qlik Associative Engine.
+Then, it creates two connections of the type you defined earlier
+to load data from both the mySQL and PostgreSQL databases.
 
-In the PostgreSQL case, the connection is done in a way similar to:
+Take a look at the postgreSQL connection. It is created like this:
 
 ```js
 const connectionSettings = {
@@ -108,15 +120,15 @@ const connectionId = await app.createConnection(connectionSettings);
 
 In the `connectionSettings` object:
 
-* `qType` represents what type of connector the connection should use.
-* `qName` is the name of this connection instance.
-* `qConnectionString` is the parameter that is sent to the connector. The parts of the connection string that is
-  specific to the JDBC connector is the driver setting. It will be the JDBC driver that the connector will use to
-  connect to the database with. The provider needs to be the same as the `qType`. Host, port and database are related to
+* `qType` represents the type of connector the connection should use.
+* `qName` is the name of the connection instance.
+* `qConnectionString` is the parameter that is sent to the connector. The part of the connection string that is
+  specific to the JDBC connector is the driver setting. It is the JDBC driver that the connector uses to
+  connect to the database. The provider must be the same as the `qType`. Host, port, and database are related to
   locating the database.
-* `qUserName` and `qPassword` are the credentials used to access the database with (will be removed from the logs).
+* `qUserName` and `qPassword` are the database access credentials. They are not stored in the logs.
 
-Then, we set a script to use the connection that we just created:
+Then, you set a script to use the connection that you just created:
 
 ```js
 const script = `
@@ -128,17 +140,20 @@ app.setScript(script);
 ```
 
 The `lib connect to 'jdbc';` statement refers to the name of the connection to use.
-`airports:` will be the internal name of the table loaded.
-The actual load statement that is sent to the connector is everything after `sql`.
-In this case the load statement will be `SELECT * FROM airports`.
+`airports:` is the internal name of the table loaded.
+The load statement that is sent to the connector is after `sql`.
+In this case, the load statement is `SELECT * FROM airports`, where `*` denotes all headers.
 
-Next, we reload the data into the Qlik Associative Engine. The first 100 results of the `airports` table loaded from
-mySQL are printed to the console. The workflow is then repeated a second time, now loading from PostgreSQL.
+Next, you reload the data into the Qlik Associative Engine.
 
-The biggest difference between the connection strings is the driver setting, `driver=mysql` and `driver=postgresql`
-respectively.
+The expected output is a list of airport entries loaded from the mySQL database.
+The first 100 results are printed to the console.
+The workflow is then repeated a second time, now loading from PostgreSQL.
+
+The biggest difference between the two database connection strings is the driver setting:
+`driver=mysql` and `driver=postgresql` respectively.
 
 !!! Tip
-    We recommend that you take a look inside the `index.js` file and that you read through the
-    [enigma.js](https://github.com/qlik-oss/enigma.js) documentation to get a better understanding of the steps taken in
-    this tutorial.
+    We recommend that you take a look inside the `index.js` file, and that you read through the
+    [enigma.js](https://github.com/qlik-oss/enigma.js)
+    documentation to get a better understanding of the steps in this tutorial.

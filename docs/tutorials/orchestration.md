@@ -1,6 +1,6 @@
 # Orchestration
 
-In this tutorial, you will learn how to set up and deploy the minimal Qlik Core stack
+In this tutorial, learn how to set up and deploy the minimal Qlik Core stack
 comprising the core services. The core services represent the foundation on which to build full Qlik Core solutions.
 
 The central stack of Qlik Core consists of the following services:
