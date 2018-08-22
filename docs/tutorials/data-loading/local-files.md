@@ -167,3 +167,8 @@ npm start load-renamed-fields
 The expected output is a list of airport entries, with the renamed fields,
 with only the explicitly listed headers in the CSV file.
 The other fields are not loaded into engine memory.
+
+## Next steps
+
+More runnable load script examples, including more advanced ones, are available in the
+[qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git repository.

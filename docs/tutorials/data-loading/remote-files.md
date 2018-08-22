@@ -84,3 +84,8 @@ node dropbox.js
 
 The expected output printed to the console is a list of 10 airport entries from the
 [airports.csv](https://github.com/qlik-oss/core-file-connectivity-service/blob/master/data/airports.csv) file.
+
+## Next steps
+
+More runnable load script examples, including more advanced ones, are available in the
+[qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git repository.
