@@ -14,15 +14,16 @@
         {% endif %}
     {% else %}
       {% if nav_item.children and nav_item.children | length > 0 %}
-      <a href="{{ (nav_item.children | first).url }}"
+      <a href="{{ (nav_item.children | first).url | url }}"
           title="{{ title }}" class="md-tabs__link">
           {{ title }}
         </a>
       {% else %}
-          <a href="{{ nav_item.url }}"
+          <a href="{{ nav_item.url | url }}"
           title="{{ title }}" class="md-tabs__link">
           {{ title }}
         </a>
       {% endif %}
     {% endif %}
   </li>
+
