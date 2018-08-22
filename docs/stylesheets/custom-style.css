@@ -209,6 +209,7 @@ h1 span {
 
 .md-main__inner {
   padding: 0;
+  min-height: 80vh;
 }
 
 .md-content {
