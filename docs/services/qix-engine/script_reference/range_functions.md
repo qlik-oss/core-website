@@ -106,6 +106,7 @@ By specifying the third argument as 3, the Above() function returns three values
 rows above,which are taken as input to the RangeAvg() function.
 
 Data used in examples:
+
 | MyField | RangeAvg(Above(MyField,0,3)) | Explanation |
 | ---------- | --------------------------------------------------------------------------- | - |
 | 10 | 10 | Because this is the top row, the range consists of one value only. |
@@ -366,6 +367,7 @@ and third arguments of the Above() function as 3, it returns the values from the
 the current row, where there are sufficient rows, which are taken as input to the RangeSum() function.
 
 Data used in examples:
+
 | MyField | RangeCount(Above(MyField,1,3)) |
 | ------- | ------------------------------ |
 | 10 | 0 |
@@ -577,6 +579,7 @@ RangeKurtosis() returns the value that corresponds to the kurtosis of a range of
 **Return data type:** numeric
 
 The arguments of this function may contain inter-record functions which in themselves return a list of values.
+
 | Argument   | Description |
 | ---------- | ----------- |
 | first_expr | The expression or field containing the data to be measured. |
@@ -737,6 +740,7 @@ Returns the last (in text sort order) of the three results of the MaxString(MyFi
 on the current row and two rows above the current row.
 
 Data used in examples:
+
 | MyField | RangeMaxString(Above(MaxString(MyField),0,3)) |
 | ------- | - |
 | 10  | 10 |
@@ -854,6 +858,7 @@ two rows above the current row. By specifying the third argument as 3, the Above
 three values, where there are sufficient rows above, which are taken as input to the RangeMin() function.
 
 Data used in examples:
+
 | MyField | RangeMin(Above(MyField,0,3)) |
 | ------- | - |
 | 10 | 10 |
