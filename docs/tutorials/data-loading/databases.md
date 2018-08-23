@@ -157,3 +157,8 @@ The biggest difference between the two database connection strings is the driver
     We recommend that you take a look inside the `index.js` file, and that you read through the
     [enigma.js](https://github.com/qlik-oss/enigma.js)
     documentation to get a better understanding of the steps in this tutorial.
+
+## Next steps
+
+More runnable load script examples, including more advanced ones, are available in the
+[qlik-oss/core-data-loading](https://github.com/qlik-oss/core-data-loading) Git repository.
