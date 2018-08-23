@@ -9,7 +9,7 @@
       </div>
       <div class="md-flex">
         <div class="md-flex__cell md-flex__cell--shrink">
-          <a href="{{ config.site_url | default(nav.homepage.url, true) }}"
+          <a href="{{ config.site_url | default(nav.homepage.url, true) | url}}"
               title="{{ config.site_name }}"
               class="md-header-nav__button md-logo">
               <img src="{{ base_url }}/{{ config.theme.logo }}"
@@ -19,7 +19,7 @@
   
         <div class="md-flex__cell md-flex__cell--shrink">
           <label class="md-icon md-icon--menu md-header-nav__button"
-              for="drawer"></label>
+              for="__drawer"></label>
         </div>
   
         <div class="md-flex__cell md-flex__cell--stretch">
@@ -42,7 +42,7 @@
           {% block search_box %}
             {% if "search" in config["plugins"] %}
               <label class="md-icon md-icon--search md-header-nav__button"
-                  for="search"></label>
+                  for="__search"></label>
               {% include "partials/search.html" %}
             {% endif %}
           {% endblock %}
