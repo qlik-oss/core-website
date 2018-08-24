@@ -58,7 +58,7 @@ _No return values._
 
 ## `BeginSelections`
 
-Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>* Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>* The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br><br>
+Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>- Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>- The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br><br>
 
 
 **Parameters:**
@@ -269,10 +269,10 @@ Exports the data of any generic object to an Excel file or a open XML file. If t
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qFileType` | string | Yes | Type of the file to export.<br><br>One of:<br>* CSV_C or EXPORT_CSV_C<br>* CSV_T or EXPORT_CSV_T<br>* OOXML or EXPORT_OOXML |
+| `qFileType` | string | Yes | Type of the file to export.<br><br>One of:<br>- CSV_C or EXPORT_CSV_C<br>- CSV_T or EXPORT_CSV_T<br>- OOXML or EXPORT_OOXML |
 | `qPath` | string | No | Path to the definition of the object to be exported.<br>For example, _/qHyperCubeDef_ .<br>This parameter is mandatory if the file type is _CSV_C_ or _CSV_T_ . |
 | `qFileName` | string | No | Name of the exported file after download from browser.<br>This parameter is optional and only used in Qlik Sense Desktop. |
-| `qExportState` | string | No | Defines the values to be exported.<br>The default value is A.<br><br>One of:<br>* P or EXPORT_POSSIBLE<br>* A or EXPORT_ALL |
+| `qExportState` | string | No | Defines the values to be exported.<br>The default value is A.<br><br>One of:<br>- P or EXPORT_POSSIBLE<br>- A or EXPORT_ALL |
 
 **Returns:**
 
@@ -326,7 +326,7 @@ _No parameters._
 
 ## `GetFullPropertyTree`
 
-Gets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.
+Gets the properties of:<br>- A generic object.<br>- The children of the generic object.<br>- The bookmarks/embedded snapshots of the generic object.
 
 
 _No parameters._
@@ -352,13 +352,13 @@ This method supports data binning.<br>When a generic object with two or three me
 | `qDataRanges` | [`NxDataAreaPage`](./definitions.md#nxdataareapage) | Yes | [`Range`](./definitions.md#range) of the data to render.<br>This range applies to the measure values.<br>The lowest and highest values of a measure can be retrieved by using the [`GetLayout`](#getlayout) method (in _/qHyperCube/qMeasureInfo_ ). |
 | `qMaxNbrCells` | integer | Yes | Maximum number of cells in the grid. |
 | `qQueryLevel` | integer | Yes | Level of details. The higher the level, the more detailed information you get (zoom-in).<br>When the number of points to render falls below a certain threshold, the values are no longer rendered as cells but as points.<br>The query level should be no greater than 20. |
-| `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>* 0: Adaptive grid<br>* 1: Hexagonal grid<br>* 2: Uniform grid |
+| `qBinningMethod` | integer | Yes | Selects the algorithm.<br>The default value is 0.<br>One of:<br>- 0: Adaptive grid<br>- 1: Hexagonal grid<br>- 2: Uniform grid |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>Depending on the refinement level, the information is about:<br>* The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>* The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
+| `qDataPages` | array&lt;[`NxDataPage`](./definitions.md#nxdatapage)> | Information about the data set.<br>Depending on the refinement level, the information is about:<br>- The adaptive grid. Occurs when cells are rendered and not points.<br>or<br>- The dimension values and the measure values. Occurs when the level of detail is high (points are rendered). |
 
 ## `GetHyperCubeContinuousData`
 
@@ -427,8 +427,8 @@ Reduces the data of a bar chart, a line chart or a scatter plot chart and retrie
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
 | `qPages` | [`NxPage`](./definitions.md#nxpage) | Yes | Array of pages. |
-| `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>* If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>* If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
-| `qReductionMode` | string | Yes | Defines the reduction mode.<br><br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
+| `qZoomFactor` | integer | Yes | Defines the zoom factor.<br>If set to -1, the engine decides of the zoom factor.<br>- If the reduction mode is _D1_ or _S_ , the zoom factor is 2ⁿ. If the zoom factor is 5, the data are reduced by a factor 32.<br>- If the reduction mode is _C_ , the zoom factor defines the number of centroids. |
+| `qReductionMode` | string | Yes | Defines the reduction mode.<br><br>One of:<br>- N or DATA_REDUCTION_NONE<br>- D1 or DATA_REDUCTION_ONEDIM<br>- S or DATA_REDUCTION_SCATTERED<br>- C or DATA_REDUCTION_CLUSTERED<br>- ST or DATA_REDUCTION_STACKED |
 
 **Returns:**
 
@@ -640,7 +640,7 @@ _No return values._
 
 ## `RangeSelectHyperCubeValues`
 
-Make range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Make range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -678,7 +678,7 @@ Searches for a string in a list object.<br>This method applies to list objects (
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
-| `qMatch` | string | Yes | Search string.<br>Wild card characters are allowed. The search is not case sensitive.<br>Examples:<br>* P*U*: retrieves only values that start with P and contain U<br>* P U S: retrieves values that start with P, U or S |
+| `qMatch` | string | Yes | Search string.<br>Wild card characters are allowed. The search is not case sensitive.<br>Examples:<br>- P*U*: retrieves only values that start with P and contain U<br>- P U S: retrieves values that start with P, U or S |
 
 **Returns:**
 
@@ -688,7 +688,7 @@ Searches for a string in a list object.<br>This method applies to list objects (
 
 ## `SelectHyperCubeCells`
 
-Makes selections in multiple dimensions and measures.<br> This method applies to hypercubes, such as bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes selections in multiple dimensions and measures.<br> This method applies to hypercubes, such as bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -697,7 +697,7 @@ Makes selections in multiple dimensions and measures.<br> This method applies to
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
 | `qRowIndices` | array | Yes | Array of row indexes to select, starting from 0.<br>If the array is empty _[ ]_ , all rows are selected. |
-| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension in the order they are added to the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions:<br>* [0] selects the first column (i.e the first dimension).<br>* [1] selects the second column (i.e the second dimension).<br><br>If the array is empty _[ ]_ , all columns are selected. |
+| `qColIndices` | array | Yes | Indexes of the columns to select, starting from 0.<br>A column corresponds to a dimension in the order they are added to the hypercube.<br>If a column is hidden it is ignored, qColIndex n refers to the n:th visible column (starting from zero).<br>Example:<br>If the hypercube has two dimensions:<br>- [0] selects the first column (i.e the first dimension).<br>- [1] selects the second column (i.e the second dimension).<br><br>If the array is empty _[ ]_ , all columns are selected. |
 | `qSoftLock` | boolean | No | Set to true to ignore locks; in that case, locked fields can be selected. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
@@ -728,7 +728,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 
 ## `SelectHyperCubeValues`
 
-Selects some values in one dimension.<br>The values are identified by their element numbers.<br>This method applies to charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects some values in one dimension.<br>The values are identified by their element numbers.<br>This method applies to charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -748,7 +748,7 @@ Selects some values in one dimension.<br>The values are identified by their elem
 
 ## `SelectListObjectAll`
 
-Selects all values of a field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all values of a field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -766,7 +766,7 @@ Selects all values of a field.<br>This method applies to list objects (objects w
 
 ## `SelectListObjectAlternative`
 
-Selects all alternative values in a specific field.<br>This method applies to list objects (objects with one dimension). If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all alternative values in a specific field.<br>This method applies to list objects (objects with one dimension). If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -803,7 +803,7 @@ The following is returned in the output:<br>The operation is successful if **qSu
 
 ## `SelectListObjectExcluded`
 
-Inverts the current selections in a specific field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Inverts the current selections in a specific field.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -821,7 +821,7 @@ Inverts the current selections in a specific field.<br>This method applies to li
 
 ## `SelectListObjectPossible`
 
-Selects all possible values of a list object.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all possible values of a list object.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -839,7 +839,7 @@ Selects all possible values of a list object.<br>This method applies to list obj
 
 ## `SelectListObjectValues`
 
-Makes single selections in dimensions.<br>This method applies to list objects only.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>* The object contains some invalid fields (fields that are not in the data model).<br>* The selection applies to a locked field.<br>* A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes single selections in dimensions.<br>This method applies to list objects only.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -892,7 +892,7 @@ _No return values._
 
 ## `SetFullPropertyTree`
 
-Sets the properties of:<br>* A generic object.<br>* The children of the generic object.<br>* The bookmarks/embedded snapshots of the generic object.<br><br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
+Sets the properties of:<br>- A generic object.<br>- The children of the generic object.<br>- The bookmarks/embedded snapshots of the generic object.<br><br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
 
 
 **Parameters:**

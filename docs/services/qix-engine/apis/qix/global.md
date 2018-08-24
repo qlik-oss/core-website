@@ -7,7 +7,7 @@ _QIX methods for version 12.215.0._
 
 ## `AbortAll`
 
-Sets an abort flag on all pending and ongoing requests in the current engine session.<br>* If an abort flag is set on a pending request, the request is aborted.<br>* If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
+Sets an abort flag on all pending and ongoing requests in the current engine session.<br>- If an abort flag is set on a pending request, the request is aborted.<br>- If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
 
 
 _No parameters._
@@ -113,7 +113,7 @@ Creates an app.<br><br>The operation is successful if **qSuccess** is set to tru
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | _No description._ |
-| `qAppId` | string | One of:<br>* Path and name of the app (Qlik Sense Desktop)<br>* GUID (Qlik Sense Enterprise) |
+| `qAppId` | string | One of:<br>- Path and name of the app (Qlik Sense Desktop)<br>- GUID (Qlik Sense Enterprise) |
 
 ## `CreateDocEx`
 
@@ -139,7 +139,7 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 
 ## `CreateSessionApp`
 
-Creates an empty session app.<br>The following applies:<br>* The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>* A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
+Creates an empty session app.<br>The following applies:<br>- The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>- A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
 
 _No parameters._
@@ -153,7 +153,7 @@ _No parameters._
 
 ## `CreateSessionAppFromApp`
 
-Creates a session app from a source app.<br>The following applies:<br>* The objects in the source app are copied into the session app but contain no data.<br>* The script of the session app can be edited and reloaded.<br>* The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>* A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
+Creates a session app from a source app.<br>The following applies:<br>- The objects in the source app are copied into the session app but contain no data.<br>- The script of the session app can be edited and reloaded.<br>- The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>- A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
 
 **Parameters:**
@@ -241,7 +241,7 @@ Retrieves the meta data of an app.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qAppID` | string | Yes | Identifier of the app, as returned by the [`CreateApp`](#createapp) method.<br>One of:<br>* Path and name of the app (Qlik Sense Desktop)<br>* GUID (Qlik Sense Enterprise) |
+| `qAppID` | string | Yes | Identifier of the app, as returned by the [`CreateApp`](#createapp) method.<br>One of:<br>- Path and name of the app (Qlik Sense Desktop)<br>- GUID (Qlik Sense Enterprise) |
 
 **Returns:**
 
@@ -274,7 +274,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | Returns a set of rules defining the syntax for:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | Returns a set of rules defining the syntax for:<br>- The script statements and the script functions if _qBnfType_ is set to S.<br>- The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>- S or SCRIPT_TEXT_SCRIPT<br>- E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -291,7 +291,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>- The script statements and the script functions if _qBnfType_ is set to S.<br>- The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>- S or SCRIPT_TEXT_SCRIPT<br>- E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -309,7 +309,7 @@ Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* The script statements and the script functions if _qBnfType_ is set to S.<br>* The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>- The script statements and the script functions if _qBnfType_ is set to S.<br>- The chart functions if _qBnfType_ is set to E.<br><br>One of:<br>- S or SCRIPT_TEXT_SCRIPT<br>- E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -326,7 +326,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qBnfType` | string | Yes | The type of grammar to return:<br>* S: returns the script statements and the script functions.<br>* E: returns the chart functions.<br><br>One of:<br>* S or SCRIPT_TEXT_SCRIPT<br>* E or SCRIPT_TEXT_EXPRESSION |
+| `qBnfType` | string | Yes | The type of grammar to return:<br>- S: returns the script statements and the script functions.<br>- E: returns the chart functions.<br><br>One of:<br>- S or SCRIPT_TEXT_SCRIPT<br>- E or SCRIPT_TEXT_EXPRESSION |
 
 **Returns:**
 
@@ -393,7 +393,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDocList` | array&lt;[`DocListEntry`](./definitions.md#doclistentry)> | List of app identifiers.<br>* In Qlik Sense Enterprise, the app identifier is a GUID.<br>* In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
+| `qDocList` | array&lt;[`DocListEntry`](./definitions.md#doclistentry)> | List of app identifiers.<br>- In Qlik Sense Enterprise, the app identifier is a GUID.<br>- In Qlik Sense Desktop, the app identifier corresponds to the app path and name. |
 
 ## `GetFolderItemsForPath`
 
@@ -421,7 +421,7 @@ Gets the list of all the script functions.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
+| `qGroup` | string | No | Name of the group.<br>Default is all groups.<br><br>One of:<br>- ALL or FUNC_GROUP_ALL<br>- U or FUNC_GROUP_UNKNOWN<br>- NONE or FUNC_GROUP_NONE<br>- AGGR or FUNC_GROUP_AGGR<br>- NUM or FUNC_GROUP_NUMERIC<br>- RNG or FUNC_GROUP_RANGE<br>- EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>- TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>- FIN or FUNC_GROUP_FINANCIAL<br>- MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>- COUNT or FUNC_GROUP_COUNTER<br>- STR or FUNC_GROUP_STRING<br>- MAPP or FUNC_GROUP_MAPPING<br>- RCRD or FUNC_GROUP_INTER_RECORD<br>- CND or FUNC_GROUP_CONDITIONAL<br>- LOG or FUNC_GROUP_LOGICAL<br>- NULL or FUNC_GROUP_NULL<br>- SYS or FUNC_GROUP_SYSTEM<br>- FILE or FUNC_GROUP_FILE<br>- TBL or FUNC_GROUP_TABLE<br>- DATE or FUNC_GROUP_DATE_AND_TIME<br>- NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>- FRMT or FUNC_GROUP_FORMATTING<br>- CLR or FUNC_GROUP_COLOR<br>- RNK or FUNC_GROUP_RANKING<br>- GEO or FUNC_GROUP_GEO<br>- EXT or FUNC_GROUP_EXTERNAL<br>- PROB or FUNC_GROUP_PROBABILITY<br>- ARRAY or FUNC_GROUP_ARRAY<br>- LEG or FUNC_GROUP_LEGACY |
 
 **Returns:**
 
@@ -431,7 +431,7 @@ Gets the list of all the script functions.
 
 ## `GetInteract`
 
-Retrieves information on the user interaction that is requested by the engine.<br>Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).<br>When running reload in debug mode, the engine pauses the script execution to receive data about user interaction. The engine can pause:<br>* Before executing a new script statement.<br>* When an error occurs while executing the script.<br>* When the script execution is finished.<br><br>To know if the engine is paused and waits for a response to an interaction request, the [`GetProgress`](#getprogress) method should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the [`GetProgress`](#getprogress) request.
+Retrieves information on the user interaction that is requested by the engine.<br>Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).<br>When running reload in debug mode, the engine pauses the script execution to receive data about user interaction. The engine can pause:<br>- Before executing a new script statement.<br>- When an error occurs while executing the script.<br>- When the script execution is finished.<br><br>To know if the engine is paused and waits for a response to an interaction request, the [`GetProgress`](#getprogress) method should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the [`GetProgress`](#getprogress) request.
 
 
 **Parameters:**
@@ -617,7 +617,7 @@ _No parameters._
 
 ## `OpenDoc`
 
-Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The [`OpenDoc`](#opendoc) method compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>* The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>* The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>* Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.<br><br>
+Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The [`OpenDoc`](#opendoc) method compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>- The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>- The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>- Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.<br><br>
 
 
 **Parameters:**

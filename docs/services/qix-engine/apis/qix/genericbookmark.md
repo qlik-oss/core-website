@@ -61,7 +61,7 @@ Retrieves the values of a field.<br><br>
 
 ## `GetInfo`
 
-Returns:<br>* The type of the object.<br>* The identifier of the object.
+Returns:<br>- The type of the object.<br>- The identifier of the object.
 
 
 _No parameters._
