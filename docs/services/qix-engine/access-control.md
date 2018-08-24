@@ -24,7 +24,7 @@ and each rule contains a property that determines which actions the rule grants,
 Rules are constructed using attributes that defines user access. Consider the following rule:
 
 ```c
-user.id = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
+user.sub = "ada-lovelace" and resource._resourcetype = "App" and resource._actions = {"create", "update", "read"}
 ```
 
 Notice that the rule consists of key-value pairs linked by logical operators,
@@ -36,7 +36,7 @@ and the accessed resource type is `App`, grant the actions
 
 !!! Note
     Only the `_actions` attribute is mandatory.
-    The `user.id` and `resource._resourcetype` expressions
+    The `user.sub` and `resource._resourcetype` expressions
     could be omitted and the rule would still be valid.
     See [Actions](#actions) for more details.
 
@@ -140,7 +140,7 @@ In rule expressions, the user is represented by the `user` object.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `user.id` | The identifier of the user. This `user.id` gets the value of the mandatory `sub` attribute in the JWT. |
+| `user.sub` | The identifier of the user. This `user.sub` gets the value of the mandatory `sub` attribute in the JWT. |
 
 Also, `user` contains all attributes defined in the JWT header that are used to authenticate the user.
 
@@ -160,12 +160,12 @@ For more information about attributes in the JWT header, see [JSON web token](..
 }
 ```
 
-The `user.id` is `john-doe`, based on the `sub` attribute.
+The `user.sub` is `john-doe`, based on the `sub` attribute.
 All of the attributes are attributes of `user`.
 An example of a rule using some of the user attributes looks like the following:
 
 ```c
-user.id = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
+user.sub = "john-doe" and user.employeeType = "developer" and user.custom.country = "sweden" and resource._actions = "*"
 ```
 
 In example rule above, the user `john-doe` is granted access for all actions to all resources.
@@ -359,16 +359,16 @@ This operator returns the logical conjuction of its operands.
 
 **Examples**
 
-Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
+Given that `user.country` is `"uk"` and `user.sub` is `"john-doe"`:
 
 ```c
 # Evaluate to true
-(user.country = "UK") && (user.id = "john-doe")
-(user.country = "UK") and (user.id = "john-doe")
+(user.country = "UK") && (user.sub = "john-doe")
+(user.country = "UK") and (user.sub = "john-doe")
 
 # Evaluate to false
-(user.country = "SE") && (user.id = "john-doe")
-(user.country = "UK") and (user.id = "bill-smith")
+(user.country = "SE") && (user.sub = "john-doe")
+(user.country = "UK") and (user.sub = "bill-smith")
 ```
 
 #### **`or`, `||`**
@@ -389,17 +389,17 @@ This operator returns the logical disjunction of its operands.
 
 **Examples**
 
-Given that `user.country` is `"uk"` and `user.id` is `"john-doe"`:
+Given that `user.country` is `"uk"` and `user.sub` is `"john-doe"`:
 
 ```c
 # Evaluate to true
-(user.country = "UK") || (user.id = "john-doe")
-(user.country = "UK") || (user.id = "bill-smith")
-(user.country = "SE") or (user.id = "john-doe")
+(user.country = "UK") || (user.sub = "john-doe")
+(user.country = "UK") || (user.sub = "bill-smith")
+(user.country = "SE") or (user.sub = "john-doe")
 
 # Evaluate to false
-(user.country = "SE") or (user.id = "bill-smith")
-(user.country = "SE") || (user.id = "bill-smith")
+(user.country = "SE") or (user.sub = "bill-smith")
+(user.country = "SE") || (user.sub = "bill-smith")
 ```
 
 ### Comparison Operators
