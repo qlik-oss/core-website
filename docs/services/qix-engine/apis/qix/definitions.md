@@ -72,7 +72,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qFieldPairName` | string | Pair of fields.<br>_&lt; FieldName1&gt;_ / _&lt; FieldName2&gt;_<br>Where:<br>&lt; _FieldName1_ &gt; is a field in the table 1 (defined in _qTable1_ )<br>&lt; _FieldName2_ &gt; is a field in the table 2 (defined in _qTable2_ )<br>If the field is a synthetic key, the name of the field is preceded by _[Synthetic key]:_ . |
-| `qScoreSummary` | integer | Flag used to interpret calculated scores.<br>One of the following values or sum of values that apply:<br>* 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.<br>* -1: The fields do not have the same type.<br>* -2: The number of rows of the field _FieldName1_ is zero.<br>* -4: The number of distinct values of the field _FieldName1_ is zero.<br>* -8: The number of rows of the field _FieldName2_ is zero.<br>* -16: The number of distinct values of the field _FieldName2_ is zero.<br><br>Example:<br>The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18. |
+| `qScoreSummary` | integer | Flag used to interpret calculated scores.<br>One of the following values or sum of values that apply:<br>- 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.<br>- -1: The fields do not have the same type.<br>- -2: The number of rows of the field _FieldName1_ is zero.<br>- -4: The number of distinct values of the field _FieldName1_ is zero.<br>- -8: The number of rows of the field _FieldName2_ is zero.<br>- -16: The number of distinct values of the field _FieldName2_ is zero.<br><br>Example:<br>The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18. |
 | `qField1Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName1_ defined in _qFieldPairName_ . |
 | `qField2Scores` | [`FieldScores`](#fieldscores) | Association information about the field _FieldName2_ defined in _qFieldPairName_ . |
 
@@ -86,7 +86,7 @@ _No description._
 | `qNbr` | integer | Number of the current token definition. |
 | `qPNbr` | integer | Number of the parent rule definition. |
 | `qHelpId` | integer | Reference identifier to a function described in the documentation. The identifier is stored in the definition of the token containing the function name.<br>Is not used in Qlik Sense. |
-| `qName` | string | Token name.<br>One of:<br>* A rule name<br>* An identifier<br>* A literal value |
+| `qName` | string | Token name.<br>One of:<br>- A rule name<br>- An identifier<br>- A literal value |
 | `qStr` | string | Literal string of the token.<br>Examples: 'Round' and '('. |
 | `qIsBnfRule` | boolean | If set to true, a list of related rule tokens is assigned to _qBnf_ .<br>This parameter is optional. The default value is false. |
 | `qScriptStatement` | boolean | If set to true, the definition specifies a script statement.<br>This parameter is optional. The default value is false. |
@@ -94,9 +94,9 @@ _No description._
 | `qBnfLiteral` | boolean | If set to true, the definition specifies a literal token.<br>This parameter is optional. The default value is false. |
 | `qQvFunc` | boolean | If set to true, the definition is related to a Qlik Sense function. It cannot be an aggregation function.<br>This parameter is optional. The default value is false. |
 | `qAggrFunc` | boolean | If set to true, the definition is related to an aggregation function.<br>This parameter is optional. The default value is false. |
-| `qFG` | string | Group of the function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
+| `qFG` | string | Group of the function.<br><br>One of:<br>- ALL or FUNC_GROUP_ALL<br>- U or FUNC_GROUP_UNKNOWN<br>- NONE or FUNC_GROUP_NONE<br>- AGGR or FUNC_GROUP_AGGR<br>- NUM or FUNC_GROUP_NUMERIC<br>- RNG or FUNC_GROUP_RANGE<br>- EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>- TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>- FIN or FUNC_GROUP_FINANCIAL<br>- MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>- COUNT or FUNC_GROUP_COUNTER<br>- STR or FUNC_GROUP_STRING<br>- MAPP or FUNC_GROUP_MAPPING<br>- RCRD or FUNC_GROUP_INTER_RECORD<br>- CND or FUNC_GROUP_CONDITIONAL<br>- LOG or FUNC_GROUP_LOGICAL<br>- NULL or FUNC_GROUP_NULL<br>- SYS or FUNC_GROUP_SYSTEM<br>- FILE or FUNC_GROUP_FILE<br>- TBL or FUNC_GROUP_TABLE<br>- DATE or FUNC_GROUP_DATE_AND_TIME<br>- NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>- FRMT or FUNC_GROUP_FORMATTING<br>- CLR or FUNC_GROUP_COLOR<br>- RNK or FUNC_GROUP_RANKING<br>- GEO or FUNC_GROUP_GEO<br>- EXT or FUNC_GROUP_EXTERNAL<br>- PROB or FUNC_GROUP_PROBABILITY<br>- ARRAY or FUNC_GROUP_ARRAY<br>- LEG or FUNC_GROUP_LEGACY |
 | `qFieldFlag` | boolean | If set to true, the definition is related to a field.<br>This parameter is optional. The default value is false. |
-| `qMT` | string | Type of the data.<br><br>One of:<br>* N or NOT_META<br>* D or META_DOC_NAME<br>* R or META_RET_TYPE<br>* V or META_DEFAULT_VALUE |
+| `qMT` | string | Type of the data.<br><br>One of:<br>- N or NOT_META<br>- D or META_DOC_NAME<br>- R or META_RET_TYPE<br>- V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
 | `qFGList` | undefined | List of groups the function belongs to. |
 
@@ -203,13 +203,13 @@ _No description._
 | ---- | ---- | ----------- |
 | `qId` | string | Identifier of the connection.<br>Is generated by the engine and is unique. |
 | `qName` | string | Name of the connection.<br>This parameter is mandatory and must be set when creating or modifying a connection. |
-| `qConnectionString` | string | One of:<br>* ODBC CONNECT TO [&lt;provider name&gt;]<br>* OLEDB CONNECT TO [&lt;provider name&gt;]<br>* CUSTOM CONNECT TO [&lt;provider name&gt;]<br>* "&lt;local absolute or relative path, UNC path&gt;"<br>* "&lt;URL&gt;"<br><br>Connection string.<br>This parameter is mandatory and must be set when creating or modifying a connection. |
-| `qType` | string | One of:<br>* ODBC<br>* OLEDB<br>* &lt;Name of the custom connection file&gt;<br>* folder<br>* internet<br><br>Type of the connection.<br>This parameter is mandatory and must be set when creating or modifying a connection.<br>For ODBC, OLEDB and custom connections, the engine checks that the connection type matches the connection string.<br>The type is not case sensitive. |
+| `qConnectionString` | string | One of:<br>- ODBC CONNECT TO [&lt;provider name&gt;]<br>- OLEDB CONNECT TO [&lt;provider name&gt;]<br>- CUSTOM CONNECT TO [&lt;provider name&gt;]<br>- "&lt;local absolute or relative path, UNC path&gt;"<br>- "&lt;URL&gt;"<br><br>Connection string.<br>This parameter is mandatory and must be set when creating or modifying a connection. |
+| `qType` | string | One of:<br>- ODBC<br>- OLEDB<br>- &lt;Name of the custom connection file&gt;<br>- folder<br>- internet<br><br>Type of the connection.<br>This parameter is mandatory and must be set when creating or modifying a connection.<br>For ODBC, OLEDB and custom connections, the engine checks that the connection type matches the connection string.<br>The type is not case sensitive. |
 | `qUserName` | string | Name of the user who creates the connection.<br>This parameter is optional; it is only used for OLEDB, ODBC and CUSTOM connections.<br>A call to _GetConnection Method_ does not return the user name. |
 | `qPassword` | string | Password of the user who creates the connection.<br>This parameter is optional; it is only used for OLEDB, ODBC and CUSTOM connections.<br>A call to _GetConnection Method_ does not return the password. |
 | `qModifiedDate` | string | Is generated by the engine.<br>Creation date of the connection or last modification date of the connection. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about the connection. |
-| `qLogOn` | string | Select which user credentials to use to connect to the source.<br>* LOG_ON_SERVICE_USER: Disables<br>* LOG_ON_CURRENT_USER: Enables<br><br>One of:<br>* LOG_ON_SERVICE_USER<br>* LOG_ON_CURRENT_USER |
+| `qLogOn` | string | Select which user credentials to use to connect to the source.<br>- LOG_ON_SERVICE_USER: Disables<br>- LOG_ON_CURRENT_USER: Enables<br><br>One of:<br>- LOG_ON_SERVICE_USER<br>- LOG_ON_CURRENT_USER |
 
 ## `ContentLibraryList`
 
@@ -238,7 +238,7 @@ _No description._
 | `qProvider` | string | Name of the custom connector file. |
 | `qParent` | string | Name of the parent folder that contains the custom connector file. |
 | `qDisplayName` | string | Name of the custom connector as displayed in the Qlik interface. |
-| `qMachineMode` | string | Mode of the machine (64 or 32 bits).<br><br>One of:<br>* CONNECT_DEFAULT<br>* CONNECT_64<br>* CONNECT_32 |
+| `qMachineMode` | string | Mode of the machine (64 or 32 bits).<br><br>One of:<br>- CONNECT_DEFAULT<br>- CONNECT_64<br>- CONNECT_32 |
 | `qSupportFileStreaming` | boolean | _No description._ |
 
 ## `DataField`
@@ -276,7 +276,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the table. |
 | `qFields` | array&lt;[`DataField`](#datafield)> | List of the fields in the table. |
-| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
+| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>- file type<br>- embedded labels, no labels<br>- table is &lt;table name&gt; |
 
 ## `Database`
 
@@ -296,8 +296,8 @@ _No description._
 | `qDBMSName` | string | Name of the product accessed by the provider. |
 | `qDBUsage` | boolean | If set to true, it means that the data source contains some databases. |
 | `qOwnerUsage` | boolean | If set to true, it means that the data source contains some owners. |
-| `qDBSeparator` | string | Character string used after the database name.<br>Example with separator " **.** ":<br>FROM LinkedTablesData.dbo.Months<br>Where:<br>* **LinkedTablesData** is the database name<br>* **dbo** is the owner name<br>* **Months** is the table name |
-| `qOwnerSeparator` | string | Character string used after the owner name.<br>Example with separator " **.** ":<br>FROM LinkedTablesData.dbo.Months<br>Where:<br>* **LinkedTablesData** is the database name<br>* **dbo** is the owner name<br>* **Months** is the table name |
+| `qDBSeparator` | string | Character string used after the database name.<br>Example with separator " **.** ":<br>FROM LinkedTablesData.dbo.Months<br>Where:<br>- **LinkedTablesData** is the database name<br>- **dbo** is the owner name<br>- **Months** is the table name |
+| `qOwnerSeparator` | string | Character string used after the owner name.<br>Example with separator " **.** ":<br>FROM LinkedTablesData.dbo.Months<br>Where:<br>- **LinkedTablesData** is the database name<br>- **dbo** is the owner name<br>- **Months** is the table name |
 | `qDBFirst` | boolean | If set to true, it means that the database is displayed first, before the owners and tables. |
 | `qQuotePreffix` | string | Prefix used with field, database or owner names that contain special characters or keywords. |
 | `qQuoteSuffix` | string | Suffix used with field, database or owner names that contain special characters or keywords. |
@@ -380,7 +380,7 @@ _No description._
 | `qConnectedUsers` | integer | Not used. |
 | `qFileTime` | number | Last modified time stamp of the app.<br>This property is used only with Qlik Sense Desktop.<br>It is set to 0 for Qlik Sense Enterprise. |
 | `qFileSize` | number | Size of remote app.<br>This property is used only with Qlik Sense Desktop.<br>It is set to 0 for Qlik Sense Enterprise. |
-| `qDocId` | string | Identifier of the app.<br>* In Qlik Sense Desktop, the identifier is the path and name of the app.<br>* In Qlik Sense Enterprise, the identifier is the app's GUID. |
+| `qDocId` | string | Identifier of the app.<br>- In Qlik Sense Desktop, the identifier is the path and name of the app.<br>- In Qlik Sense Enterprise, the identifier is the app's GUID. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Meta data related to the app. |
 | `qLastReloadTime` | string | Last reload time of the app. |
 | `qReadOnly` | boolean | If set to true, the app is read-only. |
@@ -396,7 +396,7 @@ _No description._
 | `qDrive` | string | Value of the drive.<br>Examples:<br>C:\\\, E:\\\ |
 | `qType` | string | Type of the drive.<br>_Fixed_ means physical drive. |
 | `qName` | string | Name of the drive. |
-| `qTypeIdentifier` | string | Information about the drive type.<br><br>One of:<br>* REMOVABLE<br>* FIXED<br>* NETWORK<br>* CD_ROM<br>* RAM<br>* UNKNOWN_TYPE |
+| `qTypeIdentifier` | string | Information about the drive type.<br><br>One of:<br>- REMOVABLE<br>- FIXED<br>- NETWORK<br>- CD_ROM<br>- RAM<br>- UNKNOWN_TYPE |
 | `qUnnamedDrive` | boolean | _No description._ |
 
 ## `EditorBreakpoint`
@@ -420,7 +420,7 @@ _No description._
 | `qErrorString` | string | Detailed information about the error message. |
 | `qLineEnd` | string | Line termination characters. |
 | `qLine` | string | Script statement where the error occurs. |
-| `qErrorDataCode` | string | Type of the error messages.<br><br>One of:<br>* EDC_ERROR<br>* EDC_WARNING<br>* EDC_CIRCULAR_REFERENCE |
+| `qErrorDataCode` | string | Type of the error messages.<br><br>One of:<br>- EDC_ERROR<br>- EDC_WARNING<br>- EDC_CIRCULAR_REFERENCE |
 | `qMessage` | [`ProgressMessage`](#progressmessage) | _No description._ |
 
 ## `ExtensionList`
@@ -438,7 +438,7 @@ Sets the formatting of a field.<br>The properties of _qFieldAttributes_ and the 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | Type of the field.<br>Default is U.<br><br>One of:<br>* U or UNKNOWN<br>* A or ASCII<br>* I or INTEGER<br>* R or REAL<br>* F or FIX<br>* M or MONEY<br>* D or DATE<br>* T or TIME<br>* TS or TIMESTAMP<br>* IV or INTERVAL |
+| `qType` | string | Type of the field.<br>Default is U.<br><br>One of:<br>- U or UNKNOWN<br>- A or ASCII<br>- I or INTEGER<br>- R or REAL<br>- F or FIX<br>- M or MONEY<br>- D or DATE<br>- T or TIME<br>- TS or TIMESTAMP<br>- IV or INTERVAL |
 | `qnDec` | integer | Number of decimals.<br>Default is 10. |
 | `qUseThou` | integer | Defines whether or not a thousands separator must be used.<br>Default is 0. |
 | `qFmt` | string | Defines the format pattern that applies to _qText_ .<br>Is used in connection to the type of the field (parameter **qType** ).<br>For more information, see _Formatting mechanism_.<br>Example: _YYYY-MM-DD_ for a date. |
@@ -452,7 +452,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the field. |
-| `qType` | string | Type of data entity.<br><br>One of:<br>* NOT_PRESENT<br>* PRESENT<br>* IS_CYCLIC_GROUP<br>* IS_DRILL_GROUP<br>* IS_VAR<br>* IS_EXPR<br>* IS_IMPLICIT<br>* IS_DETAIL |
+| `qType` | string | Type of data entity.<br><br>One of:<br>- NOT_PRESENT<br>- PRESENT<br>- IS_CYCLIC_GROUP<br>- IS_DRILL_GROUP<br>- IS_VAR<br>- IS_EXPR<br>- IS_IMPLICIT<br>- IS_DETAIL |
 
 ## `FieldDescription`
 
@@ -499,7 +499,7 @@ _No description._
 | `qSubsetRatio` | number | Number of distinct values in the field (in the current table) as compared to the total number of distinct values of this field (in all tables). |
 | `qnTotalDistinctValues` | integer | Number of distinct values in the field. |
 | `qnPresentDistinctValues` | integer | _No description._ |
-| `qKeyType` | string | Tells if the field is a key field.<br><br>One of:<br>* NOT_KEY<br>* ANY_KEY<br>* PRIMARY_KEY<br>* PERFECT_KEY |
+| `qKeyType` | string | Tells if the field is a key field.<br><br>One of:<br>- NOT_KEY<br>- ANY_KEY<br>- PRIMARY_KEY<br>- PERFECT_KEY |
 | `qComment` | string | Comment related to the field. |
 | `qTags` | array&lt;string> | List of tags related to the field. |
 | `qDerivedFields` | array&lt;[`DerivedFieldsInTableData`](#derivedfieldsintabledata)> | List of the derived fields. |
@@ -556,9 +556,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | Type of the file.<br><br>One of:<br>* CSV or FILE_TYPE_CSV<br>* FIX or FILE_TYPE_FIX<br>* DIF or FILE_TYPE_DIF<br>* EXCEL_BIFF or FILE_TYPE_EXCEL_BIFF<br>* EXCEL_OOXML or FILE_TYPE_EXCEL_OOXML<br>* HTML or FILE_TYPE_HTML<br>* QVD or FILE_TYPE_QVD<br>* XML or FILE_TYPE_XML<br>* QVX or FILE_TYPE_QVX<br>* JSON or FILE_TYPE_JSON<br>* KML or FILE_TYPE_KML |
-| `qLabel` | string | One of:<br>* Embedded labels (field names are present in the file)<br>* No labels<br>* Explicit labels (for DIFfiles) |
-| `qQuote` | string | One of:<br>* None (no quotes)<br>* MSQ (Modern Style Quoting)<br>* Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)<br><br>This property is used for delimited files. |
+| `qType` | string | Type of the file.<br><br>One of:<br>- CSV or FILE_TYPE_CSV<br>- FIX or FILE_TYPE_FIX<br>- DIF or FILE_TYPE_DIF<br>- EXCEL_BIFF or FILE_TYPE_EXCEL_BIFF<br>- EXCEL_OOXML or FILE_TYPE_EXCEL_OOXML<br>- HTML or FILE_TYPE_HTML<br>- QVD or FILE_TYPE_QVD<br>- XML or FILE_TYPE_XML<br>- QVX or FILE_TYPE_QVX<br>- JSON or FILE_TYPE_JSON<br>- KML or FILE_TYPE_KML |
+| `qLabel` | string | One of:<br>- Embedded labels (field names are present in the file)<br>- No labels<br>- Explicit labels (for DIFfiles) |
+| `qQuote` | string | One of:<br>- None (no quotes)<br>- MSQ (Modern Style Quoting)<br>- Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)<br><br>This property is used for delimited files. |
 | `qComment` | string | String that marks the beginning of the comment line.<br>Example: “#” or “//”<br>The engine ignores the commented lines during the data load.<br>This property is only used for delimited files. |
 | `qDelimiter` | [`DelimiterInfo`](#delimiterinfo) | Information about the delimiter.<br>This property is used for delimited files. |
 | `qCodePage` | integer | Character set used in the file. |
@@ -574,7 +574,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | <br>One of:<br>* NONE or FILTER_TYPE_NONE<br>* RAW or FILTER_TYPE_RAW |
+| `qType` | string | <br>One of:<br>- NONE or FILTER_TYPE_NONE<br>- RAW or FILTER_TYPE_RAW |
 | `qWherePredicate` | string | _No description._ |
 
 ## `FolderItem`
@@ -584,7 +584,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the folder item. |
-| `qType` | string | Type of the folder item.<br><br>One of:<br>* FOLDER or FOLDER_ITEM_FOLDER<br>* FILE or FOLDER_ITEM_FILE<br>* OTHER or FOLDER_ITEM_OTHER |
+| `qType` | string | Type of the folder item.<br><br>One of:<br>- FOLDER or FOLDER_ITEM_FOLDER<br>- FILE or FOLDER_ITEM_FILE<br>- OTHER or FOLDER_ITEM_OTHER |
 
 ## `Function`
 
@@ -593,7 +593,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the script function. |
-| `qGroup` | string | Group of the script function.<br><br>One of:<br>* ALL or FUNC_GROUP_ALL<br>* U or FUNC_GROUP_UNKNOWN<br>* NONE or FUNC_GROUP_NONE<br>* AGGR or FUNC_GROUP_AGGR<br>* NUM or FUNC_GROUP_NUMERIC<br>* RNG or FUNC_GROUP_RANGE<br>* EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>* TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>* FIN or FUNC_GROUP_FINANCIAL<br>* MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>* COUNT or FUNC_GROUP_COUNTER<br>* STR or FUNC_GROUP_STRING<br>* MAPP or FUNC_GROUP_MAPPING<br>* RCRD or FUNC_GROUP_INTER_RECORD<br>* CND or FUNC_GROUP_CONDITIONAL<br>* LOG or FUNC_GROUP_LOGICAL<br>* NULL or FUNC_GROUP_NULL<br>* SYS or FUNC_GROUP_SYSTEM<br>* FILE or FUNC_GROUP_FILE<br>* TBL or FUNC_GROUP_TABLE<br>* DATE or FUNC_GROUP_DATE_AND_TIME<br>* NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>* FRMT or FUNC_GROUP_FORMATTING<br>* CLR or FUNC_GROUP_COLOR<br>* RNK or FUNC_GROUP_RANKING<br>* GEO or FUNC_GROUP_GEO<br>* EXT or FUNC_GROUP_EXTERNAL<br>* PROB or FUNC_GROUP_PROBABILITY<br>* ARRAY or FUNC_GROUP_ARRAY<br>* LEG or FUNC_GROUP_LEGACY |
+| `qGroup` | string | Group of the script function.<br><br>One of:<br>- ALL or FUNC_GROUP_ALL<br>- U or FUNC_GROUP_UNKNOWN<br>- NONE or FUNC_GROUP_NONE<br>- AGGR or FUNC_GROUP_AGGR<br>- NUM or FUNC_GROUP_NUMERIC<br>- RNG or FUNC_GROUP_RANGE<br>- EXP or FUNC_GROUP_EXPONENTIAL_AND_LOGARITHMIC<br>- TRIG or FUNC_GROUP_TRIGONOMETRIC_AND_HYPERBOLIC<br>- FIN or FUNC_GROUP_FINANCIAL<br>- MATH or FUNC_GROUP_MATH_CONSTANT_AND_PARAM_FREE<br>- COUNT or FUNC_GROUP_COUNTER<br>- STR or FUNC_GROUP_STRING<br>- MAPP or FUNC_GROUP_MAPPING<br>- RCRD or FUNC_GROUP_INTER_RECORD<br>- CND or FUNC_GROUP_CONDITIONAL<br>- LOG or FUNC_GROUP_LOGICAL<br>- NULL or FUNC_GROUP_NULL<br>- SYS or FUNC_GROUP_SYSTEM<br>- FILE or FUNC_GROUP_FILE<br>- TBL or FUNC_GROUP_TABLE<br>- DATE or FUNC_GROUP_DATE_AND_TIME<br>- NUMI or FUNC_GROUP_NUMBER_INTERPRET<br>- FRMT or FUNC_GROUP_FORMATTING<br>- CLR or FUNC_GROUP_COLOR<br>- RNK or FUNC_GROUP_RANKING<br>- GEO or FUNC_GROUP_GEO<br>- EXT or FUNC_GROUP_EXTERNAL<br>- PROB or FUNC_GROUP_PROBABILITY<br>- ARRAY or FUNC_GROUP_ARRAY<br>- LEG or FUNC_GROUP_LEGACY |
 | `qSignature` | string | Signature of the script function.<br>Gives general information about the function. |
 
 ## `GenericBookmarkEntry`
@@ -755,8 +755,8 @@ Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hyper
 | `qDataPages` | array&lt;[`NxDataPage`](#nxdatapage)> | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
 | `qPivotDataPages` | array&lt;[`NxPivotPage`](#nxpivotpage)> | Set of data for pivot tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
 | `qStackedDataPages` | array&lt;[`NxStackPage`](#nxstackpage)> | Set of data for stacked tables.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`HyperCubeDef`](#hypercubedef). |
-| `qMode` | string | Information about the mode of the visualization.<br><br>One of:<br>* S or DATA_MODE_STRAIGHT<br>* P or DATA_MODE_PIVOT<br>* K or DATA_MODE_PIVOT_STACK<br>* T or DATA_MODE_TREE |
-| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category<br>* One pseudo dimension in position 1<br>* Three left dimensions.<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position -1.<br>* Three left dimensions.<br><br>implies that:<br>* The index -1 corresponds to the pseudo dimension; the pseudo dimension is the most to the right.<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension. |
+| `qMode` | string | Information about the mode of the visualization.<br><br>One of:<br>- S or DATA_MODE_STRAIGHT<br>- P or DATA_MODE_PIVOT<br>- K or DATA_MODE_PIVOT_STACK<br>- T or DATA_MODE_TREE |
+| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>- Four dimensions in the following order: Country, City, Product and Category<br>- One pseudo dimension in position 1<br>- Three left dimensions.<br><br>implies that:<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the pseudo dimension.<br>- The index 2 corresponds to the left dimension City.<br>- Product and Category are top dimensions.<br><br>Another example:<br>- Four dimensions in the following order: Country, City, Product and Category.<br>- One pseudo dimension in position -1.<br>- Three left dimensions.<br><br>implies that:<br>- The index -1 corresponds to the pseudo dimension; the pseudo dimension is the most to the right.<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the left dimension City.<br>- The index 2 corresponds to the left dimension Product.<br>- Category is a top dimension. |
 | `qIndentMode` | boolean | Is used for pivot tables only.<br>If set to true, the formatting of the results is slightly different.<br>This property is optional. |
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | Is used for pivot tables only.<br>Position of the last expended cell.<br>This property is optional. |
 | `qHasOtherValues` | boolean | True if other row exists. |
@@ -778,10 +778,10 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
 | `qInitialDataFetch` | array&lt;[`NxPage`](#nxpage)> | Initial data set. |
-| `qReductionMode` | string | <br>One of:<br>* N or DATA_REDUCTION_NONE<br>* D1 or DATA_REDUCTION_ONEDIM<br>* S or DATA_REDUCTION_SCATTERED<br>* C or DATA_REDUCTION_CLUSTERED<br>* ST or DATA_REDUCTION_STACKED |
-| `qMode` | string | Defines the way the data are handled internally by the engine.<br>Default value is _DATA_MODE_STRAIGHT_ .<br>A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.<br><br>One of:<br>* S or DATA_MODE_STRAIGHT<br>* P or DATA_MODE_PIVOT<br>* K or DATA_MODE_PIVOT_STACK<br>* T or DATA_MODE_TREE |
+| `qReductionMode` | string | <br>One of:<br>- N or DATA_REDUCTION_NONE<br>- D1 or DATA_REDUCTION_ONEDIM<br>- S or DATA_REDUCTION_SCATTERED<br>- C or DATA_REDUCTION_CLUSTERED<br>- ST or DATA_REDUCTION_STACKED |
+| `qMode` | string | Defines the way the data are handled internally by the engine.<br>Default value is _DATA_MODE_STRAIGHT_ .<br>A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.<br><br>One of:<br>- S or DATA_MODE_STRAIGHT<br>- P or DATA_MODE_PIVOT<br>- K or DATA_MODE_PIVOT_STACK<br>- T or DATA_MODE_TREE |
 | `qPseudoDimPos` | integer | _No description._ |
-| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1. In that case, all dimensions are left dimensions.<br>Hidden dimensions (e.g. due to unfulfilled calc condition on dimension level) is still counted in this context.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )<br>_qInterColumnSortOrder_ is (0,-1,1,2,3).<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br><br>implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the pseudo dimension.<br>* The index 2 corresponds to the left dimension City.<br>* Product and Category are top dimensions.<br><br>Another example:<br>* Four dimensions in the following order: Country, City, Product and Category.<br>* Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br>* One pseudo dimension.<br>* The property _qInterColumnSortOrder_ is left empty.<br><br>Implies that:<br>* The index 0 corresponds to the left dimension Country.<br>* The index 1 corresponds to the left dimension City.<br>* The index 2 corresponds to the left dimension Product.<br>* Category is a top dimension.<br>* The pseudo dimension is a top dimension. |
+| `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1. In that case, all dimensions are left dimensions.<br>Hidden dimensions (e.g. due to unfulfilled calc condition on dimension level) is still counted in this context.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>- Four dimensions in the following order: Country, City, Product and Category.<br>- One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )<br>_qInterColumnSortOrder_ is (0,-1,1,2,3).<br>- Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br><br>implies that:<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the pseudo dimension.<br>- The index 2 corresponds to the left dimension City.<br>- Product and Category are top dimensions.<br><br>Another example:<br>- Four dimensions in the following order: Country, City, Product and Category.<br>- Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br>- One pseudo dimension.<br>- The property _qInterColumnSortOrder_ is left empty.<br><br>Implies that:<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the left dimension City.<br>- The index 2 corresponds to the left dimension Product.<br>- Category is a top dimension.<br>- The pseudo dimension is a top dimension. |
 | `qAlwaysFullyExpanded` | boolean | If this property is set to true, the cells are always expanded. It implies that it is not possible to collapse any cells.<br>The default value is false. |
 | `qMaxStackedCells` | integer | Maximum number of cells for an initial data fetch (set in _qInitialDataFetch_ ) when in stacked mode ( _qMode_ is K).<br>The default value is 5000. |
 | `qPopulateMissing` | boolean | If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.<br>The default value is false. |
@@ -799,10 +799,10 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | Interaction type.<br><br>One of:<br>* IT_MSGBOX<br>* IT_SCRIPTLINE<br>* IT_BREAK<br>* IT_INPUT<br>* IT_END<br>* IT_PASSWD<br>* IT_USERNAME |
+| `qType` | string | Interaction type.<br><br>One of:<br>- IT_MSGBOX<br>- IT_SCRIPTLINE<br>- IT_BREAK<br>- IT_INPUT<br>- IT_END<br>- IT_PASSWD<br>- IT_USERNAME |
 | `qTitle` | string | Title used in the message box dialog.<br>This property is relevant if _qType_ is *IT_MSGBOX*. |
 | `qMsg` | string | Message used in the message box dialog.<br>This property is relevant if _qType_ is *IT_MSGBOX*. |
-| `qButtons` | integer | Buttons displayed in the message box dialog.<br>This property is relevant if _qType_ is *IT_MSGBOX*.<br>One of:<br>* 0 means that the _qButtons_ property is not relevant.<br>* 17 means that the message box contains the **OK** and **Cancel** buttons or the **stop** -sign icon. |
+| `qButtons` | integer | Buttons displayed in the message box dialog.<br>This property is relevant if _qType_ is *IT_MSGBOX*.<br>One of:<br>- 0 means that the _qButtons_ property is not relevant.<br>- 17 means that the message box contains the **OK** and **Cancel** buttons or the **stop** -sign icon. |
 | `qLine` | string | Next script statement to be executed.<br>This property is used if the type of interaction is *IT_SCRIPTLINE*. |
 | `qOldLineNr` | integer | First line number of the previously executed statement.<br>This property is used if the type of interaction is *IT_SCRIPTLINE*. |
 | `qNewLineNr` | integer | First line number of the next statement to be executed.<br>This property is used if the type of interaction is *IT_SCRIPTLINE*. |
@@ -829,7 +829,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qDiscriminator` | string | A string indicating the origin of the data:<br>* [filename]: the data comes from a local file.<br>* INLINE: the data is entered inline in the load script.<br>* RESIDENT: the data comes from a resident table. The table name is listed.<br>* AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>* Provider: the data comes from a data connection. The connector source name is listed.<br>* [webfile]: the data comes from a web-based file.<br>* STORE: path to QVD or TXT file where data is stored.<br>* EXTENSION: the data comes from a Server Side Extension (SSE). |
+| `qDiscriminator` | string | A string indicating the origin of the data:<br>- [filename]: the data comes from a local file.<br>- INLINE: the data is entered inline in the load script.<br>- RESIDENT: the data comes from a resident table. The table name is listed.<br>- AUTOGENERATE: the data is generated from the load script (no external table of data source).<br>- Provider: the data comes from a data connection. The connector source name is listed.<br>- [webfile]: the data comes from a web-based file.<br>- STORE: path to QVD or TXT file where data is stored.<br>- EXTENSION: the data comes from a Server Side Extension (SSE). |
 | `qStatement` | string | The LOAD and SELECT script statements from the data load script. |
 
 ## `ListObject`
@@ -855,7 +855,7 @@ Defines the properties of a list object.<br>For more information about the defin
 | `qLibraryId` | string | Refers to a dimension stored in the library. |
 | `qDef` | [`NxInlineDimensionDef`](#nxinlinedimensiondef) | Refers to a dimension stored in the list object. |
 | `qAutoSortByState` | [`NxAutoSortByStateDef`](#nxautosortbystatedef) | Defines the sorting by state. |
-| `qFrequencyMode` | string | Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.<br>Default is _NX_FREQUENCY_NONE_ .<br>This parameter is optional.<br><br>One of:<br>* N or NX_FREQUENCY_NONE<br>* V or NX_FREQUENCY_VALUE<br>* P or NX_FREQUENCY_PERCENT<br>* R or NX_FREQUENCY_RELATIVE |
+| `qFrequencyMode` | string | Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.<br>Default is _NX_FREQUENCY_NONE_ .<br>This parameter is optional.<br><br>One of:<br>- N or NX_FREQUENCY_NONE<br>- V or NX_FREQUENCY_VALUE<br>- P or NX_FREQUENCY_PERCENT<br>- R or NX_FREQUENCY_RELATIVE |
 | `qShowAlternatives` | boolean | If set to true, alternative values are allowed in _qData_ .<br>If set to false, no alternative values are displayed in _qData_ . Values are excluded instead.<br>The default value is false.<br>Note that on the contrary, the _qStateCounts_ parameter counts the excluded values as alternative values.<br>This parameter is optional. |
 | `qInitialDataFetch` | array&lt;[`NxPage`](#nxpage)> | Fetches an initial data set. |
 | `qExpressions` | array&lt;[`NxListObjectExpressionDef`](#nxlistobjectexpressiondef)> | Lists the expressions in the list object.<br>This parameter is optional. |
@@ -877,11 +877,11 @@ _No description._
 | `qDateFmt` | string | Date format.<br>Example: _YYYY-MM-DD_ |
 | `qTimestampFmt` | string | Time stamp format.<br>Example: _YYYY-MM-DD hh:mm:ss[.fff]_ |
 | `qCalendarStrings` | [`CalendarStrings`](#calendarstrings) | Information about the calendar. |
-| `qFirstWeekDay` | integer | First day of the week, starting from 0.<br>According to ISO 8601, _Monday_ is the first day of the week.<br>* 0 = Monday<br>* 1 = Tuesday<br>* ...<br>* 6 = Sunday<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
+| `qFirstWeekDay` | integer | First day of the week, starting from 0.<br>According to ISO 8601, _Monday_ is the first day of the week.<br>- 0 = Monday<br>- 1 = Tuesday<br>- ...<br>- 6 = Sunday<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qBrokenWeeks` | boolean | Is set to true if broken weeks are allowed in a year.<br>According to ISO 8601, no broken weeks should be allowed.<br>This property is not shown if set to false.<br>If _qBrokenWeeks_ is set to true, _qReferenceDay_ is irrelevant.<br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qReferenceDay` | integer | Day in the year that is always in week 1.<br>According to ISO 8601, January 4th should always be part of the first week of the year ( _qReferenceDay_ =4).<br>Recommended values are in the range 1 and 7.<br>If this property has not been set in a script, the returned value comes from the Windows operating system.<br>This property is not relevant if there are broken weeks in the year. |
-| `qFirstMonthOfYear` | integer | First month of the year, starting from 1.<br>According to ISO 8601, _January_ is the first month of the year.<br>* 1 = January<br>* 2 = February<br>* 12 = January<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
-| `qCollation` | string | Locale name (following language tagging convention RFC 4646):<br>_&lt; language&gt;-&lt;REGION&gt;_<br>Where:<br>* _language_ is a lowercase ISO  639 language code<br>* _REGION_ specifies an uppercase ISO 3166 country code.<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
+| `qFirstMonthOfYear` | integer | First month of the year, starting from 1.<br>According to ISO 8601, _January_ is the first month of the year.<br>- 1 = January<br>- 2 = February<br>- 12 = January<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
+| `qCollation` | string | Locale name (following language tagging convention RFC 4646):<br>_&lt; language&gt;-&lt;REGION&gt;_<br>Where:<br>- _language_ is a lowercase ISO  639 language code<br>- _REGION_ specifies an uppercase ISO 3166 country code.<br><br>If this property has not been set in a script, the returned value comes from the Windows operating system. |
 | `qNumericalAbbreviation` | string | Number format.<br>Example: 3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y |
 
 ## `MeasureList`
@@ -916,8 +916,8 @@ In addition, this structure can return dynamic properties.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qUrlDef` | string | Relative path to the media file. The URL is static.<br>Media files located:<br>* in the _/content/default/_ folder are outside the qvf file.<br>* in the _/media/ folder_ are embedded in the qvf file. |
-| `qUrl` | string | Relative path to the media file.<br>Media files located:<br>* in the _/content/default/_ folder are outside the qvf file.<br>* in the _/media/ folder_ are embedded in the qvf file. |
+| `qUrlDef` | string | Relative path to the media file. The URL is static.<br>Media files located:<br>- in the _/content/default/_ folder are outside the qvf file.<br>- in the _/media/ folder_ are embedded in the qvf file. |
+| `qUrl` | string | Relative path to the media file.<br>Media files located:<br>- in the _/content/default/_ folder are outside the qvf file.<br>- in the _/media/ folder_ are embedded in the qvf file. |
 
 ## `NxAppLayout`
 
@@ -1074,8 +1074,8 @@ _No description._
 | ---- | ---- | ----------- |
 | `qText` | string | Some text.<br>This parameter is optional. |
 | `qNum` | number | A value.<br>This parameter is optional. |
-| `qElemNumber` | integer | Rank number of the value, starting from 0.<br>If the element number is a negative number, it means that the returned value is not an element number.<br>You can get the following negative values:<br>* -1: the cell is a _Total_ cell. It shows a total.<br>* -2: the cell is collapsed. Applies to pivot tables.<br>* -3: the cell belongs to the group _Others_ .<br>* -4: the cell is empty. Applies to pivot tables. |
-| `qState` | string | State of the value.<br>The default state for a measure is L.<br><br>One of:<br>* L or LOCKED<br>* S or SELECTED<br>* O or OPTION<br>* D or DESELECTED<br>* A or ALTERNATIVE<br>* X or EXCLUDED<br>* XS or EXCL_SELECTED<br>* XL or EXCL_LOCKED<br>* NSTATES |
+| `qElemNumber` | integer | Rank number of the value, starting from 0.<br>If the element number is a negative number, it means that the returned value is not an element number.<br>You can get the following negative values:<br>- -1: the cell is a _Total_ cell. It shows a total.<br>- -2: the cell is collapsed. Applies to pivot tables.<br>- -3: the cell belongs to the group _Others_ .<br>- -4: the cell is empty. Applies to pivot tables. |
+| `qState` | string | State of the value.<br>The default state for a measure is L.<br><br>One of:<br>- L or LOCKED<br>- S or SELECTED<br>- O or OPTION<br>- D or DESELECTED<br>- A or ALTERNATIVE<br>- X or EXCLUDED<br>- XS or EXCL_SELECTED<br>- XL or EXCL_LOCKED<br>- NSTATES |
 | `qIsEmpty` | boolean | Is set to _true_ , if **qText** and **qNum** are empty.<br>This parameter is optional. The default value is _false_ . |
 | `qIsTotalCell` | boolean | Is set to _true_ if a total is displayed in the cell.<br>This parameter is optional. The default value is _false_ .<br>Not applicable to list objects. |
 | `qIsOtherCell` | boolean | Is set to _true_ if the cell belongs to the group _Others_ .<br>Dimension values can be set as _Others_ depending on what has been defined in **OtherTotalSpecProp** .<br>This parameter is optional. The default value is _false_ .<br>Not applicable to list objects. |
@@ -1210,7 +1210,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qId` | string | Identifier of the group. |
 | `qName` | string | Name of the derived group. |
-| `qGrouping` | string | Grouping type.<br>The grouping should be either H or C (Grouping is mandatory for derived definitions).<br>The parameter is mandatory.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Grouping type.<br>The grouping should be either H or C (Grouping is mandatory for derived definitions).<br>The parameter is mandatory.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array&lt;string> | List of the derived fields in the group. |
 
 ## `NxDimension`
@@ -1226,8 +1226,8 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the dimension is
 | `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
 | `qShowTotal` | boolean | _No description._ |
 | `qShowAll` | boolean | If set to true, all dimension values are shown. |
-| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
-| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
+| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>- &lt; _label_ &gt; is the label of the _Others_ group. |
+| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>- &lt; _label_ &gt; is the label of the _Total_ group. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.<br>If the calculation condition is not met, the dimension is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | array&lt;[`NxAttrExprDef`](#nxattrexprdef)> | List of attribute expressions. |
 | `qAttributeDimensions` | array&lt;[`NxAttrDimDef`](#nxattrdimdef)> | List of attribute dimensions. |
@@ -1243,15 +1243,15 @@ _No description._
 | `qApprMaxGlyphCount` | integer | Length of the longest value in the field. |
 | `qCardinal` | integer | Number of distinct field values. |
 | `qLocked` | boolean | Is set to true if the field is locked. |
-| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
+| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>- N or NX_SORT_INDICATE_NONE<br>- A or NX_SORT_INDICATE_ASC<br>- D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array&lt;string> | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
 | `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups. |
 | `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qTags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
-| `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
+| `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>- D or NX_DIMENSION_TYPE_DISCRETE<br>- N or NX_DIMENSION_TYPE_NUMERIC<br>- T or NX_DIMENSION_TYPE_TIME |
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
-| `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Defines the grouping.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
@@ -1363,7 +1363,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array&lt;string> | Array of field names.<br>When creating a grouped dimension, more than one field name is defined.<br>This parameter is optional. |
 | `qFieldLabels` | array&lt;string> | Array of field labels.<br>This parameter is optional. |
 | `qSortCriterias` | array&lt;[`SortCriteria`](#sortcriteria)> | Defines the sorting criteria in the field.<br>Default is to sort by alphabetical order, ascending.<br>This parameter is optional. |
@@ -1381,7 +1381,7 @@ _No description._
 | `qLabel` | string | Name of the measure.<br>An empty string is returned as a default value.<br>This parameter is optional. |
 | `qDescription` | string | Description of the measure.<br>An empty string is returned as a default value.<br>This parameter is optional. |
 | `qTags` | array&lt;string> | Name connected to the measure that is used for search purposes.<br>A measure can have several tags.<br>This parameter is optional. |
-| `qGrouping` | string | Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qDef` | string | Definition of the expression in the measure.<br>Example: _Sum (OrderTotal)_<br>This parameter is mandatory. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qRelative` | boolean | If set to true, percentage values are returned instead of absolute numbers.<br>Default value is false.<br>This parameter is optional. |
@@ -1407,7 +1407,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGrouping` | string | Information about the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Information about the grouping.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array&lt;string> | Array of dimension names. |
 | `qFieldLabels` | array&lt;string> | Array of dimension labels. |
 | `qLabelExpression` | string | _No description._ |
@@ -1418,7 +1418,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGrouping` | string | Information about the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Information about the grouping.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qFieldDefs` | array&lt;string> | Array of dimension names. |
 | `qFieldLabels` | array&lt;string> | Array of dimension labels. |
 | `qLabelExpression` | string | _No description._ |
@@ -1431,7 +1431,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qLabel` | string | _No description._ |
 | `qDef` | string | _No description._ |
-| `qGrouping` | string | <br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | <br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qExpressions` | array&lt;string> | _No description._ |
 | `qActiveExpression` | integer | _No description._ |
 | `qLabelExpression` | string | _No description._ |
@@ -1444,7 +1444,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qLabel` | string | Label of the measure. |
 | `qDef` | string | Definition of the measure. |
-| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qExpressions` | array&lt;string> | Array of expressions. |
 | `qActiveExpression` | integer | Index to the active expression in a measure. |
 | `qLabelExpression` | string | _No description._ |
@@ -1510,7 +1510,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qFallbackTitle` | string | Corresponds to the label of the measure.<br>If the label is not defined then the measure name is used. |
 | `qApprMaxGlyphCount` | integer | Length of the longest value in the field. |
 | `qCardinal` | integer | Number of distinct field values. |
-| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
+| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>- N or NX_SORT_INDICATE_NONE<br>- A or NX_SORT_INDICATE_ASC<br>- D or NX_SORT_INDICATE_DESC |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qMin` | number | Lowest value in the range. |
 | `qMax` | number | Highest value in the range. |
@@ -1578,7 +1578,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOp` | string | Operation to perform.<br><br>One of:<br>* add or Add<br>* remove or Remove<br>* replace or Replace |
+| `qOp` | string | Operation to perform.<br><br>One of:<br>- add or Add<br>- remove or Remove<br>- replace or Replace |
 | `qPath` | string | Path to the property to add, remove or replace. |
 | `qValue` | string | This parameter is not used in a remove operation.<br>Corresponds to the value of the property to add or to the new value of the property to update.<br>Examples:<br>"false", "2", "\"New title\"" |
 
@@ -1593,7 +1593,7 @@ _No description._
 | `qValue` | number | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qCanExpand` | boolean | If set to true, it means that the cell can be expanded.<br>This parameter is not returned if it is set to false. |
 | `qCanCollapse` | boolean | If set to true, it means that the cell can be collapsed.<br>This parameter is not returned if it is set to false. |
-| `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
+| `qType` | string | Type of the cell.<br><br>One of:<br>- V or NX_DIM_CELL_VALUE<br>- E or NX_DIM_CELL_EMPTY<br>- N or NX_DIM_CELL_NORMAL<br>- T or NX_DIM_CELL_TOTAL<br>- O or NX_DIM_CELL_OTHER<br>- A or NX_DIM_CELL_AGGR<br>- P or NX_DIM_CELL_PSEUDO<br>- R or NX_DIM_CELL_ROOT<br>- U or NX_DIM_CELL_NULL<br>- G or NX_DIM_CELL_GENERATED |
 | `qUp` | integer | Number of elements that are part of the previous tail.<br>This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ . |
 | `qDown` | integer | Number of elements that are part of the next tail.<br>This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ . |
 | `qSubNodes` | array&lt;[`NxPivotDimensionCell`](#nxpivotdimensioncell)> | Information about sub nodes (or sub cells).<br>The array is empty _[ ]_ when there is no sub nodes. |
@@ -1620,7 +1620,7 @@ _No description._
 | `qLabel` | string | Label of the cell.<br>This parameter is optional. |
 | `qText` | string | Some text related to the cell. |
 | `qNum` | number | Value of the cell. |
-| `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
+| `qType` | string | Type of the cell.<br><br>One of:<br>- V or NX_DIM_CELL_VALUE<br>- E or NX_DIM_CELL_EMPTY<br>- N or NX_DIM_CELL_NORMAL<br>- T or NX_DIM_CELL_TOTAL<br>- O or NX_DIM_CELL_OTHER<br>- A or NX_DIM_CELL_AGGR<br>- P or NX_DIM_CELL_PSEUDO<br>- R or NX_DIM_CELL_ROOT<br>- U or NX_DIM_CELL_NULL<br>- G or NX_DIM_CELL_GENERATED |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expressions values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | _No description._ |
 
@@ -1648,9 +1648,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | Type of cells to select.<br><br>One of:<br>* D or NX_CELL_DATA<br>* T or NX_CELL_TOP<br>* L or NX_CELL_LEFT |
-| `qCol` | integer | Column index to select.<br>Indexing starts from 0.<br>If the cell's type is:<br>* D, the index is based on the data matrix.<br>* T, the index is based on the data matrix.<br>* L, the index is based on the left dimensions indexes. |
-| `qRow` | integer | Row index to select.<br>Indexing starts from 0.<br>If the cell's type is:<br>* D, the index is based on the data matrix.<br>* T, the index is based on the top dimensions indexes.<br>* L, the index is based on the data matrix. |
+| `qType` | string | Type of cells to select.<br><br>One of:<br>- D or NX_CELL_DATA<br>- T or NX_CELL_TOP<br>- L or NX_CELL_LEFT |
+| `qCol` | integer | Column index to select.<br>Indexing starts from 0.<br>If the cell's type is:<br>- D, the index is based on the data matrix.<br>- T, the index is based on the data matrix.<br>- L, the index is based on the left dimensions indexes. |
+| `qRow` | integer | Row index to select.<br>Indexing starts from 0.<br>If the cell's type is:<br>- D, the index is based on the data matrix.<br>- T, the index is based on the top dimensions indexes.<br>- L, the index is based on the data matrix. |
 
 ## `NxSelectionInfo`
 
@@ -1699,7 +1699,7 @@ _No description._
 | `qValue` | number | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qCanExpand` | boolean | If set to true, it means that the cell can be expanded.<br>This parameter is not returned if it is set to false. |
 | `qCanCollapse` | boolean | If set to true, it means that the cell can be collapsed.<br>This parameter is not returned if it is set to false. |
-| `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
+| `qType` | string | Type of the cell.<br><br>One of:<br>- V or NX_DIM_CELL_VALUE<br>- E or NX_DIM_CELL_EMPTY<br>- N or NX_DIM_CELL_NORMAL<br>- T or NX_DIM_CELL_TOTAL<br>- O or NX_DIM_CELL_OTHER<br>- A or NX_DIM_CELL_AGGR<br>- P or NX_DIM_CELL_PSEUDO<br>- R or NX_DIM_CELL_ROOT<br>- U or NX_DIM_CELL_NULL<br>- G or NX_DIM_CELL_GENERATED |
 | `qMaxPos` | number | Total of the positive values in the current group of cells. |
 | `qMinNeg` | number | Total of the negative values in the current group of cells. |
 | `qUp` | integer | Number of elements that are part of the previous tail. |
@@ -1769,8 +1769,8 @@ _No description._
 | `qNullSuppression` | boolean | If set to true, no null values are returned. |
 | `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | Sets the dimension limits. Each dimension of a hypercube is configured separately.<br>Defines if some values (grouped as _Others_ ) should be grouped together in the visualization.<br>For example in a pie chart all values lower than 200 could be grouped together. |
 | `qShowAll` | boolean | If set to true, all dimension values are shown. |
-| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Others_ group. |
-| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>* &lt; _label_ &gt; is the label of the _Total_ group. |
+| `qOtherLabel` | [`StringExpr`](#stringexpr) | This property is used when some dimension limits are set.<br>Label of the _Others_ group. The default label is _Others_ .<br>Example:<br>_"qOtherLabel":"= &lt;label&gt;"_<br>or<br>_"qOtherLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>- &lt; _label_ &gt; is the label of the _Others_ group. |
+| `qTotalLabel` | [`StringExpr`](#stringexpr) | If this property is set, the total of the calculated values is returned.<br>The default label is _Total_ .<br>Example:<br>_"qTotalLabel":"= &lt;label&gt;"_<br>or<br>_"qTotalLabel":{"qExpr":"= &lt;label&gt;"}_<br>Where:<br>- &lt; _label_ &gt; is the label of the _Total_ group. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qAttributeExpressions` | array&lt;[`NxAttrExprDef`](#nxattrexprdef)> | List of attribute expressions. |
 | `qAttributeDimensions` | array&lt;[`NxAttrDimDef`](#nxattrdimdef)> | List of attribute dimensions. |
@@ -1787,15 +1787,15 @@ _No description._
 | `qApprMaxGlyphCount` | integer | Length of the longest value in the field. |
 | `qCardinal` | integer | Number of distinct field values. |
 | `qLocked` | boolean | Is set to true if the field is locked. |
-| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>* N or NX_SORT_INDICATE_NONE<br>* A or NX_SORT_INDICATE_ASC<br>* D or NX_SORT_INDICATE_DESC |
+| `qSortIndicator` | string | Sort indicator.<br>The default value is no sorting.<br>This parameter is optional.<br><br>One of:<br>- N or NX_SORT_INDICATE_NONE<br>- A or NX_SORT_INDICATE_ASC<br>- D or NX_SORT_INDICATE_DESC |
 | `qGroupFallbackTitles` | array&lt;string> | Array of dimension labels.<br>Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group). |
 | `qGroupPos` | integer | Index of the dimension that is currently in use.<br>_qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups. |
 | `qStateCounts` | [`NxStateCounts`](#nxstatecounts) | Number of values in a particular state. |
 | `qTags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field.<br>Examples: key, text, ASCII |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | This parameter is optional.<br>Gives information on the error. |
-| `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>* D or NX_DIMENSION_TYPE_DISCRETE<br>* N or NX_DIMENSION_TYPE_NUMERIC<br>* T or NX_DIMENSION_TYPE_TIME |
+| `qDimensionType` | string | Binary format of the field.<br><br>One of:<br>- D or NX_DIMENSION_TYPE_DISCRETE<br>- N or NX_DIMENSION_TYPE_NUMERIC<br>- T or NX_DIMENSION_TYPE_TIME |
 | `qReverseSort` | boolean | If set to true, it inverts the sort criteria in the field. |
-| `qGrouping` | string | Defines the grouping.<br><br>One of:<br>* N or GRP_NX_NONE<br>* H or GRP_NX_HIEARCHY<br>* C or GRP_NX_COLLECTION |
+| `qGrouping` | string | Defines the grouping.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qIsSemantic` | boolean | If set to true, it means that the field is a semantic. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | Format of the field.<br>This parameter is optional. |
 | `qIsAutoFormat` | boolean | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition. |
@@ -1836,7 +1836,7 @@ Represents a dimension in the tree.
 | `qNodeNr` | integer | A generated number applicable to this page only. Used so that children can easily identify who their parents are. |
 | `qParentNode` | integer | The qNodeNr of this node's parent for the current page. |
 | `qRow` | integer | Row index in the data matrix.<br>The indexing starts from 0. |
-| `qType` | string | Type of the cell.<br><br>One of:<br>* V or NX_DIM_CELL_VALUE<br>* E or NX_DIM_CELL_EMPTY<br>* N or NX_DIM_CELL_NORMAL<br>* T or NX_DIM_CELL_TOTAL<br>* O or NX_DIM_CELL_OTHER<br>* A or NX_DIM_CELL_AGGR<br>* P or NX_DIM_CELL_PSEUDO<br>* R or NX_DIM_CELL_ROOT<br>* U or NX_DIM_CELL_NULL<br>* G or NX_DIM_CELL_GENERATED |
+| `qType` | string | Type of the cell.<br><br>One of:<br>- V or NX_DIM_CELL_VALUE<br>- E or NX_DIM_CELL_EMPTY<br>- N or NX_DIM_CELL_NORMAL<br>- T or NX_DIM_CELL_TOTAL<br>- O or NX_DIM_CELL_OTHER<br>- A or NX_DIM_CELL_AGGR<br>- P or NX_DIM_CELL_PSEUDO<br>- R or NX_DIM_CELL_ROOT<br>- U or NX_DIM_CELL_NULL<br>- G or NX_DIM_CELL_GENERATED |
 | `qValues` | array&lt;[`NxTreeValue`](#nxtreevalue)> | The measures for this node. |
 | `qNodes` | array&lt;[`NxTreeNode`](#nxtreenode)> | The children of this node in the tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expression values. |
@@ -1887,7 +1887,7 @@ _No description._
 | `qDescription` | string | Description of the variable. |
 | `qDefinition` | string | Definition of the variable. It can be a value or an expression. |
 | `qIsConfig` | boolean | If set to true, it means that the variable is a system variable.<br>A system variable provides information about the system and is set by the engine. The content cannot be changed by the user.<br>This parameter is optional.<br>The default value is false. |
-| `qIsReserved` | boolean | If set to true, it means that the variable is reserved.<br>The default value is false.<br>This parameter is optional.<br>Examples:<br>* _ScriptError_ is a reserved variable, set by the engine.<br>* _DayNames_ is a reserved variable, set by the user. |
+| `qIsReserved` | boolean | If set to true, it means that the variable is reserved.<br>The default value is false.<br>This parameter is optional.<br>Examples:<br>- _ScriptError_ is a reserved variable, set by the engine.<br>- _DayNames_ is a reserved variable, set by the user. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information about publishing and permissions.<br>This parameter is optional. |
 | `qInfo` | [`NxInfo`](#nxinfo) | Identifier and type of the object.<br>This parameter is mandatory. |
 | `qData` | [`JsonObject`](#jsonobject) | Data. |
@@ -1953,17 +1953,17 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qOtherMode` | string | Determines how many dimension values are displayed.<br>The default value is _OTHER_OFF_ .<br><br>One of:<br>* OTHER_OFF<br>* OTHER_COUNTED<br>* OTHER_ABS_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>* OTHER_REL_LIMITED<br>* OTHER_REL_ACC_TARGET |
+| `qOtherMode` | string | Determines how many dimension values are displayed.<br>The default value is _OTHER_OFF_ .<br><br>One of:<br>- OTHER_OFF<br>- OTHER_COUNTED<br>- OTHER_ABS_LIMITED<br>- OTHER_ABS_ACC_TARGET<br>- OTHER_REL_LIMITED<br>- OTHER_REL_ACC_TARGET |
 | `qOtherCounted` | [`ValueExpr`](#valueexpr) | Number of values to display. The number of values can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to _OTHER_COUNTED_ . |
-| `qOtherLimit` | [`ValueExpr`](#valueexpr) | Value used to limit the dimension values. The limit can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET |
-| `qOtherLimitMode` | string | Sets the limit for the _Others_ mode.<br>This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>One of:<br>* OTHER_GE_LIMIT<br>* OTHER_LE_LIMIT<br>* OTHER_GT_LIMIT<br>* OTHER_LT_LIMIT |
+| `qOtherLimit` | [`ValueExpr`](#valueexpr) | Value used to limit the dimension values. The limit can be entered as a calculated formula.<br>This parameter is used when _qOtherMode_ is set to:<br>- OTHER_ABS_LIMITED<br>- OTHER_REL_LIMITED<br>- OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET |
+| `qOtherLimitMode` | string | Sets the limit for the _Others_ mode.<br>This parameter is used when _qOtherMode_ is set to:<br>- OTHER_ABS_LIMITED<br>- OTHER_REL_LIMITED<br>- OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>One of:<br>- OTHER_GE_LIMIT<br>- OTHER_LE_LIMIT<br>- OTHER_GT_LIMIT<br>- OTHER_LT_LIMIT |
 | `qSuppressOther` | boolean | If set to true, the group _Others_ is not displayed as a dimension value.<br>The default value is false. |
-| `qForceBadValueKeeping` | boolean | This parameter is used when _qOtherMode_ is set to:<br>* OTHER_ABS_LIMITED<br>* OTHER_REL_LIMITED<br>* OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>and when the dimension values include not numeric values.<br>Set this parameter to true to include text values in the returned values.<br>The default value is true. |
+| `qForceBadValueKeeping` | boolean | This parameter is used when _qOtherMode_ is set to:<br>- OTHER_ABS_LIMITED<br>- OTHER_REL_LIMITED<br>- OTHER_ABS_ACC_TARGET<br>OTHER_REL_ACC_TARGET<br><br>and when the dimension values include not numeric values.<br>Set this parameter to true to include text values in the returned values.<br>The default value is true. |
 | `qApplyEvenWhenPossiblyWrongResult` | boolean | Set this parameter to true to allow the calculation of _Others_ even if the engine detects some potential mistakes.<br>For example the country Russia is part of the continent Europe and Asia. If you have an hypercube with two dimensions Country and Continent and one measure Population, the engine can detect that the population of Russia is included in both the continent Asia and Europe.<br>The default value is true. |
 | `qGlobalOtherGrouping` | boolean | This parameter applies to inner dimensions.<br>If this parameter is set to true, the restrictions are calculated on the selected dimension only. All previous dimensions are ignored.<br>The default value is false. |
 | `qOtherCollapseInnerDimensions` | boolean | If set to true, it collapses the inner dimensions (if any) in the group _Others_ .<br>The default value is false. |
-| `qOtherSortMode` | string | Defines the sort order of the dimension values.<br>The default value is _OTHER_SORT_DESCENDING_ .<br><br>One of:<br>* OTHER_SORT_DEFAULT<br>* OTHER_SORT_DESCENDING<br>* OTHER_SORT_ASCENDING |
-| `qTotalMode` | string | If set to _TOTAL_EXPR_ , the total of the dimension values is returned.<br>The default value is _TOTAL_OFF_ .<br><br>One of:<br>* TOTAL_OFF<br>* TOTAL_EXPR |
+| `qOtherSortMode` | string | Defines the sort order of the dimension values.<br>The default value is _OTHER_SORT_DESCENDING_ .<br><br>One of:<br>- OTHER_SORT_DEFAULT<br>- OTHER_SORT_DESCENDING<br>- OTHER_SORT_ASCENDING |
+| `qTotalMode` | string | If set to _TOTAL_EXPR_ , the total of the dimension values is returned.<br>The default value is _TOTAL_OFF_ .<br><br>One of:<br>- TOTAL_OFF<br>- TOTAL_EXPR |
 | `qReferencedExpression` | [`StringExpr`](#stringexpr) | This parameter applies when there are several measures.<br>Name of the measure to use for the calculation of _Others_ for a specific dimension. |
 
 ## `Point`
@@ -2086,9 +2086,9 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSearchFields` | array&lt;string> | List of the search fields.<br>If empty, the search is performed in all fields of the app. |
-| `qContext` | string | Search context.<br>The default value is _LockedFieldsOnly_ .<br><br>One of:<br>* Cleared or CONTEXT_CLEARED<br>* LockedFieldsOnly or CONTEXT_LOCKED_FIELDS_ONLY<br>* CurrentSelections or CONTEXT_CURRENT_SELECTIONS |
-| `qCharEncoding` | string | Encoding used to compute qRanges of type SearchCharRange.<br>Only affects the computation of the ranges. It does not impact the encoding of the text.<br><br>One of:<br>* Utf8 or CHAR_ENCODING_UTF8<br>* Utf16 or CHAR_ENCODING_UTF16 |
-| `qAttributes` | array&lt;string> | Optional.<br>* For SearchSuggest method, this array is empty.<br>* For SearchObjects method, this array is empty or contain _qProperty_ .<br>* For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted [`SearchGroupItemMatch`](#searchgroupitemmatch) . For more information, see [`SearchGroupItemMatch`](#searchgroupitemmatch). |
+| `qContext` | string | Search context.<br>The default value is _LockedFieldsOnly_ .<br><br>One of:<br>- Cleared or CONTEXT_CLEARED<br>- LockedFieldsOnly or CONTEXT_LOCKED_FIELDS_ONLY<br>- CurrentSelections or CONTEXT_CURRENT_SELECTIONS |
+| `qCharEncoding` | string | Encoding used to compute qRanges of type SearchCharRange.<br>Only affects the computation of the ranges. It does not impact the encoding of the text.<br><br>One of:<br>- Utf8 or CHAR_ENCODING_UTF8<br>- Utf16 or CHAR_ENCODING_UTF16 |
+| `qAttributes` | array&lt;string> | Optional.<br>- For SearchSuggest method, this array is empty.<br>- For SearchObjects method, this array is empty or contain _qProperty_ .<br>- For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted [`SearchGroupItemMatch`](#searchgroupitemmatch) . For more information, see [`SearchGroupItemMatch`](#searchgroupitemmatch). |
 
 ## `SearchFieldDictionary`
 
@@ -2117,7 +2117,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qId` | integer | Identifier of the search group. |
-| `qGroupType` | string | Type of the search group.<br><br>One of:<br>* DatasetType or DATASET_GROUP<br>* GenericObjectsType or GENERIC_OBJECTS_GROUP |
+| `qGroupType` | string | Type of the search group.<br><br>One of:<br>- DatasetType or DATASET_GROUP<br>- GenericObjectsType or GENERIC_OBJECTS_GROUP |
 | `qSearchTermsMatched` | array&lt;integer> | Indexes of the search terms that are included in the group. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ . |
 | `qTotalNumberOfItems` | integer | Total number of distinct items in the search group. |
 | `qItems` | array&lt;[`SearchGroupItem`](#searchgroupitem)> | List of items in the search group.<br>The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_ |
@@ -2128,9 +2128,9 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qItemType` | string | Type of the group item.<br><br>One of:<br>* Field or FIELD<br>* GenericObject or GENERIC_OBJECT |
+| `qItemType` | string | Type of the group item.<br><br>One of:<br>- Field or FIELD<br>- GenericObject or GENERIC_OBJECT |
 | `qTotalNumberOfMatches` | integer | Total number of distinct matches in the search group item. |
-| `qIdentifier` | string | Identifier of the item.<br>It corresponds to:<br>* The name of the field, if the type of the search group is data set.<br>* The id of the generic object if the type of the search group is generic object. |
+| `qIdentifier` | string | Identifier of the item.<br>It corresponds to:<br>- The name of the field, if the type of the search group is data set.<br>- The id of the generic object if the type of the search group is generic object. |
 | `qItemMatches` | array&lt;[`SearchGroupItemMatch`](#searchgroupitemmatch)> | List of matches in the search group item.<br>The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ . |
 | `qSearchTermsMatched` | array&lt;integer> | Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ . |
 
@@ -2150,7 +2150,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGroupItemType` | string | Type of the group item. Can be:<br>* GenericObject: the type of the search group item is a generic object. Group items have this type when you are calling _SearchObjects_ .<br>* Field: the type of the search group item is a field. Group items have this type when you are calling _SearchResults_ .<br><br>One of:<br>* Field or FIELD<br>* GenericObject or GENERIC_OBJECT |
+| `qGroupItemType` | string | Type of the group item. Can be:<br>- GenericObject: the type of the search group item is a generic object. Group items have this type when you are calling _SearchObjects_ .<br>- Field: the type of the search group item is a field. Group items have this type when you are calling _SearchResults_ .<br><br>One of:<br>- Field or FIELD<br>- GenericObject or GENERIC_OBJECT |
 | `qOffset` | integer | Position starting from 0.<br>The default value is 0. |
 | `qCount` | integer | Maximum number of matches per item (in _qItemMatches[ ]_ ).<br>The default value is -1: all values are returned. |
 
@@ -2160,7 +2160,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qGroupType` | string | Type of the group. Can be:<br>* GenericObjectType: the type of the search group item is a generic object. Groups have this type when you are calling _SearchObjects_ .<br>* DatasetType: type of the search group item is a dataset association. Groups have this type when you are calling _SearchResults_ .<br><br>One of:<br>* DatasetType or DATASET_GROUP<br>* GenericObjectsType or GENERIC_OBJECTS_GROUP |
+| `qGroupType` | string | Type of the group. Can be:<br>- GenericObjectType: the type of the search group item is a generic object. Groups have this type when you are calling _SearchObjects_ .<br>- DatasetType: type of the search group item is a dataset association. Groups have this type when you are calling _SearchResults_ .<br><br>One of:<br>- DatasetType or DATASET_GROUP<br>- GenericObjectsType or GENERIC_OBJECTS_GROUP |
 | `qOffset` | integer | Position starting from 0.<br>The default value is 0. |
 | `qCount` | integer | Maximum number of items per group (in _qItems[ ]_ ).<br>The default value is -1; all values are returned. |
 
@@ -2181,7 +2181,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qAttributes` | array&lt;string> | This array is either empty or contains _qProperty_ . |
-| `qCharEncoding` | string | Encoding used to compute qRanges of type SearchCharRange.<br>Only affects the computation of the ranges. It does not impact the encoding of the text.<br><br>One of:<br>* Utf8 or CHAR_ENCODING_UTF8<br>* Utf16 or CHAR_ENCODING_UTF16 |
+| `qCharEncoding` | string | Encoding used to compute qRanges of type SearchCharRange.<br>Only affects the computation of the ranges. It does not impact the encoding of the text.<br><br>One of:<br>- Utf8 or CHAR_ENCODING_UTF8<br>- Utf16 or CHAR_ENCODING_UTF16 |
 
 ## `SearchPage`
 
@@ -2313,8 +2313,8 @@ In addition, this structure can return dynamic properties.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qUrlDef` | string | Relative path to the content file. The URL is static.<br>In Qlik Sense Enterprise, content files located:<br>* In the _/content/ &lt;content library name&gt;/_ folder are part of a global content library.<br>* In the _/appcontent/_ folder are part of the app specific library.<br>The content files are never embedded in the _qvf_ file.<br>In Qlik Sense Desktop, content files located:<br>* In the _/content/default/_ folder are outside the qvf file.<br>* In the _/media/ folder_ are embedded in the qvf file. |
-| `qUrl` | string | Relative path to the content file. The URL is static.<br>In Qlik Sense Enterprise, content files located:<br>* In the _/content/ &lt;content library name&gt;/_ folder are part of a global content library.<br>* In the _/appcontent/_ folder are part of the app specific library.<br>The content files are never embedded in the _qvf_ file.<br>In Qlik Sense Desktop, content files located:<br>* In the _/content/default/_ folder are outside the qvf file.<br>* In the _/media/ folder_ are embedded in the qvf file. |
+| `qUrlDef` | string | Relative path to the content file. The URL is static.<br>In Qlik Sense Enterprise, content files located:<br>- In the _/content/ &lt;content library name&gt;/_ folder are part of a global content library.<br>- In the _/appcontent/_ folder are part of the app specific library.<br>The content files are never embedded in the _qvf_ file.<br>In Qlik Sense Desktop, content files located:<br>- In the _/content/default/_ folder are outside the qvf file.<br>- In the _/media/ folder_ are embedded in the qvf file. |
+| `qUrl` | string | Relative path to the content file. The URL is static.<br>In Qlik Sense Enterprise, content files located:<br>- In the _/content/ &lt;content library name&gt;/_ folder are part of a global content library.<br>- In the _/appcontent/_ folder are part of the app specific library.<br>The content files are never embedded in the _qvf_ file.<br>In Qlik Sense Desktop, content files located:<br>- In the _/content/default/_ folder are outside the qvf file.<br>- In the _/media/ folder_ are embedded in the qvf file. |
 
 ## `StaticContentUrl`
 
@@ -2407,7 +2407,7 @@ _No description._
 | ---- | ---- | ----------- |
 | `qPos` | [`Rect`](#rect) | Information about the position of the dialog window.<br>Not used in Qlik Sense. |
 | `qCtlInfo` | [`TableViewCtlSaveInfo`](#tableviewctlsaveinfo) | Set of data for internal and source view modes. |
-| `qMode` | integer | View mode to display when opening Qlik Sense data model viewer.<br>One of:<br>* 0 for internal view mode.<br>* 1 for source view mode. |
+| `qMode` | integer | View mode to display when opening Qlik Sense data model viewer.<br>One of:<br>- 0 for internal view mode.<br>- 1 for source view mode. |
 
 ## `TableViewSaveInfo`
 

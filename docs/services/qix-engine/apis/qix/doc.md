@@ -110,7 +110,7 @@ Checks if a given expression is valid.<br>The expression is correct if the param
 
 ## `CheckNumberOrExpression`
 
-Checks if:<br>* A given expression is valid.<br>* A number is correct according to the locale.
+Checks if:<br>- A given expression is valid.<br>- A number is correct according to the locale.
 
 
 **Parameters:**
@@ -597,7 +597,7 @@ Reloads the script that is set in an app.<br><br>
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qMode` | integer | No | Error handling mode<br>One of:<br>* 0: for default mode.<br>* 1: for ABEND; the reload of the script ends if an error occurs.<br>* 2: for ignore; the reload of the script continues even if an error is detected in the script. |
+| `qMode` | integer | No | Error handling mode<br>One of:<br>- 0: for default mode.<br>- 1: for ABEND; the reload of the script ends if an error occurs.<br>- 2: for ignore; the reload of the script continues even if an error is detected in the script. |
 | `qPartial` | boolean | No | Set to true for partial reload.<br>The default value is false. |
 | `qDebug` | boolean | No | Set to true if debug breakpoints are to be honored. The execution of the script will be in debug mode.<br>The default value is false. |
 
@@ -804,7 +804,7 @@ _No details._
 
 ## `GetConnection`
 
-Retrieves a connection and returns:<br>* The creation time of the connection.<br>* The identifier of the connection.<br>* The type of the connection.<br>* The name of the connection.<br>* The connection string.
+Retrieves a connection and returns:<br>- The creation time of the connection.<br>- The identifier of the connection.<br>- The type of the connection.<br>- The name of the connection.<br>- The connection string.
 
 
 **Parameters:**
@@ -1076,7 +1076,7 @@ Lists the fields of a table for a folder connection.<br><br>
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qFields` | array&lt;[`DataField`](./definitions.md#datafield)> | List of the tables. |
-| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
+| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>- file type<br>- embedded labels, no labels<br>- table is &lt;table name&gt; |
 
 ## `GetFileTablePreview`
 
@@ -1097,7 +1097,7 @@ Lists the values in a table for a folder connection.<br><br>
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qPreview` | array&lt;[`DataRecord`](./definitions.md#datarecord)> | List of the tables. |
-| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>* file type<br>* embedded labels, no labels<br>* table is &lt;table name&gt; |
+| `qFormatSpec` | string | List of format specification items, within brackets.<br>Examples of specification items:<br>- file type<br>- embedded labels, no labels<br>- table is &lt;table name&gt; |
 
 ## `GetFileTables`
 
@@ -1217,7 +1217,7 @@ _No parameters._
 
 ## `GetLooselyCoupledVector`
 
-Returns a list of table states.<br><br>The following states apply:<br>* 0 The table is not loosely coupled.<br>* 1 The table is loosely coupled.<br>* 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.<br>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.
+Returns a list of table states.<br><br>The following states apply:<br>- 0 The table is not loosely coupled.<br>- 1 The table is loosely coupled.<br>- 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.<br>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.
 
 
 _No parameters._
@@ -1238,7 +1238,7 @@ Retrieves any fields that match all of the specified tags or just one of them in
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qTags` | array | Yes | List of tags.<br>The [`GetMatchingFields`](#getmatchingfields) method looks for fields that match one or all of the tags in this list, depending on the value of _qMatchingFieldMode_ . |
-| `qMatchingFieldMode` | string | No | Matching field mode.<br>The default value is MATCHINGFIELDMODE_MATCH_ALL.<br><br>One of:<br>* MATCHINGFIELDMODE_MATCH_ALL<br>* MATCHINGFIELDMODE_MATCH_ONE |
+| `qMatchingFieldMode` | string | No | Matching field mode.<br>The default value is MATCHINGFIELDMODE_MATCH_ALL.<br><br>One of:<br>- MATCHINGFIELDMODE_MATCH_ALL<br>- MATCHINGFIELDMODE_MATCH_ONE |
 
 **Returns:**
 
@@ -1398,7 +1398,7 @@ Retrieves the data of a specific table.
 
 ## `GetTablesAndKeys`
 
-Returns:<br>* The list of tables in an app and the fields inside each table.<br>* The list of derived fields.<br>* The list of key fields.
+Returns:<br>- The list of tables in an app and the fields inside each table.<br>- The list of derived fields.<br>- The list of key fields.
 
 
 **Parameters:**
@@ -1408,7 +1408,7 @@ Returns:<br>* The list of tables in an app and the fields inside each table.<br>
 | `qWindowSize` | [`Size`](./definitions.md#size) | Yes | Size of the window that is used to display the results. |
 | `qNullSize` | [`Size`](./definitions.md#size) | Yes | _No description._ |
 | `qCellHeight` | integer | Yes | Height of a cell in a table in pixels. |
-| `qSyntheticMode` | boolean | Yes | One of:<br>* _true_ for internal table viewer:<br>Shows a more detailed view on how the Qlik engine defines the relations between fields and the quality of the keys.<br>* _false_ for source table viewer:<br>Shows the natural relation between fields without reference to synthetic keys and resultant linking synthetic tables. Instead synthetic keys are represented by multiple connectors between tables. |
+| `qSyntheticMode` | boolean | Yes | One of:<br>- _true_ for internal table viewer:<br>Shows a more detailed view on how the Qlik engine defines the relations between fields and the quality of the keys.<br>- _false_ for source table viewer:<br>Shows the natural relation between fields without reference to synthetic keys and resultant linking synthetic tables. Instead synthetic keys are represented by multiple connectors between tables. |
 | `qIncludeSysVars` | boolean | Yes | If set to true, the system variables are included. |
 
 **Returns:**
@@ -1500,7 +1500,7 @@ _No parameters._
 
 ## `GuessFileType`
 
-Guesses the data format for a given file.<br>Recognized file formats are:<br>* _CSV_ for Delimited<br>* _FIX_ for Fixed Record<br>* _DIF_ for Data Interchange Format<br>* _EXCEL_BIFF_ for Microsoft Excel (XLS)<br>* _EXCEL_OOXML_ for Microsoft Excel (XLSX)<br>* _HTML_ for HTML<br>* _QVD_ for QVD file<br>* _XML_ for XML<br>* _QVX_ for QVX file<br>* _JSON_ for JSON format<br>* _KML_ for KML file<br><br>
+Guesses the data format for a given file.<br>Recognized file formats are:<br>- _CSV_ for Delimited<br>- _FIX_ for Fixed Record<br>- _DIF_ for Data Interchange Format<br>- _EXCEL_BIFF_ for Microsoft Excel (XLS)<br>- _EXCEL_OOXML_ for Microsoft Excel (XLSX)<br>- _HTML_ for HTML<br>- _QVD_ for QVD file<br>- _XML_ for XML<br>- _QVX_ for QVX file<br>- _JSON_ for JSON format<br>- _KML_ for KML file<br><br>
 
 
 **Parameters:**
@@ -1678,7 +1678,7 @@ Returns the generic objects corresponding to one or more search terms. The searc
 
 ## `SearchResults`
 
-Returns the search matches for one or more search terms.<br>Search results are organized in search groups. The type of search group indicates where the search matches come from (from data for example).<br>Each search group contains search results that correspond to a combination of search terms.<br>For example, if the search terms are _organic_ , _pasta_ , and _America_ , the possible combination of search groups are:<br>* organic<br>* pasta<br>* America<br>* organic, pasta, America<br>* organic, pasta<br>* organic, America<br>* pasta, America<br><br>For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).<br>For every search group item, there are one or several search matches. The position of the match in each search result is given.
+Returns the search matches for one or more search terms.<br>Search results are organized in search groups. The type of search group indicates where the search matches come from (from data for example).<br>Each search group contains search results that correspond to a combination of search terms.<br>For example, if the search terms are _organic_ , _pasta_ , and _America_ , the possible combination of search groups are:<br>- organic<br>- pasta<br>- America<br>- organic, pasta, America<br>- organic, pasta<br>- organic, America<br>- pasta, America<br><br>For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).<br>For every search group item, there are one or several search matches. The position of the match in each search result is given.
 
 
 **Parameters:**
@@ -1739,7 +1739,7 @@ Sends a generic command to a custom connector.<br>For more information on the co
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProvider` | string | Yes | Connector file name.<br>Command to be executed by the connector. |
-| `qCommand` | string | Yes | One of:<br>* JsonRequest<br>* GetCustomCaption<br>* IsConnected<br>* DisableQlikViewSelectButton<br>* HaveStarField |
+| `qCommand` | string | Yes | One of:<br>- JsonRequest<br>- GetCustomCaption<br>- IsConnected<br>- DisableQlikViewSelectButton<br>- HaveStarField |
 | `qMethod` | string | Yes | Method name to be used within the command.<br>The available methods depend on the chosen connector. |
 | `qParameters` | array | Yes | Parameters of the command.<br>No parameters are required. |
 | `qAppendConnection` | string | Yes | Name of the connection. |
@@ -1791,7 +1791,7 @@ _No return values._
 
 ## `SetLooselyCoupledVector`
 
-Sets a list of table states, one for each table.<br><br>The following states apply:<br>* 0 The table is not loosely coupled.<br>* 1 The table is loosely coupled.<br>* 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.
+Sets a list of table states, one for each table.<br><br>The following states apply:<br>- 0 The table is not loosely coupled.<br>- 1 The table is loosely coupled.<br>- 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.
 
 
 **Parameters:**

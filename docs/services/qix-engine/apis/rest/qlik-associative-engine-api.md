@@ -57,6 +57,7 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 | Metadata | Value |
 | -------- | ----- |
 | Stability Index | Experimental |
+| Consumes | application/octet-stream |
 | Produces | application/json |
 
 **Parameters**
