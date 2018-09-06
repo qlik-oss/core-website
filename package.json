@@ -1,0 +1,30 @@
+{
+  "name": "core-website",
+  "version": "1.0.0",
+  "description": "[![CircleCI](https://circleci.com/gh/qlik-oss/core-website.svg?style=svg)](https://circleci.com/gh/qlik-oss/core-website)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "./build.sh",
+    "serve": "http-server ./site/index.html -c-1",
+    "start": "concurrently --kill-others  \"npm:build\" \"npm:serve\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qlik-oss/core-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qlik-oss/core-website/issues"
+  },
+  "homepage": "https://github.com/qlik-oss/core-website#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "http-server": "^0.11.1"
+  }
+}

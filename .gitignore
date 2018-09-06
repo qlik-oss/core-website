@@ -7,6 +7,6 @@
 # Site generation folder
 site/
 .DS_Store
-
+node_modules/
 *.new
 mkdocs.yml.old

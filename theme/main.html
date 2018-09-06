@@ -13,6 +13,17 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 <script>
   window.addEventListener("load", function () {
+    // Register service work if browser support
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('./sw.js')
+        .then(function () {
+          console.log('Service worker registered!!');
+        }).catch(function (e) {
+          console.log('Error', e);
+        });
+    }
+
     window.cookieconsent.initialise({
       "palette": {
         "popup": {

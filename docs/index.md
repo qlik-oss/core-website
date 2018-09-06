@@ -15,7 +15,7 @@ We would love to get your feedback, how you are using Qlik Core Beta and what we
 
 Qlik Core is a development platform built on top of the Qlik Associative Engine.
 With Qlik Core, you can take advantage of the powerful associative indexing engine from Qlik
-to build your custom data exploration and data vizualization solutions.
+to build your custom data exploration and data visualization solutions.
 
 The Qlik Associative Engine differentiates from other vendors by dynamically calculating and providing associations
 based on data selections, without needing to rely on query-based analyses which are restricted to linear exploration
