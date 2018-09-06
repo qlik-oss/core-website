@@ -12,6 +12,10 @@
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 <script>
+  var link = document.createElement('link');
+    link.rel='manifest';
+    link.href = './manifest.json';
+    document.head.appendChild(link);
   window.addEventListener("load", function () {
     // Register service work if browser support
     if ('serviceWorker' in navigator) {
@@ -19,8 +23,6 @@
         .register('./sw.js')
         .then(function () {
           console.log('Service worker registered!!');
-        }).catch(function (e) {
-          console.log('Error', e);
         });
     }
 
