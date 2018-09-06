@@ -14,6 +14,12 @@ const PRECACHE_URLS = [
 ];
 
 function prepareCacheArray() {
+  return fetch('./files.txt').then(res =>{
+    const filesTxt = res.text();
+    console.log(filesTxt)
+  }).catch(err=>{
+    console.log('err', err)
+  })
   return fetch('./sitemap.xml').then(res => {
     const xmlTxt = res.text();
     return xmlTxt.then(x => {
