@@ -14,7 +14,7 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
 
 ## Starting the Qlik Associative Engine service
 
-1. Start the engine in a Docker container.
+1. Start the Qlik Associative Engine in a Docker container.
     Run the following command in a command shell:
 
     !!! Note
@@ -28,7 +28,7 @@ You must have [Node.js](https://nodejs.org/en/) and npm installed on your local 
     When you run this command, Docker builds the container and leaves it running in the background.
     If successful, you will see a message that creating the container is done.
 
-1. Verify that the dockerized engine is running.
+1. Verify that the dockerized Qlik Associative Engine is running.
 
     Run the following command in a command shell:
 
@@ -55,15 +55,15 @@ In this example, Docker builds the container from the `docker-compose.yml` file.
 This file is located in the root folder of the Getting Started with Web Platform Git repository.
 Open the [docker-compose.yml](https://github.com/qlik-oss/core-get-started/blob/master/docker-compose.yml)
 file to see what the compose file looks like.
-It specifies how the engine runs as a Docker container, using the `qlik/engine` Docker image.
+It specifies how the Qlik Associative Engine runs as a Docker container, using the `qlik/engine` Docker image.
 
 !!! Tip
     To learn more about Docker compose files, see [Compose file](https://docs.docker.com/compose/compose-file/).
 
 ## Communicating with the Qlik Associative Engine
 
-To communicate with the engine in a Docker container, we use a small node.js application that uses
-[enigma.js](https://github.com/qlik-oss/enigma.js) to retrieve the engine version number.
+To communicate with the Qlik Associative Engine in a Docker container, we use a small node.js application that uses
+[enigma.js](https://github.com/qlik-oss/enigma.js) to retrieve the Qlik Associative Engine version number.
 
 The application consists of the hello-engine.js file and the package-json file,
 which is also shared among the Hello Data and Hello Visualization tutorials.
@@ -87,7 +87,7 @@ which is also shared among the Hello Data and Hello Visualization tutorials.
     ```
 
     This command runs the application, which communicates with Qlik Associative Engine and retrieves the
-    engine semantic version.
+    Qlik Associative Engine semantic version.
     If successful, you will see a response like the following:
 
     ```bash
