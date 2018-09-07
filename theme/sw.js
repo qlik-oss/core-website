@@ -3,43 +3,44 @@ const cacheName = 'core-pwa';
 const PRECACHE_URLS = [
   '404.html',
   './',
-  'https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono',
+  '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono',
   '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css',
   '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js',
+  // 'https://www.google-analytics.com/analytics.js',
+  '//unpkg.com/enigma.js@2.2.1/enigma.min.js',
   'stylesheets/custom-style.css',
   'stylesheets/downloads.css',
-  'javascripts/extra.js',
-  'https://unpkg.com/enigma.js@2.2.1/enigma.min.js',
   'javascripts/downloads.js',
+  'javascripts/extra.js',
 ];
 
-function prepareCacheArray() {
-  return fetch('./files.txt').then(res =>{
-    const filesTxt = res.text();
-    console.log(filesTxt)
-  }).catch(err=>{
-    console.log('err', err)
-  })
+function _getStaticFilesArray() {
+  return fetch('./files.txt').then(res => {
+    return res.text().then(filesTxt => {
+      return filesTxt.split(/\r?\n/).map(fileStr => {
+        return fileStr.replace('./site', '');
+      }).filter(x => x !== '');
+    });
+  });
+}
+
+function _getSiteMapArray() {
   return fetch('./sitemap.xml').then(res => {
-    const xmlTxt = res.text();
-    return xmlTxt.then(x => {
-      const extractedLoc = x.match(/<loc>[^<]*<\/loc>/gi).map(loc => {
+    const xmlTxtPriomise = res.text();
+    return xmlTxtPriomise.then(xmlStr => {
+      const extractedLoc = xmlStr.match(/<loc>[^<]*<\/loc>/gi).map(loc => {
         return loc.replace(/(<loc>|<\/loc>)/g, '').replace(/(http[s]?:\/\/)?([^\/\s]+\/)/, '');
       }).filter(item => item !== '');
-      return [...PRECACHE_URLS, ...extractedLoc];
-      // doesn't work in serviceWorker
-      // const parser = new DOMParser();
-      // xmlDoc = parser.parseFromString(xmlText,"text/xml");
-      // console.log(xmlDoc)
+      return extractedLoc;
     })
   });
 }
 
-prepareCacheArray().then(cache_url => {
-  console.table(cache_url)
-});
-
-
+function prepareCacheArray() {
+  return Promise.all([_getSiteMapArray(), _getStaticFilesArray()]).then(res => {
+    return [...res[0], ...res[1], ...PRECACHE_URLS];
+  });
+}
 
 const filesAndAssetsToCache = [];
 
@@ -60,11 +61,10 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  //Network First startegy - Network falling back to cache
   event.respondWith(
-    caches.open(cacheName)
-      .then(cache => cache.match(event.request, { ignoreSearch: true }))
-      .then(response => {
-        return response || fetch(event.request);
-      })
+    fetch(event.request).catch(function() {
+      return caches.match(event.request);
+    })
   );
 });

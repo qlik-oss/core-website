@@ -12,18 +12,11 @@ if [[ "$OS" == "Windows_NT" ]]; then
   pwd=/$(pwd -W)
 fi
 
-$docker_cmd run --rm -it --name mkdocs -v $pwd:/docs squidfunk/mkdocs-material:3.0.3 build -v > build_log.txt
+$docker_cmd run --rm -it --name mkdocs -v $pwd:/docs squidfunk/mkdocs-material:3.0.3 build
 
-FILE_NAME="files.txt";
+find ./site/assets -type f -printf "%T@ %p\n" | sort -nr | cut -d\  -f2- > ./site/files.txt
+find ./site/images -type f -printf "%T@ %p\n" | sort -nr | cut -d\  -f2- >> ./site/files.txt
 
-while IFS=: read -r c1 c2; do
-  if [[ $c1 == *"Copying media file"* ]]; then
-    echo $c2 >> $FILE_NAME
-  fi
-done < build_log.txt
-
-rm "build_log.txt"
-mv $FILE_NAME site/$FILE_NAME
 
 # CONTAINER_ID=$(docker ps -qf "name=mkdocs")
 # echo "image ID is $CONTAINER_ID"
