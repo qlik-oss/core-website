@@ -6,12 +6,13 @@ const PRECACHE_URLS = [
   '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono',
   '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css',
   '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js',
-  // 'https://www.google-analytics.com/analytics.js',
+  'https://www.google-analytics.com/analytics.js',
   '//unpkg.com/enigma.js@2.2.1/enigma.min.js',
   'stylesheets/custom-style.css',
   'stylesheets/downloads.css',
   'javascripts/downloads.js',
   'javascripts/extra.js',
+  'search/search_index.json'
 ];
 
 function _getStaticFilesArray() {
