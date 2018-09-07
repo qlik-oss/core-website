@@ -45,7 +45,6 @@ function prepareCacheArray() {
 const filesAndAssetsToCache = [];
 
 self.addEventListener('install', (event) => {
-  console.log('[Service worker] install');
   event.waitUntil(
     prepareCacheArray().then(cachedArray => {
       return caches.open(cacheName)
@@ -56,7 +55,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('[Service worker] activate');
+  return self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
@@ -65,7 +64,6 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request).then(response => {
       return caches.open(cacheName).then(cache => {
-        console.log('does this even run?')
         cache.put(event.request.url, response.clone());
         return response;
       });
