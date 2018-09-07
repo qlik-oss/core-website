@@ -14,13 +14,13 @@
 <script>
   var link = document.createElement('link');
     link.rel='manifest';
-    link.href = '../../manifest.json';
+    link.href = `${location.origin}/manifest.json`;
     document.head.appendChild(link);
   window.addEventListener("load", function () {
     // Register service work if browser support
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('./sw.js')
+        .register(`${location.origin}/sw.js`)
         .then(function () {
           console.log('Service worker registered!!');
         });
