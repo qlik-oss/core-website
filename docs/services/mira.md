@@ -203,10 +203,9 @@ You can enable _Kubernetes_ mode by setting the environment variable `MIRA_MODE`
 before starting the Mira pod.
 
 !!! Note
-    Since Mira needs to communicate with the Kubernetes API server,
-    a `kubectl` proxy should be set up in the Kubernetes deployment.
-    One way you can do this is to bundle the `kubectl` proxy as a container in the same pod as the Mira container,
-    then Mira can reach the proxy on `localhost`.
+    Mira uses the Kubernetes API to discover Qlik Associative Engines in a Kubernetes deployment.
+    If RBAC is enabled in Kubernetes then Mira will need `get` and `view`
+    access to the `pod`, `replicaset` and `deployment` APIs.
 
 ### Example of Kubernetes mode
 
@@ -228,9 +227,6 @@ file. With the `kubectl` command line tool, run the following command:
 ```sh
 kubectl apply -f mira-deployment.yml
 ```
-
-!!! Note
-    Mira and the `kubectl` proxy are bundled into the same pod.
 
 #### Expose Mira REST API
 
