@@ -204,8 +204,7 @@ before starting the Mira pod.
 
 !!! Note
     Mira uses the Kubernetes API to discover Qlik Associative Engines in a Kubernetes deployment.
-    If RBAC is enabled in Kubernetes then Mira will need `get` and `view`
-    access to the `pod`, `replicaset` and `deployment` APIs.
+    If RBAC is enabled in Kubernetes then Mira will need `view` access to the Kubernetes API.
 
 ### Example of Kubernetes mode
 
