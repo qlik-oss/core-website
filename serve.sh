@@ -6,7 +6,7 @@ docker_cmd=docker
 pwd=$(pwd)
 
 if [[ "$OS" == "Windows_NT" ]]; then
-  docker_cmd="winpty docker"
+  docker_cmd="winpty -Xallow-non-tty docker"
   pwd=/$(pwd -W)
 fi
 
