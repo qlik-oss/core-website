@@ -161,11 +161,7 @@ Open the
 [mira-deployment.yaml](https://github.com/qlik-oss/core-orchestration/blob/master/kubernetes/plain/qlik-core/mira-deployment.yaml)
 file to see how Mira is configured.
 
-The Mira deployment specifies two containers to run in the pod.
-This is because Mira needs to communicate with the Kubernetes API server through *kubectl* as a proxy.
-
-Mira must also be configured to run in Kubernetes mode.
-This does not happen automatically.
+Mira must be configured to run in Kubernetes mode.
 To do this, you must set the environment variable `MIRA_MODE` to `kubernetes`.
 
 #### Ports
