@@ -43,7 +43,7 @@
   const appId = '52e3297d-ceeb-45c9-bbe4-6069fe920760';
   const session = enigma.create({
     schema,
-    url: `wss://branch.qlik.com/anon/app/${appId}`,
+    url: `wss://branch-sense.qlik.com/anon/app/${appId}`,
   });
 
   session.open()
