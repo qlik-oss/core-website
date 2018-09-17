@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `AbortListObjectSearch`
 
@@ -51,6 +51,7 @@ _No return values._
 
 Adds the generic object to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -58,7 +59,7 @@ _No return values._
 
 ## `BeginSelections`
 
-Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>- Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>- The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).<br><br>
+Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.<br>When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:<br>- Ending the selection mode, see [`EndSelections`](#endselections) Method.<br>- The sort criteria, see [`ListObjectDef`](./definitions.md#listobjectdef) or [`HyperCubeDef`](./definitions.md#hypercubedef).
 
 
 **Parameters:**
@@ -128,6 +129,7 @@ _No return values._
 
 Copies the properties of a generic object and its children.<br>The source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.<br>The identifier of the destination object is the same as before the copy takes place.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -141,6 +143,7 @@ _No return values._
 
 Creates a generic object that is a child of another generic object.<br>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call. It is possible to create a child that is linked to another generic object. The two objects have the same properties.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -160,6 +163,7 @@ Creates a generic object that is a child of another generic object.<br>It is pos
 
 Removes all children and all children to the children on an object.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -173,6 +177,7 @@ _No return values._
 
 Removes a child object.<br>It is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call. Removing a linked object, invalidate the linking object. <br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -206,6 +211,7 @@ _No return values._
 
 Adds a snapshot to a generic object.<br>Only one snapshot can be embedded in a generic object. If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -262,7 +268,7 @@ _No return values._
 
 ## `ExportData`
 
-Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.<br>This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.<br><br>
+Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.<br>This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.
 
 
 **Parameters:**
@@ -339,7 +345,7 @@ _No parameters._
 
 ## `GetHyperCubeBinnedData`
 
-This method supports data binning.<br>When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br>A zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>The grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>The [`GetHyperCubeBinnedData`](#gethypercubebinneddata) method gives information about the adaptive grid and the values of the generic object.<br>The number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>Dimension values and measure values are rendered at point level (highest detailed level).<br>The generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.<br><br>
+This method supports data binning.<br>When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.<br>A zone of interest can be refined (for zooming in) up to a maximum refinement level (set in the _qQueryLevel_ parameter) or coarsened (for zoom out).<br>The grid of cells is adaptive (not static), meaning that it adapts to different length scales.<br>The [`GetHyperCubeBinnedData`](#gethypercubebinneddata) method gives information about the adaptive grid and the values of the generic object.<br>The number of points in a cell and the coordinates (expressed in the measure range) of each cell are returned.<br>Dimension values and measure values are rendered at point level (highest detailed level).<br>The generic object should contain two or three measures and one dimension. When the refinement is high, the first two measures are represented on the x-axis and on the y-axis, while the third measure is visualized as color or point size.
 
 
 **Parameters:**
@@ -418,7 +424,7 @@ Retrieves the values of a pivot table. It is possible to retrieve specific pages
 
 ## `GetHyperCubeReducedData`
 
-Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.<br>The reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.<br>This method can be used to create mini charts.<br><br>
+Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.<br>The reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.<br>This method can be used to create mini charts.
 
 
 **Parameters:**
@@ -491,7 +497,7 @@ _No parameters._
 
 ## `GetLayout`
 
-Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated. A [`GetLayout`](#getlayout) call on a generic object, returns up to one level down in the hierarchy.<br><br>
+Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated. A [`GetLayout`](#getlayout) call on a generic object, returns up to one level down in the hierarchy.
 
 
 _No parameters._
@@ -588,23 +594,23 @@ _No return values._
 
 ## `MultiRangeSelectHyperCubeValues`
 
-_No details._
+Makes multiple range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qPath` | string | Yes | _No description._ |
-| `qRanges` | [`NxMultiRangeSelectInfo`](./definitions.md#nxmultirangeselectinfo) | Yes | _No description._ |
-| `qOrMode` | boolean | No | _No description._ |
-| `qDeselectOnlyOneSelected` | boolean | No | _No description._ |
+| `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
+| `qRanges` | [`NxMultiRangeSelectInfo`](./definitions.md#nxmultirangeselectinfo) | Yes | Ranges of selections. |
+| `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>If set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>If set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>The default value is false. |
+| `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | _No description._ |
+| `qSuccess` | boolean | true/false |
 
 ## `MultiRangeSelectTreeDataValues`
 
@@ -633,6 +639,7 @@ _No details._
 
 Publishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -640,7 +647,7 @@ _No return values._
 
 ## `RangeSelectHyperCubeValues`
 
-Make range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes range selections in measures.<br> This method applies to hypercubes. For example, bar charts, tables and scatter plots.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -648,7 +655,7 @@ Make range selections in measures.<br> This method applies to hypercubes. For ex
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the object to be selected.<br>For example, _/qHyperCubeDef_ . |
-| `qRanges` | [`NxRangeSelectInfo`](./definitions.md#nxrangeselectinfo) | Yes | Ranges of selection. |
+| `qRanges` | [`NxRangeSelectInfo`](./definitions.md#nxrangeselectinfo) | Yes | Ranges of selections. |
 | `qColumnsToSelect` | array | No | Indicates which dimensions to select.<br>The dimensions numbering starts at 0 (first dimension is 0).<br>If the array is empty, all dimensions are selected. |
 | `qOrMode` | boolean | No | Applies to hypercubes with multiple measures.<br>If set to true, it means that at least one of the measures must be in the range of selections for the group of measures to be selected.<br>If set to false, it means that all measures must be in the range of selections for the group of measures to be selected.<br>The default value is false. |
 | `qDeselectOnlyOneSelected` | boolean | No | Set this parameter to true to unselect the last single selected value. There must be only one selected value in the field.<br>The default value is false. |
@@ -821,7 +828,7 @@ Inverts the current selections in a specific field.<br>This method applies to li
 
 ## `SelectListObjectPossible`
 
-Selects all possible values of a list object.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Selects all possible values of a list object.<br>This method applies to list objects (objects with one dimension).<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -839,7 +846,7 @@ Selects all possible values of a list object.<br>This method applies to list obj
 
 ## `SelectListObjectValues`
 
-Makes single selections in dimensions.<br>This method applies to list objects only.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains some invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
+Makes single selections in dimensions.<br>This method applies to list objects only.<br>The member **Change** returns the handles of the objects that are updated following the selections.<br>_qSuccess_ is set to _true_ if the selections are successful and is set to _false_ in the following cases:<br>- The object contains invalid fields (fields that are not in the data model).<br>- The selection applies to a locked field.<br>- A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
 
 
 **Parameters:**
@@ -859,7 +866,7 @@ Makes single selections in dimensions.<br>This method applies to list objects on
 
 ## `SelectPivotCells`
 
-This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./definitions.md#hypercubedef) must be set either to _P_  or _K_ . <br><br>
+This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in [`HyperCubeDef`](./definitions.md#hypercubedef) must be set either to _P_  or _K_ . 
 
 
 **Parameters:**
@@ -881,6 +888,7 @@ This method only applies to hypercubes that are not represented as straight tabl
 
 Sets the order of the children in a generic object.<br>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). 
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -894,6 +902,7 @@ _No return values._
 
 Sets the properties of:<br>- A generic object.<br>- The children of the generic object.<br>- The bookmarks/embedded snapshots of the generic object.<br><br>If the [`SetFullPropertyTree`](#setfullpropertytree) method is asked to set some properties to a child that does not exist, it creates the child. The type of an object cannot be updated.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -907,6 +916,7 @@ _No return values._
 
 Sets some properties for a generic object.<br>The properties depends on the generic object type, see [`GenericObjectProperties`](./definitions.md#genericobjectproperties).
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -920,6 +930,7 @@ _No return values._
 
 Removes the generic object from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -929,6 +940,7 @@ _No return values._
 
 Unpublishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 

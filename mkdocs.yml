@@ -23,7 +23,7 @@ extra:
     - type: 'github'
       link: 'https://github.com/qlik-oss/core-website'
     - type: 'slack'
-      link: 'http://branch.qlik.com/slack'
+      link: 'http://qlikbranch-slack-invite.herokuapp.com/'
 
 markdown_extensions:
   - admonition
@@ -48,6 +48,7 @@ nav:
   - Downloads: downloads.md
   - Licensing: licensing.md
   - Beta agreement: beta.md
+  - EULA: eula.md
   - Use Cases: use-cases.md
   - Tutorials:
     - Hello Engine: tutorials/hello-engine.md
