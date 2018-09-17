@@ -43,5 +43,6 @@ More information can be found in the [Use Cases](./use-cases.md) section.
 If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./get-started.md) section.
 
 ## Feedback
+
 If you have questions about Qlik Core use our [Slack channels](http://qlikbranch-slack-invite.herokuapp.com/).
 We would love to get your feedback, how you are using Qlik Core and what we can to do make it better.
