@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `Apply`
 
@@ -22,6 +22,7 @@ _No parameters._
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -35,6 +36,7 @@ _No return values._
 
 Adds the generic bookmark to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -42,7 +44,7 @@ _No return values._
 
 ## `GetFieldValues`
 
-Retrieves the values of a field.<br><br>
+Retrieves the values of a field.
 
 
 **Parameters:**
@@ -102,6 +104,7 @@ _No parameters._
 
 Publishes a bookmark.
 
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -111,6 +114,7 @@ _No return values._
 
 Sets some properties for a bookmark.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -124,6 +128,7 @@ _No return values._
 
 Removes the generic bookmark from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -133,6 +138,7 @@ _No return values._
 
 Unpublishes a bookmark.
 
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 

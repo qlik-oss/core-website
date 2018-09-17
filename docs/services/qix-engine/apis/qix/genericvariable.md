@@ -3,12 +3,13 @@
 <!-- proselint-disable -->
 # GenericVariable
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of a variable. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -88,6 +89,7 @@ _No return values._
 
 Sets some properties for a variable.<br>The identifier of a variable cannot be modified. You cannot update the properties of a script-defined variable using the [`SetProperties`](#setproperties) method. 
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
