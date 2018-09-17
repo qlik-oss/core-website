@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `AbortModal`
 
@@ -128,8 +128,9 @@ Checks if:<br>- A given expression is valid.<br>- A number is correct according 
 
 ## `CheckScriptSyntax`
 
-Checks the syntax of a script.<br><br>
+Checks the syntax of a script.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -166,6 +167,7 @@ _No return values._
 
 Clones a bookmark.<br>The identifier is set by the engine.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -183,6 +185,7 @@ Clones a bookmark.<br>The identifier is set by the engine.
 
 Clones a dimension.<br><br>The identifier is set by the engine.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -200,6 +203,7 @@ Clones a dimension.<br><br>The identifier is set by the engine.
 
 Clones a measure.<br><br>The identifier is set by the engine.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -217,6 +221,7 @@ Clones a measure.<br><br>The identifier is set by the engine.
 
 Clones root level objects, such as sheets and stories. The [`CloneObject`](#cloneobject) method works for both app objects and child objects.<br>When you clone an object that contains children, the children are cloned as well.<br>If you for example want to clone a visualization, you must provide the qID of the root object, in this case the sheet since [`CloneObject`](#cloneobject) clones root level objects.<br>It is not possible to clone a session object.<br><br>The identifier is set by the engine.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -234,6 +239,7 @@ Clones root level objects, such as sheets and stories. The [`CloneObject`](#clon
 
 Commits the draft of an object that was previously created by invoking the [`CreateDraft`](#createdraft) method.<br>Committing a draft replaces the corresponding published object.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -247,6 +253,7 @@ _No return values._
 
 Creates a bookmark.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -265,6 +272,7 @@ Creates a bookmark.
 
 Creates a connection.<br>A connection indicates from which data source the data should be taken.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -282,6 +290,7 @@ Creates a connection.<br>A connection indicates from which data source the data 
 
 Creates a master dimension.<br>A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -300,6 +309,7 @@ Creates a master dimension.<br>A master dimension is stored in the library of an
 
 Creates a draft of an object.<br>This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.<br>Replace the published object by the content of the draft by invoking the [`CommitDraft`](#commitdraft) method.<br><br>The identifier is set by the engine.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -317,6 +327,7 @@ Creates a draft of an object.<br>This method can be used to create a draft of a 
 
 Creates a master measure.<br>A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -335,6 +346,7 @@ Creates a master measure.<br>A master measure is stored in the library of an app
 
 Creates a generic object at app level. For more information on generic objects, see _Generic object_.<br>It is possible to create a generic object that is linked to another object.<br>A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).<br>The linked object has the same properties as the linking object.<br>The linking object cannot be a transient object.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -368,7 +380,7 @@ Creates a transient object. For example, you can use a transient object to creat
 
 ## `CreateSessionVariable`
 
-Creates a transient variable.<br>To set some properties to the variable, use the _SetProperties method_. <br><br>
+Creates a transient variable.<br>To set some properties to the variable, use the _SetProperties method_. 
 
 
 **Parameters:**
@@ -390,6 +402,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 Creates a variable.
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -405,8 +418,9 @@ Creates a variable.
 
 ## `CreateVariableEx`
 
-Creates a variable.<br>To create a variable via a script, you need to use the [`SetScript`](#setscript) method. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See [`CreateSessionVariable`](#createsessionvariable) method. <br><br>
+Creates a variable.<br>To create a variable via a script, you need to use the [`SetScript`](#setscript) method. For more information, see _Create a variable_.<br>To set some properties to the variable, use the _SetProperties method_. In a published app, only transient variables can be created. See [`CreateSessionVariable`](#createsessionvariable) method. 
 
+Required permissions: [`create`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -425,6 +439,7 @@ Creates a variable.<br>To create a variable via a script, you need to use the [`
 
 Deletes a connection.<br>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . The AttachedFiles connection can only be removed by the administrator of the system. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -438,6 +453,7 @@ _No return values._
 
 Removes a bookmark.<br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -455,6 +471,7 @@ Removes a bookmark.<br>The operation is successful if **qSuccess** is set to tru
 
 Removes a dimension.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -472,6 +489,7 @@ Removes a dimension.<br><br>The operation is successful if **qSuccess** is set t
 
 Removes the draft of an object.<br>The children of the draft object (if any) are removed as well.<br>This method can be used to cancel the work on the draft of an object. For example, if you had created a draft of a sheet that is published, you might not want anymore to replace the published sheet.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -490,6 +508,7 @@ Removes the draft of an object.<br>The children of the draft object (if any) are
 
 Removes a generic measure.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -507,6 +526,7 @@ Removes a generic measure.<br><br>The operation is successful if **qSuccess** is
 
 Removes an app object.<br>The children of the object (if any) are removed as well.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -558,6 +578,7 @@ Removes a transient variable.<br><br>The operation is successful if **qSuccess**
 
 Removes a variable.<br>Script-defined variables cannot be removed using the [`DestroyVariableById`](#destroyvariablebyid) method or the [`DestroyVariableByName`](#destroyvariablebyname) method. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -575,6 +596,7 @@ Removes a variable.<br>Script-defined variables cannot be removed using the [`De
 
 Removes a variable.<br>Script-defined variables cannot be removed using the [`DestroyVariableById`](#destroyvariablebyid) method or the [`DestroyVariableByName`](#destroyvariablebyname) method. For more information, see _Remove a variable_.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -590,8 +612,9 @@ Removes a variable.<br>Script-defined variables cannot be removed using the [`De
 
 ## `DoReload`
 
-Reloads the script that is set in an app.<br><br>
+Reloads the script that is set in an app.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -609,8 +632,9 @@ Reloads the script that is set in an app.<br><br>
 
 ## `DoReloadEx`
 
-Reloads the script that is set in an app and returns the path to the script log file.<br>A log file is created per reload.<br><br>
+Reloads the script that is set in an app and returns the path to the script log file.<br>A log file is created per reload.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -628,6 +652,7 @@ Reloads the script that is set in an app and returns the path to the script log 
 
 Saves an app. All objects and data in the data model are saved.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -639,7 +664,7 @@ _No return values._
 
 ## `Evaluate`
 
-Evaluates an expression and returns the result as a string.<br><br>
+Evaluates an expression and returns the result as a string.
 
 
 **Parameters:**
@@ -656,7 +681,7 @@ Evaluates an expression and returns the result as a string.<br><br>
 
 ## `EvaluateEx`
 
-Evaluates an expression and returns the result as a dual.<br><br>
+Evaluates an expression and returns the result as a dual.
 
 
 **Parameters:**
@@ -787,25 +812,26 @@ Returns the handle of a bookmark.
 
 ## `GetBookmarks`
 
-_No details._
+Returns all bookmarks compatible with options.
 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | [`NxGetBookmarkOptions`](./definitions.md#nxgetbookmarkoptions) | Yes | _No description._ |
+| `qOptions` | [`NxGetBookmarkOptions`](./definitions.md#nxgetbookmarkoptions) | Yes | Bookmark type filter and requested properties. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
+| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | The resulting list. |
 
 ## `GetConnection`
 
 Retrieves a connection and returns:<br>- The creation time of the connection.<br>- The identifier of the connection.<br>- The type of the connection.<br>- The name of the connection.<br>- The connection string.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -823,6 +849,7 @@ Retrieves a connection and returns:<br>- The creation time of the connection.<br
 
 Lists the connections in an app.<br>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . This connection is stored in the Qlik Sense repository. 
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -834,7 +861,7 @@ _No parameters._
 
 ## `GetContentLibraries`
 
-Lists the content libraries.<br>To differentiate a global content library from an app specific content library, you can check the property _qAppSpecific_ . If this property is set to true, it means that the content library is app specific.<br>There is always one specific content library per app.<br><br>
+Lists the content libraries.<br>To differentiate a global content library from an app specific content library, you can check the property _qAppSpecific_ . If this property is set to true, it means that the content library is app specific.<br>There is always one specific content library per app.
 
 
 _No parameters._
@@ -849,6 +876,7 @@ _No parameters._
 
 Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -866,6 +894,7 @@ Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for 
 
 Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -884,6 +913,7 @@ Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
 
 Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -904,6 +934,7 @@ Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM conne
 
 Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -926,6 +957,7 @@ Retrieves the values of the specified table of a database for a ODBC, OLEDB or 
 
 Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -945,6 +977,7 @@ Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
 
 Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -979,6 +1012,7 @@ Returns the handle of a dimension.
 
 Creates a script that contains one section. This section contains **SET** statements that give localized information from the regional settings of the computer.<br>The computer regional settings are retrieved when the engine starts.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1059,8 +1093,9 @@ Find the field-on-the-fly by passing its readable name.
 
 ## `GetFileTableFields`
 
-Lists the fields of a table for a folder connection.<br><br>
+Lists the fields of a table for a folder connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1080,8 +1115,9 @@ Lists the fields of a table for a folder connection.<br><br>
 
 ## `GetFileTablePreview`
 
-Lists the values in a table for a folder connection.<br><br>
+Lists the values in a table for a folder connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1101,8 +1137,9 @@ Lists the values in a table for a folder connection.<br><br>
 
 ## `GetFileTables`
 
-Lists the tables for a folder connection.<br><br>
+Lists the tables for a folder connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1122,6 +1159,7 @@ Lists the tables for a folder connection.<br><br>
 
 Lists the tables and fields of a JSON or XML file for a folder connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1141,6 +1179,7 @@ Lists the tables and fields of a JSON or XML file for a folder connection.
 
 Lists the items for a folder connection.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1159,6 +1198,7 @@ Lists the items for a folder connection.
 
 Gets the content of a file.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1174,7 +1214,7 @@ Gets the content of a file.
 
 ## `GetLibraryContent`
 
-Returns the content of a library.<br><br>
+Returns the content of a library.
 
 
 **Parameters:**
@@ -1299,25 +1339,26 @@ Returns the type of the app object and the corresponding handle.
 
 ## `GetObjects`
 
-_No details._
+Returns all objects compatible with options.
 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | [`NxGetObjectOptions`](./definitions.md#nxgetobjectoptions) | Yes | _No description._ |
+| `qOptions` | [`NxGetObjectOptions`](./definitions.md#nxgetobjectoptions) | Yes | Object type filter and requested properties. |
 
 **Returns:**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | _No description._ |
+| `qList` | array&lt;[`NxContainerEntry`](./definitions.md#nxcontainerentry)> | The resulting list. |
 
 ## `GetScript`
 
 Gets values in script.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1331,6 +1372,7 @@ _No parameters._
 
 Lists the breakpoints in the script of an app.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1344,6 +1386,7 @@ _No parameters._
 
 Gets script and script meta-data.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1422,6 +1465,7 @@ Returns:<br>- The list of tables in an app and the fields inside each table.<br>
 
 Fetches updated variables after a statement execution.<br><br>If qRefSeqNo and qSetSeqNo are set to 0, it means that the variables were not updated.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1487,7 +1531,7 @@ Gets the handle of a variable.
 
 ## `GetViewDlgSaveInfo`
 
-Returns information about the position of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.<br><br>
+Returns information about the position of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.
 
 
 _No parameters._
@@ -1500,8 +1544,9 @@ _No parameters._
 
 ## `GuessFileType`
 
-Guesses the data format for a given file.<br>Recognized file formats are:<br>- _CSV_ for Delimited<br>- _FIX_ for Fixed Record<br>- _DIF_ for Data Interchange Format<br>- _EXCEL_BIFF_ for Microsoft Excel (XLS)<br>- _EXCEL_OOXML_ for Microsoft Excel (XLSX)<br>- _HTML_ for HTML<br>- _QVD_ for QVD file<br>- _XML_ for XML<br>- _QVX_ for QVX file<br>- _JSON_ for JSON format<br>- _KML_ for KML file<br><br>
+Guesses the data format for a given file.<br>Recognized file formats are:<br>- _CSV_ for Delimited<br>- _FIX_ for Fixed Record<br>- _DIF_ for Data Interchange Format<br>- _EXCEL_BIFF_ for Microsoft Excel (XLS)<br>- _EXCEL_OOXML_ for Microsoft Excel (XLSX)<br>- _HTML_ for HTML<br>- _QVD_ for QVD file<br>- _XML_ for XML<br>- _QVX_ for QVX file<br>- _JSON_ for JSON format<br>- _KML_ for KML file
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1533,6 +1578,7 @@ _No return values._
 
 Updates a connection.<br>The identifier of a connection cannot be updated. qType cannot be modified with the [`ModifyConnection`](#modifyconnection) method.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1548,6 +1594,7 @@ _No return values._
 
 Publishes an app.<br>All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.<br>An app can only be published once and cannot be published to more than one stream.
 
+Required permissions: [`publish`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1591,6 +1638,7 @@ _No return values._
 
 Removes a variable.
 
+Required permissions: [`delete`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1617,6 +1665,7 @@ _No return values._
 
 Saves all objects that were modified in the app.<br>Data from the data model are not saved. This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1626,6 +1675,7 @@ _No return values._
 
 Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.<br>Update access is required to use the function in Qlik Sense Enterprise.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1640,7 +1690,7 @@ _No return values._
 !!! warning "Deprecated"
     Use [`SearchResults`](#searchresults) method instead
 
-Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./definitions.md#searchcombinationoptions)<br><br>
+Returns the search matches for one or more search terms.<br>The search results depend on the search context.<br>[`SearchCombinationOptions`](./definitions.md#searchcombinationoptions)
 
 
 **Parameters:**
@@ -1733,6 +1783,7 @@ _No return values._
 
 Sends a generic command to a custom connector.<br>For more information on the commands that can be sent to a custom connector, see the QVX SDK help.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1754,6 +1805,7 @@ Sends a generic command to a custom connector.<br>For more information on the co
 
 Sets properties to an app.<br>The qLastReloadTime, qMigrationHash and qSavedInProductVersion properties does not need to be set but if they are, they should match the current values in the app layout. 
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1767,6 +1819,7 @@ _No return values._
 
 Set some variables as favorite.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1780,6 +1833,7 @@ _No return values._
 
 Limits the number of rows of data to load from a data source.<br>This method works when reloading in debug mode.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1810,6 +1864,7 @@ Sets a list of table states, one for each table.<br><br>The following states app
 
 Sets values in script.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1823,6 +1878,7 @@ _No return values._
 
 Set some breakpoints in the script of an app.
 
+Required permissions: [`reload`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1834,8 +1890,9 @@ _No return values._
 
 ## `SetViewDlgSaveInfo`
 
-Sets the positions of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be set in Qlik Sense.<br><br>
+Sets the positions of the tables in the data model viewer.<br>The position of the broom points and the position of the connection points cannot be set in Qlik Sense.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.215.0._
+_QIX definitions for version 12.225.0._
 
 ## `AlfaNumString`
 
@@ -353,22 +353,22 @@ Defines the lists of dimensions.
 
 ## `DoReloadExParams`
 
-_No description._
+Parameters for a reload.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qMode` | integer | _No description._ |
-| `qPartial` | boolean | _No description._ |
-| `qDebug` | boolean | _No description._ |
+| `qMode` | integer | 0: for default mode.<br>1: for ABEND; the reload of the script ends if an error occurs.<br>2: for ignore; the reload of the script continues even if an error is detected in the script. |
+| `qPartial` | boolean | Set to true for partial reload.<br>The default value is false. |
+| `qDebug` | boolean | Set to true to debug reload.<br>The default value is false. |
 
 ## `DoReloadExResult`
 
-_No description._
+The result and path to script log for a reload.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qSuccess` | boolean | _No description._ |
-| `qScriptLogFile` | string | _No description._ |
+| `qSuccess` | boolean | The reload is successful if True. |
+| `qScriptLogFile` | string | Path to the script log file. |
 
 ## `DocListEntry`
 
@@ -425,7 +425,7 @@ _No description._
 
 ## `ExtensionList`
 
-_No description._
+Obsolete, use qrs API's to fetch extensions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -434,7 +434,7 @@ _No description._
 
 ## `FieldAttributes`
 
-Sets the formatting of a field.<br>The properties of _qFieldAttributes_ and the formatting mechanism are described below.<br><br>
+Sets the formatting of a field.<br>The properties of _qFieldAttributes_ and the formatting mechanism are described below.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -574,7 +574,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | <br>One of:<br>- NONE or FILTER_TYPE_NONE<br>- RAW or FILTER_TYPE_RAW |
+| `qType` | string | One of:<br>- NONE or FILTER_TYPE_NONE<br>- RAW or FILTER_TYPE_RAW |
 | `qWherePredicate` | string | _No description._ |
 
 ## `FolderItem`
@@ -614,7 +614,7 @@ Is the layout for [`GenericBookmarkProperties`](#genericbookmarkproperties).
 | `qInfo` | [`NxInfo`](#nxinfo) | Information about the object. |
 | `qMeta` | [`NxMeta`](#nxmeta) | Information on publishing and permissions. |
 | `qBookmark` | [`NxBookmark`](#nxbookmark) | Information about the bookmark. |
-| `qFieldInfos` | array&lt;[`LayoutFieldInfo`](#layoutfieldinfo)> | _No description._ |
+| `qFieldInfos` | array&lt;[`LayoutFieldInfo`](#layoutfieldinfo)> | Information about the field selections associated with the bookmark. |
 
 ## `GenericBookmarkProperties`
 
@@ -778,7 +778,7 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qSuppressZero` | boolean | Removes zero values. |
 | `qSuppressMissing` | boolean | Removes missing values. |
 | `qInitialDataFetch` | array&lt;[`NxPage`](#nxpage)> | Initial data set. |
-| `qReductionMode` | string | <br>One of:<br>- N or DATA_REDUCTION_NONE<br>- D1 or DATA_REDUCTION_ONEDIM<br>- S or DATA_REDUCTION_SCATTERED<br>- C or DATA_REDUCTION_CLUSTERED<br>- ST or DATA_REDUCTION_STACKED |
+| `qReductionMode` | string | One of:<br>- N or DATA_REDUCTION_NONE<br>- D1 or DATA_REDUCTION_ONEDIM<br>- S or DATA_REDUCTION_SCATTERED<br>- C or DATA_REDUCTION_CLUSTERED<br>- ST or DATA_REDUCTION_STACKED |
 | `qMode` | string | Defines the way the data are handled internally by the engine.<br>Default value is _DATA_MODE_STRAIGHT_ .<br>A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.<br><br>One of:<br>- S or DATA_MODE_STRAIGHT<br>- P or DATA_MODE_PIVOT<br>- K or DATA_MODE_PIVOT_STACK<br>- T or DATA_MODE_TREE |
 | `qPseudoDimPos` | integer | _No description._ |
 | `qNoOfLeftDims` | integer | Number of left dimensions.<br>Default value is -1. In that case, all dimensions are left dimensions.<br>Hidden dimensions (e.g. due to unfulfilled calc condition on dimension level) is still counted in this context.<br>The index related to each left dimension depends on the position of the pseudo dimension (if any).<br>For example, a pivot table with:<br>- Four dimensions in the following order: Country, City, Product and Category.<br>- One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )<br>_qInterColumnSortOrder_ is (0,-1,1,2,3).<br>- Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br><br>implies that:<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the pseudo dimension.<br>- The index 2 corresponds to the left dimension City.<br>- Product and Category are top dimensions.<br><br>Another example:<br>- Four dimensions in the following order: Country, City, Product and Category.<br>- Three left dimensions ( _qNoOfLeftDims_ is set to 3).<br>- One pseudo dimension.<br>- The property _qInterColumnSortOrder_ is left empty.<br><br>Implies that:<br>- The index 0 corresponds to the left dimension Country.<br>- The index 1 corresponds to the left dimension City.<br>- The index 2 corresponds to the left dimension Product.<br>- Category is a top dimension.<br>- The pseudo dimension is a top dimension. |
@@ -815,13 +815,13 @@ _No description._
 
 ## `LayoutFieldInfo`
 
-_No description._
+Meta data about the selection in a field.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qFieldName` | string | _No description._ |
-| `qValuesCount` | integer | _No description._ |
-| `qExcludedValuesCount` | integer | _No description._ |
+| `qFieldName` | string | The name of the field. |
+| `qValuesCount` | integer | Number of selected values in the field. |
+| `qExcludedValuesCount` | integer | Number of excluded values in the field. |
 
 ## `LineageInfo`
 
@@ -1310,7 +1310,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qName` | string | Name of the field. |
-| `qFieldSelectionMode` | string | Selection mode.<br> |
+| `qFieldSelectionMode` | string | Selection mode. |
 
 ## `NxGetBookmarkOptions`
 
@@ -1425,13 +1425,13 @@ _No description._
 
 ## `NxLibraryMeasure`
 
-_No description._
+Information about the library measure. Is the layout for [`NxLibraryMeasureDef`](#nxlibrarymeasuredef).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qLabel` | string | _No description._ |
 | `qDef` | string | _No description._ |
-| `qGrouping` | string | <br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
+| `qGrouping` | string | One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qExpressions` | array&lt;string> | _No description._ |
 | `qActiveExpression` | integer | _No description._ |
 | `qLabelExpression` | string | _No description._ |
@@ -1447,7 +1447,7 @@ _No description._
 | `qGrouping` | string | Used to define a cyclic group or drill-down group.<br>Default value is no grouping.<br>This parameter is optional.<br><br>One of:<br>- N or GRP_NX_NONE<br>- H or GRP_NX_HIEARCHY<br>- C or GRP_NX_COLLECTION |
 | `qExpressions` | array&lt;string> | Array of expressions. |
 | `qActiveExpression` | integer | Index to the active expression in a measure. |
-| `qLabelExpression` | string | _No description._ |
+| `qLabelExpression` | string | Optional expression used for dynamic label. |
 
 ## `NxLinkedObjectInfo`
 
@@ -1921,10 +1921,10 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | _No description._ |
-| `qHandle` | integer | _No description._ |
-| `qGenericType` | string | _No description._ |
-| `qGenericId` | string | _No description._ |
+| `qType` | string | The native type of the object. |
+| `qHandle` | integer | The handle used to connect to object. |
+| `qGenericType` | string | The type of the object. |
+| `qGenericId` | string | Object ID. |
 
 ## `OdbcDsn`
 
@@ -2260,7 +2260,7 @@ Indicates which selections are currently applied. It gives the current selection
 
 ## `SelectionObjectDef`
 
-To display the current selections.<br>Can be added to any generic object but is particularly meaningful when using session objects to monitor an app.<br><br>
+To display the current selections.<br>Can be added to any generic object but is particularly meaningful when using session objects to monitor an app.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -2338,7 +2338,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qv` | string | _No description._ |
+| `qv` | string | Expression evaluated to string. |
 
 ## `StringExpression`
 
@@ -2494,7 +2494,7 @@ _No description._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qv` | string | _No description._ |
+| `qv` | string | Expression evaluated to dual. |
 
 ## `ValueExpression`
 
