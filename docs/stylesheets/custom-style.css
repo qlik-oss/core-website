@@ -45,12 +45,6 @@ body {
   }
 }
 
-#beta-banner {
-  bottom: -6px;
-  right: 0;
-  position: fixed;
-}
-
 .md-typeset table:not([class]) th {
   background-color: #e1e1e1;
   color: rgba(0,0,0,.87);

@@ -632,7 +632,7 @@ First, we start the Qlik Associative Engine with the following parameters:
 
 Next, we call the engine REST API to import the `Shared-Africa-Urbanization.qvf`:
 
-[POST /v1/apps/import](https://qlikcore.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
+[POST /v1/apps/import](https://core.qlik.com/services/qix-engine/apis/rest/qlik-associative-engine-api/#post-v1appsimport)
 
 ```sh
 curl -s --data-binary @Shared-Africa-Urbanization.qvf http://<adress to engine>/v1/apps/import

@@ -11,7 +11,7 @@ Markdown files are organized in the same way as the generated site is organized.
 Currently the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme is used but this shall be changes
 to a theme matches Qlik branding.
 
-For the generated site, see [qlikcore.com](https://qlikcore.com).
+For the generated site, see [core.qlik.com](https://core.qlik.com).
 
 ## Prerequisites
 
