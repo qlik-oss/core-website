@@ -3,12 +3,13 @@
 <!-- proselint-disable -->
 # GenericDimension
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `ApplyPatches`
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -22,6 +23,7 @@ _No return values._
 
 Adds the generic dimension to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -96,6 +98,7 @@ _No parameters._
 
 Publishes a dimension.
 
+Required permissions: [`publish`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -105,6 +108,7 @@ _No return values._
 
 Sets some properties for a dimension.
 
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -118,6 +122,7 @@ _No return values._
 
 Removes the generic dimension from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`approve`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -127,6 +132,7 @@ _No return values._
 
 Unpublishes a dimension.
 
+Required permissions: [`publish`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
