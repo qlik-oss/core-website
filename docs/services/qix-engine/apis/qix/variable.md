@@ -3,15 +3,13 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `ForceContent`
 
 !!! warning "Deprecated"
     Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
-
 Sets the value of a dual variable overriding any input constraints.
-
 
 **Parameters:**
 
@@ -26,9 +24,7 @@ _No return values._
 
 !!! warning "Deprecated"
     Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
-
 Returns the calculated value of a variable.
-
 
 _No parameters._
 
@@ -42,9 +38,7 @@ _No parameters._
 
 !!! warning "Deprecated"
     Use [`GetProperties`](./genericvariable.md#getproperties) method instead
-
 Gets the properties of a variable.
-
 
 _No parameters._
 
@@ -58,9 +52,7 @@ _No parameters._
 
 !!! warning "Deprecated"
     Use [`GenericVariable::GetProperties`](./genericvariable.md#genericvariable::getproperties) method instead
-
 Returns the raw value of a variable.
-
 
 _No parameters._
 
@@ -74,9 +66,7 @@ _No parameters._
 
 !!! warning "Deprecated"
     Use [`GenericVariable::SetProperties`](./genericvariable.md#genericvariable::setproperties) method instead
-
 Sets a value to a variable.
-
 
 **Parameters:**
 
@@ -95,9 +85,8 @@ Sets a value to a variable.
 
 !!! warning "Deprecated"
     Use [`SetProperties`](./genericvariable.md#setproperties) method instead
-
 Sets some properties to a variable.
-
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 

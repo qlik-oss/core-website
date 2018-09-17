@@ -3,12 +3,11 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `Apply`
 
 Applies a bookmark.<br><br>The operation is successful if **qSuccess** is set to true. 
-
 
 _No parameters._
 
@@ -21,7 +20,7 @@ _No parameters._
 ## `ApplyPatches`
 
 Applies a patch to the properties of an object. Allows an update to some of the properties.<br>Applying a patch takes less time than resetting all the properties.
-
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -34,7 +33,7 @@ _No return values._
 ## `Approve`
 
 Adds the generic bookmark to the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
-
+Required permissions: [`approve`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -42,8 +41,7 @@ _No return values._
 
 ## `GetFieldValues`
 
-Retrieves the values of a field.<br><br>
-
+Retrieves the values of a field.
 
 **Parameters:**
 
@@ -63,7 +61,6 @@ Retrieves the values of a field.<br><br>
 
 Returns:<br>- The type of the object.<br>- The identifier of the object.
 
-
 _No parameters._
 
 **Returns:**
@@ -75,7 +72,6 @@ _No parameters._
 ## `GetLayout`
 
 Evaluates an object and displays its properties including the dynamic properties.<br>If the member _delta_ is set to true in the request object, only the delta is evaluated.
-
 
 _No parameters._
 
@@ -89,7 +85,6 @@ _No parameters._
 
 Shows the properties of an object.<br>If the member delta is set to true in the request object, only the delta is retrieved.<br>The following is always returned in the output:
 
-
 _No parameters._
 
 **Returns:**
@@ -101,7 +96,7 @@ _No parameters._
 ## `Publish`
 
 Publishes a bookmark.
-
+Required permissions: [`publish`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -110,7 +105,7 @@ _No return values._
 ## `SetProperties`
 
 Sets some properties for a bookmark.
-
+Required permissions: [`update`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -123,7 +118,7 @@ _No return values._
 ## `UnApprove`
 
 Removes the generic bookmark from the list of approved objects<br>This operation is possible only in Qlik Sense Enterprise.
-
+Required permissions: [`approve`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -132,7 +127,7 @@ _No return values._
 ## `UnPublish`
 
 Unpublishes a bookmark.
-
+Required permissions: [`publish`](https://qlikcore.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 

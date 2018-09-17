@@ -3,12 +3,11 @@
 <!-- proselint-disable -->
 # Field
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `Clear`
 
 Clears the selections in a specific field.
-
 
 _No parameters._
 
@@ -21,7 +20,6 @@ _No parameters._
 ## `ClearAllButThis`
 
 Maintains the selections in the current field while clearing the selections in the other fields.
-
 
 **Parameters:**
 
@@ -39,7 +37,6 @@ Maintains the selections in the current field while clearing the selections in t
 
 Returns the AND mode status of a field.
 
-
 _No parameters._
 
 **Returns:**
@@ -51,7 +48,6 @@ _No parameters._
 ## `GetCardinal`
 
 Retrieves the number of distinct values in a field.
-
 
 _No parameters._
 
@@ -65,7 +61,6 @@ _No parameters._
 
 Gets the properties of a field.<br><br>The property _OneAndOnlyOne_ is set to true if one and only value has been selected in the field prior setting the property. 
 
-
 _No parameters._
 
 **Returns:**
@@ -78,7 +73,6 @@ _No parameters._
 
 Locks all selected values of a specific field.
 
-
 _No parameters._
 
 **Returns:**
@@ -90,7 +84,6 @@ _No parameters._
 ## `LowLevelSelect`
 
 Selects some values in a field, by entering the element numbers related to the values to select.
-
 
 **Parameters:**
 
@@ -110,7 +103,6 @@ Selects some values in a field, by entering the element numbers related to the v
 
 Selects field values matching a search string.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -129,7 +121,6 @@ Selects field values matching a search string.
 
 Selects all values of a field. Excluded values are also selected.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -145,7 +136,6 @@ Selects all values of a field. Excluded values are also selected.
 ## `SelectAlternative`
 
 Selects all alternatives values in a specific field.<br>In a field that contains at least one selected value, the values that are neither selected nor excluded are alternatives values.
-
 
 **Parameters:**
 
@@ -163,7 +153,6 @@ Selects all alternatives values in a specific field.<br>In a field that contains
 
 Inverts the current selections.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -180,7 +169,6 @@ Inverts the current selections.
 
 Selects all possible values in a specific field.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -196,7 +184,6 @@ Selects all possible values in a specific field.
 ## `SelectValues`
 
 Selects some values in a field, by entering the values to select.
-
 
 **Parameters:**
 
@@ -216,7 +203,6 @@ Selects some values in a field, by entering the values to select.
 
 Sets a field in the AND mode.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -229,7 +215,6 @@ _No return values._
 
 Sets some properties to a field.
 
-
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
@@ -241,7 +226,6 @@ _No return values._
 ## `ToggleSelect`
 
 Toggle selects field values matching a search string.
-
 
 **Parameters:**
 
@@ -260,7 +244,6 @@ Toggle selects field values matching a search string.
 ## `Unlock`
 
 Unlocks all selected values of a specific field if the target (or handle ) is a field.
-
 
 _No parameters._
 
