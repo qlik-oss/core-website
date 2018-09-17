@@ -252,6 +252,7 @@ h1 span {
 }
 
 /* Hide Beta/License Registration/Third Party Licenses nav items in full size menu */
+.md-nav__item a[title="EULA"],
 .md-nav__item a[title="Beta agreement"],
 .md-nav__item a[title="License Registration"],
 .md-nav__item a[title="Third Party Licenses"]
