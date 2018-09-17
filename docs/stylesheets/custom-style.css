@@ -50,6 +50,9 @@ body {
   .footer-nav {
     display: none !important;
   }
+  .get-started-buttons {
+    display: none;
+  }
 }
 
 #beta-banner {
@@ -67,6 +70,13 @@ body {
 @media (min-width: 76.1875em) {
   .md-search {
     padding: 1.8rem;
+  }
+
+  .get-started-buttons {
+    position: absolute; 
+    right: 0px; 
+    top: 200px; 
+    text-align: right;
   }
 
   .md-header-home {
