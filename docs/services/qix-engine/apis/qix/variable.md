@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `ForceContent`
 
@@ -98,6 +98,7 @@ Sets a value to a variable.
 
 Sets some properties to a variable.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 

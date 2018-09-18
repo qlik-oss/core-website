@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.215.0._
+_QIX methods for version 12.225.0._
 
 ## `AbortAll`
 
@@ -16,14 +16,14 @@ _No return values._
 
 ## `AbortRequest`
 
-_No details._
+Sets an abort flag on a specific request in the current engine session.<br>- If an abort flag is set on a pending request, the request is aborted.<br>- If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
 
 
 **Parameters:**
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qRequestId` | integer | Yes | _No description._ |
+| `qRequestId` | integer | Yes | Identifier of request to abort. |
 
 _No return values._
 
@@ -44,6 +44,7 @@ _No parameters._
 
 Cancels an ongoing reload. The reload of the app is stopped. The indexation can be canceled and _true_ is still the return value of the reload task.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -66,6 +67,7 @@ _No return values._
 
 Configures the engine's behavior during a reload.<br>The [`ConfigureReload`](#configurereload) method should be run before the _DoReload method_. 
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -81,6 +83,7 @@ _No return values._
 
 Copies an app that is in the Qlik Sense repository.<br>The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.<br>This operation is possible only in Qlik Sense Enterprise.
 
+Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -98,8 +101,9 @@ Copies an app that is in the Qlik Sense repository.<br>The engine copies the app
 
 ## `CreateApp`
 
-Creates an app.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
+Creates an app.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -119,6 +123,7 @@ Creates an app.<br><br>The operation is successful if **qSuccess** is set to tru
 
 Creates an app and opens an engine session.<br>This operation is possible only in Qlik Sense Desktop.
 
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -141,6 +146,7 @@ Creates an app and opens an engine session.<br>This operation is possible only i
 
 Creates an empty session app.<br>The following applies:<br>- The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>- A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -155,6 +161,7 @@ _No parameters._
 
 Creates a session app from a source app.<br>The following applies:<br>- The objects in the source app are copied into the session app but contain no data.<br>- The script of the session app can be edited and reloaded.<br>- The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.<br>- A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
 
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -171,8 +178,9 @@ Creates a session app from a source app.<br>The following applies:<br>- The obje
 
 ## `DeleteApp`
 
-Deletes an app from the Qlik Sense repository or from the file system.<br><br>
+Deletes an app from the Qlik Sense repository or from the file system.
 
+Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -201,7 +209,7 @@ _No parameters._
 
 ## `ExportApp`
 
-Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. <br><br>
+Exports an app from the Qlik Sense repository to the file system.<br>This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
 
 **Parameters:**
@@ -339,6 +347,7 @@ Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting lan
 
 List the custom connectors available in the system.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -356,6 +365,7 @@ List the custom connectors available in the system.
 
 Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -373,6 +383,7 @@ Lists the databases in a ODBC, OLEDB or CUSTOM data source.
 
 Returns the folder where the apps are stored.<br>This method applies only if running Qlik Sense Desktop.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -399,6 +410,7 @@ _No parameters._
 
 Returns the files and folders located at a specified path.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -433,6 +445,7 @@ Gets the list of all the script functions.
 
 Retrieves information on the user interaction that is requested by the engine.<br>Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).<br>When running reload in debug mode, the engine pauses the script execution to receive data about user interaction. The engine can pause:<br>- Before executing a new script statement.<br>- When an error occurs while executing the script.<br>- When the script execution is finished.<br><br>To know if the engine is paused and waits for a response to an interaction request, the [`GetProgress`](#getprogress) method should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the [`GetProgress`](#getprogress) request.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -451,6 +464,7 @@ Retrieves information on the user interaction that is requested by the engine.<b
 
 Lists the logical drives in the system.<br>This method applies only if running Qlik Sense Desktop.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -464,6 +478,7 @@ _No parameters._
 
 Returns the list of the ODBC connectors that are installed in the system.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -477,6 +492,7 @@ _No parameters._
 
 Returns the list of the OLEDB providers installed on the system.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -507,6 +523,7 @@ Gives information about the progress of the _DoReload_ and _DoSave_ calls.<br>Fo
 
 Lists the supported code pages.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -533,6 +550,7 @@ _No parameters._
 
 Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -576,6 +594,7 @@ _No parameters._
 
 Checks if a connection string is valid.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -617,7 +636,7 @@ _No parameters._
 
 ## `OpenDoc`
 
-Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The [`OpenDoc`](#opendoc) method compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>- The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>- The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>- Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.<br><br>
+Opens an app and checks if the app needs to be migrated (if the app is deprecated).<br>The [`OpenDoc`](#opendoc) method compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.<br>If no migration is needed, the app is opened immediately.<br>The following applies:<br>- The app version is lower than 0.95: no migration is done. Apps older than the version 0.95 are not supported.<br>- The app version is at least 0.95 and less than the Qlik Sense version: the app is migrated and then opened.<br>- Qlik Sense and the app have the same version: the app is opened, no migration is needed.<br><br>If the app is read-only, the app migration cannot occur. An error message is sent.
 
 
 **Parameters:**
@@ -656,6 +675,7 @@ _No parameters._
 
 Publishes an app to the supplied stream.
 
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -709,6 +729,7 @@ _No return values._
 
 Replaces objects of a target app with the objects from a source app.<br>The list of objects in the app to be replaced must be defined in _qIds_.<br>The data model of the app cannot be updated. This operation is possible only in Qlik Sense Enterprise.<br><br>The operation is successful if **qSuccess** is set to true. 
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
