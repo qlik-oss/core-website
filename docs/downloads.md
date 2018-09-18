@@ -14,7 +14,6 @@ Qlik Core consists of a core set of supported components, including the Qlik Ass
 | [enigma.js](https://www.npmjs.com/package/enigma.js) | Communication with the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/enigma.js/) | N/A |
 | [halyard.js](https://www.npmjs.com/package/halyard.js) | Simple data loading into the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/halyard.js) | N/A |
 
-
 Qlik Core comes with a community version that may be used to evaluate,
 develop, or test solutions. Note that it cannot be used for commercial purposes.
 For more information about the license of Qlik Core visit
@@ -22,8 +21,8 @@ For more information about the license of Qlik Core visit
 
 ## Other Components
 
-In addition, there are several unsupported open source JavaScript libraries that you will find useful when working with Qlik Core.
-You can install these libraries as npm packages:
+In addition, there are several unsupported open source JavaScript libraries that you will find useful when working
+with Qlik Core. You can install these libraries as npm packages:
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
