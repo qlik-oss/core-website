@@ -4,9 +4,9 @@ function cookiePopup() {
     " hidden";}
   }
 
-/* (function() { 
+(function() { 
   var h1 = document.getElementsByTagName("h1");
   for (i = 0; i < h1.length; i++) {
     h1[i].insertAdjacentHTML('afterbegin', '<span>/ </span>');
   }
-})(); */
+})(); 
