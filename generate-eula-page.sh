@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 
-echo "Generating beta markdown page..."
+echo "Generating eula markdown page..."
 
 docker_cmd=docker
 pwd=$(pwd)
@@ -15,7 +15,7 @@ fi
 $docker_cmd run --rm -it -v $pwd:/pandoc dalibo/pandocker:latest \
   -s qlik-core-eula.docx \
   -t markdown_strict \
-  -o docs/beta.md
+  -o docs/eula.md
 
-content=$(cat docs/beta.md)
-echo -e "<!-- markdownlint-disable -->\n<!-- proselint-disable -->\n$content" > docs/beta.md
+content=$(cat docs/eula.md)
+echo -e "<!-- markdownlint-disable -->\n<!-- proselint-disable -->\n$content" > docs/eula.md

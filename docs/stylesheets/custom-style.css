@@ -245,9 +245,8 @@ h1 span {
   padding: 0;
 }
 
-/* Hide Beta/Third Party Licenses nav items in full size menu */
+/* Hide EULA/Third Party Licenses nav items in full size menu */
 .md-nav__item a[title="EULA"],
-.md-nav__item a[title="Beta agreement"],
 .md-nav__item a[title="Third Party Licenses"]
  {
   display: none;
