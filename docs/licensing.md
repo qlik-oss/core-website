@@ -1,6 +1,6 @@
 # Licensing
 
-By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./beta.md).
+By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./eula.md).
 Make sure you have read and understood this agreement before continuing.
 
 ## Community
@@ -19,18 +19,17 @@ The current limitations are applied to the community version:
 
 ## Licensed
 
-The exact model for buying Qlik Core will be announced later this year, and will require
-a side-car license service to unlock the Qlik Associative Engine service. See the
-[Licenses service documentation](./services/licenses.md) for additional information and how you can
+Running Qlik Core with a license requires a side-car license service
+which unlocks the Qlik Associative Engine service. See the
+[Licenses service documentation](./services/licenses.md) for additional information on how you can
 prepare your solution for Qlik Core licensing.
 
-!!! Note "Getting a beta license"
-    During the beta you can get a license by [filling out this form](./license-registration.md).
-
+!!! Note "Getting a license"
+    You can purchase your license by contacting sales [here](https://www.qlik.com/us/try-or-buy/buy-now)
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [Licenses configuration](./services/licenses.md#configuration) page.
 
-    With a beta license the community limitations will no longer apply.
+    With a license the community limitations will no longer apply.
 
 ## Third Party Licenses
 

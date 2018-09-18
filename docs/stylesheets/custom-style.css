@@ -56,12 +56,6 @@ body {
   }
 }
 
-#beta-banner {
-  bottom: -6px;
-  right: 0;
-  position: fixed;
-}
-
 .md-typeset table:not([class]) th {
   background-color: #e1e1e1;
   color: rgba(0,0,0,.87);
@@ -277,18 +271,16 @@ h1 span {
   padding: 0;
 }
 
-/* Hide Beta/License Registration/Third Party Licenses nav items in full size menu */
+/* Hide EULA/Third Party Licenses nav items in full size menu */
 .md-nav__item a[title="EULA"],
-.md-nav__item a[title="Beta agreement"],
-.md-nav__item a[title="License Registration"],
 .md-nav__item a[title="Third Party Licenses"]
  {
   display: none;
 }
 
-/* Show the Beta nav item in hamburger menu */
+/* Show the EULA nav item in hamburger menu */
 @media only screen and (max-width: 76.1875em) {
-  .md-nav__item a[title="Beta agreement"] {
+  .md-nav__item a[title="EULA"] {
     display: block;
   }
 }

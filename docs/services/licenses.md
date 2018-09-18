@@ -1,9 +1,5 @@
 # Licenses
 
-!!! warning "Experimental service"
-    This service is subject to change in terms of
-    configuration, metrics, and logging.
-
 To run Qlik Associative Engine with a paid license, you are required to run this service.
 Make sure that you have read and understood how [licensing](../licensing.md) in Qlik Core works.
 
@@ -64,8 +60,8 @@ You can override the minimum logging level by providing the `LICENSES_LOG_LEVEL`
 ### License Events
 
 If no valid license exists or all license minutes are already consumed and the Qlik Associative Engine
-is configured to run in licensed mode it will send a `SESSION_ERROR_NO_LICENSE`
+is configured to run in licensed mode without overreach it will send a `SESSION_ERROR_NO_LICENSE`
 push event on the websocket and then close it.
 
-If during a license renewal there are no more license minutes a `SESSION_ERROR_LICENSE_RENEW`
+If during a license renewal there are no more license minutes and your license is without overreach a `SESSION_ERROR_LICENSE_RENEW`
 push event will be sent from the Qlik Associative Engine and afterwards the websocket will be closed.

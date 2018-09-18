@@ -1,14 +1,13 @@
 <!-- markdownlint-disable -->
 <!-- proselint-disable -->
-**BETA SOFTWARE LICENSE AGREEMENT**
+**EVALUATION SOFTWARE LICENSE AGREEMENT**
 
-**NOTICE: THIS IS AN EARLY RELEASE VERSION OF SOFTWARE CURRENTLY KNOWN
-AS “QLIK CORE®” THAT IS STILL UNDER DEVELOPMENT AND TESTING AND I) IS
-NOT INTENDED FOR COMMERCIAL USE; II) CONTAINS FUNCTIONALITY INTENDED TO
-LIMIT THE DURATION OF ITS USE, AND III) CONTAINS FUNCTIONALITY INTENDED
-TO COLLECT CERTAIN USER METRICS ABOUT THE WAY IT IS BEING USED. PLEASE
-READ THIS LICENSE AGREEMENT AND MAKE SURE THAT YOU AGREE TO ITS TERMS
-BEFORE PROCEEDING.**
+**NOTICE: THIS IS AN EVALUATION VERSION OF SOFTWARE CURRENTLY KNOWN AS
+“QLIK CORE®” THAT I) IS NOT INTENDED FOR COMMERCIAL USE; II) CONTAINS
+FUNCTIONALITY INTENDED TO LIMIT THE DURATION OF ITS USE; AND III) MAY
+CONTAIN FUNCTIONALITY INTENDED TO COLLECT CERTAIN USER METRICS ABOUT THE
+WAY IT IS BEING USED. PLEASE READ THIS LICENSE AGREEMENT AND MAKE SURE
+THAT YOU AGREE TO ITS TERMS BEFORE PROCEEDING.**
 
 DO NOT CLICK ON AN **ACCEPT, INSTALL** OR **DOWNLOAD** BUTTON, OR
 OTHERWISE PROCEED WITH DOWNLOADING OR INSTALLING THIS SOFTWARE UNTIL YOU
@@ -35,33 +34,32 @@ DOWNLOADED OR INSTALLED, AND YOU EITHER DO NOT AGREE TO, OR DO NOT HAVE
 THE AUTHORITY TO AGREE TO THESE TERMS, THEN PROMPTLY DESTROY ALL
 INSTALLATIONS/COPIES OF THE SOFTWARE. IF YOU DO NOT DO SO, YOU AND THE
 PURPORTED LICENSEE WILL BE RESPONSIBLE FOR ALL UNAUTHORIZED ACCESS TO,
-USE AND/OR REPRODUCTION OF THE SOFTWARE.
-
-This Beta
+USE AND/OR REPRODUCTION OF THE SOFTWARE. DIRECT COMPETITORS OF QLIK AND
+THEIR EMPLOYEES AND AGENTS MAY NOT ACCESS THE SOFTWARE WITHOUT PRIOR
+WRITTEN CONSENT OF QLIK.
 
 1.  **INTRODUCTION AND SCOPE**
 
-    1.  This Beta Software License Agreement (the “Agreement”) between
-        the licensee downloading or using the Software (“Licensee”) and
-        Qlik, governs any right to download, install, copy, access, or
-        use the version of the Software that is associated with this
-        Agreement. Access to and use of any other Qlik software shall be
-        governed by the applicable license agreement presented during
-        download or installation of that software. Qlik and Licensee are
-        from time to time referred to herein as a “Party” and
-        collectively as the “Parties”. The capitalized terms which are
-        utilized in this Agreement are defined in the Section of this
-        Agreement entitled “General”. This Agreement does not provide
-        any license to use any other Qlik software or product other than
-        the Qlik Core software provided hereunder.
+    1.  This Evaluation Software License Agreement (the “Agreement”)
+        between the licensee downloading or using the Software
+        (“Licensee”) and Qlik, governs any right to download, install,
+        copy, access, or use the version of the Software that is
+        associated with this Agreement. Access to and use of any other
+        Qlik software shall be governed by the applicable license
+        agreement presented during download or installation of that
+        software. Qlik and Licensee are from time to time referred to
+        herein as a “Party” and collectively as the “Parties”. The
+        capitalized terms which are utilized in this Agreement are
+        defined in the Section of this Agreement entitled “General”.
+        This Agreement does not provide any license to use any other
+        Qlik software or product other than the Qlik Core software
+        provided hereunder.
 
-    2.  This early release version of the Software is being provided on
-        a limited basis to selected entities solely for purposes of
-        testing and obtaining feedback from those entities. Qlik
-        expressly disclaims any obligation or commitment to correct
-        errors or discrepancies, or to continue to develop, distribute
-        or support this Software or any future releases of this
-        Software.
+    2.  This Software is being provided on a limited basis solely for
+        purposes of testing and evaluation. Qlik expressly disclaims any
+        obligation or commitment to correct errors or discrepancies, or
+        to continue to develop, distribute or support this Software or
+        any future releases of this Software.
 
     3.  This Software should not be installed on any computer on which
         any commercial version of the Software is installed. This
@@ -206,6 +204,10 @@ This Beta
     providing confidentiality, appropriate authentication and otherwise
     protect Qlik’s Intellectual Property Rights.
 
+    vii) use the Software for purposes of benchmarking, collecting and
+    publishing performance data, or developing a product which is
+    competitive with any Qlik product or services.
+
 2.  Without limiting any of the foregoing, Licensee shall maintain an up
     to date written record of the location of its installation of the
     Software, and upon its request shall provide such record to Qlik.
@@ -311,7 +313,7 @@ This Beta
         REPRESENTATION OR CONDITION. QLIK MAKES NO REPRESENTATION OR
         WARRANTY THAT THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR FREE.
 
-3.  Limitation of Liabilities
+3.  Limitation of Liability
 
     1.  TO THE MAXIMUM EXTENT PERMITTED BY LAW, QLIK’S, ITS AFFILIATES’,
         AND THEIR LICENSORS’, CONTRACTORS’ AND SUPPLIERS’ MAXIMUM,
@@ -358,18 +360,15 @@ This Beta
 4.  Termination
 
     1.  This Agreement shall automatically expire, without any written
-        notice on (i) the first day Qlik releases a generally available
-        or commercial version of the Software, ii) upon Qlik’s
-        notification to Licensee to uninstall the Software, (iii) if
-        Licensee breaches any of the terms of this Agreement, or (iv)
-        upon the expiration of any terms of use associated with the
-        Software grant.
+        notice (i) upon Qlik’s notification to Licensee to uninstall the
+        Software, (ii) if Licensee breaches any of the terms of this
+        Agreement, (iii) on expiration of the Software in accordance
+        with the Documentation or (iv) upon the expiration of any terms
+        of use associated with the Software grant.
 
     2.  This Agreement is effective until expiration or termination.
         Qlik or Licensee may terminate this Agreement at any time for
-        their convenience upon written notice to the other. For clarity,
-        this Agreement will immediately terminate at the end of the Qlik
-        Core Beta Program.
+        their convenience upon written notice to the other.
 
     3.  Upon expiration or termination, the Licensee agrees to promptly
         uninstall, destroy or return to Qlik all copies of the Software
@@ -456,10 +455,9 @@ This Beta
             Intellectual Property Rights. Qlik Materials expressly
             excludes Third Party Materials.
 
-        6.  “Software” means the early release version of the Qlik
-            software provided or made available to Licensee in
-            association with this Agreement, solely in object code
-            format.
+        6.  “Software” means the version of the Qlik software provided
+            or made available to Licensee in association with this
+            Agreement, solely in object code format.
 
         7.  “User“ means any individual or entity Using the Software,
             provided that the only Users that may be authorized by the
@@ -609,8 +607,8 @@ This Beta
         brought by Licensee more than one (1) year after the cause of
         action arose.
 
-    12. <span class="underline">Non-Waivable Rights</span>. Nothing
-        included in this Agreement shall limit any non-waivable right to
+    12. <span class="underline">Miscellaneous</span>. Nothing included
+        in this Agreement shall limit any non-waivable right to
         decompile the Software that the Licensee may enjoy under
         mandatory law. For example, if the Licensee is located in the
         European Union (EU), Licensee may have the right upon certain
@@ -627,29 +625,7 @@ This Beta
         described herein and may not be disclosed to any third party or
         used to create any software which is substantially similar to
         the expression of the Software or used for any other act which
-        infringes Qlik’s or its licensors’ copyright.
-
-    13. <span class="underline">Marketing.</span> During the term of
-        this Agreement, Licensee shall use endeavor to:
-
-<!-- -->
-
-1.  Provide Qlik with applicable quotes for use by Qlik (including in
-    press releases) and allow Qlik to prepare and publicly distribute
-    such quotes and press releases;
-
-2.  Participate in media opportunities, including those involving
-    interviews, that may be used by Qlik for marketing purposes;
-
-3.  Participate in calls or face-to-face meetings to share details of
-    the Qlik Core experience and or participate in analyst
-    events/surveys;
-
-4.  Participate in calls with current or prospective Qlik customers
-    and/or partners to promote successful Qlik Core testing and
-    development experience; and
-
-5.  Allow Qlik to prepare a case study related to the Licensee’s use of
-    the Software and distribute this internally within Qlik and
-    externally including on Qlik.com, Qlik collateral and Qlik
-    newsletters.
+        infringes Qlik’s or its licensors’ copyright. Nothing in this
+        Agreement shall be construed to create an agency, joint venture,
+        partnership, fiduciary relationship, joint venture or similar
+        relationship between the Parties.

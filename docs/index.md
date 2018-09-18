@@ -1,21 +1,12 @@
 # Home
 
-Welcome to Qlik Core Beta! This beta program gives you early access to Qlik Core, our brand-new plug-and-play
-developer platform for custom analytics that lets you drop the Qlik Associative Engine into your systems today
-– and act on your insight tomorrow.
-
-As you’re aware, beta versions are subject to being less stable than the final version officially released
-to the general public. Therefore, should you decide to participate in this beta program, we do not recommend
-you run your existing production workloads using Qlik Core.
-
-If you have questions about Qlik Core Beta use our [Slack channels](http://qlikbranch-slack-invite.herokuapp.com/).
-We would love to get your feedback, how you are using Qlik Core Beta and what we can to do make it better.
-
-## What is Qlik Core?
-
-Qlik Core is a development platform built on top of the Qlik Associative Engine.
-With Qlik Core, you can take advantage of the powerful associative indexing engine from Qlik
-to build your custom data exploration and data visualization solutions.
+Qlik Core is an analytics development platform built around the Qlik Associative Engine and Qlik-authored open source
+libraries. With Qlik Core, you can take advantage of the powerful associative engine to build, extend and quickly deploy
+your custom interactive data-driven solutions, highly scalable and cloud-ready. Combining complex data sources, scaling
+on-demand during peak and off-peak use and integrating seamlessly within already existing infrastructure to manage security
+will help developers solve some of the major challenges of building cloud-ready, analytics-driven applications. Supported
+by a backbone of Linux and Docker, Qlik Core applications can easily be embedded into any stack, IoT device, application,
+web page etc.
 
 The Qlik Associative Engine differentiates from other vendors by dynamically calculating and providing associations
 based on data selections, without needing to rely on query-based analyses which are restricted to linear exploration
@@ -54,3 +45,8 @@ More information can be found in the [Use Cases](./use-cases.md) section.
 ## New to Qlik Core?
 
 If you are new to Qlik Core, we recommend that you begin with the [Getting Started](./get-started.md) section.
+
+## Feedback
+
+If you have questions about Qlik Core use our [Slack channels](http://qlikbranch-slack-invite.herokuapp.com/).
+We would love to get your feedback, how you are using Qlik Core and what we can to do make it better.
