@@ -1,6 +1,12 @@
 # Home
 
-Qlik Core is an analytics development platform built around the Qlik Associative Engine and Qlik-authored open source libraries. With Qlik Core, you can take advantage of the powerful associative engine to build, extend and quickly deploy your custom interactive data-driven solutions, highly-scalable and cloud-ready. Combining complex data sources, scaling on-demand during peak and off-peak use and integrating seamlessly within already existing infrastructure to manage security will help developers solve some of the major challenges of building cloud-ready, analytics-driven applications. Supported by a backbone of Linux and Docker, Qlik Core applications can easily be embedded into any stack, IoT device, application, web page etc.
+Qlik Core is an analytics development platform built around the Qlik Associative Engine and Qlik-authored open source
+libraries. With Qlik Core, you can take advantage of the powerful associative engine to build, extend and quickly deploy
+your custom interactive data-driven solutions, highly scalable and cloud-ready. Combining complex data sources, scaling
+on-demand during peak and off-peak use and integrating seamlessly within already existing infrastructure to manage security
+will help developers solve some of the major challenges of building cloud-ready, analytics-driven applications. Supported
+by a backbone of Linux and Docker, Qlik Core applications can easily be embedded into any stack, IoT device, application,
+web page etc.
 
 The Qlik Associative Engine differentiates from other vendors by dynamically calculating and providing associations
 based on data selections, without needing to rely on query-based analyses which are restricted to linear exploration
