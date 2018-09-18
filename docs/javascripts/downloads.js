@@ -146,6 +146,16 @@
           apis: [
             'MiraAPI',
           ],
+        }, {
+          service: 'enigma.js',
+          apis: [
+            'enigma.js',
+          ],
+        }, {
+          service: 'halyard.js',
+          apis: [
+            'halyard.js',
+          ],
         },
       ];
 
