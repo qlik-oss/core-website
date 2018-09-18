@@ -1,6 +1,6 @@
 # Licensing
 
-By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./beta.md).
+By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./eula.md).
 Make sure you have read and understood this agreement before continuing.
 
 ## Community

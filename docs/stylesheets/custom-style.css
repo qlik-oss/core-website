@@ -253,9 +253,9 @@ h1 span {
   display: none;
 }
 
-/* Show the Beta nav item in hamburger menu */
+/* Show the EULA nav item in hamburger menu */
 @media only screen and (max-width: 76.1875em) {
-  .md-nav__item a[title="Beta agreement"] {
+  .md-nav__item a[title="EULA"] {
     display: block;
   }
 }
