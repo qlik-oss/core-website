@@ -8,18 +8,26 @@
 }
 
 body {
-  font-family: 'ProximaNova-Regular','Helvetica Neue','helvetica',arial,sans-serif;
+  font-family: 'Open Sans', sans-serif, 'ProximaNova-Regular','Helvetica Neue','helvetica',arial,sans-serif;
 }
 
 .md-container {
   padding-top: 0.4rem;
 }
 
-.md-header-info {
-  text-align: center; 
-  padding-top:100px;
-  font-size:40px;
+.md-header-info h2 {
+  font-size: 70px;
   color:#fff;
+  line-height:  normal;
+}
+
+.md-header-info {
+  letter-spacing: 3px;
+  font-size:24px;
+  line-height: 35px;
+  color:#fff;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .md-header {
@@ -43,6 +51,9 @@ body {
   .footer-nav {
     display: none !important;
   }
+  .get-started-buttons {
+    display: none;
+  }
 }
 
 .md-typeset table:not([class]) th {
@@ -54,6 +65,13 @@ body {
 @media (min-width: 76.1875em) {
   .md-search {
     padding: 1.8rem;
+  }
+
+  .get-started-buttons {
+    position: absolute; 
+    right: 0px; 
+    top: 200px; 
+    text-align: right;
   }
 
   .md-header-home {
@@ -80,7 +98,9 @@ body {
 
   .md-logo img {
     height: auto;
-    width: 250px;
+    width: 300px;
+    position: absolute;
+    margin-left: -20px;
   }
 }
 
@@ -151,12 +171,13 @@ to   { opacity: 1; }
 
 h1 span {
   color: #F6921D;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .md-content h1 {
   text-transform: uppercase;
-  font-size: 2.2rem !important;
+  font-size: 2.0rem !important;
+  font-weight: 400;
 }
 
 .md-nav__link:focus, .md-nav__link:hover, .md-nav__link--active,
@@ -172,10 +193,11 @@ h1 span {
   display: inline-block;
   margin: 0px 5px;
   color: white;
-  font-family: 'ProximaNova-Semibold','Helvetica Neue','helvetica',arial,sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .05em;
   opacity: 1;
+  font-size: 1.6rem;
 }
 
 .md-tabs__link:focus {
@@ -194,6 +216,10 @@ h1 span {
 
 .md-flex__cell--shrink:first-child {
   vertical-align: middle;
+}
+
+.md-nav {
+  font-size: 1.6rem;
 }
 
 .md-logo {
@@ -461,7 +487,6 @@ ul {
   margin: auto;
   margin-top: 0px;
   padding: 0px 30px;
-  font-family: 'ProximaNova-Regular','Helvetica Neue','helvetica',arial,sans-serif;
   font-size: 18px;
 }
 
@@ -499,13 +524,12 @@ li {
   }
 
 .footer-nav-menu ul li {
-  font-family: 'BasicCommercialLTPro-Roman','Helvetica Neue','helvetica',arial,sans-serif;
   line-height: 45px;
   color: #63666a;
 }
 
 .footer-nav-menu .footer-menu-item .footer-menu-title {
-  font-family: 'ProximaNova-Semibold','Helvetica Neue','helvetica',arial,sans-serif;
+  font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
   color: #63666a;
@@ -569,18 +593,23 @@ li {
 }
 
 .marketing-text-button {
-  color: white;
-  font-size:16px;
-  background-color: #f7921d;
-  opacity: 1;
-  padding: 10px 20px 10px 20px;
+  color: rgba(255,255,255,.6);
+  font-size:26px;
+  opacity: 0.8;
+  margin-right: 15px;
+  padding-left: 30px;
+  padding-right: 5px;
+  padding-bottom: 30px;
+  padding-top: 30px;
   text-decoration: none;
   text-transform: uppercase;
+  font-weight: 800;
 }
 
 .marketing-text-button:hover {
-  opacity: 1;
-  background-color: #f7921d;
+  color: #333;
+  background-color: #FFF;
+  border-left: 8px solid var(--custom-orange);
 }
 
 .marketing-text a {

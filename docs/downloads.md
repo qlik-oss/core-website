@@ -26,5 +26,5 @@ You can install these libraries as npm packages:
 | ------- | ------- | ----------- |
 | [enigma.js](https://www.npmjs.com/package/enigma.js) | Communication with the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/enigma.js/) |
 | [halyard.js](https://www.npmjs.com/package/halyard.js) | Simple data loading into the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/halyard.js) |
-| [after-work.js](https://www.npmjs.com/package/after-work.js) | Unified testing framework for different test levels. | [GitHub](https://github.com/qlik-oss/after-work.js) |
+| [after-work.js](https://www.npmjs.com/package/@after-work.js/aw) | Unified testing framework for different test levels. | [GitHub](https://github.com/qlik-oss/after-work.js) |
 | [picasso.js](https://www.npmjs.com/package/picasso.js) | Visualization library on top of the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/picasso.js/) |
