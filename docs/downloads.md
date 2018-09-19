@@ -22,7 +22,7 @@ For more information about the license of Qlik Core visit
 ## Other Components
 
 In addition, there are several unsupported open source libraries that you will find useful when working
-with Qlik Core. You can install these libraries as npm or golang packages:
+with Qlik Core.
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
