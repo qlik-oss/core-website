@@ -21,10 +21,11 @@ For more information about the license of Qlik Core visit
 
 ## Other Components
 
-In addition, there are several unsupported open source JavaScript libraries that you will find useful when working
-with Qlik Core. You can install these libraries as npm packages:
+In addition, there are several unsupported open source libraries that you will find useful when working
+with Qlik Core.
 
 | Library | Feature | Source Code |
 | ------- | ------- | ----------- |
 | [after-work.js](https://www.npmjs.com/package/@after-work.js/aw) | Unified testing framework for different test levels. | [GitHub](https://github.com/qlik-oss/after-work.js) |
 | [picasso.js](https://www.npmjs.com/package/picasso.js) | Visualization library on top of the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/picasso.js/) |
+| enigma-go | Go library for consuming Qlik's Associative Engine | [GitHub](https://github.com/qlik-oss/enigma-go/) |
