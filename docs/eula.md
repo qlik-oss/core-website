@@ -52,8 +52,8 @@ WRITTEN CONSENT OF QLIK.
         capitalized terms which are utilized in this Agreement are
         defined in the Section of this Agreement entitled “General”.
         This Agreement does not provide any license to use any other
-        Qlik software or product other than the Qlik Core software
-        provided hereunder.
+        Qlik software or product other than the Software provided
+        hereunder.
 
     2.  This Software is being provided on a limited basis solely for
         purposes of testing and evaluation. Qlik expressly disclaims any
@@ -176,12 +176,12 @@ WRITTEN CONSENT OF QLIK.
     or port any of the Qlik Materials or combine or merge any part of
     the Qlik Materials with or into any other software or documentation;
 
-    iii) offer, use, demonstrate, sublicense or otherwise exploit any of
-    the Qlik Materials as a product or service to or for any third
-    party, including without limitation providing training for a third
-    party or using the Software to provide a hosting service bureau,
-    commercial time-sharing, rental, or software as a service (SaaS)
-    function;
+    iii) offer, use, demonstrate, sublicense, allow access to or
+    otherwise exploit any of the Qlik Materials as a product or service
+    to or for any third party, whether or not for a fee, including
+    without limitation providing training for a third party or using the
+    Software to provide a hosting service bureau, commercial
+    time-sharing, rental, or software as a service (SaaS) function;
 
     iv) permit the use, reproduction or transfer of any Qlik Materials
     for any purpose not authorized by this Agreement. If a serial
@@ -455,9 +455,9 @@ WRITTEN CONSENT OF QLIK.
             Intellectual Property Rights. Qlik Materials expressly
             excludes Third Party Materials.
 
-        6.  “Software” means the version of the Qlik software provided
-            or made available to Licensee in association with this
-            Agreement, solely in object code format.
+        6.  “Software” means the version of the Qlik Core software
+            provided or made available to Licensee in association with
+            this Agreement, solely in object code format.
 
         7.  “User“ means any individual or entity Using the Software,
             provided that the only Users that may be authorized by the
@@ -583,9 +583,9 @@ WRITTEN CONSENT OF QLIK.
     9.  <span class="underline">Notices</span>. All notices or other
         communications to Qlik shall be addressed to: QlikTech
         International Markets AB, Scheelevägen 24-26; SE-223 63 Lund,
-        Sweden; ATTENTION: LEGAL DEPARTMENT, with a copy to General
-        Counsel, QlikTech Inc., 150 N. Radnor-Chester Rd. – Suite E220,
-        Radnor, PA 19087.
+        Sweden; ATTENTION: LEGAL DEPARTMENT, with a copy to QlikTech
+        Inc. :211 South Gulph Road, Suite 500, King of Prussia, PA
+        19406, U.S.A. Attention: Legal Department.
 
     10. <span class="underline">Severability/Waiver</span>. If any
         provision of this Agreement is invalid or unenforceable, that
