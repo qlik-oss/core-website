@@ -6,7 +6,7 @@ comprising the core services. The core services represent the foundation on whic
 The central stack of Qlik Core consists of the following services:
 
 - [Qlik Associative Engine](../services/qix-engine/introduction.md)
-- [Licenses](../services/licenses.md)
+- [License](../services/licenses.md)
 - [Mira](../services/mira.md)
 
 In a typical solution, all services are deployed on the server side.
@@ -76,7 +76,7 @@ eval $(docker-machine env <swarm manager node>)
 
 The Qlik Core stack is specified in the
 [docker-compose.yml](https://github.com/qlik-oss/core-orchestration/blob/master/docker-swarm/docker-compose.yml) file.
-The stack consists of one Qlik Associative Engine, one Mira discovery service, and one Licenses service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License service.
 
 #### Placement constraints
 
@@ -153,7 +153,7 @@ see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/
 ### The stack
 
 The Qlik Core stack is specified in the `docker-compose.yml` file.
-The stack consists of one Qlik Associative Engine, one Mira discovery service, and one Licenses service.
+The stack consists of one Qlik Associative Engine, one Mira discovery service, and one License service.
 
 #### Mira Kubernetes mode
 
@@ -171,7 +171,7 @@ Relevant APIs are exposed on the following ports:
 | Service         | Port          | API                        |
 | --------------- |:-------------:| --------------------------:|
 | Mira            | `9100`        | REST API                   |
-| Licenses        | `9200`        | REST API                   |
+| License         | `9200`        | REST API                   |
 | Qlik Associative Engine      | `9076`        | QIX websocket API          |
 | Qlik Associative Engine      | `9090`        | Prometheus/metric endpoint |
 

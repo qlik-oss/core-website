@@ -58,7 +58,7 @@ Below is a list of Qlik Associative Engine command line parameters used in Qlik 
 | Parameter | Values | Description | Default |
 | --------- | ------ | ----------- | ------- |
 | AcceptEULA | `yes` or `no` | Whether the EULA for running the container is accepted or not. For more information please see the [Licensing chapter](../../licensing.md). | `no` |
-| LicenseServiceUrl | URL string | URL to the `licenses` service. If not configured the **Community** version will be used. For more information please see the [Licensing chapter](../../licensing.md). | n/a |
+| LicenseServiceUrl | URL string | URL to the [License service](../../licensing.md). If not configured the **Community** version will be used. For more information please see the [Licensing chapter](../../licensing.md). | n/a |
 | DocumentDirectory | File path | Directory that Qlik Associative Engine should use for documents inside the docker container. | `/home/nobody/Qlik/Sense/Apps` |
 | EnableFilePolling | `0` (disabled) or `1` (enabled) | Feature for sharing and synchronizing documents between Qlik Associative Engine instances sharing the same filesystem. For more details see [Document Synchronization](./doc-synchronization.md). | `0` (disabled) |
 | EnableABAC | `0` (disabled) or `1` (enabled) | Attribute-Based Access Control feature that can be used for controlling application access through rules. For more details see [Access Control](./access-control.md). | `0` (disabled) |

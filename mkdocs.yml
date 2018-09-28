@@ -128,7 +128,7 @@ nav:
           - System Functions: services/qix-engine/script_reference/system_functions.md
           - Table Functions: services/qix-engine/script_reference/table_functions.md
           - Trigonometric And Hyperbolic Functions: services/qix-engine/script_reference/trigonometric_and_hyperbolic_functions.md
-    - Licenses: services/licenses.md
+    - License: services/licenses.md
   - Conventions:
     - Introduction: conventions/introduction.md
     - API Strategy: conventions/api-strategy.md
