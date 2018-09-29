@@ -10,7 +10,10 @@ theme:
   # 404 page
   static_templates:
     - 404.html
-    
+
+site_description: 'Qlik Core is an analytics development platform built around the 
+                   Qlik Associative Engine and Qlik-authored open source libraries.'
+
 extra_css:
   - 'stylesheets/custom-style.css'
   - 'stylesheets/downloads.css'

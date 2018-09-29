@@ -1,6 +1,39 @@
 <script>console.log("%cCurious about Qlik Core? We do most of our work as open source — find us at https://github.com/qlik-oss. By the way, we are hiring so if you would like to get paid as you work with open source, you should join us: http://app.jobvite.com/m?3qcr5kwX", "font: 2em sans-serif; color: white; background-color: #6EB43F; padding: 1rem 3rem");</script>
 {% extends "base.html" %}
 
+<!-- Extrahead -->
+{% block site_meta %}
+
+  <meta property="og:url" content="{{ config.site_url }}">
+  {% if page and page.meta and page.meta.title %}
+    <meta property="og:title" content="{{ page.meta.title }}">
+  {% elif page and page.title and not page.is_homepage %}
+    <meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
+  {% else %}
+    <meta property="og:title" content="{{ config.site_name }}">
+  {% endif %}
+  <meta property="og:description" content="{{ config.site_description }}">
+  <meta property="og:image" content="{{ config.site_url }}images/qlik-core-banner.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:image:alt" content="Meet Qlik Core">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+
+  <meta name="twitter:card" content="summary_large_image">
+  {% if page and page.meta and page.meta.title %}
+  <meta property="twitter:title" content="{{ page.meta.title }}">
+  {% elif page and page.title and not page.is_homepage %}
+  <meta property="twitter:title" content="{{ page.title }} - {{ config.site_name }}">
+  {% else %}
+  <meta property="twitter:title" content="{{ config.site_name }}">
+  {% endif %}
+  <meta name="twitter:description" content="{{ config.site_description }}">
+  <meta name="twitter:image" content="{{ config.site_url }}images/qlik-core-banner.jpg">
+  <meta name="twitter:image:alt" content="Meet Qlik Core">
+
+{% endblock %}
+
 {% block content %}
 
 {% if page.edit_url %}
