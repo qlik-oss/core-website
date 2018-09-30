@@ -1,17 +1,17 @@
-# Licenses
+# License
 
 To run Qlik Associative Engine with a paid license, you are required to run this service.
 Make sure that you have read and understood how [licensing](../licensing.md) in Qlik Core works.
 
 ## Distribution
 
-The Licenses service is available on Docker Hub as a Docker image: [qlikcore/licenses](https://hub.docker.com/r/qlikcore/licenses).
+The License service is available on Docker Hub as a Docker image: [qlikcore/licenses](https://hub.docker.com/r/qlikcore/licenses).
 
 It is developed by Qlik as closed source.
 
 ## Configuration
 
-You need to configure the Licenses service with two environment variables `LICENSES_SERIAL_NBR`
+You need to configure the License service with two environment variables `LICENSES_SERIAL_NBR`
 with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
 
 You also need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
@@ -19,7 +19,7 @@ where to find it. You can do this by passing the following command line argument
 Associative Engine.
 
 ```sh
--S LicenseServiceUrl=<Licenses service URL>
+-S LicenseServiceUrl=<License service URL>
 ```
 
 ## Examples
@@ -30,7 +30,7 @@ To see an example of a license configuration, see the
 ## Deployment
 
 In most Qlik Core deployments, you will only need to deploy a single instance of this service. This is because
-traffic between Qlik Associative Engine instances and the Licenses service is relatively low. It does however
+traffic between Qlik Associative Engine instances and the License service is relatively low. It does however
 support multiple instances if needed.
 
 ### Health check

@@ -10,7 +10,10 @@ theme:
   # 404 page
   static_templates:
     - 404.html
-    
+
+site_description: 'Qlik Core is an analytics development platform built around the 
+                   Qlik Associative Engine and Qlik-authored open source libraries.'
+
 extra_css:
   - 'stylesheets/custom-style.css'
   - 'stylesheets/downloads.css'
@@ -128,7 +131,7 @@ nav:
           - System Functions: services/qix-engine/script_reference/system_functions.md
           - Table Functions: services/qix-engine/script_reference/table_functions.md
           - Trigonometric And Hyperbolic Functions: services/qix-engine/script_reference/trigonometric_and_hyperbolic_functions.md
-    - Licenses: services/licenses.md
+    - License: services/licenses.md
   - Conventions:
     - Introduction: conventions/introduction.md
     - API Strategy: conventions/api-strategy.md

@@ -19,15 +19,15 @@ The current limitations are applied to the community version:
 
 ## Licensed
 
-Running Qlik Core with a license requires a side-car license service
+Running Qlik Core with a license requires a side-car License service
 which unlocks the Qlik Associative Engine service. See the
-[Licenses service documentation](./services/licenses.md) for additional information on how you can
+[License service documentation](./services/licenses.md) for additional information on how you can
 prepare your solution for Qlik Core licensing.
 
 !!! Note "Getting a license"
     You can purchase your license by contacting sales [here](https://www.qlik.com/us/try-or-buy/buy-now)
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
-    See [Licenses configuration](./services/licenses.md#configuration) page.
+    See [License configuration](./services/licenses.md#configuration) page.
 
     With a license the community limitations will no longer apply.
 
