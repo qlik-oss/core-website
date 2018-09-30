@@ -1,7 +1,6 @@
-<script>console.log("%cCurious about Qlik Core? We do most of our work as open source — find us at https://github.com/qlik-oss. By the way, we are hiring so if you would like to get paid as you work with open source, you should join us: http://app.jobvite.com/m?3qcr5kwX", "font: 2em sans-serif; color: white; background-color: #6EB43F; padding: 1rem 3rem");</script>
+<script>console.log("%cCurious about Qlik Core? We do most of our work as open source — find us at https://github.com/qlik-oss. By the way, we are hiring so if you would like to get paid as you work with open source, you should join us: https://qlik-oss.github.io/core/index.html", "font: 2em sans-serif; color: white; background-color: #009845; padding: 1rem 3rem");</script>
 {% extends "base.html" %}
 
-<!-- Extrahead -->
 {% block site_meta %}
 
   <meta property="og:url" content="{{ config.site_url }}">
@@ -32,7 +31,32 @@
   <meta name="twitter:image" content="{{ config.site_url }}/images/qlik-core-banner.jpg">
   <meta name="twitter:image:alt" content="Meet Qlik Core">
 
+  <link rel="canonical" href="{{ config.site_url }}">
+
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+
+  <meta name="lang:search.language" content="en">
+
+  <meta name="lang:search.pipeline.stopwords" content="True">
+
+  <meta name="lang:search.pipeline.trimmer" content="True">
+
+  <meta name="lang:search.result.none" content="No matching documents">
+
+  <meta name="lang:search.result.one" content="1 matching document">
+
+  <meta name="lang:search.result.other" content="# matching documents">
+
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+<link rel="shortcut icon" href="{{ base_url }}/images/favicon.ico">
+
+<meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+
 {% endblock %}
+
 
 {% block content %}
 
