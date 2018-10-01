@@ -3,6 +3,11 @@
   --custom-grey: #424346;
 }
 
+@media only screen and (min-width: 125em) {
+  html {
+    font-size: 68.75%;
+  }
+}
 .underline {
   text-decoration: underline;
 }
