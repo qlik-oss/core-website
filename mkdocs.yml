@@ -3,11 +3,14 @@ site_url: 'https://core.qlik.com'
 
 theme:
   name: 'material'
-  logo: 'images/QlikCore-Horizontal-Print-white.svg'
+  logo: 'images/qlik-core-logo-white.svg'
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
-
+  font:
+    text: 'Source Sans Pro'
+    code: 'Roboto Mono'
   # 404 page
+
   static_templates:
     - 404.html
 
