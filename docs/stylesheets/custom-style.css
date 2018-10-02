@@ -7,10 +7,6 @@
   text-decoration: underline;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif, 'ProximaNova-Regular','Helvetica Neue','helvetica',arial,sans-serif;
-}
-
 .md-header sup {
   font-size:25px;
   vertical-align: super;
