@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.225.0._
+_QIX methods for version 12.248.0._
 
 ## `AbortModal`
 
@@ -237,6 +237,9 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 
 ## `CommitDraft`
 
+!!! warning "Deprecated"
+    This method is deprecated and should not be used
+
 Commits the draft of an object that was previously created by invoking the [`CreateDraft`](#createdraft) method.<br>Committing a draft replaces the corresponding published object.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
@@ -306,6 +309,9 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericDimension", "qHandle": &lt;handle of the dimension&gt; } |
 
 ## `CreateDraft`
+
+!!! warning "Deprecated"
+    This method is deprecated and should not be used
 
 Creates a draft of an object.<br>This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.<br>Replace the published object by the content of the draft by invoking the [`CommitDraft`](#commitdraft) method.<br><br>The identifier is set by the engine.
 
@@ -486,6 +492,9 @@ Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/acces
 | `qSuccess` | boolean | &lt;true or false&gt; |
 
 ## `DestroyDraft`
+
+!!! warning "Deprecated"
+    This method is deprecated and should not be used
 
 Removes the draft of an object.<br>The children of the draft object (if any) are removed as well.<br>This method can be used to cancel the work on the draft of an object. For example, if you had created a draft of a sheet that is published, you might not want anymore to replace the published sheet.<br><br>The operation is successful if **qSuccess** is set to true. 
 
@@ -695,6 +704,23 @@ Evaluates an expression and returns the result as a dual.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qValue` | [`FieldValue`](./definitions.md#fieldvalue) | The result of the evaluation as a dual. |
+
+## `ExpandExpression`
+
+Expands the expression.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qExpression` | string | Yes | The expression string to expand. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qExpandedExpression` | string | The expanded expression string. |
 
 ## `FindMatchingFields`
 
@@ -1056,6 +1082,25 @@ Returns a handle to a field.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | Handle to the field |
+
+## `GetFieldAndColumnSamples`
+
+Get sample values from either a column in a table or from a field.<br>Supports wildcard matches in tables or field names:<br>- '*' for zero or more characters.<br>- '?' for one character.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qFieldsOrColumnsWithWildcards` | [`FieldOrColumn`](./definitions.md#fieldorcolumn) | Yes | Pairs of table (optionally) and field names. Support wildcard matches. |
+| `qMaxNumberOfValues` | integer | Yes | Max number of sample values returned. Depending on the column or field size the number of returned samples can be less than MaxNumberOfValues. If MaxNumberOfValues is negative all sample values are returned. |
+| `qRandSeed` | integer | No | Optional. Sets the random number seed. Should only be set for test purposes. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qResult` | array&lt;[`SampleResult`](./definitions.md#sampleresult)> | Array of samples for each table/field pair. |
 
 ## `GetFieldDescription`
 
@@ -1528,6 +1573,23 @@ Gets the handle of a variable.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericVariable", "qHandle": &lt;Handle of the variable&gt; } |
+
+## `GetVariables`
+
+_No details._
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qListDef` | [`VariableListDef`](./definitions.md#variablelistdef) | Yes | _No description._ |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qList` | array&lt;[`NxVariableListItem`](./definitions.md#nxvariablelistitem)> | _No description._ |
 
 ## `GetViewDlgSaveInfo`
 
