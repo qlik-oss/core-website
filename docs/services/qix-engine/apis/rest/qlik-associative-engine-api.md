@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.225.0._
+_Qlik Associative Engine API for version 12.248.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -66,7 +66,7 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 | --------- | -- | ---- | --------- | ----------- |
 | `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
-| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated meta-data. In `autoreplace` mode, the meta-data from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
+| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated metadata. In `autoreplace` mode, the metadata from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 
 **Responses**
 
@@ -97,7 +97,7 @@ Deletes a specific app.
 
 ### `GET /v1/apps/{appId}/data/metadata`
 
-Retrieves the data model and reload statistics meta data of an app.
+Retrieves the data model and reload statistics metadata of an app. <div class=note>An empty metadata structure is returned if the metadata is not available in the app..</div>
 
 | Metadata | Value |
 | -------- | ----- |
@@ -124,6 +124,54 @@ Get media content from file. Returns a stream of bytes containing the media file
 | -------- | ----- |
 | Stability Index | Experimental |
 | Produces | application/octet-stream |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Unique application identifier. |
+| `path` | path | string | true | Path to file content. |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
+| `404` | Not Found | _No schema_ |
+
+### `PUT /v1/apps/{appId}/media/files/{path}`
+
+Stores the media content file. Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure or lack of permission.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Consumes | application/octet-stream |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Unique application identifier. |
+| `path` | path | string | true | Path to file content. |
+| `filedata` | body | [FileData](#filedata) | true | _No description._ |
+
+**Responses**
+
+| Status | Description | Schema |
+| ------ | ----------- | ------ |
+| `200` | OK | _No schema_ |
+| `404` | Not Found | _No schema_ |
+
+### `DELETE /v1/apps/{appId}/media/files/{path}`
+
+Deletes a media content file or complete directory. Returns OK if the bytes containing the media file (or the complete content of a directory) was succesfully deleted, or error in case of failure or lack of permission.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
 
 **Parameters**
 
@@ -368,7 +416,7 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `reload_meta` | [LastReloadMetadata](#lastreloadmetadata) | Meta data for the last app reload. |
+| `reload_meta` | [LastReloadMetadata](#lastreloadmetadata) | Metadata for the last app reload. |
 | `static_byte_size` | integer | Static memory usage for the app. |
 | `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
 | `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |

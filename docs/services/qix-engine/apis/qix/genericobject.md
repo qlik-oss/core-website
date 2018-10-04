@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.225.0._
+_QIX methods for version 12.248.0._
 
 ## `AbortListObjectSearch`
 
@@ -637,7 +637,7 @@ _No details._
 
 ## `Publish`
 
-Publishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
+Publishes a generic object.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -938,7 +938,7 @@ _No return values._
 
 ## `UnPublish`
 
-Unpublishes a generic object.<br>This operation is possible only in Qlik Sense Enterprise.
+Unpublishes a generic object.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 

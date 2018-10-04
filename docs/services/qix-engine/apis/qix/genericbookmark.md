@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.225.0._
+_QIX methods for version 12.248.0._
 
 ## `Apply`
 
@@ -102,7 +102,7 @@ _No parameters._
 
 ## `Publish`
 
-Publishes a bookmark.
+Publishes a bookmark.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -136,7 +136,7 @@ _No return values._
 
 ## `UnPublish`
 
-Unpublishes a bookmark.
+Unpublishes a bookmark.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 

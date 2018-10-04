@@ -3,9 +3,11 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.225.0._
+_QIX definitions for version 12.248.0._
 
 ## `AlfaNumString`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -527,6 +529,15 @@ Defines the fields to show.
 | `qShowDefinitionOnly` | boolean | Shows the fields defined on the fly if set to true.<br>Default is false. |
 | `qShowDerivedFields` | boolean | Shows the fields and derived fields if set to true.<br>Default is false. |
 | `qShowImplicit` | boolean | Shows the Direct Discovery measure fields if set to true.<br>Default is false. |
+
+## `FieldOrColumn`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qFieldName` | string | Name of the field or column to be matched. |
+| `qTableName` | string | Name of the table to be matched on. This parameter is optional. If TableName is set, FieldName represent the Table column with that name. If TableName is not set, FieldName represents the the field with that name. |
 
 ## `FieldScores`
 
@@ -1552,8 +1563,6 @@ _No description._
 
 ## `NxPageTreeLevel`
 
-**Stability Index: Experimental**
-
 _No description._
 
 | Name | Type | Description |
@@ -1562,8 +1571,6 @@ _No description._
 | `qDepth` | integer | Number of dimensions to include in the tree. |
 
 ## `NxPageTreeNode`
-
-**Stability Index: Experimental**
 
 Defines an area of the tree to be fetched.
 
@@ -1726,6 +1733,8 @@ _No description._
 
 ## `NxStreamListEntry`
 
+**Stability Index: Deprecated**
+
 This struct is deprecated (not recommended to use).
 
 | Name | Type | Description |
@@ -1744,8 +1753,6 @@ _No description._
 | `qEnd` | number | End value. |
 
 ## `NxTreeDataOption`
-
-**Stability Index: Experimental**
 
 Specifies all the paging filters needed to define the tree to be fetched.
 
@@ -1825,8 +1832,6 @@ _No description._
 
 ## `NxTreeNode`
 
-**Stability Index: Experimental**
-
 Represents a dimension in the tree.
 
 | Name | Type | Description |
@@ -1855,8 +1860,6 @@ _No description._
 | `qDimensionIx` | integer | Number of the dimension to select<br>measure from. Numbering starts from 0. |
 
 ## `NxTreeValue`
-
-**Stability Index: Experimental**
 
 Represents a measure.
 
@@ -1894,6 +1897,8 @@ _No description._
 | `qIsScriptCreated` | boolean | If set to true, it means that the variable was defined via script. |
 
 ## `NxVariableProperties`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -2035,6 +2040,15 @@ _No description._
 | `qWidth` | integer | Number of columns in the page. The indexing of the columns may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in [`HyperCubeDef`](#hypercubedef) ). |
 | `qHeight` | integer | Number of rows or elements in the page. The indexing of the rows may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in [`HyperCubeDef`](#hypercubedef) ). |
 
+## `SampleResult`
+
+_No description._
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qFieldOrColumn` | [`FieldOrColumn`](#fieldorcolumn) | Name of field or column. |
+| `qValues` | array&lt;[`FieldValue`](#fieldvalue)> | Matched values part of the sample. |
+
 ## `ScriptSyntaxError`
 
 _No description._
@@ -2049,6 +2063,8 @@ _No description._
 | `qSecondaryFailure` | boolean | The default value is false. |
 
 ## `SearchAssociationResult`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -2092,6 +2108,8 @@ _No description._
 
 ## `SearchFieldDictionary`
 
+**Stability Index: Deprecated**
+
 _No description._
 
 | Name | Type | Description |
@@ -2100,6 +2118,8 @@ _No description._
 | `qResult` | array&lt;[`SearchTermResult`](#searchtermresult)> | List of the matching values.<br>The maximum number of values in this list is set by _qMaxNbrFieldMatches_ . |
 
 ## `SearchFieldMatch`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -2141,6 +2161,7 @@ _No description._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qText` | string | Search match value.<br>Value of the search group item.<br>If the match is found in a field, it corresponds to the value of the field.<br>If the match is found in a generic object property, it corresponds to the property value. |
+| `qFieldSelectionMode` | undefined | Selection mode of a field.<br>Suppressed by default. One and always one field value is selected when set to _OneAndOnlyOne_. |
 | `qRanges` | array&lt;[`SearchCharRange`](#searchcharrange)> | List of ranges.<br>For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make. |
 | `qAttributes` | array&lt;[`SearchAttribute`](#searchattribute)> | Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_<br>If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.<br>For _SearchObjects_ requested with _qProperty_ , the _SearchGroupItemMatch.qAttributes_ return value contains _[“qProperty”, "qMetaDef/title”]_ if the match has been found in the title of the item. For dimension values, the returned _qProperty_ will be _“*”_ .<br>For _SearchResults_ requested with _qNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qNum", N]_ where _N_ is the numeric value of the element or _NaN_ if the value is not numeric.<br>For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element. |
 
@@ -2165,6 +2186,8 @@ _No description._
 | `qCount` | integer | Maximum number of items per group (in _qItems[ ]_ ).<br>The default value is -1; all values are returned. |
 
 ## `SearchMatchCombination`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -2224,6 +2247,8 @@ _No description._
 | `qFieldNames` | array&lt;string> | List of field names that contain search hits. |
 
 ## `SearchTermResult`
+
+**Stability Index: Deprecated**
 
 _No description._
 
@@ -2459,6 +2484,7 @@ Renders the properties of a [`TreeData`](#treedata) object. Is the layout for Tr
 | `qTitle` | string | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | Position of the last expended cell.<br>This property is optional. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
+| `qTreeDataPages` | array&lt;[`NxTreeNode`](#nxtreenode)> | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`TreeDataDef`](#treedatadef). |
 
 ## `TreeDataDef`
 
@@ -2477,6 +2503,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | `qPopulateMissing` | boolean | If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.<br>The default value is false. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qTitle` | [`StringExpr`](#stringexpr) | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
+| `qInitialDataFetch` | array&lt;[`NxTreeDataOption`](#nxtreedataoption)> | Initial data set.<br>This property is optional. |
 
 ## `UndoInfo`
 
@@ -2518,7 +2545,8 @@ Defines the list of variables in an app.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qType` | string | Type of the list. |
+| `qType` | string | Type of variables to include in the list. |
 | `qShowReserved` | boolean | Shows the reserved variables if set to true. |
 | `qShowConfig` | boolean | Shows the system variables if set to true. |
 | `qData` | [`JsonObject`](#jsonobject) | Data |
+| `qShowSession` | boolean | Shows the session variables if set to true. |

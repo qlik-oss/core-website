@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericMeasure
 
-_QIX methods for version 12.225.0._
+_QIX methods for version 12.248.0._
 
 ## `ApplyPatches`
 
@@ -96,7 +96,7 @@ _No parameters._
 
 ## `Publish`
 
-Publishes a measure.
+Publishes a measure.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -130,7 +130,7 @@ _No return values._
 
 ## `UnPublish`
 
-Unpublishes a measure.
+Unpublishes a measure.<br>This operation is not applicable for Qlik Sense Desktop.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
