@@ -32,7 +32,7 @@ African Urbanization provides a captivating experience in an infographic inspire
 urbanization in Africa from 1960 til today. Data is served from the Qlik Core backend using a single document. Large
 variance in user load is anticipated which is handled by horizontal pod auto-scaling and infrastructure auto-scaling.
 
-A live demo is available at [urbanization.qlikcore.com](http://urbanization.qlikcore.com/).
+A live demo is available at [urbanization.qlikcore.com](https://urbanization.qlikcore.com/).
 
 ![screenshot](./images/african-urbanization-screenshot.png)
 
