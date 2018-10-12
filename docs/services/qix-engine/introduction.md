@@ -72,7 +72,6 @@ Below is a list of Qlik Associative Engine command line parameters used in Qlik 
 | SystemDenyRulePath | File path | File path to the Deny rules file. Requires the `EnableABAC` parameter to be enabled. | n/a |
 | ValidateJsonWebTokens | <p>`0` (Not enforced)</p>`1` (Enforce unsigned or signed JWTs)<p>or</p>`2` (Enforce signed JWTs) | Parameter for enforcing validation of JWT. For more details see the [Authorization chapter](../../tutorials/authorization.md). | `0` (Not enforced) |
 
-
 In addition to the command line parameters above
 it is also possible to increase or decrease log level on different Qlik Associative Engine logging types.
 The logging types and levels is in more detail described in the [Logging section](./logging.md).
