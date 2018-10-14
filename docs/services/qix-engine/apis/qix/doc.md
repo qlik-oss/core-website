@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.248.0._
+_QIX methods for version 12.251.0._
 
 ## `AbortModal`
 
@@ -22,6 +22,7 @@ _No return values._
 
 Adds an alternate state in the app.<br>You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -408,7 +409,7 @@ Creates a transient variable.<br>To set some properties to the variable, use the
 
 Creates a variable.
 
-Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1056,6 +1057,7 @@ Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/acces
 
 Retrieves the variables that are tagged as favorite.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1278,6 +1280,7 @@ Returns the content of a library.
 
 Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.<br>An array of lineage information.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1443,7 +1446,7 @@ _No parameters._
 
 ## `GetSetAnalysis`
 
-Returns a set analysis expression from active selection or from a saved bookmark.
+Returns a set analysis expression from active selections or from a saved bookmark. Fields on the fly and Calculated dimensions will not be included in the generated expressions, instead a message indicating 'missing fields' will provided within the expression.
 
 |                       | BookmarkId empty                     | BookmarkId set                                     |
 |-----------------------|--------------------------------------|----------------------------------------------------|
@@ -1684,6 +1687,7 @@ _No parameters._
 
 Removes an alternate state in the app.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1700,7 +1704,7 @@ _No return values._
 
 Removes a variable.
 
-Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1881,7 +1885,7 @@ _No return values._
 
 Set some variables as favorite.
 
-Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
@@ -1909,6 +1913,7 @@ _No return values._
 
 Sets a list of table states, one for each table.<br><br>The following states apply:<br>- 0 The table is not loosely coupled.<br>- 1 The table is loosely coupled.<br>- 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.<br><br>The last three values in the vector are for internal use.
 
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
