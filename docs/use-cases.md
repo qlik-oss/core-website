@@ -31,6 +31,8 @@ More info and source code of the Assisted Prescription can be found in the
 African Urbanization provides a captivating experience in an infographic inspired UI which tells the story about the
 urbanization in Africa from 1960 til today. Data is served from the Qlik Core backend using a single document. Large
 variance in user load is anticipated which is handled by horizontal pod auto-scaling and infrastructure auto-scaling.
+An overview of the flows is described in [autoscaling](./images/urbanization_autoscaling.png) and
+[connection of a session](./images/urbanization_connection_of_one_session.png).
 
 A live demo is available at [urbanization.qlikcore.com](https://urbanization.qlikcore.com/).
 
