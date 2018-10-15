@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.248.0._
+_Qlik Associative Engine API for version 12.251.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
