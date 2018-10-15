@@ -9,12 +9,6 @@ The source code is available in separate open source repositories on GitHub.
 
 Before you run these examples, make sure you read the [Licensing](./licensing.md) page.
 
->To quickly experience the power of Qlik Core and the Qlik Associative Engine,
->try [Qlik Branch Playground](https://developer.qlik.com/playground?utm_medium=qlik_core&utm_source=getting_started_tip&utm_campaign=new_branch).
->This is our free sandbox environment where you can
->run your data through our Associative Engine, test and share your application and
->visualization ideas and play around with complex data sets — right in your browser.
-
 ## Hello Qlik Core!
 
 Start here if you are new to Qlik products and Qlik Associative Engine.
