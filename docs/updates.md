@@ -35,7 +35,7 @@ the model. After creating two prototypes we ended up with a combined view where 
 relation from a table point of view. The project is in its early stages and we are experimenting with how we should provide the best user
 experience.
 
-As most of our work the code is open and resides in github, you can follow the project from our initial
+As most of our work the code is open source and is hosted on GitHub, you can follow the project from our initial
 [prototypes](https://github.com/qlik-oss/catwalk/tree/prototype2) to the current version on the master branch.
 
 ![screenshot](https://github.com/qlik-oss/catwalk/raw/master/screenshot.png)
