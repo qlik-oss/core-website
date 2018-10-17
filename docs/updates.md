@@ -13,7 +13,7 @@ interact with your apps, objects, and data.
 
 ![screenshot](./images/corectl.png)
 
-Main use case are:
+The main use cases are:
 
 * View: List applications, view and query data within and evaluate expressions
 * Develop: Create, update and model a Qlik application
