@@ -29,7 +29,7 @@ After initial feedback we also added support for:
 ### Introducing catwalk
 
 Next step after addressing the load and view use cases we looked into data modelling and created the
-[catwalk](https://github.com/qlik-oss/catwalk) project. After the users has created an initial load script they quickly
+[catwalk](https://github.com/qlik-oss/catwalk) project. When you have created an initial load script you quickly
 end up in the data modelling problem space and need to find out how the data is associated and how selections impacts
 the model. After creating two prototypes we ended up with a combined view where we focus tables fields and their
 relations. The project is in its early phases and we are experimenting with how we should provide an as good user
