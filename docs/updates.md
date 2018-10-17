@@ -26,7 +26,7 @@ After initial feedback we also added support for:
 
 [Full change log](https://github.com/qlik-oss/corectl/releases)
 
-### catwalk
+### Introducing catwalk
 
 Next step after addressing the load and view use case we looked into data modelling and created the
 [catwalk](https://github.com/qlik-oss/catwalk) project. After the users has created an initial load script they quickly
