@@ -30,7 +30,7 @@ After initial feedback we also added support for:
 
 Next step after addressing the load and view use cases we looked into data modelling and created the
 [catwalk](https://github.com/qlik-oss/catwalk) project. When you have created an initial load script you quickly
-end up in the data modelling problem space and need to find out how the data is associated and how selections impacts
+end up in the data modelling problem space and might need to help to find out how the data is associated and how interactions with the data impacts
 the model. After creating two prototypes we ended up with a combined view where we focus tables fields and their
 relations. The project is in its early phases and we are experimenting with how we should provide an as good user
 experience as possible.
