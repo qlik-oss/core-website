@@ -32,7 +32,7 @@ Next step after addressing the load and view use cases we looked into data model
 [catwalk](https://github.com/qlik-oss/catwalk) project. When you have created an initial load script you quickly
 end up in the data modelling problem space and might need to help to find out how the data is associated and how interactions with the data impacts
 the model. After creating two prototypes we ended up with a combined view where we focus on fields and their
-relations. The project is in its early phases and we are experimenting with how we should provide an as good user
+relation from a table point of view. The project is in its early stages and we are experimenting with how we should provide the best user
 experience as possible.
 
 As most of our work the code is open and resides in github, you can follow the project from our initial
