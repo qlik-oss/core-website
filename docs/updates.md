@@ -36,7 +36,7 @@ relations. The project is in its early phases and we are experimenting with how 
 experience as possible.
 
 As most of our work the code is open and resides in github, you can follow the project from our initial
-[prototypes](https://github.com/qlik-oss/catwalk/tree/prototype2) to the current version on the main branch.
+[prototypes](https://github.com/qlik-oss/catwalk/tree/prototype2) to the current version on the master branch.
 
 ![screenshot](https://github.com/qlik-oss/catwalk/raw/master/screenshot.png)
 
