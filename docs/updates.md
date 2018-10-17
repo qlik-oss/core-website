@@ -9,7 +9,7 @@ focused on adding tools to support experienced and new developers in their journ
 
 First versions of [corectl](https://github.com/qlik-oss/corectl) was released initial bug fixing, documentation and
 usability enhancements. The goal is to deliver a command line interface (CLI) for the Qlik Associative Engine that can be used to
-querying and interacting with the engine instance, its apps and their data.
+interact with your apps, objects, and data.
 
 ![screenshot](./images/corectl.png)
 
