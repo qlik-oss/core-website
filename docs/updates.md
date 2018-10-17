@@ -42,5 +42,5 @@ As most of our work the code is open and resides in github, you can follow the p
 
 ### Mira released
 
-MIRA reached version 1.0 with a major change to not require a sidecar management component to talk to the
+In combination with the Qlik Core launch we released the first major version of Mira which no longer require a sidecar management component to talk to the
 [kubernetes](https://kubernetes.io/) APIS to request deployment data.
