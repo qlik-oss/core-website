@@ -40,7 +40,7 @@ As most of our work the code is open and resides in github, you can follow the p
 
 ![screenshot](https://github.com/qlik-oss/catwalk/raw/master/screenshot.png)
 
-### mira
+### Mira released
 
 MIRA reached version 1.0 with a major change to not require a sidecar management component to talk to the
 [kubernetes](https://kubernetes.io/) APIS to request deployment data.
