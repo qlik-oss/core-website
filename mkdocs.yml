@@ -52,7 +52,8 @@ nav:
   - Home: index.md
   - Get Started: get-started.md
   - Downloads: downloads.md
-  - Updates: updates.md
+  - Updates:
+    - October 2018: updates/2018-10.md
   - Licensing: licensing.md
   - EULA: eula.md
   - Use Cases: use-cases.md
