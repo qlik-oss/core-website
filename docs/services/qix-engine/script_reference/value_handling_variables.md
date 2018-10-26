@@ -56,11 +56,11 @@ variable.
 
 ```qlik
 set OtherSymbol='+';
-LOAD ` inline
+LOAD inline
 [X, Y
 a, a
 b, b];
-LOAD ` inline
+LOAD inline
 [X, Z
 a, a
 +, c];
