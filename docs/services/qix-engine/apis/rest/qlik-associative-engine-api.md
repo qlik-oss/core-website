@@ -12,7 +12,12 @@ _Qlik Associative Engine API for version 12.251.0._
 
 ### `GET /health`
 
-Checks if the Engine service is healthy.<br/>&bull; If response code 200 is returned; engine is healthy and ready to serve requests.<br/>&bull; If the setting `EnableLameDuckHealthCheck` is set to 1, response code 429 is returned if the engine is alive but too busy to serve new requests.<br/>&bull; Other response code means that Engine is not healthy.
+Checks if the Engine service is healthy.
+
+* If response code 200 is returned; engine is healthy and ready to serve requests.
+* If the setting `EnableLameDuckHealthCheck` is set to 1, response code 429 is returned
+if the engine is alive but too busy to serve new requests.
+* Other response code means that Engine is not healthy.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -26,8 +31,8 @@ _No parameters_
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
 
 ### `GET /healthcheck`
@@ -46,13 +51,14 @@ _No parameters_
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
 
 ### `POST /v1/apps/import`
 
-Imports an app to the system. <div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
+Imports an app to the system.
+<div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
 
 | Metadata | Value |
 | -------- | ----- |
@@ -70,8 +76,8 @@ Imports an app to the system. <div class=note>This operation in autoreplace mode
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | [NxApp](#nxapp) |
 
 ### `DELETE /v1/apps/{appId}`
@@ -91,13 +97,14 @@ Deletes a specific app.
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
 
 ### `GET /v1/apps/{appId}/data/metadata`
 
-Retrieves the data model and reload statistics metadata of an app. <div class=note>An empty metadata structure is returned if the metadata is not available in the app..</div>
+Retrieves the data model and reload statistics metadata of an app.
+<div class=note>An empty metadata structure is returned if the metadata is not available in the app..</div>
 
 | Metadata | Value |
 | -------- | ----- |
@@ -112,13 +119,14 @@ Retrieves the data model and reload statistics metadata of an app. <div class=no
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | [DataModelMetadata](#datamodelmetadata) |
 
 ### `GET /v1/apps/{appId}/media/files/{path}`
 
-Get media content from file. Returns a stream of bytes containing the media file content on success, or error if file is not found.
+Get media content from file.
+Returns a stream of bytes containing the media file content on success, or error if file is not found.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -134,14 +142,15 @@ Get media content from file. Returns a stream of bytes containing the media file
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
-| `200` | OK | _No schema_ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | binary |
 | `404` | Not Found | _No schema_ |
 
 ### `PUT /v1/apps/{appId}/media/files/{path}`
 
-Stores the media content file. Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure or lack of permission.
+Stores the media content file.
+Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure or lack of permission.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -159,14 +168,15 @@ Stores the media content file. Returns OK if the bytes containing the media file
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `DELETE /v1/apps/{appId}/media/files/{path}`
 
-Deletes a media content file or complete directory. Returns OK if the bytes containing the media file (or the complete content of a directory) was succesfully deleted, or error in case of failure or lack of permission.
+Deletes a media content file or complete directory.
+Returns OK if the bytes containing the media file (or the complete content of a directory) was succesfully deleted, or error in case of failure or lack of permission.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -182,14 +192,15 @@ Deletes a media content file or complete directory. Returns OK if the bytes cont
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/list/{path}`
 
-List media content. Returns a JSON formatted array of strings describing the available media content or error if the optional path supplied is not found.
+List media content.
+Returns a JSON formatted array of strings describing the available media content or error if the optional path supplied is not found.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -206,14 +217,16 @@ List media content. Returns a JSON formatted array of strings describing the ava
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
-| `200` | OK | _No schema_ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | array<string> |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/thumbnail`
 
-Get media content from file currently used as application thumbnail. Returns a stream of bytes containing the media file content on success, or error if file is not found. <div class=note>The image selected as thumbnail is only updated when application is saved.</div>
+Get media content from file currently used as application thumbnail.
+Returns a stream of bytes containing the media file content on success, or error if file is not found.
+<div class=note>The image selected as thumbnail is only updated when application is saved.</div>
 
 | Metadata | Value |
 | -------- | ----- |
@@ -228,15 +241,14 @@ Get media content from file currently used as application thumbnail. Returns a s
 
 **Responses**
 
-| Status | Description | Schema |
-| ------ | ----------- | ------ |
-| `200` | OK | _No schema_ |
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | binary |
 | `404` | Not Found | _No schema_ |
 
 ## Definitions
 
 ### `HealthcheckStatus`
-
 
 _Type: object_
 
@@ -257,7 +269,6 @@ _Type: object_
 
 ### `MemoryUsage`
 
-
 _Type: object_
 
 
@@ -271,7 +282,6 @@ _Type: object_
 
 ### `CPUUsage`
 
-
 _Type: object_
 
 
@@ -282,7 +292,6 @@ _Type: object_
 | `total` | number | _No description._ |
 
 ### `SessionUsage`
-
 
 _Type: object_
 
@@ -295,7 +304,6 @@ _Type: object_
 | `total` | integer | _No description._ |
 
 ### `AppUsage`
-
 
 _Type: object_
 
@@ -312,7 +320,6 @@ _Type: object_
 
 ### `UserUsage`
 
-
 _Type: object_
 
 
@@ -324,7 +331,6 @@ _Type: object_
 | `total` | integer | _No description._ |
 
 ### `CacheUsage`
-
 
 _Type: object_
 
@@ -341,7 +347,6 @@ _Type: object_
 
 ### `FileData`
 
-
 _Type: string_
 
 
@@ -351,6 +356,7 @@ _Format: binary_
 
 ### `NxApp`
 
+App metadata and user privileges.
 
 _Type: object_
 
@@ -365,6 +371,7 @@ _Type: object_
 
 ### `NxAttributes`
 
+App attributes. This structure can also contain extra user defined attributes.
 
 _Type: object_
 
@@ -388,13 +395,13 @@ _Type: object_
 
 ### `JsonObject`
 
+Contains dynamic JSON data specified by the client.
 
 _Type: object_
 
 
 
 ### `NxAppCreatePrivileges`
-
 
 _Type: object_
 
@@ -407,7 +414,6 @@ _Type: object_
 | `canCreate` | boolean | true if resource is allowed to create. |
 
 ### `DataModelMetadata`
-
 
 _Type: object_
 
@@ -423,7 +429,6 @@ _Type: object_
 
 ### `LastReloadMetadata`
 
-
 _Type: object_
 
 
@@ -436,7 +441,6 @@ _Type: object_
 
 ### `HardwareMeta`
 
-
 _Type: object_
 
 
@@ -448,7 +452,6 @@ _Type: object_
 | `total_memory` | integer | RAM available. |
 
 ### `FieldMetadata`
-
 
 _Type: object_
 
@@ -473,7 +476,6 @@ _Type: object_
 | `byte_size` | integer | Static RAM memory used in bytes. |
 
 ### `TableMetadata`
-
 
 _Type: object_
 
