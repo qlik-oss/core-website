@@ -70,7 +70,7 @@ nav:
   - Tooling:
     - Overview: tooling/overview.md
     - corectl: tooling/corectl.md
-    - catwalk: tooling/catwalk.md  
+    - Catwalk: tooling/catwalk.md  
   - Services:
     - Mira: services/mira.md
     - Qlik Associative Engine:
