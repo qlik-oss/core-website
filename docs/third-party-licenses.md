@@ -957,7 +957,7 @@ THE SOFTWARE.
 ```
 
 
-## [Linux Syscall Support](https://chromium.googlesource.com/breakpad/breakpad/)
+## [Linux Syscall Support](https://chromium.googlesource.com/linux-syscall-support/)
 
 ```text
 /* Copyright (c) 2005-2011, Google Inc.

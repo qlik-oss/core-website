@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.251.0._
+_Qlik Associative Engine API for version 12.260.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -54,6 +54,26 @@ _No parameters_
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
+
+### `GET /sessions`
+
+Returns a list of active websocket sessions in engine instance.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+_No parameters_
+
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | array<undefined> |
 
 ### `POST /v1/apps/import`
 
@@ -345,6 +365,22 @@ _Type: object_
 | `replaced` | integer | _No description._ |
 | `bytes_added` | integer | _No description._ |
 
+### `Session`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `sessionid` | string | Session ID provided by client. |
+| `userid` | string | The ID of the user that created the session. |
+| `appid` | string | The ID of the app, if no app is opened on socket it will be empty. |
+| `tenantid` | string | The ID of the tenant associated with the user, only applicable in multi-tenant environments. |
+| `ttl` | integer | Configured TTL (time to live), the time a session is kept alive with no connected client. 0 by default. |
+| `state` | string | The state of the session. To be available it needs to be active. <br/>&bull; active: The session is active and available.<br/>&bull; stalled: The session has stopped and is not available. |
+
 ### `FileData`
 
 _Type: string_
@@ -365,8 +401,8 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `attributes` | [NxAttributes](#nxattributes) | App attributes. |
-| `privileges` | array&lt;string> | App privileges. Hints to the client on what actions the user are allowed. |
+| `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client on what actions the user are allowed. |
 | `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
 
 ### `NxAttributes`
