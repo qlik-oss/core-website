@@ -106,12 +106,12 @@ Load Chr(RecNo()+Ord('A')-1) as Alpha, RecNo() as Num
 autogenerate 26;
 
 ASCII:
-Load if(RecNo()\>=65 and
-  RecNo()\<=90,RecNo()-64) as Num,
+Load if(RecNo()>=65 and
+  RecNo()<=90,RecNo()-64) as Num,
   Chr(RecNo()) as AsciiAlpha,
   RecNo() as AsciiNum
 autogenerate 255
-  Where (RecNo()\>=32 and RecNo()\<=126) or RecNo()\>=160;
+  Where (RecNo()>=32 and RecNo()<=126) or RecNo()>=160;
 ```
 
 Next, we iterate through the tables that have been loaded, using the
