@@ -3,6 +3,83 @@
 
   if (!downloadsTableIdentifier) { return; }
 
+  const cellTitle = (version, date) => `
+    <div class="title">
+      <span class="title__version">
+        ${version}
+      </span>
+      <span class="title__release-date">
+        (${date})
+      </span>
+    </div>
+  `;
+  const apiLink = (name, version, prevVersion, visibility) => `
+    <div class="api-link">
+      <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${name}/${prevVersion}/${version}">
+        ${name}
+      </a>
+    </div>
+  `;
+  const circleProperties = (name) => {
+    switch (name.toLowerCase()) {
+      case 'added':
+        return { extraClass: 'changes__circle--added', title: 'Added' };
+      case 'updated':
+        return { extraClass: 'changes__circle--updated', title: 'Updated' };
+      case 'removed':
+        return { extraClass: 'changes__circle--removed', title: 'Removed' };
+      case 'deprecated':
+        return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' };
+      default:
+        return { extraClass: '', title: '' };
+    }
+  };
+  const changesCircle = (changes, name) => {
+    if (
+      !changes
+      || parseFloat(changes) === 0
+    ) { return ''; }
+
+    const { title, extraClass } = circleProperties(name);
+
+    return `
+      <div title="${title}" class="changes__circle ${extraClass}">
+        ${changes}
+      </div>
+    `;
+  };
+
+  const services = [
+    {
+      service: 'Qlik Associative Engine',
+      apis: [
+        'EngineAPI',
+        'EngineRestAPI',
+        'ScriptLanguageAPI',
+      ],
+    }, {
+      service: 'Licenses',
+      apis: [
+        'LicensesAPI',
+      ],
+    }, {
+      service: 'Mira',
+      apis: [
+        'MiraAPI',
+      ],
+    }, {
+      service: 'enigma.js',
+      apis: [
+        'enigma.js',
+      ],
+    }, {
+      service: 'halyard.js',
+      apis: [
+        'halyard.js',
+      ],
+    },
+  ];
+
   const loader = document.createElement('div');
   loader.className = 'dots';
   for (let i = 0; i < 7; i++) {
@@ -81,85 +158,6 @@
         deprecated,
         visibility,
       }));
-
-      const cellTitle = (version, date) => `
-        <div class="title">
-          <span class="title__version">
-            ${version}
-          </span>
-          <span class="title__release-date">
-            (${date})
-          </span>
-        </div>
-      `;
-      const apiLink = (name, version, prevVersion, visibility) => `<div class="api-link">
-          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${name}/${prevVersion}/${version}">
-            ${name}
-          </a>
-        </div>`
-      ;
-      const circleProperties = name => {
-        switch (name.toLowerCase()) {
-          case 'added':
-            return { extraClass: 'changes__circle--added', title: 'Added' };
-          case 'updated':
-            return { extraClass: 'changes__circle--updated', title: 'Updated' };
-          case 'removed':
-            return { extraClass: 'changes__circle--removed', title: 'Removed' };
-          case 'deprecated':
-            return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' };
-          default:
-            return { extraClass: '', title: '' };
-        }
-      };
-      const changesCircle = (changes, name) => {
-        if (
-          !changes
-          || parseFloat(changes) === 0
-        ) { return ''; }
-
-        const { title, extraClass } = circleProperties(name);
-
-        return `
-        <div
-          title="${title}"
-          class="changes__circle ${extraClass}"
-        >
-          ${changes}
-        </div>
-        `;
-      };
-
-      const services = [
-        {
-          service: 'Qlik Associative Engine',
-          apis: [
-            'EngineAPI',
-            'EngineRestAPI',
-            'ScriptLanguageAPI',
-          ],
-        }, {
-          service: 'Licenses',
-          apis: [
-            'LicensesAPI',
-          ],
-        }, {
-          service: 'Mira',
-          apis: [
-            'MiraAPI',
-          ],
-        }, {
-          service: 'enigma.js',
-          apis: [
-            'enigma.js',
-          ],
-        }, {
-          service: 'halyard.js',
-          apis: [
-            'halyard.js',
-          ],
-        },
-      ];
 
       lastBodyColumn.forEach((cell, index) => {
         const service = services[index];
