@@ -50,7 +50,7 @@
 @keyframes bounce {
   0% {
     transform: scale(1);
-    background-color: var(--custom-grey);
+    background-color: var(--custom-grey, grey);
   }
 }
 
@@ -85,7 +85,7 @@
 }
 
 .changes__circle--added {
-  background-color: var(--custom-green);
+  background-color: var(--custom-green, green);
 }
 
 .changes__circle--updated {
@@ -93,7 +93,7 @@
 }
 
 .changes__circle--removed {
-  background-color: var(--custom-grey);
+  background-color: var(--custom-grey, grey);
 }
 
 .changes__circle--deprecated {
