@@ -59,72 +59,74 @@
       }
     })
     .then(obj => obj.getLayout())
-    .then(layout => {
-      const apis = layout.qHyperCube.qDataPages[0].qMatrix;
-      const cellTitle = api => `
+    .then(({ qHyperCube: { qDataPages: [{ qMatrix: rawDataApis }] }}) => {
+      const apis = rawDataApis.map(([
+        { qText: apiName },
+        { qText: apiVersion },
+        { qText: prevAPIVersion },
+        { qText: releaseDate },
+        { qText: added },
+        { qText: updated },
+        { qText: removed },
+        { qText: deprecated },
+        { qText: visibility },
+      ]) => ({
+        apiName,
+        apiVersion,
+        prevAPIVersion,
+        releaseDate,
+        added,
+        updated,
+        removed,
+        deprecated,
+        visibility,
+      }));
+
+      const cellTitle = (version, date) => `
         <div class="title">
           <span class="title__version">
-            ${api[1].qText}
+            ${version}
           </span>
           <span class="title__release-date">
-            (${api[3].qText})
+            (${date})
           </span>
         </div>
       `;
-      const apiLink = api => api[8].qText === 'public'
-        ? `<div class="api-link">
-          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[2].qText}/${api[1].qText}">
-            ${api[0].qText}
+      const apiLink = (name, version, prevVersion, visibility) => `<div class="api-link">
+          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${name}/${prevVersion}/${version}">
+            ${name}
           </a>
         </div>`
-        : ''
       ;
-      const circleProperties = number => {
-        switch (number) {
-          case 4:
+      const circleProperties = name => {
+        switch (name.toLowerCase()) {
+          case 'added':
             return { extraClass: 'changes__circle--added', title: 'Added' };
-          case 5:
+          case 'updated':
             return { extraClass: 'changes__circle--updated', title: 'Updated' };
-          case 6:
+          case 'removed':
             return { extraClass: 'changes__circle--removed', title: 'Removed' };
-          case 7:
+          case 'deprecated':
             return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' };
           default:
             return { extraClass: '', title: '' };
         }
       };
-      const changesCircles = (apis, indexes = []) => {
-        const publicApis = apis.filter(api => api[8].qText === 'public');
-        const changes = [];
-
-        indexes.forEach(index => {
-          changes[index] = publicApis.map(api => parseFloat(api[index].qText)).reduce(
-            (accumulator, currentValue) => accumulator + currentValue
-            , 0
-          )
-        });
-
+      const changesCircle = (changes, name) => {
         if (
-          publicApis.length === 0 ||
-          changes.every(change => change === 0)
-        ) {
-          return '';
-        }
+          !changes
+          || parseFloat(changes) === 0
+        ) { return ''; }
+
+        const { title, extraClass } = circleProperties(name);
 
         return `
-          <div class="changes">
-            ${(indexes.map(index => changes[index] > 0
-              ? `
-                <div
-                  title="${circleProperties(index).title}"
-                  class="changes__circle ${circleProperties(index).extraClass}"
-                >
-                  ${changes[index]}
-                </div>
-              `
-              : ''
-            )).join('')}
-          </div>
+        <div
+          title="${title}"
+          class="changes__circle ${extraClass}"
+        >
+          ${changes}
+        </div>
         `;
       };
 
@@ -161,12 +163,36 @@
 
       lastBodyColumn.forEach((cell, index) => {
         const service = services[index];
-        const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
+        const serviceApis = apis.filter(({ apiName }) => service.apis.indexOf(apiName) >= 0);
+        const publicApis = serviceApis.filter(({ visibility }) => visibility === 'public');
+
+        const [{
+          apiVersion: componentVersion,
+          releaseDate: componentDate,
+        }] = serviceApis;
 
         cell.innerText = '';
-        cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
-        serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
-        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 7, 6]));
+        cell.insertAdjacentHTML('beforeend', cellTitle(componentVersion, componentDate));
+
+        publicApis.forEach(({
+          apiName,
+          apiVersion,
+          prevAPIVersion,
+          added,
+          updated,
+          removed,
+          deprecate
+        }) => {
+          cell.insertAdjacentHTML('beforeend', apiLink(apiName, apiVersion, prevAPIVersion));
+          cell.insertAdjacentHTML('beforeend', `
+            <div class="changes">
+              ${changesCircle(added, 'added')}
+              ${changesCircle(updated, 'updated')}
+              ${changesCircle(removed, 'removed')}
+              ${changesCircle(deprecate, 'deprecated')}
+            </div>
+          `);
+        });
       })
     })
   )
