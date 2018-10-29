@@ -113,17 +113,17 @@
 
         return `
           <div class="changes">
-            ${(indexes.map(index => (`
-              <div
-                title="${circleProperties(index).title}"
-                class="changes__circle ${circleProperties(index).extraClass}"
-              >
-                ${changes[index]}
-              </div>
-            `)
-            ))
-            .join('')
-            }
+            ${(indexes.map(index => changes[index] > 0
+              ? `
+                <div
+                  title="${circleProperties(index).title}"
+                  class="changes__circle ${circleProperties(index).extraClass}"
+                >
+                  ${changes[index]}
+                </div>
+              `
+              : ''
+            )).join('')}
           </div>
         `;
       };
