@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.251.0._
+_Qlik Associative Engine API for version 12.260.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -55,10 +55,32 @@ _No parameters_
 | ------ | ----------- | ---- |
 | `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
 
+### `GET /sessions`
+
+Returns a list of active websocket sessions in engine instance.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+_No parameters_
+
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | array&lt;[Session](#session)> |
+
 ### `POST /v1/apps/import`
 
 Imports an app to the system.
 <div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
+
+Required permissions: [`import`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 | Metadata | Value |
 | -------- | ----- |
@@ -84,6 +106,8 @@ Imports an app to the system.
 
 Deletes a specific app.
 
+Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
 | Metadata | Value |
 | -------- | ----- |
 | Stability Index | Experimental |
@@ -106,6 +130,8 @@ Deletes a specific app.
 Retrieves the data model and reload statistics metadata of an app.
 <div class=note>An empty metadata structure is returned if the metadata is not available in the app..</div>
 
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
 | Metadata | Value |
 | -------- | ----- |
 | Stability Index | Experimental |
@@ -127,6 +153,8 @@ Retrieves the data model and reload statistics metadata of an app.
 
 Get media content from file.
 Returns a stream of bytes containing the media file content on success, or error if file is not found.
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 | Metadata | Value |
 | -------- | ----- |
@@ -151,6 +179,8 @@ Returns a stream of bytes containing the media file content on success, or error
 
 Stores the media content file.
 Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure or lack of permission.
+
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 | Metadata | Value |
 | -------- | ----- |
@@ -178,6 +208,8 @@ Returns OK if the bytes containing the media file content was succesfully stored
 Deletes a media content file or complete directory.
 Returns OK if the bytes containing the media file (or the complete content of a directory) was succesfully deleted, or error in case of failure or lack of permission.
 
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
 | Metadata | Value |
 | -------- | ----- |
 | Stability Index | Experimental |
@@ -202,6 +234,8 @@ Returns OK if the bytes containing the media file (or the complete content of a 
 List media content.
 Returns a JSON formatted array of strings describing the available media content or error if the optional path supplied is not found.
 
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
 | Metadata | Value |
 | -------- | ----- |
 | Stability Index | Experimental |
@@ -219,7 +253,7 @@ Returns a JSON formatted array of strings describing the available media content
 
 | Status | Description | Type |
 | ------ | ----------- | ---- |
-| `200` | OK | array<string> |
+| `200` | OK | array&lt;string> |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/thumbnail`
@@ -227,6 +261,8 @@ Returns a JSON formatted array of strings describing the available media content
 Get media content from file currently used as application thumbnail.
 Returns a stream of bytes containing the media file content on success, or error if file is not found.
 <div class=note>The image selected as thumbnail is only updated when application is saved.</div>
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 | Metadata | Value |
 | -------- | ----- |
@@ -345,6 +381,22 @@ _Type: object_
 | `replaced` | integer | _No description._ |
 | `bytes_added` | integer | _No description._ |
 
+### `Session`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `sessionid` | string | Session ID provided by client. |
+| `userid` | string | The ID of the user that created the session. |
+| `appid` | string | The ID of the app, if no app is opened on socket it will be empty. |
+| `tenantid` | string | The ID of the tenant associated with the user, only applicable in multi-tenant environments. |
+| `ttl` | integer | Configured TTL (time to live), the time a session is kept alive with no connected client. 0 by default. |
+| `state` | string | The state of the session. To be available it needs to be active. <br/>&bull; active: The session is active and available.<br/>&bull; stalled: The session has stopped and is not available. |
+
 ### `FileData`
 
 _Type: string_
@@ -365,8 +417,8 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `attributes` | [NxAttributes](#nxattributes) | App attributes. |
-| `privileges` | array&lt;string> | App privileges. Hints to the client on what actions the user are allowed. |
+| `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client on what actions the user are allowed. |
 | `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
 
 ### `NxAttributes`
