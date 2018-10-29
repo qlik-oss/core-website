@@ -43,8 +43,9 @@
     const { title, extraClass } = circleProperties(name);
 
     return `
-      <div title="${title}" class="changes__circle ${extraClass}">
+      <div class="changes__circle ${extraClass}">
         ${changes}
+        <div class="changes__circle-tooltip">${title}</div>
       </div>
     `;
   };
