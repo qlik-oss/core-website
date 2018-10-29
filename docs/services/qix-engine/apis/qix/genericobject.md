@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.251.0._
+_QIX methods for version 12.260.0._
 
 ## `AbortListObjectSearch`
 
@@ -270,6 +270,7 @@ _No return values._
 
 Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.<br>This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.
 
+Required permissions: [`exportdata`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
