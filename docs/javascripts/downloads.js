@@ -43,7 +43,7 @@
     return `
       <div class="changes__circle ${getCircleClass(name)}">
         ${changes}
-        <div class="changes__circle-tooltip">
+        <div class="tooltip">
           ${changes} API method(s) ${name.toLowerCase()}
         </div>
       </div>
