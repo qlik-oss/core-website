@@ -50,7 +50,7 @@
 @keyframes bounce {
   0% {
     transform: scale(1);
-    background-color: var(--custom-grey);
+    background-color: var(--custom-grey, grey);
   }
 }
 
@@ -72,30 +72,40 @@
 
 .changes__circle {
   --size: 24px;
+  --backgroundColor: #000;
+
+  position: relative;
+  cursor: pointer;
+  background-color: var(--backgroundColor);
   display: inline-block;
   width: var(--size);
   height: var(--size);
   text-align: center;
   line-height: var(--size);
   border-radius: 50%;
-  color: white;
+  color: #fff;
   font-size: .8em;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
 }
 
+.changes__circle:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 .changes__circle--added {
-  background-color: var(--custom-green);
+  --backgroundColor: var(--custom-green, green);
 }
 
 .changes__circle--updated {
-  background-color: orange;
+  --backgroundColor: orange;
 }
 
 .changes__circle--removed {
-  background-color: var(--custom-grey);
+  --backgroundColor: var(--custom-grey, grey);
 }
 
 .changes__circle--deprecated {
-  background-color: red;
+  --backgroundColor: red;
 }

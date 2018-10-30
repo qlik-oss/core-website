@@ -3,6 +3,84 @@
 
   if (!downloadsTableIdentifier) { return; }
 
+  const cellTitle = (version, date) => `
+    <div class="title">
+      <span class="title__version">
+        ${version}
+      </span>
+      <span class="title__release-date">
+        (${date})
+      </span>
+    </div>
+  `;
+  const apiLink = (name, version, prevVersion, visibility) => `
+    <div class="api-link">
+      <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${name}/${prevVersion}/${version}">
+        ${name}
+      </a>
+    </div>
+  `;
+  const getCircleClass = (name) => {
+    switch (name.toLowerCase()) {
+      case 'added':
+        return 'changes__circle--added';
+      case 'updated':
+        return 'changes__circle--updated';
+      case 'removed':
+        return 'changes__circle--removed';
+      case 'deprecated':
+        return 'changes__circle--deprecated';
+      default:
+        return '';
+    }
+  };
+  const changesCircle = (changes, name) => {
+    if (
+      !changes
+      || parseFloat(changes) === 0
+    ) { return ''; }
+
+    return `
+      <div class="changes__circle ${getCircleClass(name)}">
+        ${changes}
+        <div class="tooltip">
+          ${changes} API method(s) ${name.toLowerCase()}
+        </div>
+      </div>
+    `;
+  };
+
+  const services = [
+    {
+      service: 'Qlik Associative Engine',
+      apis: [
+        'EngineAPI',
+        'EngineRestAPI',
+        'ScriptLanguageAPI',
+      ],
+    }, {
+      service: 'Licenses',
+      apis: [
+        'LicensesAPI',
+      ],
+    }, {
+      service: 'Mira',
+      apis: [
+        'MiraAPI',
+      ],
+    }, {
+      service: 'enigma.js',
+      apis: [
+        'enigma.js',
+      ],
+    }, {
+      service: 'halyard.js',
+      apis: [
+        'halyard.js',
+      ],
+    },
+  ];
+
   const loader = document.createElement('div');
   loader.className = 'dots';
   for (let i = 0; i < 7; i++) {
@@ -59,114 +137,61 @@
       }
     })
     .then(obj => obj.getLayout())
-    .then(layout => {
-      const apis = layout.qHyperCube.qDataPages[0].qMatrix;
-      const cellTitle = api => `
-        <div class="title">
-          <span class="title__version">
-            ${api[1].qText}
-          </span>
-          <span class="title__release-date">
-            (${api[3].qText})
-          </span>
-        </div>
-      `;
-      const apiLink = api => api[8].qText === 'public'
-        ? `<div class="api-link">
-          <a target="_blank" href="https://api-insights.qlik.com/#/api-changes/core/${api[0].qText}/${api[2].qText}/${api[1].qText}">
-            ${api[0].qText}
-          </a>
-        </div>`
-        : ''
-      ;
-      const circleProperties = number => {
-        switch (number) {
-          case 4:
-            return { extraClass: 'changes__circle--added', title: 'Added' };
-          case 5:
-            return { extraClass: 'changes__circle--updated', title: 'Updated' };
-          case 6:
-            return { extraClass: 'changes__circle--removed', title: 'Removed' };
-          case 7:
-            return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' };
-          default:
-            return { extraClass: '', title: '' };
-        }
-      };
-      const changesCircles = (apis, indexes = []) => {
-        const publicApis = apis.filter(api => api[8].qText === 'public');
-        const changes = [];
-
-        indexes.forEach(index => {
-          changes[index] = publicApis.map(api => parseFloat(api[index].qText)).reduce(
-            (accumulator, currentValue) => accumulator + currentValue
-            , 0
-          )
-        });
-
-        if (
-          publicApis.length === 0 ||
-          changes.every(change => change === 0)
-        ) {
-          return '';
-        }
-
-        return `
-          <div class="changes">
-            ${(indexes.map(index => (`
-              <div
-                title="${circleProperties(index).title}"
-                class="changes__circle ${circleProperties(index).extraClass}"
-              >
-                ${changes[index]}
-              </div>
-            `)
-            ))
-            .join('')
-            }
-          </div>
-        `;
-      };
-
-      const services = [
-        {
-          service: 'Qlik Associative Engine',
-          apis: [
-            'EngineAPI',
-            'EngineRestAPI',
-            'ScriptLanguageAPI',
-          ],
-        }, {
-          service: 'Licenses',
-          apis: [
-            'LicensesAPI',
-          ],
-        }, {
-          service: 'Mira',
-          apis: [
-            'MiraAPI',
-          ],
-        }, {
-          service: 'enigma.js',
-          apis: [
-            'enigma.js',
-          ],
-        }, {
-          service: 'halyard.js',
-          apis: [
-            'halyard.js',
-          ],
-        },
-      ];
+    .then(({ qHyperCube: { qDataPages: [{ qMatrix: rawDataApis }] }}) => {
+      const apis = rawDataApis.map(([
+        { qText: apiName },
+        { qText: apiVersion },
+        { qText: prevAPIVersion },
+        { qText: releaseDate },
+        { qText: added },
+        { qText: updated },
+        { qText: removed },
+        { qText: deprecated },
+        { qText: visibility },
+      ]) => ({
+        apiName,
+        apiVersion,
+        prevAPIVersion,
+        releaseDate,
+        added,
+        updated,
+        removed,
+        deprecated,
+        visibility,
+      }));
 
       lastBodyColumn.forEach((cell, index) => {
         const service = services[index];
-        const serviceApis = apis.filter(api => service.apis.indexOf(api[0].qText) >= 0);
+        const serviceApis = apis.filter(({ apiName }) => service.apis.indexOf(apiName) >= 0);
+        const publicApis = serviceApis.filter(({ visibility }) => visibility === 'public');
+
+        const [{
+          apiVersion: componentVersion,
+          releaseDate: componentDate,
+        }] = serviceApis;
 
         cell.innerText = '';
-        cell.insertAdjacentHTML('beforeend', cellTitle(serviceApis[0]));
-        serviceApis.forEach(api => cell.insertAdjacentHTML('beforeend', apiLink(api)));
-        cell.insertAdjacentHTML('beforeend', changesCircles(serviceApis, [4, 5, 7, 6]));
+        cell.insertAdjacentHTML('beforeend', cellTitle(componentVersion, componentDate));
+
+        publicApis.forEach(({
+          apiName,
+          apiVersion,
+          prevAPIVersion,
+          added,
+          updated,
+          removed,
+          deprecate
+        }) => {
+          cell.insertAdjacentHTML('beforeend', apiLink(apiName, apiVersion, prevAPIVersion));
+          cell.insertAdjacentHTML('beforeend', `
+            <div class="changes">
+              ${changesCircle(added, 'added')}
+              ${changesCircle(updated, 'updated')}
+              ${changesCircle(removed, 'removed')}
+              ${changesCircle(deprecate, 'deprecated')}
+            </div>
+          `);
+        });
       })
     })
   )
