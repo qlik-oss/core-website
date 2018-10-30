@@ -106,7 +106,7 @@
   --size: 8px;
 
   top: calc(100% + 12px);
-  width: 80px;
+  width: 170px;
   z-index: 1;
   opacity: 0;
   visibility: hidden;

@@ -20,18 +20,18 @@
       </a>
     </div>
   `;
-  const circleProperties = (name) => {
+  const getCircleClass = (name) => {
     switch (name.toLowerCase()) {
       case 'added':
-        return { extraClass: 'changes__circle--added', title: 'Added' };
+        return 'changes__circle--added';
       case 'updated':
-        return { extraClass: 'changes__circle--updated', title: 'Updated' };
+        return 'changes__circle--updated';
       case 'removed':
-        return { extraClass: 'changes__circle--removed', title: 'Removed' };
+        return 'changes__circle--removed';
       case 'deprecated':
-        return { extraClass: 'changes__circle--deprecated', title: 'Deprecated' };
+        return 'changes__circle--deprecated';
       default:
-        return { extraClass: '', title: '' };
+        return '';
     }
   };
   const changesCircle = (changes, name) => {
@@ -40,12 +40,12 @@
       || parseFloat(changes) === 0
     ) { return ''; }
 
-    const { title, extraClass } = circleProperties(name);
-
     return `
-      <div class="changes__circle ${extraClass}">
+      <div class="changes__circle ${getCircleClass(name)}">
         ${changes}
-        <div class="changes__circle-tooltip">${title}</div>
+        <div class="changes__circle-tooltip">
+          ${changes} API method(s) ${name.toLowerCase()}
+        </div>
       </div>
     `;
   };
