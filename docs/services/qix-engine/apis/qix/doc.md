@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.260.0._
+_QIX methods for version 12.268.0._
 
 ## `AbortModal`
 

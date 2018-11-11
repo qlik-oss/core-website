@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.260.0._
+_Qlik Associative Engine API for version 12.268.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -75,6 +75,29 @@ _No parameters_
 | ------ | ----------- | ---- |
 | `200` | OK | array&lt;[Session](#session)> |
 
+### `POST /v1/apps`
+
+Creates a new app.
+
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `attr` | body | [CreateApp](#createapp) | true | Attributes that the user want to set in new app. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
 ### `POST /v1/apps/import`
 
 Imports an app to the system.
@@ -94,7 +117,52 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | --------- | -- | ---- | --------- | ----------- |
 | `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
-| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated metadata. In `autoreplace` mode, the metadata from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
+| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
+### `GET /v1/apps/privileges`
+
+Gets the app privileges for the current user, such as create app and import app. Empty means that the current user has no app privileges.
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+_No parameters_
+
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | array&lt;string> |
+
+### `GET /v1/apps/{appId}`
+
+Retrives information for a specific app.
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
 
 **Responses**
 
@@ -124,6 +192,54 @@ Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/acces
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
+
+### `PUT /v1/apps/{appId}`
+
+Updates the information for a specific app.
+
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `update` | body | [UpdateApp](#updateapp) | true | Attributes that user want to set. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
+### `POST /v1/apps/{appId}/copy`
+
+Copies a specific app.
+
+Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `dstUpdate` | body | [UpdateApp](#updateapp) | true | Attributes that should be set in the copy. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
 
 ### `GET /v1/apps/{appId}/data/metadata`
 
@@ -282,6 +398,53 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | `200` | OK | binary |
 | `404` | Not Found | _No schema_ |
 
+### `PUT /v1/apps/{appId}/publish`
+
+Publish a specific app.
+
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `publish` | body | [PublishApp](#publishapp) | false | Publish information for the app. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
+### `PUT /v1/apps/{appId}/unpublish`
+
+Reverts a published app to a private app.
+
+Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
 ## Definitions
 
 ### `HealthcheckStatus`
@@ -397,18 +560,32 @@ _Type: object_
 | `ttl` | integer | Configured TTL (time to live), the time a session is kept alive with no connected client. 0 by default. |
 | `state` | string | The state of the session. To be available it needs to be active. <br/>&bull; active: The session is active and available.<br/>&bull; stalled: The session has stopped and is not available. |
 
-### `FileData`
+### `CreateApp`
 
-_Type: string_
-
-
-_Format: binary_
+_Type: object_
 
 
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `attributes` | [AppAttributes](#appattributes) | Attributes used when creating an application |
+
+### `AppAttributes`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `name` | string | The name (title) of the application |
+| `description` | string | The description of the application |
 
 ### `NxApp`
 
-App metadata and user privileges.
+Application attributes and user privileges.
 
 _Type: object_
 
@@ -418,8 +595,8 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
-| `privileges` | array&lt;string> | Application privileges. Hints to the client on what actions the user are allowed. |
-| `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client on what type of objects the user are allowed to create. |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata |
+| `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client what type of objects the user is allowed to create. |
 
 ### `NxAttributes`
 
@@ -462,8 +639,28 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `resource` | string | Type of resources. |
-| `canCreate` | boolean | true if resource is allowed to create. |
+| `resource` | string | Type of resources. For example sheet, story, bookmark etc. |
+| `canCreate` | boolean | Is set to true if the user has privileges to create the resource. |
+
+### `FileData`
+
+_Type: string_
+
+
+_Format: binary_
+
+
+
+### `UpdateApp`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `attributes` | [AppAttributes](#appattributes) | Attribute used when updating the application |
 
 ### `DataModelMetadata`
 
@@ -545,3 +742,14 @@ _Type: object_
 | `no_of_key_fields` | integer | Number of key fields. |
 | `comment` | string | Table comment. |
 | `byte_size` | integer | Static RAM memory used in bytes. |
+
+### `PublishApp`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `stream` | string | The id of the stream to publish to. This parameter is only valid in Qlik Sense Server. |
