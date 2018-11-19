@@ -1,6 +1,6 @@
 # Corectl
 
-Qlik Core Command (corectl) is a tool that delivers a command line interface (CLI) for the Qlik Associative Engine. With
+Qlik Core Control (corectl) is a tool that delivers a command line interface (CLI) for the Qlik Associative Engine. With
 corectl you can interact with your apps, objects, and data.
 
 ![screenshot](../images/corectl.png)
