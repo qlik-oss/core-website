@@ -3,11 +3,12 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.268.0._
+_QIX definitions for version 12.277.0._
 
 ## `AlfaNumString`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -1732,8 +1733,9 @@ _No description._
 | `qLockedExcluded` | integer | Number of values in locked excluded state. |
 
 ## `NxStreamListEntry`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 This struct is deprecated (not recommended to use).
 
@@ -1837,6 +1839,7 @@ Represents a dimension in the tree.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qText` | string | The text version of the value, if available. |
+| `qValue` | number | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qElemNo` | integer | Element number. |
 | `qNodeNr` | integer | A generated number applicable to this page only. Used so that children can easily identify who their parents are. |
 | `qParentNode` | integer | The qNodeNr of this node's parent for the current page. |
@@ -1846,6 +1849,8 @@ Represents a dimension in the tree.
 | `qNodes` | array&lt;[`NxTreeNode`](#nxtreenode)> | The children of this node in the tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Attribute dimension values. |
+| `qMaxPos` | array&lt;number> | Total of the positive values in the current group of cells. |
+| `qMinNeg` | array&lt;number> | Total of the negative values in the current group of cells. |
 
 ## `NxTreeRangeSelectInfo`
 
@@ -1897,8 +1902,9 @@ _No description._
 | `qIsScriptCreated` | boolean | If set to true, it means that the variable was defined via script. |
 
 ## `NxVariableProperties`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -2063,8 +2069,9 @@ _No description._
 | `qSecondaryFailure` | boolean | The default value is false. |
 
 ## `SearchAssociationResult`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -2107,8 +2114,9 @@ _No description._
 | `qAttributes` | array&lt;string> | Optional.<br>- For SearchSuggest method, this array is empty.<br>- For SearchObjects method, this array is empty or contain _qProperty_ .<br>- For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted [`SearchGroupItemMatch`](#searchgroupitemmatch) . For more information, see [`SearchGroupItemMatch`](#searchgroupitemmatch). |
 
 ## `SearchFieldDictionary`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -2118,8 +2126,9 @@ _No description._
 | `qResult` | array&lt;[`SearchTermResult`](#searchtermresult)> | List of the matching values.<br>The maximum number of values in this list is set by _qMaxNbrFieldMatches_ . |
 
 ## `SearchFieldMatch`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -2186,8 +2195,9 @@ _No description._
 | `qCount` | integer | Maximum number of items per group (in _qItems[ ]_ ).<br>The default value is -1; all values are returned. |
 
 ## `SearchMatchCombination`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
@@ -2247,8 +2257,9 @@ _No description._
 | `qFieldNames` | array&lt;string> | List of field names that contain search hits. |
 
 ## `SearchTermResult`
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
-**Stability Index: Deprecated**
 
 _No description._
 
