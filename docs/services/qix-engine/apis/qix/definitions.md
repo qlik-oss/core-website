@@ -3,11 +3,12 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.268.0._
+_QIX definitions for version 12.277.0._
 
 ## `AlfaNumString`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -1733,7 +1734,8 @@ _No description._
 
 ## `NxStreamListEntry`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 This struct is deprecated (not recommended to use).
 
@@ -1837,6 +1839,7 @@ Represents a dimension in the tree.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qText` | string | The text version of the value, if available. |
+| `qValue` | number | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qElemNo` | integer | Element number. |
 | `qNodeNr` | integer | A generated number applicable to this page only. Used so that children can easily identify who their parents are. |
 | `qParentNode` | integer | The qNodeNr of this node's parent for the current page. |
@@ -1846,6 +1849,8 @@ Represents a dimension in the tree.
 | `qNodes` | array&lt;[`NxTreeNode`](#nxtreenode)> | The children of this node in the tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | Attribute dimension values. |
+| `qMaxPos` | array&lt;number> | Total of the positive values in the current group of cells. |
+| `qMinNeg` | array&lt;number> | Total of the negative values in the current group of cells. |
 
 ## `NxTreeRangeSelectInfo`
 
@@ -1898,7 +1903,8 @@ _No description._
 
 ## `NxVariableProperties`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -2064,7 +2070,8 @@ _No description._
 
 ## `SearchAssociationResult`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -2108,7 +2115,8 @@ _No description._
 
 ## `SearchFieldDictionary`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -2119,7 +2127,8 @@ _No description._
 
 ## `SearchFieldMatch`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -2187,7 +2196,8 @@ _No description._
 
 ## `SearchMatchCombination`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
@@ -2248,7 +2258,8 @@ _No description._
 
 ## `SearchTermResult`
 
-**Stability Index: Deprecated**
+!!! warning "Deprecated"
+    This definition is deprecated and should not be used
 
 _No description._
 
