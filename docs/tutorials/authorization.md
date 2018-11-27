@@ -131,7 +131,8 @@ sections are available only to certain users or groups.
 To learn more about section access, see [Managing security with section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
 
 !!! Note
-    Qlik Associative Engine has to be started with `-S ValidateJsonWebTokens= < 1 or 2 >` otherwise the error `Section access detected when opening an app in QlikView Personal.` will be shown.
+    Qlik Associative Engine has to be started with `-S ValidateJsonWebTokens= < 1 or 2 >` otherwise the error
+    `Section access detected when opening an app in QlikView Personal.` will be shown.
 
 ### Managing access control
 
