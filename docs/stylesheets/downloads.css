@@ -64,12 +64,6 @@
   display: block;
 }
 
-.changes {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5em;
-}
-
 .changes__circle {
   --size: 24px;
   --backgroundColor: #000;
@@ -87,6 +81,7 @@
   font-size: .8em;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
+  margin: 0.2rem;
 }
 
 .changes__circle:hover .tooltip {
