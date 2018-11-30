@@ -72,6 +72,11 @@ DROPBOX_CLIENT_SECRET=<Dropbox App secret> \
 docker-compose up -d --build
 ```
 
+!!! Tip
+    In the `core-data-loading` examples script logging is enabled to get the log messages in `stdout`.
+    The script logging verbosity can be set in e.g. a docker-compose file like [this](https://github.com/qlik-oss/core-data-loading/blob/master/docker-compose.yml#L8).
+    Further description regarding the verbosity levels and log message details can be found in the [logging chapter](../../services/qix-engine/logging.md).
+
 ## Loading data from Dropbox
 
 After you complete the steps above, you can now load data from the file on Dropbox.

@@ -22,6 +22,7 @@ The following table lists the log types that are available and the default verbo
 | SmartSearchQuery | Smart Search query log. | SmartSearchQueryLogVerbosity | 3 |
 | SmartSearchIndex | Smart Search index log. | SmartSearchIndexLogVerbosity | 3 |
 | SSE | Server Side Extension log. | SSELogVerbosity | 4 |
+| Script | Detailed script logging when performing a reload | ScriptLogVerbosity | 0 |
 
 ## Log levels
 
@@ -190,3 +191,10 @@ Use this log type with caution because it will produce a lot of log entries.
 | field_memory | Memory used by field. |
 | ix_elem_count | Number of element in index. |
 | ix_memory | Used memory by the index. |
+
+### Script
+
+| Field | Description |
+| ----- | ----------- |
+| app_id | Identifier of the app being reloaded. Will be `0` for a session app. |
+| line_number | Line number of the script being executed. |

@@ -40,6 +40,11 @@ Run the following command:
 ACCEPT_EULA=<yes/no> docker-compose up -d
 ```
 
+!!! Tip
+    In the `core-data-loading` examples script logging is enabled to get the log messages in `stdout`.
+    The script logging verbosity can be set in e.g. a docker-compose file like [this](https://github.com/qlik-oss/core-data-loading/blob/master/docker-compose.yml#L8).
+    Further description regarding the verbosity levels and log message details can be found in the [logging chapter](../../services/qix-engine/logging.md).
+
 Now install dependencies:
 
 ```sh
