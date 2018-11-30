@@ -16,3 +16,25 @@ You can use catwalk in the following ways:
 
 * provide a link to an engine web socket at [catwalk](https://catwalk.core.qlik.com/) to view your Qlik Core app
 * clone the [catwalk repo](https://github.com/qlik-oss/catwalk) and run the tool locally
+
+## Example
+
+```qlik
+Beers:
+LOAD * INLINE [
+  Beer, Style
+  XXX, Lager
+```
+
+```qlik
+Scores:
+LOAD * INLINE [
+  Beer, Style
+  XXX, Lager
+```
+
+## Best practices and techniques
+
+Catwalk provides an alternative view of the Qlik application's data model compared to existing products but best
+practices and data modelling techniques are the same and can be found on the
+[Qlik help page](https://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Sense_Hub/DataModeling/best-practices-data-modeling.htm).
