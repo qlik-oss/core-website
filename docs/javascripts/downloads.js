@@ -180,7 +180,7 @@
           added,
           updated,
           removed,
-          deprecate
+          deprecated,
         }) => {
           cell.insertAdjacentHTML('beforeend', apiLink(apiName, apiVersion, prevAPIVersion));
           cell.insertAdjacentHTML('beforeend', `
@@ -188,7 +188,7 @@
               ${changesCircle(added, 'added')}
               ${changesCircle(updated, 'updated')}
               ${changesCircle(removed, 'removed')}
-              ${changesCircle(deprecate, 'deprecated')}
+              ${changesCircle(deprecated, 'deprecated')}
             </div>
           `);
         });

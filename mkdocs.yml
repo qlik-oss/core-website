@@ -68,6 +68,10 @@ nav:
       - Local Files: tutorials/data-loading/local-files.md
       - Remote Files: tutorials/data-loading/remote-files.md
       - Databases: tutorials/data-loading/databases.md
+  - Tooling:
+    - Overview: tooling/overview.md
+    - corectl: tooling/corectl.md
+    - catwalk: tooling/catwalk.md  
   - Services:
     - Mira: services/mira.md
     - Qlik Associative Engine:
