@@ -148,3 +148,4 @@ nav:
     - Logging: conventions/logging.md
     - Metrics: conventions/metrics.md
   - Third Party Licenses: third-party-licenses.md
+  - License Registration: license-registration.md

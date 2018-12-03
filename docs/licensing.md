@@ -1,14 +1,17 @@
 # Licensing
 
+There are three options for using Qlik Core — two for evaluation (one of which includes a license)
+and one for production. These are detailed below. ​
+​
 By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./eula.md).
 Make sure you have read and understood this agreement before continuing.
 
-## Community
+## 1. Developer Edition
 
-Qlik Core comes with a community version that may be used to evaluate,
-develop, or test solutions. Note that it cannot be used for commercial purposes.
+The developer edition comes with Qlik Core and may be used to quickly evaluate,
+develop or test solutions outside of commercial purposes.
 
-The current limitations are applied to the community version:
+The limitations applied to the developer edition are:
 
 * 30 day expiration: Qlik Associative Engine will expire 30 days after the version has been released.
 * 5 concurrent sessions: Qlik Associative Engine will limit the amount of concurrent sessions.
@@ -17,7 +20,22 @@ The current limitations are applied to the community version:
     You need to pass in a setting to Qlik Associative Engine to acknowledge that
     you accept the EULA. Example: `docker run qlikcore/engine:<version> -S AcceptEULA=yes`
 
-## Licensed
+## 2. Evaluation Trial License
+
+To better evaluate Qlik Core without the barriers in the developer edition, register to obtain a
+free 90-day license key.
+
+With this evaluation trial license, you can:
+
+* Avoid having the Qlik Associative Engine expire 30 days after the version has been released
+* Better evaluate scalability and load testing abilities with no limit on concurrent Qlik Associative Engine sessions
+
+!!! Note "Getting a license"
+    You can request a Trial License by [filling out this form](./license-registration.md).
+    You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
+    See [License configuration](./services/licenses.md#configuration) page.
+
+## 3. Licensed
 
 Running Qlik Core with a license requires a side-car License service
 which unlocks the Qlik Associative Engine service. See the
@@ -33,4 +51,4 @@ prepare your solution for Qlik Core licensing.
 
 ## Third Party Licenses
 
-Click [here](./third-party-licenses.md) for information about our third-party licenses.
+Click [here](./third-party-licenses.md) for information about our third-party licenses used in our closed source components.
