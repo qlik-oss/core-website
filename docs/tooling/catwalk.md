@@ -14,24 +14,16 @@ within.
 
 You can use catwalk in the following ways:
 
-* provide a link to an engine web socket at [catwalk](https://catwalk.core.qlik.com/) to view your Qlik Core app
+* provide a link to an engine web socket at [catwalk](http://catwalk.core.qlik.com/)
+* open an application from corectl by `corectl catwalk --app my-app.qvf`
 * clone the [catwalk repo](https://github.com/qlik-oss/catwalk) and run the tool locally
 
-## Example
+If no web socket configuration is provided, catwalk defaults to localhost:9076.
 
-```qlik
-Beers:
-LOAD * INLINE [
-  Beer, Style
-  XXX, Lager
-```
-
-```qlik
-Scores:
-LOAD * INLINE [
-  Beer, Style
-  XXX, Lager
-```
+!!! Note
+    The Qlik application's content is transferred directly from the engine to the web browser through a web socket. I.e.
+    no data is sent to Qlik or any 3:rd party. Beside this Qlik collects anonymous usage data such as browser version
+    and catwalk exceptions.
 
 ## Best practices and techniques
 
