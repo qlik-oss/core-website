@@ -22,7 +22,7 @@ If no websocket configuration is provided, catwalk defaults to localhost:9076.
 
 !!! Note
     The Qlik application's content is transferred directly from the engine to the web browser through a websocket. I.e.
-    no data is sent to Qlik or any 3:rd party. Beside this Qlik collects anonymous usage data though Google Analytics
+    no data is sent to Qlik or any 3:rd party. Beside this Qlik collects anonymous usage data through Google Analytics
     such as browser version and catwalk exceptions.
 
 ## Best practices and techniques
