@@ -21,7 +21,7 @@ The limitations applied to the developer edition are:
 ## 2. Evaluation Trial License
 
 To better evaluate Qlik Core without the barriers in the developer edition, register to obtain a
-free 90-day license key.
+free license key.
 
 With this evaluation trial license, you can better evaluate Qlik Core's scalability and load testing abilities with no limit on concurrent Qlik Associative Engine sessions.
 
