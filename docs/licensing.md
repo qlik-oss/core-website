@@ -25,7 +25,7 @@ free license key.
 
 With this evaluation trial license, you can better evaluate Qlik Core's scalability and load testing abilities with no limit on concurrent Qlik Associative Engine sessions.
 
-!!! Note "Getting a license"
+!!! Note "Getting a trial license"
     You can request a Trial License by [filling out this form](./license-registration.md).
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [License configuration](./services/licenses.md#configuration) page.
