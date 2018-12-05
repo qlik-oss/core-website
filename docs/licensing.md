@@ -1,7 +1,8 @@
 # Licensing
 
 There are three options for using Qlik Core — two for evaluation (one of which includes a license)
-and one for production. These are detailed below. By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./eula.md).
+and one for production. These are detailed below. By downloading and using Qlik Core, you are subject
+to the [End-User License Agreement](./eula.md).
 Make sure you have read and understood this agreement before continuing.
 
 ## 1. Developer Edition
@@ -21,9 +22,10 @@ The limitations applied to the developer edition are:
 ## 2. Evaluation Trial License
 
 To better evaluate Qlik Core without the barriers in the developer edition, register to obtain a
-free license key.
+trial license key.
 
-With this evaluation trial license, you can better evaluate Qlik Core's scalability and load testing abilities with no limit on concurrent Qlik Associative Engine sessions.
+With this evaluation trial license, you can better evaluate Qlik Core's scalability and load testing
+abilities with no limit on concurrent Qlik Associative Engine sessions.
 
 !!! Note "Getting a trial license"
     You can request a Trial License by [filling out this form](./license-registration.md).
@@ -41,7 +43,6 @@ prepare your solution for Qlik Core licensing.
     You can purchase your license by contacting sales [here](https://www.qlik.com/us/try-or-buy/buy-now)
     You will also need to pass in a setting to Qlik Associative Engine to enable licensing.
     See [License configuration](./services/licenses.md#configuration) page.
-
 
 ## Third Party Licenses
 
