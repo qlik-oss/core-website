@@ -55,7 +55,7 @@ In this example, Docker builds the container from the `docker-compose.yml` file.
 This file is located in the root folder of the Getting Started with Web Platform Git repository.
 Open the [docker-compose.yml](https://github.com/qlik-oss/core-get-started/blob/master/docker-compose.yml)
 file to see what the compose file looks like.
-It specifies how the Qlik Associative Engine runs as a Docker container, using the `qlik/engine` Docker image.
+It specifies how the Qlik Associative Engine runs as a Docker container, using the `qlikcore/engine` Docker image.
 
 !!! Tip
     To learn more about Docker compose files, see [Compose file](https://docs.docker.com/compose/compose-file/).
