@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.277.0._
+_QIX methods for version 12.287.0._
 
 ## `AbortModal`
 
@@ -577,6 +577,40 @@ Removes a transient variable.<br><br>The operation is successful if **qSuccess**
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qId` | string | Yes | Identifier of the variable. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | &lt;true or false&gt; |
+
+## `DestroySessionVariableById`
+
+Removes a transient variable.<br><br>**qSuccess** is set to true if the operation is successful. 
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qId` | string | Yes | Identifier of the variable. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | &lt;true or false&gt; |
+
+## `DestroySessionVariableByName`
+
+Removes a transient variable.<br><br>**qSuccess** is set to true if the operation is successful. 
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qName` | string | Yes | Name of the variable. |
 
 **Returns:**
 
