@@ -17,6 +17,15 @@
   padding-top: 0.4rem;
 }
 
+.md-flex-homepage {
+  width: 100%;
+}
+
+.md-flex-header-buttons {
+  width: 20%;
+  vertical-align: middle;
+}
+
 .md-header-info h2 {
   font-size: 70px;
   color:#fff;
@@ -32,6 +41,25 @@
   text-shadow: 2px 2px 4px #000;
 }
 
+.md-header-button {
+  padding: 10px;
+  border: 2px solid white;
+  border-color: white;
+  border-radius: 0.2rem;
+  font-size: 24px;
+  line-height: 35px;
+  cursor: pointer;
+  text-align: center;
+}
+.md-header-button:hover {
+  color: var(--custom-orange);
+  border-color: var(--custom-orange);
+}
+
+.first-button {
+  margin-bottom: 5.4rem;
+}
+
 .md-header {
   position: relative;
 }
@@ -45,6 +73,7 @@
   .md-flex-homepage {
     display: none !important;
   }
+
   .md-logo img {
     height: auto;
     width: 200px;
