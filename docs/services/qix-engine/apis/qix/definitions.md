@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.277.0._
+_QIX definitions for version 12.287.0._
 
 ## `AlfaNumString`
 
@@ -363,6 +363,7 @@ Parameters for a reload.
 | `qMode` | integer | 0: for default mode.<br>1: for ABEND; the reload of the script ends if an error occurs.<br>2: for ignore; the reload of the script continues even if an error is detected in the script. |
 | `qPartial` | boolean | Set to true for partial reload.<br>The default value is false. |
 | `qDebug` | boolean | Set to true to debug reload.<br>The default value is false. |
+| `qReloadId` | string | Optional reload ID.<br>ID will be automatically generated if not set. |
 
 ## `DoReloadExResult`
 

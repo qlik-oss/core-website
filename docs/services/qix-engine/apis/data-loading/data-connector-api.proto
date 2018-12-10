@@ -18,6 +18,7 @@ message SessionInfo {
     string user = 1;
     string sessionId = 2;
     string docId = 3;
+    string reloadId = 4;
 }
 
 message Parameter {
@@ -160,7 +161,7 @@ message MetaInfo {
 }
 
 message MetaInfoRequest {
-    // Empty
+    SessionInfo sessionInfo = 1;
 }
 
 service Connector {

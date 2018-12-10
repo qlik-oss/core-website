@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC Data Connector API
 
-_gRPC Data Connector API for version 12.277.0._
+_gRPC Data Connector API for version 12.287.0._
 
 Package: **qlik.connect**
 
@@ -36,7 +36,7 @@ _No description._
 
 | Type | Description |
 | ---- | ----------- |
-| [MetaInfoRequest](#metainforequest) | Empty |
+| [MetaInfoRequest](#metainforequest) | _No description._ |
 
 **Response:**
 
@@ -144,8 +144,13 @@ Useful for debugging.
 
 ### `MetaInfoRequest`
 
-Empty
+_No description._
 
+**Fields:**
+
+| Name | Description | Type | Label | Default |
+| ---- | ------------| ---- | ----- | ------- |
+| `sessionInfo` | _No description._ | [SessionInfo](#sessioninfo) | _optional_ | _No default value._ |
 
 ### `OptionalInteger`
 
@@ -180,6 +185,7 @@ _No description._
 | `user` | _No description._ | [string](#string) | _optional_ | _No default value._ |
 | `sessionId` | _No description._ | [string](#string) | _optional_ | _No default value._ |
 | `docId` | _No description._ | [string](#string) | _optional_ | _No default value._ |
+| `reloadId` | _No description._ | [string](#string) | _optional_ | _No default value._ |
 
 ## Enums
 
