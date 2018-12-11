@@ -578,6 +578,13 @@ li {
   }
 }
 
+@media only screen and (min-width: 76.25em) {
+  .md-nav__toggle:checked ~ .md-nav, .md-nav[data-md-state="expand"] {
+      /* fix deeply nested menu items overlapping */
+      max-height: none;
+  }
+}
+
 @media only screen and (max-width: 76.1875em) {
   .md-nav__source {
     background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
