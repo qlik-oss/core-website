@@ -584,6 +584,15 @@ li {
   }
 }
 
+@media only screen and (min-width: 76.1875em) and (max-width: 80em) {
+  .md-header-nav {
+    padding: 0 3.4rem;
+  }
+  .md-nav__list {
+    padding: 0 2.4rem;
+  }
+}
+
 .md-tabs__item {
   padding-right: 0;
 }
