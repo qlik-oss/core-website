@@ -46,7 +46,7 @@ strict: true
 repo_name: 'qlik-oss/core-website'
 repo_url: 'https://github.com/qlik-oss/core-website'
 edit_uri: edit/master/docs
-google_analytics: ['UA-110266862-2', 'auto']
+google_analytics: ['GTM-P7VJSX', 'auto']
 
 nav:
   - Home: index.md
