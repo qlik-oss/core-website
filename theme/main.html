@@ -1,19 +1,16 @@
-<script>console.log("%cCurious about Qlik Core? We do most of our work as open source — find us at https://github.com/qlik-oss. By the way, we are hiring so if you would like to get paid as you work with open source, you should join us: https://qlik-oss.github.io/core/index.html", "font: 2em sans-serif; color: white; background-color: #009845; padding: 1rem 3rem");</script>
 {% extends "base.html" %}
 
 {% block site_meta %}
-
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width,initial-scale=1">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta property="og:url" content="{{ config.site_url }}">
   {% if page and page.meta and page.meta.title %}
-    <meta property="og:title" content="{{ page.meta.title }}">
+  <meta property="og:title" content="{{ page.meta.title }}">
   {% elif page and page.title and not page.is_homepage %}
-    <meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
+  <meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
   {% else %}
-    <meta property="og:title" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ config.site_name }}">
   {% endif %}
   <meta property="og:description" content="{{ config.site_description }}">
   <meta property="og:image" content="{{ config.site_url }}/images/qlik-core-banner.jpg">
@@ -22,7 +19,6 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
-
   <meta name="twitter:card" content="summary_large_image">
   {% if page and page.meta and page.meta.title %}
   <meta property="twitter:title" content="{{ page.meta.title }}">
@@ -34,74 +30,79 @@
   <meta name="twitter:description" content="{{ config.site_description }}">
   <meta name="twitter:image" content="{{ config.site_url }}/images/qlik-core-banner.jpg">
   <meta name="twitter:image:alt" content="Meet Qlik Core">
-
   <link rel="canonical" href="{{ config.site_url }}">
-
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
   <meta name="lang:clipboard.copied" content="Copied to clipboard">
-
   <meta name="lang:search.language" content="en">
-
   <meta name="lang:search.pipeline.stopwords" content="True">
-
   <meta name="lang:search.pipeline.trimmer" content="True">
-
   <meta name="lang:search.result.none" content="No matching documents">
-
   <meta name="lang:search.result.one" content="1 matching document">
-
   <meta name="lang:search.result.other" content="# matching documents">
-
   <meta name="lang:search.tokenizer" content="[\s\-]+">
+  <link rel="shortcut icon" href="{{ base_url }}/images/favicon.ico">
+  <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+{% endblock %}
 
-<link rel="shortcut icon" href="{{ base_url }}/images/favicon.ico">
+{% block extrahead %}
+  <script>console.log("%cCurious about Qlik Core? We do most of our work as open source — find us at https://github.com/qlik-oss. By the way, we are hiring so if you would like to get paid as you work with open source, you should join us: https://qlik-oss.github.io/core/index.html", "font: 2em sans-serif; color: white; background-color: #009845; padding: 1rem 3rem");</script>
+  <script>(function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', '{{ config.google_analytics[0] }}');
+  </script>
+{% endblock %}
 
-<meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+{% block content %}
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id="+"{{ config.google_analytics[0] }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  {% if page.edit_url %}
+  <a href="{{ page.edit_url }}"
+      title="{{ lang.t('edit.link.title') }}"
+      class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
+  {% endif %}
+
+  {{ page.content }}
+  {% if page.title == "License Registration" %}
+  <div id="license-registration">
+    <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_21249"></form>
+    <script>MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249);</script>
+    <script src="//munchkin.marketo.net/munchkin.js"></script>
+  </div>
+  {% endif %}
+
+  <!-- Cookie consent popup using https://github.com/insites/cookieconsent -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#5f6062",
+            "text": "#d6d6d6"
+          },
+          "button": {
+            "background": "#3D8706"
+          }
+        },
+        "theme": "classic",
+        "content": {
+          "href": "https://www.qlik.com/us/legal/cookies-and-privacy-policy"
+        }
+      })
+    });
+  </script>
 
 {% endblock %}
 
-
-{% block content %}
-
-{% if page.edit_url %}
-<a href="{{ page.edit_url }}"
-    title="{{ lang.t('edit.link.title') }}"
-    class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
-{% endif %}
-
-<!-- Cookie consent popup using https://github.com/insites/cookieconsent -->
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-<script>
-  window.addEventListener("load", function () {
-    window.cookieconsent.initialise({
-      "palette": {
-        "popup": {
-          "background": "#5f6062",
-          "text": "#d6d6d6"
-        },
-        "button": {
-          "background": "#3D8706"
-        }
-      },
-      "theme": "classic",
-      "content": {
-        "href": "https://www.qlik.com/us/legal/cookies-and-privacy-policy"
-      }
-    })
-  });
-</script>
-{% if page.title == "License Registration" %}
-{{ page.content }}
-<div id="license-registration">
-  <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
-  <form id="mktoForm_21249"></form>
-  <script>MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249);</script>
-  <script src="//munchkin.marketo.net/munchkin.js"></script>
-</div>
-{% else %}
-{{ page.content }}
-{% endif %}
-
+{% block analytics %}
 {% endblock %}
