@@ -64,6 +64,10 @@
   position: relative;
 }
 
+.md-logo-mobile {
+  display: none;
+}
+
 @media (max-width: 76.1875em) {
   .md-header-home, .md-header-sub {
     position: relative;
@@ -77,6 +81,16 @@
   .md-logo img {
     height: auto;
     width: 200px;
+  }
+
+  .md-logo-mobile {
+    display: block;
+    padding: 10px;
+  }
+
+  .md-logo-mobile img {
+    height: auto;
+    width: 100px;
   }
 
   .footer-nav {
