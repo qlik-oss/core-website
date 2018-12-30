@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.287.0._
+_Qlik Associative Engine API for version 12.292.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -124,6 +124,7 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | [NxApp](#nxapp) |
+| `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/privileges`
 
