@@ -471,7 +471,7 @@ being read.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a file, if necessary including path, as a folder or web file data connection. If you don't specify a file name, the table file currently being read is used.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a file, if necessary including path, as a folder or web file data connection. If you don't specify a file name, the table file currently being read is used.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 <BR>
 
@@ -490,7 +490,7 @@ function will refer to the currently read table file.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a file, if necessary including path, as a folder or web file data connection. If you don't specify a file name, the table file currently being read is used.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a file, if necessary including path, as a folder or web file data connection. If you don't specify a file name, the table file currently being read is used.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 <BR>
 
@@ -546,7 +546,7 @@ if any is present, otherwise it returns NULL.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 QvdCreateTime('MyFile.qvd')
 
@@ -563,7 +563,7 @@ NULL).
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 **Examples:**
 
@@ -581,7 +581,7 @@ This script function returns the number of fields in a QVD file.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 **Examples:**
 
@@ -599,7 +599,7 @@ This script function returns the number of records currently in a QVD file.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 **Examples:**
 
@@ -617,7 +617,7 @@ This script function returns the name of the table stored in a QVD file.
 
 | Argument | Description |
 | -------- | ----------- |
-| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `http://www.qlik.com` |
+| filename | The name of a QVD file, if necessary including path, as a folder or web file data connection.<BR>Example: 'lib://Table Files/'<BR>In legacy scripting mode, the following path formats are also supported:<BR>- absolute: Example: c:\data\ <BR>- relative to the app working directory: Example: data\ <BR>- URL address (HTTP or FTP), pointing to a location on the Internet or an intranet: Example: `https://www.qlik.com` |
 
 **Examples:**
 

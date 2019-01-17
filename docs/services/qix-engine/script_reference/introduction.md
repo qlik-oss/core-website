@@ -6,4 +6,5 @@ using script statements and expressions. These statements and expressions are de
 
 !!! warning
     This section is under review and might contain errors. If you find any inconsistencies, please
-    contact us on [Slack](http://branch.qlik.com/slack) or create an issue on [Github](https://github.com/qlik-oss/core-website).
+    contact us on [Slack](https://qlikbranch-slack-invite.herokuapp.com/) or create an issue on
+    [Github](https://github.com/qlik-oss/core-website).

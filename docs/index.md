@@ -48,5 +48,5 @@ If you are new to Qlik Core, we recommend that you begin with the [Getting Start
 
 ## Feedback
 
-If you have questions about Qlik Core use our [Slack channels](http://qlikbranch-slack-invite.herokuapp.com/).
+If you have questions about Qlik Core use our [Slack channels](https://qlikbranch-slack-invite.herokuapp.com/).
 We would love to get your feedback, how you are using Qlik Core and what we can to do make it better.
