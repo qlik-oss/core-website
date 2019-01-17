@@ -26,6 +26,29 @@
   vertical-align: middle;
 }
 
+.md-info-icons{
+  margin: 0 auto;
+  width: 90%;
+}
+
+.md-info-icon{
+  width: 100px;
+}
+
+.md-column {
+  color: rgba(0,0,0,.87);  
+  float: left;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 10px;
+  width: 20%;}
+
+.md-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .md-header-info h2 {
   font-size: 70px;
   color:#fff;
@@ -75,6 +98,10 @@
     background-image:URL('../images/marketing-background.jpg');
   }
   .md-flex-homepage {
+    display: none !important;
+  }
+
+  .md-info-icons {
     display: none !important;
   }
 
