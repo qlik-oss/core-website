@@ -103,7 +103,7 @@ Session closed.
     For example, the `properties` object that is used to create the session object contains a field called
     `qHyperCubeDef`. This relates to the central concept of _hypercubes_ in the Qlik Associative Engine.
     To learn more about hypercubes, see
-    [Hypercubes](http://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm).
+    [Hypercubes](https://help.qlik.com/en-US/sense-developer/Subsystems/Platform/Content/Concepts/Hypercubes.htm).
 
 ## Using halyard.js
 

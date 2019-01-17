@@ -128,7 +128,7 @@ If validation fails, the request is rejected and a `401 Unauthorized` HTTP respo
 
 You can use section access to segment application data so specific
 sections are available only to certain users or groups.
-To learn more about section access, see [Managing security with section access](http://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
+To learn more about section access, see [Managing security with section access](https://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Scripting/Security/manage-security-with-section-access.htm).
 
 !!! Note
     Qlik Associative Engine has to be started with `-S ValidateJsonWebTokens=< 1 or 2 >` otherwise the error

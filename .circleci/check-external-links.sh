@@ -1,17 +1,23 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 set -e
 STATUS=0
 # Select the diff from the branch. Grep the changes indicated with the '+' sign. Use grep with extended regex syntax to identify weblinks. Trim text with sed.
-URLS=$(curl -s -L "https://github.com/qlik-oss/core-website/compare/$CIRCLE_BRANCH.diff" | grep '+' | grep -Eo '\(https?://[^ ]+\)' | sed 's/^.\(.*\).$/\1/' | sed 's/)//g' | uniq)
-echo "Following URLS found: $URLS"
+#URLS=$(curl -s -L "https://github.com/qlik-oss/core-website/compare/$CIRCLE_BRANCH.diff" | grep '+' | grep -Eo '\(https?://[^ ]+\)' | sed 's/^.\(.*\).$/\1/' | sed 's/)//g' | uniq)
+# Grep all "<url>" references in all HTML/css pages, then remove leading "" from grep, sort it, and make the list unique
+URLS=$(grep -Eroih '=\"(http|https)://[^ "]+' --include '*.html' --include '*.css' ../site/ | cut -f 2 -d '"' | sort | uniq)
+# echo "Following URLS found: $URLS"
 
 for url in $URLS
 do 
-  if curl -s -L -f -I -o /dev/null "$url"; then
-    echo "Working link: $url"
+  if [[ $url == *"localhost"* || $url == *"gstatic"* || $url == *"google-analytics"* || $url == *"googletagmanager"* ]]; then
+    echo "# Skipping: $url"
+  elif curl -s -L -f -I -k -o /dev/null "$url"; then
+    echo "   Working: $url"
   else
-    echo "The following link is broken: $url"
+    echo "!   Broken: $url"
     STATUS=1
   fi 
 done

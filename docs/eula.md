@@ -124,7 +124,7 @@ WRITTEN CONSENT OF QLIK.
         Qlik is for the purpose of improving Qlik’s Software and the
         customer experience with the Software, and will be governed by
         Qlik’s Privacy Policy, which is available at
-        [www.qlik.com/info/privacy](http://www.qlik.com/info/privacy).
+        [www.qlik.com/info/privacy](https://www.qlik.com/info/privacy).
 
 2.  GRANT OF LICENSE
 

@@ -67,7 +67,7 @@ the file system that is visible from the container.
 
 ### CSV file
 
-In this example, use the [load-csv-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-csv-file)
+In this example, use the [csv-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/csv-file.qvs)
 load script to load data from the
 [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) file into Qlik Associative
 Engine.
@@ -83,7 +83,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start load-csv-file
+npm start csv-file
 ```
 
 The expected output is a list of airport entries based on the headers in the CSV file.
@@ -94,7 +94,7 @@ The expected output is a list of airport entries based on the headers in the CSV
 
 ### Excel file
 
-In this example, use the [load-xlsx-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-xlsx-file)
+In this example, use the [xlsx-file](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/xlsx-file.qvs)
 load script to load data from the
 [airports.xlsx](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.xlsx) file into Qlik
 Associative Engine. The file contains the same data as in the previous CSV example, but in `ooxml` format.
@@ -110,7 +110,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start load-xlsx-file
+npm start xlsx-file
 ```
 
 The expected output is a list of airport entries based on the headers in the Microsoft Excel file.
@@ -118,11 +118,11 @@ The expected output is a list of airport entries based on the headers in the Mic
 ### Subset of fields
 
 In this example, use the
-[load-subset-of-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-subset-of-fields) script
+[subset-of-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/subset-of-fields.qvs) script
 to load a subset of the fields from the
 [airports.csv](https://github.com/qlik-oss/core-data-loading/blob/master/data/airports.csv) file.
 
-Before you run the script in this example, compare the _load-subset-of-fields_ script to the _load-csv-file_ script.
+Before you run the script in this example, compare the _subset-of-fields_ script to the _csv-file_ script.
 Notice that the `LOAD` statements are different. To load all fields, you can use the `*` notation. To load a subset
 of fields, you explicitly list the headers from the data file. In this example,
 the script explicitly lists `Airport`, `City`, `Country`, and `TimeZone`.
@@ -138,7 +138,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start load-subset-of-fields
+npm start subset-of-fields
 ```
 
 The expected output is a list of airport entries consisting of only the explicitly listed headers in the CSV file.
@@ -147,7 +147,7 @@ The other fields are not loaded into engine memory.
 ### Renaming fields
 
 In this example, use the
-[load-renamed-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/load-renamed-fields) script
+[rename-fields](https://github.com/qlik-oss/core-data-loading/blob/master/scripts/rename-fields.qvs) script
 to load a subset of fields and rename some of the fields by providing aliases for the header names.
 
 To rename fields with a load script, use the `AS` keyword in the `LOAD` statement. In this example,
@@ -166,7 +166,7 @@ Script characteristics:
 Run the following command:
 
 ```sh
-npm start load-renamed-fields
+npm start rename-fields
 ```
 
 The expected output is a list of airport entries, with the renamed fields,

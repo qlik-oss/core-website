@@ -10,7 +10,7 @@ the following:
 * Multipolygon
 
 For more information on GeoJSON specifications, see:
-[GeoJSON.org](http://geojson.org/)
+[GeoJSON.org](https://geojson.org/)
 
 Aggregation functions take a geometry set (points or areas) as input, and
 return a single geometry. For example, multiple areas can be merged, and a
