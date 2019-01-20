@@ -87,42 +87,123 @@
       {% endif %}
     </nav>
   </header>
-{% if page.is_homepage %} 
-  <div class="md-row md-info-icons">
-    <div class="md-column">
-      <img class="md-info-icon" src="{{ base_url }}/images/Icon_Global_Services_green.png" alt="Open Source">
-      <h3>OPEN SOURCE</h3>
-      We believe in open source! We encourage you to explore the different git repositories, star your favorites, file
-      issues and send pull requests. Find us on GitHub <a href="https://github.com/qlik-oss">here</a>.
-    </div>
-    <div class="md-column">
-      <img class="md-info-icon" src="{{ base_url }}/images/Icon_Repository_Service_green.png" alt="Containers">
-      <h3>CONTAINERS</h3>
-      Powerful technologies, for example Kubernetes, enables container orchestration and elastic scaling of multiple
-      Qlik Associative Engine instances in distributed environments.
-    </div>
-    <div class="md-column">
-        <img class="md-info-icon" src="{{ base_url }}/images/Icon_Laptop_green.png" alt="Use Cases">
-        <h3>USE CASES</h3>
-        These use cases provide inspiration, show how data analytics challenges can be addressed and how to use Qlik
-        Core with different platforms
-      </div>
-    <div class="md-column">
-        <img class="md-info-icon" src="{{ base_url }}/images/Icon_Information_green.png" alt="NOOBs">
-        <h3>NOOBS</h3>
-        If you are new to Qlik Core, we recommend you begin with the 
-        <a href="https://core.qlik.com/get-started/">Get Started</a> section and join 
-        <a href="https://developer.qlik.com/">Qlik Branch</a>, our developer squad. It’s free and includes access to a
-        community <a href="https://qlikbranch-slack-invite.herokuapp.com/">Slack</a>.
+  {% if page.is_homepage %}
+  <style>
+    .md-content, .md-header-nav__title {
+      display: none !important;
+    }
 
-    </div>
-    <div class="md-column">
-        <img class="md-info-icon" src="{{ base_url }}/images/Icon_Megaphone_green.png" alt="Feedback">
-        <h3>FEEDBACK</h3>
-        If you have questions or feedback, use <a href="https://qlikbranch-slack-invite.herokuapp.com/">Qlik Branch
-        Slack's</a> #qlik-core channel. We love hearing your feedback, use cases and what we can to do make it better
-    </div>
-  </div>
-</div>
-{% endif %}
+    .md-main__inner {
+      height: 1px;
+    }
+
+    .md-container {
+      height: initial;
+    }
+
+    @media (min-width: 76.1875em) {
+      .md-sidebar {
+        display: none !important;
+      }
+    }
+  </style>
+  <header class="header-intro">
+    <nav class="md-header-nav md-grid">
+      <div class="md-flex">
+        <div class="md-flex__cell md-flex__cell--stretch head-home">
+          <h1>HOME</h1>
+          <p><strong> With Qlik Core, you can take advantage of Qlik's powerful associative engine to build,
+              extend and quickly deploy custom interactive data-driven solutions that are highly scalable
+              and cloud-ready. </strong></p>
+          <p>
+            Supported by a backbone of Linux and Docker, Qlik Core applications can
+            easily be embedded into any stack, IoT device, application, web page, etc.</p>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <header class="header-cards">
+    <nav class="md-header-nav md-grid">
+      <div class="md-row md-info-icons">
+        <a href="why-qlik-core/">
+          <div class="md-column cards">
+            <h1>WHY QLIK CORE?</h1>
+            Build, extend and deploy fast, interactive data-driven applications delivered at massive scale within any
+            cloud environment.
+          </div>
+        </a>
+        <a href="downloads/">
+          <div class="md-column cards">
+            <h1>DOWNLOADS</h1>
+            Qlik Core consists of a core set of supported components, including the Qlik Associative Engine.
+            All available at your fingertips and free to get started with.
+          </div>
+        </a>
+        <a href="updates/2018-12/">
+          <div class="md-column cards">
+            <h1>UPDATES</h1>
+            What's new in Qlik Core? Will keep you update every month on what's new in the and around Qlik Core.
+          </div>
+        </a>
+        <a href="use-cases/">
+          <div class="md-column cards">
+            <h1>USE CASES</h1>
+            These use cases provide inspiration, show how data analytics challenges can be addressed and how to use
+            Qlik
+            Core with different platforms
+          </div>
+        </a>
+        <a href="tooling/overview/">
+          <div class="md-column cards">
+            <h1>TOOLING</h1>
+            To get the best out of Qlik Core we provide different tools, tools with the soul purpose of improving the
+            experience and making life easier for you when using Qlik Core.
+          </div>
+        </a>
+        <a href="services/qix-engine/introduction/">
+          <div class="md-column cards">
+            <h1>SERVICES</h1>
+            Information and API documentation for the Qlik Associative Engine and all other services
+            that are part of Qlik Core.
+          </div>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <header style="background-color:#fff; padding-top:50px;padding-bottom:50px;">
+    <nav class="md-header-nav md-grid">
+      <div class="md-row md-info-icons">
+        <div class="md-column md-column-icons">
+          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Global_Services_green.png" alt="Open Source">
+          <h3>OPEN SOURCE</h3>
+          We believe in open source! We encourage you to explore the different git repositories, star your favorites,
+          file issues and send pull requests. Find us on GitHub <a href="https://github.com/qlik-oss">here</a>.
+        </div>
+        <div class="md-column md-column-icons">
+          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Repository_Service_green.png" alt="Containers">
+          <h3>CONTAINERS</h3>
+          Powerful technologies, for example Kubernetes, enables container orchestration and elastic scaling of
+          multiple Qlik Associative Engine instances in distributed environments.
+        </div>
+        <div class="md-column md-column-icons">
+          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Information_green.png" alt="NOOBs">
+          <h3>NOOBS</h3>
+          If you are new to Qlik Core, we recommend you begin with the
+          <a href="https://core.qlik.com/get-started/">Get Started</a> section and join
+          <a href="https://developer.qlik.com/">Qlik Branch</a>, our developer squad. It’s free and includes access to
+          a community <a href="https://qlikbranch-slack-invite.herokuapp.com/">Slack</a>.
+        </div>
+        <div class="md-column md-column-icons">
+          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Megaphone_green.png" alt="Feedback">
+          <h3>FEEDBACK</h3>
+          If you have questions or feedback, use <a href="https://qlikbranch-slack-invite.herokuapp.com/">Qlik Branch
+            Slack's</a> #qlik-core channel. We love hearing your feedback, use cases and what we can to do make it
+          better
+        </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+  {% endif %}
   

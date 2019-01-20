@@ -1,5 +1,5 @@
 :root {
-  --custom-orange: #e17b03;
+  --custom-orange: #FFC72A;
   --custom-grey: #424346;
   --custom-green: #009744;
 }
@@ -24,24 +24,65 @@
 .md-flex-header-buttons {
   width: 20%;
   vertical-align: middle;
+  padding-right: 25px;
 }
 
-.md-info-icons{
+.md-info-icons {
   margin: 0 auto;
-  width: 90%;
 }
 
 .md-info-icon{
   width: 100px;
 }
 
-.md-column {
+.md-column-icons {
   color: rgba(0,0,0,.87);  
   float: left;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-align: center;
-  padding: 10px;
-  width: 20%;}
+  padding: 30px;
+  width: calc(25% - (34px / 3.04));
+}
+
+.md-column-icons a {
+  text-decoration: underline;
+}
+
+.header-intro, .header-cards {
+  background-color:#F4F5F7;
+  padding-top:20px;
+}
+
+.header-cards {
+  padding-bottom: 50px;
+}
+
+.head-home {
+  font-size: 20px;
+}
+
+.cards {
+  padding: 30px;
+  font-size: 18px;
+  border: 1px;
+  border-style: solid;
+  border-color: var(--custom-green);;
+  min-height: 300px;
+  margin-right: 15px;
+  margin-top: 15px;
+  box-shadow: 0 8px 4px -4px #bbb;
+  background-color: #fdfdfd;
+  transition: 0.3s;
+  color: rgba(0,0,0,.87);
+  float: left;
+  width: calc(33% - (34px / 3.04));
+  min-width: 333px;
+}
+
+.cards:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-image: linear-gradient(to bottom right,rgba(220,220,220,.1), #fff);
+}
 
 .md-row:after {
   clear: both;
@@ -73,9 +114,12 @@
   line-height: 35px;
   cursor: pointer;
   text-align: center;
+  background-color: rgba(255,255,255,.1);
 }
+
 .md-header-button:hover {
   color: var(--custom-orange);
+  background-color: rgba(248,152,29,.1);
   border-color: var(--custom-orange);
 }
 
@@ -101,10 +145,6 @@
     display: none !important;
   }
 
-  .md-info-icons {
-    display: none !important;
-  }
-
   .md-logo img {
     height: auto;
     width: 200px;
@@ -120,11 +160,19 @@
     width: 100px;
   }
 
+  .md-column-icons {
+    min-width: 333px;
+  }
+
   .footer-nav {
     display: none !important;
   }
   .get-started-buttons {
     display: none;
+  }
+
+  .header-intro, .header-cards {
+    padding-left: 18px;
   }
 }
 
@@ -137,6 +185,10 @@
 @media (min-width: 76.1875em) {
   .md-search {
     padding: 1.8rem;
+  }
+
+  .md-column-icons {
+    min-width: 250px;
   }
 
   .get-started-buttons {
@@ -297,11 +349,6 @@ h1 span {
 .md-logo {
   padding: 10px;
   margin: 0;
-}
-
-.md-main__inner {
-  padding: 0;
-  min-height: 80vh;
 }
 
 .md-content {

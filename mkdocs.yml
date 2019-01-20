@@ -50,6 +50,7 @@ google_analytics: ['GTM-P7VJSX', 'auto']
 
 nav:
   - Home: index.md
+  - Why Qlik Core?: why-qlik-core.md
   - Get Started: get-started.md
   - Downloads: downloads.md
   - Updates:
