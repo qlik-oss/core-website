@@ -1,8 +1,4 @@
-{% if not page.is_homepage %} 
-<header class="md-header md-header-sub" data-md-component="header">
-{% else %}
 <header class="md-header md-header-home" data-md-component="header">
-{% endif %}
     <nav class="md-header-nav md-grid">
       <div class="md-flex">
         <div class="md-flex__cell md-flex__cell--shrink">
@@ -60,7 +56,12 @@
             {% include "partials/tabs.html" %}
         </div>
       </div>
-      {% if page.is_homepage %} 
+    </div>
+  </nav>
+  </header>
+  {% if page.is_homepage %} 
+  <header class="md-header md-header-hero" data-md-component="header">
+          <nav class="md-header-nav md-grid">
       <div class="md-flex md-flex-homepage">
           <div class="md-flex__cell md-flex__cell--shrink">
             <div class="md-header-info">
@@ -69,19 +70,14 @@
                 and visualizations with this development platform <br>
                 built on the Qlik Associative Engine.         
             </div>
-                                         
-            
-          </div>   
-          <div class="md-flex__cell md-flex-header-buttons">
             <a href="licensing/">
-              <div class="md-header-button first-button">Try for Free</div>
+              <div class="md-header-button">Try for Free</div>
             </a>
             <a href="get-started/">
               <div class="md-header-button">Start Tutorials</div>
-            </a>
-          </div>    
-          <div class="md-flex__cell md-flex__cell--shrink">
+            </a>                             
             
+          </div>   
           </div>
       </div>
       {% endif %}
@@ -111,13 +107,11 @@
     <nav class="md-header-nav md-grid">
       <div class="md-flex">
         <div class="md-flex__cell md-flex__cell--stretch head-home">
-          <h1>HOME</h1>
-          <p><strong> With Qlik Core, you can take advantage of Qlik's powerful associative engine to build,
-              extend and quickly deploy custom interactive data-driven solutions that are highly scalable
-              and cloud-ready. </strong></p>
-          <p>
-            Supported by a backbone of Linux and Docker, Qlik Core applications can
-            easily be embedded into any stack, IoT device, application, web page, etc.</p>
+          <h1>HELLO</h1>
+          <p>With Qlik Core, you can take advantage of Qlik's powerful associative engine to build, 
+          extend and quickly deploy custom interactive data-driven solutions that are highly scalable and cloud-ready.</p>
+          <p>And built for Linux and running in a Docker container, Qlik Core applications can easily be embedded into any stack, 
+          IoT device, process, application, web page, portal, Star Wars visualization – you name it.  </p>
         </div>
       </div>
     </nav>
@@ -135,29 +129,27 @@
         <a href="downloads/">
           <div class="md-column cards">
             <h1>DOWNLOADS</h1>
-            Qlik Core consists of a core set of supported components, including the Qlik Associative Engine.
-            All available at your fingertips and free to get started with.
+            Qlik Core consists of a core set of supported components, including the Qlik Associative Engine, 
+            all available at your fingertips.​
           </div>
         </a>
         <a href="updates/2018-12/">
           <div class="md-column cards">
             <h1>UPDATES</h1>
-            What's new in Qlik Core? Will keep you update every month on what's new in the and around Qlik Core.
+            Monthly updates so you know what’s new with Qlik Core.
           </div>
         </a>
         <a href="use-cases/">
           <div class="md-column cards">
             <h1>USE CASES</h1>
-            These use cases provide inspiration, show how data analytics challenges can be addressed and how to use
-            Qlik
-            Core with different platforms
+            These provide inspiration, show how data analytics challenges can be addressed and explain how to 
+            use Qlik Core with different platforms.​
           </div>
         </a>
         <a href="tooling/overview/">
           <div class="md-column cards">
             <h1>TOOLING</h1>
-            To get the best out of Qlik Core we provide different tools, tools with the soul purpose of improving the
-            experience and making life easier for you when using Qlik Core.
+            These have one sole purpose – improve your Qlik Core experience.
           </div>
         </a>
         <a href="services/qix-engine/introduction/">
@@ -188,7 +180,7 @@
         </div>
         <div class="md-column md-column-icons">
           <img class="md-info-icon" src="{{ base_url }}/images/Icon_Information_green.png" alt="NOOBs">
-          <h3>NOOBS</h3>
+          <h3>BEGINNERS</h3>
           If you are new to Qlik Core, we recommend you begin with the
           <a href="https://core.qlik.com/get-started/">Get Started</a> section and join
           <a href="https://developer.qlik.com/">Qlik Branch</a>, our developer squad. It’s free and includes access to

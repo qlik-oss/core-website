@@ -17,7 +17,7 @@ associative engine, all data points are associated within a virtual data layer o
 front-end and back-end systems. These associations exist even across tables, allowing you
 to change, model and visualize complex relationships between various data sources and tables.
 
-## With Qlik Core, you also get
+**With Qlik Core, you also get...**
 
 - **Easy data aggregation during run time** – save development time by combining disparate data sources,
     no matter how large, and letting our engine take care of the data computation
@@ -36,7 +36,7 @@ to change, model and visualize complex relationships between various data source
     synched and maintained in the same state, without you having to introduce specific code since the
     engine manages and stores the state of functions and objects
 
-## So, how do you get it? Licensing info [here](./services/licenses.md) but let’s talk components
+**So, how do you get it? Licensing info [here](./services/licenses.md) but let’s talk components**
 
 - **Linux-based Associative Engine**  – provided as a Docker image with built-in support for
      Amazon Web Services, Microsoft Azure and Google Cloud Platform
@@ -50,3 +50,12 @@ It’s all language agnostic but JavaScript lovers will find it easier to work w
 our open source tools available in JavaScript. Other top languages and tools used include R, Go, Shell,
 C#, Python, Java and D3. Qlik Core can also be managed with the orchestration tool of your choice for
 implementing, scaling and managing containerized applications.
+
+<div>
+    <a href="/licensing/">
+        <div class="md-inside-button"> Try free </div>
+    </a>
+    <a href="/get-started/">
+        <div class="md-inside-button"> Start Tutorials </div>
+    </a>
+</div>
