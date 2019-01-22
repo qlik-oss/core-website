@@ -3,7 +3,7 @@ site_url: 'https://core.qlik.com'
 
 theme:
   name: 'material'
-  logo: 'images/qlik-core-logo-white.svg'
+  logo: 'images/qlik-core-logo-color.svg'
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
   font:
@@ -50,6 +50,7 @@ google_analytics: ['GTM-P7VJSX', 'auto']
 
 nav:
   - Home: index.md
+  - Why Qlik Core?: why-qlik-core.md
   - Get Started: get-started.md
   - Downloads: downloads.md
   - Updates:
