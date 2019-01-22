@@ -594,7 +594,7 @@ h1 span {
 }
 
 .md-footer-legal-text a {
-  color: #f7921d;
+  color: var(--custom-green);
   text-decoration: none;
 }
 
