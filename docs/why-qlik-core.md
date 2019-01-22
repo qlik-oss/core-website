@@ -33,7 +33,7 @@ to change, model and visualize complex relationships between various data source
     even working across tables to produce results without requiring any joins
 
 - **Simplified state management** – objects/elements tied to a single data model will be automatically
-    synched and maintained in the same state, without you having to introduce specific code since the
+    synched and maintained in the same state, without having to introduce specific code since the
     engine manages and stores the state of functions and objects
 
 **So, how do you get it? Licensing info [here](./services/licenses.md) but let’s talk components**
@@ -44,7 +44,7 @@ to change, model and visualize complex relationships between various data source
 - **Supporting APIs**  – these ingest your data into the Qlik Associative Engine through connectors
 
 - **Supporting Open Source Libraries**  – these various libraries by Qlik expose the engine to help
-    you build faster
+    you build solutions faster
 
 It’s all language agnostic but JavaScript lovers will find it easier to work with given the number of
 our open source tools available in JavaScript. Other top languages and tools used include R, Go, Shell,
