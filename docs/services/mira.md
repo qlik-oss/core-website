@@ -53,6 +53,7 @@ Mira supports the following operation modes:
 |[Local](#local-mode)                   | Discovers Qlik Associative Engine instances running on the local Docker Engine.        |
 
 To set the operation mode, define the environment variable `MIRA_MODE` on the Mira container.
+In `Local` or `Swarm` mode you will also have to set the running user to `root` in your `docker-compose.yml` file
 
 ### Qlik Associative Engine labeling
 
@@ -103,7 +104,7 @@ In _Swarm_ mode Mira communicates with Docker Remote API to discover Qlik Associ
 How Mira should access the Docker Remote API can be configured in two ways.
 
 Mount `docker.sock` as a volume into the Mira container as shown in this [example](https://github.com/qlik-oss/mira/blob/master/docker-compose.yml).
-It is however only possible to mount `docker.sock` on a Swarm manager node.
+It is however only possible to mount `docker.sock` on a Swarm manager node. To be able to mount the `docker.sock` mira must be run with the `root` user configured in the `docker-compose.yml` file
 
 If Mira should be running on a worker node Mira needs to be configured to access the Docker Remote API by a URL.
 In this case there is no need to mount `docker.sock` into the Mira container,
@@ -153,6 +154,7 @@ version: "3.1"
 services:
   mira:
     image: qlikcore/mira
+    user: root
     environment:
      - MIRA_MODE=swarm
     ...
@@ -358,7 +360,7 @@ When Mira is running in _Local_ mode, Mira looks for Qlik Associative Engine ins
 that are running on the `localhost` Docker Engine, without any orchestration platform such as Docker Swarm or Kubernetes.
 
 You can enable _Local_ mode by setting the `MIRA_MODE` environment variable to `local`
-before you start the Mira Docker container.
+before you start the Mira Docker container. You also need to set mira to run as the `root` user in your `docker-compose.yml` file
 
 ### Example of Local mode
 
@@ -388,6 +390,7 @@ version: "3.1"
 
 services:
   mira:
+    user: root
     image: qlikcore/mira
     ...
 
