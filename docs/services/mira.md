@@ -32,8 +32,9 @@ The following environment variables can optionally be set:
 | MIRA_DISCOVERY_HOSTNAME               | n/a                     | Hostname that Mira uses to query DNS for Qlik Associative Engine instances.<br>- Applicable in mode `dns`. |
 | MIRA_ENGINE_API_PORT_LABEL            | qix-engine-api-port     | Label that Mira uses to determine the QIX API (websocket) port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
 | MIRA_ENGINE_METRICS_PORT_LABEL        | qix-engine-metrics-port | Label that Mira uses to determine the `/metrics` port.<br/>- Applicable in modes `swarm`, `kubernetes`, and `local`. |
-| MIRA_ENGINE_DISCOVERY_INTERVAL        | 10000                    | Interval in milliseconds for discovering Qlik Associative Engine instances. |
-| MIRA_ENGINE_UPDATE_INTERVAL           | 10000                    | Interval in milliseconds for updating health and metrics for Qlik Associative Engine instances. |
+| MIRA_KUBERNETES_TARGET_NAMESPACE      | n/a                     | Namespace that Mira looks for Qlik Associative Engines in. If not set Mira will look into all namespaces. <br/>- Applicable in modes `kubernetes`. |
+| MIRA_ENGINE_DISCOVERY_INTERVAL        | 10000                   | Interval in milliseconds for discovering Qlik Associative Engine instances. |
+| MIRA_ENGINE_UPDATE_INTERVAL           | 10000                   | Interval in milliseconds for updating health and metrics for Qlik Associative Engine instances. |
 | MIRA_KUBERNETES_PROXY_PORT            | 8001                    | Port that Mira uses to communicate with the Kubernetes API server. |
 | MIRA_LOG_LEVEL                        | info                    | Minimum log level that Mira outputs when logging to `stdout`. |
 | MIRA_ALLOWED_RESPONSE_TIME            | 1                       | Maximum allowed time in seconds from when a request is received until a response is being sent. |
@@ -50,10 +51,11 @@ Mira supports the following operation modes:
 |[Swarm](#swarm-mode)                   | Discovers Qlik Associative Engine instances in a Docker Swarm environment.            |
 |[Kubernetes](#kubernetes-mode)         | Discovers Qlik Associative Engine instances in a Kubernetes environment.              |
 |[DNS](#dns-mode)                       | Discovers Qlik Associative Engine instances using DNS service look-ups.               |
-|[Local](#local-mode)                   | Discovers Qlik Associative Engine instances running on the local Docker Engine.        |
+|[Local](#local-mode)                   | Discovers Qlik Associative Engine instances running on the local Docker Engine.       |
 
 To set the operation mode, define the environment variable `MIRA_MODE` on the Mira container.
-In `Local` or `Swarm` mode you will also have to set the running user to `root` in your `docker-compose.yml` file
+In `Local` or `Swarm` mode you will also have to set the running user to `root` in your `docker-compose.yml` file.
+This is needed to be able to mount the `docker.sock` which is used to talk to the Docker API in `Local` and `Swarm` mode.
 
 ### Qlik Associative Engine labeling
 
@@ -104,8 +106,8 @@ In _Swarm_ mode Mira communicates with Docker Remote API to discover Qlik Associ
 How Mira should access the Docker Remote API can be configured in two ways.
 
 Mount `docker.sock` as a volume into the Mira container as shown in this [example](https://github.com/qlik-oss/mira/blob/master/docker-compose.yml).
-It is however only possible to mount `docker.sock` on a Swarm manager node. To be able to mount the `docker.sock`
-mira must be run with the `root` user configured in the `docker-compose.yml` file
+It is however only possible to mount `docker.sock` on a Swarm manager node. To be able to mount the local `docker.sock`
+Mira must be run with the `root` user configured in the `docker-compose.yml` file
 
 If Mira should be running on a worker node Mira needs to be configured to access the Docker Remote API by a URL.
 In this case there is no need to mount `docker.sock` into the Mira container,
@@ -208,6 +210,8 @@ before starting the Mira pod.
 !!! Note
     Mira uses the Kubernetes API to discover Qlik Associative Engines in a Kubernetes deployment.
     If RBAC is enabled in Kubernetes then Mira will need `view` access to the Kubernetes API.
+    If `MIRA_KUBERNETES_TARGET_NAMESPACE`
+    is set however it is enough to give Mira `view` access to the API for that specific namespace.
 
 ### Example of Kubernetes mode
 
