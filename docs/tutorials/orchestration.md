@@ -80,7 +80,7 @@ The stack consists of one Qlik Associative Engine, one Mira discovery service, a
 
 #### Placement constraints
 
-The Mira service is placed on the swarm manager node
+The Mira service is placed on the swarm manager node and run as the `root` user
 so that it can communicate with the manager Docker Engine.
 This is why `/var/run/docker.sock` is mounted into the service.
 
