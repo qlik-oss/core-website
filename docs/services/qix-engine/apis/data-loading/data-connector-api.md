@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC Data Connector API
 
-_gRPC Data Connector API for version 12.292.0._
+_gRPC Data Connector API for version 12.311.0._
 
 Package: **qlik.connect**
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.292.0._
+_Qlik Associative Engine API for version 12.311.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -370,7 +370,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Status | Description | Type |
 | ------ | ----------- | ---- |
-| `200` | OK | array&lt;string> |
+| `200` | OK | [AppContentList](#appcontentlist) |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/thumbnail`
@@ -743,6 +743,33 @@ _Type: object_
 | `no_of_key_fields` | integer | Number of key fields. |
 | `comment` | string | Table comment. |
 | `byte_size` | integer | Static RAM memory used in bytes. |
+
+### `AppContentList`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `library` | string | Content library name. |
+| `subpath` | string | Content library relative listing path. Empty in case of root listed or representing actual subpath listed. |
+| `data` | array&lt;[AppContentListItem](#appcontentlistitem)> | Content list items. |
+
+### `AppContentListItem`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `type` | string | Content type. |
+| `id` | string | Unique content identifier. |
+| `link` | string | Unique content link. |
+| `name` | string | Content name. |
 
 ### `PublishApp`
 
