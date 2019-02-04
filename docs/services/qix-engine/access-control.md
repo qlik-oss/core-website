@@ -1,8 +1,5 @@
 # Access Control
 
-!!! warning "Experimental feature"
-    This feature is in an experimental state. Use with caution since this feature may change in the future.
-
 Administrators often want to control access to their applications
 based on different policies and attributes rather than static user roles.
 To handle this, Qlik Associative Engine supports
