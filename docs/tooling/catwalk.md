@@ -8,7 +8,7 @@ you may need help finding out how the data is associated and how interactions wi
 Catwalk provides you with a view of all your tables, fields, their associations as well as information about the data
 within.
 
-![screenshot](https://github.com/qlik-oss/catwalk/raw/master/screenshot.png)
+![screenshot](https://github.com/qlik-oss/catwalk/raw/master/images/screenshot.png)
 
 ## Usage
 
