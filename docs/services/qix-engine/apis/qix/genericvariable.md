@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericVariable
 
-_QIX methods for version 12.311.0._
+_QIX methods for version 12.321.0._
 
 ## `ApplyPatches`
 

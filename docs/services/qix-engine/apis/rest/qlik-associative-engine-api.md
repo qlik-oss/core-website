@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.311.0._
+_Qlik Associative Engine API for version 12.321.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -295,7 +295,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 ### `PUT /v1/apps/{appId}/media/files/{path}`
 
 Stores the media content file.
-Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure or lack of permission.
+Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure, lack of permission or file already exist on the supplied path.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
