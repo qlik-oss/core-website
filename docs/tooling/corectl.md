@@ -10,3 +10,5 @@ The main use cases are:
 * View: list applications, view and query data, and evaluate expressions
 * Develop: create, update and model a Qlik application
 * Script: support scripting and automation of common tasks
+
+Download instructions for corectl can be found [here](https://github.com/qlik-oss/corectl#download).
