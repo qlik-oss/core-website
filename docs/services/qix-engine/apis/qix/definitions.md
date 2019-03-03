@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.321.0._
+_QIX definitions for version 12.329.0._
 
 ## `AlfaNumString`
 
@@ -1280,6 +1280,7 @@ _No description._
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxEngineVersion`
 
@@ -1533,6 +1534,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qAttrExprInfo` | array&lt;[`NxAttrExprInfo`](#nxattrexprinfo)> | List of attribute expressions. |
 | `qAttrDimInfo` | array&lt;[`NxAttrDimInfo`](#nxattrdiminfo)> | List of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxMeta`
 
@@ -1822,6 +1824,7 @@ _No description._
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxTreeMultiRangeSelectInfo`
 

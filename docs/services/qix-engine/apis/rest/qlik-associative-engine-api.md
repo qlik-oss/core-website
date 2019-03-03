@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.321.0._
+_Qlik Associative Engine API for version 12.329.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -117,6 +117,7 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | --------- | -- | ---- | --------- | ----------- |
 | `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
+| `spaceId` | query | string | false | The space id of the target app. |
 | `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 
 **Responses**
@@ -234,6 +235,7 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
+| `spaceId` | query | string | false | The space id of the copied app. |
 | `dstUpdate` | body | [UpdateApp](#updateapp) | true | Attributes that should be set in the copy. |
 
 **Responses**
@@ -265,6 +267,30 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | [DataModelMetadata](#datamodelmetadata) |
+
+### `POST /v1/apps/{appId}/export`
+
+Export a specific app.
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `NoData` | query | boolean | false | The flag indicating if only object contents should be exported. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/files/{path}`
 
@@ -583,6 +609,7 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `name` | string | The name (title) of the application |
 | `description` | string | The description of the application |
+| `spaceId` | string | The space id of the aplication |
 
 ### `NxApp`
 
