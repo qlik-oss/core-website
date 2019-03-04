@@ -133,7 +133,11 @@
             all available at your fingertips.​
           </div>
         </a>
-        <a href="updates/2019-02/">
+          {% for nav_item in nav %}
+          {% if nav_item.title == "Updates" %}
+            <a href="{{ (nav_item.children | first).url | url }}">
+          {% endif %}
+          {% endfor %}
           <div class="md-column cards">
             <h1>UPDATES</h1>
             Monthly updates so you know what’s new with Qlik Core.
