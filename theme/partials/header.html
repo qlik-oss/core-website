@@ -5,7 +5,7 @@
           <a href="{{ config.site_url | default(nav.homepage.url, true) | url}}"
               title="{{ config.site_name }}"
               class="md-header-nav__button md-logo">
-              <img src="{{ base_url }}/{{ config.theme.logo }}"
+              <img src="{{ config.theme.logo }}"
                   width="24" height="24" />
           </a>
         </div>
@@ -19,7 +19,7 @@
             <a href="{{ config.site_url | default(nav.homepage.url, true) | url}}"
                 title="{{ config.site_name }}"
                 class="md-header-nav__button md-logo-mobile">
-                <img src="{{ base_url }}/{{ config.theme.logo }}"
+                <img src="{{ config.theme.logo }}"
                     width="24" height="24" />
             </a>
         </div>
@@ -133,11 +133,11 @@
             all available at your fingertips.​
           </div>
         </a>
-          {% for nav_item in nav %}
-          {% if nav_item.title == "Updates" %}
-            <a href="{{ (nav_item.children | first).url | url }}">
-          {% endif %}
-          {% endfor %}
+        {% for nav_item in nav %}
+        {% if nav_item.title == "Updates" %}
+          <a href="{{ (nav_item.children | first).url | url }}">
+        {% endif %}
+        {% endfor %}
           <div class="md-column cards">
             <h1>UPDATES</h1>
             Monthly updates so you know what’s new with Qlik Core.
@@ -171,19 +171,19 @@
     <nav class="md-header-nav md-grid">
       <div class="md-row md-info-icons">
         <div class="md-column md-column-icons">
-          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Global_Services_green.png" alt="Open Source">
+          <img class="md-info-icon" src="/images/Icon_Global_Services_green.png" alt="Open Source">
           <h3>OPEN SOURCE</h3>
           We believe in open source! We encourage you to explore the different git repositories, star your favorites,
           file issues and send pull requests. Find us on GitHub <a href="https://github.com/qlik-oss">here</a>.
         </div>
         <div class="md-column md-column-icons">
-          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Repository_Service_green.png" alt="Containers">
+          <img class="md-info-icon" src="/images/Icon_Repository_Service_green.png" alt="Containers">
           <h3>CONTAINERS</h3>
           Powerful technologies, for example Kubernetes, enables container orchestration and elastic scaling of
           multiple Qlik Associative Engine instances in distributed environments.
         </div>
         <div class="md-column md-column-icons">
-          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Information_green.png" alt="NOOBs">
+          <img class="md-info-icon" src="/images/Icon_Information_green.png" alt="NOOBs">
           <h3>BEGINNERS</h3>
           If you are new to Qlik Core, we recommend you begin with the
           <a href="https://core.qlik.com/get-started/">Get Started</a> section and join
@@ -191,7 +191,7 @@
           a community <a href="https://qlikbranch-slack-invite.herokuapp.com/">Slack</a>.
         </div>
         <div class="md-column md-column-icons">
-          <img class="md-info-icon" src="{{ base_url }}/images/Icon_Megaphone_green.png" alt="Feedback">
+          <img class="md-info-icon" src="/images/Icon_Megaphone_green.png" alt="Feedback">
           <h3>FEEDBACK</h3>
           If you have questions or feedback, use <a href="https://qlikbranch-slack-invite.herokuapp.com/">Qlik Branch
             Slack's</a> #qlik-core channel. We love hearing your feedback, use cases and what we can to do make it
