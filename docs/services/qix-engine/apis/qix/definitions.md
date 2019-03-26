@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.321.0._
+_QIX definitions for version 12.345.0._
 
 ## `AlfaNumString`
 
@@ -40,6 +40,7 @@ _No description._
 | `qMeta` | [`NxMeta`](#nxmeta) | Meta data. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | App thumbnail. |
 | `qFileSize` | integer | _No description._ |
+| `qHasSectionAccess` | boolean | If true the app has section access configured. |
 
 ## `AppObjectList`
 
@@ -390,6 +391,7 @@ _No description._
 | `qReadOnly` | boolean | If set to true, the app is read-only. |
 | `qTitle` | string | Title of the app. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | Thumbnail of the app. |
+| `qHasSectionAccess` | boolean | If true the app has section access configured. |
 
 ## `DriveInfo`
 
@@ -962,6 +964,7 @@ In addition, this structure can return dynamic properties.
 | `qMigrationHash` | string | Internal property reserved for app migration.<br>Patch version of the app.<br>Do not update. |
 | `qSavedInProductVersion` | string | Internal property reserved for app migration.<br>The app is saved in this version of the product.<br>Do not update. |
 | `qThumbnail` | [`StaticContentUrlDef`](#staticcontenturldef) | App thumbnail. |
+| `qHasSectionAccess` | boolean | If true the app has section access configured. |
 
 ## `NxAttrDimDef`
 
@@ -1280,6 +1283,7 @@ _No description._
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxEngineVersion`
 
@@ -1533,6 +1537,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qAttrExprInfo` | array&lt;[`NxAttrExprInfo`](#nxattrexprinfo)> | List of attribute expressions. |
 | `qAttrDimInfo` | array&lt;[`NxAttrDimInfo`](#nxattrdiminfo)> | List of attribute dimensions. |
 | `qCalcCondMsg` | string | The message displayed if calculation condition is not fulfilled. |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxMeta`
 
@@ -1822,6 +1827,7 @@ _No description._
 | `qIsCalculated` | boolean | True if this is a calculated dimension. |
 | `qIsOneAndOnlyOne` | boolean | If set to true, it means that the field always has one and only one selected value. |
 | `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | Dimension Cardinalities |
+| `qLibraryId` | string | Refers to a dimension stored in the library. |
 
 ## `NxTreeMultiRangeSelectInfo`
 

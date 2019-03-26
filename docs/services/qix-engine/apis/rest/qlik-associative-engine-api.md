@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.321.0._
+_Qlik Associative Engine API for version 12.345.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -90,7 +90,7 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
-| `attr` | body | [CreateApp](#createapp) | true | Attributes that the user want to set in new app. |
+| `attr` | body | [CreateApp](#createapp) | true | Attributes that the user wants to set in new app. |
 
 **Responses**
 
@@ -100,7 +100,7 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 
 ### `POST /v1/apps/import`
 
-Imports an app to the system.
+Imports an app into the system.
 <div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
 
 Required permissions: [`import`](https://core.qlik.com/services/qix-engine/access-control/#actions)
@@ -117,7 +117,8 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | --------- | -- | ---- | --------- | ----------- |
 | `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
-| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app which are not availble in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
+| `spaceId` | query | string | false | The space id of the target app. |
+| `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app that are not available in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 
 **Responses**
 
@@ -150,7 +151,7 @@ _No parameters_
 
 ### `GET /v1/apps/{appId}`
 
-Retrives information for a specific app.
+Retrieves information for a specific app.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -210,7 +211,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
-| `update` | body | [UpdateApp](#updateapp) | true | Attributes that user want to set. |
+| `update` | body | [UpdateApp](#updateapp) | true | Attributes that user wants to set. |
 
 **Responses**
 
@@ -234,6 +235,7 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
+| `spaceId` | query | string | false | The space id of the copied app. |
 | `dstUpdate` | body | [UpdateApp](#updateapp) | true | Attributes that should be set in the copy. |
 
 **Responses**
@@ -245,7 +247,7 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 ### `GET /v1/apps/{appId}/data/metadata`
 
 Retrieves the data model and reload statistics metadata of an app.
-<div class=note>An empty metadata structure is returned if the metadata is not available in the app..</div>
+<div class=note>An empty metadata structure is returned if the metadata is not available in the app.</div>
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -265,6 +267,33 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | [DataModelMetadata](#datamodelmetadata) |
+
+### `POST /v1/apps/{appId}/export`
+
+Export a specific app.
+
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `NoData` | query | boolean | false | The flag indicating if only object contents should be exported. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | _No schema_ |
+| `400` | Bad request | _No schema_ |
+| `403` | Forbidden | _No schema_ |
+| `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/files/{path}`
 
@@ -290,12 +319,13 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | binary |
+| `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `PUT /v1/apps/{appId}/media/files/{path}`
 
 Stores the media content file.
-Returns OK if the bytes containing the media file content was succesfully stored, or error in case of failure, lack of permission or file already exist on the supplied path.
+Returns OK if the bytes containing the media file content was successfully stored, or error in case of failure, lack of permission or file already exists on the supplied path.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -318,12 +348,13 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
+| `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `DELETE /v1/apps/{appId}/media/files/{path}`
 
 Deletes a media content file or complete directory.
-Returns OK if the bytes containing the media file (or the complete content of a directory) was succesfully deleted, or error in case of failure or lack of permission.
+Returns OK if the bytes containing the media file (or the complete content of a directory) was successfully deleted, or error in case of failure or lack of permission.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -344,6 +375,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | _No schema_ |
+| `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/list/{path}`
@@ -363,7 +395,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Unique application identifier. |
-| `path` | path | string | true | The path to sub folder with static content, path is relative to the root folder. Use empty path to access the root folder. |
+| `path` | path | string | true | The path to sub folder with static content relative to the root folder. Use empty path to access the root folder. |
 | `show` | query | string | false | Optional. List output can include files and folders in different ways:<br/>&bull; Not recursive, default if show option is not supplied or incorrectly specified, results in output with files and empty directories for the path specified only.<br/>&bull; Recursive(r), use ?show=r or ?show=recursive, results in a recursive output with files, all empty folders are excluded.<br/>&bull; All(a), use ?show=a or ?show=all, results in a recursive output with files and empty directories. |
 
 **Responses**
@@ -371,6 +403,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | [AppContentList](#appcontentlist) |
+| `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `GET /v1/apps/{appId}/media/thumbnail`
@@ -397,6 +430,31 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 | Status | Description | Type |
 | ------ | ----------- | ---- |
 | `200` | OK | binary |
+| `403` | Forbidden | _No schema_ |
+| `404` | Not Found | _No schema_ |
+
+### `PUT /v1/apps/{appId}/owner`
+
+Change owner of the app.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `owner` | body | [UpdateOwner](#updateowner) | true | New owner. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+| `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
 ### `PUT /v1/apps/{appId}/publish`
@@ -583,6 +641,7 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `name` | string | The name (title) of the application |
 | `description` | string | The description of the application |
+| `spaceId` | string | The space id of the aplication |
 
 ### `NxApp`
 
@@ -596,7 +655,7 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
-| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata<br/>&bull; change_owner |
 | `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client what type of objects the user is allowed to create. |
 
 ### `NxAttributes`
@@ -622,6 +681,7 @@ _Type: object_
 | `published` | boolean | True if the app is published, false if not. |
 | `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
 | `custom` | [JsonObject](#jsonobject) | Custom attributes. |
+| `hasSectionAccess` | boolean | If true the app has section access configured, |
 
 ### `JsonObject`
 
@@ -676,6 +736,7 @@ _Type: object_
 | `static_byte_size` | integer | Static memory usage for the app. |
 | `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
 | `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |
+| `has_section_access` | boolean | If true the app has section access configured, |
 
 ### `LastReloadMetadata`
 
@@ -770,6 +831,18 @@ _Type: object_
 | `id` | string | Unique content identifier. |
 | `link` | string | Unique content link. |
 | `name` | string | Content name. |
+
+### `UpdateOwner`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `owner` | string | _No description._ |
+| `ownerId` | string | _No description._ |
 
 ### `PublishApp`
 
