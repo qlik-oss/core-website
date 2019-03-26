@@ -10,7 +10,7 @@
         {% else %}
         <a href="{{ config.site_url | default(nav.homepage.url, true) }}"
           title="{{ config.site_name }}">
-            <img src="{{ base_url }}/{{ config.theme.logo }}" width="24" height="24">
+            <img src="{{ config.theme.logo }}" width="24" height="24">
           </a>
         {% endif %}
       </span>

@@ -39,7 +39,7 @@
 .md-column-icons {
   color: rgba(0,0,0,.87);  
   float: left;
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   text-align: center;
   padding: 30px;
   width: calc(25% - (34px / 3.04));
@@ -243,7 +243,7 @@
   }
 
   .md-search {
-    padding: 1.8rem;
+    padding: 1.2rem;
   }
 
   .md-column-icons {
@@ -348,7 +348,7 @@ h1 span {
 
 .md-content h1 {
   text-transform: uppercase;
-  font-size: 2.0rem !important;
+  font-size: 1.2rem !important;
   font-weight: 400;
 }
 
@@ -369,7 +369,7 @@ h1 span {
   text-transform: uppercase;
   letter-spacing: .05em;
   opacity: 1;
-  font-size: 1.6rem;
+  font-size: 0.8rem;
 }
 
 .md-tabs__link:focus {
@@ -391,7 +391,7 @@ h1 span {
 }
 
 .md-nav {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
 }
 
 .md-logo {
