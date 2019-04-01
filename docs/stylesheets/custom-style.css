@@ -15,7 +15,18 @@
 }
 
 .md-container {
-  padding-top: 0.4rem;
+  padding-top: 0.2rem;
+}
+
+.fa-code-fork::before{
+  content:"" !important;
+  background-image:url('/images/Icon_Qlik_Branch.png');
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  background-position:center;
+  background-size:cover;
+  margin-bottom: -3px;
 }
 
 .md-flex-homepage {
@@ -183,6 +194,10 @@
   animation: fadein 1s;
 }
 
+.md-search__input::placeholder {
+  color: #444;
+}
+
 @media only screen and (min-width: 730px) and (max-width: 76.1875em) {
   .md-header-hero {
     height: 600px;
@@ -199,6 +214,10 @@
 @media (max-width: 76.1875em) {
   .md-header {
     color: #444;
+  }
+
+  .md-search {
+    padding-right: 0.4rem;
   }
 
   .md-logo img {
@@ -243,7 +262,8 @@
   }
 
   .md-search {
-    padding: 1.2rem;
+    padding: 0.4rem;
+    padding-top: 1rem;
   }
 
   .md-column-icons {
@@ -263,10 +283,6 @@
 
   .md-header-hero {
     height: 600px;
-  }
-
-  .md-search__input::placeholder {
-    color: #444;
   }
 
   .md-logo img {
@@ -305,17 +321,12 @@ from { opacity: 0; }
 to   { opacity: 1; }
 }
 
-.md-tabs  {
-  background-color:rgba(0, 0, 0, 0.0);
-  right: 30px;
-}
-
 .md-sidebar[data-md-state=lock] {
   top: 0.5rem;
 }
 
 .md-sidebar[data-md-state=lock] {
-  bottom: 4.8rem;
+  bottom: 3rem;
 }
 
 .md-tabs {
@@ -484,9 +495,12 @@ h1 span {
   }
 }
 
+.md-tabs__list {
+  margin-top: 10px;
+}
+
 .md-tabs {
   text-align: right;
-  height: 45px;
   overflow: hidden;
 }
 
@@ -740,10 +754,6 @@ li {
   padding-right: 0;
 }
 
-.md-tabs__list {
-  margin-right: 1.5rem;
-}
-
 [data-md-toggle=search]:checked~.md-header .md-search__input {
   color: rgba(0,0,0,.87);
 }
@@ -763,7 +773,7 @@ li {
 
 .md-search__icon {
   font-size: 20px;
-  top: 1rem !important;
+  top: 9px !important;
   color: black !important;
   }
 
@@ -808,7 +818,7 @@ li {
 }
 
 .md-header-nav__title[data-md-state=active] .md-header-nav__topic+.md-header-nav__topic {
-  margin-left: 4.2rem;
+  margin-left: 2rem;
 }
 
 @media only screen and (max-width: 76.1875em) {

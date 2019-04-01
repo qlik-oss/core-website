@@ -30,6 +30,8 @@ extra:
       link: 'https://github.com/qlik-oss/core-website'
     - type: 'slack'
       link: 'http://qlikbranch-slack-invite.herokuapp.com/'
+    - type: 'code-fork'
+      link: 'https://branch.qlik.com'
 
 markdown_extensions:
   - admonition
