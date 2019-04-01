@@ -1,9 +1,0 @@
-{% if config.extra.social %}
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="/assets/fonts/font-awesome.css">
-    {% for social in config.extra.social %}
-      <a href="{{ social.link }}" class="md-footer-social__link fa fa-{{ social.type }}" target="_blank"></a>
-    {% endfor %}
-        <a href="https://branch.qlik.com" class="md-footer-social__link fa" target="_blank"><img src="/images/Icon_Qlik_Branch.png" style="margin-bottom: -5px" height="55px" /></a>
-  </div>
-{% endif %}
