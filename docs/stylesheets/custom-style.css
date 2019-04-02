@@ -717,6 +717,10 @@ li {
   color: #63666a;
 }
 
+label.md-nav__title.md-nav__title--site {
+  display: none;
+}
+
 
 @media only screen and (max-width: 76.1875em) {
   html .md-nav--primary .md-nav__title--site {
@@ -745,9 +749,6 @@ li {
   .md-header-nav {
     padding: 0 3.4rem;
   }
-  .md-nav__list {
-    padding: 0 2.4rem;
-  }
 }
 
 .md-tabs__item {
@@ -771,11 +772,11 @@ li {
   overflow: visible;
 }
 
-.md-search__icon {
+label.md-icon.md-search__icon {
   font-size: 20px;
-  top: 9px !important;
-  color: black !important;
-  }
+  top: 0.44rem;
+  color: black;
+}
 
 .md-search__input:hover {
   outline: 1px solid var(--custom-green);
