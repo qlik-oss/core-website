@@ -5,7 +5,7 @@ Qlik Core consists of a core set of supported services:
 | Service    | Description |
 | ---------- | ------- |
 | [Qlik Associative Engine](./qix-engine/introduction.md) | The powerful associative indexing engine from Qlik and the foundation of Qlik Core. |
-| [Licenses](./licenses.md) | Service required to run Qlik Associative Engine with a paid license. |
+| [License](./licenses.md) | Service required to run Qlik Associative Engine with a paid license. |
 | [Mira](./mira.md) | Qlik Associative Engine discovery service. |
 
 Qlik Core comes with a developer edition that may be used to evaluate,

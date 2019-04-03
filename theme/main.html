@@ -69,6 +69,13 @@
       class="md-icon md-content__icon">&#xE3C9;<!-- edit --></a>
   {% endif %}
 
+  {% if page.title == "Home" %}
+    <style>
+      .md-main {
+        display: none;
+      }
+    </style>
+  {% endif %}
   {{ page.content }}
   {% if page.title == "License Registration" %}
   <div id="license-registration">
