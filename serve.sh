@@ -10,4 +10,4 @@ if [[ "$OS" == "Windows_NT" ]]; then
   pwd=/$(pwd -W)
 fi
 
-$docker_cmd run --rm -it -p 8000:8000 -v $pwd:/docs squidfunk/mkdocs-material:4.0.2
+$docker_cmd run --rm -it -p 8000:8000 -v $pwd:/docs squidfunk/mkdocs-material:4.1.1
