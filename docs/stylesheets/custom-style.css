@@ -414,6 +414,11 @@ h1 span {
 
 .md-sidebar {
   padding: 43px 0 20px 0;
+  min-height: 450px;
+}
+
+.md-main__inner {
+  min-height: 650px;
 }
 
 .md-sidebar__scrollwrap {

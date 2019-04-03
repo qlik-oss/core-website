@@ -78,7 +78,7 @@ nav:
     - corectl: tooling/corectl.md
     - catwalk: tooling/catwalk.md  
   - Services:
-    - Mira: services/mira.md
+    - Overview: services/services.md
     - Qlik Associative Engine:
       - Introduction: services/qix-engine/introduction.md
       - Access Control: services/qix-engine/access-control.md
@@ -147,6 +147,7 @@ nav:
           - Table Functions: services/qix-engine/script_reference/table_functions.md
           - Trigonometric And Hyperbolic Functions: services/qix-engine/script_reference/trigonometric_and_hyperbolic_functions.md
     - License: services/licenses.md
+    - Mira: services/mira.md
   - Conventions:
     - Introduction: conventions/introduction.md
     - API Strategy: conventions/api-strategy.md
