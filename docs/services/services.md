@@ -11,9 +11,9 @@ Qlik Core consists of a core set of supported services, including the Qlik Assoc
 Qlik Core comes with a developer edition that may be used to evaluate,
 develop, or test solutions. Note that it cannot be used for commercial purposes.
 For more information about the license of Qlik Core visit
-[Licensing](/licensing.md).
+[Licensing](/licensing/).
 
-For more information on how to retreive the services vist [Downloads](/downloads.md).
+For more information on how to retreive the services vist [Downloads](/downloads/).
 
 
 
