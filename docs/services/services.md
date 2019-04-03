@@ -1,6 +1,6 @@
 # Overview
 
-Qlik Core consists of a core set of supported services, including the Qlik Associative Engine:
+Qlik Core consists of a core set of supported services:
 
 | Service    | Description |
 | ---------- | ------- |
@@ -13,23 +13,4 @@ develop, or test solutions. Note that it cannot be used for commercial purposes.
 For more information about the license of Qlik Core visit
 [Licensing](/licensing/).
 
-For more information on how to retreive the services vist [Downloads](/downloads/).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+For more information on how to retreive the services visit [Downloads](/downloads/).
