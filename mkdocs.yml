@@ -78,6 +78,7 @@ nav:
     - corectl: tooling/corectl.md
     - catwalk: tooling/catwalk.md  
   - Services:
+    - Overview: services/services.md
     - Mira: services/mira.md
     - Qlik Associative Engine:
       - Introduction: services/qix-engine/introduction.md
