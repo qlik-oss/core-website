@@ -69,7 +69,7 @@ For the Qlik Associative Engine to use the custom JDBC connector,
 you must configure the engine container by enabling connectors,
 specifying the connector type, and specifying the connector location.
 
-Look at the [docker-compose.yml](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/example/docker-compose.yml)
+Look at the [docker-compose.yml](https://github.com/qlik-oss/core-grpc-jdbc-connector/blob/master/examples/docker-compose.yml)
 file and take note of the following options:
 
 * `-S EnableGrpcCustomConnectors=1` enables gRPC connectors in the Qlik Associative Engine.
