@@ -85,19 +85,21 @@ file and take note of the following options:
 Now that you have your databases, the connector, and the engine running in containers,
 you need to trigger a load of the data.
 
-In this example, the `reload-runner` Node.js program uses [enigma.js](https://github.com/qlik-oss/enigma.js) to trigger
+In this example, the `node` Node.js program uses [enigma.js](https://github.com/qlik-oss/enigma.js) to trigger
 a load for some of the airport data using the gRPC connector.
 
 Run the following command:
 
 ```sh
-cd reload-runner
+cd node 
 npm install
 npm start
 ```
 
 The expected output is 100 rows of airport data fetched from MySQL, and an additional 100 rows of data
 fetched from PostgreSQL. The data is printed to the console.
+
+There is also a corectl example in the `corectl` folder.
 
 ## What is happening
 
