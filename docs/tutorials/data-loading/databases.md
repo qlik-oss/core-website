@@ -91,7 +91,7 @@ a load for some of the airport data using the gRPC connector.
 Run the following command:
 
 ```sh
-cd node 
+cd node
 npm install
 npm start
 ```
