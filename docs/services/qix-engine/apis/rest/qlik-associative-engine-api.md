@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.345.0._
+_Qlik Associative Engine API for version 12.350.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -244,6 +244,30 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 | ------ | ----------- | ---- |
 | `200` | OK | [NxApp](#nxapp) |
 
+### `GET /v1/apps/{appId}/data/lineage`
+
+Retrieves the lineage for an app.
+Returns a JSON formatted array of strings describing the lineage of the app.
+
+Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | array&lt;[LineageInfoRest](#lineageinforest)> |
+
 ### `GET /v1/apps/{appId}/data/metadata`
 
 Retrieves the data model and reload statistics metadata of an app.
@@ -290,7 +314,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Status | Description | Type |
 | ------ | ----------- | ---- |
-| `200` | OK | _No schema_ |
+| `201` | Created | _No schema_ |
 | `400` | Bad request | _No schema_ |
 | `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
@@ -723,6 +747,18 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `attributes` | [AppAttributes](#appattributes) | Attribute used when updating the application |
 
+### `LineageInfoRest`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `discriminator` | string | A string indicating the origin of the data:<br/>&bull; [filename]: the data comes from a local file.<br/>&bull; INLINE: the data is entered inline in the load script.<br/>&bull; RESIDENT: the data comes from a resident table. The table name is listed.<br/>&bull; AUTOGENERATE: the data is generated from the load script (no external table of data source).<br/>&bull; Provider: the data comes from a data connection. The connector source name is listed.<br/>&bull; [webfile]: the data comes from a web-based file.<br/>&bull; STORE: path to QVD or TXT file where data is stored.<br/>&bull; EXTENSION: the data comes from a Server Side Extension (SSE). |
+| `statement` | string | The LOAD and SELECT script statements from the data load script. |
+
 ### `DataModelMetadata`
 
 _Type: object_
@@ -737,6 +773,7 @@ _Type: object_
 | `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
 | `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |
 | `has_section_access` | boolean | If true the app has section access configured, |
+| `encrypted` | boolean | If true the data is encrypted. |
 
 ### `LastReloadMetadata`
 

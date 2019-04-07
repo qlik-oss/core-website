@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.345.0._
+_QIX definitions for version 12.350.0._
 
 ## `AlfaNumString`
 
