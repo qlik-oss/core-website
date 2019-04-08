@@ -92,7 +92,7 @@
   transition: 0.3s;
   color: rgba(0,0,0,.87);
   float: left;
-  width: calc(33% - (34px / 3.04));
+  width: calc(33% - (34px / 2.9));
   min-width: 333px;
   max-width: calc(100%-30px);
 }
@@ -493,10 +493,6 @@ h1 span {
   html .md-nav--primary .md-nav__title {
     height: unset;
   }
-}
-
-.md-tabs__list {
-  margin-top: 10px;
 }
 
 .md-tabs {
