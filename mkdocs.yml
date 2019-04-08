@@ -1,5 +1,4 @@
 site_name: Qlik Core
-site_url: 'https://core.qlik.com'
 
 theme:
   name: 'material'
