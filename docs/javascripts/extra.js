@@ -10,3 +10,10 @@ function cookiePopup() {
     h1[i].insertAdjacentHTML('afterbegin', '<span>/ </span>');
   }
 })(); 
+
+window.onload = function(){
+  var anchors = document.querySelectorAll('a.md-footer-social__link');
+  for (var i=0; i<anchors.length; i++){
+    anchors[i].setAttribute('target', '_blank');
+  }
+}

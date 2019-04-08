@@ -1,9 +1,8 @@
 site_name: Qlik Core
-site_url: 'https://core.qlik.com'
 
 theme:
   name: 'material'
-  logo: 'images/qlik-core-logo-color.svg'
+  logo: '/images/qlik-core-logo-color.svg'
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
   font:
@@ -30,6 +29,8 @@ extra:
       link: 'https://github.com/qlik-oss/core-website'
     - type: 'slack'
       link: 'http://qlikbranch-slack-invite.herokuapp.com/'
+    - type: 'code-fork'
+      link: 'https://branch.qlik.com'
 
 markdown_extensions:
   - admonition
