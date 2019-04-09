@@ -36,7 +36,7 @@ the repository.
 !!!Note
     In your shell, make sure current directory is at the repository root.
 
-The connector example repo provides a `docker-compose.yml` file
+The connector example repo provides a [docker-compose.yml](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/examples/docker-compose.yml),
 that starts the example connector together with a Qlik Associative Engine.
 
 ```yml
@@ -44,7 +44,7 @@ version: "3.3"
 
 services:
   qix-engine:
-    image: qlikcore/engine:12.350.0
+    image: qlikcore/engine:<version>
     ports:
       - 9076:9076
     # EnableGrpcFileStreamConnector parameter enables the feature.
@@ -73,6 +73,8 @@ which in this example is the access key id `CORE_S3_FILE_CONNECTOR_BUCKET_ACCESS
 and a secret `CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY`.
 
 To run this example you will need to set up your own S3 bucket and configure the name and credentials as described above.
+You can either hardcode the variables in the [docker-compose.yml](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/docker-compose.yml#L14),
+or set them as environment variables.
 You will also need to copy the `airports.csv` file into your bucket, or switch to using another data set.
 
 To start the example connector and a Qlik Associative Engine just run:
@@ -134,14 +136,14 @@ The `lib` statement is basically `lib://<connection name>/<remote file>`.
 Similar to loading data from a file with this feature,
 it is also possible to store files to a remote share.
 
-For a Qlik Core user this is usable e.g. for storing data in to QVD files.
+For a Qlik Core user this is usable for example when storing data in to QVD files.
 Considering the table being loaded in previous section,
 we can now store data from the table `Airports` into a QVD using the following load script syntax:
 
 ```txt
 STORE
-    Airport as Flygplats,
-    City as Stad
+    Airport,
+    City
 FROM Airports INTO [lib://s3bucket/exported.qvd];
 ```
 
