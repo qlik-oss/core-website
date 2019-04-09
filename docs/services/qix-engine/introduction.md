@@ -29,6 +29,7 @@ API | Description
 --- | -----------
 [QIX](./apis/qix/introduction.md) | Document consumption using JSONRPC and WebSocket protocols.
 [REST](./apis/rest/qlik-associative-engine-api.md) | REST API.
+[File Connector](./apis/file-loading/introduction.md) | Uploading and downloading of files using the gRPC protocol.
 [Data Connector](./apis/data-loading/introduction.md) | High-performance data loading using the gRPC protocol.
 [Analytical Connector](./apis/server-side-extension/introduction.md) | Server side extensions using the gRPC protocol.
 
@@ -63,7 +64,8 @@ Below is a list of Qlik Associative Engine command line parameters used in Qlik 
 | EnableABAC | `0` (disabled) or `1` (enabled) | Attribute-Based Access Control feature that can be used for controlling application access through rules. For more details see [Access Control](./access-control.md). | `0` (disabled) |
 | EnableFilePolling | `0` (disabled) or `1` (enabled) | Feature for sharing and synchronizing documents between Qlik Associative Engine instances sharing the same filesystem. For more details see [Document Synchronization](./doc-synchronization.md). | `0` (disabled) |
 | EnableGrpcCustomConnectors | `0` (disabled) or `1` (enabled) | Enables gRPC connectors in the Qlik Associative Engine. For more details see this [data loading tutorial](../../tutorials/data-loading/databases.md). | `0` (disabled) |
-| GrpcConnectorPlugins | `<connector identifier>,<connector host>:<connector port>` e.g. `jdbc,jdbc-connector:50051` | Registers a connector with identifier **connector identifier**, which we tell the Qlik Associative Engine exists on **connector host** and listening on **connector port**. Requires `EnableGrpcConnectorPlugins` to be enabled. For more details see this [tutorial](../../tutorials/data-loading/databases.md). | n/a |
+| GrpcConnectorPlugins | `<connector identifier>,<connector host>:<connector port>` e.g. `jdbc,jdbc-connector:50051` | Registers a connector with identifier **connector identifier**, which we tell the Qlik Associative Engine exists on **connector host** and listening on **connector port**. Requires `EnableGrpcConnectorPlugins` to be enabled. For more details see this [introduction](./apis/file-loading/introduction.md). | `0` (disabled) |
+| EnableGrpcFileStreamConnector | `0` (disabled) or `1` (enabled) | Enables gRPC File Connectors in the Qlik Associative Engine. For more details see this [data loading tutorial](../../tutorials/data-loading/remote-files.md). | `0` (disabled) |
 | JsonWebTokenPath | File path | Path to pem file. For more details see the [Authorization chapter](../../tutorials/authorization.md). | n/a |
 | JsonWebTokenSecret | string | Requires the `ValidateJsonWebTokens` parameter to be set. For more details see the [Authorization chapter](../../tutorials/authorization.md). | n/a |
 | LicenseServiceUrl | URL string | URL to the [License service](../../licensing.md). If not configured the **developer edition** will be used. For more information please see the [Licensing chapter](../../licensing.md). | n/a |
