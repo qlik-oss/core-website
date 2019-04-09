@@ -59,7 +59,7 @@ Below is a list of Qlik Associative Engine command line parameters used in Qlik 
 | --------- | ------ | ----------- | ------- |
 | AcceptEULA | `yes` or `no` | Whether the EULA for running the container is accepted or not. For more information please see the [Licensing chapter](../../licensing.md). | `no` |
 | BuildAppCacheAtStartup | `0` (disabled) or `1` (enabled) | Will make the Qlik Associative Engine build a cache of documents found in the `DocumentDirectory` at startup, making it possible to list them through [getDocList API](./apis/qix/global.md#getdoclist) | `0` (disabled) |
-| DocumentDirectory | File path | Directory that Qlik Associative Engine should use for documents inside the docker container. | `/home/nobody/Qlik/Sense/Apps` |
+| DocumentDirectory | File path | Directory that Qlik Associative Engine should use for documents inside the docker container. | `/home/engine/Qlik/Sense/Apps` |
 | EnableABAC | `0` (disabled) or `1` (enabled) | Attribute-Based Access Control feature that can be used for controlling application access through rules. For more details see [Access Control](./access-control.md). | `0` (disabled) |
 | EnableFilePolling | `0` (disabled) or `1` (enabled) | Feature for sharing and synchronizing documents between Qlik Associative Engine instances sharing the same filesystem. For more details see [Document Synchronization](./doc-synchronization.md). | `0` (disabled) |
 | EnableGrpcCustomConnectors | `0` (disabled) or `1` (enabled) | Enables gRPC connectors in the Qlik Associative Engine. For more details see this [data loading tutorial](../../tutorials/data-loading/databases.md). | `0` (disabled) |
