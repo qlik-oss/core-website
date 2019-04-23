@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.350.0._
+_QIX definitions for version 12.368.0._
 
 ## `AlfaNumString`
 
@@ -2286,9 +2286,10 @@ _No description._
 | `qRangeLo` | number | Lower value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
 | `qRangeHi` | number | Highest value of the search range.<br>This parameter is used when performing range selections or text searches in dimensions.<br>Default is Null. |
 | `qNumberFormat` | [`FieldAttributes`](#fieldattributes) | Gives information about the formatting of the range.<br>This parameter is used when performing range selections or text searches in dimensions. |
-| `qRangeInfo` | array&lt;[`RangeSelectInfo`](#rangeselectinfo)> | This parameter is used when performing range selections or text searches in measures.<br>Gives information about the range of selections.<br>bool SoftLock = false; |
-| `qSoftLock` | boolean | _No description._ |
+| `qRangeInfo` | array&lt;[`RangeSelectInfo`](#rangeselectinfo)> | This parameter is used when performing range selections or text searches in measures.<br>Gives information about the range of selections. |
+| `qSoftLock` | boolean | Set to true to ignore locks; in that case, locked fields can be selected.<br>The default value is false. |
 | `qContinuousRangeInfo` | array&lt;[`Range`](#range)> | List of information about ranges for selections. |
+| `qSelectFieldSearch` | boolean | This parameter is true if the TextSearch is a result of a Select Field operation. |
 
 ## `SelectionObject`
 

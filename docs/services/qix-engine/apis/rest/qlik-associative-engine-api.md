@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.350.0._
+_Qlik Associative Engine API for version 12.368.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -235,7 +235,6 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
-| `spaceId` | query | string | false | The space id of the copied app. |
 | `dstUpdate` | body | [UpdateApp](#updateapp) | true | Attributes that should be set in the copy. |
 
 **Responses**
