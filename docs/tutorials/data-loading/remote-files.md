@@ -36,7 +36,7 @@ the repository.
 !!!Note
     In your shell, make sure current directory is at the repository root.
 
-The connector example repo provides a [docker-compose.yml](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/examples/docker-compose.yml),
+The connector example repo provides a [docker-compose.yml](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/docker-compose.yml),
 that starts the example connector together with a Qlik Associative Engine.
 
 ```yml
@@ -65,7 +65,7 @@ services:
       CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY: ${CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY} # Access key token for the S3 bucket
 ```
 
-In this example we are going to use a data set from [`airports.csv`](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/examples/airports.csv).
+In this example we are going to use a data set from [`airports.csv`](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/airports.csv).
 This data set is present in an S3 Bucket in AWS.
 The name of the S3 bucket is configured in the example connector by passing it as an environment variable; `CORE_S3_FILE_CONNECTOR_BUCKET_NAME`.
 To be able to access the S3 bucket the connector will also need to provide the credentials,
@@ -179,7 +179,7 @@ Both examples performs the same set of actions:
 
 1. Creates an app in Qlik Associative Engine
 1. Creates a connection in Qlik Associative Engine that utilizes the gRPC S3 File Connector
-1. Sets a load [script](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/examples/script.qvs)
+1. Sets a load [script](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/script.qvs)
 1. Performs a reload
 
 To run the Node.js example:
