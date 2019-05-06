@@ -3,6 +3,10 @@
   --custom-grey: #424346;
   --custom-green: #009845;
   --custom-dark-green: #006937;
+  --custom-pricing-color-1: rgb(28, 58, 72, 1);
+  --custom-pricing-color-2: rgb(28, 58, 72, 0.75);
+  --custom-pricing-color-3: rgb(28, 58, 72, 0.5);
+  --custom-pricing-color-4: rgb(28, 58, 72, 0.2);
 }
 
 .underline {
@@ -743,12 +747,6 @@ li {
 @media only screen and (max-width: 76.1875em) {
   .md-nav__source {
     background: linear-gradient(to right, #6cb33f 0%, #3a7391 100%);
-  }
-}
-
-@media only screen and (min-width: 76.1875em) and (max-width: 80em) {
-  .md-header-nav {
-    padding: 0 3.4rem;
   }
 }
 

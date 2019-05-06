@@ -43,6 +43,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
+plugins:
+  - search
+
 strict: true
 repo_name: 'qlik-oss/core-website'
 repo_url: 'https://github.com/qlik-oss/core-website'
@@ -61,7 +64,7 @@ nav:
     - December 2018: updates/2018-12.md
     - November 2018: updates/2018-11.md
     - October 2018: updates/2018-10.md
-  - Licensing: licensing.md
+  - Pricing: licensing.md
   - EULA: eula.md
   - Use Cases: use-cases.md
   - Tutorials:
