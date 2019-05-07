@@ -89,7 +89,7 @@ ACCEPT_EULA=yes docker-compose up -d
 Once a connector has been properly configured in Qlik Associative Engine
 it will be possible to create and use the connector in a `connection`.
 
-The connector that was configured in Qlik Associative Engine using th `GrpcConnectorPlugins` parameter,
+The connector that was configured in Qlik Associative Engine using the `GrpcConnectorPlugins` parameter,
 was configured with type `s3-grpc-file-connector`.
 
 In a `corectl.yml` configuration file it would now be possible to create a `connection` object like this:
@@ -100,11 +100,11 @@ connections:
     type: s3-grpc-file-connector
 ```
 
-This will create a `connection` with name `s3bucket` and of type `s3-grpc-file-connector`.
+This will create a `connection` with name `s3bucket` and type `s3-grpc-file-connector`.
 Further description on how connections are configured in `corectl` can be found [here](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md).
 
 This tutorial also provides a Node.js example where a connection is created using `enigma.js`,
-and the set up the connection can be seen [here](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/node/index.js#L55).
+how this is done can be seen [here](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/node/index.js#L55).
 
 !!!Note
     In the examples above the connection string is empty and not used.
@@ -118,7 +118,7 @@ and the set up the connection can be seen [here](https://github.com/qlik-oss/cor
 This section will describe how to load data from a file using the connection that was set up in the previous section.
 As mentioned earlier we have a data set available in the S3 bucket named `airports.csv`.
 
-Lets say that we want to load all the data from that file using a load script.
+Imagine that we want to load all the data from that file using a load script.
 That can be done using this load script statement:
 
 ```txt
@@ -136,9 +136,9 @@ The `lib` statement is basically `lib://<connection name>/<remote file>`.
 Similar to loading data from a file with this feature,
 it is also possible to store files to a remote share.
 
-For a Qlik Core user this is usable for example when storing data in to QVD files.
+For a Qlik Core user this is usable for example when storing data to QVD files.
 Considering the table being loaded in previous section,
-we can now store data from the table `Airports` into a QVD using the following load script syntax:
+we can now store data from the table `Airports` into a QVD file using the following load script syntax:
 
 ```txt
 STORE
@@ -172,10 +172,10 @@ Additional file functions that can be used are further described in the script r
 
 ## Running the examples
 
-Depending on your preference the connector repo contains two different examples.
+The connector repo contains two different examples.
 One is written in Node.js using `enigma.js` and one is utilizing the tool `corectl`.
 
-Both examples performs the same set of actions:
+Both examples perform the same set of actions:
 
 1. Creates an app in Qlik Associative Engine
 1. Creates a connection in Qlik Associative Engine that utilizes the gRPC S3 File Connector
@@ -190,7 +190,7 @@ npm install
 npm start
 ```
 
-And running the `corectl` example:
+And to run the `corectl` example:
 
 ```bash
 cd corectl
