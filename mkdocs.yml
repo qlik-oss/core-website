@@ -78,7 +78,7 @@ nav:
   - Tooling:
     - Overview: tooling/overview.md
     - corectl: tooling/corectl.md
-    - catwalk: tooling/catwalk.md  
+    - catwalk: tooling/catwalk.md
   - Services:
     - Overview: services/services.md
     - Qlik Associative Engine:
@@ -99,6 +99,9 @@ nav:
         - Generic Variable: services/qix-engine/apis/qix/genericvariable.md
         - Field: services/qix-engine/apis/qix/field.md
         - Variable: services/qix-engine/apis/qix/variable.md
+      - File Connector API:
+        - Introduction: services/qix-engine/apis/file-loading/introduction.md
+        - API Specification: services/qix-engine/apis/file-loading/file-connector-api.md
       - Data Connector API:
         - Introduction: services/qix-engine/apis/data-loading/introduction.md
         - API Specification: services/qix-engine/apis/data-loading/data-connector-api.md

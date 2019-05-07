@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package qlik.filehosting;
+
+message Setup {
+    string config = 1;     /// Connector attributes and data
+    string reloadId = 2;   /// Helpful information for connector
+    string appId = 3;
+    string user = 4;       /// The user for the connection
+    string password = 5;   /// The password for the connection
+}
+
+
+message DownloadRequest {
+    message File {
+        Setup setup = 1;
+        string name = 2;          /// Classic path name or just a hash or anything.
+    }
+    message Chunk {
+        int64 start = 1;
+        int64 length = 2;
+    }
+    oneof Data {
+        File file = 1;        /// Set for the first in a call
+        Chunk chunk = 2;      /// Set for second and following
+    }
+}
+message DownloadResponse {
+    message Chunk {
+        bytes data = 1;
+        bool last = 2;            /// The last chunk for current ByteRange request must have the "last"
+                                  /// member set. Whether all the requested data was returned or not
+                                  /// does not matter.
+    }
+    message Response {
+        /// Empty
+    }
+    oneof Data {
+        Response response = 1;
+        Chunk chunk = 2;
+    }
+}
+
+
+message UploadRequest {
+    message File {
+        Setup setup = 1;
+        string name = 2;          /// If empty, do we give it a random name ?
+    }
+    message Chunk {
+        bytes data = 1;
+    }
+    oneof Data {
+        File file = 1;
+        Chunk chunk = 2;
+    }
+}
+message UploadResponse {
+
+}
+
+message ListRequest {
+    Setup setup = 1;
+    string pathPattern = 2;  /// List all files matching the pattern.
+                             /// If its a folder name, list all files.
+                             /// If its a wildcard filename, list all matches.
+                             /// If its a simple filename, list that one file.
+                             ///
+                             /// The engine just see a string called pathPattern,
+                             /// its up to the connector to apply its own
+                             /// pattern matching rules.
+                             ///
+                             /// Its loosly specified so the features of each
+                             /// underlaying hosted file backend can be fully
+                             /// utilised by the engine.
+}
+message ListItem {
+    string name = 1;
+    bool isFolder = 2;
+    FileMeta meta = 3;
+}
+
+message MetadataRequest {
+    Setup setup = 1;
+    string fileName = 2;
+}
+message FileMeta {
+    int64 size = 1;               /// -1 for unknown
+    int64 lastUpdated = 2;        /// Seconds since 1970 (UTC).
+}
+
+message CapabilitiesRequest {
+    Setup setup = 1;
+}
+message Capabilities {
+    bool supportsRandomRead = 1;  /// Does the connector support random access read ?
+                                  /// Otherwise serial read from the start to finish
+                                  /// is assumed.
+}
+
+
+service HostedDrive
+{
+    /**
+      */
+    rpc GetCapabilities(CapabilitiesRequest) returns (Capabilities) {}
+
+    /**
+      */
+    rpc Download (stream DownloadRequest) returns (stream DownloadResponse) {}
+
+    /**
+      *   stream UploadChunk writes serially only.
+      */
+    rpc Upload (stream UploadRequest) returns (UploadResponse) {}
+
+    /**
+      *   List files from directory or from pattern.
+      *   Only list files in one directory.
+      *   No recursive listing.
+      */
+    rpc List (ListRequest) returns (stream ListItem) {}
+
+    /**
+      *   Work in progress.
+      *   Very basic right now. Will add more details.
+      */
+    rpc Metadata (MetadataRequest) returns (FileMeta) {}
+}

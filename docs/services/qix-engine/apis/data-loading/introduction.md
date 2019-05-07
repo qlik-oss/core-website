@@ -21,6 +21,8 @@ The Data Connector API is documented [here](./data-connector-api.md).
 
 We recommend that you have a look at the respective example projects below to
 see a full working connector.
+There is also a tutorial available describing step-by-step on how to start using a gRPC connector
+and fetch data from a database [here](../../../../tutorials/data-loading/databases.md).
 
 !!! Tip
     For large data sets, it is important to choose a language that meets your performance requirements.
