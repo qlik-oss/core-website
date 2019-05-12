@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericMeasure
 
-_QIX methods for version 12.368.0._
+_QIX methods for version 12.387.0._
 
 ## `ApplyPatches`
 
