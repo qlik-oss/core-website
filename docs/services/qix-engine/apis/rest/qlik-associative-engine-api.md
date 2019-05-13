@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.368.0._
+_Qlik Associative Engine API for version 12.387.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -772,7 +772,6 @@ _Type: object_
 | `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
 | `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |
 | `has_section_access` | boolean | If true the app has section access configured, |
-| `encrypted` | boolean | If true the data is encrypted. |
 
 ### `LastReloadMetadata`
 
