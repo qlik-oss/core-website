@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC File Connector API
 
-_gRPC File Connector API for version 12.350.0._
+_gRPC File Connector API for version 12.387.0._
 
 Package: **qlik.filehosting**
 
@@ -171,7 +171,7 @@ _No description._
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
 | `data` | _No description._ | [bytes](#bytes) | _optional_ | _No default value._ |
-| `last` | Last chunk for current ByteRange request ? | [bool](#bool) | _optional_ | _No default value._ |
+| `last` | The last chunk for current ByteRange request must have the "last" | [bool](#bool) | _optional_ | _No default value._ |
 
 ### `Response`
 
@@ -234,6 +234,8 @@ _No description._
 | `config` | Connector attributes and data | [string](#string) | _optional_ | _No default value._ |
 | `reloadId` | Helpful information for connector | [string](#string) | _optional_ | _No default value._ |
 | `appId` | _No description._ | [string](#string) | _optional_ | _No default value._ |
+| `user` | The user for the connection | [string](#string) | _optional_ | _No default value._ |
+| `password` | The password for the connection | [string](#string) | _optional_ | _No default value._ |
 
 ### `UploadRequest`
 

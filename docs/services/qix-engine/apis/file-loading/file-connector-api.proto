@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// Work in progress, specification / discussuion here
+// https://confluence.qliktech.com/display/ENGINE/PS-3499+File+connector+through+gRPC+protocol
 package qlik.filehosting;
 
 message Setup {
