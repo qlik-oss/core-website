@@ -10,7 +10,7 @@
     }
     .cards-pricing {
         border: 2px;
-        border-style: solid;        
+        border-style: solid;
         margin-top: 10px;
         margin-right: 10px;
         float: left;
@@ -36,16 +36,16 @@
         margin-bottom: 0px;
         padding-bottom: 20px;
     }
-    .md-column > ul li { 
-        list-style-type: none; 
+    .md-column > ul li {
+        list-style-type: none;
     }
     .md-column > ul li::before {
-        content: "\2022"; 
+        content: "\2022";
         color: var(--custom-pricing-color-1);
         font-weight: bold;
         display: inline-block;
         width: 1em;
-        margin-left: -1em;  
+        margin-left: -1em;
     }
     .cards-middle {
         height: 19rem;
@@ -89,7 +89,8 @@
     }
 </style>
 <h1>Pricing</h1>
-<p>There are currently three options for using Qlik Core — two for evaluation and one for production. These are outlined below. </p>
+<p>There are currently three options for using Qlik Core — two for evaluation and one for production.
+These are outlined below.</p>
 
 <div class="md-row">
     <!-- Free -->
@@ -110,7 +111,7 @@
         </div>
     </div>
     <!-- Trial -->
-    <div class="cards-pricing cards-pricing-trial">      
+    <div class="cards-pricing cards-pricing-trial">
         <div class="cards-header card-trial">
             <h2><b>TRIAL EDITION</b></h2>
             <p>FREE</p>
@@ -147,26 +148,27 @@
 </div>
 <br>
 
-
-
 # Licensing Model
 
 Please see our License Metrics for Qlik Core. The following is a summary, which is subject to change:
 
 Qlik Core includes a suite of APIs, License Service and the Qlik Associative Engine (Engine).
 Applications may be built using these APIs. The function of the License Service is to unlock the
-Engine and collect usage metrics. 
+Engine and collect usage metrics.
 
-Qlik Core is licensed as an annual subscription for a fixed quantity of minutes per month that may be consumed during each month of the subscription. Minutes are metered in 5 minute increments (called Core Sessions). The license is administered using a License Enabling File (LEF), which limits the maximum number of minutes during which the Engine may operate. 
+Qlik Core is licensed as an annual subscription for a fixed quantity of minutes per month that may be consumed
+during each month of the subscription. Minutes are metered in 5 minute increments (called Core Sessions).
+The license is administered using a License Enabling File (LEF), which limits the maximum number of minutes
+during which the Engine may operate.
 
-A Core Session is triggered at the commencement of any kind of connection with the Engine JSON API subject to the following: 
+A Core Session is triggered at the commencement of any kind of connection with the Engine JSON API subject to the following:
 
-* Each such connection will be assigned a Core Session identifier (called a Session ID) 
-* Connections that commence within 5 minutes from the start of an existing Core Session with the same Session ID will not trigger a new Core Session
+* Each such connection will be assigned a Core Session identifier (called a Session ID)
+* Connections that commence within 5 minutes from the start of an existing Core Session with the same Session ID will
+    not trigger a new Core Session
 * Connections which are assigned different Session IDs may each trigger and consume separate Core Sessions
 
-A Connection may include, but is not limited to, a user interface or program-to-program interface. 
-
+A Connection may include, but is not limited to, a user interface or program-to-program interface.
 
 There are three options for using Qlik Core — two for evaluation (one of which includes a license)
 and one for production. These are detailed below. By downloading and using Qlik Core, you are subject
@@ -178,4 +180,7 @@ Make sure you have read and understood this agreement before continuing.
 Click [here](./third-party-licenses.md) for information about our third-party licenses used in our closed source components.
 
 !!! Note "Disclaimer"
-    The information published herein is for informational purposes only and is subject to change at Qlik’s discretion.  Qlik shall not be liable for errors or omissions with respect to this publication and makes no representation or warranty of any kind, other than any express warranties set forth in any applicable agreement.  Nothing herein should be construed as constituting an additional warranty. 
+    The information published herein is for informational purposes only and is subject to change at Qlik’s discretion.
+    Qlik shall not be liable for errors or omissions with respect to this publication and makes no representation or
+    warranty of any kind, other than any express warranties set forth in any applicable agreement.
+    Nothing herein should be construed as constituting an additional warranty.
