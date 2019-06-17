@@ -1,0 +1,8 @@
+{
+  "info": {
+    "title": "Generic Variable Properties JSON Schema",
+    "version": "12.387.0"
+  },
+  "type": "object",
+  "$ref": "engine-openapi.json#/components/schemas/GenericVariableProperties"
+}
