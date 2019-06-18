@@ -1,8 +1,100 @@
 {
   "info": {
-    "title": "Generic Variable Properties JSON Schema",
+    "title": "Qlik Engine JSON-RPC API - Generic Variable",
     "version": "12.387.0"
   },
   "type": "object",
-  "$ref": "engine-openapi.json#/components/schemas/GenericVariableProperties"
+  "$ref": "#/definitions/GenericVariableProperties",
+  "definitions": {
+    "GenericVariableProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Identifier and type of the object.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxInfo"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Meta data.",
+          "$ref": "#/definitions/NxMetaDef"
+        },
+        "qName": {
+          "type": "string",
+          "description": "Name of the variable.\nThe name must be unique.\nThis parameter is mandatory."
+        },
+        "qComment": {
+          "type": "string",
+          "description": "Comment related to the variable.\nThis parameter is optional."
+        },
+        "qNumberPresentation": {
+          "type": "object",
+          "description": "Defines the format of the value.\nThis parameter is optional.",
+          "$ref": "#/definitions/FieldAttributes"
+        },
+        "qIncludeInBookmark": {
+          "type": "boolean",
+          "description": "Set this property to true to update the variable when applying a bookmark. The variable value will be persisted in the bookmark.\nThe value of a variable can affect the state of the selections.\nScript variables cannot be persisted in the bookmark.\nThe default value is false.",
+          "default": false
+        },
+        "qDefinition": {
+          "type": "string",
+          "description": "Definition of the variable."
+        }
+      }
+    },
+    "NxInfo": {
+      "type": "object",
+      "properties": {
+        "qId": {
+          "type": "string",
+          "description": "Identifier of the object.\nIf the chosen identifier is already in use, the engine automatically sets another one.\nIf an identifier is not set, the engine automatically sets one.\nThis parameter is optional."
+        },
+        "qType": {
+          "type": "string",
+          "description": "Type of the object.\nThis parameter is mandatory."
+        }
+      }
+    },
+    "NxMetaDef": {
+      "type": "object",
+      "description": "Used to collect meta data.\n\n### Properties\nSemantic type with an empty structure."
+    },
+    "FieldAttributes": {
+      "type": "object",
+      "description": "Sets the formatting of a field.\nThe properties of _qFieldAttributes_ and the formatting mechanism are described below.\n\n### Formatting mechanism\nThe formatting mechanism depends on the type set in _qType,_ as shown below:\n<div class=note>In case of inconsistencies between the type and the format pattern, the format pattern takes precedence over the type.</div>\n\n### Type is DATE, TIME, TIMESTAMP or INTERVAL\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the formatting is as defined in _qFmt_ .\n* If _qFmt_ is empty, the formatting is defined by the number interpretation variables included at the top of the script ( _TimeFormat_ , _DateFormat_ , _TimeStampFormat_ ).\n* The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ are not used.\n\n### Type is INTEGER\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the formatting mechanism uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , no formatting is applied. The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ and the number interpretation variables defined in the script are not used .\n\n### Type is REAL\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , and if the value is almost an integer value (for example, 14,000012), the value is formatted as an integer. The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ are not used.\n* If no format pattern is defined in _qFmt_ , and if _qnDec_ is defined and not 0, the property _qDec_ is used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n* If no format pattern is defined in _qFmt_ , and if _qnDec_ is 0, the number of decimals is 14 and the property _qDec_ is used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n\n### Type is FIX\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , the properties _qDec_ and _qnDec_ are used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n\n### Type is MONEY\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of any script ( _MoneyDecimalSep_ and _MoneyThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , the engine uses the number interpretation variables included at the top of the script ( _MoneyDecimalSep_ and _MoneyThousandSep_ ).\n\n### Type is ASCII\nNo formatting, _qFmt_ is ignored.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the field.\nDefault is U.\n\nOne of:\n* U or UNKNOWN\n* A or ASCII\n* I or INTEGER\n* R or REAL\n* F or FIX\n* M or MONEY\n* D or DATE\n* T or TIME\n* TS or TIMESTAMP\n* IV or INTERVAL",
+          "default": "UNKNOWN",
+          "$ref": "#/components/schemas/FieldAttrType"
+        },
+        "qnDec": {
+          "type": "integer",
+          "description": "Number of decimals.\nDefault is 10.",
+          "format": "int32",
+          "default": 10
+        },
+        "qUseThou": {
+          "type": "integer",
+          "description": "Defines whether or not a thousands separator must be used.\nDefault is 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "qFmt": {
+          "type": "string",
+          "description": "Defines the format pattern that applies to _qText_ .\nIs used in connection to the type of the field (parameter **qType** ).\nFor more information, see _Formatting mechanism_.\nExample: _YYYY-MM-DD_ for a date."
+        },
+        "qDec": {
+          "type": "string",
+          "description": "Defines the decimal separator.\nExample: **.**"
+        },
+        "qThou": {
+          "type": "string",
+          "description": "Defines the thousand separator (if any).\nIs used if **qUseThou** is set to 1.\nExample: **,**"
+        }
+      }
+    }
+  }
 }

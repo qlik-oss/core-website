@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "info": {
+    "title": "Qlik Engine JSON-RPC API - Generic Dimension List",
+    "version": "12.387.0"
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/GenericDimensionProperties"
+  },
+  "definitions": {
+    "GenericDimensionProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Identifier and type of the dimension.\nThis parameter is mandatory.",
+          "$ref": "#/components/schemas/NxInfo"
+        },
+        "qDim": {
+          "type": "object",
+          "description": "Definition of the dimension.\nThis parameter is mandatory.",
+          "$ref": "#/components/schemas/NxLibraryDimensionDef"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/components/schemas/NxMetaDef"
+        }
+      }
+    }
+  }
+}

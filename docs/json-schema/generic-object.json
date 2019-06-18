@@ -1,77 +1,1899 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "info": {
-    "title": "Generic Object Properties JSON Schema",
+    "title": "Qlik Engine JSON-RPC API - Generic Object",
     "version": "12.387.0"
   },
   "type": "object",
-  "allOf": [{
-    "$ref": "engine-openapi.json#/components/schemas/GenericObjectProperties"
-    }, {
-    "properties": {
-      "qAppObjectListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/AppObjectListDef"
-      },
-      "qBookmarkListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/BookmarkListDef"
-      },
-      "qChildListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/ChildListDef"
-      },
-      "qDimensionListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/DimensionListDef"
-      },
-      "qEmbeddedSnapshotDef": {
-        "$ref": "engine-openapi.json#/components/schemas/EmbeddedSnapshotDef"
-      },
-      "qExtensionListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/ExtensionListDef"
-      },
-      "qFieldListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/FieldListDef"
-      },
-      "qHyperCubeDef": {
-        "$ref": "engine-openapi.json#/components/schemas/HyperCubeDef"
-      },
-      "qLayoutExclude": {
-        "$ref": "engine-openapi.json#/components/schemas/LayoutExclude"
-      },
-      "qListObjectDef": {
-        "$ref": "engine-openapi.json#/components/schemas/ListObjectDef"
-      },
-      "qMeasureListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/MeasureListDef"
-      },
-      "qMediaListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/MediaListDef"
-      },
-      "qNxLibraryDimensionDef": {
-        "$ref": "engine-openapi.json#/components/schemas/NxLibraryDimensionDef"
-      },
-      "qNxLibraryMeasureDef": {
-        "$ref": "engine-openapi.json#/components/schemas/NxLibraryMeasureDef"
-      },
-      "qSelectionObjectDef": {
-        "$ref": "engine-openapi.json#/components/schemas/SelectionObjectDef"
-      },
-      "qStaticContentUrlDef": {
-        "$ref": "engine-openapi.json#/components/schemas/StaticContentUrlDef"
-      },
-      "qStringExpression": {
-        "$ref": "engine-openapi.json#/components/schemas/StringExpression"
-      },
-      "qTreeDataDef": {
-        "$ref": "engine-openapi.json#/components/schemas/TreeDataDef"
-      },
-      "qUndoInfoDef": {
-        "$ref": "engine-openapi.json#/components/schemas/UndoInfoDef"
-      },
-      "qValueExpression": {
-        "$ref": "engine-openapi.json#/components/schemas/ValueExpression"
-      },
-      "qVariableListDef": {
-        "$ref": "engine-openapi.json#/components/schemas/VariableListDef"
-      }
+  "allOf": [
+    {
+      "$ref": "#/definitions/GenericObjectProperties"
+    },
+    {
+      "$ref": "#/definitions/GenericObjectEntry"
+    },
+    {
+      "$ref": "#/definitions/LayoutProps"
     }
-  }],
-
+  ],
+  "definitions": {
+    "GenericObjectProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Identifier and type of the object.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxInfo"
+        },
+        "qExtendsId": {
+          "type": "string",
+          "description": "Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).\nIf you do not want to link your object, set this parameter to an empty string."
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/definitions/NxMetaDef"
+        },
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections _$_ ."
+        }
+      }
+    },
+    "NxInfo": {
+      "type": "object",
+      "properties": {
+        "qId": {
+          "type": "string",
+          "description": "Identifier of the object.\nIf the chosen identifier is already in use, the engine automatically sets another one.\nIf an identifier is not set, the engine automatically sets one.\nThis parameter is optional."
+        },
+        "qType": {
+          "type": "string",
+          "description": "Type of the object.\nThis parameter is mandatory."
+        }
+      }
+    },
+    "NxMetaDef": {
+      "type": "object",
+      "description": "Used to collect meta data.\n\n### Properties\nSemantic type with an empty structure."
+    },
+    "GenericObjectEntry": {
+      "type": "object",
+      "properties": {
+        "qProperty": {
+          "type": "object",
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Information about the generic object properties.",
+              "$ref": "#/definitions/GenericObjectProperties"
+            },
+            {
+              "$ref": "#/definitions/LayoutProps"
+            }
+          ]
+        },
+        "qChildren": {
+          "type": "array",
+          "description": "Information about the children of the generic object.",
+          "items": {
+            "$ref": "#/definitions/GenericObjectEntry"
+          }
+        },
+        "qEmbeddedSnapshotRef": {
+          "type": "object",
+          "description": "Reference to a bookmark/snapshot that is embedded in the generic object.",
+          "$ref": "#/definitions/GenericBookmarkEntry"
+        }
+      }
+    },
+    "GenericBookmarkEntry": {
+      "type": "object",
+      "properties": {
+        "qProperties": {
+          "type": "object",
+          "description": "Information about the properties of the bookmark.",
+          "$ref": "#/definitions/GenericBookmarkProperties"
+        },
+        "qBookmark": {
+          "type": "object",
+          "description": "Information about the bookmark.",
+          "$ref": "#/definitions/NxBookmark"
+        }
+      }
+    },
+    "GenericBookmarkProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Information about the bookmark.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxInfo"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/definitions/NxMetaDef"
+        }
+      }
+    },
+    "NxBookmark": {
+      "type": "object",
+      "properties": {
+        "qStateData": {
+          "type": "array",
+          "description": "List of selections for each state.",
+          "items": {
+            "$ref": "#/definitions/AlternateStateData"
+          }
+        },
+        "qUtcModifyTime": {
+          "type": "number",
+          "description": "Time when the bookmark was created.",
+          "format": "double"
+        },
+        "qVariableItems": {
+          "type": "array",
+          "description": "List of the variables in the app at the time the bookmark was created.",
+          "items": {
+            "$ref": "#/definitions/BookmarkVariableItem"
+          }
+        }
+      }
+    },
+    "AlternateStateData": {
+      "type": "object",
+      "properties": {
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections: $"
+        },
+        "qFieldItems": {
+          "type": "array",
+          "description": "List of the selections.",
+          "items": {
+            "$ref": "#/definitions/BookmarkFieldItem"
+          }
+        }
+      }
+    },
+    "BookmarkFieldItem": {
+      "type": "object",
+      "properties": {
+        "qDef": {
+          "type": "object",
+          "description": "Name and type of the field.",
+          "$ref": "#/definitions/FieldDefEx"
+        },
+        "qLocked": {
+          "type": "boolean",
+          "description": "Indicates if the field is locked.\nDefault is false."
+        },
+        "qSelectInfo": {
+          "type": "object",
+          "description": "Information on the selections criteria.",
+          "$ref": "#/definitions/SelectInfo"
+        },
+        "qValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        },
+        "qExcludedValues": {
+          "type": "array",
+          "description": "List of excluded values.\nEither the list of selected values or the list of excluded values is displayed.",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        },
+        "qAndMode": {
+          "type": "boolean",
+          "description": "If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.\nThe default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.\nThis parameter is not returned if set to false."
+        },
+        "qOneAndOnlyOne": {
+          "type": "boolean",
+          "description": "If set to true, the field has always one selection (not 0 and not more than 1). If another value is selected, the previous one is unselected.\nThe default value is false. This parameter is not returned if set to false."
+        }
+      }
+    },
+    "FieldDefEx": {
+      "type": "object",
+      "properties": {
+        "qName": {
+          "type": "string",
+          "description": "Name of the field."
+        },
+        "qType": {
+          "type": "string",
+          "description": "Type of data entity.\n\nOne of:\n* NOT_PRESENT\n* PRESENT\n* IS_CYCLIC_GROUP\n* IS_DRILL_GROUP\n* IS_VAR\n* IS_EXPR\n* IS_IMPLICIT\n* IS_DETAIL",
+          "$ref": "#/definitions/FieldType"
+        }
+      }
+    },
+    "FieldType": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "NOT_PRESENT"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "PRESENT"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "IS_CYCLIC_GROUP"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "IS_DRILL_GROUP"
+        },
+        {
+          "x-qlik-const": 4,
+          "title": "IS_VAR"
+        },
+        {
+          "x-qlik-const": 5,
+          "title": "IS_EXPR"
+        },
+        {
+          "x-qlik-const": 6,
+          "title": "IS_IMPLICIT"
+        },
+        {
+          "x-qlik-const": 7,
+          "title": "IS_DETAIL"
+        }
+      ]
+    },
+    "SelectInfo": {
+      "type": "object",
+      "properties": {
+        "qTextSearch": {
+          "type": "string",
+          "description": "Text search string.\nEverything that matches the text is selected.\nThis parameter is optional."
+        },
+        "qRangeLo": {
+          "type": "number",
+          "description": "Lower value of the search range.\nThis parameter is used when performing range selections or text searches in dimensions.\nDefault is Null.",
+          "format": "double",
+          "default": -1e+300
+        },
+        "qRangeHi": {
+          "type": "number",
+          "description": "Highest value of the search range.\nThis parameter is used when performing range selections or text searches in dimensions.\nDefault is Null.",
+          "format": "double",
+          "default": -1e+300
+        },
+        "qNumberFormat": {
+          "type": "object",
+          "description": "Gives information about the formatting of the range.\nThis parameter is used when performing range selections or text searches in dimensions.",
+          "$ref": "#/definitions/FieldAttributes"
+        },
+        "qRangeInfo": {
+          "type": "array",
+          "description": "This parameter is used when performing range selections or text searches in measures.\nGives information about the range of selections.",
+          "items": {
+            "$ref": "#/definitions/RangeSelectInfo"
+          }
+        },
+        "qSoftLock": {
+          "type": "boolean",
+          "description": "Set to true to ignore locks; in that case, locked fields can be selected.\nThe default value is false.",
+          "default": false
+        },
+        "qContinuousRangeInfo": {
+          "type": "array",
+          "description": "List of information about ranges for selections.",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "qSelectFieldSearch": {
+          "type": "boolean",
+          "description": "This parameter is true if the TextSearch is a result of a Select Field operation.",
+          "default": false
+        }
+      }
+    },
+    "FieldAttributes": {
+      "type": "object",
+      "description": "Sets the formatting of a field.\nThe properties of _qFieldAttributes_ and the formatting mechanism are described below.\n\n### Formatting mechanism\nThe formatting mechanism depends on the type set in _qType,_ as shown below:\n<div class=note>In case of inconsistencies between the type and the format pattern, the format pattern takes precedence over the type.</div>\n\n### Type is DATE, TIME, TIMESTAMP or INTERVAL\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the formatting is as defined in _qFmt_ .\n* If _qFmt_ is empty, the formatting is defined by the number interpretation variables included at the top of the script ( _TimeFormat_ , _DateFormat_ , _TimeStampFormat_ ).\n* The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ are not used.\n\n### Type is INTEGER\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the formatting mechanism uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , no formatting is applied. The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ and the number interpretation variables defined in the script are not used .\n\n### Type is REAL\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , and if the value is almost an integer value (for example, 14,000012), the value is formatted as an integer. The properties _qDec_ , _qThou_ , _qnDec_ , _qUseThou_ are not used.\n* If no format pattern is defined in _qFmt_ , and if _qnDec_ is defined and not 0, the property _qDec_ is used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n* If no format pattern is defined in _qFmt_ , and if _qnDec_ is 0, the number of decimals is 14 and the property _qDec_ is used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n\n### Type is FIX\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of the script ( _DecimalSep_ and _ThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , the properties _qDec_ and _qnDec_ are used. If _qDec_ is not defined, the variable _DecimalSep_ defined at the top of the script is used.\n\n### Type is MONEY\nThe following applies:\n* If a format pattern is defined in _qFmt_ , the engine looks at the values set in _qDec_ and _qThou_ . If these properties are not defined, the engine uses the number interpretation variables included at the top of any script ( _MoneyDecimalSep_ and _MoneyThousandSep_ ).\n* If no format pattern is defined in _qFmt_ , the engine uses the number interpretation variables included at the top of the script ( _MoneyDecimalSep_ and _MoneyThousandSep_ ).\n\n### Type is ASCII\nNo formatting, _qFmt_ is ignored.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the field.\nDefault is U.\n\nOne of:\n* U or UNKNOWN\n* A or ASCII\n* I or INTEGER\n* R or REAL\n* F or FIX\n* M or MONEY\n* D or DATE\n* T or TIME\n* TS or TIMESTAMP\n* IV or INTERVAL",
+          "default": "UNKNOWN",
+          "$ref": "#/definitions/FieldAttrType"
+        },
+        "qnDec": {
+          "type": "integer",
+          "description": "Number of decimals.\nDefault is 10.",
+          "format": "int32",
+          "default": 10
+        },
+        "qUseThou": {
+          "type": "integer",
+          "description": "Defines whether or not a thousands separator must be used.\nDefault is 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "qFmt": {
+          "type": "string",
+          "description": "Defines the format pattern that applies to _qText_ .\nIs used in connection to the type of the field (parameter **qType** ).\nFor more information, see _Formatting mechanism_.\nExample: _YYYY-MM-DD_ for a date."
+        },
+        "qDec": {
+          "type": "string",
+          "description": "Defines the decimal separator.\nExample: **.**"
+        },
+        "qThou": {
+          "type": "string",
+          "description": "Defines the thousand separator (if any).\nIs used if **qUseThou** is set to 1.\nExample: **,**"
+        }
+      }
+    },
+    "FieldAttrType": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "U",
+          "description": "UNKNOWN"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "A",
+          "description": "ASCII"
+        },
+        {
+          "x-qlik-const": 10,
+          "title": "I",
+          "description": "INTEGER"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "R",
+          "description": "REAL"
+        },
+        {
+          "x-qlik-const": 11,
+          "title": "F",
+          "description": "FIX"
+        },
+        {
+          "x-qlik-const": 12,
+          "title": "M",
+          "description": "MONEY"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "D",
+          "description": "DATE"
+        },
+        {
+          "x-qlik-const": 4,
+          "title": "T",
+          "description": "TIME"
+        },
+        {
+          "x-qlik-const": 5,
+          "title": "TS",
+          "description": "TIMESTAMP"
+        },
+        {
+          "x-qlik-const": 6,
+          "title": "IV",
+          "description": "INTERVAL"
+        }
+      ]
+    },
+    "RangeSelectInfo": {
+      "type": "object",
+      "properties": {
+        "qRangeLo": {
+          "type": "number",
+          "description": "Lowest value in the range.",
+          "format": "double",
+          "default": -1e+300
+        },
+        "qRangeHi": {
+          "type": "number",
+          "description": "Highest value in the range.",
+          "format": "double",
+          "default": -1e+300
+        },
+        "qMeasure": {
+          "type": "string",
+          "description": "Label of the measure."
+        }
+      }
+    },
+    "Range": {
+      "type": "object",
+      "properties": {
+        "qMin": {
+          "type": "number",
+          "description": "Lowest value in the range",
+          "format": "double"
+        },
+        "qMax": {
+          "type": "number",
+          "description": "Highest value in the range",
+          "format": "double"
+        },
+        "qMinInclEq": {
+          "type": "boolean",
+          "description": "If set to true, the range includes the lowest value in the range of selections (Equals to ). [bn(50500)]\nExample:\nThe range is [1,10]. If _qMinInclEq_ is set to true it means that 1 is included in the range of selections."
+        },
+        "qMaxInclEq": {
+          "type": "boolean",
+          "description": "If set to true, the range includes the highest value in the range of selections (Equals to ). [bn(50500)]\nExample:\nThe range is [1,10]. If _qMinInclEq_ is set to true it means that 10 is included in the range of selections."
+        }
+      }
+    },
+    "FieldValue": {
+      "type": "object",
+      "properties": {
+        "qText": {
+          "type": "string",
+          "description": "Text related to the field value.\nThis parameter is optional."
+        },
+        "qIsNumeric": {
+          "type": "boolean",
+          "description": "Is set to true if the value is a numeric.\nThis parameter is optional. Default is false."
+        },
+        "qNumber": {
+          "type": "number",
+          "description": "Numeric value of the field.\nThis parameter is displayed if _qIsNumeric_ is set to true.\nThis parameter is optional.",
+          "format": "double"
+        }
+      }
+    },
+    "BookmarkVariableItem": {
+      "type": "object",
+      "properties": {
+        "qName": {
+          "type": "string",
+          "description": "Name of the variable."
+        },
+        "qValue": {
+          "type": "object",
+          "description": "Value of the variable.",
+          "$ref": "#/definitions/FieldValue"
+        }
+      }
+    },
+    "LayoutProps": {
+      "type": "object",
+      "properties": {
+        "qAppObjectListDef": {
+          "$ref": "#/definitions/AppObjectListDef"
+        },
+        "qBookmarkListDef": {
+          "$ref": "#/definitions/BookmarkListDef"
+        },
+        "qChildListDef": {
+          "$ref": "#/definitions/ChildListDef"
+        },
+        "qDimensionListDef": {
+          "$ref": "#/definitions/DimensionListDef"
+        },
+        "qEmbeddedSnapshotDef": {
+          "$ref": "#/definitions/EmbeddedSnapshotDef"
+        },
+        "qExtensionListDef": {
+          "$ref": "#/definitions/ExtensionListDef"
+        },
+        "qFieldListDef": {
+          "$ref": "#/definitions/FieldListDef"
+        },
+        "qHyperCubeDef": {
+          "$ref": "#/definitions/HyperCubeDef"
+        },
+        "qLayoutExclude": {
+          "$ref": "#/definitions/LayoutExclude"
+        },
+        "qListObjectDef": {
+          "$ref": "#/definitions/ListObjectDef"
+        },
+        "qMeasureListDef": {
+          "$ref": "#/definitions/MeasureListDef"
+        },
+        "qMediaListDef": {
+          "$ref": "#/definitions/MediaListDef"
+        },
+        "qNxLibraryDimensionDef": {
+          "$ref": "#/definitions/NxLibraryDimensionDef"
+        },
+        "qNxLibraryMeasureDef": {
+          "$ref": "#/definitions/NxLibraryMeasureDef"
+        },
+        "qSelectionObjectDef": {
+          "$ref": "#/definitions/SelectionObjectDef"
+        },
+        "qStaticContentUrlDef": {
+          "$ref": "#/definitions/StaticContentUrlDef"
+        },
+        "qStringExpression": {
+          "$ref": "#/definitions/StringExpression"
+        },
+        "qTreeDataDef": {
+          "$ref": "#/definitions/TreeDataDef"
+        },
+        "qUndoInfoDef": {
+          "$ref": "#/definitions/UndoInfoDef"
+        },
+        "qValueExpression": {
+          "$ref": "#/definitions/ValueExpression"
+        },
+        "qVariableListDef": {
+          "$ref": "#/definitions/VariableListDef"
+        }
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/LayoutProps"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array"
+          }
+        ]
+      }
+    },
+    "AppObjectListDef": {
+      "type": "object",
+      "description": "Defines the list of objects in an app.\n<div class=note>An app object is a generic object created at app level.</div>",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the app list."
+        },
+        "qData": {
+          "type": "object",
+          "description": "Data that you want to include in the app list definition.\nYou need to enter the paths to the information you want to retrieve.",
+          "$ref": "#/definitions/JsonObject"
+        }
+      },
+      "x-qlik-see-also": [
+        "[List all app objects](#csh-list-app-objects)",
+        "[AppObjectList](#csh-AppObjectList)"
+      ]
+    },
+    "JsonObject": {
+      "type": "object",
+      "description": "Contains dynamic JSON data specified by the client."
+    },
+    "BookmarkListDef": {
+      "type": "object",
+      "description": "Defines the list of bookmarks.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the list."
+        },
+        "qData": {
+          "type": "object",
+          "description": "Data",
+          "$ref": "#/definitions/JsonObject"
+        }
+      },
+      "x-qlik-see-also": [
+        "[List the bookmarks in an app](#csh-list-bookmarks-in-app)",
+        "[BookmarkList](#csh-BookmarkList)"
+      ]
+    },
+    "ChildListDef": {
+      "type": "object",
+      "description": "Defines the list of children of a generic object.\nWhat is defined in _ChildListDef_ has an impact on what the _GetLayout_ method returns. See _Example_ for more information.",
+      "properties": {
+        "qData": {
+          "type": "object",
+          "description": "Data that you want to include in the child list definition.\nYou need to enter the paths to the information you want to retrieve.",
+          "$ref": "#/definitions/JsonObject"
+        }
+      },
+      "x-qlik-see-also": [
+        "[Create an app object](#csh-create-app-object)",
+        "[List the children of a generic object](#csh-list-childs-in-generic-object)",
+        "[ChildList](#csh-ChildList)"
+      ]
+    },
+    "DimensionListDef": {
+      "type": "object",
+      "description": "Defines the lists of dimensions.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the list."
+        },
+        "qData": {
+          "type": "object",
+          "description": "Data",
+          "$ref": "#/definitions/JsonObject"
+        }
+      },
+      "x-qlik-see-also": [
+        "[List the dimensions in an app](#csh-list-dimensions-in-app)",
+        "[DimensionList](#csh-DimensionList)"
+      ]
+    },
+    "EmbeddedSnapshotDef": {
+      "type": "object",
+      "description": "Defines the embedded snapshot in a generic object.\n\n### Properties\n\"EmbeddedSnapshotDef\": {}",
+      "x-qlik-see-also": [
+        "[EmbeddedSnapshot](#csh-EmbeddedSnapshot)"
+      ]
+    },
+    "ExtensionListDef": {
+      "type": "object",
+      "description": "Obsolete, use qrs API's to fetch extensions."
+    },
+    "FieldListDef": {
+      "type": "object",
+      "description": "Defines the fields to show.",
+      "properties": {
+        "qShowSystem": {
+          "type": "boolean",
+          "description": "Shows the system tables if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowHidden": {
+          "type": "boolean",
+          "description": "Shows the hidden fields if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowSemantic": {
+          "type": "boolean",
+          "description": "Show the semantic fields if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowSrcTables": {
+          "type": "boolean",
+          "description": "Shows the tables and fields present in the data model viewer if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowDefinitionOnly": {
+          "type": "boolean",
+          "description": "Shows the fields defined on the fly if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowDerivedFields": {
+          "type": "boolean",
+          "description": "Shows the fields and derived fields if set to true.\nDefault is false.",
+          "default": false
+        },
+        "qShowImplicit": {
+          "type": "boolean",
+          "description": "Shows the Direct Discovery measure fields if set to true.\nDefault is false.",
+          "default": false
+        }
+      },
+      "x-qlik-see-also": [
+        "[List the fields in an app](#csh-list-fields-in-app)",
+        "[FieldList](#csh-FieldList)"
+      ]
+    },
+    "HyperCubeDef": {
+      "type": "object",
+      "description": "Defines the properties of a hypercube.\nFor more information about the definition of a hypercube, see _Generic object_.",
+      "properties": {
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections _$_ ."
+        },
+        "qDimensions": {
+          "type": "array",
+          "description": "Array of dimensions.",
+          "items": {
+            "$ref": "#/definitions/NxDimension"
+          }
+        },
+        "qMeasures": {
+          "type": "array",
+          "description": "Array of measures.",
+          "items": {
+            "$ref": "#/definitions/NxMeasure"
+          }
+        },
+        "qInterColumnSortOrder": {
+          "type": "array",
+          "description": "Defines the sort order of the columns in the hypercube.\nColumn numbers are separated by a comma.\nExample: [1,0,2] means that the first column to be sorted should be the column 1, followed by the column 0 and the column 2.\nThe default sort order is the order in which the dimensions and measures have been defined in the hypercube. By default, the pseudo-dimension (if any) is the most to the right in the array.\nThe index of the pseudo-dimension (if any) is -1.\nPseudo dimensions only apply for pivot tables with more than one measure.\nA pseudo dimension groups together the measures defined in a pivot table. You can neither collapse/expand a pseudo dimension nor make any selections in it.\nStacked pivot tables can only contain one measure.",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "qSuppressZero": {
+          "type": "boolean",
+          "description": "Removes zero values.",
+          "default": false
+        },
+        "qSuppressMissing": {
+          "type": "boolean",
+          "description": "Removes missing values.",
+          "default": false
+        },
+        "qInitialDataFetch": {
+          "type": "array",
+          "description": "Initial data set.",
+          "items": {
+            "$ref": "#/definitions/NxPage"
+          }
+        },
+        "qReductionMode": {
+          "type": "string",
+          "description": "\nOne of:\n* N or DATA_REDUCTION_NONE\n* D1 or DATA_REDUCTION_ONEDIM\n* S or DATA_REDUCTION_SCATTERED\n* C or DATA_REDUCTION_CLUSTERED\n* ST or DATA_REDUCTION_STACKED",
+          "$ref": "#/definitions/NxDataReductionMode"
+        },
+        "qMode": {
+          "type": "string",
+          "description": "Defines the way the data are handled internally by the engine.\nDefault value is _DATA_MODE_STRAIGHT_ .\nA pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.\n\nOne of:\n* S or DATA_MODE_STRAIGHT\n* P or DATA_MODE_PIVOT\n* K or DATA_MODE_PIVOT_STACK\n* T or DATA_MODE_TREE",
+          "default": "DATA_MODE_STRAIGHT",
+          "$ref": "#/definitions/NxHypercubeMode"
+        },
+        "qPseudoDimPos": {
+          "type": "integer",
+          "format": "int32",
+          "default": -1
+        },
+        "qNoOfLeftDims": {
+          "type": "integer",
+          "description": "Number of left dimensions.\nDefault value is -1. In that case, all dimensions are left dimensions.\nHidden dimensions (e.g. due to unfulfilled calc condition on dimension level) is still counted in this context.\nThe index related to each left dimension depends on the position of the pseudo dimension (if any).\nFor example, a pivot table with:\n* Four dimensions in the following order: Country, City, Product and Category.\n* One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )\n_qInterColumnSortOrder_ is (0,-1,1,2,3).\n* Three left dimensions ( _qNoOfLeftDims_ is set to 3).\n\nimplies that:\n* The index 0 corresponds to the left dimension Country.\n* The index 1 corresponds to the pseudo dimension.\n* The index 2 corresponds to the left dimension City.\n* Product and Category are top dimensions.\n\nAnother example:\n* Four dimensions in the following order: Country, City, Product and Category.\n* Three left dimensions ( _qNoOfLeftDims_ is set to 3).\n* One pseudo dimension.\n* The property _qInterColumnSortOrder_ is left empty.\n\nImplies that:\n* The index 0 corresponds to the left dimension Country.\n* The index 1 corresponds to the left dimension City.\n* The index 2 corresponds to the left dimension Product.\n* Category is a top dimension.\n* The pseudo dimension is a top dimension.",
+          "format": "int32",
+          "default": -1
+        },
+        "qAlwaysFullyExpanded": {
+          "type": "boolean",
+          "description": "If this property is set to true, the cells are always expanded. It implies that it is not possible to collapse any cells.\nThe default value is false.",
+          "default": false
+        },
+        "qMaxStackedCells": {
+          "type": "integer",
+          "description": "Maximum number of cells for an initial data fetch (set in _qInitialDataFetch_ ) when in stacked mode ( _qMode_ is K).\nThe default value is 5000.",
+          "format": "int32",
+          "default": 5000
+        },
+        "qPopulateMissing": {
+          "type": "boolean",
+          "description": "If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.\nThe default value is false.",
+          "default": false
+        },
+        "qShowTotalsAbove": {
+          "type": "boolean",
+          "description": "If set to true, the total (if any) is shown on the first row.\nThe default value is false.",
+          "default": false
+        },
+        "qIndentMode": {
+          "type": "boolean",
+          "description": "This property applies for pivot tables and allows to change the layout of the table. An indentation is added to the beginning of each row.\nThe default value is false.",
+          "default": false
+        },
+        "qCalcCond": {
+          "type": "object",
+          "description": "Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.\nAs long as the condition is not met, the engine does not perform a new calculation.\nThis property is optional. By default, there is no calculation condition.",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qSortbyYValue": {
+          "type": "integer",
+          "description": "To enable the sorting by ascending or descending order in the values of a measure.\nThis property applies to pivot tables and stacked pivot tables.\nIn the case of a pivot table, the measure or pseudo dimension should be defined as a top dimension. The sorting is restricted to the values of the first measure in a pivot table.",
+          "format": "int8",
+          "default": 0
+        },
+        "qTitle": {
+          "type": "object",
+          "description": "Title of the hypercube, for example the title of a chart.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qCalcCondition": {
+          "type": "object",
+          "description": "Specifies a calculation condition object.\nIf CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/NxCalcCond"
+        },
+        "qColumnOrder": {
+          "type": "array",
+          "description": "The order of the columns.",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "x-qlik-see-also": [
+        "[Drill up a hierarchy](#csh-drill-up-hierarchy)",
+        "[Create a hypercube](#csh-create-hypercube)",
+        "[HyperCube](#csh-HyperCube)"
+      ]
+    },
+    "NxDimension": {
+      "type": "object",
+      "description": "<div class=note>Either **qDef** or **qLibraryId** must be set, but not both. </div> <div class=note>If the dimension is set in the hypercube and not in the library, this dimension cannot be shared with other objects.</div> <div class=note>A dimension that is set in the library can be used by many objects.</div>",
+      "properties": {
+        "qLibraryId": {
+          "type": "string",
+          "description": "Refers to a dimension stored in the library."
+        },
+        "qDef": {
+          "type": "object",
+          "description": "Refers to a dimension stored in the hypercube.",
+          "$ref": "#/definitions/NxInlineDimensionDef"
+        },
+        "qNullSuppression": {
+          "type": "boolean",
+          "description": "If set to true, no null values are returned."
+        },
+        "qIncludeElemValue": {
+          "type": "boolean"
+        },
+        "qOtherTotalSpec": {
+          "type": "object",
+          "description": "Sets the dimension limits. Each dimension of a hypercube is configured separately.\nDefines if some values (grouped as _Others_ ) should be grouped together in the visualization.\nFor example in a pie chart all values lower than 200 could be grouped together.",
+          "$ref": "#/definitions/OtherTotalSpecProp"
+        },
+        "qShowTotal": {
+          "type": "boolean"
+        },
+        "qShowAll": {
+          "type": "boolean",
+          "description": "If set to true, all dimension values are shown."
+        },
+        "qOtherLabel": {
+          "type": "object",
+          "description": "This property is used when some dimension limits are set.\nLabel of the _Others_ group. The default label is _Others_ .\nExample:\n_\"qOtherLabel\":\"= &lt;label&gt;\"_\nor\n_\"qOtherLabel\":{\"qExpr\":\"= &lt;label&gt;\"}_\nWhere:\n* &lt; _label_ &gt; is the label of the _Others_ group.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qTotalLabel": {
+          "type": "object",
+          "description": "If this property is set, the total of the calculated values is returned.\nThe default label is _Total_ .\nExample:\n_\"qTotalLabel\":\"= &lt;label&gt;\"_\nor\n_\"qTotalLabel\":{\"qExpr\":\"= &lt;label&gt;\"}_\nWhere:\n* &lt; _label_ &gt; is the label of the _Total_ group.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qCalcCond": {
+          "type": "object",
+          "description": "Specifies a calculation condition, which must be fulfilled for the dimension to be calculated.\nIf the calculation condition is not met, the dimension is excluded from the calculation.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qAttributeExpressions": {
+          "type": "array",
+          "description": "List of attribute expressions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrExprDef"
+          }
+        },
+        "qAttributeDimensions": {
+          "type": "array",
+          "description": "List of attribute dimensions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrDimDef"
+          }
+        },
+        "qCalcCondition": {
+          "type": "object",
+          "description": "Specifies a calculation condition object.\nIf CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/NxCalcCond"
+        }
+      }
+    },
+    "NxInlineDimensionDef": {
+      "type": "object",
+      "properties": {
+        "qGrouping": {
+          "type": "string",
+          "description": "Used to define a cyclic group or drill-down group.\nDefault value is no grouping.\nThis parameter is optional.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/definitions/NxGrpType"
+        },
+        "qFieldDefs": {
+          "type": "array",
+          "description": "Array of field names.\nWhen creating a grouped dimension, more than one field name is defined.\nThis parameter is optional.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qFieldLabels": {
+          "type": "array",
+          "description": "Array of field labels.\nThis parameter is optional.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qSortCriterias": {
+          "type": "array",
+          "description": "Defines the sorting criteria in the field.\nDefault is to sort by alphabetical order, ascending.\nThis parameter is optional.",
+          "items": {
+            "$ref": "#/definitions/SortCriteria"
+          }
+        },
+        "qNumberPresentations": {
+          "type": "array",
+          "description": "Defines the format of the value.\nThis parameter is optional.",
+          "items": {
+            "$ref": "#/definitions/FieldAttributes"
+          }
+        },
+        "qReverseSort": {
+          "type": "boolean",
+          "description": "If set to true, it inverts the sort criteria in the field."
+        },
+        "qActiveField": {
+          "type": "integer",
+          "description": "Index of the active field in a cyclic dimension.\nThis parameter is optional. The default value is 0.\nThis parameter is used in case of cyclic dimensions ( _qGrouping_ is C).",
+          "format": "int32"
+        },
+        "qLabelExpression": {
+          "type": "string",
+          "description": "Label expression.\nThis parameter is optional."
+        }
+      }
+    },
+    "NxGrpType": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "N",
+          "description": "GRP_NX_NONE"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "H",
+          "description": "GRP_NX_HIEARCHY"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "C",
+          "description": "GRP_NX_COLLECTION"
+        }
+      ]
+    },
+    "SortCriteria": {
+      "type": "object",
+      "properties": {
+        "qSortByState": {
+          "type": "integer",
+          "description": "Sorts the field values according to their logical state (selected, optional, alternative or excluded).",
+          "format": "int8"
+        },
+        "qSortByFrequency": {
+          "type": "integer",
+          "description": "Sorts the field values by frequency (number of occurrences in the field).",
+          "format": "int8"
+        },
+        "qSortByNumeric": {
+          "type": "integer",
+          "description": "Sorts the field values by numeric value.",
+          "format": "int8"
+        },
+        "qSortByAscii": {
+          "type": "integer",
+          "description": "Sorts the field by alphabetical order.",
+          "format": "int8"
+        },
+        "qSortByLoadOrder": {
+          "type": "integer",
+          "description": "Sorts the field values by the initial load order.",
+          "format": "int8"
+        },
+        "qSortByExpression": {
+          "type": "integer",
+          "description": "Sorts the field by expression.",
+          "format": "int8"
+        },
+        "qExpression": {
+          "type": "object",
+          "description": "Sort by expression.",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qSortByGreyness": {
+          "type": "integer",
+          "format": "int8"
+        }
+      }
+    },
+    "ValueExpr": {
+      "type": "object",
+      "properties": {
+        "qv": {
+          "type": "string",
+          "description": "Expression evaluated to dual."
+        }
+      }
+    },
+    "OtherTotalSpecProp": {
+      "type": "object",
+      "properties": {
+        "qOtherMode": {
+          "type": "string",
+          "description": "Determines how many dimension values are displayed.\nThe default value is _OTHER_OFF_ .\n\nOne of:\n* OTHER_OFF\n* OTHER_COUNTED\n* OTHER_ABS_LIMITED\n* OTHER_ABS_ACC_TARGET\n* OTHER_REL_LIMITED\n* OTHER_REL_ACC_TARGET",
+          "default": "OTHER_OFF",
+          "$ref": "#/definitions/OtherMode"
+        },
+        "qOtherCounted": {
+          "type": "object",
+          "description": "Number of values to display. The number of values can be entered as a calculated formula.\nThis parameter is used when _qOtherMode_ is set to _OTHER_COUNTED_ .",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qOtherLimit": {
+          "type": "object",
+          "description": "Value used to limit the dimension values. The limit can be entered as a calculated formula.\nThis parameter is used when _qOtherMode_ is set to:\n* OTHER_ABS_LIMITED\n* OTHER_REL_LIMITED\n* OTHER_ABS_ACC_TARGET\nOTHER_REL_ACC_TARGET",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qOtherLimitMode": {
+          "type": "string",
+          "description": "Sets the limit for the _Others_ mode.\nThis parameter is used when _qOtherMode_ is set to:\n* OTHER_ABS_LIMITED\n* OTHER_REL_LIMITED\n* OTHER_ABS_ACC_TARGET\nOTHER_REL_ACC_TARGET\n\nOne of:\n* OTHER_GE_LIMIT\n* OTHER_LE_LIMIT\n* OTHER_GT_LIMIT\n* OTHER_LT_LIMIT",
+          "default": "OTHER_GT_LIMIT",
+          "$ref": "#/definitions/OtherLimitMode"
+        },
+        "qSuppressOther": {
+          "type": "boolean",
+          "description": "If set to true, the group _Others_ is not displayed as a dimension value.\nThe default value is false.",
+          "default": false
+        },
+        "qForceBadValueKeeping": {
+          "type": "boolean",
+          "description": "This parameter is used when _qOtherMode_ is set to:\n* OTHER_ABS_LIMITED\n* OTHER_REL_LIMITED\n* OTHER_ABS_ACC_TARGET\nOTHER_REL_ACC_TARGET\n\nand when the dimension values include not numeric values.\nSet this parameter to true to include text values in the returned values.\nThe default value is true.",
+          "default": true
+        },
+        "qApplyEvenWhenPossiblyWrongResult": {
+          "type": "boolean",
+          "description": "Set this parameter to true to allow the calculation of _Others_ even if the engine detects some potential mistakes.\nFor example the country Russia is part of the continent Europe and Asia. If you have an hypercube with two dimensions Country and Continent and one measure Population, the engine can detect that the population of Russia is included in both the continent Asia and Europe.\nThe default value is true.",
+          "default": true
+        },
+        "qGlobalOtherGrouping": {
+          "type": "boolean",
+          "description": "This parameter applies to inner dimensions.\nIf this parameter is set to true, the restrictions are calculated on the selected dimension only. All previous dimensions are ignored.\nThe default value is false.",
+          "default": false
+        },
+        "qOtherCollapseInnerDimensions": {
+          "type": "boolean",
+          "description": "If set to true, it collapses the inner dimensions (if any) in the group _Others_ .\nThe default value is false.",
+          "default": false
+        },
+        "qOtherSortMode": {
+          "type": "string",
+          "description": "Defines the sort order of the dimension values.\nThe default value is _OTHER_SORT_DESCENDING_ .\n\nOne of:\n* OTHER_SORT_DEFAULT\n* OTHER_SORT_DESCENDING\n* OTHER_SORT_ASCENDING",
+          "default": "OTHER_SORT_DESCENDING",
+          "$ref": "#/definitions/OtherSortMode"
+        },
+        "qTotalMode": {
+          "type": "string",
+          "description": "If set to _TOTAL_EXPR_ , the total of the dimension values is returned.\nThe default value is _TOTAL_OFF_ .\n\nOne of:\n* TOTAL_OFF\n* TOTAL_EXPR",
+          "default": "TOTAL_OFF",
+          "$ref": "#/definitions/TotalMode"
+        },
+        "qReferencedExpression": {
+          "type": "object",
+          "description": "This parameter applies when there are several measures.\nName of the measure to use for the calculation of _Others_ for a specific dimension.",
+          "$ref": "#/definitions/StringExpr"
+        }
+      }
+    },
+    "OtherMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "OTHER_OFF"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "OTHER_COUNTED"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "OTHER_ABS_LIMITED"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "OTHER_ABS_ACC_TARGET"
+        },
+        {
+          "x-qlik-const": 4,
+          "title": "OTHER_REL_LIMITED"
+        },
+        {
+          "x-qlik-const": 5,
+          "title": "OTHER_REL_ACC_TARGET"
+        }
+      ]
+    },
+    "OtherLimitMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "OTHER_GE_LIMIT"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "OTHER_LE_LIMIT"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "OTHER_GT_LIMIT"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "OTHER_LT_LIMIT"
+        }
+      ]
+    },
+    "OtherSortMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "OTHER_SORT_DEFAULT"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "OTHER_SORT_DESCENDING"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "OTHER_SORT_ASCENDING"
+        }
+      ]
+    },
+    "TotalMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "TOTAL_OFF"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "TOTAL_EXPR"
+        }
+      ]
+    },
+    "StringExpr": {
+      "type": "object",
+      "properties": {
+        "qv": {
+          "type": "string",
+          "description": "Expression evaluated to string."
+        }
+      }
+    },
+    "NxAttrExprDef": {
+      "type": "object",
+      "properties": {
+        "qExpression": {
+          "type": "string",
+          "description": "Definition of the attribute expression.\nExample: _\"Max(OrderID)\"_"
+        },
+        "qLibraryId": {
+          "type": "string",
+          "description": "Definition of the attribute expression stored in the library.\nExample: _\"MyGenericMeasure\"_"
+        },
+        "qAttribute": {
+          "type": "boolean",
+          "description": "If set to true, this measure will not affect the number of rows in the cube."
+        }
+      }
+    },
+    "NxAttrDimDef": {
+      "type": "object",
+      "description": "Layout for _NxAttrDimDef_.",
+      "properties": {
+        "qDef": {
+          "type": "string",
+          "description": "Expression or field name."
+        },
+        "qLibraryId": {
+          "type": "string",
+          "description": "LibraryId for dimension."
+        },
+        "qSortBy": {
+          "type": "object",
+          "description": "Sorting.",
+          "$ref": "#/definitions/SortCriteria"
+        },
+        "qAttribute": {
+          "type": "boolean",
+          "description": "If set to true, this attribute will not affect the number of rows in the cube."
+        }
+      }
+    },
+    "NxCalcCond": {
+      "type": "object",
+      "properties": {
+        "qCond": {
+          "type": "object",
+          "description": "Condition for calculating an hypercube, dimension or measure.",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qMsg": {
+          "type": "object",
+          "description": "Evaluated if Cond is not fullfilled.",
+          "$ref": "#/definitions/StringExpr"
+        }
+      }
+    },
+    "NxMeasure": {
+      "type": "object",
+      "description": "<div class=note>Either **qDef** or **qLibraryId** must be set, but not both. </div> <div class=note>If the measure is set in the hypercube and not in the library, this measure cannot be shared with other objects.</div> <div class=note>A measure that is set in the library can be used by many objects.</div> <div class=note>\nexpressions are complementary expressions associated to a measure. For example, you can decide to change the background color of a visualization depending on the values of the measure.\nAttribute expressions do not affect the layout of an object. The sorting order is unchanged.\n</div>",
+      "properties": {
+        "qLibraryId": {
+          "type": "string",
+          "description": "Refers to a measure stored in the library."
+        },
+        "qDef": {
+          "type": "object",
+          "description": "Refers to a measure stored in the hypercube.",
+          "$ref": "#/definitions/NxInlineMeasureDef"
+        },
+        "qSortBy": {
+          "type": "object",
+          "description": "Defines the sort criteria.\nThe default value is sort by ascending alphabetic order.\nThis property is optional.",
+          "$ref": "#/definitions/SortCriteria"
+        },
+        "qAttributeExpressions": {
+          "type": "array",
+          "description": "List of attribute expressions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrExprDef"
+          }
+        },
+        "qAttributeDimensions": {
+          "type": "array",
+          "description": "List of attribute dimensions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrDimDef"
+          }
+        },
+        "qCalcCond": {
+          "type": "object",
+          "description": "Specifies a calculation condition, which must be fulfilled for the measure to be calculated.\nIf the calculation condition is not met, the measure is excluded from the calculation.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/ValueExpr"
+        },
+        "qCalcCondition": {
+          "type": "object",
+          "description": "Specifies a calculation condition object.\nIf CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/NxCalcCond"
+        }
+      }
+    },
+    "NxInlineMeasureDef": {
+      "type": "object",
+      "properties": {
+        "qLabel": {
+          "type": "string",
+          "description": "Name of the measure.\nAn empty string is returned as a default value.\nThis parameter is optional."
+        },
+        "qDescription": {
+          "type": "string",
+          "description": "Description of the measure.\nAn empty string is returned as a default value.\nThis parameter is optional."
+        },
+        "qTags": {
+          "type": "array",
+          "description": "Name connected to the measure that is used for search purposes.\nA measure can have several tags.\nThis parameter is optional.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qGrouping": {
+          "type": "string",
+          "description": "Default value is no grouping.\nThis parameter is optional.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/definitions/NxGrpType"
+        },
+        "qDef": {
+          "type": "string",
+          "description": "Definition of the expression in the measure.\nExample: _Sum (OrderTotal)_\nThis parameter is mandatory."
+        },
+        "qNumFormat": {
+          "type": "object",
+          "description": "Format of the field.\nThis parameter is optional.",
+          "$ref": "#/definitions/FieldAttributes"
+        },
+        "qRelative": {
+          "type": "boolean",
+          "description": "If set to true, percentage values are returned instead of absolute numbers.\nDefault value is false.\nThis parameter is optional."
+        },
+        "qBrutalSum": {
+          "type": "boolean",
+          "description": "If set to true, the sum of rows total should be used rather than real expression total.\nThis parameter is optional and applies to straight tables.\nDefault value is false.\nIf using the Qlik Sense interface, it means that the total mode is set to **Expression Total** ."
+        },
+        "qAggrFunc": {
+          "type": "string",
+          "description": "Aggregate function.\nFor more information on the aggregate function syntax, see the section Working with Qlik Sense on the online help portal.\nThe default value is 0 (Sum of rows)\nThis parameter is optional."
+        },
+        "qAccumulate": {
+          "type": "integer",
+          "description": "* 0 means no accumulation\n                            * 1 means full accumulation (each y-value accumulates all previous y-values of the expression)\n                            * ≥ 2 means accumulate as many steps as the _qAccumulate_ value\nDefault value is 0.\nThis parameter is optional.",
+          "format": "int32"
+        },
+        "qReverseSort": {
+          "type": "boolean",
+          "description": "If set to true, it inverts the sort criteria in the field."
+        },
+        "qActiveExpression": {
+          "type": "integer",
+          "description": "Index of the active expression in a cyclic measure. The indexing starts from 0.\nThe default value is 0.\nThis parameter is optional.",
+          "format": "int32"
+        },
+        "qExpressions": {
+          "type": "array",
+          "description": "Array of expressions. This parameter is used in case of cyclic measures ( _qGrouping_ is C). List of the expressions in the cyclic group.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qLabelExpression": {
+          "type": "string",
+          "description": "Label expression.\nThis parameter is optional."
+        }
+      }
+    },
+    "NxPage": {
+      "type": "object",
+      "properties": {
+        "qLeft": {
+          "type": "integer",
+          "description": "Position from the left.\nCorresponds to the first column.",
+          "format": "int32"
+        },
+        "qTop": {
+          "type": "integer",
+          "description": "Position from the top.\nCorresponds to the first row.",
+          "format": "int32"
+        },
+        "qWidth": {
+          "type": "integer",
+          "description": "Number of columns in the page. The indexing of the columns may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).",
+          "format": "int32"
+        },
+        "qHeight": {
+          "type": "integer",
+          "description": "Number of rows or elements in the page. The indexing of the rows may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).",
+          "format": "int32"
+        }
+      }
+    },
+    "NxDataReductionMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "N",
+          "description": "DATA_REDUCTION_NONE"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "D1",
+          "description": "DATA_REDUCTION_ONEDIM"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "S",
+          "description": "DATA_REDUCTION_SCATTERED"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "C",
+          "description": "DATA_REDUCTION_CLUSTERED"
+        },
+        {
+          "x-qlik-const": 4,
+          "title": "ST",
+          "description": "DATA_REDUCTION_STACKED"
+        }
+      ]
+    },
+    "NxHypercubeMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "S",
+          "description": "DATA_MODE_STRAIGHT"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "P",
+          "description": "DATA_MODE_PIVOT"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "K",
+          "description": "DATA_MODE_PIVOT_STACK"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "T",
+          "description": "DATA_MODE_TREE"
+        }
+      ]
+    },
+    "LayoutExclude": {
+      "type": "object",
+      "description": "Contains JSON to be excluded from validation."
+    },
+    "ListObjectDef": {
+      "type": "object",
+      "description": "Defines the properties of a list object.\nFor more information about the definition of a list object, see _Generic object_.",
+      "properties": {
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections _$_ ."
+        },
+        "qLibraryId": {
+          "type": "string",
+          "description": "Refers to a dimension stored in the library."
+        },
+        "qDef": {
+          "type": "object",
+          "description": "Refers to a dimension stored in the list object.",
+          "$ref": "#/definitions/NxInlineDimensionDef"
+        },
+        "qAutoSortByState": {
+          "type": "object",
+          "description": "Defines the sorting by state.",
+          "$ref": "#/definitions/NxAutoSortByStateDef"
+        },
+        "qFrequencyMode": {
+          "type": "string",
+          "description": "Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.\nDefault is _NX_FREQUENCY_NONE_ .\nThis parameter is optional.\n\nOne of:\n* N or NX_FREQUENCY_NONE\n* V or NX_FREQUENCY_VALUE\n* P or NX_FREQUENCY_PERCENT\n* R or NX_FREQUENCY_RELATIVE",
+          "default": "NX_FREQUENCY_NONE",
+          "$ref": "#/definitions/NxFrequencyMode"
+        },
+        "qShowAlternatives": {
+          "type": "boolean",
+          "description": "If set to true, alternative values are allowed in _qData_ .\nIf set to false, no alternative values are displayed in _qData_ . Values are excluded instead.\nThe default value is false.\nNote that on the contrary, the _qStateCounts_ parameter counts the excluded values as alternative values.\nThis parameter is optional."
+        },
+        "qInitialDataFetch": {
+          "type": "array",
+          "description": "Fetches an initial data set.",
+          "items": {
+            "$ref": "#/definitions/NxPage"
+          }
+        },
+        "qExpressions": {
+          "type": "array",
+          "description": "Lists the expressions in the list object.\nThis parameter is optional.",
+          "items": {
+            "$ref": "#/definitions/NxListObjectExpressionDef"
+          }
+        }
+      },
+      "x-qlik-see-also": [
+        "[Create a list object](#csh-create-listObject)",
+        "[Get the layout of a generic object](#csh-get-layout-generic-object)",
+        "[ListObject](#csh-ListObject)"
+      ]
+    },
+    "NxAutoSortByStateDef": {
+      "type": "object",
+      "properties": {
+        "qDisplayNumberOfRows": {
+          "type": "integer",
+          "description": "This parameter applies to list objects.\nIf the number of selected values in the list object is greater than the value set in _qDisplayNumberOfRows_ , the selected lines are promoted at the top of the list object.\nIf _qDisplayNumberOfRows_ is set to a negative value or to 0, the sort by state is disabled.",
+          "format": "int32"
+        }
+      }
+    },
+    "NxFrequencyMode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "x-qlik-const": 0,
+          "title": "N",
+          "description": "NX_FREQUENCY_NONE"
+        },
+        {
+          "x-qlik-const": 1,
+          "title": "V",
+          "description": "NX_FREQUENCY_VALUE"
+        },
+        {
+          "x-qlik-const": 2,
+          "title": "P",
+          "description": "NX_FREQUENCY_PERCENT"
+        },
+        {
+          "x-qlik-const": 3,
+          "title": "R",
+          "description": "NX_FREQUENCY_RELATIVE"
+        }
+      ]
+    },
+    "NxListObjectExpressionDef": {
+      "type": "object",
+      "properties": {
+        "qExpr": {
+          "type": "string",
+          "description": "Value of the expression."
+        },
+        "qLibraryId": {
+          "type": "string",
+          "description": "Refers to an expression stored in the library."
+        }
+      }
+    },
+    "MeasureListDef": {
+      "type": "object",
+      "description": "Defines the list of measures.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of the list."
+        },
+        "qData": {
+          "type": "object",
+          "description": "Data",
+          "$ref": "#/definitions/JsonObject"
+        }
+      },
+      "x-qlik-see-also": [
+        "[Get the list of measures in an app](#csh-list-measures-in-app)",
+        "[MeasureList](#csh-MeasureList)"
+      ]
+    },
+    "MediaListDef": {
+      "type": "object",
+      "description": "Defines the list of media files.\n<div class=note>This struct is deprecated.</div>\n\n### Properties\n\"qMediaListDef\": {}\n_qMediaListDef_ has an empty structure. No properties need to be set.",
+      "x-qlik-see-also": [
+        "[MediaList](#csh-MediaList)"
+      ]
+    },
+    "NxLibraryDimensionDef": {
+      "type": "object",
+      "properties": {
+        "qGrouping": {
+          "type": "string",
+          "description": "Information about the grouping.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/definitions/NxGrpType"
+        },
+        "qFieldDefs": {
+          "type": "array",
+          "description": "Array of dimension names.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qFieldLabels": {
+          "type": "array",
+          "description": "Array of dimension labels.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qLabelExpression": {
+          "type": "string"
+        }
+      }
+    },
+    "NxLibraryMeasureDef": {
+      "type": "object",
+      "properties": {
+        "qLabel": {
+          "type": "string",
+          "description": "Label of the measure."
+        },
+        "qDef": {
+          "type": "string",
+          "description": "Definition of the measure."
+        },
+        "qGrouping": {
+          "type": "string",
+          "description": "Used to define a cyclic group or drill-down group.\nDefault value is no grouping.\nThis parameter is optional.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/definitions/NxGrpType"
+        },
+        "qExpressions": {
+          "type": "array",
+          "description": "Array of expressions.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qActiveExpression": {
+          "type": "integer",
+          "description": "Index to the active expression in a measure.",
+          "format": "int32"
+        },
+        "qLabelExpression": {
+          "type": "string",
+          "description": "Optional expression used for dynamic label."
+        }
+      }
+    },
+    "SelectionObjectDef": {
+      "type": "object",
+      "description": "To display the current selections.\nCan be added to any generic object but is particularly meaningful when using session objects to monitor an app.\n\n### Properties\n\"qSelectionObjectDef\": {}",
+      "properties": {
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections _$_ ."
+        }
+      },
+      "x-qlik-see-also": [
+        "[Get the current selections](#csh-get-current-selections)",
+        "[SelectionObject](#csh-SelectionObject)"
+      ]
+    },
+    "StaticContentUrlDef": {
+      "type": "object",
+      "description": "<div class=note>In addition, this structure can contain dynamic properties.</div>",
+      "properties": {
+        "qUrl": {
+          "type": "string",
+          "description": "Relative path of the thumbnail."
+        }
+      }
+    },
+    "StringExpression": {
+      "type": "object",
+      "description": "### Properties\nAbbreviated syntax:\n\"qStringExpression\":\"=&lt;expression&gt;\"\nExtended object syntax:\n\"qStringExpression\":{\"qExpr\":\"=&lt;expression&gt;\"}\nWhere:\n* &lt; **expression** &gt; is a string\n\n<div class=note>The \"=\" sign in the string expression is not mandatory. Even if the \"=\" sign is not given, the expression is evaluated.</div> <div class=note>A string expression is not evaluated, if the expression is surrounded by simple quotes.</div>\nThe result of the evaluation of the expression can be of any type, as it is returned as a JSON (quoted) string.",
+      "properties": {
+        "qExpr": {
+          "type": "string"
+        }
+      }
+    },
+    "TreeDataDef": {
+      "type": "object",
+      "description": "Defines the properties of a TreeData object.\nFor more information about the definition of a TreeData object, see _Generic object_.",
+      "properties": {
+        "qStateName": {
+          "type": "string",
+          "description": "Name of the alternate state.\nDefault is current selections _$_ ."
+        },
+        "qDimensions": {
+          "type": "array",
+          "description": "Array of dimensions.",
+          "items": {
+            "$ref": "#/definitions/NxTreeDimensionDef"
+          }
+        },
+        "qInterColumnSortOrder": {
+          "type": "array",
+          "description": "Defines the order of the dimension levels/columns in the TreeData object.\nColumn numbers are separated by a comma.\nExample: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.\nThe default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef.",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "qSuppressZero": {
+          "type": "boolean",
+          "description": "Removes zero values.",
+          "default": false
+        },
+        "qSuppressMissing": {
+          "type": "boolean",
+          "description": "Removes missing values.",
+          "default": false
+        },
+        "qOpenFullyExpanded": {
+          "type": "boolean",
+          "description": "If this property is set to true, the cells are opened expanded. The default value is false.",
+          "default": false
+        },
+        "qPopulateMissing": {
+          "type": "boolean",
+          "description": "If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.\nThe default value is false.",
+          "default": false
+        },
+        "qCalcCondition": {
+          "type": "object",
+          "description": "Specifies a calculation condition object.\nIf CalcCondition.Cond is not fulfilled, the TreeData is excluded from the calculation and CalcCondition.Msg is evaluated.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/NxCalcCond"
+        },
+        "qTitle": {
+          "type": "object",
+          "description": "Title of the TreeData object, for example the title of a chart.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qInitialDataFetch": {
+          "type": "array",
+          "description": "Initial data set.\nThis property is optional.",
+          "items": {
+            "$ref": "#/definitions/NxTreeDataOption"
+          }
+        }
+      },
+      "x-qlik-stability": "experimental"
+    },
+    "NxTreeDimensionDef": {
+      "type": "object",
+      "properties": {
+        "qLibraryId": {
+          "type": "string",
+          "description": "Refers to a dimension stored in the library."
+        },
+        "qDef": {
+          "type": "object",
+          "description": "Refers to a dimension.",
+          "$ref": "#/definitions/NxInlineDimensionDef"
+        },
+        "qValueExprs": {
+          "type": "array",
+          "description": "List of measures.",
+          "items": {
+            "$ref": "#/definitions/NxMeasure"
+          }
+        },
+        "qNullSuppression": {
+          "type": "boolean",
+          "description": "If set to true, no null values are returned."
+        },
+        "qOtherTotalSpec": {
+          "type": "object",
+          "description": "Sets the dimension limits. Each dimension of a hypercube is configured separately.\nDefines if some values (grouped as _Others_ ) should be grouped together in the visualization.\nFor example in a pie chart all values lower than 200 could be grouped together.",
+          "$ref": "#/definitions/OtherTotalSpecProp"
+        },
+        "qShowAll": {
+          "type": "boolean",
+          "description": "If set to true, all dimension values are shown."
+        },
+        "qOtherLabel": {
+          "type": "object",
+          "description": "This property is used when some dimension limits are set.\nLabel of the _Others_ group. The default label is _Others_ .\nExample:\n_\"qOtherLabel\":\"= &lt;label&gt;\"_\nor\n_\"qOtherLabel\":{\"qExpr\":\"= &lt;label&gt;\"}_\nWhere:\n* &lt; _label_ &gt; is the label of the _Others_ group.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qTotalLabel": {
+          "type": "object",
+          "description": "If this property is set, the total of the calculated values is returned.\nThe default label is _Total_ .\nExample:\n_\"qTotalLabel\":\"= &lt;label&gt;\"_\nor\n_\"qTotalLabel\":{\"qExpr\":\"= &lt;label&gt;\"}_\nWhere:\n* &lt; _label_ &gt; is the label of the _Total_ group.",
+          "$ref": "#/definitions/StringExpr"
+        },
+        "qCalcCondition": {
+          "type": "object",
+          "description": "Specifies a calculation condition object.\nIf CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.\nBy default, there is no calculation condition.\nThis property is optional.",
+          "$ref": "#/definitions/NxCalcCond"
+        },
+        "qAttributeExpressions": {
+          "type": "array",
+          "description": "List of attribute expressions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrExprDef"
+          }
+        },
+        "qAttributeDimensions": {
+          "type": "array",
+          "description": "List of attribute dimensions.",
+          "items": {
+            "$ref": "#/definitions/NxAttrDimDef"
+          }
+        }
+      },
+      "x-qlik-stability": "experimental"
+    },
+    "NxTreeDataOption": {
+      "type": "object",
+      "description": "Specifies all the paging filters needed to define the tree to be fetched.",
+      "properties": {
+        "qMaxNbrOfNodes": {
+          "type": "integer",
+          "description": "Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted.",
+          "format": "int32"
+        },
+        "qTreeNodes": {
+          "type": "array",
+          "description": "Defines areas of the tree to be fetched. Areas must be defined left to right.",
+          "items": {
+            "$ref": "#/definitions/NxPageTreeNode"
+          }
+        },
+        "qTreeLevels": {
+          "type": "object",
+          "description": "Filters out complete dimensions from the fetched tree.",
+          "$ref": "#/definitions/NxPageTreeLevel"
+        }
+      }
+    },
+    "NxPageTreeNode": {
+      "type": "object",
+      "description": "Defines an area of the tree to be fetched.",
+      "properties": {
+        "qArea": {
+          "type": "object",
+          "description": "The area of the tree to be fetched. If no area is defined on a dimension, all existing nodes are included.",
+          "$ref": "#/definitions/Rect"
+        },
+        "qAllValues": {
+          "type": "boolean",
+          "description": "When set to true, generated nodes (based on current selection) will be inserted into the returned tree even when there is no actual value. For example, suppose you are looking for hybrid car sales at all car dealerships. Normally, only dealerships where hybrid cars are sold would be part of the returned tree but with qAllValues set to true, all available dealerships will be included regardless if they sold any hybrid cars or not."
+        }
+      }
+    },
+    "Rect": {
+      "type": "object",
+      "properties": {
+        "qLeft": {
+          "type": "integer",
+          "description": "Position from the left.\nCorresponds to the first column.",
+          "format": "int32"
+        },
+        "qTop": {
+          "type": "integer",
+          "description": "Position from the top.\nCorresponds to the first row.",
+          "format": "int32"
+        },
+        "qWidth": {
+          "type": "integer",
+          "description": "Number of columns in the page. The indexing of the columns may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).",
+          "format": "int32"
+        },
+        "qHeight": {
+          "type": "integer",
+          "description": "Number of rows or elements in the page. The indexing of the rows may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).",
+          "format": "int32"
+        }
+      }
+    },
+    "NxPageTreeLevel": {
+      "type": "object",
+      "properties": {
+        "qLeft": {
+          "type": "integer",
+          "description": "The first dimension that is to be part of the tree, counted from the left. For example, if qLeft is equal to 1, omit nodes from the first dimension in the current sort order.",
+          "format": "int32"
+        },
+        "qDepth": {
+          "type": "integer",
+          "description": "Number of dimensions to include in the tree.",
+          "format": "int32",
+          "default": -1
+        }
+      }
+    },
+    "UndoInfoDef": {
+      "type": "object",
+      "description": "Defines if an object should contain information on the number of possible undo and redo.\n\n### Properties\n\"qUndoInfoDef\": {}\nThe numbers of undos and redos are empty when an object is created. The number of possible undos is increased every time an action (for example, create a child, set some properties) on the object is performed. The number of possible redos is increased every time an undo action is performed.",
+      "x-qlik-see-also": [
+        "[Undo or redo an action](#csh-undo-redo)",
+        "[UndoInfo](#csh-UndoInfo)"
+      ]
+    },
+    "ValueExpression": {
+      "type": "object",
+      "description": "### Properties\nAbbreviated syntax:\n\"qValueExpression\":\"=&lt;expression&gt;\"\nExtended object syntax:\n\"qValueExpression\":{\"qExpr\":\"=&lt;expression&gt;\"}\nWhere:\n* &lt; **expression** &gt; is a string.\n\n<div class=note>The \"=\" sign in the value expression is not mandatory. Even if the \"=\" sign is not given, the expression is evaluated.</div>\nThe expression is evaluated as a numeric.",
+      "properties": {
+        "qExpr": {
+          "type": "string"
+        }
+      }
+    },
+    "VariableListDef": {
+      "type": "object",
+      "description": "Defines the list of variables in an app.",
+      "properties": {
+        "qType": {
+          "type": "string",
+          "description": "Type of variables to include in the list."
+        },
+        "qShowReserved": {
+          "type": "boolean",
+          "description": "Shows the reserved variables if set to true."
+        },
+        "qShowConfig": {
+          "type": "boolean",
+          "description": "Shows the system variables if set to true."
+        },
+        "qData": {
+          "type": "object",
+          "description": "Data",
+          "$ref": "#/definitions/JsonObject"
+        },
+        "qShowSession": {
+          "type": "boolean",
+          "description": "Shows the session variables if set to true."
+        }
+      },
+      "x-qlik-see-also": [
+        "[List all app objects](#csh-list-app-objects)",
+        "[VariableList](#csh-VariableList)"
+      ]
+    }
+  }
 }

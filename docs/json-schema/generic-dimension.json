@@ -1,8 +1,75 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "info": {
-    "title": "Generic Dimension Properties JSON Schema",
+    "title": "Qlik Engine JSON-RPC API - Generic Dimension",
     "version": "12.387.0"
   },
   "type": "object",
-  "$ref": "engine-openapi.json#/components/schemas/GenericDimensionProperties"
+  "$ref": "#/definitions/GenericDimensionProperties",
+  "definitions": {
+    "GenericDimensionProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Identifier and type of the dimension.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxInfo"
+        },
+        "qDim": {
+          "type": "object",
+          "description": "Definition of the dimension.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxLibraryDimensionDef"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/definitions/NxMetaDef"
+        }
+      }
+    },
+    "NxInfo": {
+      "type": "object",
+      "properties": {
+        "qId": {
+          "type": "string",
+          "description": "Identifier of the object.\nIf the chosen identifier is already in use, the engine automatically sets another one.\nIf an identifier is not set, the engine automatically sets one.\nThis parameter is optional."
+        },
+        "qType": {
+          "type": "string",
+          "description": "Type of the object.\nThis parameter is mandatory."
+        }
+      }
+    },
+    "NxLibraryDimensionDef": {
+      "type": "object",
+      "properties": {
+        "qGrouping": {
+          "type": "string",
+          "description": "Information about the grouping.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/components/schemas/NxGrpType"
+        },
+        "qFieldDefs": {
+          "type": "array",
+          "description": "Array of dimension names.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qFieldLabels": {
+          "type": "array",
+          "description": "Array of dimension labels.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qLabelExpression": {
+          "type": "string"
+        }
+      }
+    },
+    "NxMetaDef": {
+      "type": "object",
+      "description": "Used to collect meta data.\n\n### Properties\nSemantic type with an empty structure."
+    }
+  }
 }

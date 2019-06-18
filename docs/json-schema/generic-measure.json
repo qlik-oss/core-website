@@ -1,8 +1,82 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "info": {
-    "title": "Generic Measure Properties JSON Schema",
+    "title": "Qlik Engine JSON-RPC API - Generic Measure",
     "version": "12.387.0"
   },
   "type": "object",
-  "$ref": "engine-openapi.json#/components/schemas/GenericMeasureProperties"
+  "$ref": "#/definitions/GenericMeasureProperties",
+  "definitions": {
+    "GenericMeasureProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Information about the measure.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxInfo"
+        },
+        "qMeasure": {
+          "type": "object",
+          "description": "Definition of the measure.\nThis parameter is mandatory.",
+          "$ref": "#/definitions/NxLibraryMeasureDef"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/definitions/NxMetaDef"
+        }
+      }
+    },
+    "NxInfo": {
+      "type": "object",
+      "properties": {
+        "qId": {
+          "type": "string",
+          "description": "Identifier of the object.\nIf the chosen identifier is already in use, the engine automatically sets another one.\nIf an identifier is not set, the engine automatically sets one.\nThis parameter is optional."
+        },
+        "qType": {
+          "type": "string",
+          "description": "Type of the object.\nThis parameter is mandatory."
+        }
+      }
+    },
+    "NxLibraryMeasureDef": {
+      "type": "object",
+      "properties": {
+        "qLabel": {
+          "type": "string",
+          "description": "Label of the measure."
+        },
+        "qDef": {
+          "type": "string",
+          "description": "Definition of the measure."
+        },
+        "qGrouping": {
+          "type": "string",
+          "description": "Used to define a cyclic group or drill-down group.\nDefault value is no grouping.\nThis parameter is optional.\n\nOne of:\n* N or GRP_NX_NONE\n* H or GRP_NX_HIEARCHY\n* C or GRP_NX_COLLECTION",
+          "$ref": "#/components/schemas/NxGrpType"
+        },
+        "qExpressions": {
+          "type": "array",
+          "description": "Array of expressions.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qActiveExpression": {
+          "type": "integer",
+          "description": "Index to the active expression in a measure.",
+          "format": "int32"
+        },
+        "qLabelExpression": {
+          "type": "string",
+          "description": "Optional expression used for dynamic label."
+        }
+      }
+    },
+    "NxMetaDef": {
+      "type": "object",
+      "description": "Used to collect meta data.\n\n### Properties\nSemantic type with an empty structure."
+    }
+  }
 }

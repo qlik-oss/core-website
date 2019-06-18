@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "info": {
+    "title": "Qlik Engine JSON-RPC API - Generic Measure List",
+    "version": "12.387.0"
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/GenericMeasureProperties"
+  },
+  "definitions": {
+    "GenericMeasureProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Information about the measure.\nThis parameter is mandatory.",
+          "$ref": "#/components/schemas/NxInfo"
+        },
+        "qMeasure": {
+          "type": "object",
+          "description": "Definition of the measure.\nThis parameter is mandatory.",
+          "$ref": "#/components/schemas/NxLibraryMeasureDef"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Definition of the dynamic properties.",
+          "$ref": "#/components/schemas/NxMetaDef"
+        }
+      }
+    }
+  }
+}

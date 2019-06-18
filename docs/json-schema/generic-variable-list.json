@@ -1,0 +1,49 @@
+{
+  "info": {
+    "title": "Qlik Engine JSON-RPC API - Generic Variable List",
+    "version": "12.387.0"
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/GenericVariableProperties"
+  },
+  "definitions": {
+    "GenericVariableProperties": {
+      "type": "object",
+      "properties": {
+        "qInfo": {
+          "type": "object",
+          "description": "Identifier and type of the object.\nThis parameter is mandatory.",
+          "$ref": "#/components/schemas/NxInfo"
+        },
+        "qMetaDef": {
+          "type": "object",
+          "description": "Meta data.",
+          "$ref": "#/components/schemas/NxMetaDef"
+        },
+        "qName": {
+          "type": "string",
+          "description": "Name of the variable.\nThe name must be unique.\nThis parameter is mandatory."
+        },
+        "qComment": {
+          "type": "string",
+          "description": "Comment related to the variable.\nThis parameter is optional."
+        },
+        "qNumberPresentation": {
+          "type": "object",
+          "description": "Defines the format of the value.\nThis parameter is optional.",
+          "$ref": "#/components/schemas/FieldAttributes"
+        },
+        "qIncludeInBookmark": {
+          "type": "boolean",
+          "description": "Set this property to true to update the variable when applying a bookmark. The variable value will be persisted in the bookmark.\nThe value of a variable can affect the state of the selections.\nScript variables cannot be persisted in the bookmark.\nThe default value is false.",
+          "default": false
+        },
+        "qDefinition": {
+          "type": "string",
+          "description": "Definition of the variable."
+        }
+      }
+    }
+  }
+}
