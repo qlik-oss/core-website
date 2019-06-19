@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.387.0._
+_Qlik Associative Engine API for version 12.401.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -119,6 +119,7 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | `name` | query | string | false | The name of the target app. |
 | `spaceId` | query | string | false | The space id of the target app. |
 | `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app that are not available in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
+| `appId` | query | string | false | The app id of the target app when source is qvw file. |
 
 **Responses**
 
@@ -480,9 +481,9 @@ Change owner of the app.
 | `403` | Forbidden | _No schema_ |
 | `404` | Not Found | _No schema_ |
 
-### `PUT /v1/apps/{appId}/publish`
+### `POST /v1/apps/{appId}/publish`
 
-Publish a specific app.
+Publish a specific app to a managed space.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -496,7 +497,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
-| `publish` | body | [PublishApp](#publishapp) | false | Publish information for the app. |
+| `publish` | body | [PublishApp](#publishapp) | true | Publish information for the app. |
 
 **Responses**
 
@@ -504,9 +505,9 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 | ------ | ----------- | ---- |
 | `200` | OK | [NxApp](#nxapp) |
 
-### `PUT /v1/apps/{appId}/unpublish`
+### `PUT /v1/apps/{appId}/publish`
 
-Reverts a published app to a private app.
+Republish a published app to a managed space.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -520,6 +521,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
 | `appId` | path | string | true | Identifier of the app. |
+| `republish` | body | [RepublishApp](#republishapp) | true | Republish information for the app. |
 
 **Responses**
 
@@ -664,7 +666,7 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `name` | string | The name (title) of the application |
 | `description` | string | The description of the application |
-| `spaceId` | string | The space id of the aplication |
+| `spaceId` | string | The space id of the application |
 
 ### `NxApp`
 
@@ -705,6 +707,8 @@ _Type: object_
 | `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
 | `custom` | [JsonObject](#jsonobject) | Custom attributes. |
 | `hasSectionAccess` | boolean | If true the app has section access configured, |
+| `encrypted` | boolean | If true, the app is encrypted. |
+| `originAppId` | string | The Origin App ID, for published apps. |
 
 ### `JsonObject`
 
@@ -888,4 +892,18 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `stream` | string | The id of the stream to publish to. This parameter is only valid in Qlik Sense Server. |
+| `attributes` | [AppAttributes](#appattributes) | Attributes used when publishing the application |
+| `data` | string | The data will be replaced or kept. The default is replace data <br/>&bull; replace: Publish will replace target data<br/>&bull; keep: Publish will keep target data |
+
+### `RepublishApp`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `attributes` | [AppAttributes](#appattributes) | Attributes used when publishing the application |
+| `targetId` | string | The target id of the application. |
+| `data` | string | The data will be replaced or kept. The default is replace data <br/>&bull; replace: Publish will replace target data<br/>&bull; keep: Publish will keep target data |

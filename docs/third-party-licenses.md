@@ -1863,6 +1863,55 @@ OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 
+## [Torch Cephes Math Library](https://github.com/deepmind/torch-cephes)
+
+```text
+==== NOTE ====
+The actual cephes library, shipped with and wrapped by this package, is available on The Netlib at http://www.netlib.org/cephes/ .
+It does not have any license specified. However, its original authors, Stephen Moshier, has kindly granted permission for inclusion
+in a BSD-licensed package. See email snippet below for reference.
+
+Return-Path: <steve@moshier.net>
+X-Original-To: julien@cornebise.com
+Delivered-To: julien@cornebise.com
+Received: from atl4mhob11.myregisteredsite.com (atl4mhob11.myregisteredsite.com [209.17.115.49])
+by cornebise.com (Postfix) with ESMTP id D47B139FC0
+for <julien@cornebise.com>; Fri, 25 Oct 2013 16:32:40 +0200 (CEST)
+Received: from mailpod1.hostingplatform.com ([10.30.71.116])
+by atl4mhob11.myregisteredsite.com (8.14.4/8.14.4) with ESMTP id r9PEWcwQ003543
+for <julien@cornebise.com>; Fri, 25 Oct 2013 10:32:38 -0400
+Received: (qmail 11948 invoked by uid 0); 25 Oct 2013 12:36:20 -0000
+X-TCPREMOTEIP: 76.24.25.74
+X-Authenticated-UID: steve@moshier.net
+Received: from unknown (HELO d510.local) (steve@moshier.net@76.24.25.74)
+by 0 with ESMTPA; 25 Oct 2013 12:36:20 -0000
+Date: Fri, 25 Oct 2013 08:36:19 -0400 (EDT)
+From: Stephen Moshier <steve@moshier.net>
+X-X-Sender: steve@d510
+To: Julien Cornebise <julien@cornebise.com>
+Subject: Re: Cephes: permission to wrap+distribute for Lua
+In-Reply-To: <52653AD3.1010004@cornebise.com>
+Message-ID: <alpine.DEB.2.02.1310250827040.17646@d510>
+References: <52653AD3.1010004@cornebise.com>
+User-Agent: Alpine 2.02 (DEB 1266 2009-07-14)
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+
+
+Julien, thank you for writing.
+BSD license is fine, modification is OK.
+There are more build scripts available in the web site distributions than 
+there are on the Netlib.  I think there is an update to Planck's radiation
+function that I haven't sent to Netlib yet.  But Netlib is a more stable
+site, so it is better to cite that as a reference.
+
+
+On Mon, 21 Oct 2013, Julien Cornebise wrote:
+
+>
+```
+
+
 ## [unicode](http://unicode.org/copyright.html)
 
 ```text
