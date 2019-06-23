@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC File Connector API
 
-_gRPC File Connector API for version 12.387.0._
+_gRPC File Connector API for version 12.401.0._
 
 Package: **qlik.filehosting**
 
@@ -30,7 +30,7 @@ _No description._
 
 ### `Download`
 
-_No description._
+The Engine will send many DownloadRequest messages.    The first DownloadRequest message is the file name to download.   If the file is not available, the connector can return an error   immediately.    The following DownloadRequest messages asks for the file content   at random offsets. (Though they will often but not always   be serial).    The Engine will often ask for a few megabytes of data at the time.   But if the Engine knows that it will do a perfectly linear read, it   may send one read request for all the file content. That could be a   lot of data, which will have to send back in many DownloadResponse   messages.    The best bandwidth is achieved if most DownloadResponse messages   are 64K or slightly less. But tests show that anywhere from 10K   to 120K gives almost as good performance. The size of an   DownloadResponse message is the size of the data and a small   protocol overhead.    When the Engine will not make any more data requests, it will   call WritesDone() and the connector will get no more   DownloadRequest messages.    When WritesDone() is called by the Engine, the connector   will continue to send the data already requested.    The Engine may call TryCancel() at any time for a variety   of reasons. Typically, when analyzing files for the file   wizard API or when script errors happen.    When the Connector is streaming back data, it should check   often if the rpc is canceled. If canceled,   the Connector should stop sending more data and return   CANCELLED on the request.    If the connector don't receive a TryCancel() call, it will   typically return OK as status code after Engine has called   WritesDone() and the Connector returned all requested data.    At the very end, Engine will call Finish() to retrieve the   status code for the call. This is used for error handling   and trouble shooting.
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ _No description._
 
 ### `Upload`
 
-stream UploadChunk writes serially only.
+The Engine will send many UploadRequest messages.    The first UploadRequest message is the file name to upload.   The connector can return an error immediately if not allowed for   some reason.    The Engine will send a stream of UploadRequest messages   to serially upload a file.    The Engine call WritesDone() when the upload is complete.    The Engine will call Finish() at the end.
 
 **Parameters:**
 
@@ -64,7 +64,7 @@ stream UploadChunk writes serially only.
 
 ### `List`
 
-List files from directory or from pattern.   Only list files in one directory.   No recursive listing.
+List files from directory or from pattern.   Only list files in one directory.   No recursive listing.   If there are no matching files, just return Status::OK.
 
 **Parameters:**
 
@@ -81,7 +81,7 @@ List files from directory or from pattern.   Only list files in one directory.  
 
 ### `Metadata`
 
-Work in progress.   Very basic right now. Will add more details.
+_No description._
 
 **Parameters:**
 
@@ -142,7 +142,7 @@ _No description._
 
 ### `File`
 
-_No description._
+Requires an empty response as acknowledgement.
 
 **Fields:**
 
@@ -175,7 +175,7 @@ _No description._
 
 ### `Response`
 
-Empty
+Used by the server to respond to the File request if successful.
 
 
 ### `FileMeta`
@@ -236,6 +236,7 @@ _No description._
 | `appId` | _No description._ | [string](#string) | _optional_ | _No default value._ |
 | `user` | The user for the connection | [string](#string) | _optional_ | _No default value._ |
 | `password` | The password for the connection | [string](#string) | _optional_ | _No default value._ |
+| `spaceId` | The space id for the app that is trying to use the connection | [string](#string) | _optional_ | _No default value._ |
 
 ### `UploadRequest`
 
@@ -267,7 +268,7 @@ _No description._
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
 | `setup` | _No description._ | [Setup](#setup) | _optional_ | _No default value._ |
-| `name` | If empty, do we give it a random name ? | [string](#string) | _optional_ | _No default value._ |
+| `name` | _No description._ | [string](#string) | _optional_ | _No default value._ |
 
 ### `UploadResponse`
 
