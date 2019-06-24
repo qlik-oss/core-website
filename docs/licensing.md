@@ -107,7 +107,7 @@ These are outlined below.</p>
             </ul>
         </div>
         <div class="cards-bottom card-free">
-            <p><span class="pricing">GET STARTED »</span></p>
+            <p><span class="pricing"><a href="/get-started/">GET STARTED »</a></span></p>
         </div>
     </div>
     <!-- Trial -->
@@ -142,7 +142,8 @@ These are outlined below.</p>
             <p>Based on your application and usage patterns, our team can help you build the right model for your implementation.</p>
         </div>
         <div class="cards-bottom card-enterprise">
-            <p><span class="pricing"><a>CONTACT US »</a></span></p>
+            <p><span class="pricing"><a href="https://www.qlik.com/us/try-or-buy/buy-now?CampaignID=7013z000000ijcR" target="_new">
+            CONTACT US »</a></span></p>
         </div>
     </div>
 </div>
