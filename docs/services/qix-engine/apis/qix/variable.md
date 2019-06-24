@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Variable
 
-_QIX methods for version 12.387.0._
+_QIX methods for version 12.401.0._
 
 ## `ForceContent`
 

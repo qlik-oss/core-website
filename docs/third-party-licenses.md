@@ -1156,7 +1156,9 @@ THE SOFTWARE.
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
-*
+* ---
+* Author: Markus Gutschke
+*/
 ```
 
 
@@ -1404,7 +1406,122 @@ The OpenSSL toolkit stays under a dual license, i.e. both the conditions of
 the OpenSSL License and the original SSLeay license apply to the toolkit. 
 See below for the actual license texts. 
 
-OpenSSL License
+OpenSSL License 
+--------------- 
+
+/* ==================================================================== 
+* Copyright (c) 1998-2016 The OpenSSL Project. All rights reserved. 
+* 
+* Redistribution and use in source and binary forms, with or without 
+* modification, are permitted provided that the following conditions 
+* are met: 
+* 
+* 1. Redistributions of source code must retain the above copyright 
+* notice, this list of conditions and the following disclaimer. 
+* 
+* 2. Redistributions in binary form must reproduce the above copyright 
+* notice, this list of conditions and the following disclaimer in 
+* the documentation and/or other materials provided with the 
+* distribution. 
+* 
+* 3. All advertising materials mentioning features or use of this 
+* software must display the following acknowledgment: 
+* "This product includes software developed by the OpenSSL Project 
+* for use in the OpenSSL Toolkit. (http://www.openssl.org/)" 
+* 
+* 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to 
+* endorse or promote products derived from this software without 
+* prior written permission. For written permission, please contact 
+* openssl-core@openssl.org. 
+* 
+* 5. Products derived from this software may not be called "OpenSSL" 
+* nor may "OpenSSL" appear in their names without prior written 
+* permission of the OpenSSL Project. 
+* 
+* 6. Redistributions of any form whatsoever must retain the following 
+* acknowledgment: 
+* "This product includes software developed by the OpenSSL Project 
+* for use in the OpenSSL Toolkit (http://www.openssl.org/)" 
+* 
+* THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY 
+* EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE OpenSSL PROJECT OR 
+* ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+* OF THE POSSIBILITY OF SUCH DAMAGE. 
+* ==================================================================== 
+* 
+* This product includes cryptographic software written by Eric Young 
+* (eay@cryptsoft.com). This product includes software written by Tim 
+* Hudson (tjh@cryptsoft.com). 
+* 
+*/ 
+
+Original SSLeay License 
+----------------------- 
+
+/* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com) 
+* All rights reserved. 
+* 
+* This package is an SSL implementation written 
+* by Eric Young (eay@cryptsoft.com). 
+* The implementation was written so as to conform with Netscapes SSL. 
+* 
+* This library is free for commercial and non-commercial use as long as 
+* the following conditions are aheared to. The following conditions 
+* apply to all code found in this distribution, be it the RC4, RSA, 
+* lhash, DES, etc., code; not just the SSL code. The SSL documentation 
+* included with this distribution is covered by the same copyright terms 
+* except that the holder is Tim Hudson (tjh@cryptsoft.com). 
+* 
+* Copyright remains Eric Young's, and as such any Copyright notices in 
+* the code are not to be removed. 
+* If this package is used in a product, Eric Young should be given attribution 
+* as the author of the parts of the library used. 
+* This can be in the form of a textual message at program startup or 
+* in documentation (online or textual) provided with the package. 
+* 
+* Redistribution and use in source and binary forms, with or without 
+* modification, are permitted provided that the following conditions 
+* are met: 
+* 1. Redistributions of source code must retain the copyright 
+* notice, this list of conditions and the following disclaimer. 
+* 2. Redistributions in binary form must reproduce the above copyright 
+* notice, this list of conditions and the following disclaimer in the 
+* documentation and/or other materials provided with the distribution. 
+* 3. All advertising materials mentioning features or use of this software 
+* must display the following acknowledgement: 
+* "This product includes cryptographic software written by 
+* Eric Young (eay@cryptsoft.com)" 
+* The word 'cryptographic' can be left out if the rouines from the library 
+* being used are not cryptographic related :-). 
+* 4. If you include any Windows specific code (or a derivative thereof) from 
+* the apps directory (application code) you must include an acknowledgement: 
+* "This product includes software written by Tim Hudson (tjh@cryptsoft.com)" 
+* 
+* THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND 
+* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+* ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE 
+* FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+* DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS 
+* OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
+* LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY 
+* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+* SUCH DAMAGE. 
+* 
+* The licence and distribution terms for any publically available version or 
+* derivative of this code cannot be changed. i.e. this code cannot simply be 
+* copied and put under another distribution licence 
+* [including the GNU Public Licence.] 
+*/
 ```
 
 
@@ -1860,6 +1977,133 @@ OTHER DEALINGS IN THE SOFTWARE.
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+
+## [Torch Cephes Math Library](https://github.com/deepmind/torch-cephes)
+
+```text
+==== NOTE ====
+The actual cephes library, shipped with and wrapped by this package, is available on The Netlib at http://www.netlib.org/cephes/ .
+It does not have any license specified. However, its original authors, Stephen Moshier, has kindly granted permission for inclusion
+in a BSD-licensed package. See email snippet below for reference.
+
+Return-Path: <steve@moshier.net>
+X-Original-To: julien@cornebise.com
+Delivered-To: julien@cornebise.com
+Received: from atl4mhob11.myregisteredsite.com (atl4mhob11.myregisteredsite.com [209.17.115.49])
+by cornebise.com (Postfix) with ESMTP id D47B139FC0
+for <julien@cornebise.com>; Fri, 25 Oct 2013 16:32:40 +0200 (CEST)
+Received: from mailpod1.hostingplatform.com ([10.30.71.116])
+by atl4mhob11.myregisteredsite.com (8.14.4/8.14.4) with ESMTP id r9PEWcwQ003543
+for <julien@cornebise.com>; Fri, 25 Oct 2013 10:32:38 -0400
+Received: (qmail 11948 invoked by uid 0); 25 Oct 2013 12:36:20 -0000
+X-TCPREMOTEIP: 76.24.25.74
+X-Authenticated-UID: steve@moshier.net
+Received: from unknown (HELO d510.local) (steve@moshier.net@76.24.25.74)
+by 0 with ESMTPA; 25 Oct 2013 12:36:20 -0000
+Date: Fri, 25 Oct 2013 08:36:19 -0400 (EDT)
+From: Stephen Moshier <steve@moshier.net>
+X-X-Sender: steve@d510
+To: Julien Cornebise <julien@cornebise.com>
+Subject: Re: Cephes: permission to wrap+distribute for Lua
+In-Reply-To: <52653AD3.1010004@cornebise.com>
+Message-ID: <alpine.DEB.2.02.1310250827040.17646@d510>
+References: <52653AD3.1010004@cornebise.com>
+User-Agent: Alpine 2.02 (DEB 1266 2009-07-14)
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+
+
+Julien, thank you for writing.
+BSD license is fine, modification is OK.
+There are more build scripts available in the web site distributions than 
+there are on the Netlib.  I think there is an update to Planck's radiation
+function that I haven't sent to Netlib yet.  But Netlib is a more stable
+site, so it is better to cite that as a reference.
+
+
+On Mon, 21 Oct 2013, Julien Cornebise wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Dear Mr Moshier
+>
+> I am a researcher in mathematics and machine learning in London, and
+> am writing about your awesome Cephes library, whom I found at the
+> heart of Scipy.
+>
+> It is so useful that, with your permission, I would like to wrap it
+> for Lua and Torch (a machine learning overlay to Lua, specialized in
+> neural nets, see http://www.torch.ch). I would like to distribute it
+> as a package for Torch, including your source code along the wrapping
+> code.
+> This wouldbe a public package, distributed under BSD License. I have
+> put a first draft on github:
+> https://github.com/jucor/torch-cephes
+>
+> Hence my three questions, please:
+>
+> 1/ How would you like to be acknowledged, beyond the comments that are
+> already in your code? Do you have any standard header/disclaimer that
+> I could add to the documentation?
+>
+> 2/ At the moment, your code is left untouched. However, if I ever need
+> to modify bits of the code, what are the conditions/restrictions?
+> Nothing huge -- I definitely do not want to mess with it: I was
+> planning to use the natural completion of some functions on the
+> completed real line (e.g. CDF returing 1 when called with "infinity",
+> or quantiles returning -Infinity when called with 0), either natively
+> if supported, or by setting a specific flag  via mtherr().
+>
+> 3/ I am currently using the source from Netlib. Do you recommend using
+> the source from your website instead ?
+>
+> Thank you very much for your attention,
+> and, more importantly, for the time and effort your poured into Cephes.
+>
+> Best regards,
+>
+> Julien Cornebise, Ph.D.
+> London, UK
+> http://www.cornebise.com/julien
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.14 (Darwin)
+> Comment: GPGTools - http://gpgtools.org
+> Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+>
+> iEYEARECAAYFAlJlOtEACgkQKYR3gC0rw/gIpQCfZKu6+iDh9ghhm6QfsLXnldKN
+> BuIAn2zZHu1c/IrRAevhjM7N7xGg0LHO
+> =WeP5
+> -----END PGP SIGNATURE-----
+
+
+==== LICENSE ====
+Copyright (c) 2013, Julien Cornebise
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+* Neither the name of the organization nor the
+names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
 
 

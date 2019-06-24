@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC Analytical Connector API
 
-_gRPC Analytical Connector API for version 12.387.0._
+_gRPC Analytical Connector API for version 12.401.0._
 
 Package: **qlik.sse**
 
@@ -66,6 +66,7 @@ Requests a script to be evaluated as specified in the header.
 
 ### `BundledRows`
 
+
 A number of rows collected in one message. The actual number will depend on the size of each row and is adjusted to optimize throughput.
 
 **Fields:**
@@ -75,6 +76,7 @@ A number of rows collected in one message. The actual number will depend on the 
 | `rows` | _No description._ | [Row](#row) | repeated | _No default value._ |
 
 ### `Capabilities`
+
 
 A full description of the plugin, sent to the Qlik engine, listing all functions available and indicating whether script evaluation is allowed.
 
@@ -89,6 +91,7 @@ A full description of the plugin, sent to the Qlik engine, listing all functions
 
 ### `CommonRequestHeader`
 
+
 A header sent at the start of both an EvaluateScript request and an ExecuteFunction request under the key "qlik-commonrequestheader-bin".
 
 **Fields:**
@@ -101,6 +104,7 @@ A header sent at the start of both an EvaluateScript request and an ExecuteFunct
 
 ### `Dual`
 
+
 The basic data type for the data stream. Can contain double, string, or both.
 
 **Fields:**
@@ -112,10 +116,12 @@ The basic data type for the data stream. Can contain double, string, or both.
 
 ### `Empty`
 
+
 An empty message used when nothing is to be passed in a call.
 
 
 ### `FieldDescription`
+
 
 Field definition for function and script calls.
 
@@ -128,6 +134,7 @@ Field definition for function and script calls.
 | `tags` | The tags of the field. | [string](#string) | repeated | _No default value._ |
 
 ### `FunctionDefinition`
+
 
 The definition of a function, which informs the Qlik engine how to use it.
 
@@ -143,6 +150,7 @@ The definition of a function, which informs the Qlik engine how to use it.
 
 ### `FunctionRequestHeader`
 
+
 A header sent at the start of an ExecuteFunction request under the key "qlik-functionrequestheader-bin".
 
 **Fields:**
@@ -153,6 +161,7 @@ A header sent at the start of an ExecuteFunction request under the key "qlik-fun
 | `version` | A dummy variable as a workaround for an issue. | [string](#string) | _optional_ | _No default value._ |
 
 ### `Parameter`
+
 
 Parameter definition for functions and script calls.
 
@@ -165,6 +174,7 @@ Parameter definition for functions and script calls.
 
 ### `Row`
 
+
 A row of duals.
 
 **Fields:**
@@ -174,6 +184,7 @@ A row of duals.
 | `duals` | Row of duals. | [Dual](#dual) | repeated | _No default value._ |
 
 ### `ScriptRequestHeader`
+
 
 A header sent at the start of an EvaluateScript request under the key "qlik-scriptrequestheader-bin".
 
@@ -187,6 +198,7 @@ A header sent at the start of an EvaluateScript request under the key "qlik-scri
 | `params` | The parameters names and types passed to the script. | [Parameter](#parameter) | repeated | _No default value._ |
 
 ### `TableDescription`
+
 
 A header sent before returning data to Qlik, under the key "qlik-tabledescription-bin".
 
@@ -202,6 +214,7 @@ A header sent before returning data to Qlik, under the key "qlik-tabledescriptio
 
 ### `DataType`
 
+
 Data types of the parameters and return values.
 
 | Name | Number | Description |
@@ -211,6 +224,7 @@ Data types of the parameters and return values.
 | `DUAL` | 2 | Contains both a string and a double. |
 
 ### `FunctionType`
+
 
 Types of functions (determined by their return values).
 
