@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-// Work in progress, specification / discussuion here
-// https://confluence.qliktech.com/display/ENGINE/PS-3499+File+connector+through+gRPC+protocol
 package qlik.filehosting;
 
 message Setup {
@@ -10,11 +8,12 @@ message Setup {
     string appId = 3;
     string user = 4;       /// The user for the connection
     string password = 5;   /// The password for the connection
+    string spaceId = 6;    /// The space id for the app that is trying to use the connection
 }
 
 
 message DownloadRequest {
-    message File {
+    message File {                /// Requires an empty response as acknowledgement.
         Setup setup = 1;
         string name = 2;          /// Classic path name or just a hash or anything.
     }
@@ -34,7 +33,7 @@ message DownloadResponse {
                                   /// member set. Whether all the requested data was returned or not
                                   /// does not matter.
     }
-    message Response {
+    message Response {            /// Used by the server to respond to the File request if successful.
         /// Empty
     }
     oneof Data {
@@ -47,7 +46,7 @@ message DownloadResponse {
 message UploadRequest {
     message File {
         Setup setup = 1;
-        string name = 2;          /// If empty, do we give it a random name ?
+        string name = 2;
     }
     message Chunk {
         bytes data = 1;
@@ -64,17 +63,17 @@ message UploadResponse {
 message ListRequest {
     Setup setup = 1;
     string pathPattern = 2;  /// List all files matching the pattern.
-                             /// If its a folder name, list all files.
-                             /// If its a wildcard filename, list all matches.
-                             /// If its a simple filename, list that one file.
+                             /// If it's a folder name, list all files.
+                             /// If it's a wildcard filename, list all matches.
+                             /// If it's a simple filename, list that one file.
                              ///
-                             /// The engine just see a string called pathPattern,
+                             /// The engine just sees a string called pathPattern,
                              /// its up to the connector to apply its own
                              /// pattern matching rules.
                              ///
-                             /// Its loosly specified so the features of each
+                             /// Its loosely specified so the features of each
                              /// underlaying hosted file backend can be fully
-                             /// utilised by the engine.
+                             /// utilized by the engine.
 }
 message ListItem {
     string name = 1;
@@ -108,11 +107,68 @@ service HostedDrive
     rpc GetCapabilities(CapabilitiesRequest) returns (Capabilities) {}
 
     /**
+      *   The Engine will send many DownloadRequest messages.
+      *
+      *   The first DownloadRequest message is the file name to download.
+      *   If the file is not available, the connector can return an error
+      *   immediately.
+      *
+      *   The following DownloadRequest messages asks for the file content
+      *   at random offsets. (Though they will often but not always
+      *   be serial).
+      *
+      *   The Engine will often ask for a few megabytes of data at the time.
+      *   But if the Engine knows that it will do a perfectly linear read, it
+      *   may send one read request for all the file content. That could be a
+      *   lot of data, which will have to send back in many DownloadResponse
+      *   messages.
+      *
+      *   The best bandwidth is achieved if most DownloadResponse messages
+      *   are 64K or slightly less. But tests show that anywhere from 10K
+      *   to 120K gives almost as good performance. The size of an
+      *   DownloadResponse message is the size of the data and a small
+      *   protocol overhead.
+      *
+      *   When the Engine will not make any more data requests, it will
+      *   call WritesDone() and the connector will get no more
+      *   DownloadRequest messages.
+      *
+      *   When WritesDone() is called by the Engine, the connector
+      *   will continue to send the data already requested.
+      *
+      *   The Engine may call TryCancel() at any time for a variety
+      *   of reasons. Typically, when analyzing files for the file
+      *   wizard API or when script errors happen.
+      *
+      *   When the Connector is streaming back data, it should check
+      *   often if the rpc is canceled. If canceled,
+      *   the Connector should stop sending more data and return
+      *   CANCELLED on the request.
+      *
+      *   If the connector don't receive a TryCancel() call, it will
+      *   typically return OK as status code after Engine has called
+      *   WritesDone() and the Connector returned all requested data.
+      *
+      *   At the very end, Engine will call Finish() to retrieve the
+      *   status code for the call. This is used for error handling
+      *   and trouble shooting.
       */
     rpc Download (stream DownloadRequest) returns (stream DownloadResponse) {}
 
     /**
-      *   stream UploadChunk writes serially only.
+      *   The Engine will send many UploadRequest messages.
+      *
+      *   The first UploadRequest message is the file name to upload.
+      *   The connector can return an error immediately if not allowed for
+      *   some reason.
+      *
+      *   The Engine will send a stream of UploadRequest messages
+      *   to serially upload a file.
+      *
+      *   The Engine call WritesDone() when the upload is complete.
+      *
+      *   The Engine will call Finish() at the end.
+      *
       */
     rpc Upload (stream UploadRequest) returns (UploadResponse) {}
 
@@ -120,12 +176,12 @@ service HostedDrive
       *   List files from directory or from pattern.
       *   Only list files in one directory.
       *   No recursive listing.
+      *   If there are no matching files, just return Status::OK.
       */
     rpc List (ListRequest) returns (stream ListItem) {}
 
     /**
-      *   Work in progress.
-      *   Very basic right now. Will add more details.
+      *
       */
     rpc Metadata (MetadataRequest) returns (FileMeta) {}
 }
