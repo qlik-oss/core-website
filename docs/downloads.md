@@ -13,6 +13,9 @@ Qlik Core consists of a core set of supported components, including the Qlik Ass
 | [Mira](./services/mira.md) | Qlik Associative Engine discovery service. | [qlikcore/mira](https://hub.docker.com/r/qlikcore/mira) <br>(source code: [GitHub](https://github.com/qlik-oss/mira)) | N/A |
 | [enigma.js](https://www.npmjs.com/package/enigma.js) | Communication with the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/enigma.js/) | N/A |
 | [halyard.js](https://www.npmjs.com/package/halyard.js) | Simple data loading into the Qlik Associative Engine. | [GitHub](https://github.com/qlik-oss/halyard.js) | N/A |
+| [ODBC connector](https://link) | ODBC connector for advanced data loading. | [Link to connector info](http://link) | 1.2.3 |
+
+By downloading and using Qlik Core, you are subject to the [End-User License Agreement](./eula.md).
 
 Qlik Core comes with a developer edition that may be used to evaluate,
 develop, or test solutions. Note that it cannot be used for commercial purposes.
