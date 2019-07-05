@@ -6,7 +6,7 @@ Assisted Prescription provides an interactive application to assist doctors with
 from the Qlik Core backend using a single document. Variance in user load is limited and any scaling of the application
 can be manually managed.
 
-A live demo is available at [ap.qlikcore.com](https://ap.qlikcore.com/). You need a GitHub account to log in.
+A live demo is available at [ap.core.qlik.com](https://ap.core.qlik.com/). You need a GitHub account to log in.
 
 ![screenshot](./images/assisted-prescription-screenshot.png)
 
