@@ -23,7 +23,7 @@ More info and source code of the Assisted Prescription can be found in the
 [core-assisted-prescription-ui](https://github.com/qlik-oss/core-assisted-prescription-ui) and
 [core-scaling](https://github.com/qlik-oss/core-scaling) GitHub repositories.
 
-This use case was earlier deployed on a Docker Swarm cluster. You can still find the code used here: 
+This use case was earlier deployed on a Docker Swarm cluster. You can still find the code used here:
 [core-assisted-prescription](https://github.com/qlik-oss/core-assisted-prescription) GitHub repository.
 
 ## African Urbanization
