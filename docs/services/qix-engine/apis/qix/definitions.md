@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.401.0._
+_QIX definitions for version 12.424.0._
 
 ## `AlfaNumString`
 
@@ -1081,6 +1081,7 @@ _No description._
 | ---- | ---- | ------- | ----------- |
 | `qCardinal` | integer | N/A | Number of distinct field values. |
 | `qHypercubeCardinal` | integer | N/A | Number of distinct hypercube values. |
+| `qAllValuesCardinal` | integer | -1 | Number of distinct values when paging for AllValues in a Tree Structure.<br>Default is -1 if not part of a Tree structure. |
 
 ## `NxCell`
 
@@ -1858,6 +1859,9 @@ Represents a dimension in the tree.
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | N/A | Attribute dimension values. |
 | `qMaxPos` | array&lt;number> | N/A | Total of the positive values in the current group of cells. |
 | `qMinNeg` | array&lt;number> | N/A | Total of the negative values in the current group of cells. |
+| `qCanExpand` | boolean | N/A | If set to true, it means that the cell can be expanded.<br>This parameter is not returned if it is set to false. |
+| `qCanCollapse` | boolean | N/A | If set to true, it means that the cell can be collapsed.<br>This parameter is not returned if it is set to false. |
+| `qState` | string | N/A | Selection State of the value.<br>The default state for a measure is L(Locked).<br><br>One of:<br>- L or LOCKED<br>- S or SELECTED<br>- O or OPTION<br>- D or DESELECTED<br>- A or ALTERNATIVE<br>- X or EXCLUDED<br>- XS or EXCL_SELECTED<br>- XL or EXCL_LOCKED<br>- NSTATES |
 
 ## `NxTreeRangeSelectInfo`
 

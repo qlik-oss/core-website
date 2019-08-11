@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.401.0._
+_Qlik Associative Engine API for version 12.424.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -529,6 +529,49 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 | ------ | ----------- | ---- |
 | `200` | OK | [NxApp](#nxapp) |
 
+### `PUT /v1/apps/{appId}/space`
+
+Set space on a specific app.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+| `dstUpdate` | body | [UpdateSpace](#updatespace) | true | New space. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
+### `DELETE /v1/apps/{appId}/space`
+
+Remove space from a specific app.
+
+| Metadata | Value |
+| -------- | ----- |
+| Stability Index | Experimental |
+| Produces | application/json |
+
+**Parameters**
+
+| Parameter | In | Type | Mandatory | Description |
+| --------- | -- | ---- | --------- | ----------- |
+| `appId` | path | string | true | Identifier of the app. |
+
+**Responses**
+
+| Status | Description | Type |
+| ------ | ----------- | ---- |
+| `200` | OK | [NxApp](#nxapp) |
+
 ## Definitions
 
 ### `HealthcheckStatus`
@@ -680,7 +723,7 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
-| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata<br/>&bull; change_owner |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata<br/>&bull; change_owner<br/>&bull; change_space |
 | `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client what type of objects the user is allowed to create. |
 
 ### `NxAttributes`
@@ -892,8 +935,8 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `attributes` | [AppAttributes](#appattributes) | Attributes used when publishing the application |
-| `data` | string | The data will be replaced or kept. The default is replace data <br/>&bull; replace: Publish will replace target data<br/>&bull; keep: Publish will keep target data |
+| `spaceId` | string | The managed space id where the app will be published. |
+| `data` | string | The published app will have data from source or target app. The default is source <br/>&bull; source: Publish with source data<br/>&bull; target: Publish with target data |
 
 ### `RepublishApp`
 
@@ -904,6 +947,16 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `attributes` | [AppAttributes](#appattributes) | Attributes used when publishing the application |
-| `targetId` | string | The target id of the application. |
-| `data` | string | The data will be replaced or kept. The default is replace data <br/>&bull; replace: Publish will replace target data<br/>&bull; keep: Publish will keep target data |
+| `targetId` | string | The target id to be republished. |
+| `data` | string | The republished app will have data from source or target app. The default is source <br/>&bull; source: Publish with source data<br/>&bull; target: Publish with target data |
+
+### `UpdateSpace`
+
+_Type: object_
+
+
+**Properties**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `spaceId` | string | _No description._ |
