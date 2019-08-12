@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.401.0._
+_QIX methods for version 12.424.0._
 
 ## `AbortModal`
 
@@ -1468,7 +1468,7 @@ _No parameters._
 
 Gets script and script meta-data.
 
-Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 _No parameters._
 
@@ -1965,7 +1965,7 @@ Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/acces
 
 Sets values in script.
 
-Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
 **Parameters:**
 
