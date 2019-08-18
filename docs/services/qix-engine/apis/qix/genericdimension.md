@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericDimension
 
-_QIX methods for version 12.424.0._
+_QIX methods for version 12.429.0._
 
 ## `ApplyPatches`
 
