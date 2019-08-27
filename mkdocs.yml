@@ -19,10 +19,13 @@ site_description: 'Qlik Core is an analytics development platform built around t
 extra_css:
   - 'stylesheets/custom-style.css'
   - 'stylesheets/downloads.css'
+  - 'stylesheets/star-rating.css'
 extra_javascript:
   - 'javascripts/extra.js'
   - 'https://unpkg.com/enigma.js@2.2.1/enigma.min.js'
   - 'javascripts/downloads.js'
+  - 'javascripts/star-rating.js'
+  - 'javascripts/submit-textbox.js'
 extra:
   social:
     - type: 'github'
