@@ -1,3 +1,10 @@
+var box = document.querySelector("#submitform");
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest("#container")) return;
+  document.getElementById("submitform").style.display = 'none';
+});
+
 function submitForm() {
 
   if (document.activeElement.form === undefined) {
@@ -7,16 +14,5 @@ function submitForm() {
     }
   }
 
-  var op = 1
-  var timer = setInterval(function () {
-    if (op <= 0.1) {
-      clearInterval(timer);
-      document.getElementById("textbox").style.display = 'none';
-    }
-    document.getElementById("textbox").style.opacity = op;
-    document.getElementById("textbox").style.filter = 'alpha(opacity=' + op * 100 + ")";
-    op -= op * 0.5;
-  }, 50);
-
-  setTimeout(() => (document.getElementById("textAfter").style.display = 'block'), 250);
+  document.getElementById("submitform").style.display = 'none';
 }

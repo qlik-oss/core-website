@@ -77,7 +77,31 @@
 
 {% if page.edit_url %}
 <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;
-  <!-- edit --></a>
+
+
+  <!-- edit -->
+</a>
+
+<a class="md-icon md-content__icon">
+  <div id="container">
+    <div id="starbox">
+      <div id="stars">
+        <x-star-rating name="star" id="Star-Rating" value="0" number="5"></x-star-rating>
+      </div>
+    </div>
+
+    <form id="submitform" onsubmit="return false">
+      <div id="textbox">
+        <textarea id="myInput submittextarea"
+          placeholder="Thank you for your rating! Let us know how we can improve."></textarea>
+        <button type='submit' id="submit" onclick="submitForm()">Submit</button>
+      </div>
+    </form>
+
+  </div>
+
+
+</a>
 {% endif %}
 
 {% if page.title == "Home" %}
@@ -104,32 +128,9 @@
 </div>
 {% endif %}
 
-<h2 id="leave-feedback">Leave feedback</h2>
-<p>Rate the documentation and tells us what you think about this page!</p>
 
-<link rel="stylesheet" href="../../stylesheets/star-rating.css">
-<div id="container">
-  <div class="popup">
-    <span class="popuptext" id="myPopup"></span>
-  </div>
-  <div id="starbox">
-    <div id="stars">
-      <x-star-rating name="star" id="StarRating" value="0" number="5"></x-star-rating>
-      <script src="../javascripts/star-rating.js"></script>
-    </div>
-  </div>
-  <form id="submitform" onsubmit="return false">
-    <div id="textbox">
-      <textarea id="myInput" placeholder="Help us improve!" style="height:200px"></textarea>
-      <button type='submit' id="submit" onclick="submitForm()">Submit</button>
-      <script src="../javascripts/submit-textbox.js"> </script>
-    </div>
-    <div id="textAfter" style="display: none">
-      Thank you for your submission!
-    </div>
-  </form>
-</div>
 {% endblock %}
+
 
 {% block analytics %}
 {% endblock %}

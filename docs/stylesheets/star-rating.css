@@ -1,55 +1,56 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 
-
 #leave-feedback {
   margin-top: 8px;
 }
 
 #starbox {
-  margin-top: -8px;
+  margin-top: -3px;
 }
 
 #stars {
   display: block;
-  width: 200px;
+  width: 125px;
 }
 
 #submitform {
+  border-radius: 4px;
   display: none;
   -webkit-animation: fadeIn 1 s;
   animation: fadeIn 1 s;
-}
-
-.popup {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  width: 200px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: wrap;
-  background-color: rgba(150, 150, 150, 0.9);
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
   position: absolute;
+  align-content: right;
+  width: 328px;
+  right: 0;
+  text-align: center;
+  background: white;
+  border: 1px solid rgba(131, 131, 131, 0.555);
   z-index: 1;
-  bottom: -19px;
 }
 
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 0.2 s;
-  animation: fadeIn 0.2 s;
+
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Add animation (fade in the popup) */
@@ -75,7 +76,7 @@
 
 x-star-rating {
   font-family: FontAwesome;
-  font-size: 48px;
+  font-size: 28px;
   display: inline-flex;
   cursor: pointer;
   content: "★";
@@ -92,40 +93,39 @@ x-star-rating>.star.full::after {
 }
 
 textarea {
-  width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
-}
-
-button[type=submit] {
-  background-color: #009845;
-  color: white;
-  padding: 12px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-  margin-bottom: 25px;
-}
-
-
-button[type=submit]:hover {
-  background-color: #006937;
-}
-
-input[type=text],
-select,
-textarea {
-  width: 100%;
+  margin-top: 5px;
+  width: 97%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  resize: none;
+  height: 100px;
+}
+
+
+
+button[type=submit] {
+  background-color: #009845;
+  color: white;
+  padding: 3px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 4px;
+  margin-right: 7px;
+  font-size: 15px;
+}
+
+
+
+
+button[type=submit]:hover {
+  background-color: #006937;
 }
 
 @media screen and (max-width: 600px) {
@@ -136,18 +136,4 @@ textarea {
     width: 100%;
     margin-top: 0;
   }
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
 }

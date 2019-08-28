@@ -30,28 +30,6 @@ class StarRating extends HTMLElement {
     this.value = this.value;
   }
 
-  message(index) {
-    var popup = document.getElementById("myPopup");
-    popup.classList.add("show");
-    popup.style.display = 'block';
-    switch (index) {
-      case 1:
-        document.getElementById("myPopup").innerHTML = "Documentation is awful"
-        break;
-      case 2:
-        document.getElementById("myPopup").innerHTML = "Documentation is bad"
-        break;
-      case 3:
-        document.getElementById("myPopup").innerHTML = "Documentation is ok"
-        break;
-      case 4:
-        document.getElementById("myPopup").innerHTML = "Documentation is good"
-        break;
-      case 5:
-        document.getElementById("myPopup").innerHTML = "Documentation is great"
-        break;
-    }
-  }
 
   highlight(index) {
     this.stars.forEach((star, i) => {
@@ -67,12 +45,10 @@ class StarRating extends HTMLElement {
       let box = this.getBoundingClientRect(),
         starIndex = Math.floor((e.pageX - box.left) / box.width * this.stars.length);
       this.highlight(starIndex);
-      this.message(starIndex + 1)
     });
 
     this.addEventListener('mouseout', () => {
       this.value = this.value;
-      document.getElementById("myPopup").style.display = 'none';
     });
 
     this.addEventListener('click', e => {
