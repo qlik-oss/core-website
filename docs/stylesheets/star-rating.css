@@ -17,8 +17,8 @@
 .submitform {
   border-radius: 4px;
   display: none;
-  -webkit-animation: fadeOut 0.6s;
-  animation: fadeOut 0.6s;
+  -webkit-animation: fadeOut 0.5s;
+  animation: fadeOut 0.5s;
   position: absolute;
   align-content: right;
   width: 328px;
@@ -32,8 +32,12 @@
 
 .show {
   opacity: 1;
-  -webkit-animation: fadeIn 0.6s;
-  animation: fadeIn 0.6s;
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+}
+
+#margin-starbox {
+  margin-right: 20px;
 }
 
 /* Add animation (fade in the popup) */
