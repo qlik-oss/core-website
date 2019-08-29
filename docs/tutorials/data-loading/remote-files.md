@@ -63,11 +63,13 @@ services:
       CORE_S3_FILE_CONNECTOR_BUCKET_NAME: ${CORE_S3_FILE_CONNECTOR_BUCKET_NAME} # Name of the S3 bucket that the connector should target
       CORE_S3_FILE_CONNECTOR_BUCKET_ACCESS_KEY_ID: ${CORE_S3_FILE_CONNECTOR_BUCKET_ACCESS_KEY_ID} # Access key id for the S3 bucket
       CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY: ${CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY} # Access key token for the S3 bucket
+      CORE_S3_FILE_CONNECTOR_BUCKET_REGION: ${CORE_S3_FILE_CONNECTOR_BUCKET_REGION} # Region of the S3 bucket
 ```
 
 In this example we are going to use a data set from [`airports.csv`](https://github.com/qlik-oss/core-grpc-s3-file-connector/blob/master/example/airports.csv).
 This data set is present in an S3 Bucket in AWS.
 The name of the S3 bucket is configured in the example connector by passing it as an environment variable; `CORE_S3_FILE_CONNECTOR_BUCKET_NAME`.
+Set the region of the S3 bucket in the enviroment variable: `CORE_S3_FILE_CONNECTOR_BUCKET_REGION`, list of regions can be found here: https://docs.aws.amazon.com/general/latest/gr/rande.html
 To be able to access the S3 bucket the connector will also need to provide the credentials,
 which in this example is the access key id `CORE_S3_FILE_CONNECTOR_BUCKET_ACCESS_KEY_ID`
 and a secret `CORE_S3_FILE_CONNECTOR_BUCKET_SECRET_ACCESS_KEY`.
