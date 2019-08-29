@@ -11,7 +11,7 @@
 
 #stars {
   display: block;
-  width: 125px;
+  width: 100%;
 }
 
 .submitform {
@@ -34,10 +34,6 @@
   opacity: 1;
   -webkit-animation: fadeIn 0.5s;
   animation: fadeIn 0.5s;
-}
-
-#margin-starbox {
-  margin-right: 20px;
 }
 
 /* Add animation (fade in the popup) */
