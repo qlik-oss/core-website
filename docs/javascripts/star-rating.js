@@ -52,7 +52,8 @@ class StarRating extends HTMLElement {
     });
 
     this.addEventListener('click', e => {
-      document.getElementById("submitform").style.display = 'block';
+      document.getElementsByClassName("submitform")[0].style.display = 'block';
+      document.getElementsByClassName("submitform")[0].classList.toggle("show")
       let box = this.getBoundingClientRect(),
         starIndex = Math.floor((e.pageX - box.left) / box.width * this.stars.length);
       this.value = starIndex + 1;

@@ -1,8 +1,9 @@
 var box = document.querySelector("#submitform");
 
-document.addEventListener("click", function (event) {
+document.addEventListener("mousedown", function (event) {
+  if (document.getElementsByClassName("submitform")[0].classList[1] != "show") return;
   if (event.target.closest("#container")) return;
-  document.getElementById("submitform").style.display = 'none';
+  document.getElementsByClassName("submitform")[0].classList.toggle("show")
 });
 
 function submitForm() {
@@ -14,5 +15,5 @@ function submitForm() {
     }
   }
 
-  document.getElementById("submitform").style.display = 'none';
+  document.getElementsByClassName("submitform")[0].classList.toggle("show")
 }
