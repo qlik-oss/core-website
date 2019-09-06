@@ -113,7 +113,9 @@
 {% if page.title == "Pricing" %}
 <link rel="stylesheet" href="../stylesheets/pricing.css">
 {% endif %}
+
 {{ page.content }}
+
 {% if page.title == "License Registration" %}
 <div id="license-registration">
   <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
@@ -123,6 +125,71 @@
 
   </script>
   <script src="//munchkin.marketo.net/munchkin.js"></script>
+</div>
+{% endif %}
+
+{% if page.title == "Downloads" or page.title == 'Get Started' or "tutorials" in page.abs_url%}
+<script>
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function toggleModal() {
+    var modal = document.querySelector(".modal");
+    modal.classList.toggle('show-modal');
+  }
+  var modalCookie = getCookie('emailRegistered');
+
+  if (!modalCookie) {
+    function windowOnClick(event) {
+      var modal = document.querySelector(".modal");
+      if (event.target === modal) {
+        toggleModal();
+      }
+    }
+
+    window.addEventListener('click', windowOnClick);
+
+    setTimeout(function() {
+      toggleModal();
+    }, 3000);
+  }
+</script>
+
+<div class="modal">
+  <div class="modal-content">
+    <h2>Please subscribe</h2>
+    <script src="//app-abd.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_21249"></form>
+    <script>
+      MktoForms2.loadForm("//app-abd.marketo.com", "497-BMK-910", 21249, function(form) {
+        form.onSuccess(function(values, followUpUrl) {
+          setCookie('emailRegistered', 'true', 365);
+          toggleModal();
+        })
+      });
+    </script>
+    <script src="//munchkin.marketo.net/munchkin.js"></script>
+  </div>
 </div>
 {% endif %}
 
