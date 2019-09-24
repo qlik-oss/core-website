@@ -1071,6 +1071,10 @@ label.md-icon.md-search__icon {
   margin-top: 0;
 }
 
+.modal-content p {
+  margin-bottom: 1.5em;
+}
+
 .show-modal {
   opacity: 1;
   visibility: visible;
