@@ -1059,7 +1059,7 @@ label.md-icon.md-search__icon {
 .modal-content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1096,6 +1096,6 @@ label.md-icon.md-search__icon {
 
 @media screen and (max-width: 720px) {
   .modal-content {
-    width: 20rem;
+    width: 16rem;
   }
 }

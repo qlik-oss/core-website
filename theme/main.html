@@ -155,6 +155,11 @@
 
   function toggleModal() {
     var modal = document.querySelector(".modal");
+    if (modal.classList.contains('show-modal')) {
+      document.body.style.overflow = "scroll";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
     modal.classList.toggle('show-modal');
   }
   var modalCookie = getCookie('emailRegistered');
