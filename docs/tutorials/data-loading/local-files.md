@@ -138,7 +138,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start subset-of-fields
+npm start subset-of-fields.qvs
 ```
 
 The expected output is a list of airport entries consisting of only the explicitly listed headers in the CSV file.
