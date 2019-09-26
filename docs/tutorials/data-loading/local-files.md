@@ -83,7 +83,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start csv-file
+npm start csv-file.qvs
 ```
 
 The expected output is a list of airport entries based on the headers in the CSV file.
@@ -110,7 +110,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start xlsx-file
+npm start xlsx-file.qvs
 ```
 
 The expected output is a list of airport entries based on the headers in the Microsoft Excel file.
@@ -138,7 +138,7 @@ Script characteristics:
 To load the data, run the following command:
 
 ```sh
-npm start subset-of-fields
+npm start subset-of-fields.qvs
 ```
 
 The expected output is a list of airport entries consisting of only the explicitly listed headers in the CSV file.
