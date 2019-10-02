@@ -29,7 +29,7 @@ in the repository root:
 ./serve.sh
 ```
 
-This makes the generated site available [here](http://localhost:8000).
+This makes the generated site available [locally](http://localhost:8000).
 
 Once the site is running locally, modifications to sources can be made and the local web server automatically updates.
 No re-build step is needed.
