@@ -11,8 +11,8 @@ It is developed by Qlik as closed source.
 
 ## Configuration
 
-You need to configure the License service with two environment variables `LICENSES_SERIAL_NBR`
-with your LEF serial number and `LICENSES_CONTROL_NBR` with your LEF control number.
+You need to configure the License service with an environment variable `LICENSE_KEY`
+containing your signed license key.
 
 You also need to configure [Qlik Associative Engine](./qix-engine/introduction.md)
 where to find it. You can do this by passing the following command line argument to the Qlik
