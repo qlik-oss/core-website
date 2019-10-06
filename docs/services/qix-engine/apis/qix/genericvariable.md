@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericVariable
 
-_QIX methods for version 12.429.0._
+_QIX methods for version 12.477.0._
 
 ## `ApplyPatches`
 
@@ -57,6 +57,19 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qProp` | [`GenericVariableProperties`](./definitions.md#genericvariableproperties) | Information about the generic object |
+
+## `GetRawContent`
+
+Returns the raw value of a variable.
+
+
+_No parameters._
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qReturn` | string | &lt;Definition of the variable&gt; |
 
 ## `SetDualValue`
 
