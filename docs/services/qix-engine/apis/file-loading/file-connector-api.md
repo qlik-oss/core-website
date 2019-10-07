@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC File Connector API
 
-_gRPC File Connector API for version 12.429.0._
+_gRPC File Connector API for version 12.477.0._
 
 Package: **qlik.filehosting**
 

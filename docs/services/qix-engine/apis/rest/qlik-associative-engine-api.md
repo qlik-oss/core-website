@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.429.0._
+_Qlik Associative Engine API for version 12.477.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -120,6 +120,7 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | `spaceId` | query | string | false | The space id of the target app. |
 | `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app that are not available in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 | `appId` | query | string | false | The app id of the target app when source is qvw file. |
+| `fallbackName` | query | string | false | The name of the target app when source not has a specified name, applicable if source is qvw file. |
 
 **Responses**
 
@@ -745,6 +746,7 @@ _Type: object_
 | `createdDate` | string | The date and time when the app was created. |
 | `modifiedDate` | string | The date and time when the app was modified. |
 | `owner` | string | The owner of the app. |
+| `ownerId` | string | _No description._ |
 | `dynamicColor` | string | The dynamic color of the app. |
 | `published` | boolean | True if the app is published, false if not. |
 | `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
@@ -923,7 +925,6 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `owner` | string | _No description._ |
 | `ownerId` | string | _No description._ |
 
 ### `PublishApp`

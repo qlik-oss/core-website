@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.429.0._
+_QIX definitions for version 12.477.0._
 
 ## `AlfaNumString`
 
@@ -1571,6 +1571,8 @@ _No description._
 
 ## `NxPageTreeLevel`
 
+**Stability Index: Stable**
+
 _No description._
 
 | Name | Type | Default | Description |
@@ -1579,6 +1581,8 @@ _No description._
 | `qDepth` | integer | -1 | Number of dimensions to include in the tree. |
 
 ## `NxPageTreeNode`
+
+**Stability Index: Stable**
 
 Defines an area of the tree to be fetched.
 
@@ -1763,6 +1767,8 @@ _No description._
 
 ## `NxTreeDataOption`
 
+**Stability Index: Stable**
+
 Specifies all the paging filters needed to define the tree to be fetched.
 
 | Name | Type | Default | Description |
@@ -1773,7 +1779,7 @@ Specifies all the paging filters needed to define the tree to be fetched.
 
 ## `NxTreeDimensionDef`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 _No description._
 
@@ -1793,7 +1799,7 @@ _No description._
 
 ## `NxTreeDimensionInfo`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 _No description._
 
@@ -1832,7 +1838,7 @@ _No description._
 
 ## `NxTreeMultiRangeSelectInfo`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 _No description._
 
@@ -1842,6 +1848,8 @@ _No description._
 
 ## `NxTreeNode`
 
+**Stability Index: Stable**
+
 Represents a dimension in the tree.
 
 | Name | Type | Default | Description |
@@ -1849,12 +1857,12 @@ Represents a dimension in the tree.
 | `qText` | string | N/A | The text version of the value, if available. |
 | `qValue` | number | N/A | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qElemNo` | integer | N/A | Element number. |
-| `qNodeNr` | integer | N/A | A generated number applicable to this page only. Used so that children can easily identify who their parents are. |
-| `qParentNode` | integer | N/A | The qNodeNr of this node's parent for the current page. |
+| `qGroupPos` | integer | N/A | The position of this node inside it's group in the complete tree, i.e. Not dependant om what part is fetched. |
+| `qGroupSize` | integer | N/A | Nbr of nodes connected to this node on the next level of the tree. Not dependant on what part is fetched. |
 | `qRow` | integer | N/A | Row index in the data matrix.<br>The indexing starts from 0. |
 | `qType` | string | N/A | Type of the cell.<br><br>One of:<br>- V or NX_DIM_CELL_VALUE<br>- E or NX_DIM_CELL_EMPTY<br>- N or NX_DIM_CELL_NORMAL<br>- T or NX_DIM_CELL_TOTAL<br>- O or NX_DIM_CELL_OTHER<br>- A or NX_DIM_CELL_AGGR<br>- P or NX_DIM_CELL_PSEUDO<br>- R or NX_DIM_CELL_ROOT<br>- U or NX_DIM_CELL_NULL<br>- G or NX_DIM_CELL_GENERATED |
 | `qValues` | array&lt;[`NxTreeValue`](#nxtreevalue)> | N/A | The measures for this node. |
-| `qNodes` | array&lt;[`NxTreeNode`](#nxtreenode)> | N/A | The children of this node in the tree structure. |
+| `qNodes` | array&lt;[`NxTreeNode`](#nxtreenode)> | N/A | The children of this node in the fetched tree structure. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | N/A | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | N/A | Attribute dimension values. |
 | `qMaxPos` | array&lt;number> | N/A | Total of the positive values in the current group of cells. |
@@ -1862,10 +1870,11 @@ Represents a dimension in the tree.
 | `qCanExpand` | boolean | N/A | If set to true, it means that the cell can be expanded.<br>This parameter is not returned if it is set to false. |
 | `qCanCollapse` | boolean | N/A | If set to true, it means that the cell can be collapsed.<br>This parameter is not returned if it is set to false. |
 | `qState` | string | N/A | Selection State of the value.<br>The default state for a measure is L(Locked).<br><br>One of:<br>- L or LOCKED<br>- S or SELECTED<br>- O or OPTION<br>- D or DESELECTED<br>- A or ALTERNATIVE<br>- X or EXCLUDED<br>- XS or EXCL_SELECTED<br>- XL or EXCL_LOCKED<br>- NSTATES |
+| `qTreePath` | array&lt;integer> | N/A | The GroupPos of all prior nodes connected to this one, one position for each level of the tree.<br>If this node is attached directly to the root, this array is empty. |
 
 ## `NxTreeRangeSelectInfo`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 _No description._
 
@@ -1876,6 +1885,8 @@ _No description._
 | `qDimensionIx` | integer | N/A | Number of the dimension to select<br>measure from. Numbering starts from 0. |
 
 ## `NxTreeValue`
+
+**Stability Index: Stable**
 
 Represents a measure.
 
@@ -2492,7 +2503,7 @@ _No description._
 
 ## `TreeData`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 Renders the properties of a [`TreeData`](#treedata) object. Is the layout for TreeDataDef.<br>For more information about the definition of TreeData, see _Generic object_.<br>To retrieve data from the [`TreeData`](#treedata) object, use the method called GetHyperCubeTreeData.
 
@@ -2511,7 +2522,7 @@ Renders the properties of a [`TreeData`](#treedata) object. Is the layout for Tr
 
 ## `TreeDataDef`
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 Defines the properties of a [`TreeData`](#treedata) object.<br>For more information about the definition of a [`TreeData`](#treedata) object, see _Generic object_.
 

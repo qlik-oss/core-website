@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.429.0._
+_QIX methods for version 12.477.0._
 
 ## `AbortListObjectSearch`
 
@@ -320,7 +320,7 @@ _No parameters._
 
 ## `GetEffectiveProperties`
 
-Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.<br>GetEffectiveProperties method<br>Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.
+Returns the identifier, the type and the properties of the object.<br>If the object contains some soft properties, the soft properties are returned.<br>If the object is linked to another object, the properties of the linking object are returned.
 
 
 _No parameters._
@@ -465,7 +465,7 @@ Retrieves the values of a stacked pivot table. It is possible to retrieve specif
 ## `GetHyperCubeTreeData`
 
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.<br>This method works for a treedata object or a hypercube in DATA_MODE_TREE.
 
@@ -616,7 +616,7 @@ Makes multiple range selections in measures.<br> This method applies to hypercub
 ## `MultiRangeSelectTreeDataValues`
 
 
-**Stability Index: Experimental**
+**Stability Index: Stable**
 
 _No details._
 
