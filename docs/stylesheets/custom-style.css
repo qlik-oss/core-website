@@ -191,7 +191,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #2D4A59;
-  background-image: url("../images/marketing-background-2.jpg");
+  background-image: url("../images/marketing-background.jpg");
   -webkit-animation: fadein 1s;
   /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s;
@@ -312,7 +312,7 @@
     padding-top: 17px;
     margin: 0;
   }
-  
+
   .md-logo img {
     height: auto;
     width: 180px;
