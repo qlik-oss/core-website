@@ -2,7 +2,7 @@ site_name: Qlik Core
 
 theme:
   name: 'material'
-  logo: '/images/qlik-core-logo-color.svg'
+  logo: '/images/qlik-logo-color.svg'
   custom_dir: 'theme'
   favicon: 'images/favicon.ico'
   font:
