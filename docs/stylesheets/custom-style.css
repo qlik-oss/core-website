@@ -298,7 +298,7 @@
 
   .md-logo img {
     height: auto;
-    width: 225px;
+    width: 180px;
     position: absolute;
   }
 }
@@ -453,7 +453,8 @@ h1 span {
 }
 
 .md-logo {
-  padding: 10px;
+  padding-left: 10px;
+  padding-top: 17px;
   margin: 0;
 }
 
