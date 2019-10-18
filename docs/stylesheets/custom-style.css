@@ -231,7 +231,18 @@
 
   .md-logo img {
     height: auto;
-    width: 200px;
+    width: 100px;
+  }
+
+  .md-logo {
+    padding-left: 5px;
+    padding-top: 0px;
+    margin: 0;
+  }
+
+  .nav-logo-text {
+    padding-left: 10px;
+    padding-bottom: 10px;
   }
 
   .md-logo-mobile {
@@ -296,6 +307,12 @@
     height: 600px;
   }
 
+  .md-logo {
+    padding-left: 10px;
+    padding-top: 17px;
+    margin: 0;
+  }
+  
   .md-logo img {
     height: auto;
     width: 180px;
@@ -453,8 +470,6 @@ h1 span {
 }
 
 .md-logo {
-  padding-left: 10px;
-  padding-top: 17px;
   margin: 0;
 }
 
@@ -698,7 +713,6 @@ h1 span {
     margin-top: -15px;
     margin-right: 0.8rem;
     margin-bottom: 0px;
-    margin-left: 0.8rem;
   }
 }
 
@@ -786,6 +800,7 @@ li {
 
   html .md-nav--primary .md-nav__title--site .md-nav__button {
     width: 13.4rem;
+    font-size:0px;
   }
 }
 
