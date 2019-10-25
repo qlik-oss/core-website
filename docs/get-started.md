@@ -1,7 +1,14 @@
 # Get Started
 
 To get started with Qlik Core and Qlik Associative Engine, and to learn the basic concepts,
-we provide a number of examples and tutorials.
+we provide a number of tools, examples and tutorials.
+
+You can explore and play around with the
+[core-experimenter](https://experimenter.qlik.dev/), a tool which showcases the Qlik Associative Engine's selection
+model and how this affects the data model. For a more in depth walkthrough of the Qlik Associative Engine, take a look
+at the  [engine tutorial]( https://developer.qlik.com/knowledge/tutorial/engineTutorial) on
+[Qlik Branch](https://developer.qlik.com).
+
 We created three learning paths to introduce different concepts step by step.
 
 Many of the tutorials contain runnable examples.
