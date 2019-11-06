@@ -11,7 +11,7 @@ Markdown files are organized in the same way as the generated site is organized.
 Currently the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme is used but this shall be changes
 to a theme matches Qlik branding.
 
-For the generated site, see [core.qlik.com](https://core.qlik.com).
+For the generated site, visit [core.qlik.com](https://core.qlik.com).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ in the repository root:
 ./serve.sh
 ```
 
-This makes the generated site available [here](http://localhost:8000).
+This makes the generated site available [locally](http://localhost:8000).
 
 Once the site is running locally, modifications to sources can be made and the local web server automatically updates.
 No re-build step is needed.
