@@ -11,15 +11,15 @@ URLS=$(grep -Eroih '=\"(http|https)://[^ "]+' --include '*.html' --include '*.cs
 # echo "Following URLS found: $URLS"
 
 for url in $URLS
-do 
-  if [[ $url == *"localhost"* || $url == *"gstatic"* || $url == *"google-analytics"* || $url == *"googletagmanager"* ]]; then
+do
+  if [[ $url == *"localhost"* || $url == *"gstatic"* || $url == *"google-analytics"* || $url == *"googletagmanager"* || $url == *"zlib.net"* ]]; then
     echo "# Skipping: $url"
   elif curl -s -L -f -I -k -o /dev/null "$url"; then
     echo "   Working: $url"
   else
     echo "!   Broken: $url"
     STATUS=1
-  fi 
+  fi
 done
 
 if [ "$STATUS" -eq "1" ]; then
