@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.477.0._
+_QIX definitions for version 12.515.0._
 
 ## `AlfaNumString`
 
@@ -102,7 +102,7 @@ _No description._
 | `qFieldFlag` | boolean | N/A | If set to true, the definition is related to a field.<br>This parameter is optional. The default value is false. |
 | `qMT` | string | N/A | Type of the data.<br><br>One of:<br>- N or NOT_META<br>- D or META_DOC_NAME<br>- R or META_RET_TYPE<br>- V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | N/A | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
-| `qFGList` | undefined | N/A | List of groups the function belongs to. |
+| `qFGList` | array&lt;undefined> | N/A | List of groups the function belongs to. |
 
 ## `BookmarkFieldItem`
 
@@ -951,6 +951,7 @@ In addition, this structure can return dynamic properties.
 | `qHasData` | boolean | N/A | Is set to true if the app contains data following a script reload. |
 | `qReadOnly` | boolean | N/A | If set to true, it means that the app is read-only. |
 | `qIsOpenedWithoutData` | boolean | N/A | If set to true, it means that the app was opened without loading its data. |
+| `qIsSessionApp` | boolean | N/A | If set to true, the app is a Session App, i.e. not persistent. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | N/A | App thumbnail. |
 
 ## `NxAppProperties`
@@ -1518,6 +1519,7 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the measure is s
 | `qAttributeDimensions` | array&lt;[`NxAttrDimDef`](#nxattrdimdef)> | N/A | List of attribute dimensions. |
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | N/A | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | N/A | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
+| `qTrendLines` | array&lt;[`NxTrendlineDef`](#nxtrendlinedef)> | N/A | Specifies trendlines for this measure. |
 
 ## `NxMeasureInfo`
 
@@ -1539,6 +1541,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qAttrDimInfo` | array&lt;[`NxAttrDimInfo`](#nxattrdiminfo)> | N/A | List of attribute dimensions. |
 | `qCalcCondMsg` | string | N/A | The message displayed if calculation condition is not fulfilled. |
 | `qLibraryId` | string | N/A | Refers to a dimension stored in the library. |
+| `qTrendLines` | array&lt;[`NxTrendline`](#nxtrendline)> | N/A | Calculated trendlines |
 
 ## `NxMeta`
 
@@ -1896,6 +1899,37 @@ Represents a measure.
 | `qValue` | number | N/A | Value of the cell.<br>Is set to _NaN_ , if the value is not a number. |
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | N/A | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | N/A | Attribute dimension values. |
+
+## `NxTrendline`
+
+**Stability Index: Stable**
+
+Information about the calculated trendline.
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qType` | string | N/A | Type of trendline<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL or Polynomial<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
+| `qSolvedDegree` | integer | N/A | Degree that was solved. |
+| `qError` | [`NxValidationError`](#nxvalidationerror) | N/A | This parameter is optional and is displayed in case of error. |
+| `qCoeff` | array&lt;number> | N/A | Coefficent c0..cN depending on the trendline type. |
+| `qR2` | number | N/A | R2 score. Value between 0..1 that shows the correlation between the trendline and the data. Higher value means higher correlation. |
+| `qExpression` | string | N/A | Trendline expression |
+| `qElemNo` | integer | N/A | Inner Dim elem no |
+
+## `NxTrendlineDef`
+
+**Stability Index: Stable**
+
+Trendline input definition
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qType` | string | N/A | The type of trendline to calculate<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL or Polynomial<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
+| `qPolynomialDegree` | integer | N/A | For a polynomial type the degree can be between 2..4 |
+| `qXColIx` | integer | -1 | The column in the hypercube to be used as x axis. Can point to either a dimension (numeric or text) or a measure |
+| `qCalcR2` | boolean | N/A | Set to true to calulatate the R2 score |
+| `qContinuousXAxis` | string | CONTINUOUS_NEVER | Set if the numerical value of x axis dimension should be used<br><br>One of:<br>- Never or CONTINUOUS_NEVER<br>- Possible or CONTINUOUS_IF_POSSIBLE |
+| `qMultiDimMode` | string | TRENDLINE_MULTILINE | If you have a hypercube with two dimensions and qXColIx refers to a dimension<br>This determines if you get one trendline of each value in the other dimension or<br>Or trendline based on the sum of the value in the other dimension<br>The sum variant is only supported when qXColIx is 0 and qMode (on the hypercube) is K or T<br><br>One of:<br>- Multi or TRENDLINE_MULTILINE<br>- Sum or TRENDLINE_SUM |
 
 ## `NxValidationError`
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.477.0._
+_Qlik Associative Engine API for version 12.515.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -115,11 +115,12 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 
 | Parameter | In | Type | Mandatory | Description |
 | --------- | -- | ---- | --------- | ----------- |
-| `filedata` | body | [FileData](#filedata) | true | Path of the source app. |
+| `filedata` | body | [FileData](#filedata) | false | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
 | `spaceId` | query | string | false | The space id of the target app. |
 | `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app that are not available in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
 | `appId` | query | string | false | The app id of the target app when source is qvw file. |
+| `fileId` | query | string | false | The file id to be downloaded from TCS and used during import. |
 | `fallbackName` | query | string | false | The name of the target app when source not has a specified name, applicable if source is qvw file. |
 
 **Responses**
@@ -833,6 +834,7 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `cpu_time_spent_ms` | integer | Number of CPU milliseconds it took to reload the app. |
 | `hardware` | [HardwareMeta](#hardwaremeta) | Hardware available for the engine doing the reload. |
+| `peak_memory_bytes` | integer | Max number of bytes used during reload of the app. |
 
 ### `HardwareMeta`
 
