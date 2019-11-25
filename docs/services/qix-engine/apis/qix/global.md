@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.477.0._
+_QIX methods for version 12.515.0._
 
 ## `AbortAll`
 
@@ -744,6 +744,24 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | &lt;true or false&gt; |
+
+## `SaveAs`
+
+Save a copy of an app with a different name.<br>Can be used to save a session app as an ordinary app.
+
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qNewAppName` | string | Yes | &lt;Name of the saved app&gt; |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qNewAppId` | string | &lt;Identifier of the saved app&gt; |
 
 ## `ShutdownProcess`
 
