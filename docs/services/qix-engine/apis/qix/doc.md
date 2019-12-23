@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.515.0._
+_QIX methods for version 12.538.0._
 
 ## `AbortModal`
 
@@ -756,6 +756,23 @@ Expands the expression.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qExpandedExpression` | string | The expanded expression string. |
+
+## `ExportReducedData`
+
+Applies a bookmark to reduce (slice) the data on. Returns a url and file size to the reduced application. Section Access is always applied.<br>This API is only available on Sense Enterprice on Windows
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qOptions` | [`NxDownloadOptions`](./definitions.md#nxdownloadoptions) | No | BookmarkId used to reduced the app on and an expire time. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qDownloadInfo` | [`NxDownloadInfo`](./definitions.md#nxdownloadinfo) | Result containing the URL to download the exported file and the size of the file. |
 
 ## `FindMatchingFields`
 

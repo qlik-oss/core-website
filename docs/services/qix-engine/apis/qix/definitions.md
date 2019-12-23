@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.515.0._
+_QIX definitions for version 12.538.0._
 
 ## `AlfaNumString`
 
@@ -1092,7 +1092,7 @@ _No description._
 | ---- | ---- | ------- | ----------- |
 | `qText` | string | N/A | Some text.<br>This parameter is optional. |
 | `qNum` | number | N/A | A value.<br>This parameter is optional. |
-| `qElemNumber` | integer | N/A | Rank number of the value, starting from 0.<br>If the element number is a negative number, it means that the returned value is not an element number.<br>You can get the following negative values:<br>- -1: the cell is a _Total_ cell. It shows a total.<br>- -2: the cell is collapsed. Applies to pivot tables.<br>- -3: the cell belongs to the group _Others_ .<br>- -4: the cell is empty. Applies to pivot tables. |
+| `qElemNumber` | integer | N/A | Rank number of the value, starting from 0.<br>If the element number is a negative number, it means that the returned value is not an element number.<br>You can get the following negative values:<br>- -1: the cell is a _Total_ cell. It shows a total.<br>- -2: the cell is a _Null_ cell.<br>- -3: the cell belongs to the group _Others_ .<br>- -4: the cell is empty. Applies to pivot tables. |
 | `qState` | string | N/A | State of the value.<br>The default state for a measure is L.<br><br>One of:<br>- L or LOCKED<br>- S or SELECTED<br>- O or OPTION<br>- D or DESELECTED<br>- A or ALTERNATIVE<br>- X or EXCLUDED<br>- XS or EXCL_SELECTED<br>- XL or EXCL_LOCKED<br>- NSTATES |
 | `qIsEmpty` | boolean | N/A | Is set to _true_ , if **qText** and **qNum** are empty.<br>This parameter is optional. The default value is _false_ . |
 | `qIsTotalCell` | boolean | N/A | Is set to _true_ if a total is displayed in the cell.<br>This parameter is optional. The default value is _false_ .<br>Not applicable to list objects. |
@@ -1286,6 +1286,24 @@ _No description._
 | `qIsOneAndOnlyOne` | boolean | N/A | If set to true, it means that the field always has one and only one selected value. |
 | `qCardinalities` | [`NxCardinalities`](#nxcardinalities) | N/A | Dimension Cardinalities |
 | `qLibraryId` | string | N/A | Refers to a dimension stored in the library. |
+
+## `NxDownloadInfo`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qUrl` | string | N/A | URL to download the reduced app on. |
+| `qFileSize` | integer | -1 | The filesize of the reduced app. |
+
+## `NxDownloadOptions`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qBookmarkId` | string | N/A | Bookmark Id to apply before reducing the application. |
+| `qExpires` | integer | 3600 | Time in seconds for how long the download link is valid. |
 
 ## `NxEngineVersion`
 
@@ -1902,14 +1920,13 @@ Represents a measure.
 
 ## `NxTrendline`
 
-**Stability Index: Stable**
+**Stability Index: Experimental**
 
 Information about the calculated trendline.
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `qType` | string | N/A | Type of trendline<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL or Polynomial<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
-| `qSolvedDegree` | integer | N/A | Degree that was solved. |
+| `qType` | string | N/A | Type of trendline<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL2 or Polynomial2<br>- POLYNOMIAL3 or Polynomial3<br>- POLYNOMIAL4 or Polynomial4<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
 | `qError` | [`NxValidationError`](#nxvalidationerror) | N/A | This parameter is optional and is displayed in case of error. |
 | `qCoeff` | array&lt;number> | N/A | Coefficent c0..cN depending on the trendline type. |
 | `qR2` | number | N/A | R2 score. Value between 0..1 that shows the correlation between the trendline and the data. Higher value means higher correlation. |
@@ -1918,17 +1935,16 @@ Information about the calculated trendline.
 
 ## `NxTrendlineDef`
 
-**Stability Index: Stable**
+**Stability Index: Experimental**
 
 Trendline input definition
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `qType` | string | N/A | The type of trendline to calculate<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL or Polynomial<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
-| `qPolynomialDegree` | integer | N/A | For a polynomial type the degree can be between 2..4 |
+| `qType` | string | N/A | The type of trendline to calculate<br><br>One of:<br>- AVERAGE or Average<br>- LINEAR or Linear<br>- POLYNOMIAL2 or Polynomial2<br>- POLYNOMIAL3 or Polynomial3<br>- POLYNOMIAL4 or Polynomial4<br>- EXPONENTIAL or Exponential<br>- POWER or Power<br>- LOG or Logarithmic |
 | `qXColIx` | integer | -1 | The column in the hypercube to be used as x axis. Can point to either a dimension (numeric or text) or a measure |
 | `qCalcR2` | boolean | N/A | Set to true to calulatate the R2 score |
-| `qContinuousXAxis` | string | CONTINUOUS_NEVER | Set if the numerical value of x axis dimension should be used<br><br>One of:<br>- Never or CONTINUOUS_NEVER<br>- Possible or CONTINUOUS_IF_POSSIBLE |
+| `qContinuousXAxis` | string | CONTINUOUS_NEVER | Set if the numerical value of x axis dimension should be used<br><br>One of:<br>- Never or CONTINUOUS_NEVER<br>- Possible or CONTINUOUS_IF_POSSIBLE<br>- Time or CONTINUOUS_IF_TIME |
 | `qMultiDimMode` | string | TRENDLINE_MULTILINE | If you have a hypercube with two dimensions and qXColIx refers to a dimension<br>This determines if you get one trendline of each value in the other dimension or<br>Or trendline based on the sum of the value in the other dimension<br>The sum variant is only supported when qXColIx is 0 and qMode (on the hypercube) is K or T<br><br>One of:<br>- Multi or TRENDLINE_MULTILINE<br>- Sum or TRENDLINE_SUM |
 
 ## `NxValidationError`
