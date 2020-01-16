@@ -1,3 +1,10 @@
+---
+title: Qlik Core Get started
+description: Get started with qlik-core
+path: /qlik-core
+tags: hello
+category: overview
+---
 # Get Started
 
 To get started with Qlik Core and Qlik Associative Engine, and to learn the basic concepts,
