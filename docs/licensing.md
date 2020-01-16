@@ -1,3 +1,10 @@
+---
+title: Licensing model
+description: licensing qlik-core
+path: /qlik-core
+tags: hello
+category: overview
+---
 <h1>Pricing</h1>
 <p>There are currently three options for using Qlik Core — two for evaluation and one for production.
 These are outlined below.</p>
