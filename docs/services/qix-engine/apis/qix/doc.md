@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.538.0._
+_QIX methods for version 12.556.0._
 
 ## `AbortModal`
 
@@ -264,6 +264,26 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qProp` | [`GenericBookmarkProperties`](./definitions.md#genericbookmarkproperties) | Yes | Properties for the object. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qInfo` | [`NxInfo`](./definitions.md#nxinfo) | Information about the bookmark. |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | Generic bookmark |
+
+## `CreateBookmarkEx`
+
+Creates a bookmark with softpatches.
+
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qProp` | [`GenericBookmarkProperties`](./definitions.md#genericbookmarkproperties) | Yes | Properties for the object. |
+| `qObjectIdsToPatch` | array | No | Add softpatches for this objects if available. If empty all softpatches are added to the bookmark. |
 
 **Returns:**
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.538.0._
+_QIX definitions for version 12.556.0._
 
 ## `AlfaNumString`
 
@@ -103,6 +103,7 @@ _No description._
 | `qMT` | string | N/A | Type of the data.<br><br>One of:<br>- N or NOT_META<br>- D or META_DOC_NAME<br>- R or META_RET_TYPE<br>- V or META_DEFAULT_VALUE |
 | `qDepr` | boolean | N/A | Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).<br>If set to true, the script statement or the function is not recommended for use in Qlik Sense.<br>This parameter is optional. The default value is false. |
 | `qFGList` | array&lt;undefined> | N/A | List of groups the function belongs to. |
+
 
 ## `BookmarkFieldItem`
 
@@ -428,6 +429,15 @@ _No description._
 | `qLine` | string | N/A | Script statement where the error occurs. |
 | `qErrorDataCode` | string | N/A | Type of the error messages.<br><br>One of:<br>- EDC_ERROR<br>- EDC_WARNING<br>- EDC_CIRCULAR_REFERENCE |
 | `qMessage` | [`ProgressMessage`](#progressmessage) | N/A | _No description._ |
+
+## `ExpansionData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qExcludeList` | boolean | N/A | _No description._ |
+| `qPos` | [`PositionMark`](#positionmark) | N/A | _No description._ |
 
 ## `ExtensionList`
 
@@ -807,6 +817,7 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qTitle` | [`StringExpr`](#stringexpr) | N/A | Title of the hypercube, for example the title of a chart. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | N/A | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qColumnOrder` | array&lt;integer> | N/A | The order of the columns. |
+| `qExpansionState` | array&lt;[`ExpansionData`](#expansiondata)> | N/A | Expansion state per dimension for pivot mode ( _qMode_ is P). |
 
 ## `InteractDef`
 
@@ -1064,6 +1075,7 @@ _No description._
 | `qStateData` | array&lt;[`AlternateStateData`](#alternatestatedata)> | N/A | List of selections for each state. |
 | `qUtcModifyTime` | number | N/A | Time when the bookmark was created. |
 | `qVariableItems` | array&lt;[`BookmarkVariableItem`](#bookmarkvariableitem)> | N/A | List of the variables in the app at the time the bookmark was created. |
+| `qPatches` | array&lt;[`NxPatches`](#nxpatches)> | N/A | Softpatches to be applied with this bookmark. |
 
 ## `NxCalcCond`
 
@@ -1622,6 +1634,16 @@ _No description._
 | `qPath` | string | N/A | Path to the property to add, remove or replace. |
 | `qValue` | string | N/A | This parameter is not used in a remove operation.<br>Corresponds to the value of the property to add or to the new value of the property to update.<br>Examples:<br>"false", "2", "\"New title\"" |
 
+## `NxPatches`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qInfo` | [`NxInfo`](#nxinfo) | N/A | Identifier and type of the object. |
+| `qPatches` | array&lt;[`NxPatch`](#nxpatch)> | N/A | Array with patches. |
+| `qChildren` | array&lt;[`NxPatches`](#nxpatches)> | N/A | Array with child objects and their patches. |
+
 ## `NxPivotDimensionCell`
 
 _No description._
@@ -2058,6 +2080,16 @@ _No description._
 | `qx` | integer | N/A | x-coordinate in pixels.<br>The origin is the top left of the screen. |
 | `qy` | integer | N/A | y-coordinate in pixels.<br>The origin is the top left of the screen. |
 
+## `PositionMark`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qDimName` | string | N/A | _No description._ |
+| `qElemNo` | array&lt;integer> | N/A | _No description._ |
+| `qElemValues` | array&lt;[`Blob`](#blob)> | N/A | _No description._ |
+
 ## `ProgressData`
 
 _No description._
@@ -2242,7 +2274,7 @@ _No description._
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `qText` | string | N/A | Search match value.<br>Value of the search group item.<br>If the match is found in a field, it corresponds to the value of the field.<br>If the match is found in a generic object property, it corresponds to the property value. |
-| `qFieldSelectionMode` | undefined | N/A | Selection mode of a field.<br>Suppressed by default. One and always one field value is selected when set to _OneAndOnlyOne_. |
+| `qFieldSelectionMode` | string | N/A | Selection mode of a field.<br>Suppressed by default. One and always one field value is selected when set to _OneAndOnlyOne_. |
 | `qRanges` | array&lt;[`SearchCharRange`](#searchcharrange)> | N/A | List of ranges.<br>For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make. |
 | `qAttributes` | array&lt;[`SearchAttribute`](#searchattribute)> | N/A | Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_<br>If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.<br>For _SearchObjects_ requested with _qProperty_ , the _SearchGroupItemMatch.qAttributes_ return value contains _[“qProperty”, "qMetaDef/title”]_ if the match has been found in the title of the item. For dimension values, the returned _qProperty_ will be _“*”_ .<br>For _SearchResults_ requested with _qNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qNum", N]_ where _N_ is the numeric value of the element or _NaN_ if the value is not numeric.<br>For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element. |
 
