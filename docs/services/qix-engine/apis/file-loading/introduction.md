@@ -29,7 +29,7 @@ An example on how it can be configured in a `docker-compose` file:
 
 ```yaml
 qix-engine:
-    image: qlikcore/engine:12.538.0
+    image: qlikcore/engine:12.556.0
     ports:
       - 9076:9076
     command: -S AcceptEULA=${ACCEPT_EULA} -S EnableGrpcFileStreamConnector=1 -S GrpcConnectorPlugins="s3-grpc-file-connector,s3-grpc-file-connector:50051,fs"
