@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericBookmark
 
-_QIX methods for version 12.538.0._
+_QIX methods for version 12.556.0._
 
 ## `Apply`
 
