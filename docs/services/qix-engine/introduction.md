@@ -78,6 +78,11 @@ In addition to the command line parameters above
 it is also possible to increase or decrease log level on different Qlik Associative Engine logging types.
 The logging types and levels is in more detail described in the [Logging section](./logging.md).
 
+## User and group management
+
+The Qlik Associative Engine Docker runs as user and group `1910:1910`. You can read more about using a unique UID/GID
+in [dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user).
+
 ## Load Script Reference
 
 To load and model data the Qlik Associative Engine uses a load script syntax
