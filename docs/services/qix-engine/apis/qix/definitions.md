@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.556.0._
+_QIX definitions for version 12.612.0._
 
 ## `AlfaNumString`
 
@@ -964,6 +964,7 @@ In addition, this structure can return dynamic properties.
 | `qIsOpenedWithoutData` | boolean | N/A | If set to true, it means that the app was opened without loading its data. |
 | `qIsSessionApp` | boolean | N/A | If set to true, the app is a Session App, i.e. not persistent. |
 | `qThumbnail` | [`StaticContentUrl`](#staticcontenturl) | N/A | App thumbnail. |
+| `qIsBDILiveMode` | boolean | N/A | If set to true, the app is in BDI Live mode. |
 
 ## `NxAppProperties`
 
@@ -1011,6 +1012,7 @@ _No description._
 | `qExpression` | string | N/A | Definition of the attribute expression.<br>Example: _"Max(OrderID)"_ |
 | `qLibraryId` | string | N/A | Definition of the attribute expression stored in the library.<br>Example: _"MyGenericMeasure"_ |
 | `qAttribute` | boolean | N/A | If set to true, this measure will not affect the number of rows in the cube. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | N/A | Format of the field.<br>This parameter is optional. |
 
 ## `NxAttrExprInfo`
 
@@ -1023,6 +1025,8 @@ Layout for [`NxAttrExprDef`](#nxattrexprdef).
 | `qFallbackTitle` | string | N/A | _No description._ |
 | `qMinText` | string | N/A | String version of the minimum Value. |
 | `qMaxText` | string | N/A | String version of the maximum Value. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | N/A | Format of the field.<br>This parameter is optional. |
+| `qIsAutoFormat` | boolean | N/A | This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's expression. |
 
 ## `NxAttributeDimValues`
 
@@ -2620,6 +2624,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | N/A | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the [`TreeData`](#treedata) is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qTitle` | [`StringExpr`](#stringexpr) | N/A | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
 | `qInitialDataFetch` | array&lt;[`NxTreeDataOption`](#nxtreedataoption)> | N/A | Initial data set.<br>This property is optional. |
+| `qExpansionState` | array&lt;[`ExpansionData`](#expansiondata)> | N/A | Expansion state per dimension. |
 
 ## `UndoInfo`
 

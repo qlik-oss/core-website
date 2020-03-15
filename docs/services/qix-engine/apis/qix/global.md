@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.556.0._
+_QIX methods for version 12.612.0._
 
 ## `AbortAll`
 
@@ -746,6 +746,9 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | `qSuccess` | boolean | &lt;true or false&gt; |
 
 ## `SaveAs`
+
+!!! warning "Deprecated"
+    Use Document [`SaveAs`](#saveas) method instead
 
 Save a copy of an app with a different name.<br>Can be used to save a session app as an ordinary app.
 

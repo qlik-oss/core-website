@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.556.0._
+_Qlik Associative Engine API for version 12.612.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -871,6 +871,7 @@ _Type: object_
 | `comment` | string | Field comment. |
 | `tags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field. Examples: key, text, ASCII. |
 | `byte_size` | integer | Static RAM memory used in bytes. |
+| `hash` | string | Hash of the data in the field. If the data in a reload is the same, the hash will be consistent. |
 
 ### `TableMetadata`
 
