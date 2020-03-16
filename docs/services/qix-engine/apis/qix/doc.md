@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.556.0._
+_QIX methods for version 12.612.0._
 
 ## `AbortModal`
 
@@ -1797,6 +1797,24 @@ Resumes the app as the user left it.
 _No parameters._
 
 _No return values._
+
+## `SaveAs`
+
+Save a copy of an app with a different name.<br>Can be used to save a session app as an ordinary app.
+
+Required permissions: [`create`](https://core.qlik.com/services/qix-engine/access-control/#actions)
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qNewAppName` | string | Yes | &lt;Name of the saved app&gt; |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qNewAppId` | string | &lt;Identifier of the saved app&gt; |
 
 ## `SaveObjects`
 
