@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.612.0._
+_QIX definitions for version 12.657.0._
 
 ## `AlfaNumString`
 
@@ -1013,6 +1013,8 @@ _No description._
 | `qLibraryId` | string | N/A | Definition of the attribute expression stored in the library.<br>Example: _"MyGenericMeasure"_ |
 | `qAttribute` | boolean | N/A | If set to true, this measure will not affect the number of rows in the cube. |
 | `qNumFormat` | [`FieldAttributes`](#fieldattributes) | N/A | Format of the field.<br>This parameter is optional. |
+| `qLabel` | string | N/A | Label of the attribute expression. |
+| `qLabelExpression` | string | N/A | Optional expression used for dynamic label. |
 
 ## `NxAttrExprInfo`
 
@@ -1118,6 +1120,7 @@ _No description._
 | `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | N/A | Attribute expression values. |
 | `qAttrDims` | [`NxAttributeDimValues`](#nxattributedimvalues) | N/A | Attribute dimensions values. |
 | `qIsNull` | boolean | N/A | Is set to _true_ if the value is Null. |
+| `qMiniChart` | [`NxMiniChartData`](#nxminichartdata) | N/A | _No description._ |
 
 ## `NxCellPosition`
 
@@ -1554,6 +1557,7 @@ Either **qDef** or **qLibraryId** must be set, but not both. If the measure is s
 | `qCalcCond` | [`ValueExpr`](#valueexpr) | N/A | Specifies a calculation condition, which must be fulfilled for the measure to be calculated.<br>If the calculation condition is not met, the measure is excluded from the calculation.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qCalcCondition` | [`NxCalcCond`](#nxcalccond) | N/A | Specifies a calculation condition object.<br>If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.<br>By default, there is no calculation condition.<br>This property is optional. |
 | `qTrendLines` | array&lt;[`NxTrendlineDef`](#nxtrendlinedef)> | N/A | Specifies trendlines for this measure. |
+| `qMiniChartDef` | [`NxMiniChartDef`](#nxminichartdef) | N/A | _No description._ |
 
 ## `NxMeasureInfo`
 
@@ -1576,6 +1580,7 @@ Layout for [`NxInlineMeasureDef`](#nxinlinemeasuredef).
 | `qCalcCondMsg` | string | N/A | The message displayed if calculation condition is not fulfilled. |
 | `qLibraryId` | string | N/A | Refers to a dimension stored in the library. |
 | `qTrendLines` | array&lt;[`NxTrendline`](#nxtrendline)> | N/A | Calculated trendlines |
+| `qMiniChart` | [`NxMiniChart`](#nxminichart) | N/A | _No description._ |
 
 ## `NxMeta`
 
@@ -1584,6 +1589,63 @@ Layout for [`NxMetaDef`](#nxmetadef).
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `qName` | string | N/A | Name.<br>This property is optional. |
+
+
+## `NxMiniChart`
+
+**Stability Index: Experimental**
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qYMin` | number | N/A | _No description._ |
+| `qYMax` | number | N/A | _No description._ |
+| `qXMin` | number | N/A | _No description._ |
+| `qXMax` | number | N/A | _No description._ |
+| `qAttrExprInfo` | array&lt;[`NxAttrExprInfo`](#nxattrexprinfo)> | N/A | List of attribute expressions. |
+| `qError` | [`NxValidationError`](#nxvalidationerror) | N/A | This parameter is optional and is displayed in case of error. |
+
+## `NxMiniChartCell`
+
+**Stability Index: Experimental**
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qText` | string | N/A | Some text. |
+| `qNum` | number | N/A | A value.<br>This parameter is optional. |
+| `qElemNumber` | integer | N/A | Rank number of the value, starting from 0.<br>If the element number is a negative number, it means that the returned value is not an element number.<br>You can get the following negative values:<br>- -1: the cell is a _Total_ cell. It shows a total.<br>- -2: the cell is a _Null_ cell.<br>- -3: the cell belongs to the group _Others_ .<br>- -4: the cell is empty. Applies to pivot tables. |
+| `qAttrExps` | [`NxAttributeExpressionValues`](#nxattributeexpressionvalues) | N/A | Attribute expressions values. |
+
+## `NxMiniChartData`
+
+**Stability Index: Experimental**
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qMatrix` | array&lt;[`NxMiniChartRows`](#nxminichartrows)> | N/A | Array of data. |
+| `qMin` | number | N/A | _No description._ |
+| `qMax` | number | N/A | _No description._ |
+| `qError` | [`NxValidationError`](#nxvalidationerror) | N/A | This parameter is optional and is displayed in case of error. |
+
+## `NxMiniChartDef`
+
+**Stability Index: Experimental**
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qDef` | string | N/A | Expression or field name. |
+| `qLibraryId` | string | N/A | LibraryId for dimension. |
+| `qSortBy` | [`SortCriteria`](#sortcriteria) | N/A | Sorting. |
+| `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | N/A | _No description._ |
+| `qMaxNumberPoints` | integer | -1 | _No description._ |
+| `qAttributeExpressions` | array&lt;[`NxAttrExprDef`](#nxattrexprdef)> | N/A | List of attribute expressions. |
 
 
 ## `NxMultiRangeSelectInfo`
