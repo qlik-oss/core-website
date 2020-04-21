@@ -12,6 +12,7 @@ URLS=$(grep -Eroih '=\"(http|https)://[^ "]+' --include '*.html' --include '*.cs
 
 for url in $URLS
 do
+  sleep 0.1 # Short delay between checks to avoid 429 Too many requests responses
   if [[ $url == *"localhost"* || $url == *"gstatic"* || $url == *"google-analytics"* || $url == *"googletagmanager"* || $url == *"zlib.net"* || $url == *"ampl.com"* ]]; then
     echo "# Skipping: $url"
   elif curl -s -L -f -I -k -o /dev/null "$url"; then
