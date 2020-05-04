@@ -50,7 +50,7 @@ Qlik Core includes a suite of APIs, License Service and the Qlik Associative Eng
 Applications may be built using these APIs. The function of the License Service is to unlock the
 Engine and collect usage metrics.
 
-For more details on the licensing and pricing model please 
+For more details on the licensing and pricing model please
 <a href="https://www.qlik.com/us/try-or-buy/buy-now?CampaignID=7013z000000ijcR" target="_new">
 contact us.</a>
 
