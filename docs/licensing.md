@@ -1,5 +1,5 @@
 <h1>Pricing</h1>
-<p>There are currently three options for using Qlik Core — two for evaluation and one for production.
+<p>There are currently two options for using Qlik Core — one for evaluation and one for production.
 These are outlined below.</p>
 
 <div class="md-row">
@@ -20,28 +20,11 @@ These are outlined below.</p>
             <p><span class="pricing"><a href="/get-started/">GET STARTED »</a></span></p>
         </div>
     </div>
-    <!-- Trial -->
-    <div class="cards-pricing cards-pricing-trial">
-        <div class="cards-header card-trial">
-            <h2><b>TRIAL EDITION</b></h2>
-            <p>FREE</p>
-        </div>
-        <div class="cards-middle">
-            <ul>
-                <li>No concurrent session limit</li>
-                <li>90-day expiration</li>
-                <li>Use to evaluate the scalability and load testing abilities for testing (and not commercial) purposes</li>
-            </ul>
-        </div>
-        <div class="cards-bottom card-trial">
-            <p><span class="pricing"><a href="/license-registration/">GET A TRIAL »</a></span></p>
-        </div>
-    </div>
     <!-- Enterprise -->
     <div class="cards-pricing cards-pricing-enterprise">
         <div class="cards-header card-enterprise">
             <h2><b>PRODUCTION EDITION</b></h2>
-            <p>STARTS AT <b>$360</b>/YR FOR <b>1,000</b> MINS/MO</p>
+            <p>CONTACT US FOR PRICE</p>
         </div>
         <div class="cards-middle">
             <ul>
@@ -61,30 +44,15 @@ These are outlined below.</p>
 
 # Licensing Model
 
-Please see our License Metrics for Qlik Core. The following is a summary, which is subject to change:
+Please see our License Metrics for Qlik Core.
 
 Qlik Core includes a suite of APIs, License Service and the Qlik Associative Engine (Engine).
 Applications may be built using these APIs. The function of the License Service is to unlock the
 Engine and collect usage metrics.
 
-Qlik Core is licensed as an annual subscription for a fixed quantity of minutes per month that may be consumed
-during each month of the subscription. Minutes are metered in 5 minute increments (called Core Sessions).
-The license is administered using a License Enabling File (LEF), which limits the maximum number of minutes
-during which the Engine may operate.
-
-A Core Session is triggered at the commencement of any kind of connection with the Engine JSON API subject to the following:
-
-* Each such connection will be assigned a Core Session identifier (called a Session ID)
-* Connections that commence within 5 minutes from the start of an existing Core Session with the same Session ID will
-    not trigger a new Core Session
-* Connections which are assigned different Session IDs may each trigger and consume separate Core Sessions
-
-A Connection may include, but is not limited to, a user interface or program-to-program interface.
-
-There are three options for using Qlik Core — two for evaluation (one of which includes a license)
-and one for production. These are detailed below. By downloading and using Qlik Core, you are subject
-to the [End-User License Agreement](./eula.md).
-Make sure you have read and understood this agreement before continuing.
+For more details on the licensing and pricing model please
+<a href="https://www.qlik.com/us/try-or-buy/buy-now?CampaignID=7013z000000ijcR" target="_new">
+contact us.</a>
 
 # Third Party Licenses
 
