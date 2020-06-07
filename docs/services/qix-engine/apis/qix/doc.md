@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.657.0._
+_QIX methods for version 12.700.0._
 
 ## `AbortModal`
 
@@ -917,7 +917,7 @@ Returns all bookmarks compatible with options.
 
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
-| `qOptions` | [`NxGetBookmarkOptions`](./definitions.md#nxgetbookmarkoptions) | Yes | Bookmark type filter and requested properties. |
+| `qOptions` | [`NxGetBookmarkOptions`](./definitions.md#nxgetbookmarkoptions) | Yes | [`Bookmark`](./definitions.md#bookmark) type filter and requested properties. |
 
 **Returns:**
 
@@ -1385,7 +1385,7 @@ _No parameters._
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `qv` | array&lt;string> | The list of table states |
+| `qv` | array&lt;integer> | The list of table states |
 
 ## `GetMatchingFields`
 

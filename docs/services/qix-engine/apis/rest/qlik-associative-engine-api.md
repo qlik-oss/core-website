@@ -3,77 +3,12 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.657.0._
+_Qlik Associative Engine API for version 12.700.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
 
 ## Paths
-
-### `GET /health`
-
-Checks if the Engine service is healthy.
-
-* If response code 200 is returned; engine is healthy and ready to serve requests.
-* If the setting `EnableLameDuckHealthCheck` is set to 1, response code 429 is returned
-if the engine is alive but too busy to serve new requests.
-* Other response code means that Engine is not healthy.
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Produces | application/json |
-
-**Parameters**
-
-_No parameters_
-
-
-**Responses**
-
-| Status | Description | Type |
-| ------ | ----------- | ---- |
-| `200` | OK | _No schema_ |
-
-### `GET /healthcheck`
-
-Checks if the Engine service is healthy and returns basic status information about the running instance.
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Locked |
-| Produces | application/json |
-
-**Parameters**
-
-_No parameters_
-
-
-**Responses**
-
-| Status | Description | Type |
-| ------ | ----------- | ---- |
-| `200` | OK | [HealthcheckStatus](#healthcheckstatus) |
-
-### `GET /sessions`
-
-Returns a list of active websocket sessions in engine instance.
-
-| Metadata | Value |
-| -------- | ----- |
-| Stability Index | Experimental |
-| Produces | application/json |
-
-**Parameters**
-
-_No parameters_
-
-
-**Responses**
-
-| Status | Description | Type |
-| ------ | ----------- | ---- |
-| `200` | OK | array&lt;[Session](#session)> |
 
 ### `POST /v1/apps`
 
@@ -575,119 +510,6 @@ Remove space from a specific app.
 | `200` | OK | [NxApp](#nxapp) |
 
 ## Definitions
-
-### `HealthcheckStatus`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `version` | string | _No description._ |
-| `started` | string | _No description._ |
-| `mem` | [MemoryUsage](#memoryusage) | _No description._ |
-| `cpu` | [CPUUsage](#cpuusage) | _No description._ |
-| `session` | [SessionUsage](#sessionusage) | _No description._ |
-| `apps` | [AppUsage](#appusage) | _No description._ |
-| `users` | [UserUsage](#userusage) | _No description._ |
-| `cache` | [CacheUsage](#cacheusage) | _No description._ |
-| `saturated` | boolean | _No description._ |
-
-### `MemoryUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `committed` | number | _No description._ |
-| `allocated` | number | _No description._ |
-| `free` | number | _No description._ |
-
-### `CPUUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `total` | number | _No description._ |
-
-### `SessionUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `active` | integer | _No description._ |
-| `total` | integer | _No description._ |
-
-### `AppUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `active_docs` | array&lt;string> | _No description._ |
-| `loaded_docs` | array&lt;string> | _No description._ |
-| `in_memory_docs` | array&lt;string> | _No description._ |
-| `calls` | integer | _No description._ |
-| `selections` | integer | _No description._ |
-
-### `UserUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `active` | integer | _No description._ |
-| `total` | integer | _No description._ |
-
-### `CacheUsage`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `hits` | integer | _No description._ |
-| `lookups` | integer | _No description._ |
-| `added` | integer | _No description._ |
-| `replaced` | integer | _No description._ |
-| `bytes_added` | integer | _No description._ |
-
-### `Session`
-
-_Type: object_
-
-
-**Properties**
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| `sessionid` | string | Session ID provided by client. |
-| `userid` | string | The ID of the user that created the session. |
-| `appid` | string | The ID of the app, if no app is opened on socket it will be empty. |
-| `tenantid` | string | The ID of the tenant associated with the user, only applicable in multi-tenant environments. |
-| `ttl` | integer | Configured TTL (time to live), the time a session is kept alive with no connected client. 0 by default. |
-| `state` | string | The state of the session. To be available it needs to be active. <br/>&bull; active: The session is active and available.<br/>&bull; stalled: The session has stopped and is not available. |
 
 ### `CreateApp`
 
