@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.657.0._
+_QIX definitions for version 12.700.0._
 
 ## `AlfaNumString`
 
@@ -105,6 +105,36 @@ _No description._
 | `qFGList` | array&lt;undefined> | N/A | List of groups the function belongs to. |
 
 
+## `Bookmark`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qId` | string | N/A | _No description._ |
+| `qName` | string | N/A | _No description._ |
+| `qUtcModifyTime` | number | N/A | _No description._ |
+| `qUtcRecallTime` | number | N/A | _No description._ |
+| `qRecallCount` | integer | N/A | _No description._ |
+| `qApplyAdditive` | boolean | N/A | _No description._ |
+| `qFieldItems` | array&lt;[`BookmarkFieldItem`](#bookmarkfielditem)> | N/A | _No description._ |
+| `qVariableItems` | array&lt;[`BookmarkVariableItem`](#bookmarkvariableitem)> | N/A | _No description._ |
+| `qSheetId` | string | N/A | _No description._ |
+| `qObjects` | array&lt;[`LayoutBookmarkData`](#layoutbookmarkdata)> | N/A | _No description._ |
+| `qApplyLayoutState` | boolean | N/A | _No description._ |
+| `qShowPopupInfo` | boolean | N/A | _No description._ |
+| `qInfoText` | string | N/A | _No description._ |
+| `qOwner` | string | N/A | _No description._ |
+| `qGroups` | array&lt;[`GroupBookmarkData`](#groupbookmarkdata)> | N/A | _No description._ |
+| `qShow` | [`CondDef`](#conddef) | N/A | _No description._ |
+| `qApplyInputFieldValues` | boolean | true | _No description._ |
+| `qInputFieldItems` | array&lt;[`InputFieldItem`](#inputfielditem)> | N/A | _No description._ |
+| `qObjectsLayout` | array&lt;[`ExtendedLayoutBookmarkData`](#extendedlayoutbookmarkdata)> | N/A | _No description._ |
+| `qIncludeSelectionState` | boolean | true | _No description._ |
+| `qIncludeScrollPosition` | boolean | N/A | _No description._ |
+| `qAlternateStateData` | array&lt;[`AlternateStateData`](#alternatestatedata)> | N/A | _No description._ |
+| `qForAnnotations` | boolean | N/A | _No description._ |
+
 ## `BookmarkFieldItem`
 
 _No description._
@@ -199,6 +229,15 @@ _No description._
 | `qNumber` | integer | N/A | Number of the code page. |
 | `qName` | string | N/A | Name of the code page. |
 | `qDescription` | string | N/A | Description of the code page. |
+
+## `CondDef`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qAlways` | boolean | true | _No description._ |
+| `qExpression` | [`ValueExpr`](#valueexpr) | N/A | _No description._ |
 
 ## `Connection`
 
@@ -439,6 +478,38 @@ _No description._
 | `qExcludeList` | boolean | N/A | _No description._ |
 | `qPos` | [`PositionMark`](#positionmark) | N/A | _No description._ |
 
+## `ExtendedLayoutBookmarkData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qId` | string | N/A | _No description._ |
+| `qActive` | boolean | N/A | _No description._ |
+| `qShowMode` | integer | N/A | _No description._ |
+| `qScrollPos` | [`ScrollPosition`](#scrollposition) | N/A | _No description._ |
+| `qExpansionInfo` | array&lt;[`ExpansionData`](#expansiondata)> | N/A | _No description._ |
+| `qLeftCollapsed` | boolean | N/A | _No description._ |
+| `qTopCollapsed` | boolean | N/A | _No description._ |
+| `qSortData` | array&lt;[`InterFieldSortData`](#interfieldsortdata)> | N/A | _No description._ |
+| `qDimensionGroupPos` | array&lt;[`GroupStateInfo`](#groupstateinfo)> | N/A | _No description._ |
+| `qExpressionGroupPos` | array&lt;[`GroupStateInfo`](#groupstateinfo)> | N/A | _No description._ |
+| `qUseGraphMode` | boolean | N/A | _No description._ |
+| `qGraphMode` | string | N/A | One of:<br>- GRAPH_MODE_BAR<br>- GRAPH_MODE_PIE<br>- GRAPH_MODE_PIVOTTABLE<br>- GRAPH_MODE_SCATTER<br>- GRAPH_MODE_LINE<br>- GRAPH_MODE_STRAIGHTTABLE<br>- GRAPH_MODE_COMBO<br>- GRAPH_MODE_RADAR<br>- GRAPH_MODE_GAUGE<br>- GRAPH_MODE_GRID<br>- GRAPH_MODE_BLOCK<br>- GRAPH_MODE_FUNNEL<br>- GRAPH_MODE_MEKKO<br>- GRAPH_MODE_LAST |
+| `qActiveContainerChildObjectId` | string | N/A | _No description._ |
+| `qExtendedPivotState` | [`ExtendedPivotStateData`](#extendedpivotstatedata) | N/A | _No description._ |
+
+## `ExtendedPivotStateData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qExpressionPosition` | integer | N/A | _No description._ |
+| `qNumberOfLeftDimensions` | integer | N/A | _No description._ |
+| `qDimensionNames` | array&lt;string> | N/A | _No description._ |
+| `qEnableConditions` | array&lt;string> | N/A | _No description._ |
+
 ## `ExtensionList`
 
 Obsolete, use qrs API's to fetch extensions.
@@ -629,6 +700,8 @@ _No description._
 | ---- | ---- | ------- | ----------- |
 | `qProperties` | [`GenericBookmarkProperties`](#genericbookmarkproperties) | N/A | Information about the properties of the bookmark. |
 | `qBookmark` | [`NxBookmark`](#nxbookmark) | N/A | Information about the bookmark. |
+| `qClassicBookmark` | [`Bookmark`](#bookmark) | N/A | Information about the Classic bookmark. |
+| `qClassicMetadata` | [`MetaData`](#metadata) | N/A | Information about the Classic bookmark metadata. |
 
 ## `GenericBookmarkLayout`
 
@@ -764,6 +837,24 @@ _No description._
 | `qIncludeInBookmark` | boolean | N/A | Set this property to true to update the variable when applying a bookmark. The variable value will be persisted in the bookmark.<br>The value of a variable can affect the state of the selections.<br>Script variables cannot be persisted in the bookmark.<br>The default value is false. |
 | `qDefinition` | string | N/A | Definition of the variable. |
 
+## `GroupBookmarkData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qId` | string | N/A | _No description._ |
+| `qCyclePos` | integer | N/A | _No description._ |
+
+## `GroupStateInfo`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qGroupName` | string | N/A | _No description._ |
+| `qCurrentItemName` | string | N/A | _No description._ |
+
 ## `HyperCube`
 
 Renders the properties of a hypercube. Is the layout for [`HyperCubeDef`](#hypercubedef).<br>For more information about the definition of a hypercube, see _Generic object_.<br>What is returned in [`HyperCube`](#hypercube) depends on the type of the hypercube (straight, pivot or stacked table, or tree) and on the method called (GetLayout, GetHyperCubeData, GetHyperCubePivotData, GetHyperCubeStackData, GetHyperCubeTreeData).
@@ -819,6 +910,25 @@ Defines the properties of a hypercube.<br>For more information about the definit
 | `qColumnOrder` | array&lt;integer> | N/A | The order of the columns. |
 | `qExpansionState` | array&lt;[`ExpansionData`](#expansiondata)> | N/A | Expansion state per dimension for pivot mode ( _qMode_ is P). |
 
+## `InputFieldItem`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qFieldName` | string | N/A | _No description._ |
+| `qValues` | array&lt;[`FieldValue`](#fieldvalue)> | N/A | _No description._ |
+| `qPackedHashKeys` | array&lt;integer> | N/A | _No description._ |
+
+## `InterFieldSortData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qName` | string | N/A | _No description._ |
+| `qReversed` | boolean | N/A | _No description._ |
+
 ## `InteractDef`
 
 _No description._
@@ -837,6 +947,17 @@ _No description._
 | `qResult` | integer | N/A | Not relevant for describing the requested user interaction. |
 | `qInput` | string | N/A | Is not used in Qlik Sense. |
 
+
+## `LayoutBookmarkData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qId` | string | N/A | _No description._ |
+| `qActive` | boolean | N/A | _No description._ |
+| `qShowMode` | integer | N/A | _No description._ |
+| `qScrollPos` | [`ScrollPosition`](#scrollposition) | N/A | _No description._ |
 
 
 ## `LayoutFieldInfo`
@@ -944,6 +1065,22 @@ In addition, this structure can return dynamic properties.
 | ---- | ---- | ------- | ----------- |
 | `qUrlDef` | string | N/A | Relative path to the media file. The URL is static.<br>Media files located:<br>- in the _/content/default/_ folder are outside the qvf file.<br>- in the _/media/ folder_ are embedded in the qvf file. |
 | `qUrl` | string | N/A | Relative path to the media file.<br>Media files located:<br>- in the _/content/default/_ folder are outside the qvf file.<br>- in the _/media/ folder_ are embedded in the qvf file. |
+
+## `MetaData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qShared` | boolean | N/A | _No description._ |
+| `qUtcModifyTime` | number | N/A | _No description._ |
+| `qSheetId` | string | N/A | _No description._ |
+| `qTemporary` | boolean | N/A | _No description._ |
+| `qRestrictedAccess` | boolean | N/A | _No description._ |
+| `qAccessList` | array&lt;string> | N/A | _No description._ |
+| `qPersonalEditionHash_OBSOLETE` | string | N/A | _No description._ |
+| `qHidden` | boolean | N/A | _No description._ |
+| `qLinkedTo` | array&lt;string> | N/A | _No description._ |
 
 ## `NxAppLayout`
 
@@ -1321,7 +1458,7 @@ _No description._
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `qBookmarkId` | string | N/A | Bookmark Id to apply before reducing the application. |
+| `qBookmarkId` | string | N/A | [`Bookmark`](#bookmark) Id to apply before reducing the application. |
 | `qExpires` | integer | 3600 | Time in seconds for how long the download link is valid. |
 
 ## `NxEngineVersion`
@@ -1646,6 +1783,7 @@ _No description._
 | `qOtherTotalSpec` | [`OtherTotalSpecProp`](#othertotalspecprop) | N/A | _No description._ |
 | `qMaxNumberPoints` | integer | -1 | _No description._ |
 | `qAttributeExpressions` | array&lt;[`NxAttrExprDef`](#nxattrexprdef)> | N/A | List of attribute expressions. |
+| `qNullSuppression` | boolean | N/A | If set to true, no null values are returned. |
 
 
 ## `NxMultiRangeSelectInfo`
@@ -2237,6 +2375,15 @@ _No description._
 | `qColInLine` | integer | N/A | Position of the erroneous text from the beginning of the line. |
 | `qTextPos` | integer | N/A | Position of the erroneous text from the beginning of the script. |
 | `qSecondaryFailure` | boolean | N/A | The default value is false. |
+
+## `ScrollPosition`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qUsePosition` | boolean | N/A | _No description._ |
+| `qPos` | [`Point`](#point) | N/A | _No description._ |
 
 ## `SearchAssociationResult`
 
