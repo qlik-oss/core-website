@@ -8,17 +8,8 @@ jobs:
       - run:
           name: Set edit URL
           command: grep -rl edit_uri ./mkdocs.yml | xargs sed -i "s:/master:/$CIRCLE_BRANCH:g" 
-      - run:
-          name: Lint the documentation
-          command: ./lint.sh
-      - run:
-          name: Build the site
-          command: ./build.sh
       - store_artifacts:
           path: ./site
-      - run:
-          name: Check if external links are broken
-          command: .circleci/check-external-links.sh
       - run:
           name: Sync documentation to S3 bucket
           command: |
