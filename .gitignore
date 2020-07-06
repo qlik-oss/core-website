@@ -5,7 +5,7 @@
 # Merge files (BC, KDiff3 etc.)
 *.orig
 # Site generation folder
-#site/
+site/
 .DS_Store
 
 *.new
