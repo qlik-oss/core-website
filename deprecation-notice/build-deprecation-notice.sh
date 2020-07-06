@@ -4,4 +4,4 @@ cd "$(dirname "$0")"
 
 echo "Building site into `pwd`/site/ folder."
 
-parcel build deprecation-notice/index.html -d ./site
+npm run build
