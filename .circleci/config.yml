@@ -8,10 +8,10 @@ jobs:
       - checkout
       - run:
           name: Install parcel
-          command: npm install parcel-bundler --save-dev
+          command: cd deprecation-notice && npm install 
       - run:
           name: Build the site
-          command: ./build-deprecation-notice.sh
+          command: ./deprecation-notice/build-deprecation-notice.sh
       - store_artifacts:
           path: ./site
       - run:
