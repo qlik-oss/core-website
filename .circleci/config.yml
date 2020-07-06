@@ -11,7 +11,7 @@ jobs:
           command: cd deprecation-notice && npm install 
       - run:
           name: Build the site
-          command: cd deprecation-notice && build-deprecation-notice.sh
+          command: cd deprecation-notice/ && ./build-deprecation-notice.sh
       - store_artifacts:
           path: ./site
       - run:
