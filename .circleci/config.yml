@@ -7,11 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install parcel
-          command: cd deprecation-notice && npm install 
-      - run:
           name: Build the site
-          command: cd deprecation-notice/ && ./build-deprecation-notice.sh
+          command: ./build-deprecation-notice.sh
       - store_artifacts:
           path: ./site
       - run:
