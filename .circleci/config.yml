@@ -13,7 +13,7 @@ jobs:
           path: ./site
       - run:
           name: Check if external links are broken
-          command: .circleci/check-external-links.sh      
+          command: .circleci/check-external-links.sh
       - run:
           name: Sync documentation to S3 bucket
           command: |
