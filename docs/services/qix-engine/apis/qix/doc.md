@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.700.0._
+_QIX methods for version 12.754.0._
 
 ## `AbortModal`
 
@@ -88,6 +88,40 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qReturn` | integer | &lt;Number of entries in the back stack&gt; |
+
+## `ChangeSessionAppOwner`
+
+Change the owner of a session app.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qNewOwnerId` | string | Yes | Identifier of the new app owner. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | True or false. |
+
+## `ChangeSessionAppSpace`
+
+Add a session app to a space.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qSpaceId` | string | Yes | Identifier of the new space. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | True or false. |
 
 ## `CheckExpression`
 
@@ -1789,6 +1823,23 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | ---- | ---- | ----------- |
 | `qReturn` | boolean | &lt;true/false&gt;<br>The operation is successful if qReturn is set to true. |
 
+## `RestoreTempSelectionState`
+
+Restore a temporary selection state identified by Id.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qId` | string | Yes | Identifier of the temporary selection state |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qReturn` | boolean | true if the operation succeeded, false otherwise. |
+
 ## `Resume`
 
 Resumes the app as the user left it.
@@ -2057,6 +2108,20 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | `qInfo` | [`TableViewDlgSaveInfo`](./definitions.md#tableviewdlgsaveinfo) | Yes | Information about the table. |
 
 _No return values._
+
+## `StoreTempSelectionState`
+
+Store current selection state temporarily.<br>The temporary selection state will be stored for 30min by default. 
+
+
+_No parameters._
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qId` | string | Identifier of the temporary selection state |
+| `qReturn` | boolean | true if the operation succeeded, false otherwise. |
 
 ## `Undo`
 
