@@ -88,8 +88,14 @@ html, body {
 
 @media only screen and (min-width: 730px) and (max-width: 76.1875em) {
   .md-header-hero {
-    height: 500px;
+    height: 350px;
   }
+
+
+  .md-tagline {
+    display: none;
+  }
+
 
 }
 
@@ -140,9 +146,9 @@ html, body {
   }
 
   .md-header-hero {
-    height: 500px;
+    height: 380px;
+    
   }
-
 
   .md-logo img {
     height: auto;
