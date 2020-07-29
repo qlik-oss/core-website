@@ -19,6 +19,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${TARGET_USER}" != "" ]; then
               sudo apt-get install awscli
+              aws configure set preview.cloudfront true
               aws s3 sync site/ s3://qlikcoresite/ --delete
               aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
             fi
