@@ -1,19 +1,14 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker: 
+      - image: circleci/node:lts
     working_directory: ~/info
     steps:
       - checkout
       - run:
-          name: Set edit URL
-          command: grep -rl edit_uri ./mkdocs.yml | xargs sed -i "s:/master:/$CIRCLE_BRANCH:g" 
-      - run:
-          name: Lint the documentation
-          command: ./lint.sh
-      - run:
           name: Build the site
-          command: ./build.sh
+          command: ./build-deprecation-notice.sh
       - store_artifacts:
           path: ./site
       - run:
