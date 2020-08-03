@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.700.0._
+_QIX methods for version 12.725.0._
 
 ## `AbortModal`
 
@@ -88,6 +88,40 @@ _No parameters._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qReturn` | integer | &lt;Number of entries in the back stack&gt; |
+
+## `ChangeSessionAppOwner`
+
+Change the owner of a session app.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qNewOwnerId` | string | Yes | Identifier of the new app owner. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | True or false. |
+
+## `ChangeSessionAppSpace`
+
+Add a session app to a space.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qSpaceId` | string | Yes | Identifier of the new space. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | True or false. |
 
 ## `CheckExpression`
 
