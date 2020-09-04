@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html -d ../site"
+    "start": "parcel index.html 404.html",
+    "build": "parcel build index.html 404.html -d ../site"
   },
   "author": "QlikTech International AB",
   "license": "MIT",
