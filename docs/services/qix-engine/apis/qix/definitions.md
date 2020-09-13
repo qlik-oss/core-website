@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.725.0._
+_QIX definitions for version 12.792.0._
 
 ## `AlfaNumString`
 
@@ -134,6 +134,7 @@ _No description._
 | `qIncludeScrollPosition` | boolean | N/A | _No description._ |
 | `qAlternateStateData` | array&lt;[`AlternateStateData`](#alternatestatedata)> | N/A | _No description._ |
 | `qForAnnotations` | boolean | N/A | _No description._ |
+| `qIncludeAllVariables` | boolean | N/A | _No description._ |
 
 ## `BookmarkFieldItem`
 
@@ -1628,6 +1629,7 @@ Information about the library measure. Is the layout for [`NxLibraryMeasureDef`]
 | `qExpressions` | array&lt;string> | N/A | _No description._ |
 | `qActiveExpression` | integer | N/A | _No description._ |
 | `qLabelExpression` | string | N/A | _No description._ |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | N/A | Format of the field.<br>This parameter is optional. |
 
 ## `NxLibraryMeasureDef`
 
@@ -1641,6 +1643,7 @@ _No description._
 | `qExpressions` | array&lt;string> | N/A | Array of expressions. |
 | `qActiveExpression` | integer | N/A | Index to the active expression in a measure. |
 | `qLabelExpression` | string | N/A | Optional expression used for dynamic label. |
+| `qNumFormat` | [`FieldAttributes`](#fieldattributes) | N/A | Format of the field.<br>This parameter is optional. |
 
 ## `NxLinkedObjectInfo`
 
@@ -1730,8 +1733,6 @@ Layout for [`NxMetaDef`](#nxmetadef).
 
 ## `NxMiniChart`
 
-**Stability Index: Experimental**
-
 _No description._
 
 | Name | Type | Default | Description |
@@ -1745,8 +1746,6 @@ _No description._
 
 ## `NxMiniChartCell`
 
-**Stability Index: Experimental**
-
 _No description._
 
 | Name | Type | Default | Description |
@@ -1758,8 +1757,6 @@ _No description._
 
 ## `NxMiniChartData`
 
-**Stability Index: Experimental**
-
 _No description._
 
 | Name | Type | Default | Description |
@@ -1770,8 +1767,6 @@ _No description._
 | `qError` | [`NxValidationError`](#nxvalidationerror) | N/A | This parameter is optional and is displayed in case of error. |
 
 ## `NxMiniChartDef`
-
-**Stability Index: Experimental**
 
 _No description._
 

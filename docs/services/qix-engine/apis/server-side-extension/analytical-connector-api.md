@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC Analytical Connector API
 
-_gRPC Analytical Connector API for version 12.725.0._
+_gRPC Analytical Connector API for version 12.792.0._
 
 Package: **qlik.sse**
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.725.0._
+_QIX methods for version 12.792.0._
 
 ## `AbortModal`
 
@@ -49,6 +49,20 @@ Adds a field on the fly.<br>The expression of a field on the fly is persisted bu
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qSuccess` | boolean | True or False. |
+
+## `AddSessionAlternateState`
+
+Adds an session alternate state in the app.<br>You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.<br>A session alternate state is not persisted and is not included in the StateNames array in the AppLayout.<br>You can use the optional second parameter to choose any other state to get the initial selection on the new state from
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qStateName` | string | Yes | Name of the alternate state. |
+| `qSourceStateName` | string | No | Name of existing state to copy the initial selections from |
+
+_No return values._
 
 ## `ApplyBookmark`
 
@@ -1802,6 +1816,23 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 
 _No return values._
 
+## `RemoveSessionAlternateState`
+
+Removes an session alternate state in the app.<br>The operation is successful if **qSuccess** is set to true. 
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qStateName` | string | Yes | Name of the alternate state. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qSuccess` | boolean | True or False. |
+
 ## `RemoveVariable`
 
 !!! warning "Deprecated"
@@ -1822,6 +1853,23 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qReturn` | boolean | &lt;true/false&gt;<br>The operation is successful if qReturn is set to true. |
+
+## `RestoreTempSelectionState`
+
+Restore a temporary selection state identified by Id.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qId` | string | Yes | Identifier of the temporary selection state |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qReturn` | boolean | true if the operation succeeded, false otherwise. |
 
 ## `Resume`
 
@@ -2091,6 +2139,24 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 | `qInfo` | [`TableViewDlgSaveInfo`](./definitions.md#tableviewdlgsaveinfo) | Yes | Information about the table. |
 
 _No return values._
+
+## `StoreTempSelectionState`
+
+Store current selection state temporarily.<br>The temporary selection state will be stored for 30min by default if TTL parameter is not present or positive. 
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qTTLOfTempState` | integer | No | Time to live in seconds for stored selection state |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qId` | string | Identifier of the temporary selection state |
+| `qReturn` | boolean | true if the operation succeeded, false otherwise. |
 
 ## `Undo`
 
