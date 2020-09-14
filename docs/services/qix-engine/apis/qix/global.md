@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Global
 
-_QIX methods for version 12.725.0._
+_QIX methods for version 12.792.0._
 
 ## `AbortAll`
 

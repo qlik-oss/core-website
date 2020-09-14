@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.725.0._
+_Qlik Associative Engine API for version 12.792.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -18,7 +18,7 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -42,7 +42,7 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Consumes | application/octet-stream |
 | Produces | application/json |
 
@@ -73,7 +73,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -95,7 +95,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -118,7 +118,7 @@ Required permissions: [`delete`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -141,7 +141,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -165,7 +165,7 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -190,7 +190,7 @@ Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -214,7 +214,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -237,7 +237,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -265,7 +265,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/octet-stream |
 
 **Parameters**
@@ -292,7 +292,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Consumes | application/octet-stream |
 | Produces | application/json |
 
@@ -321,7 +321,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -348,7 +348,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -377,7 +377,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/octet-stream |
 
 **Parameters**
@@ -400,7 +400,7 @@ Change owner of the app.
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -426,7 +426,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -450,7 +450,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -472,7 +472,7 @@ Set space on a specific app.
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
@@ -494,7 +494,7 @@ Remove space from a specific app.
 
 | Metadata | Value |
 | -------- | ----- |
-| Stability Index | Experimental |
+| Stability Index | Locked |
 | Produces | application/json |
 
 **Parameters**
