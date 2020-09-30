@@ -13,7 +13,7 @@ to a theme matches Qlik branding.
 
 For the generated site, visit [core.qlik.com](https://core.qlik.com).
 
-## Prerequisites
+## Prerequisites to get started
 
 To develop and contribute to the Qlik Core documentation, the following must be available on the local machine:
 
