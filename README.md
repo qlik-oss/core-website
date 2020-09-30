@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/qlik-oss/core-website.svg?style=svg)](https://circleci.com/gh/qlik-oss/core-website)
 
-This repo contains sources to the Qlik Core end-user documentation.
+This repository contains sources to the Qlik Core end-user documentation.
 
 Documentation is primarily represented as markdown files and images.
 Markdown files are organized in the same way as the generated site is organized.
