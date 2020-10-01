@@ -2,9 +2,9 @@
 
 [![CircleCI](https://circleci.com/gh/qlik-oss/core-website.svg?style=svg)](https://circleci.com/gh/qlik-oss/core-website)
 
-This repo contains sources to the Qlik Core end-user documentation.
+This report contains sources to the Qlik Core end-user documentation.
 
-Documentation is primarily represented as markdown files and images.
+Documentation is primariy represented as mark down files and images.
 Markdown files are organized in the same way as the generated site is organized.
 
 [MkDocs](http://www.mkdocs.org) is used to generate and build the site.
