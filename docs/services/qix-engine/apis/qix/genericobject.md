@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # GenericObject
 
-_QIX methods for version 12.792.0._
+_QIX methods for version 12.823.0._
 
 ## `AbortListObjectSearch`
 
@@ -686,7 +686,7 @@ Searches for a string in a list object.<br>This method applies to list objects (
 | Name | Type | Mandatory | Description |
 | ---- | ---- | --------- | ----------- |
 | `qPath` | string | Yes | Path to the definition of the list object.<br>For example, _/qListObjectDef_ . |
-| `qMatch` | string | Yes | Search string.<br>Wild card characters are allowed. The search is not case sensitive.<br>Examples:<br>- P*U*: retrieves only values that start with P and contain U<br>- P U S: retrieves values that start with P, U or S |
+| `qMatch` | string | Yes | Search string.<br>Wild card characters are allowed. The search is not case sensitive.<br>Examples:<br>- `P*U*`: retrieves only values that start with P and contain U<br>- `P U S`: retrieves values that start with P, U or S |
 
 **Returns:**
 

@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.792.0._
+_QIX methods for version 12.823.0._
 
 ## `AbortModal`
 
@@ -105,7 +105,7 @@ _No parameters._
 
 ## `ChangeSessionAppOwner`
 
-Change the owner of a session app.
+Change the owner of a session app.<br>Can be used by a privileged user when creating a session app to be consumed by another user.<br>Only useful in environments where it is possible to reconnect to a session app, currently only in cloud deployments. 
 
 
 **Parameters:**
@@ -122,7 +122,7 @@ Change the owner of a session app.
 
 ## `ChangeSessionAppSpace`
 
-Add a session app to a space.
+Add a session app to a space.<br>Can be used by a privileged user when creating a session app to be consumed by other users.<br>Only useful in environments where it is possible to reconnect to a session app, currently only in cloud deployments. 
 
 
 **Parameters:**
@@ -1605,6 +1605,23 @@ Retrieves the data of a specific table.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `qData` | array&lt;[`TableRow`](./definitions.md#tablerow)> | Array of data. |
+
+## `GetTableProfileData`
+
+Returns profile data for a given table.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qTableName` | string | Yes | Name of the table |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qProfiling` | [`TableProfilingData`](./definitions.md#tableprofilingdata) | Requested table profiling data |
 
 ## `GetTablesAndKeys`
 

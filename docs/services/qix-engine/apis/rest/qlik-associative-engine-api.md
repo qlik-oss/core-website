@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.792.0._
+_Qlik Associative Engine API for version 12.823.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -52,11 +52,11 @@ Required permissions: [`import`](https://core.qlik.com/services/qix-engine/acces
 | --------- | -- | ---- | --------- | ----------- |
 | `filedata` | body | [FileData](#filedata) | false | Path of the source app. |
 | `name` | query | string | false | The name of the target app. |
-| `spaceId` | query | string | false | The space id of the target app. |
+| `spaceId` | query | string | false | The space ID of the target app. |
 | `mode` | query | string | false | The import mode. In `new` mode (default), the source app will be imported as a new app with generated attributes. In `autoreplace` mode, the attributes from the source app will be retained and imported with the app. The app-id is extracted from the source app and used as the target app-id. If the app exists, it will be replaced. Approved objects in the target app that are not available in the source app will be removed. Non-approved objects in the target app will not be removed.  One of:<br/>&bull; NEW<br/>&bull; AUTOREPLACE |
-| `appId` | query | string | false | The app id of the target app when source is qvw file. |
-| `fileId` | query | string | false | The file id to be downloaded from TCS and used during import. |
-| `fallbackName` | query | string | false | The name of the target app when source not has a specified name, applicable if source is qvw file. |
+| `appId` | query | string | false | The app ID of the target app when source is qvw file. |
+| `fileId` | query | string | false | The file ID to be downloaded from TCS and used during import. |
+| `fallbackName` | query | string | false | The name of the target app when source does not have a specified name, applicable if source is qvw file. |
 
 **Responses**
 
@@ -184,7 +184,7 @@ Required permissions: [`duplicate`](https://core.qlik.com/services/qix-engine/ac
 ### `GET /v1/apps/{appId}/data/lineage`
 
 Retrieves the lineage for an app.
-Returns a JSON formatted array of strings describing the lineage of the app.
+Returns a JSON-formatted array of strings describing the lineage of the app.
 
 Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -231,7 +231,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 ### `POST /v1/apps/{appId}/export`
 
-Export a specific app.
+Exports a specific app.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -258,7 +258,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 ### `GET /v1/apps/{appId}/media/files/{path}`
 
-Get media content from file.
+Gets media content from file.
 Returns a stream of bytes containing the media file content on success, or error if file is not found.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
@@ -286,7 +286,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 ### `PUT /v1/apps/{appId}/media/files/{path}`
 
 Stores the media content file.
-Returns OK if the bytes containing the media file content was successfully stored, or error in case of failure, lack of permission or file already exists on the supplied path.
+Returns OK if the bytes containing the media file content were successfully stored, or error in case of failure, lack of permission or file already exists on the supplied path.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -315,7 +315,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 ### `DELETE /v1/apps/{appId}/media/files/{path}`
 
 Deletes a media content file or complete directory.
-Returns OK if the bytes containing the media file (or the complete content of a directory) was successfully deleted, or error in case of failure or lack of permission.
+Returns OK if the bytes containing the media file (or the complete content of a directory) were successfully deleted, or error in case of failure or lack of permission.
 
 Required permissions: [`update`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -341,7 +341,7 @@ Required permissions: [`update`](https://core.qlik.com/services/qix-engine/acces
 
 ### `GET /v1/apps/{appId}/media/list/{path}`
 
-List media content.
+Lists media content.
 Returns a JSON formatted array of strings describing the available media content or error if the optional path supplied is not found.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
@@ -369,7 +369,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 ### `GET /v1/apps/{appId}/media/thumbnail`
 
-Get media content from file currently used as application thumbnail.
+Gets media content from file currently used as application thumbnail.
 Returns a stream of bytes containing the media file content on success, or error if file is not found.
 <div class=note>The image selected as thumbnail is only updated when application is saved.</div>
 
@@ -396,7 +396,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 ### `PUT /v1/apps/{appId}/owner`
 
-Change owner of the app.
+Changes owner of the app.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -420,7 +420,7 @@ Change owner of the app.
 
 ### `POST /v1/apps/{appId}/publish`
 
-Publish a specific app to a managed space.
+Publishes a specific app to a managed space.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -444,7 +444,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 
 ### `PUT /v1/apps/{appId}/publish`
 
-Republish a published app to a managed space.
+Republishes a published app to a managed space.
 
 Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -468,7 +468,7 @@ Required permissions: [`publish`](https://core.qlik.com/services/qix-engine/acce
 
 ### `PUT /v1/apps/{appId}/space`
 
-Set space on a specific app.
+Sets space on a specific app.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -490,7 +490,7 @@ Set space on a specific app.
 
 ### `DELETE /v1/apps/{appId}/space`
 
-Remove space from a specific app.
+Removes space from a specific app.
 
 | Metadata | Value |
 | -------- | ----- |
@@ -533,7 +533,7 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `name` | string | The name (title) of the application |
 | `description` | string | The description of the application |
-| `spaceId` | string | The space id of the application |
+| `spaceId` | string | The space ID of the application |
 
 ### `NxApp`
 
@@ -547,12 +547,12 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `attributes` | [NxAttributes](#nxattributes) | Application attributes. |
-| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user are allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata<br/>&bull; change_owner<br/>&bull; change_space |
+| `privileges` | array&lt;string> | Application privileges. Hints to the client what actions the user is allowed to perform. Could be any of:<br/>&bull; read<br/>&bull; create<br/>&bull; update<br/>&bull; delete<br/>&bull; reload<br/>&bull; import<br/>&bull; publish<br/>&bull; duplicate<br/>&bull; export<br/>&bull; exportdata<br/>&bull; change_owner<br/>&bull; change_space |
 | `create` | array&lt;[NxAppCreatePrivileges](#nxappcreateprivileges)> | Object create privileges. Hints to the client what type of objects the user is allowed to create. |
 
 ### `NxAttributes`
 
-App attributes. This structure can also contain extra user defined attributes.
+App attributes. This structure can also contain extra user-defined attributes.
 
 _Type: object_
 
@@ -572,11 +572,11 @@ _Type: object_
 | `ownerId` | string | _No description._ |
 | `dynamicColor` | string | The dynamic color of the app. |
 | `published` | boolean | True if the app is published, false if not. |
-| `publishTime` | string | The date and time when the app was published. Empty if unpublished. |
+| `publishTime` | string | The date and time when the app was published, empty if unpublished. |
 | `custom` | [JsonObject](#jsonobject) | Custom attributes. |
-| `hasSectionAccess` | boolean | If true the app has section access configured, |
-| `encrypted` | boolean | If true, the app is encrypted. |
-| `originAppId` | string | The Origin App ID, for published apps. |
+| `hasSectionAccess` | boolean | If set to true, the app has section access configured, |
+| `encrypted` | boolean | If set to true, the app is encrypted. |
+| `originAppId` | string | The Origin App ID for published apps. |
 
 ### `JsonObject`
 
@@ -595,7 +595,7 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `resource` | string | Type of resources. For example sheet, story, bookmark etc. |
+| `resource` | string | Type of resources. For example, sheet, story, bookmark, etc. |
 | `canCreate` | boolean | Is set to true if the user has privileges to create the resource. |
 
 ### `FileData`
@@ -643,7 +643,7 @@ _Type: object_
 | `static_byte_size` | integer | Static memory usage for the app. |
 | `fields` | array&lt;[FieldMetadata](#fieldmetadata)> | List of field descriptions. |
 | `tables` | array&lt;[TableMetadata](#tablemetadata)> | List of table descriptions. |
-| `has_section_access` | boolean | If true the app has section access configured, |
+| `has_section_access` | boolean | If set to true, the app has section access configured, |
 
 ### `LastReloadMetadata`
 
@@ -681,14 +681,14 @@ _Type: object_
 | ---- | ---- | ----------- |
 | `name` | string | Name of the field. |
 | `src_tables` | array&lt;string> | List of table names. |
-| `is_system` | boolean | If set to true, it means that the field is a system field. The default value is false. |
-| `is_hidden` | boolean | If set to true, it means that the field is hidden. The default value is false. |
-| `is_semantic` | boolean | If set to true, it means that the field is a semantic. The default value is false. |
+| `is_system` | boolean | If set to true, the field is a system field. The default value is false. |
+| `is_hidden` | boolean | If set to true, the field is hidden. The default value is false. |
+| `is_semantic` | boolean | If set to true, the field is semantic. The default value is false. |
 | `distinct_only` | boolean | If set to true, only distinct field values are shown. The default value is false. |
 | `cardinal` | integer | Number of distinct field values. |
 | `total_count` | integer | Total number of field values. |
-| `is_locked` | boolean | If set to true, it means that the field is locked. The default value is false. |
-| `always_one_selected` | boolean | If set to true, it means that the field has one and only one selection (not 0 and not more than 1). If this property is set to true, the field cannot be cleared anymore and no more selections can be performed in that field. The default value is false. |
+| `is_locked` | boolean | If set to true, the field is locked. The default value is false. |
+| `always_one_selected` | boolean | If set to true, the field has one and only one selection (not 0 and not more than 1). If this property is set to true, the field cannot be cleared anymore and no more selections can be performed in that field. The default value is false. |
 | `is_numeric` | boolean | Is set to true if the value is a numeric. The default value is false. |
 | `comment` | string | Field comment. |
 | `tags` | array&lt;string> | Gives information on a field. For example, it can return the type of the field. Examples: key, text, ASCII. |
@@ -705,9 +705,9 @@ _Type: object_
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `name` | string | Name of the table. |
-| `is_system` | boolean | If set to true, it means that the table is a system table. The default value is false. |
-| `is_semantic` | boolean | If set to true, it means that the table is a semantic. The default value is false. |
-| `is_loose` | boolean | If set to true, it means that the table is loose due to circular connection. The default value is false. |
+| `is_system` | boolean | If set to true, the table is a system table. The default value is false. |
+| `is_semantic` | boolean | If set to true, the table is semantic. The default value is false. |
+| `is_loose` | boolean | If set to true, the table is loose due to circular connection. The default value is false. |
 | `no_of_rows` | integer | Number of rows. |
 | `no_of_fields` | integer | Number of fields. |
 | `no_of_key_fields` | integer | Number of key fields. |
@@ -761,7 +761,7 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `spaceId` | string | The managed space id where the app will be published. |
+| `spaceId` | string | The managed space ID where the app will be published. |
 | `data` | string | The published app will have data from source or target app. The default is source <br/>&bull; source: Publish with source data<br/>&bull; target: Publish with target data |
 
 ### `RepublishApp`
@@ -773,7 +773,7 @@ _Type: object_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| `targetId` | string | The target id to be republished. |
+| `targetId` | string | The target ID to be republished. |
 | `data` | string | The republished app will have data from source or target app. The default is source <br/>&bull; source: Publish with source data<br/>&bull; target: Publish with target data |
 
 ### `UpdateSpace`
