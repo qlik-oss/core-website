@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.792.0._
+_QIX definitions for version 12.823.0._
 
 ## `AlfaNumString`
 
@@ -593,6 +593,39 @@ _No description._
 | `qDerivedFields` | array&lt;[`DerivedFieldsInTableData`](#derivedfieldsintabledata)> | N/A | List of the derived fields. |
 | `qIsFieldOnTheFly` | boolean | N/A | _No description._ |
 | `qReadableName` | string | N/A | _No description._ |
+
+## `FieldInTableProfilingData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qName` | string | N/A | Name of the field. |
+| `qFieldTags` | array&lt;string> | N/A | List of tags related to the field. |
+| `qNumberFormat` | [`FieldAttributes`](#fieldattributes) | N/A | _No description._ |
+| `qDistinctValues` | integer | N/A | Number of distinct values |
+| `qNumericValues` | integer | N/A | Number of numeric values |
+| `qNullValues` | integer | N/A | Number of null values |
+| `qTextValues` | integer | N/A | Number of textual values |
+| `qNegValues` | integer | N/A | Number of negative values |
+| `qPosValues` | integer | N/A | Number of positive values |
+| `qZeroValues` | integer | N/A | Number of zero values for numerical values |
+| `qSum` | number | N/A | Sum of all numerical values. NaN otherwise. |
+| `qSum2` | number | N/A | Squared sum of all numerical values. NaN otherwise. |
+| `qMean` | number | N/A | Average of all numerical values. NaN otherwise. |
+| `qStd` | number | N/A | Standard deviation of numerical values. NaN otherwise. |
+| `qMin` | number | N/A | Minimum value of numerical values. NaN otherwise. |
+| `qMax` | number | N/A | Maximum value of numerical values. NaN otherwise. |
+| `qSkewness` | number | N/A | Skewness of the numerical values. NaN otherwise. |
+| `qKurtosis` | number | N/A | Kurtosis of the numerical values. NaN otherwise. |
+| `qFractiles` | array&lt;number> | N/A | The .15, .25, .5, .75, .85 fractiles. Array of NaN otherwise. |
+| `qEmptyStrings` | integer | N/A | Number of empty strings |
+| `qMaxStringLen` | integer | N/A | Maximum string length of textual values. 0 otherwise. |
+| `qMinStringLen` | integer | N/A | Minimum string length of textual values. 0 otherwise. |
+| `qSumStringLen` | integer | N/A | Sum of all characters in strings in the field |
+| `qAvgStringLen` | number | N/A | Average string length of textual values. 0 otherwise. |
+| `qFirstSorted` | string | N/A | For textual values the first sorted string. |
+| `qLastSorted` | string | N/A | For textual values the last sorted string. |
 
 ## `FieldList`
 
@@ -2697,6 +2730,15 @@ _No description._
 | ---- | ---- | ------- | ----------- |
 | `qExpr` | string | N/A | _No description._ |
 
+## `TableProfilingData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qNoOfRows` | integer | N/A | Number of rows in the table. |
+| `qFieldProfiling` | array&lt;[`FieldInTableProfilingData`](#fieldintableprofilingdata)> | N/A | Field values profiling info |
+
 ## `TableRecord`
 
 _No description._
@@ -2711,6 +2753,7 @@ _No description._
 | `qComment` | string | N/A | Comment related to the table. |
 | `qIsDirectDiscovery` | boolean | N/A | If set to true, Direct Discovery is used.<br>Direct Discovery fields are not loaded into memory and remain in the external database. |
 | `qIsSynthetic` | boolean | N/A | This property is set to true if the table contains a synthetic key. |
+| `qTableTags` | array&lt;string> | N/A | List of tags related to the table. |
 
 ## `TableRow`
 
@@ -2809,6 +2852,7 @@ Renders the properties of a [`TreeData`](#treedata) object. Is the layout for Tr
 | `qLastExpandedPos` | [`NxCellPosition`](#nxcellposition) | N/A | Position of the last expended cell.<br>This property is optional. |
 | `qCalcCondMsg` | string | N/A | The message displayed if calculation condition is not fulfilled. |
 | `qTreeDataPages` | array&lt;[`NxTreeNode`](#nxtreenode)> | N/A | Set of data.<br>Is empty if nothing has been defined in **qInitialDataFetch** in [`TreeDataDef`](#treedatadef). |
+| `qMeasureInfo` | array&lt;[`NxMeasureInfo`](#nxmeasureinfo)> | N/A | Information on the measures calculated on the whole tree. |
 
 ## `TreeDataDef`
 
@@ -2829,6 +2873,7 @@ Defines the properties of a [`TreeData`](#treedata) object.<br>For more informat
 | `qTitle` | [`StringExpr`](#stringexpr) | N/A | Title of the [`TreeData`](#treedata) object, for example the title of a chart. |
 | `qInitialDataFetch` | array&lt;[`NxTreeDataOption`](#nxtreedataoption)> | N/A | Initial data set.<br>This property is optional. |
 | `qExpansionState` | array&lt;[`ExpansionData`](#expansiondata)> | N/A | Expansion state per dimension. |
+| `qValueExprs` | array&lt;[`NxMeasure`](#nxmeasure)> | N/A | List of measures to calculate on the whole tree. |
 
 ## `UndoInfo`
 
