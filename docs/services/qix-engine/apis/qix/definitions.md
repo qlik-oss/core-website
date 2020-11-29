@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.823.0._
+_QIX definitions for version 12.852.0._
 
 ## `AlfaNumString`
 
@@ -612,13 +612,14 @@ _No description._
 | `qZeroValues` | integer | N/A | Number of zero values for numerical values |
 | `qSum` | number | N/A | Sum of all numerical values. NaN otherwise. |
 | `qSum2` | number | N/A | Squared sum of all numerical values. NaN otherwise. |
-| `qMean` | number | N/A | Average of all numerical values. NaN otherwise. |
+| `qAverage` | number | N/A | Average of all numerical values. NaN otherwise. |
+| `qMedian` | number | N/A | Median of all numerical values. NaN otherwise. |
 | `qStd` | number | N/A | Standard deviation of numerical values. NaN otherwise. |
 | `qMin` | number | N/A | Minimum value of numerical values. NaN otherwise. |
 | `qMax` | number | N/A | Maximum value of numerical values. NaN otherwise. |
 | `qSkewness` | number | N/A | Skewness of the numerical values. NaN otherwise. |
 | `qKurtosis` | number | N/A | Kurtosis of the numerical values. NaN otherwise. |
-| `qFractiles` | array&lt;number> | N/A | The .15, .25, .5, .75, .85 fractiles. Array of NaN otherwise. |
+| `qFractiles` | array&lt;number> | N/A | The .01, .05, .1, .25, .5, .75, .9, .95, .99 fractiles. Array of NaN otherwise. |
 | `qEmptyStrings` | integer | N/A | Number of empty strings |
 | `qMaxStringLen` | integer | N/A | Maximum string length of textual values. 0 otherwise. |
 | `qMinStringLen` | integer | N/A | Minimum string length of textual values. 0 otherwise. |
@@ -626,6 +627,7 @@ _No description._
 | `qAvgStringLen` | number | N/A | Average string length of textual values. 0 otherwise. |
 | `qFirstSorted` | string | N/A | For textual values the first sorted string. |
 | `qLastSorted` | string | N/A | For textual values the last sorted string. |
+| `qFrequencyDistribution` | [`FrequencyDistributionData`](#frequencydistributiondata) | N/A | Frequency Distribution for numeric fields. |
 
 ## `FieldList`
 
@@ -715,6 +717,16 @@ _No description._
 | ---- | ---- | ------- | ----------- |
 | `qName` | string | N/A | Name of the folder item. |
 | `qType` | string | N/A | Type of the folder item.<br><br>One of:<br>- FOLDER or FOLDER_ITEM_FOLDER<br>- FILE or FOLDER_ITEM_FILE<br>- OTHER or FOLDER_ITEM_OTHER |
+
+## `FrequencyDistributionData`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qNumberOfBins` | integer | N/A | Number of bins. |
+| `qBinsEdges` | array&lt;number> | N/A | Bins edges. |
+| `qFrequencies` | array&lt;integer> | N/A | Bins frequencies. |
 
 ## `Function`
 
@@ -2754,6 +2766,7 @@ _No description._
 | `qIsDirectDiscovery` | boolean | N/A | If set to true, Direct Discovery is used.<br>Direct Discovery fields are not loaded into memory and remain in the external database. |
 | `qIsSynthetic` | boolean | N/A | This property is set to true if the table contains a synthetic key. |
 | `qTableTags` | array&lt;string> | N/A | List of tags related to the table. |
+| `qProfilingData` | [`TableProfilingData`](#tableprofilingdata) | N/A | Profiling information of the table. |
 
 ## `TableRow`
 

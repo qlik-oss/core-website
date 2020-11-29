@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # gRPC File Connector API
 
-_gRPC File Connector API for version 12.823.0._
+_gRPC File Connector API for version 12.852.0._
 
 Package: **qlik.filehosting**
 
@@ -247,8 +247,8 @@ _No description._
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
-| `size` | -1 for unknown | [int64](#int64) | _optional_ | _No default value._ |
-| `lastUpdated` | Seconds since 1970 (UTC). | [int64](#int64) | _optional_ | _No default value._ |
+| `size` | The size in octets of the file. -1 for unknown. | [int64](#int64) | _optional_ | _No default value._ |
+| `lastUpdated` | For folders, leave this member unset or set to zero./ Seconds since 1970 (UTC). | [int64](#int64) | _optional_ | _No default value._ |
 
 ### `ListItem`
 
@@ -258,7 +258,7 @@ _No description._
 
 | Name | Description | Type | Label | Default |
 | ---- | ------------| ---- | ----- | ------- |
-| `name` | _No description._ | [string](#string) | _optional_ | _No default value._ |
+| `name` | Full path. Ex: "/MyFiles/2020/Q2/theFile.xlsx" treating the lib folder as root. | [string](#string) | _optional_ | _No default value._ |
 | `isFolder` | _No description._ | [bool](#bool) | _optional_ | _No default value._ |
 | `meta` | _No description._ | [FileMeta](#filemeta) | _optional_ | _No default value._ |
 
