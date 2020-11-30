@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Doc
 
-_QIX methods for version 12.823.0._
+_QIX methods for version 12.852.0._
 
 ## `AbortModal`
 
@@ -105,6 +105,9 @@ _No parameters._
 
 ## `ChangeSessionAppOwner`
 
+
+**Stability Index: Experimental**
+
 Change the owner of a session app.<br>Can be used by a privileged user when creating a session app to be consumed by another user.<br>Only useful in environments where it is possible to reconnect to a session app, currently only in cloud deployments. 
 
 
@@ -121,6 +124,9 @@ Change the owner of a session app.<br>Can be used by a privileged user when crea
 | `qSuccess` | boolean | True or false. |
 
 ## `ChangeSessionAppSpace`
+
+
+**Stability Index: Experimental**
 
 Add a session app to a space.<br>Can be used by a privileged user when creating a session app to be consumed by other users.<br>Only useful in environments where it is possible to reconnect to a session app, currently only in cloud deployments. 
 
@@ -321,6 +327,9 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | Generic bookmark |
 
 ## `CreateBookmarkEx`
+
+
+**Stability Index: Experimental**
 
 Creates a bookmark with softpatches.
 
@@ -1470,6 +1479,23 @@ Returns the handle of a measure.
 | ---- | ---- | ----------- |
 | `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericMeasure", "qHandle": &lt;handle of the measure&gt; }The handle of the measure is returned. |
 
+## `GetMeasureWithLabel`
+
+Returns the handle of a measure with a label.<br>If multiple measures has the same label the first is returned.
+
+
+**Parameters:**
+
+| Name | Type | Mandatory | Description |
+| ---- | ---- | --------- | ----------- |
+| `qLabel` | string | Yes | is the label of the measure to be returned. |
+
+**Returns:**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `qReturn` | [`ObjectInterface`](./definitions.md#objectinterface) | { "qType": "GenericMeasure", "qHandle": &lt;handle of the measure&gt; }The handle of the measure is returned. |
+
 ## `GetMediaList`
 
 !!! warning "Deprecated"
@@ -1608,6 +1634,9 @@ Retrieves the data of a specific table.
 
 ## `GetTableProfileData`
 
+
+**Stability Index: Experimental**
+
 Returns profile data for a given table.
 
 
@@ -1637,6 +1666,7 @@ Returns:<br>- The list of tables in an app and the fields inside each table.<br>
 | `qCellHeight` | integer | Yes | Height of a cell in a table in pixels. |
 | `qSyntheticMode` | boolean | Yes | One of:<br>- _true_ for internal table viewer:<br>Shows a more detailed view on how the Qlik engine defines the relations between fields and the quality of the keys.<br>- _false_ for source table viewer:<br>Shows the natural relation between fields without reference to synthetic keys and resultant linking synthetic tables. Instead synthetic keys are represented by multiple connectors between tables. |
 | `qIncludeSysVars` | boolean | Yes | If set to true, the system variables are included. |
+| `qIncludeProfiling` | boolean | No | If set to true, profiling information is included. |
 
 **Returns:**
 

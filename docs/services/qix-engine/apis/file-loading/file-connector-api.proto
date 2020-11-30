@@ -76,7 +76,7 @@ message ListRequest {
                              /// utilized by the engine.
 }
 message ListItem {
-    string name = 1;
+    string name = 1;         /// Full path. Ex: "/MyFiles/2020/Q2/theFile.xlsx" treating the lib folder as root.
     bool isFolder = 2;
     FileMeta meta = 3;
 }
@@ -86,8 +86,14 @@ message MetadataRequest {
     string fileName = 2;
 }
 message FileMeta {
-    int64 size = 1;               /// -1 for unknown
+    int64 size = 1;               /// The size in octets of the file. -1 for unknown.
+                                  /// For folders, leave this member unset or set to zero.
     int64 lastUpdated = 2;        /// Seconds since 1970 (UTC).
+                                  /// For files this is the last modified time.
+                                  /// For folders this is system dependant. It can be
+                                  /// the time of the last event taking place in that
+                                  /// folder. The event can be a file update or deletion
+                                  /// or something else.
 }
 
 message CapabilitiesRequest {
