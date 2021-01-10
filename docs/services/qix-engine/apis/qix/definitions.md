@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Definitions
 
-_QIX definitions for version 12.852.0._
+_QIX definitions for version 12.887.0._
 
 ## `AlfaNumString`
 
@@ -627,6 +627,7 @@ _No description._
 | `qAvgStringLen` | number | N/A | Average string length of textual values. 0 otherwise. |
 | `qFirstSorted` | string | N/A | For textual values the first sorted string. |
 | `qLastSorted` | string | N/A | For textual values the last sorted string. |
+| `qMostFrequent` | array&lt;[`SymbolFrequency`](#symbolfrequency)> | N/A | Three most frequent values and their frequencies |
 | `qFrequencyDistribution` | [`FrequencyDistributionData`](#frequencydistributiondata) | N/A | Frequency Distribution for numeric fields. |
 
 ## `FieldList`
@@ -2741,6 +2742,24 @@ _No description._
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `qExpr` | string | N/A | _No description._ |
+
+## `SymbolFrequency`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qSymbol` | [`SymbolValue`](#symbolvalue) | N/A | Symbol. Either string and NaN or number alone |
+| `qFrequency` | integer | N/A | Frequency of the above symbol in the field |
+
+## `SymbolValue`
+
+_No description._
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `qText` | string | N/A | String value of the symbol. This parameter is optional and present only if Symbol is a string. |
+| `qNumber` | number | N/A | Numeric value of the symbol. NaN otherwise. |
 
 ## `TableProfilingData`
 
