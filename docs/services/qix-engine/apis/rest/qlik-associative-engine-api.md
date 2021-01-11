@@ -3,7 +3,7 @@
 <!-- proselint-disable -->
 # Qlik Associative Engine API
 
-_Qlik Associative Engine API for version 12.852.0._
+_Qlik Associative Engine API for version 12.887.0._
 
 [Qlik Associative Engine API specification](./qlik-associative-engine-api.json)
 
@@ -36,7 +36,7 @@ Required permissions: [`create`](https://core.qlik.com/services/qix-engine/acces
 ### `POST /v1/apps/import`
 
 Imports an app into the system.
-<div class=note>This operation in autoreplace mode is supported only in EFE mode.</div>
+This operation in autoreplace mode is supported only in EFE mode.
 
 Required permissions: [`import`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -208,7 +208,7 @@ Required permissions: [`reload`](https://core.qlik.com/services/qix-engine/acces
 ### `GET /v1/apps/{appId}/data/metadata`
 
 Retrieves the data model and reload statistics metadata of an app.
-<div class=note>An empty metadata structure is returned if the metadata is not available in the app.</div>
+An empty metadata structure is returned if the metadata is not available in the app.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
@@ -371,7 +371,7 @@ Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-
 
 Gets media content from file currently used as application thumbnail.
 Returns a stream of bytes containing the media file content on success, or error if file is not found.
-<div class=note>The image selected as thumbnail is only updated when application is saved.</div>
+The image selected as thumbnail is only updated when application is saved.
 
 Required permissions: [`read`](https://core.qlik.com/services/qix-engine/access-control/#actions)
 
